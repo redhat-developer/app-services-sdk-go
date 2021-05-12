@@ -1,0 +1,6 @@
+input: https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore-expanded.yaml
+output: petstore
+additionalProperties:
+  artifactId: kotlin-petstore-client
+  serializableModel: "true"
+  dateLibrary: java8
