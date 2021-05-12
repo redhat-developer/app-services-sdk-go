@@ -1,0 +1,32 @@
+name: Build KAS Fleet Manager API
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review, edited]
+
+jobs:
+  kas_fleet_manager:
+    env: 
+      BF2_TOKEN: ${{ secrets.BF2_TOKEN }}
+      BF2_ORG: bf2fc6cc711aee1a0c2a
+      BF2_REPO: kas-fleet-manager
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          curl -s https://${{ env.BF2_TOKEN }}@raw.githubusercontent.com/bf2fc6cc711aee1a0c2a/kas-fleet-manager/main/openapi/kas-fleet-manager.yaml -o kas-fleet-manager.yaml
+          cat kas-fleet-manager.yaml
+      - uses: craicoverflow/openapi-generator-generate-action@v1
+        with:
+          generator: go
+          input: kas-fleet-manager.yaml
+          output: kafka/kasfleetmanager/v1
+          git-user-id: "${{ github.org }}"
+          git-repo-id: "${{ github.repository }}"
+      - run: rm -rf kas-fleet-manager.yaml
+      - uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: "feat: new openapi client"
+          base: "setup"
+          draft: true
+
