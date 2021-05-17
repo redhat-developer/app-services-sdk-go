@@ -5,26 +5,30 @@ on:
 
 jobs:
   kas_fleet_manager:
-    env: 
+    env:
       BF2_TOKEN: ${{ secrets.BF2_TOKEN }}
       GITHUB_REPO: "${{ github.event.client_payload.github.repository }}"
       OPENAPI_FILE: "${{ github.event.client_payload.openapi.filename }}"
-      API_VERSION: "v1"
 
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v2
+      - name: Get API version
+        id: setup-api-path
+        run: |
+          echo '::set-output name=API_VERSION::$(node ./hack/scripts/get-api-version.js kas-fleet-manager-v2beta1.yaml)'
+          echo '::set-output name=API_PATH::$(node ./hack/scripts/get-path-mapping.js ${{ env.GITHUB_REPO }})'
       - uses: actions/checkout@v2
       - run: |
           curl -s https://${{ env.BF2_TOKEN }}@raw.githubusercontent.com/${{ env.GITHUB_REPO }}/main/openapi/${{ env.OPENAPI_FILE }} -o ${{ env.OPENAPI_FILE }}
-      - uses: actions/setup-node@v2
       - uses: craicoverflow/openapi-generator-generate-action@v1
         with:
           generator: go
           input: ${{ env.OPENAPI_FILE }}
-          output: apis/kafka/kasfleetmanager/v1
+          output: "${{ steps.setup-api-path.outputs.api_path }}/${{ steps.setup-api-path.outputs.api_version }}"
           git-user-id: "${{ github.org }}"
-          git-repo-id: "${{ github.repository }}/apis/kafka/kasfleetmanager/v1"
-          additional-properties: "isGoSubModule=true"
+          git-repo-id: "${{ github.repository }}"
+          additional-properties: "isGoSubmodule=true"
       - run: rm -rf ${{ env.OPENAPI_FILE }}
       - uses: peter-evans/create-pull-request@v3
         with:
