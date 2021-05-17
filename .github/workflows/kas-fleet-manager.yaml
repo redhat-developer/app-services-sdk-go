@@ -1,36 +1,43 @@
-name: Build KAS Fleet Manager API
+name: Generate API client
 on:
   repository_dispatch:
     types: [openapi-spec-change]
 
 jobs:
-  kas_fleet_manager:
-    env: 
+  generate_client:
+    env:
       BF2_TOKEN: ${{ secrets.BF2_TOKEN }}
-      GITHUB_REPO: "${{ github.event.client_payload.github.repository }}"
-      OPENAPI_FILE: "${{ github.event.client_payload.openapi.filename }}"
       API_VERSION: "v1"
+      GITHUB_REPO: "${{ github.event.client_payload.github.repository }}"
+      OPENAPI_DIRECTORY: "${{ github.event.client_payload.openapi.directory}}"
+      OPENAPI_FILENAME: "${{ github.event.client_payload.openapi.filename }}"
+      BRANCH: "main"
 
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v2
+      - name: Get API version
+        id: configure-outputs
+        run: |
+          echo '::set-output name=API_CLIENT_PATH::$(node ./hack/scripts/get-path-mapping.js ${{ env.GITHUB_REPO }})'
+          echo '::set-output name=RAW_API_URL::$(node ./hack/scripts/get-raw-openapi-url.js ${{ env.GITHUB_REPO }} ${{ env.BRANCH}} ${{ env.OPENAPI_DIRECTORY }} ${{ env.OPENAPI_FILENAME }})'
       - uses: actions/checkout@v2
       - run: |
-          curl -s https://${{ env.BF2_TOKEN }}@raw.githubusercontent.com/${{ env.GITHUB_REPO }}/main/openapi/${{ env.OPENAPI_FILE }} -o ${{ env.OPENAPI_FILE }}
-      - uses: actions/setup-node@v2
+          curl -H 'Authorization: token ${{ env.BF2_TOKEN }}' ${{ steps.configure-outputs.outputs.RAW_API_URL }} -o ${{ env.OPENAPI_FILENAME }}
       - uses: craicoverflow/openapi-generator-generate-action@v1
         with:
           generator: go
-          input: ${{ env.OPENAPI_FILE }}
-          output: apis/kafka/kasfleetmanager/v1
+          input: ${{ env.OPENAPI_FILENAME }}
+          output: "${{ steps.configure-outputs.outputs.API_CLIENT_PATH }}/${{ env.API_VERSION }}"
           git-user-id: "${{ github.org }}"
-          git-repo-id: "${{ github.repository }}/apis/kafka/kasfleetmanager/v1"
-          additional-properties: "isGoSubModule=true"
-      - run: rm -rf ${{ env.OPENAPI_FILE }}
+          git-repo-id: "${{ github.repository }}"
+          additional-properties: "isGoSubmodule=true"
+      - run: rm -rf ${{ env.OPENAPI_FILENAME }}
       - uses: peter-evans/create-pull-request@v3
         with:
           title: "[WIP] chore(kasfleetmanager): re-generate API client"
           token: "${{ secrets.CI_USER_TOKEN }}"
           commit-message: "chore(kasfleetmanager): re-generate API client"
-          base: "main"
+          base: "${{ env.BRANCH }}"
           draft: true
 
