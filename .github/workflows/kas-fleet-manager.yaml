@@ -7,8 +7,8 @@ jobs:
   kas_fleet_manager:
     env: 
       BF2_TOKEN: ${{ secrets.BF2_TOKEN }}
-      GITHUB_REPO: "{{ github.event.client_payload.github.repository }}"
-      OPENAPI_FILE: "{{ github.event.client_payload.openapi.filename }}"
+      GITHUB_REPO: "${{ github.event.client_payload.github.repository }}"
+      OPENAPI_FILE: "${{ github.event.client_payload.openapi.filename }}"
       API_VERSION: "v1"
 
     runs-on: ubuntu-latest
