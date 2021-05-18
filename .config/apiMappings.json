@@ -1,6 +1,6 @@
 {
   "bf2fc6cc711aee1a0c2a/kas-fleet-manager": {
-    "directory": "./apis/kafka/kasfleetmanager",
+    "directory": "apis/kafka/kasfleetmanager",
     "packageName": "kasfleetmanager"
   }
 }
