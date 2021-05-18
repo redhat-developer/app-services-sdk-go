@@ -11,7 +11,7 @@ jobs:
       GITHUB_REPO: "${{ github.event.client_payload.github.repository }}"
       OPENAPI_DIRECTORY: "${{ github.event.client_payload.openapi.directory}}"
       OPENAPI_FILENAME: "${{ github.event.client_payload.openapi.filename }}"
-      BRANCH: "main"
+      BRANCH: "main"  
 
     runs-on: ubuntu-latest
     steps:
@@ -32,7 +32,7 @@ jobs:
           output: "${{ steps.configure-outputs.outputs.API_CLIENT_PATH }}/${{ env.API_VERSION }}"
           package-name: ${{ steps.configure-outputs.outputs.PACKAGE_NAME }}
           git-user-id: "redhat-developer"
-          git-repo-id: "app-services-sdk-go/${{ steps.configure-outputs.outputs.API_CLIENT_PATH }}"
+          git-repo-id: "app-services-sdk-go/${{ steps.configure-outputs.outputs.API_CLIENT_PATH }}/${{ env.API_VERSION }}"
       - run: rm -rf ${{ env.OPENAPI_FILENAME }}
       - uses: peter-evans/create-pull-request@v3
         with:
