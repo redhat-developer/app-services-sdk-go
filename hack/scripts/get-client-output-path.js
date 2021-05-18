@@ -14,4 +14,4 @@ if (!apiPath) {
   throw new Error(`Unknown GitHub repo "${githubRepo}"`)
 }
 
-console.log(apiPath);
+console.log(apiPath.directory);

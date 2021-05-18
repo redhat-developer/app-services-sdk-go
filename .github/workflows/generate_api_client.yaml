@@ -19,7 +19,8 @@ jobs:
       - name: Get API version
         id: configure-outputs
         run: |
-          echo '::set-output name=API_CLIENT_PATH::$(node ./hack/scripts/get-path-mapping.js ${{ env.GITHUB_REPO }})'
+          echo '::set-output name=API_CLIENT_PATH::$(node ./hack/scripts/get-client-output-path.js ${{ env.GITHUB_REPO }})'
+          echo '::set-output name=PACKAGE_NAME::$(node ./hack/scripts/get-client-package-name.js ${{ env.GITHUB_REPO }})'
           echo '::set-output name=RAW_API_URL::$(node ./hack/scripts/get-raw-openapi-url.js ${{ env.GITHUB_REPO }} ${{ env.BRANCH}} ${{ env.OPENAPI_DIRECTORY }} ${{ env.OPENAPI_FILENAME }})'
       - uses: actions/checkout@v2
       - run: |
@@ -29,6 +30,7 @@ jobs:
           generator: go
           input: ${{ env.OPENAPI_FILENAME }}
           output: "${{ steps.configure-outputs.outputs.API_CLIENT_PATH }}/${{ env.API_VERSION }}"
+          package-name: ${{ steps.configure-outputs.outputs.PACKAGE_NAME }}
           git-user-id: "${{ github.org }}"
           git-repo-id: "${{ github.repository }}"
           additional-properties: "isGoSubmodule=true"
