@@ -36,9 +36,9 @@ jobs:
       - run: rm -rf ${{ env.OPENAPI_FILENAME }}
       - uses: peter-evans/create-pull-request@v3
         with:
-          title: "chore(${{ steps.configure-outputs.outputs.PACKAGE_NAME }}): re-generate API client"
+          title: "chore: re-generate API client"
           token: "${{ secrets.CI_USER_TOKEN }}"
-          commit-message: "chore(${{ steps.configure-outputs.outputs.PACKAGE_NAME }}): re-generate API client"
+          commit-message: "chore: re-generate API client"
           base: "${{ env.BRANCH }}"
           draft: false
 
