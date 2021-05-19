@@ -1,5 +1,4 @@
 .gitignore
-.travis.yml
 README.md
 api/openapi.yaml
 api_default.go
@@ -41,9 +40,6 @@ docs/ServiceStatusKafkas.md
 docs/Values.md
 docs/VersionMetadata.md
 docs/VersionMetadataAllOf.md
-git_push.sh
-go.mod
-go.sum
 model_cloud_provider.go
 model_cloud_provider_list.go
 model_cloud_provider_list_all_of.go
