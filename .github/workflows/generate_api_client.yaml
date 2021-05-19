@@ -6,39 +6,27 @@ on:
 jobs:
   generate_client:
     env:
+      APP_SERVICES_TOKEN: ${{ secrets.CI_USER_TOKEN }}
       BF2_TOKEN: ${{ secrets.BF2_TOKEN }}
+      CLIENT_PAYLOAD: ${{ github.event.client_payload.github.repository }}
       API_VERSION: "v1"
       GITHUB_REPO: "${{ github.event.client_payload.github.repository }}"
       OPENAPI_DIRECTORY: "${{ github.event.client_payload.openapi.directory}}"
       OPENAPI_FILENAME: "${{ github.event.client_payload.openapi.filename }}"
+      EVENT_PAYLOAD: "${{ github.event.client_payload }}"
       BRANCH: "main"  
 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v2
-      - name: Get API version
-        id: configure-outputs
-        run: |
-          echo '::set-output name=API_CLIENT_PATH::$(node ./hack/scripts/get-client-output-path.js ${{ env.GITHUB_REPO }})'
-          echo '::set-output name=PACKAGE_NAME::$(node ./hack/scripts/get-client-package-name.js ${{ env.GITHUB_REPO }})'
-          echo '::set-output name=RAW_API_URL::$(node ./hack/scripts/get-raw-openapi-url.js ${{ env.GITHUB_REPO }} ${{ env.BRANCH}} ${{ env.OPENAPI_DIRECTORY }} ${{ env.OPENAPI_FILENAME }})'
       - uses: actions/checkout@v2
-      - run: |
-          curl -H 'Authorization: token ${{ env.BF2_TOKEN }}' ${{ steps.configure-outputs.outputs.RAW_API_URL }} -o ${{ env.OPENAPI_FILENAME }}
-      - uses: craicoverflow/openapi-generator-generate-action@v1
-        with:
-          generator: go
-          input: ${{ env.OPENAPI_FILENAME }}
-          output: "${{ steps.configure-outputs.outputs.API_CLIENT_PATH }}/${{ env.API_VERSION }}"
-          package-name: ${{ steps.configure-outputs.outputs.PACKAGE_NAME }}
-          git-user-id: "redhat-developer"
-          git-repo-id: "app-services-sdk-go/${{ steps.configure-outputs.outputs.API_CLIENT_PATH }}/${{ env.API_VERSION }}"
-      - run: rm -rf ${{ env.OPENAPI_FILENAME }}
+      - run: ./hack/scripts/generate.sh
       - uses: peter-evans/create-pull-request@v3
         with:
-          title: "chore: re-generate API client"
-          token: "${{ secrets.CI_USER_TOKEN }}"
-          commit-message: "chore: re-generate API client"
-          base: "${{ env.BRANCH }}"
-          draft: false
-
+          title: "Update API client"
+          token: "${{ env.APP_SERVICES_TOKEN }}"
+          commit-message: "chore: generate API client"
+          delete-branch: true
+          reviewers: craicoverflow
+          body: |
+            Auto-generated API client

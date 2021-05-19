@@ -1,0 +1,7 @@
+{
+  "bf2fc6cc711aee1a0c2a/kas-fleet-manager/kas-fleet-manager.yaml": {
+    "apiGroup": "apis/kafka",
+    "packageName": "kafkamgmt",
+    "apiVersion": "v1"
+  }
+}
