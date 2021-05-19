@@ -1,4 +1,4 @@
-module github.com/redhat-developer/app-services-sdk-go/apis/kafka/kafkamgmtv1
+module github.com/redhat-developer/app-services-sdk-go/apis/kafka/kafkamgmt/v1
 
 go 1.13
 

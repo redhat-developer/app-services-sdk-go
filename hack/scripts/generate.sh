@@ -17,6 +17,6 @@ if [ $? != 0 ]; then
 fi
 
 npx npx @openapitools/openapi-generator-cli version-manager set 5.1.1
-npx @openapitools/openapi-generator-cli generate -g go -i "$OPENAPI_FILENAME" -o "$OUTPUT_PATH" --package-name "$PACKAGE_NAME$API_VERSION" --git-user-id="redhat-developer" --git-repo-id="app-services-sdk-go/apis/kafka" -p "isGoSubmodule=true"
+npx @openapitools/openapi-generator-cli generate -g go -i "$OPENAPI_FILENAME" -o "$OUTPUT_PATH" --package-name "${PACKAGE_NAME}${API_VERSION}" --git-user-id="redhat-developer" --git-repo-id="app-services-sdk-go/$OUTPUT_PATH"
 
 rm -rf "$OPENAPI_FILENAME"
