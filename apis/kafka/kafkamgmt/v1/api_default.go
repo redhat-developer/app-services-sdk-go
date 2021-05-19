@@ -25,12 +25,218 @@ var (
 	_ _context.Context
 )
 
+type DefaultApi interface {
+
+	/*
+	 * CreateKafka Create a new kafka Request
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @return ApiCreateKafkaRequest
+	 */
+	CreateKafka(ctx _context.Context) ApiCreateKafkaRequest
+
+	/*
+	 * CreateKafkaExecute executes the request
+	 * @return KafkaRequest
+	 */
+	CreateKafkaExecute(r ApiCreateKafkaRequest) (KafkaRequest, *_nethttp.Response, error)
+
+	/*
+	 * CreateServiceAccount Create a service account
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @return ApiCreateServiceAccountRequest
+	 */
+	CreateServiceAccount(ctx _context.Context) ApiCreateServiceAccountRequest
+
+	/*
+	 * CreateServiceAccountExecute executes the request
+	 * @return ServiceAccount
+	 */
+	CreateServiceAccountExecute(r ApiCreateServiceAccountRequest) (ServiceAccount, *_nethttp.Response, error)
+
+	/*
+	 * DeleteKafkaById Delete a kafka request by id
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param id The id of record
+	 * @return ApiDeleteKafkaByIdRequest
+	 */
+	DeleteKafkaById(ctx _context.Context, id string) ApiDeleteKafkaByIdRequest
+
+	/*
+	 * DeleteKafkaByIdExecute executes the request
+	 * @return Error
+	 */
+	DeleteKafkaByIdExecute(r ApiDeleteKafkaByIdRequest) (Error, *_nethttp.Response, error)
+
+	/*
+	 * DeleteServiceAccount Delete service account
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param id The id of record
+	 * @return ApiDeleteServiceAccountRequest
+	 */
+	DeleteServiceAccount(ctx _context.Context, id string) ApiDeleteServiceAccountRequest
+
+	/*
+	 * DeleteServiceAccountExecute executes the request
+	 * @return Error
+	 */
+	DeleteServiceAccountExecute(r ApiDeleteServiceAccountRequest) (Error, *_nethttp.Response, error)
+
+	/*
+	 * GetKafkaById Get a kafka request by id
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param id The id of record
+	 * @return ApiGetKafkaByIdRequest
+	 */
+	GetKafkaById(ctx _context.Context, id string) ApiGetKafkaByIdRequest
+
+	/*
+	 * GetKafkaByIdExecute executes the request
+	 * @return KafkaRequest
+	 */
+	GetKafkaByIdExecute(r ApiGetKafkaByIdRequest) (KafkaRequest, *_nethttp.Response, error)
+
+	/*
+	 * GetMetricsByInstantQuery Get metrics with instant query by kafka id.
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param id The id of record
+	 * @return ApiGetMetricsByInstantQueryRequest
+	 */
+	GetMetricsByInstantQuery(ctx _context.Context, id string) ApiGetMetricsByInstantQueryRequest
+
+	/*
+	 * GetMetricsByInstantQueryExecute executes the request
+	 * @return MetricsInstantQueryList
+	 */
+	GetMetricsByInstantQueryExecute(r ApiGetMetricsByInstantQueryRequest) (MetricsInstantQueryList, *_nethttp.Response, error)
+
+	/*
+	 * GetMetricsByRangeQuery Get metrics with timeseries range query by kafka id.
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param id The id of record
+	 * @return ApiGetMetricsByRangeQueryRequest
+	 */
+	GetMetricsByRangeQuery(ctx _context.Context, id string) ApiGetMetricsByRangeQueryRequest
+
+	/*
+	 * GetMetricsByRangeQueryExecute executes the request
+	 * @return MetricsRangeQueryList
+	 */
+	GetMetricsByRangeQueryExecute(r ApiGetMetricsByRangeQueryRequest) (MetricsRangeQueryList, *_nethttp.Response, error)
+
+	/*
+	 * GetServiceAccountById get service account by id
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param id The id of record
+	 * @return ApiGetServiceAccountByIdRequest
+	 */
+	GetServiceAccountById(ctx _context.Context, id string) ApiGetServiceAccountByIdRequest
+
+	/*
+	 * GetServiceAccountByIdExecute executes the request
+	 * @return ServiceAccount
+	 */
+	GetServiceAccountByIdExecute(r ApiGetServiceAccountByIdRequest) (ServiceAccount, *_nethttp.Response, error)
+
+	/*
+	 * ListCloudProviderRegions Retrieves the list of supported regions of the supported cloud provider.
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param id The id of record
+	 * @return ApiListCloudProviderRegionsRequest
+	 */
+	ListCloudProviderRegions(ctx _context.Context, id string) ApiListCloudProviderRegionsRequest
+
+	/*
+	 * ListCloudProviderRegionsExecute executes the request
+	 * @return CloudRegionList
+	 */
+	ListCloudProviderRegionsExecute(r ApiListCloudProviderRegionsRequest) (CloudRegionList, *_nethttp.Response, error)
+
+	/*
+	 * ListCloudProviders Retrieves the list of supported cloud providers.
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @return ApiListCloudProvidersRequest
+	 */
+	ListCloudProviders(ctx _context.Context) ApiListCloudProvidersRequest
+
+	/*
+	 * ListCloudProvidersExecute executes the request
+	 * @return CloudProviderList
+	 */
+	ListCloudProvidersExecute(r ApiListCloudProvidersRequest) (CloudProviderList, *_nethttp.Response, error)
+
+	/*
+	 * ListKafkas Returns a list of Kafka requests
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @return ApiListKafkasRequest
+	 */
+	ListKafkas(ctx _context.Context) ApiListKafkasRequest
+
+	/*
+	 * ListKafkasExecute executes the request
+	 * @return KafkaRequestList
+	 */
+	ListKafkasExecute(r ApiListKafkasRequest) (KafkaRequestList, *_nethttp.Response, error)
+
+	/*
+	 * ListServiceAccounts List service accounts
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @return ApiListServiceAccountsRequest
+	 */
+	ListServiceAccounts(ctx _context.Context) ApiListServiceAccountsRequest
+
+	/*
+	 * ListServiceAccountsExecute executes the request
+	 * @return ServiceAccountList
+	 */
+	ListServiceAccountsExecute(r ApiListServiceAccountsRequest) (ServiceAccountList, *_nethttp.Response, error)
+
+	/*
+	 * ResetServiceAccountCreds reset credentials for the service account
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param id The id of record
+	 * @return ApiResetServiceAccountCredsRequest
+	 */
+	ResetServiceAccountCreds(ctx _context.Context, id string) ApiResetServiceAccountCredsRequest
+
+	/*
+	 * ResetServiceAccountCredsExecute executes the request
+	 * @return ServiceAccount
+	 */
+	ResetServiceAccountCredsExecute(r ApiResetServiceAccountCredsRequest) (ServiceAccount, *_nethttp.Response, error)
+
+	/*
+	 * ServiceStatus Retrieves the status of resources e.g whether we have reached maximum service capacity
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @return ApiServiceStatusRequest
+	 */
+	ServiceStatus(ctx _context.Context) ApiServiceStatusRequest
+
+	/*
+	 * ServiceStatusExecute executes the request
+	 * @return ServiceStatus
+	 */
+	ServiceStatusExecute(r ApiServiceStatusRequest) (ServiceStatus, *_nethttp.Response, error)
+
+	/*
+	 * VersionMetadata Retrieves the version metadata
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @return ApiVersionMetadataRequest
+	 */
+	VersionMetadata(ctx _context.Context) ApiVersionMetadataRequest
+
+	/*
+	 * VersionMetadataExecute executes the request
+	 * @return VersionMetadata
+	 */
+	VersionMetadataExecute(r ApiVersionMetadataRequest) (VersionMetadata, *_nethttp.Response, error)
+}
+
 // DefaultApiService DefaultApi service
 type DefaultApiService service
 
 type ApiCreateKafkaRequest struct {
 	ctx _context.Context
-	ApiService *DefaultApiService
+	ApiService DefaultApi
 	async *bool
 	kafkaRequestPayload *KafkaRequestPayload
 }
@@ -209,7 +415,7 @@ func (a *DefaultApiService) CreateKafkaExecute(r ApiCreateKafkaRequest) (KafkaRe
 
 type ApiCreateServiceAccountRequest struct {
 	ctx _context.Context
-	ApiService *DefaultApiService
+	ApiService DefaultApi
 	serviceAccountRequest *ServiceAccountRequest
 }
 
@@ -349,7 +555,7 @@ func (a *DefaultApiService) CreateServiceAccountExecute(r ApiCreateServiceAccoun
 
 type ApiDeleteKafkaByIdRequest struct {
 	ctx _context.Context
-	ApiService *DefaultApiService
+	ApiService DefaultApi
 	id string
 	async *bool
 }
@@ -512,7 +718,7 @@ func (a *DefaultApiService) DeleteKafkaByIdExecute(r ApiDeleteKafkaByIdRequest) 
 
 type ApiDeleteServiceAccountRequest struct {
 	ctx _context.Context
-	ApiService *DefaultApiService
+	ApiService DefaultApi
 	id string
 }
 
@@ -646,7 +852,7 @@ func (a *DefaultApiService) DeleteServiceAccountExecute(r ApiDeleteServiceAccoun
 
 type ApiGetKafkaByIdRequest struct {
 	ctx _context.Context
-	ApiService *DefaultApiService
+	ApiService DefaultApi
 	id string
 }
 
@@ -790,7 +996,7 @@ func (a *DefaultApiService) GetKafkaByIdExecute(r ApiGetKafkaByIdRequest) (Kafka
 
 type ApiGetMetricsByInstantQueryRequest struct {
 	ctx _context.Context
-	ApiService *DefaultApiService
+	ApiService DefaultApi
 	id string
 	filters *[]string
 }
@@ -930,7 +1136,7 @@ func (a *DefaultApiService) GetMetricsByInstantQueryExecute(r ApiGetMetricsByIns
 
 type ApiGetMetricsByRangeQueryRequest struct {
 	ctx _context.Context
-	ApiService *DefaultApiService
+	ApiService DefaultApi
 	id string
 	duration *int64
 	interval *int64
@@ -1100,7 +1306,7 @@ func (a *DefaultApiService) GetMetricsByRangeQueryExecute(r ApiGetMetricsByRange
 
 type ApiGetServiceAccountByIdRequest struct {
 	ctx _context.Context
-	ApiService *DefaultApiService
+	ApiService DefaultApi
 	id string
 }
 
@@ -1205,7 +1411,7 @@ func (a *DefaultApiService) GetServiceAccountByIdExecute(r ApiGetServiceAccountB
 
 type ApiListCloudProviderRegionsRequest struct {
 	ctx _context.Context
-	ApiService *DefaultApiService
+	ApiService DefaultApi
 	id string
 	page *string
 	size *string
@@ -1345,7 +1551,7 @@ func (a *DefaultApiService) ListCloudProviderRegionsExecute(r ApiListCloudProvid
 
 type ApiListCloudProvidersRequest struct {
 	ctx _context.Context
-	ApiService *DefaultApiService
+	ApiService DefaultApi
 	page *string
 	size *string
 }
@@ -1481,7 +1687,7 @@ func (a *DefaultApiService) ListCloudProvidersExecute(r ApiListCloudProvidersReq
 
 type ApiListKafkasRequest struct {
 	ctx _context.Context
-	ApiService *DefaultApiService
+	ApiService DefaultApi
 	page *string
 	size *string
 	orderBy *string
@@ -1653,7 +1859,7 @@ func (a *DefaultApiService) ListKafkasExecute(r ApiListKafkasRequest) (KafkaRequ
 
 type ApiListServiceAccountsRequest struct {
 	ctx _context.Context
-	ApiService *DefaultApiService
+	ApiService DefaultApi
 }
 
 
@@ -1783,7 +1989,7 @@ func (a *DefaultApiService) ListServiceAccountsExecute(r ApiListServiceAccountsR
 
 type ApiResetServiceAccountCredsRequest struct {
 	ctx _context.Context
-	ApiService *DefaultApiService
+	ApiService DefaultApi
 	id string
 }
 
@@ -1917,7 +2123,7 @@ func (a *DefaultApiService) ResetServiceAccountCredsExecute(r ApiResetServiceAcc
 
 type ApiServiceStatusRequest struct {
 	ctx _context.Context
-	ApiService *DefaultApiService
+	ApiService DefaultApi
 }
 
 
@@ -2027,7 +2233,7 @@ func (a *DefaultApiService) ServiceStatusExecute(r ApiServiceStatusRequest) (Ser
 
 type ApiVersionMetadataRequest struct {
 	ctx _context.Context
-	ApiService *DefaultApiService
+	ApiService DefaultApi
 }
 
 
