@@ -3,10 +3,5 @@
     "apiGroup": "kafka",
     "packageName": "mgmt",
     "apiVersion": "v1"
-  },
-  "bf2fc6cc711aee1a0c2a/kafka-admin-api/kas-fleet-manager.yaml": {
-    "apiGroup": "kafka",
-    "packageName": "mgmt",
-    "apiVersion": "v1"
   }
 }
