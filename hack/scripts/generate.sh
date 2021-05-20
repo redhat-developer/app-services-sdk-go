@@ -11,8 +11,6 @@ OUTPUT_PATH="$API_GROUP/$PACKAGE_NAME/$API_VERSION"
 # get the download URL of the OpenAPI spec file
 OPENAPI_FILE_URL=$(node $(dirname $0)/get-raw-openapi-url.js "$GITHUB_REPO" "$BRANCH" "$OPENAPI_DIRECTORY" "$OPENAPI_FILENAME")
 
-echo $OPENAPI_FILE_URL
-
 # download the OpenAPI file
 curl -H "Authorization: token $BF2_TOKEN" "$OPENAPI_FILE_URL" -o "$OPENAPI_FILENAME"
 if [ $? != 0 ]; then
@@ -25,10 +23,10 @@ npx @openapitools/openapi-generator-cli generate -g go -i "$OPENAPI_FILENAME" -o
 go mod download
 go mod tidy
 
-# # generate API interface mock
+# generate API interface mock
 mock_api_file="$OUTPUT_PATH/default_api_mock.go"
 
-# rm -rf $mock_api_file
+rm -rf $mock_api_file
 moq -out "$mock_api_file" "$OUTPUT_PATH" DefaultApi
 
 rm -rf "$OPENAPI_FILENAME"
