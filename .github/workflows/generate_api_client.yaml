@@ -26,6 +26,6 @@ jobs:
           commit-message: "chore: generate API client"
           author: app-services-ci <app-services-ci@users.noreply.github.com>
           delete-branch: true
-          reviewers: craicoverflow
+          reviewers: craicoverflow, wtrocki
           body: |
             Auto-generated API client
