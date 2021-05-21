@@ -9,16 +9,16 @@ if (!args || !args.length || args.length < 1) {
   throw new Error("Missing arguments");
 }
 
-const [githubRepo, key] = args;
+const [apiKey, key] = args;
 
-const apiPath = apiPathMappings[githubRepo];
+const apiPath = apiPathMappings[apiKey];
 if (!apiPath) {
-  throw new Error(`Unknown GitHub repository "${githubRepo}"`)
+  throw new Error(`Unknown api file. Check if API is defined in .openapi/"${apiKey}"`)
 }
 
 const value = apiPath[key];
 if (value === undefined) {
-  throw new Error(`Unknown key "${key}" in "${githubRepo} config"`)
+  throw new Error(`Unknown key "${key}" in "${apiKey} config"`)
 }
 
 console.log(value);
