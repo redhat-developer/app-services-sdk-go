@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
 # set output path of the API client
-API_CLIENT_KEY="$GITHUB_REPO/$OPENAPI_FILENAME"
-API_GROUP="$(node $(dirname $0)/get-mapped-config.js "$API_CLIENT_KEY" "apiGroup")"
-API_VERSION="api$(node $(dirname $0)/get-mapped-config.js "$API_CLIENT_KEY" "apiVersion")"
+API_GROUP="$(node $(dirname $0)/get-mapped-config.js "$OPENAPI_FILENAME" "apiGroup")"
+API_VERSION="api$(node $(dirname $0)/get-mapped-config.js "$OPENAPI_FILENAME" "apiVersion")"
 # set the Go package name
-PACKAGE_NAME="$(node $(dirname $0)/get-mapped-config.js "$API_CLIENT_KEY" "packageName")"
+PACKAGE_NAME="$(node $(dirname $0)/get-mapped-config.js "$OPENAPI_FILENAME" "packageName")"
 OUTPUT_PATH="$API_GROUP/$PACKAGE_NAME/$API_VERSION"
 
 npx @openapitools/openapi-generator-cli version-manager set 5.1.1
