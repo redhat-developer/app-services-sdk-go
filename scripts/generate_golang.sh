@@ -19,4 +19,5 @@ mock_api_file="$OUTPUT_PATH/default_api_mock.go"
 rm -rf $mock_api_file
 moq -out "$mock_api_file" "$OUTPUT_PATH" DefaultApi
 
+cp $OPENAPI_FILENAME .openapi/$OPENAPI_FILENAME
 rm -rf "$OPENAPI_FILENAME"
