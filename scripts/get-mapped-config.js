@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const apiPathMappings = require('../../.config/api-client-configs.json');
+const apiPathMappings = require('../.config/api-client-configs.json');
 
 const args = process.argv.slice(2);
 
