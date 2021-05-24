@@ -1,6 +1,12 @@
 {
   "kas-fleet-manager.yaml": {
     "apiGroup": "kafkamgmt",
-    "apiVersion": "v1"
+    "apiVersion": "v1",
+    "release_level": "beta"
+  },
+  "srs-fleet-manager.json": {
+    "apiGroup": "serviceregistrymgmt",
+    "apiVersion": "v1",
+    "release_level": "alpha"
   }
 }
