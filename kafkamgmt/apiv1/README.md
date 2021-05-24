@@ -1,4 +1,4 @@
-# Go API client for apiv1
+# Go API client for kafkamgmt
 
 Kafka Service Fleet Manager is a Rest API to manage kafka instances and connectors.
 
@@ -22,7 +22,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```golang
-import sw "./apiv1"
+import sw "./kafkamgmt"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:
