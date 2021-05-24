@@ -2,4 +2,5 @@
 **/go.sum
 **/git_push.sh
 **/.travis.yml
+**/api
 **/.openapi-generator-ignore
