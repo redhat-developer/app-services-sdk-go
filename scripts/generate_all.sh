@@ -1,8 +1,9 @@
 
-cd .openapi
-FILES="*"
+FILES=".openapi/*"
 for f in $FILES
 do
-  echo "Generating SDK for $f "
-  OPENAPI_FILENAME=$f ../scripts/generate_golang.sh
+  OPENAPI_FILENAME=`basename $f`
+  echo "Generating API for $OPENAPI_FILENAME "
+  . ./scripts/generate_go.sh
+  echo "Finished generation for API $OPENAPI_FILENAME "
 done

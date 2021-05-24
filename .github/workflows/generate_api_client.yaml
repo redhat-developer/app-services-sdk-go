@@ -19,14 +19,14 @@ jobs:
       - uses: actions/setup-node@v2
       - uses: actions/checkout@v2
       - run: ./scripts/fetch_api.sh
-      - run: ./scripts/generate_golang.sh
+      - run: ./scripts/generate_go.sh
       - uses: peter-evans/create-pull-request@v3
         with:
-          title: "Update API client"
+          title: "Update ${{ OPENAPI_FILENAME }} API client"
           token: "${{ env.APP_SERVICES_TOKEN }}"
-          commit-message: "chore: generate API client"
+          commit-message: "chore: generate ${{ OPENAPI_FILENAME }} API client"
           author: app-services-ci <app-services-ci@users.noreply.github.com>
           delete-branch: true
           reviewers: craicoverflow, wtrocki
           body: |
-            Auto-generated API client
+            Auto-generated API client for ${{ OPENAPI_FILENAME }}
