@@ -17,8 +17,5 @@ if (!apiPath) {
 }
 
 const value = apiPath[key];
-if (value === undefined) {
-  throw new Error(`Unknown key "${key}" in "${apiKey} config"`)
-}
 
 console.log(value);
