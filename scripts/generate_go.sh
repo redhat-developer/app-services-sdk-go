@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
 # set output path of the API client
-API_GROUP="$(node $(dirname $0)/get-mapped-config.js "$OPENAPI_FILENAME" "apiGroup")"
-API_VERSION="api$(node $(dirname $0)/get-mapped-config.js "$OPENAPI_FILENAME" "apiVersion")"
+API_ID="$(node $(dirname $0)/get-client-payload-id.js $CLIENT_PAYLOAD)"
+API_GROUP="$(node $(dirname $0)/get-mapped-config.js "$API_ID" "apiGroup")"
+API_VERSION="api$(node $(dirname $0)/get-mapped-config.js "$API_ID" "apiVersion")"
+OPENAPI_FILENAME=$(node $(dirname $0)/get-openapi-filename.js "$CLIENT_PAYLOAD")
+
 # set the Go package name
-PACKAGE_NAME="$(node $(dirname $0)/get-mapped-config.js "$OPENAPI_FILENAME" "apiPackageName")"
+PACKAGE_NAME="$(node $(dirname $0)/get-mapped-config.js "$API_ID" "apiPackageName")"
 if [[ ! -v "$PACKAGE_NAME" ]]; then
     echo "No package name is set, using apiGroup as package name"
     PACKAGE_NAME="$API_GROUP"
