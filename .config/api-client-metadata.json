@@ -7,5 +7,15 @@
       "repo": "bf2fc6cc711aee1a0c2a/kas-fleet-manager",
       "base": "main"
     }
+  },
+  "kafka-admin/v1": {
+    "apiGroup": "kafkaadmin",
+    "apiVersion": "v1internal",
+    "release_level": "internal",
+    "source": {
+      "repo": "bf2fc6cc711aee1a0c2a/kafka-admin-api",
+      "base": "main"
+    },
+    "openApiOutputFileName": "kafka-admin.yml"
   }
 }
