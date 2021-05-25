@@ -8,11 +8,7 @@ jobs:
     env:
       APP_SERVICES_TOKEN: ${{ secrets.CI_USER_TOKEN }}
       BF2_TOKEN: ${{ secrets.BF2_TOKEN }}
-      CLIENT_PAYLOAD: ${{ github.event.client_payload.github.repository }}
-      GITHUB_REPO: "${{ github.event.client_payload.github.repository }}"
-      OPENAPI_DIRECTORY: "${{ github.event.client_payload.openapi.directory}}"
-      OPENAPI_FILENAME: "${{ github.event.client_payload.openapi.filename }}"
-      BRANCH: "main"  
+      CLIENT_PAYLOAD: ${{ github.event.client_payload }}
 
     runs-on: ubuntu-latest
     steps:
@@ -22,11 +18,11 @@ jobs:
       - run: ./scripts/generate_go.sh
       - uses: peter-evans/create-pull-request@v3
         with:
-          title: "Update ${{ OPENAPI_FILENAME }} API client"
+          title: "Update ${{ github.event.client_payload.id }} API client"
           token: "${{ env.APP_SERVICES_TOKEN }}"
-          commit-message: "chore: generate ${{ OPENAPI_FILENAME }} API client"
+          commit-message: "chore: generate ${{ github.event.client_payload.id }} API client"
           author: app-services-ci <app-services-ci@users.noreply.github.com>
           delete-branch: true
           reviewers: craicoverflow, wtrocki
           body: |
-            Auto-generated API client for ${{ OPENAPI_FILENAME }}
+            Auto-generated API client for ${{ github.event.client_payload.id }}
