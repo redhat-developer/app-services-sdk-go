@@ -1,0 +1,15 @@
+{
+  "wtrocki/kafka": {
+    "go":{
+      "apiGroup": "kafkamgmt",
+      "apiVersion": "v1",
+      "release_level": "stable"
+    },
+    "source": {
+      "repo": "wtrocki/apitests",
+      "base": "main",
+      "public": true
+    },
+    "openApiOutputFileName": "kafkatest.yml"
+  }
+}
