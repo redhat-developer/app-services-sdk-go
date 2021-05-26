@@ -1,0 +1,20 @@
+{
+  "name": "@rhoas/sdk-releng",
+  "version": "0.1.0",
+  "type": "commonjs",
+  "description": "automation and release scripts for RHOAS SDK's",
+  "main": "src/index.js",
+  "scripts": {
+    "assdk": "./src/bin.js"
+  },
+  "bin": {
+    "assdk": "./src/bin.js"
+  },
+  "author": "Red Hat Developers",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "got": "^11.8.2",
+    "yargs": "^17.0.1"
+  }
+}
