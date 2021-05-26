@@ -2,4 +2,4 @@
 
 const args = process.argv.slice(2);
 const clientPayload = JSON.parse(args[0]);
-console.log(clientPayload.id);
+console.log(clientPayload.download_url);
