@@ -12,6 +12,9 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-go@v1
+        with:
+          go-version: 1.13
       - uses: actions/setup-node@v2
       - uses: actions/checkout@v2
       - run: ./scripts/fetch_api.sh
@@ -25,4 +28,4 @@ jobs:
           delete-branch: true
           reviewers: "craicoverflow, wtrocki"
           body: |
-            Auto-generated API client ${{ env.CLIENT_PAYLOAD }}
+            Auto-generated API client
