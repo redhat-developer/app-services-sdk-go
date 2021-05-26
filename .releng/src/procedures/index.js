@@ -1,0 +1,2 @@
+
+exports.fetch = require("fetch")
