@@ -18,11 +18,11 @@ jobs:
       - run: ./scripts/generate_go.sh
       - uses: peter-evans/create-pull-request@v3
         with:
-          title: "Update ${{ github.event.client_payload.id }} API client"
+          title: "Update API client"
           token: "${{ env.APP_SERVICES_TOKEN }}"
-          commit-message: "chore: generate ${{ github.event.client_payload.id }} API client"
-          author: app-services-ci <app-services-ci@users.noreply.github.com>
+          commit-message: "chore: generate API client"
+          author: "app-services-ci <app-services-ci@users.noreply.github.com>"
           delete-branch: true
-          reviewers: craicoverflow, wtrocki
+          reviewers: "craicoverflow, wtrocki"
           body: |
-            Auto-generated API client for ${{ github.event.client_payload.id }}
+            Auto-generated API client ${{ env.CLIENT_PAYLOAD }}
