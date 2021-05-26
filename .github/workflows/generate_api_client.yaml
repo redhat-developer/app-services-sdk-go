@@ -6,9 +6,9 @@ on:
 jobs:
   generate_client:
     env:
-      APP_SERVICES_TOKEN: ${{ secrets.CI_USER_TOKEN }}
-      BF2_TOKEN: ${{ secrets.BF2_TOKEN }}
-      CLIENT_PAYLOAD: ${{ github.event.client_payload }}
+      APP_SERVICES_TOKEN: "${{ secrets.CI_USER_TOKEN }}"
+      BF2_TOKEN: "${{ secrets.BF2_TOKEN }}"
+      CLIENT_PAYLOAD: "${{ github.event.client_payload }}"
 
     runs-on: ubuntu-latest
     steps:
