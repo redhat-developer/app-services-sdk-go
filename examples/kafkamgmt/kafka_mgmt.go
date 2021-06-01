@@ -15,7 +15,7 @@ func main() {
 
 	res, _, err := apiClient.DefaultApi.GetKafkas(context.Background()).Execute()
 	if err != nil {
-
+		panic(err)
 	}
 	fmt.Fprintln(os.Stderr, res.Size)
 }
