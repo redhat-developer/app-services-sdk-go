@@ -1,7 +1,7 @@
 # #!/usr/bin/env bash
 
 # set output path of the API client
-API_ID="$(node $(dirname $0)/get-client-payload-id.js $CLIENT_PAYLOAD)"
+API_ID=$(echo $CLIENT_PAYLOAD | jq -r .id)
 API_GROUP="$(node $(dirname $0)/get-mapped-config.js "$API_ID" "apiGroup")"
 API_VERSION="api$(node $(dirname $0)/get-mapped-config.js "$API_ID" "apiVersion")"
 OPENAPI_FILENAME=$(node $(dirname $0)/get-openapi-filename.js "$CLIENT_PAYLOAD")
