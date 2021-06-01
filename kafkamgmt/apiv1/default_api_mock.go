@@ -25,29 +25,35 @@ var _ DefaultApi = &DefaultApiMock{}
 // 			CreateKafkaExecuteFunc: func(r ApiCreateKafkaRequest) (KafkaRequest, *_nethttp.Response, error) {
 // 				panic("mock out the CreateKafkaExecute method")
 // 			},
-// 			CreateServiceAccountFunc: func(ctx _context.Context) ApiCreateServiceAccountRequest {
-// 				panic("mock out the CreateServiceAccount method")
-// 			},
-// 			CreateServiceAccountExecuteFunc: func(r ApiCreateServiceAccountRequest) (ServiceAccount, *_nethttp.Response, error) {
-// 				panic("mock out the CreateServiceAccountExecute method")
-// 			},
 // 			DeleteKafkaByIdFunc: func(ctx _context.Context, id string) ApiDeleteKafkaByIdRequest {
 // 				panic("mock out the DeleteKafkaById method")
 // 			},
 // 			DeleteKafkaByIdExecuteFunc: func(r ApiDeleteKafkaByIdRequest) (Error, *_nethttp.Response, error) {
 // 				panic("mock out the DeleteKafkaByIdExecute method")
 // 			},
-// 			DeleteServiceAccountFunc: func(ctx _context.Context, id string) ApiDeleteServiceAccountRequest {
-// 				panic("mock out the DeleteServiceAccount method")
+// 			GetCloudProviderRegionsFunc: func(ctx _context.Context, id string) ApiGetCloudProviderRegionsRequest {
+// 				panic("mock out the GetCloudProviderRegions method")
 // 			},
-// 			DeleteServiceAccountExecuteFunc: func(r ApiDeleteServiceAccountRequest) (Error, *_nethttp.Response, error) {
-// 				panic("mock out the DeleteServiceAccountExecute method")
+// 			GetCloudProviderRegionsExecuteFunc: func(r ApiGetCloudProviderRegionsRequest) (CloudRegionList, *_nethttp.Response, error) {
+// 				panic("mock out the GetCloudProviderRegionsExecute method")
+// 			},
+// 			GetCloudProvidersFunc: func(ctx _context.Context) ApiGetCloudProvidersRequest {
+// 				panic("mock out the GetCloudProviders method")
+// 			},
+// 			GetCloudProvidersExecuteFunc: func(r ApiGetCloudProvidersRequest) (CloudProviderList, *_nethttp.Response, error) {
+// 				panic("mock out the GetCloudProvidersExecute method")
 // 			},
 // 			GetKafkaByIdFunc: func(ctx _context.Context, id string) ApiGetKafkaByIdRequest {
 // 				panic("mock out the GetKafkaById method")
 // 			},
 // 			GetKafkaByIdExecuteFunc: func(r ApiGetKafkaByIdRequest) (KafkaRequest, *_nethttp.Response, error) {
 // 				panic("mock out the GetKafkaByIdExecute method")
+// 			},
+// 			GetKafkasFunc: func(ctx _context.Context) ApiGetKafkasRequest {
+// 				panic("mock out the GetKafkas method")
+// 			},
+// 			GetKafkasExecuteFunc: func(r ApiGetKafkasRequest) (KafkaRequestList, *_nethttp.Response, error) {
+// 				panic("mock out the GetKafkasExecute method")
 // 			},
 // 			GetMetricsByInstantQueryFunc: func(ctx _context.Context, id string) ApiGetMetricsByInstantQueryRequest {
 // 				panic("mock out the GetMetricsByInstantQuery method")
@@ -61,53 +67,17 @@ var _ DefaultApi = &DefaultApiMock{}
 // 			GetMetricsByRangeQueryExecuteFunc: func(r ApiGetMetricsByRangeQueryRequest) (MetricsRangeQueryList, *_nethttp.Response, error) {
 // 				panic("mock out the GetMetricsByRangeQueryExecute method")
 // 			},
-// 			GetServiceAccountByIdFunc: func(ctx _context.Context, id string) ApiGetServiceAccountByIdRequest {
-// 				panic("mock out the GetServiceAccountById method")
+// 			GetServiceStatusFunc: func(ctx _context.Context) ApiGetServiceStatusRequest {
+// 				panic("mock out the GetServiceStatus method")
 // 			},
-// 			GetServiceAccountByIdExecuteFunc: func(r ApiGetServiceAccountByIdRequest) (ServiceAccount, *_nethttp.Response, error) {
-// 				panic("mock out the GetServiceAccountByIdExecute method")
+// 			GetServiceStatusExecuteFunc: func(r ApiGetServiceStatusRequest) (ServiceStatus, *_nethttp.Response, error) {
+// 				panic("mock out the GetServiceStatusExecute method")
 // 			},
-// 			ListCloudProviderRegionsFunc: func(ctx _context.Context, id string) ApiListCloudProviderRegionsRequest {
-// 				panic("mock out the ListCloudProviderRegions method")
+// 			GetVersionMetadataFunc: func(ctx _context.Context) ApiGetVersionMetadataRequest {
+// 				panic("mock out the GetVersionMetadata method")
 // 			},
-// 			ListCloudProviderRegionsExecuteFunc: func(r ApiListCloudProviderRegionsRequest) (CloudRegionList, *_nethttp.Response, error) {
-// 				panic("mock out the ListCloudProviderRegionsExecute method")
-// 			},
-// 			ListCloudProvidersFunc: func(ctx _context.Context) ApiListCloudProvidersRequest {
-// 				panic("mock out the ListCloudProviders method")
-// 			},
-// 			ListCloudProvidersExecuteFunc: func(r ApiListCloudProvidersRequest) (CloudProviderList, *_nethttp.Response, error) {
-// 				panic("mock out the ListCloudProvidersExecute method")
-// 			},
-// 			ListKafkasFunc: func(ctx _context.Context) ApiListKafkasRequest {
-// 				panic("mock out the ListKafkas method")
-// 			},
-// 			ListKafkasExecuteFunc: func(r ApiListKafkasRequest) (KafkaRequestList, *_nethttp.Response, error) {
-// 				panic("mock out the ListKafkasExecute method")
-// 			},
-// 			ListServiceAccountsFunc: func(ctx _context.Context) ApiListServiceAccountsRequest {
-// 				panic("mock out the ListServiceAccounts method")
-// 			},
-// 			ListServiceAccountsExecuteFunc: func(r ApiListServiceAccountsRequest) (ServiceAccountList, *_nethttp.Response, error) {
-// 				panic("mock out the ListServiceAccountsExecute method")
-// 			},
-// 			ResetServiceAccountCredsFunc: func(ctx _context.Context, id string) ApiResetServiceAccountCredsRequest {
-// 				panic("mock out the ResetServiceAccountCreds method")
-// 			},
-// 			ResetServiceAccountCredsExecuteFunc: func(r ApiResetServiceAccountCredsRequest) (ServiceAccount, *_nethttp.Response, error) {
-// 				panic("mock out the ResetServiceAccountCredsExecute method")
-// 			},
-// 			ServiceStatusFunc: func(ctx _context.Context) ApiServiceStatusRequest {
-// 				panic("mock out the ServiceStatus method")
-// 			},
-// 			ServiceStatusExecuteFunc: func(r ApiServiceStatusRequest) (ServiceStatus, *_nethttp.Response, error) {
-// 				panic("mock out the ServiceStatusExecute method")
-// 			},
-// 			VersionMetadataFunc: func(ctx _context.Context) ApiVersionMetadataRequest {
-// 				panic("mock out the VersionMetadata method")
-// 			},
-// 			VersionMetadataExecuteFunc: func(r ApiVersionMetadataRequest) (VersionMetadata, *_nethttp.Response, error) {
-// 				panic("mock out the VersionMetadataExecute method")
+// 			GetVersionMetadataExecuteFunc: func(r ApiGetVersionMetadataRequest) (VersionMetadata, *_nethttp.Response, error) {
+// 				panic("mock out the GetVersionMetadataExecute method")
 // 			},
 // 		}
 //
@@ -122,29 +92,35 @@ type DefaultApiMock struct {
 	// CreateKafkaExecuteFunc mocks the CreateKafkaExecute method.
 	CreateKafkaExecuteFunc func(r ApiCreateKafkaRequest) (KafkaRequest, *_nethttp.Response, error)
 
-	// CreateServiceAccountFunc mocks the CreateServiceAccount method.
-	CreateServiceAccountFunc func(ctx _context.Context) ApiCreateServiceAccountRequest
-
-	// CreateServiceAccountExecuteFunc mocks the CreateServiceAccountExecute method.
-	CreateServiceAccountExecuteFunc func(r ApiCreateServiceAccountRequest) (ServiceAccount, *_nethttp.Response, error)
-
 	// DeleteKafkaByIdFunc mocks the DeleteKafkaById method.
 	DeleteKafkaByIdFunc func(ctx _context.Context, id string) ApiDeleteKafkaByIdRequest
 
 	// DeleteKafkaByIdExecuteFunc mocks the DeleteKafkaByIdExecute method.
 	DeleteKafkaByIdExecuteFunc func(r ApiDeleteKafkaByIdRequest) (Error, *_nethttp.Response, error)
 
-	// DeleteServiceAccountFunc mocks the DeleteServiceAccount method.
-	DeleteServiceAccountFunc func(ctx _context.Context, id string) ApiDeleteServiceAccountRequest
+	// GetCloudProviderRegionsFunc mocks the GetCloudProviderRegions method.
+	GetCloudProviderRegionsFunc func(ctx _context.Context, id string) ApiGetCloudProviderRegionsRequest
 
-	// DeleteServiceAccountExecuteFunc mocks the DeleteServiceAccountExecute method.
-	DeleteServiceAccountExecuteFunc func(r ApiDeleteServiceAccountRequest) (Error, *_nethttp.Response, error)
+	// GetCloudProviderRegionsExecuteFunc mocks the GetCloudProviderRegionsExecute method.
+	GetCloudProviderRegionsExecuteFunc func(r ApiGetCloudProviderRegionsRequest) (CloudRegionList, *_nethttp.Response, error)
+
+	// GetCloudProvidersFunc mocks the GetCloudProviders method.
+	GetCloudProvidersFunc func(ctx _context.Context) ApiGetCloudProvidersRequest
+
+	// GetCloudProvidersExecuteFunc mocks the GetCloudProvidersExecute method.
+	GetCloudProvidersExecuteFunc func(r ApiGetCloudProvidersRequest) (CloudProviderList, *_nethttp.Response, error)
 
 	// GetKafkaByIdFunc mocks the GetKafkaById method.
 	GetKafkaByIdFunc func(ctx _context.Context, id string) ApiGetKafkaByIdRequest
 
 	// GetKafkaByIdExecuteFunc mocks the GetKafkaByIdExecute method.
 	GetKafkaByIdExecuteFunc func(r ApiGetKafkaByIdRequest) (KafkaRequest, *_nethttp.Response, error)
+
+	// GetKafkasFunc mocks the GetKafkas method.
+	GetKafkasFunc func(ctx _context.Context) ApiGetKafkasRequest
+
+	// GetKafkasExecuteFunc mocks the GetKafkasExecute method.
+	GetKafkasExecuteFunc func(r ApiGetKafkasRequest) (KafkaRequestList, *_nethttp.Response, error)
 
 	// GetMetricsByInstantQueryFunc mocks the GetMetricsByInstantQuery method.
 	GetMetricsByInstantQueryFunc func(ctx _context.Context, id string) ApiGetMetricsByInstantQueryRequest
@@ -158,53 +134,17 @@ type DefaultApiMock struct {
 	// GetMetricsByRangeQueryExecuteFunc mocks the GetMetricsByRangeQueryExecute method.
 	GetMetricsByRangeQueryExecuteFunc func(r ApiGetMetricsByRangeQueryRequest) (MetricsRangeQueryList, *_nethttp.Response, error)
 
-	// GetServiceAccountByIdFunc mocks the GetServiceAccountById method.
-	GetServiceAccountByIdFunc func(ctx _context.Context, id string) ApiGetServiceAccountByIdRequest
+	// GetServiceStatusFunc mocks the GetServiceStatus method.
+	GetServiceStatusFunc func(ctx _context.Context) ApiGetServiceStatusRequest
 
-	// GetServiceAccountByIdExecuteFunc mocks the GetServiceAccountByIdExecute method.
-	GetServiceAccountByIdExecuteFunc func(r ApiGetServiceAccountByIdRequest) (ServiceAccount, *_nethttp.Response, error)
+	// GetServiceStatusExecuteFunc mocks the GetServiceStatusExecute method.
+	GetServiceStatusExecuteFunc func(r ApiGetServiceStatusRequest) (ServiceStatus, *_nethttp.Response, error)
 
-	// ListCloudProviderRegionsFunc mocks the ListCloudProviderRegions method.
-	ListCloudProviderRegionsFunc func(ctx _context.Context, id string) ApiListCloudProviderRegionsRequest
+	// GetVersionMetadataFunc mocks the GetVersionMetadata method.
+	GetVersionMetadataFunc func(ctx _context.Context) ApiGetVersionMetadataRequest
 
-	// ListCloudProviderRegionsExecuteFunc mocks the ListCloudProviderRegionsExecute method.
-	ListCloudProviderRegionsExecuteFunc func(r ApiListCloudProviderRegionsRequest) (CloudRegionList, *_nethttp.Response, error)
-
-	// ListCloudProvidersFunc mocks the ListCloudProviders method.
-	ListCloudProvidersFunc func(ctx _context.Context) ApiListCloudProvidersRequest
-
-	// ListCloudProvidersExecuteFunc mocks the ListCloudProvidersExecute method.
-	ListCloudProvidersExecuteFunc func(r ApiListCloudProvidersRequest) (CloudProviderList, *_nethttp.Response, error)
-
-	// ListKafkasFunc mocks the ListKafkas method.
-	ListKafkasFunc func(ctx _context.Context) ApiListKafkasRequest
-
-	// ListKafkasExecuteFunc mocks the ListKafkasExecute method.
-	ListKafkasExecuteFunc func(r ApiListKafkasRequest) (KafkaRequestList, *_nethttp.Response, error)
-
-	// ListServiceAccountsFunc mocks the ListServiceAccounts method.
-	ListServiceAccountsFunc func(ctx _context.Context) ApiListServiceAccountsRequest
-
-	// ListServiceAccountsExecuteFunc mocks the ListServiceAccountsExecute method.
-	ListServiceAccountsExecuteFunc func(r ApiListServiceAccountsRequest) (ServiceAccountList, *_nethttp.Response, error)
-
-	// ResetServiceAccountCredsFunc mocks the ResetServiceAccountCreds method.
-	ResetServiceAccountCredsFunc func(ctx _context.Context, id string) ApiResetServiceAccountCredsRequest
-
-	// ResetServiceAccountCredsExecuteFunc mocks the ResetServiceAccountCredsExecute method.
-	ResetServiceAccountCredsExecuteFunc func(r ApiResetServiceAccountCredsRequest) (ServiceAccount, *_nethttp.Response, error)
-
-	// ServiceStatusFunc mocks the ServiceStatus method.
-	ServiceStatusFunc func(ctx _context.Context) ApiServiceStatusRequest
-
-	// ServiceStatusExecuteFunc mocks the ServiceStatusExecute method.
-	ServiceStatusExecuteFunc func(r ApiServiceStatusRequest) (ServiceStatus, *_nethttp.Response, error)
-
-	// VersionMetadataFunc mocks the VersionMetadata method.
-	VersionMetadataFunc func(ctx _context.Context) ApiVersionMetadataRequest
-
-	// VersionMetadataExecuteFunc mocks the VersionMetadataExecute method.
-	VersionMetadataExecuteFunc func(r ApiVersionMetadataRequest) (VersionMetadata, *_nethttp.Response, error)
+	// GetVersionMetadataExecuteFunc mocks the GetVersionMetadataExecute method.
+	GetVersionMetadataExecuteFunc func(r ApiGetVersionMetadataRequest) (VersionMetadata, *_nethttp.Response, error)
 
 	// calls tracks calls to the methods.
 	calls struct {
@@ -218,16 +158,6 @@ type DefaultApiMock struct {
 			// R is the r argument value.
 			R ApiCreateKafkaRequest
 		}
-		// CreateServiceAccount holds details about calls to the CreateServiceAccount method.
-		CreateServiceAccount []struct {
-			// Ctx is the ctx argument value.
-			Ctx _context.Context
-		}
-		// CreateServiceAccountExecute holds details about calls to the CreateServiceAccountExecute method.
-		CreateServiceAccountExecute []struct {
-			// R is the r argument value.
-			R ApiCreateServiceAccountRequest
-		}
 		// DeleteKafkaById holds details about calls to the DeleteKafkaById method.
 		DeleteKafkaById []struct {
 			// Ctx is the ctx argument value.
@@ -240,17 +170,27 @@ type DefaultApiMock struct {
 			// R is the r argument value.
 			R ApiDeleteKafkaByIdRequest
 		}
-		// DeleteServiceAccount holds details about calls to the DeleteServiceAccount method.
-		DeleteServiceAccount []struct {
+		// GetCloudProviderRegions holds details about calls to the GetCloudProviderRegions method.
+		GetCloudProviderRegions []struct {
 			// Ctx is the ctx argument value.
 			Ctx _context.Context
 			// ID is the id argument value.
 			ID string
 		}
-		// DeleteServiceAccountExecute holds details about calls to the DeleteServiceAccountExecute method.
-		DeleteServiceAccountExecute []struct {
+		// GetCloudProviderRegionsExecute holds details about calls to the GetCloudProviderRegionsExecute method.
+		GetCloudProviderRegionsExecute []struct {
 			// R is the r argument value.
-			R ApiDeleteServiceAccountRequest
+			R ApiGetCloudProviderRegionsRequest
+		}
+		// GetCloudProviders holds details about calls to the GetCloudProviders method.
+		GetCloudProviders []struct {
+			// Ctx is the ctx argument value.
+			Ctx _context.Context
+		}
+		// GetCloudProvidersExecute holds details about calls to the GetCloudProvidersExecute method.
+		GetCloudProvidersExecute []struct {
+			// R is the r argument value.
+			R ApiGetCloudProvidersRequest
 		}
 		// GetKafkaById holds details about calls to the GetKafkaById method.
 		GetKafkaById []struct {
@@ -263,6 +203,16 @@ type DefaultApiMock struct {
 		GetKafkaByIdExecute []struct {
 			// R is the r argument value.
 			R ApiGetKafkaByIdRequest
+		}
+		// GetKafkas holds details about calls to the GetKafkas method.
+		GetKafkas []struct {
+			// Ctx is the ctx argument value.
+			Ctx _context.Context
+		}
+		// GetKafkasExecute holds details about calls to the GetKafkasExecute method.
+		GetKafkasExecute []struct {
+			// R is the r argument value.
+			R ApiGetKafkasRequest
 		}
 		// GetMetricsByInstantQuery holds details about calls to the GetMetricsByInstantQuery method.
 		GetMetricsByInstantQuery []struct {
@@ -288,123 +238,47 @@ type DefaultApiMock struct {
 			// R is the r argument value.
 			R ApiGetMetricsByRangeQueryRequest
 		}
-		// GetServiceAccountById holds details about calls to the GetServiceAccountById method.
-		GetServiceAccountById []struct {
-			// Ctx is the ctx argument value.
-			Ctx _context.Context
-			// ID is the id argument value.
-			ID string
-		}
-		// GetServiceAccountByIdExecute holds details about calls to the GetServiceAccountByIdExecute method.
-		GetServiceAccountByIdExecute []struct {
-			// R is the r argument value.
-			R ApiGetServiceAccountByIdRequest
-		}
-		// ListCloudProviderRegions holds details about calls to the ListCloudProviderRegions method.
-		ListCloudProviderRegions []struct {
-			// Ctx is the ctx argument value.
-			Ctx _context.Context
-			// ID is the id argument value.
-			ID string
-		}
-		// ListCloudProviderRegionsExecute holds details about calls to the ListCloudProviderRegionsExecute method.
-		ListCloudProviderRegionsExecute []struct {
-			// R is the r argument value.
-			R ApiListCloudProviderRegionsRequest
-		}
-		// ListCloudProviders holds details about calls to the ListCloudProviders method.
-		ListCloudProviders []struct {
+		// GetServiceStatus holds details about calls to the GetServiceStatus method.
+		GetServiceStatus []struct {
 			// Ctx is the ctx argument value.
 			Ctx _context.Context
 		}
-		// ListCloudProvidersExecute holds details about calls to the ListCloudProvidersExecute method.
-		ListCloudProvidersExecute []struct {
+		// GetServiceStatusExecute holds details about calls to the GetServiceStatusExecute method.
+		GetServiceStatusExecute []struct {
 			// R is the r argument value.
-			R ApiListCloudProvidersRequest
+			R ApiGetServiceStatusRequest
 		}
-		// ListKafkas holds details about calls to the ListKafkas method.
-		ListKafkas []struct {
+		// GetVersionMetadata holds details about calls to the GetVersionMetadata method.
+		GetVersionMetadata []struct {
 			// Ctx is the ctx argument value.
 			Ctx _context.Context
 		}
-		// ListKafkasExecute holds details about calls to the ListKafkasExecute method.
-		ListKafkasExecute []struct {
+		// GetVersionMetadataExecute holds details about calls to the GetVersionMetadataExecute method.
+		GetVersionMetadataExecute []struct {
 			// R is the r argument value.
-			R ApiListKafkasRequest
-		}
-		// ListServiceAccounts holds details about calls to the ListServiceAccounts method.
-		ListServiceAccounts []struct {
-			// Ctx is the ctx argument value.
-			Ctx _context.Context
-		}
-		// ListServiceAccountsExecute holds details about calls to the ListServiceAccountsExecute method.
-		ListServiceAccountsExecute []struct {
-			// R is the r argument value.
-			R ApiListServiceAccountsRequest
-		}
-		// ResetServiceAccountCreds holds details about calls to the ResetServiceAccountCreds method.
-		ResetServiceAccountCreds []struct {
-			// Ctx is the ctx argument value.
-			Ctx _context.Context
-			// ID is the id argument value.
-			ID string
-		}
-		// ResetServiceAccountCredsExecute holds details about calls to the ResetServiceAccountCredsExecute method.
-		ResetServiceAccountCredsExecute []struct {
-			// R is the r argument value.
-			R ApiResetServiceAccountCredsRequest
-		}
-		// ServiceStatus holds details about calls to the ServiceStatus method.
-		ServiceStatus []struct {
-			// Ctx is the ctx argument value.
-			Ctx _context.Context
-		}
-		// ServiceStatusExecute holds details about calls to the ServiceStatusExecute method.
-		ServiceStatusExecute []struct {
-			// R is the r argument value.
-			R ApiServiceStatusRequest
-		}
-		// VersionMetadata holds details about calls to the VersionMetadata method.
-		VersionMetadata []struct {
-			// Ctx is the ctx argument value.
-			Ctx _context.Context
-		}
-		// VersionMetadataExecute holds details about calls to the VersionMetadataExecute method.
-		VersionMetadataExecute []struct {
-			// R is the r argument value.
-			R ApiVersionMetadataRequest
+			R ApiGetVersionMetadataRequest
 		}
 	}
 	lockCreateKafka                     sync.RWMutex
 	lockCreateKafkaExecute              sync.RWMutex
-	lockCreateServiceAccount            sync.RWMutex
-	lockCreateServiceAccountExecute     sync.RWMutex
 	lockDeleteKafkaById                 sync.RWMutex
 	lockDeleteKafkaByIdExecute          sync.RWMutex
-	lockDeleteServiceAccount            sync.RWMutex
-	lockDeleteServiceAccountExecute     sync.RWMutex
+	lockGetCloudProviderRegions         sync.RWMutex
+	lockGetCloudProviderRegionsExecute  sync.RWMutex
+	lockGetCloudProviders               sync.RWMutex
+	lockGetCloudProvidersExecute        sync.RWMutex
 	lockGetKafkaById                    sync.RWMutex
 	lockGetKafkaByIdExecute             sync.RWMutex
+	lockGetKafkas                       sync.RWMutex
+	lockGetKafkasExecute                sync.RWMutex
 	lockGetMetricsByInstantQuery        sync.RWMutex
 	lockGetMetricsByInstantQueryExecute sync.RWMutex
 	lockGetMetricsByRangeQuery          sync.RWMutex
 	lockGetMetricsByRangeQueryExecute   sync.RWMutex
-	lockGetServiceAccountById           sync.RWMutex
-	lockGetServiceAccountByIdExecute    sync.RWMutex
-	lockListCloudProviderRegions        sync.RWMutex
-	lockListCloudProviderRegionsExecute sync.RWMutex
-	lockListCloudProviders              sync.RWMutex
-	lockListCloudProvidersExecute       sync.RWMutex
-	lockListKafkas                      sync.RWMutex
-	lockListKafkasExecute               sync.RWMutex
-	lockListServiceAccounts             sync.RWMutex
-	lockListServiceAccountsExecute      sync.RWMutex
-	lockResetServiceAccountCreds        sync.RWMutex
-	lockResetServiceAccountCredsExecute sync.RWMutex
-	lockServiceStatus                   sync.RWMutex
-	lockServiceStatusExecute            sync.RWMutex
-	lockVersionMetadata                 sync.RWMutex
-	lockVersionMetadataExecute          sync.RWMutex
+	lockGetServiceStatus                sync.RWMutex
+	lockGetServiceStatusExecute         sync.RWMutex
+	lockGetVersionMetadata              sync.RWMutex
+	lockGetVersionMetadataExecute       sync.RWMutex
 }
 
 // CreateKafka calls CreateKafkaFunc.
@@ -466,68 +340,6 @@ func (mock *DefaultApiMock) CreateKafkaExecuteCalls() []struct {
 	mock.lockCreateKafkaExecute.RLock()
 	calls = mock.calls.CreateKafkaExecute
 	mock.lockCreateKafkaExecute.RUnlock()
-	return calls
-}
-
-// CreateServiceAccount calls CreateServiceAccountFunc.
-func (mock *DefaultApiMock) CreateServiceAccount(ctx _context.Context) ApiCreateServiceAccountRequest {
-	if mock.CreateServiceAccountFunc == nil {
-		panic("DefaultApiMock.CreateServiceAccountFunc: method is nil but DefaultApi.CreateServiceAccount was just called")
-	}
-	callInfo := struct {
-		Ctx _context.Context
-	}{
-		Ctx: ctx,
-	}
-	mock.lockCreateServiceAccount.Lock()
-	mock.calls.CreateServiceAccount = append(mock.calls.CreateServiceAccount, callInfo)
-	mock.lockCreateServiceAccount.Unlock()
-	return mock.CreateServiceAccountFunc(ctx)
-}
-
-// CreateServiceAccountCalls gets all the calls that were made to CreateServiceAccount.
-// Check the length with:
-//     len(mockedDefaultApi.CreateServiceAccountCalls())
-func (mock *DefaultApiMock) CreateServiceAccountCalls() []struct {
-	Ctx _context.Context
-} {
-	var calls []struct {
-		Ctx _context.Context
-	}
-	mock.lockCreateServiceAccount.RLock()
-	calls = mock.calls.CreateServiceAccount
-	mock.lockCreateServiceAccount.RUnlock()
-	return calls
-}
-
-// CreateServiceAccountExecute calls CreateServiceAccountExecuteFunc.
-func (mock *DefaultApiMock) CreateServiceAccountExecute(r ApiCreateServiceAccountRequest) (ServiceAccount, *_nethttp.Response, error) {
-	if mock.CreateServiceAccountExecuteFunc == nil {
-		panic("DefaultApiMock.CreateServiceAccountExecuteFunc: method is nil but DefaultApi.CreateServiceAccountExecute was just called")
-	}
-	callInfo := struct {
-		R ApiCreateServiceAccountRequest
-	}{
-		R: r,
-	}
-	mock.lockCreateServiceAccountExecute.Lock()
-	mock.calls.CreateServiceAccountExecute = append(mock.calls.CreateServiceAccountExecute, callInfo)
-	mock.lockCreateServiceAccountExecute.Unlock()
-	return mock.CreateServiceAccountExecuteFunc(r)
-}
-
-// CreateServiceAccountExecuteCalls gets all the calls that were made to CreateServiceAccountExecute.
-// Check the length with:
-//     len(mockedDefaultApi.CreateServiceAccountExecuteCalls())
-func (mock *DefaultApiMock) CreateServiceAccountExecuteCalls() []struct {
-	R ApiCreateServiceAccountRequest
-} {
-	var calls []struct {
-		R ApiCreateServiceAccountRequest
-	}
-	mock.lockCreateServiceAccountExecute.RLock()
-	calls = mock.calls.CreateServiceAccountExecute
-	mock.lockCreateServiceAccountExecute.RUnlock()
 	return calls
 }
 
@@ -597,10 +409,10 @@ func (mock *DefaultApiMock) DeleteKafkaByIdExecuteCalls() []struct {
 	return calls
 }
 
-// DeleteServiceAccount calls DeleteServiceAccountFunc.
-func (mock *DefaultApiMock) DeleteServiceAccount(ctx _context.Context, id string) ApiDeleteServiceAccountRequest {
-	if mock.DeleteServiceAccountFunc == nil {
-		panic("DefaultApiMock.DeleteServiceAccountFunc: method is nil but DefaultApi.DeleteServiceAccount was just called")
+// GetCloudProviderRegions calls GetCloudProviderRegionsFunc.
+func (mock *DefaultApiMock) GetCloudProviderRegions(ctx _context.Context, id string) ApiGetCloudProviderRegionsRequest {
+	if mock.GetCloudProviderRegionsFunc == nil {
+		panic("DefaultApiMock.GetCloudProviderRegionsFunc: method is nil but DefaultApi.GetCloudProviderRegions was just called")
 	}
 	callInfo := struct {
 		Ctx _context.Context
@@ -609,16 +421,16 @@ func (mock *DefaultApiMock) DeleteServiceAccount(ctx _context.Context, id string
 		Ctx: ctx,
 		ID:  id,
 	}
-	mock.lockDeleteServiceAccount.Lock()
-	mock.calls.DeleteServiceAccount = append(mock.calls.DeleteServiceAccount, callInfo)
-	mock.lockDeleteServiceAccount.Unlock()
-	return mock.DeleteServiceAccountFunc(ctx, id)
+	mock.lockGetCloudProviderRegions.Lock()
+	mock.calls.GetCloudProviderRegions = append(mock.calls.GetCloudProviderRegions, callInfo)
+	mock.lockGetCloudProviderRegions.Unlock()
+	return mock.GetCloudProviderRegionsFunc(ctx, id)
 }
 
-// DeleteServiceAccountCalls gets all the calls that were made to DeleteServiceAccount.
+// GetCloudProviderRegionsCalls gets all the calls that were made to GetCloudProviderRegions.
 // Check the length with:
-//     len(mockedDefaultApi.DeleteServiceAccountCalls())
-func (mock *DefaultApiMock) DeleteServiceAccountCalls() []struct {
+//     len(mockedDefaultApi.GetCloudProviderRegionsCalls())
+func (mock *DefaultApiMock) GetCloudProviderRegionsCalls() []struct {
 	Ctx _context.Context
 	ID  string
 } {
@@ -626,40 +438,102 @@ func (mock *DefaultApiMock) DeleteServiceAccountCalls() []struct {
 		Ctx _context.Context
 		ID  string
 	}
-	mock.lockDeleteServiceAccount.RLock()
-	calls = mock.calls.DeleteServiceAccount
-	mock.lockDeleteServiceAccount.RUnlock()
+	mock.lockGetCloudProviderRegions.RLock()
+	calls = mock.calls.GetCloudProviderRegions
+	mock.lockGetCloudProviderRegions.RUnlock()
 	return calls
 }
 
-// DeleteServiceAccountExecute calls DeleteServiceAccountExecuteFunc.
-func (mock *DefaultApiMock) DeleteServiceAccountExecute(r ApiDeleteServiceAccountRequest) (Error, *_nethttp.Response, error) {
-	if mock.DeleteServiceAccountExecuteFunc == nil {
-		panic("DefaultApiMock.DeleteServiceAccountExecuteFunc: method is nil but DefaultApi.DeleteServiceAccountExecute was just called")
+// GetCloudProviderRegionsExecute calls GetCloudProviderRegionsExecuteFunc.
+func (mock *DefaultApiMock) GetCloudProviderRegionsExecute(r ApiGetCloudProviderRegionsRequest) (CloudRegionList, *_nethttp.Response, error) {
+	if mock.GetCloudProviderRegionsExecuteFunc == nil {
+		panic("DefaultApiMock.GetCloudProviderRegionsExecuteFunc: method is nil but DefaultApi.GetCloudProviderRegionsExecute was just called")
 	}
 	callInfo := struct {
-		R ApiDeleteServiceAccountRequest
+		R ApiGetCloudProviderRegionsRequest
 	}{
 		R: r,
 	}
-	mock.lockDeleteServiceAccountExecute.Lock()
-	mock.calls.DeleteServiceAccountExecute = append(mock.calls.DeleteServiceAccountExecute, callInfo)
-	mock.lockDeleteServiceAccountExecute.Unlock()
-	return mock.DeleteServiceAccountExecuteFunc(r)
+	mock.lockGetCloudProviderRegionsExecute.Lock()
+	mock.calls.GetCloudProviderRegionsExecute = append(mock.calls.GetCloudProviderRegionsExecute, callInfo)
+	mock.lockGetCloudProviderRegionsExecute.Unlock()
+	return mock.GetCloudProviderRegionsExecuteFunc(r)
 }
 
-// DeleteServiceAccountExecuteCalls gets all the calls that were made to DeleteServiceAccountExecute.
+// GetCloudProviderRegionsExecuteCalls gets all the calls that were made to GetCloudProviderRegionsExecute.
 // Check the length with:
-//     len(mockedDefaultApi.DeleteServiceAccountExecuteCalls())
-func (mock *DefaultApiMock) DeleteServiceAccountExecuteCalls() []struct {
-	R ApiDeleteServiceAccountRequest
+//     len(mockedDefaultApi.GetCloudProviderRegionsExecuteCalls())
+func (mock *DefaultApiMock) GetCloudProviderRegionsExecuteCalls() []struct {
+	R ApiGetCloudProviderRegionsRequest
 } {
 	var calls []struct {
-		R ApiDeleteServiceAccountRequest
+		R ApiGetCloudProviderRegionsRequest
 	}
-	mock.lockDeleteServiceAccountExecute.RLock()
-	calls = mock.calls.DeleteServiceAccountExecute
-	mock.lockDeleteServiceAccountExecute.RUnlock()
+	mock.lockGetCloudProviderRegionsExecute.RLock()
+	calls = mock.calls.GetCloudProviderRegionsExecute
+	mock.lockGetCloudProviderRegionsExecute.RUnlock()
+	return calls
+}
+
+// GetCloudProviders calls GetCloudProvidersFunc.
+func (mock *DefaultApiMock) GetCloudProviders(ctx _context.Context) ApiGetCloudProvidersRequest {
+	if mock.GetCloudProvidersFunc == nil {
+		panic("DefaultApiMock.GetCloudProvidersFunc: method is nil but DefaultApi.GetCloudProviders was just called")
+	}
+	callInfo := struct {
+		Ctx _context.Context
+	}{
+		Ctx: ctx,
+	}
+	mock.lockGetCloudProviders.Lock()
+	mock.calls.GetCloudProviders = append(mock.calls.GetCloudProviders, callInfo)
+	mock.lockGetCloudProviders.Unlock()
+	return mock.GetCloudProvidersFunc(ctx)
+}
+
+// GetCloudProvidersCalls gets all the calls that were made to GetCloudProviders.
+// Check the length with:
+//     len(mockedDefaultApi.GetCloudProvidersCalls())
+func (mock *DefaultApiMock) GetCloudProvidersCalls() []struct {
+	Ctx _context.Context
+} {
+	var calls []struct {
+		Ctx _context.Context
+	}
+	mock.lockGetCloudProviders.RLock()
+	calls = mock.calls.GetCloudProviders
+	mock.lockGetCloudProviders.RUnlock()
+	return calls
+}
+
+// GetCloudProvidersExecute calls GetCloudProvidersExecuteFunc.
+func (mock *DefaultApiMock) GetCloudProvidersExecute(r ApiGetCloudProvidersRequest) (CloudProviderList, *_nethttp.Response, error) {
+	if mock.GetCloudProvidersExecuteFunc == nil {
+		panic("DefaultApiMock.GetCloudProvidersExecuteFunc: method is nil but DefaultApi.GetCloudProvidersExecute was just called")
+	}
+	callInfo := struct {
+		R ApiGetCloudProvidersRequest
+	}{
+		R: r,
+	}
+	mock.lockGetCloudProvidersExecute.Lock()
+	mock.calls.GetCloudProvidersExecute = append(mock.calls.GetCloudProvidersExecute, callInfo)
+	mock.lockGetCloudProvidersExecute.Unlock()
+	return mock.GetCloudProvidersExecuteFunc(r)
+}
+
+// GetCloudProvidersExecuteCalls gets all the calls that were made to GetCloudProvidersExecute.
+// Check the length with:
+//     len(mockedDefaultApi.GetCloudProvidersExecuteCalls())
+func (mock *DefaultApiMock) GetCloudProvidersExecuteCalls() []struct {
+	R ApiGetCloudProvidersRequest
+} {
+	var calls []struct {
+		R ApiGetCloudProvidersRequest
+	}
+	mock.lockGetCloudProvidersExecute.RLock()
+	calls = mock.calls.GetCloudProvidersExecute
+	mock.lockGetCloudProvidersExecute.RUnlock()
 	return calls
 }
 
@@ -726,6 +600,68 @@ func (mock *DefaultApiMock) GetKafkaByIdExecuteCalls() []struct {
 	mock.lockGetKafkaByIdExecute.RLock()
 	calls = mock.calls.GetKafkaByIdExecute
 	mock.lockGetKafkaByIdExecute.RUnlock()
+	return calls
+}
+
+// GetKafkas calls GetKafkasFunc.
+func (mock *DefaultApiMock) GetKafkas(ctx _context.Context) ApiGetKafkasRequest {
+	if mock.GetKafkasFunc == nil {
+		panic("DefaultApiMock.GetKafkasFunc: method is nil but DefaultApi.GetKafkas was just called")
+	}
+	callInfo := struct {
+		Ctx _context.Context
+	}{
+		Ctx: ctx,
+	}
+	mock.lockGetKafkas.Lock()
+	mock.calls.GetKafkas = append(mock.calls.GetKafkas, callInfo)
+	mock.lockGetKafkas.Unlock()
+	return mock.GetKafkasFunc(ctx)
+}
+
+// GetKafkasCalls gets all the calls that were made to GetKafkas.
+// Check the length with:
+//     len(mockedDefaultApi.GetKafkasCalls())
+func (mock *DefaultApiMock) GetKafkasCalls() []struct {
+	Ctx _context.Context
+} {
+	var calls []struct {
+		Ctx _context.Context
+	}
+	mock.lockGetKafkas.RLock()
+	calls = mock.calls.GetKafkas
+	mock.lockGetKafkas.RUnlock()
+	return calls
+}
+
+// GetKafkasExecute calls GetKafkasExecuteFunc.
+func (mock *DefaultApiMock) GetKafkasExecute(r ApiGetKafkasRequest) (KafkaRequestList, *_nethttp.Response, error) {
+	if mock.GetKafkasExecuteFunc == nil {
+		panic("DefaultApiMock.GetKafkasExecuteFunc: method is nil but DefaultApi.GetKafkasExecute was just called")
+	}
+	callInfo := struct {
+		R ApiGetKafkasRequest
+	}{
+		R: r,
+	}
+	mock.lockGetKafkasExecute.Lock()
+	mock.calls.GetKafkasExecute = append(mock.calls.GetKafkasExecute, callInfo)
+	mock.lockGetKafkasExecute.Unlock()
+	return mock.GetKafkasExecuteFunc(r)
+}
+
+// GetKafkasExecuteCalls gets all the calls that were made to GetKafkasExecute.
+// Check the length with:
+//     len(mockedDefaultApi.GetKafkasExecuteCalls())
+func (mock *DefaultApiMock) GetKafkasExecuteCalls() []struct {
+	R ApiGetKafkasRequest
+} {
+	var calls []struct {
+		R ApiGetKafkasRequest
+	}
+	mock.lockGetKafkasExecute.RLock()
+	calls = mock.calls.GetKafkasExecute
+	mock.lockGetKafkasExecute.RUnlock()
 	return calls
 }
 
@@ -861,510 +797,126 @@ func (mock *DefaultApiMock) GetMetricsByRangeQueryExecuteCalls() []struct {
 	return calls
 }
 
-// GetServiceAccountById calls GetServiceAccountByIdFunc.
-func (mock *DefaultApiMock) GetServiceAccountById(ctx _context.Context, id string) ApiGetServiceAccountByIdRequest {
-	if mock.GetServiceAccountByIdFunc == nil {
-		panic("DefaultApiMock.GetServiceAccountByIdFunc: method is nil but DefaultApi.GetServiceAccountById was just called")
-	}
-	callInfo := struct {
-		Ctx _context.Context
-		ID  string
-	}{
-		Ctx: ctx,
-		ID:  id,
-	}
-	mock.lockGetServiceAccountById.Lock()
-	mock.calls.GetServiceAccountById = append(mock.calls.GetServiceAccountById, callInfo)
-	mock.lockGetServiceAccountById.Unlock()
-	return mock.GetServiceAccountByIdFunc(ctx, id)
-}
-
-// GetServiceAccountByIdCalls gets all the calls that were made to GetServiceAccountById.
-// Check the length with:
-//     len(mockedDefaultApi.GetServiceAccountByIdCalls())
-func (mock *DefaultApiMock) GetServiceAccountByIdCalls() []struct {
-	Ctx _context.Context
-	ID  string
-} {
-	var calls []struct {
-		Ctx _context.Context
-		ID  string
-	}
-	mock.lockGetServiceAccountById.RLock()
-	calls = mock.calls.GetServiceAccountById
-	mock.lockGetServiceAccountById.RUnlock()
-	return calls
-}
-
-// GetServiceAccountByIdExecute calls GetServiceAccountByIdExecuteFunc.
-func (mock *DefaultApiMock) GetServiceAccountByIdExecute(r ApiGetServiceAccountByIdRequest) (ServiceAccount, *_nethttp.Response, error) {
-	if mock.GetServiceAccountByIdExecuteFunc == nil {
-		panic("DefaultApiMock.GetServiceAccountByIdExecuteFunc: method is nil but DefaultApi.GetServiceAccountByIdExecute was just called")
-	}
-	callInfo := struct {
-		R ApiGetServiceAccountByIdRequest
-	}{
-		R: r,
-	}
-	mock.lockGetServiceAccountByIdExecute.Lock()
-	mock.calls.GetServiceAccountByIdExecute = append(mock.calls.GetServiceAccountByIdExecute, callInfo)
-	mock.lockGetServiceAccountByIdExecute.Unlock()
-	return mock.GetServiceAccountByIdExecuteFunc(r)
-}
-
-// GetServiceAccountByIdExecuteCalls gets all the calls that were made to GetServiceAccountByIdExecute.
-// Check the length with:
-//     len(mockedDefaultApi.GetServiceAccountByIdExecuteCalls())
-func (mock *DefaultApiMock) GetServiceAccountByIdExecuteCalls() []struct {
-	R ApiGetServiceAccountByIdRequest
-} {
-	var calls []struct {
-		R ApiGetServiceAccountByIdRequest
-	}
-	mock.lockGetServiceAccountByIdExecute.RLock()
-	calls = mock.calls.GetServiceAccountByIdExecute
-	mock.lockGetServiceAccountByIdExecute.RUnlock()
-	return calls
-}
-
-// ListCloudProviderRegions calls ListCloudProviderRegionsFunc.
-func (mock *DefaultApiMock) ListCloudProviderRegions(ctx _context.Context, id string) ApiListCloudProviderRegionsRequest {
-	if mock.ListCloudProviderRegionsFunc == nil {
-		panic("DefaultApiMock.ListCloudProviderRegionsFunc: method is nil but DefaultApi.ListCloudProviderRegions was just called")
-	}
-	callInfo := struct {
-		Ctx _context.Context
-		ID  string
-	}{
-		Ctx: ctx,
-		ID:  id,
-	}
-	mock.lockListCloudProviderRegions.Lock()
-	mock.calls.ListCloudProviderRegions = append(mock.calls.ListCloudProviderRegions, callInfo)
-	mock.lockListCloudProviderRegions.Unlock()
-	return mock.ListCloudProviderRegionsFunc(ctx, id)
-}
-
-// ListCloudProviderRegionsCalls gets all the calls that were made to ListCloudProviderRegions.
-// Check the length with:
-//     len(mockedDefaultApi.ListCloudProviderRegionsCalls())
-func (mock *DefaultApiMock) ListCloudProviderRegionsCalls() []struct {
-	Ctx _context.Context
-	ID  string
-} {
-	var calls []struct {
-		Ctx _context.Context
-		ID  string
-	}
-	mock.lockListCloudProviderRegions.RLock()
-	calls = mock.calls.ListCloudProviderRegions
-	mock.lockListCloudProviderRegions.RUnlock()
-	return calls
-}
-
-// ListCloudProviderRegionsExecute calls ListCloudProviderRegionsExecuteFunc.
-func (mock *DefaultApiMock) ListCloudProviderRegionsExecute(r ApiListCloudProviderRegionsRequest) (CloudRegionList, *_nethttp.Response, error) {
-	if mock.ListCloudProviderRegionsExecuteFunc == nil {
-		panic("DefaultApiMock.ListCloudProviderRegionsExecuteFunc: method is nil but DefaultApi.ListCloudProviderRegionsExecute was just called")
-	}
-	callInfo := struct {
-		R ApiListCloudProviderRegionsRequest
-	}{
-		R: r,
-	}
-	mock.lockListCloudProviderRegionsExecute.Lock()
-	mock.calls.ListCloudProviderRegionsExecute = append(mock.calls.ListCloudProviderRegionsExecute, callInfo)
-	mock.lockListCloudProviderRegionsExecute.Unlock()
-	return mock.ListCloudProviderRegionsExecuteFunc(r)
-}
-
-// ListCloudProviderRegionsExecuteCalls gets all the calls that were made to ListCloudProviderRegionsExecute.
-// Check the length with:
-//     len(mockedDefaultApi.ListCloudProviderRegionsExecuteCalls())
-func (mock *DefaultApiMock) ListCloudProviderRegionsExecuteCalls() []struct {
-	R ApiListCloudProviderRegionsRequest
-} {
-	var calls []struct {
-		R ApiListCloudProviderRegionsRequest
-	}
-	mock.lockListCloudProviderRegionsExecute.RLock()
-	calls = mock.calls.ListCloudProviderRegionsExecute
-	mock.lockListCloudProviderRegionsExecute.RUnlock()
-	return calls
-}
-
-// ListCloudProviders calls ListCloudProvidersFunc.
-func (mock *DefaultApiMock) ListCloudProviders(ctx _context.Context) ApiListCloudProvidersRequest {
-	if mock.ListCloudProvidersFunc == nil {
-		panic("DefaultApiMock.ListCloudProvidersFunc: method is nil but DefaultApi.ListCloudProviders was just called")
+// GetServiceStatus calls GetServiceStatusFunc.
+func (mock *DefaultApiMock) GetServiceStatus(ctx _context.Context) ApiGetServiceStatusRequest {
+	if mock.GetServiceStatusFunc == nil {
+		panic("DefaultApiMock.GetServiceStatusFunc: method is nil but DefaultApi.GetServiceStatus was just called")
 	}
 	callInfo := struct {
 		Ctx _context.Context
 	}{
 		Ctx: ctx,
 	}
-	mock.lockListCloudProviders.Lock()
-	mock.calls.ListCloudProviders = append(mock.calls.ListCloudProviders, callInfo)
-	mock.lockListCloudProviders.Unlock()
-	return mock.ListCloudProvidersFunc(ctx)
+	mock.lockGetServiceStatus.Lock()
+	mock.calls.GetServiceStatus = append(mock.calls.GetServiceStatus, callInfo)
+	mock.lockGetServiceStatus.Unlock()
+	return mock.GetServiceStatusFunc(ctx)
 }
 
-// ListCloudProvidersCalls gets all the calls that were made to ListCloudProviders.
+// GetServiceStatusCalls gets all the calls that were made to GetServiceStatus.
 // Check the length with:
-//     len(mockedDefaultApi.ListCloudProvidersCalls())
-func (mock *DefaultApiMock) ListCloudProvidersCalls() []struct {
+//     len(mockedDefaultApi.GetServiceStatusCalls())
+func (mock *DefaultApiMock) GetServiceStatusCalls() []struct {
 	Ctx _context.Context
 } {
 	var calls []struct {
 		Ctx _context.Context
 	}
-	mock.lockListCloudProviders.RLock()
-	calls = mock.calls.ListCloudProviders
-	mock.lockListCloudProviders.RUnlock()
+	mock.lockGetServiceStatus.RLock()
+	calls = mock.calls.GetServiceStatus
+	mock.lockGetServiceStatus.RUnlock()
 	return calls
 }
 
-// ListCloudProvidersExecute calls ListCloudProvidersExecuteFunc.
-func (mock *DefaultApiMock) ListCloudProvidersExecute(r ApiListCloudProvidersRequest) (CloudProviderList, *_nethttp.Response, error) {
-	if mock.ListCloudProvidersExecuteFunc == nil {
-		panic("DefaultApiMock.ListCloudProvidersExecuteFunc: method is nil but DefaultApi.ListCloudProvidersExecute was just called")
+// GetServiceStatusExecute calls GetServiceStatusExecuteFunc.
+func (mock *DefaultApiMock) GetServiceStatusExecute(r ApiGetServiceStatusRequest) (ServiceStatus, *_nethttp.Response, error) {
+	if mock.GetServiceStatusExecuteFunc == nil {
+		panic("DefaultApiMock.GetServiceStatusExecuteFunc: method is nil but DefaultApi.GetServiceStatusExecute was just called")
 	}
 	callInfo := struct {
-		R ApiListCloudProvidersRequest
+		R ApiGetServiceStatusRequest
 	}{
 		R: r,
 	}
-	mock.lockListCloudProvidersExecute.Lock()
-	mock.calls.ListCloudProvidersExecute = append(mock.calls.ListCloudProvidersExecute, callInfo)
-	mock.lockListCloudProvidersExecute.Unlock()
-	return mock.ListCloudProvidersExecuteFunc(r)
+	mock.lockGetServiceStatusExecute.Lock()
+	mock.calls.GetServiceStatusExecute = append(mock.calls.GetServiceStatusExecute, callInfo)
+	mock.lockGetServiceStatusExecute.Unlock()
+	return mock.GetServiceStatusExecuteFunc(r)
 }
 
-// ListCloudProvidersExecuteCalls gets all the calls that were made to ListCloudProvidersExecute.
+// GetServiceStatusExecuteCalls gets all the calls that were made to GetServiceStatusExecute.
 // Check the length with:
-//     len(mockedDefaultApi.ListCloudProvidersExecuteCalls())
-func (mock *DefaultApiMock) ListCloudProvidersExecuteCalls() []struct {
-	R ApiListCloudProvidersRequest
+//     len(mockedDefaultApi.GetServiceStatusExecuteCalls())
+func (mock *DefaultApiMock) GetServiceStatusExecuteCalls() []struct {
+	R ApiGetServiceStatusRequest
 } {
 	var calls []struct {
-		R ApiListCloudProvidersRequest
+		R ApiGetServiceStatusRequest
 	}
-	mock.lockListCloudProvidersExecute.RLock()
-	calls = mock.calls.ListCloudProvidersExecute
-	mock.lockListCloudProvidersExecute.RUnlock()
+	mock.lockGetServiceStatusExecute.RLock()
+	calls = mock.calls.GetServiceStatusExecute
+	mock.lockGetServiceStatusExecute.RUnlock()
 	return calls
 }
 
-// ListKafkas calls ListKafkasFunc.
-func (mock *DefaultApiMock) ListKafkas(ctx _context.Context) ApiListKafkasRequest {
-	if mock.ListKafkasFunc == nil {
-		panic("DefaultApiMock.ListKafkasFunc: method is nil but DefaultApi.ListKafkas was just called")
+// GetVersionMetadata calls GetVersionMetadataFunc.
+func (mock *DefaultApiMock) GetVersionMetadata(ctx _context.Context) ApiGetVersionMetadataRequest {
+	if mock.GetVersionMetadataFunc == nil {
+		panic("DefaultApiMock.GetVersionMetadataFunc: method is nil but DefaultApi.GetVersionMetadata was just called")
 	}
 	callInfo := struct {
 		Ctx _context.Context
 	}{
 		Ctx: ctx,
 	}
-	mock.lockListKafkas.Lock()
-	mock.calls.ListKafkas = append(mock.calls.ListKafkas, callInfo)
-	mock.lockListKafkas.Unlock()
-	return mock.ListKafkasFunc(ctx)
+	mock.lockGetVersionMetadata.Lock()
+	mock.calls.GetVersionMetadata = append(mock.calls.GetVersionMetadata, callInfo)
+	mock.lockGetVersionMetadata.Unlock()
+	return mock.GetVersionMetadataFunc(ctx)
 }
 
-// ListKafkasCalls gets all the calls that were made to ListKafkas.
+// GetVersionMetadataCalls gets all the calls that were made to GetVersionMetadata.
 // Check the length with:
-//     len(mockedDefaultApi.ListKafkasCalls())
-func (mock *DefaultApiMock) ListKafkasCalls() []struct {
+//     len(mockedDefaultApi.GetVersionMetadataCalls())
+func (mock *DefaultApiMock) GetVersionMetadataCalls() []struct {
 	Ctx _context.Context
 } {
 	var calls []struct {
 		Ctx _context.Context
 	}
-	mock.lockListKafkas.RLock()
-	calls = mock.calls.ListKafkas
-	mock.lockListKafkas.RUnlock()
+	mock.lockGetVersionMetadata.RLock()
+	calls = mock.calls.GetVersionMetadata
+	mock.lockGetVersionMetadata.RUnlock()
 	return calls
 }
 
-// ListKafkasExecute calls ListKafkasExecuteFunc.
-func (mock *DefaultApiMock) ListKafkasExecute(r ApiListKafkasRequest) (KafkaRequestList, *_nethttp.Response, error) {
-	if mock.ListKafkasExecuteFunc == nil {
-		panic("DefaultApiMock.ListKafkasExecuteFunc: method is nil but DefaultApi.ListKafkasExecute was just called")
+// GetVersionMetadataExecute calls GetVersionMetadataExecuteFunc.
+func (mock *DefaultApiMock) GetVersionMetadataExecute(r ApiGetVersionMetadataRequest) (VersionMetadata, *_nethttp.Response, error) {
+	if mock.GetVersionMetadataExecuteFunc == nil {
+		panic("DefaultApiMock.GetVersionMetadataExecuteFunc: method is nil but DefaultApi.GetVersionMetadataExecute was just called")
 	}
 	callInfo := struct {
-		R ApiListKafkasRequest
+		R ApiGetVersionMetadataRequest
 	}{
 		R: r,
 	}
-	mock.lockListKafkasExecute.Lock()
-	mock.calls.ListKafkasExecute = append(mock.calls.ListKafkasExecute, callInfo)
-	mock.lockListKafkasExecute.Unlock()
-	return mock.ListKafkasExecuteFunc(r)
+	mock.lockGetVersionMetadataExecute.Lock()
+	mock.calls.GetVersionMetadataExecute = append(mock.calls.GetVersionMetadataExecute, callInfo)
+	mock.lockGetVersionMetadataExecute.Unlock()
+	return mock.GetVersionMetadataExecuteFunc(r)
 }
 
-// ListKafkasExecuteCalls gets all the calls that were made to ListKafkasExecute.
+// GetVersionMetadataExecuteCalls gets all the calls that were made to GetVersionMetadataExecute.
 // Check the length with:
-//     len(mockedDefaultApi.ListKafkasExecuteCalls())
-func (mock *DefaultApiMock) ListKafkasExecuteCalls() []struct {
-	R ApiListKafkasRequest
+//     len(mockedDefaultApi.GetVersionMetadataExecuteCalls())
+func (mock *DefaultApiMock) GetVersionMetadataExecuteCalls() []struct {
+	R ApiGetVersionMetadataRequest
 } {
 	var calls []struct {
-		R ApiListKafkasRequest
+		R ApiGetVersionMetadataRequest
 	}
-	mock.lockListKafkasExecute.RLock()
-	calls = mock.calls.ListKafkasExecute
-	mock.lockListKafkasExecute.RUnlock()
-	return calls
-}
-
-// ListServiceAccounts calls ListServiceAccountsFunc.
-func (mock *DefaultApiMock) ListServiceAccounts(ctx _context.Context) ApiListServiceAccountsRequest {
-	if mock.ListServiceAccountsFunc == nil {
-		panic("DefaultApiMock.ListServiceAccountsFunc: method is nil but DefaultApi.ListServiceAccounts was just called")
-	}
-	callInfo := struct {
-		Ctx _context.Context
-	}{
-		Ctx: ctx,
-	}
-	mock.lockListServiceAccounts.Lock()
-	mock.calls.ListServiceAccounts = append(mock.calls.ListServiceAccounts, callInfo)
-	mock.lockListServiceAccounts.Unlock()
-	return mock.ListServiceAccountsFunc(ctx)
-}
-
-// ListServiceAccountsCalls gets all the calls that were made to ListServiceAccounts.
-// Check the length with:
-//     len(mockedDefaultApi.ListServiceAccountsCalls())
-func (mock *DefaultApiMock) ListServiceAccountsCalls() []struct {
-	Ctx _context.Context
-} {
-	var calls []struct {
-		Ctx _context.Context
-	}
-	mock.lockListServiceAccounts.RLock()
-	calls = mock.calls.ListServiceAccounts
-	mock.lockListServiceAccounts.RUnlock()
-	return calls
-}
-
-// ListServiceAccountsExecute calls ListServiceAccountsExecuteFunc.
-func (mock *DefaultApiMock) ListServiceAccountsExecute(r ApiListServiceAccountsRequest) (ServiceAccountList, *_nethttp.Response, error) {
-	if mock.ListServiceAccountsExecuteFunc == nil {
-		panic("DefaultApiMock.ListServiceAccountsExecuteFunc: method is nil but DefaultApi.ListServiceAccountsExecute was just called")
-	}
-	callInfo := struct {
-		R ApiListServiceAccountsRequest
-	}{
-		R: r,
-	}
-	mock.lockListServiceAccountsExecute.Lock()
-	mock.calls.ListServiceAccountsExecute = append(mock.calls.ListServiceAccountsExecute, callInfo)
-	mock.lockListServiceAccountsExecute.Unlock()
-	return mock.ListServiceAccountsExecuteFunc(r)
-}
-
-// ListServiceAccountsExecuteCalls gets all the calls that were made to ListServiceAccountsExecute.
-// Check the length with:
-//     len(mockedDefaultApi.ListServiceAccountsExecuteCalls())
-func (mock *DefaultApiMock) ListServiceAccountsExecuteCalls() []struct {
-	R ApiListServiceAccountsRequest
-} {
-	var calls []struct {
-		R ApiListServiceAccountsRequest
-	}
-	mock.lockListServiceAccountsExecute.RLock()
-	calls = mock.calls.ListServiceAccountsExecute
-	mock.lockListServiceAccountsExecute.RUnlock()
-	return calls
-}
-
-// ResetServiceAccountCreds calls ResetServiceAccountCredsFunc.
-func (mock *DefaultApiMock) ResetServiceAccountCreds(ctx _context.Context, id string) ApiResetServiceAccountCredsRequest {
-	if mock.ResetServiceAccountCredsFunc == nil {
-		panic("DefaultApiMock.ResetServiceAccountCredsFunc: method is nil but DefaultApi.ResetServiceAccountCreds was just called")
-	}
-	callInfo := struct {
-		Ctx _context.Context
-		ID  string
-	}{
-		Ctx: ctx,
-		ID:  id,
-	}
-	mock.lockResetServiceAccountCreds.Lock()
-	mock.calls.ResetServiceAccountCreds = append(mock.calls.ResetServiceAccountCreds, callInfo)
-	mock.lockResetServiceAccountCreds.Unlock()
-	return mock.ResetServiceAccountCredsFunc(ctx, id)
-}
-
-// ResetServiceAccountCredsCalls gets all the calls that were made to ResetServiceAccountCreds.
-// Check the length with:
-//     len(mockedDefaultApi.ResetServiceAccountCredsCalls())
-func (mock *DefaultApiMock) ResetServiceAccountCredsCalls() []struct {
-	Ctx _context.Context
-	ID  string
-} {
-	var calls []struct {
-		Ctx _context.Context
-		ID  string
-	}
-	mock.lockResetServiceAccountCreds.RLock()
-	calls = mock.calls.ResetServiceAccountCreds
-	mock.lockResetServiceAccountCreds.RUnlock()
-	return calls
-}
-
-// ResetServiceAccountCredsExecute calls ResetServiceAccountCredsExecuteFunc.
-func (mock *DefaultApiMock) ResetServiceAccountCredsExecute(r ApiResetServiceAccountCredsRequest) (ServiceAccount, *_nethttp.Response, error) {
-	if mock.ResetServiceAccountCredsExecuteFunc == nil {
-		panic("DefaultApiMock.ResetServiceAccountCredsExecuteFunc: method is nil but DefaultApi.ResetServiceAccountCredsExecute was just called")
-	}
-	callInfo := struct {
-		R ApiResetServiceAccountCredsRequest
-	}{
-		R: r,
-	}
-	mock.lockResetServiceAccountCredsExecute.Lock()
-	mock.calls.ResetServiceAccountCredsExecute = append(mock.calls.ResetServiceAccountCredsExecute, callInfo)
-	mock.lockResetServiceAccountCredsExecute.Unlock()
-	return mock.ResetServiceAccountCredsExecuteFunc(r)
-}
-
-// ResetServiceAccountCredsExecuteCalls gets all the calls that were made to ResetServiceAccountCredsExecute.
-// Check the length with:
-//     len(mockedDefaultApi.ResetServiceAccountCredsExecuteCalls())
-func (mock *DefaultApiMock) ResetServiceAccountCredsExecuteCalls() []struct {
-	R ApiResetServiceAccountCredsRequest
-} {
-	var calls []struct {
-		R ApiResetServiceAccountCredsRequest
-	}
-	mock.lockResetServiceAccountCredsExecute.RLock()
-	calls = mock.calls.ResetServiceAccountCredsExecute
-	mock.lockResetServiceAccountCredsExecute.RUnlock()
-	return calls
-}
-
-// ServiceStatus calls ServiceStatusFunc.
-func (mock *DefaultApiMock) ServiceStatus(ctx _context.Context) ApiServiceStatusRequest {
-	if mock.ServiceStatusFunc == nil {
-		panic("DefaultApiMock.ServiceStatusFunc: method is nil but DefaultApi.ServiceStatus was just called")
-	}
-	callInfo := struct {
-		Ctx _context.Context
-	}{
-		Ctx: ctx,
-	}
-	mock.lockServiceStatus.Lock()
-	mock.calls.ServiceStatus = append(mock.calls.ServiceStatus, callInfo)
-	mock.lockServiceStatus.Unlock()
-	return mock.ServiceStatusFunc(ctx)
-}
-
-// ServiceStatusCalls gets all the calls that were made to ServiceStatus.
-// Check the length with:
-//     len(mockedDefaultApi.ServiceStatusCalls())
-func (mock *DefaultApiMock) ServiceStatusCalls() []struct {
-	Ctx _context.Context
-} {
-	var calls []struct {
-		Ctx _context.Context
-	}
-	mock.lockServiceStatus.RLock()
-	calls = mock.calls.ServiceStatus
-	mock.lockServiceStatus.RUnlock()
-	return calls
-}
-
-// ServiceStatusExecute calls ServiceStatusExecuteFunc.
-func (mock *DefaultApiMock) ServiceStatusExecute(r ApiServiceStatusRequest) (ServiceStatus, *_nethttp.Response, error) {
-	if mock.ServiceStatusExecuteFunc == nil {
-		panic("DefaultApiMock.ServiceStatusExecuteFunc: method is nil but DefaultApi.ServiceStatusExecute was just called")
-	}
-	callInfo := struct {
-		R ApiServiceStatusRequest
-	}{
-		R: r,
-	}
-	mock.lockServiceStatusExecute.Lock()
-	mock.calls.ServiceStatusExecute = append(mock.calls.ServiceStatusExecute, callInfo)
-	mock.lockServiceStatusExecute.Unlock()
-	return mock.ServiceStatusExecuteFunc(r)
-}
-
-// ServiceStatusExecuteCalls gets all the calls that were made to ServiceStatusExecute.
-// Check the length with:
-//     len(mockedDefaultApi.ServiceStatusExecuteCalls())
-func (mock *DefaultApiMock) ServiceStatusExecuteCalls() []struct {
-	R ApiServiceStatusRequest
-} {
-	var calls []struct {
-		R ApiServiceStatusRequest
-	}
-	mock.lockServiceStatusExecute.RLock()
-	calls = mock.calls.ServiceStatusExecute
-	mock.lockServiceStatusExecute.RUnlock()
-	return calls
-}
-
-// VersionMetadata calls VersionMetadataFunc.
-func (mock *DefaultApiMock) VersionMetadata(ctx _context.Context) ApiVersionMetadataRequest {
-	if mock.VersionMetadataFunc == nil {
-		panic("DefaultApiMock.VersionMetadataFunc: method is nil but DefaultApi.VersionMetadata was just called")
-	}
-	callInfo := struct {
-		Ctx _context.Context
-	}{
-		Ctx: ctx,
-	}
-	mock.lockVersionMetadata.Lock()
-	mock.calls.VersionMetadata = append(mock.calls.VersionMetadata, callInfo)
-	mock.lockVersionMetadata.Unlock()
-	return mock.VersionMetadataFunc(ctx)
-}
-
-// VersionMetadataCalls gets all the calls that were made to VersionMetadata.
-// Check the length with:
-//     len(mockedDefaultApi.VersionMetadataCalls())
-func (mock *DefaultApiMock) VersionMetadataCalls() []struct {
-	Ctx _context.Context
-} {
-	var calls []struct {
-		Ctx _context.Context
-	}
-	mock.lockVersionMetadata.RLock()
-	calls = mock.calls.VersionMetadata
-	mock.lockVersionMetadata.RUnlock()
-	return calls
-}
-
-// VersionMetadataExecute calls VersionMetadataExecuteFunc.
-func (mock *DefaultApiMock) VersionMetadataExecute(r ApiVersionMetadataRequest) (VersionMetadata, *_nethttp.Response, error) {
-	if mock.VersionMetadataExecuteFunc == nil {
-		panic("DefaultApiMock.VersionMetadataExecuteFunc: method is nil but DefaultApi.VersionMetadataExecute was just called")
-	}
-	callInfo := struct {
-		R ApiVersionMetadataRequest
-	}{
-		R: r,
-	}
-	mock.lockVersionMetadataExecute.Lock()
-	mock.calls.VersionMetadataExecute = append(mock.calls.VersionMetadataExecute, callInfo)
-	mock.lockVersionMetadataExecute.Unlock()
-	return mock.VersionMetadataExecuteFunc(r)
-}
-
-// VersionMetadataExecuteCalls gets all the calls that were made to VersionMetadataExecute.
-// Check the length with:
-//     len(mockedDefaultApi.VersionMetadataExecuteCalls())
-func (mock *DefaultApiMock) VersionMetadataExecuteCalls() []struct {
-	R ApiVersionMetadataRequest
-} {
-	var calls []struct {
-		R ApiVersionMetadataRequest
-	}
-	mock.lockVersionMetadataExecute.RLock()
-	calls = mock.calls.VersionMetadataExecute
-	mock.lockVersionMetadataExecute.RUnlock()
+	mock.lockGetVersionMetadataExecute.RLock()
+	calls = mock.calls.GetVersionMetadataExecute
+	mock.lockGetVersionMetadataExecute.RUnlock()
 	return calls
 }

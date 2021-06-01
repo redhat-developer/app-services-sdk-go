@@ -2,11 +2,7 @@
   "kafka-mgmt/v1": {
     "apiGroup": "kafkamgmt",
     "apiVersion": "v1",
-    "release_level": "stable",
-    "source": {
-      "repo": "bf2fc6cc711aee1a0c2a/kas-fleet-manager",
-      "base": "main"
-    }
+    "release_level": "beta"
   },
   "kafka-admin/v1": {
     "apiGroup": "kafkaadmin",
