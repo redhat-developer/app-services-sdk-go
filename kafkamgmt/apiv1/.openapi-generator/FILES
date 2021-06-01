@@ -2,6 +2,7 @@
 README.md
 api/openapi.yaml
 api_default.go
+api_security.go
 client.go
 configuration.go
 docs/CloudProvider.md
@@ -28,6 +29,7 @@ docs/MetricsRangeQueryList.md
 docs/MetricsRangeQueryListAllOf.md
 docs/ObjectReference.md
 docs/RangeQuery.md
+docs/SecurityApi.md
 docs/ServiceAccount.md
 docs/ServiceAccountAllOf.md
 docs/ServiceAccountList.md
