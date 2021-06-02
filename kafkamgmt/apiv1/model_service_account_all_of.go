@@ -22,7 +22,9 @@ type ServiceAccountAllOf struct {
 	Name *string `json:"name,omitempty"`
 	Description *string `json:"description,omitempty"`
 	ClientID *string `json:"clientID,omitempty"`
+	ClientId *string `json:"client_id,omitempty"`
 	ClientSecret *string `json:"clientSecret,omitempty"`
+	ClientSecret *string `json:"client_secret,omitempty"`
 	Owner *string `json:"owner,omitempty"`
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 }
@@ -172,6 +174,70 @@ func (o *ServiceAccountAllOf) SetClientID(v string) {
 	o.ClientID = &v
 }
 
+// GetClientId returns the ClientId field value if set, zero value otherwise.
+func (o *ServiceAccountAllOf) GetClientId() string {
+	if o == nil || o.ClientId == nil {
+		var ret string
+		return ret
+	}
+	return *o.ClientId
+}
+
+// GetClientIdOk returns a tuple with the ClientId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceAccountAllOf) GetClientIdOk() (*string, bool) {
+	if o == nil || o.ClientId == nil {
+		return nil, false
+	}
+	return o.ClientId, true
+}
+
+// HasClientId returns a boolean if a field has been set.
+func (o *ServiceAccountAllOf) HasClientId() bool {
+	if o != nil && o.ClientId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetClientId gets a reference to the given string and assigns it to the ClientId field.
+func (o *ServiceAccountAllOf) SetClientId(v string) {
+	o.ClientId = &v
+}
+
+// GetClientSecret returns the ClientSecret field value if set, zero value otherwise.
+func (o *ServiceAccountAllOf) GetClientSecret() string {
+	if o == nil || o.ClientSecret == nil {
+		var ret string
+		return ret
+	}
+	return *o.ClientSecret
+}
+
+// GetClientSecretOk returns a tuple with the ClientSecret field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceAccountAllOf) GetClientSecretOk() (*string, bool) {
+	if o == nil || o.ClientSecret == nil {
+		return nil, false
+	}
+	return o.ClientSecret, true
+}
+
+// HasClientSecret returns a boolean if a field has been set.
+func (o *ServiceAccountAllOf) HasClientSecret() bool {
+	if o != nil && o.ClientSecret != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetClientSecret gets a reference to the given string and assigns it to the ClientSecret field.
+func (o *ServiceAccountAllOf) SetClientSecret(v string) {
+	o.ClientSecret = &v
+}
+
 // GetClientSecret returns the ClientSecret field value if set, zero value otherwise.
 func (o *ServiceAccountAllOf) GetClientSecret() string {
 	if o == nil || o.ClientSecret == nil {
@@ -282,8 +348,14 @@ func (o ServiceAccountAllOf) MarshalJSON() ([]byte, error) {
 	if o.ClientID != nil {
 		toSerialize["clientID"] = o.ClientID
 	}
+	if o.ClientId != nil {
+		toSerialize["client_id"] = o.ClientId
+	}
 	if o.ClientSecret != nil {
 		toSerialize["clientSecret"] = o.ClientSecret
+	}
+	if o.ClientSecret != nil {
+		toSerialize["client_secret"] = o.ClientSecret
 	}
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner

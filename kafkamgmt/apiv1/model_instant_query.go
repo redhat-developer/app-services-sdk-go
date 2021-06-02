@@ -18,7 +18,9 @@ import (
 type InstantQuery struct {
 	Metric *map[string]string `json:"metric,omitempty"`
 	Timestamp *int64 `json:"Timestamp,omitempty"`
-	Value float64 `json:"Value"`
+	Timestamp *int64 `json:"timestamp,omitempty"`
+	Value *float64 `json:"Value,omitempty"`
+	Value float64 `json:"value"`
 }
 
 // NewInstantQuery instantiates a new InstantQuery object
@@ -103,6 +105,70 @@ func (o *InstantQuery) SetTimestamp(v int64) {
 	o.Timestamp = &v
 }
 
+// GetTimestamp returns the Timestamp field value if set, zero value otherwise.
+func (o *InstantQuery) GetTimestamp() int64 {
+	if o == nil || o.Timestamp == nil {
+		var ret int64
+		return ret
+	}
+	return *o.Timestamp
+}
+
+// GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InstantQuery) GetTimestampOk() (*int64, bool) {
+	if o == nil || o.Timestamp == nil {
+		return nil, false
+	}
+	return o.Timestamp, true
+}
+
+// HasTimestamp returns a boolean if a field has been set.
+func (o *InstantQuery) HasTimestamp() bool {
+	if o != nil && o.Timestamp != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTimestamp gets a reference to the given int64 and assigns it to the Timestamp field.
+func (o *InstantQuery) SetTimestamp(v int64) {
+	o.Timestamp = &v
+}
+
+// GetValue returns the Value field value if set, zero value otherwise.
+func (o *InstantQuery) GetValue() float64 {
+	if o == nil || o.Value == nil {
+		var ret float64
+		return ret
+	}
+	return *o.Value
+}
+
+// GetValueOk returns a tuple with the Value field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InstantQuery) GetValueOk() (*float64, bool) {
+	if o == nil || o.Value == nil {
+		return nil, false
+	}
+	return o.Value, true
+}
+
+// HasValue returns a boolean if a field has been set.
+func (o *InstantQuery) HasValue() bool {
+	if o != nil && o.Value != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetValue gets a reference to the given float64 and assigns it to the Value field.
+func (o *InstantQuery) SetValue(v float64) {
+	o.Value = &v
+}
+
 // GetValue returns the Value field value
 func (o *InstantQuery) GetValue() float64 {
 	if o == nil {
@@ -135,8 +201,14 @@ func (o InstantQuery) MarshalJSON() ([]byte, error) {
 	if o.Timestamp != nil {
 		toSerialize["Timestamp"] = o.Timestamp
 	}
-	if true {
+	if o.Timestamp != nil {
+		toSerialize["timestamp"] = o.Timestamp
+	}
+	if o.Value != nil {
 		toSerialize["Value"] = o.Value
+	}
+	if true {
+		toSerialize["value"] = o.Value
 	}
 	return json.Marshal(toSerialize)
 }

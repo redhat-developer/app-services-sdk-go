@@ -24,6 +24,7 @@ type KafkaRequestAllOf struct {
 	Owner *string `json:"owner,omitempty"`
 	Name *string `json:"name,omitempty"`
 	BootstrapServerHost *string `json:"bootstrapServerHost,omitempty"`
+	BootstrapServerHost *string `json:"bootstrap_server_host,omitempty"`
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	FailedReason *string `json:"failed_reason,omitempty"`
@@ -271,6 +272,38 @@ func (o *KafkaRequestAllOf) SetBootstrapServerHost(v string) {
 	o.BootstrapServerHost = &v
 }
 
+// GetBootstrapServerHost returns the BootstrapServerHost field value if set, zero value otherwise.
+func (o *KafkaRequestAllOf) GetBootstrapServerHost() string {
+	if o == nil || o.BootstrapServerHost == nil {
+		var ret string
+		return ret
+	}
+	return *o.BootstrapServerHost
+}
+
+// GetBootstrapServerHostOk returns a tuple with the BootstrapServerHost field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *KafkaRequestAllOf) GetBootstrapServerHostOk() (*string, bool) {
+	if o == nil || o.BootstrapServerHost == nil {
+		return nil, false
+	}
+	return o.BootstrapServerHost, true
+}
+
+// HasBootstrapServerHost returns a boolean if a field has been set.
+func (o *KafkaRequestAllOf) HasBootstrapServerHost() bool {
+	if o != nil && o.BootstrapServerHost != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBootstrapServerHost gets a reference to the given string and assigns it to the BootstrapServerHost field.
+func (o *KafkaRequestAllOf) SetBootstrapServerHost(v string) {
+	o.BootstrapServerHost = &v
+}
+
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetCreatedAt() time.Time {
 	if o == nil || o.CreatedAt == nil {
@@ -421,6 +454,9 @@ func (o KafkaRequestAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.BootstrapServerHost != nil {
 		toSerialize["bootstrapServerHost"] = o.BootstrapServerHost
+	}
+	if o.BootstrapServerHost != nil {
+		toSerialize["bootstrap_server_host"] = o.BootstrapServerHost
 	}
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt

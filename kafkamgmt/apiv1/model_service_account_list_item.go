@@ -23,6 +23,8 @@ type ServiceAccountListItem struct {
 	Href *string `json:"href,omitempty"`
 	// client id of the service account
 	ClientID *string `json:"clientID,omitempty"`
+	// client id of the service account
+	ClientId *string `json:"client_id,omitempty"`
 	// name of the service account
 	Name *string `json:"name,omitempty"`
 	// owner of the service account
@@ -178,6 +180,38 @@ func (o *ServiceAccountListItem) SetClientID(v string) {
 	o.ClientID = &v
 }
 
+// GetClientId returns the ClientId field value if set, zero value otherwise.
+func (o *ServiceAccountListItem) GetClientId() string {
+	if o == nil || o.ClientId == nil {
+		var ret string
+		return ret
+	}
+	return *o.ClientId
+}
+
+// GetClientIdOk returns a tuple with the ClientId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceAccountListItem) GetClientIdOk() (*string, bool) {
+	if o == nil || o.ClientId == nil {
+		return nil, false
+	}
+	return o.ClientId, true
+}
+
+// HasClientId returns a boolean if a field has been set.
+func (o *ServiceAccountListItem) HasClientId() bool {
+	if o != nil && o.ClientId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetClientId gets a reference to the given string and assigns it to the ClientId field.
+func (o *ServiceAccountListItem) SetClientId(v string) {
+	o.ClientId = &v
+}
+
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ServiceAccountListItem) GetName() string {
 	if o == nil || o.Name == nil {
@@ -319,6 +353,9 @@ func (o ServiceAccountListItem) MarshalJSON() ([]byte, error) {
 	}
 	if o.ClientID != nil {
 		toSerialize["clientID"] = o.ClientID
+	}
+	if o.ClientId != nil {
+		toSerialize["client_id"] = o.ClientId
 	}
 	if o.Name != nil {
 		toSerialize["name"] = o.Name

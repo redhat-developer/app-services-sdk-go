@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Metric** | Pointer to **map[string]string** |  | [optional] 
 **Timestamp** | Pointer to **int64** |  | [optional] 
+**Timestamp** | Pointer to **int64** |  | [optional] 
+**Value** | Pointer to **float64** |  | [optional] 
 **Value** | **float64** |  | 
 
 ## Methods
@@ -76,6 +78,56 @@ SetTimestamp sets Timestamp field to given value.
 `func (o *InstantQuery) HasTimestamp() bool`
 
 HasTimestamp returns a boolean if a field has been set.
+
+### GetTimestamp
+
+`func (o *InstantQuery) GetTimestamp() int64`
+
+GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
+
+### GetTimestampOk
+
+`func (o *InstantQuery) GetTimestampOk() (*int64, bool)`
+
+GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimestamp
+
+`func (o *InstantQuery) SetTimestamp(v int64)`
+
+SetTimestamp sets Timestamp field to given value.
+
+### HasTimestamp
+
+`func (o *InstantQuery) HasTimestamp() bool`
+
+HasTimestamp returns a boolean if a field has been set.
+
+### GetValue
+
+`func (o *InstantQuery) GetValue() float64`
+
+GetValue returns the Value field if non-nil, zero value otherwise.
+
+### GetValueOk
+
+`func (o *InstantQuery) GetValueOk() (*float64, bool)`
+
+GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValue
+
+`func (o *InstantQuery) SetValue(v float64)`
+
+SetValue sets Value field to given value.
+
+### HasValue
+
+`func (o *InstantQuery) HasValue() bool`
+
+HasValue returns a boolean if a field has been set.
 
 ### GetValue
 
