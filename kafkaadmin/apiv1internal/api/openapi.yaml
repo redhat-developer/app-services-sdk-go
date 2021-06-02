@@ -5,7 +5,7 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Kafka Admin REST API
-  version: 0.1.0
+  version: 0.2.0
 servers:
 - description: Main (production) server
   url: https://api.openshift.com
@@ -18,7 +18,7 @@ paths:
     get:
       description: Returns a list of all of the available topics, or the list of topics
         that meet the users URL Query Parameters.
-      operationId: getTopicsList
+      operationId: getTopics
       parameters:
       - description: Maximum number of topics to return
         explode: true
@@ -37,7 +37,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: The page offset when returning  the limit of requested topics.
+      - description: The page offset when returning the limit of requested topics.
         explode: true
         in: query
         name: offset
@@ -335,7 +335,7 @@ paths:
   /consumer-groups:
     get:
       description: Returns a list of all consumer groups for a particular Kafka instance.
-      operationId: getConsumerGroupList
+      operationId: getConsumerGroups
       parameters:
       - description: Maximum number of consumer groups to returnd
         explode: true
@@ -353,10 +353,18 @@ paths:
         schema:
           type: integer
         style: form
-      - description: Filter to apply when returning the list of consumer groups
+      - description: Return consumer groups for this topic
         explode: true
         in: query
         name: topic
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return the consumer groups where the ID begins with this value
+        explode: true
+        in: query
+        name: group-id-filter
         required: false
         schema:
           type: string

@@ -8,9 +8,9 @@ Method | HTTP request | Description
 [**DeleteConsumerGroupById**](DefaultApi.md#DeleteConsumerGroupById) | **Delete** /consumer-groups/{consumerGroupId} | Delete a consumer group.
 [**DeleteTopic**](DefaultApi.md#DeleteTopic) | **Delete** /topics/{topicName} | Deletes a  topic
 [**GetConsumerGroupById**](DefaultApi.md#GetConsumerGroupById) | **Get** /consumer-groups/{consumerGroupId} | Get a single consumer group by its unique ID.
-[**GetConsumerGroupList**](DefaultApi.md#GetConsumerGroupList) | **Get** /consumer-groups | List of consumer groups in the Kafka instance.
+[**GetConsumerGroups**](DefaultApi.md#GetConsumerGroups) | **Get** /consumer-groups | List of consumer groups in the Kafka instance.
 [**GetTopic**](DefaultApi.md#GetTopic) | **Get** /topics/{topicName} | Retrieves the topic with the specified name.
-[**GetTopicsList**](DefaultApi.md#GetTopicsList) | **Get** /topics | List of topics
+[**GetTopics**](DefaultApi.md#GetTopics) | **Get** /topics | List of topics
 [**UpdateTopic**](DefaultApi.md#UpdateTopic) | **Patch** /topics/{topicName} | Updates the topic with the specified name.
 
 
@@ -287,9 +287,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetConsumerGroupList
+## GetConsumerGroups
 
-> ConsumerGroupList GetConsumerGroupList(ctx).Limit(limit).Offset(offset).Topic(topic).Execute()
+> ConsumerGroupList GetConsumerGroups(ctx).Limit(limit).Offset(offset).Topic(topic).GroupIdFilter(groupIdFilter).Execute()
 
 List of consumer groups in the Kafka instance.
 
@@ -310,17 +310,18 @@ import (
 func main() {
     limit := int32(56) // int32 | Maximum number of consumer groups to returnd (optional)
     offset := int32(56) // int32 | The page offset when returning the list of consumer groups (optional)
-    topic := "topic_example" // string | Filter to apply when returning the list of consumer groups (optional)
+    topic := "topic_example" // string | Return consumer groups for this topic (optional)
+    groupIdFilter := "groupIdFilter_example" // string | Return the consumer groups where the ID begins with this value (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.GetConsumerGroupList(context.Background()).Limit(limit).Offset(offset).Topic(topic).Execute()
+    resp, r, err := api_client.DefaultApi.GetConsumerGroups(context.Background()).Limit(limit).Offset(offset).Topic(topic).GroupIdFilter(groupIdFilter).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetConsumerGroupList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetConsumerGroups``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetConsumerGroupList`: ConsumerGroupList
-    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetConsumerGroupList`: %v\n", resp)
+    // response from `GetConsumerGroups`: ConsumerGroupList
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetConsumerGroups`: %v\n", resp)
 }
 ```
 
@@ -330,14 +331,15 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetConsumerGroupListRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetConsumerGroupsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int32** | Maximum number of consumer groups to returnd | 
  **offset** | **int32** | The page offset when returning the list of consumer groups | 
- **topic** | **string** | Filter to apply when returning the list of consumer groups | 
+ **topic** | **string** | Return consumer groups for this topic | 
+ **groupIdFilter** | **string** | Return the consumer groups where the ID begins with this value | 
 
 ### Return type
 
@@ -427,9 +429,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetTopicsList
+## GetTopics
 
-> TopicsList GetTopicsList(ctx).Limit(limit).Filter(filter).Offset(offset).Order(order).Execute()
+> TopicsList GetTopics(ctx).Limit(limit).Filter(filter).Offset(offset).Order(order).Execute()
 
 List of topics
 
@@ -450,18 +452,18 @@ import (
 func main() {
     limit := int32(56) // int32 | Maximum number of topics to return (optional)
     filter := "filter_example" // string | Filter to apply when returning the list of topics (optional)
-    offset := int32(56) // int32 | The page offset when returning  the limit of requested topics. (optional)
+    offset := int32(56) // int32 | The page offset when returning the limit of requested topics. (optional)
     order := "order_example" // string | Order of the items sorting. If \"asc\" is set as a value, ascending order is used, descending otherwise. (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.GetTopicsList(context.Background()).Limit(limit).Filter(filter).Offset(offset).Order(order).Execute()
+    resp, r, err := api_client.DefaultApi.GetTopics(context.Background()).Limit(limit).Filter(filter).Offset(offset).Order(order).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetTopicsList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetTopics``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetTopicsList`: TopicsList
-    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetTopicsList`: %v\n", resp)
+    // response from `GetTopics`: TopicsList
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetTopics`: %v\n", resp)
 }
 ```
 
@@ -471,14 +473,14 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetTopicsListRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetTopicsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int32** | Maximum number of topics to return | 
  **filter** | **string** | Filter to apply when returning the list of topics | 
- **offset** | **int32** | The page offset when returning  the limit of requested topics. | 
+ **offset** | **int32** | The page offset when returning the limit of requested topics. | 
  **order** | **string** | Order of the items sorting. If \&quot;asc\&quot; is set as a value, ascending order is used, descending otherwise. | 
 
 ### Return type
