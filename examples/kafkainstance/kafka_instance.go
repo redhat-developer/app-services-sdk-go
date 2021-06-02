@@ -1,15 +1,14 @@
 package main
 
 import (
+	"github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal"
 	"context"
 	"fmt"
 	"os"
-
-	"github.com/redhat-developer/app-services-sdk-go/kafkaadmin/apiv1internal"
 )
 
 func main() {
-	apiClient := kafkamgmt.NewAPIClient(&kafkamgmt.Config{
+	apiClient := kafkainstance.NewAPIClient(&kafkainstance.Config{
 		Debug: true,
 	})
 
