@@ -11,7 +11,6 @@
     "source": {
       "repo": "bf2fc6cc711aee1a0c2a/kafka-admin-api",
       "base": "main"
-    },
-    "openApiOutputFileName": "kafka-admin.yml"
+    }
   }
 }

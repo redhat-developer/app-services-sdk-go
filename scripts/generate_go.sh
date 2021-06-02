@@ -1,13 +1,14 @@
 # #!/usr/bin/env bash
 
 # set output path of the API client
-API_ID=$(echo $CLIENT_PAYLOAD | jq -r .id)
-API_GROUP="$(node $(dirname $0)/get-mapped-config.js "$API_ID" "apiGroup")"
-API_VERSION="api$(node $(dirname $0)/get-mapped-config.js "$API_ID" "apiVersion")"
-OPENAPI_FILENAME=$(node $(dirname $0)/get-openapi-filename.js "$CLIENT_PAYLOAD")
+CLIENT_ID=$1
+OPENAPI_FILE_URL=$2
+API_GROUP="$(node $(dirname $0)/get-mapped-config.js "$CLIENT_ID" "apiGroup")"
+API_VERSION="api$(node $(dirname $0)/get-mapped-config.js "$CLIENT_ID" "apiVersion")"
+OPENAPI_FILENAME=$(node $(dirname $0)/get-openapi-filename.js "$OPENAPI_FILE_URL")
 
 # set the Go package name
-PACKAGE_NAME="$(node $(dirname $0)/get-mapped-config.js "$API_ID" "apiPackageName")"
+PACKAGE_NAME="$(node $(dirname $0)/get-mapped-config.js "$CLIENT_ID" "apiPackageName")"
 if [[ ! -v "$PACKAGE_NAME" ]]; then
     echo "No package name is set, using apiGroup as package name"
     PACKAGE_NAME="$API_GROUP"
@@ -28,10 +29,6 @@ fi
 rm -rf $mock_api_file
 moq -out "$mock_api_file" "$OUTPUT_PATH" DefaultApi
 
-OPENAPI_OUTPUT_FILENAME=$(node $(dirname $0)/get-openapi-filename-override.js "$CLIENT_PAYLOAD")
-
-if [ -z ${OPENAPI_OUTPUT_FILENAME+x} ]; then
-    OPENAPI_OUTPUT_FILENAME=$OPENAPI_FILENAME
-fi
+OPENAPI_OUTPUT_FILENAME=$OPENAPI_FILENAME
 
 mv $OPENAPI_FILENAME .openapi/$OPENAPI_OUTPUT_FILENAME

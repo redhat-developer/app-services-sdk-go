@@ -3,9 +3,8 @@
 const configs = require('../.config/api-client-metadata.json');
 
 const args = process.argv.slice(2);
-const clientPayload = JSON.parse(args[0]);
 
-const mappedConfig = configs[clientPayload.id];
+const mappedConfig = configs[args[0]];
 
 if (mappedConfig.openApiOutputFileName) {
     console.log(mappedConfig.openApiOutputFileName)
