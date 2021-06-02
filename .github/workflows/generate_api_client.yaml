@@ -20,11 +20,17 @@ jobs:
       - run: ./scripts/generate_go.sh ${{ github.event.client_payload.id }} ${{ github.event.client_payload.download_url }}
       - uses: peter-evans/create-pull-request@v3
         with:
-          title: "Update API client"
+          title: "chore: re-generate API client"
           token: "${{ env.APP_SERVICES_TOKEN }}"
-          commit-message: "chore: generate API client"
+          commit-message: "chore: generate new API client"
           author: "app-services-ci <app-services-ci@users.noreply.github.com>"
           delete-branch: true
           reviewers: "craicoverflow, wtrocki"
           body: |
-            Auto-generated API client
+            _ :robot: This pull request was generated_
+
+            Generate a new API client
+
+            
+
+
