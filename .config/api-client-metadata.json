@@ -2,15 +2,13 @@
   "kafka-mgmt/v1": {
     "apiGroup": "kafkamgmt",
     "apiVersion": "v1",
-    "release_level": "beta"
+    "release_level": "beta",
+    "package_name": "https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1"
   },
   "kafka-admin/v1": {
-    "apiGroup": "kafkaadmin",
+    "apiGroup": "kafkainstance",
     "apiVersion": "v1internal",
     "release_level": "internal",
-    "source": {
-      "repo": "bf2fc6cc711aee1a0c2a/kafka-admin-api",
-      "base": "main"
-    }
+    "package_name": "https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal"
   }
 }

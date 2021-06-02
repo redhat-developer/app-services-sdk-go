@@ -29,6 +29,8 @@ fi
 rm -rf $mock_api_file
 moq -out "$mock_api_file" "$OUTPUT_PATH" DefaultApi
 
+go mod tidy
+
 OPENAPI_OUTPUT_FILENAME=$OPENAPI_FILENAME
 
 mv $OPENAPI_FILENAME .openapi/$OPENAPI_OUTPUT_FILENAME
