@@ -18,7 +18,7 @@ func NewAPIClient(cfg *Config) *apiClient.APIClient {
 		return apiClient.NewAPIClient(apiCfg)
 	}
 
-	if cfg.HTTPClient == nil {
+	if cfg.HTTPClient != nil {
 		apiCfg.HTTPClient = cfg.HTTPClient
 	}
 	if cfg.ServerURL != nil {
