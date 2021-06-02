@@ -5,12 +5,8 @@
     "release_level": "beta"
   },
   "kafka-admin/v1": {
-    "apiGroup": "kafkaadmin",
+    "apiGroup": "kafkainstance",
     "apiVersion": "v1internal",
-    "release_level": "internal",
-    "source": {
-      "repo": "bf2fc6cc711aee1a0c2a/kafka-admin-api",
-      "base": "main"
-    }
+    "release_level": "internal"
   }
 }

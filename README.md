@@ -10,7 +10,7 @@ Go packages and API clients for RHOAS.
 
 ## Installation
 
-Install the entire SDK with `go get`:
+Install the RHOAS SDK with `go get`:
 
 ```shell
 $ go get github.com/redhat-developer/app-services-sdk-go
@@ -18,16 +18,6 @@ $ go get github.com/redhat-developer/app-services-sdk-go
 
 ```go
 import "github.com/redhat-developer/app-services-sdk-go"
-```
-
-Some APIs have their own modules, so you can `go get` the exact package you need:
-
-```shell
-$ go get github.com/redhat-developer/app-services-sdk-go/kafkamgmt
-```
-
-```go
-import "github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1"
 ```
 
 ## Supported APIs
