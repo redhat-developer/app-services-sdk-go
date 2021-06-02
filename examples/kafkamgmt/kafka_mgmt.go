@@ -2,20 +2,29 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"os"
 
 	kafkamgmt "github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1"
+
+	"golang.org/x/oauth2"
 )
 
 func main() {
-	apiClient := kafkamgmt.NewAPIClient(&kafkamgmt.Config{
-		Debug: true,
+	ctx := context.Background()
+	ts := oauth2.StaticTokenSource(
+		&oauth2.Token{
+			AccessToken: os.Getenv("ACCESS_TOKEN"),
+		},
+	)
+
+	tc := oauth2.NewClient(ctx, ts)
+
+	client := kafkamgmt.NewAPIClient(&kafkamgmt.Config{
+		HTTPClient: tc,
 	})
 
-	res, _, err := apiClient.DefaultApi.GetKafkas(context.Background()).Execute()
+	_, _, err := client.DefaultApi.GetKafkas(ctx).Execute()
 	if err != nil {
 		panic(err)
 	}
-	fmt.Fprintln(os.Stderr, res.Size)
 }
