@@ -8,7 +8,7 @@ API_VERSION="api$(node $(dirname $0)/get-mapped-config.js "$CLIENT_ID" "apiVersi
 OPENAPI_FILENAME=$(node $(dirname $0)/get-openapi-filename.js "$OPENAPI_FILE_URL")
 
 # set the Go package name
-PACKAGE_NAME="$(node $(dirname $0)/get-mapped-config.js "$CLIENT_ID" "apiPackageName")"
+PACKAGE_NAME="$(node $(dirname $0)/get-mapped-config.js "$CLIENT_ID" "apiPackageName")client"
 if [[ ! -v "$PACKAGE_NAME" ]]; then
     echo "No package name is set, using apiGroup as package name"
     PACKAGE_NAME="$API_GROUP"

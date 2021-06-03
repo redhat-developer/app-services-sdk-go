@@ -1,11 +1,12 @@
 package main
 
 import (
+	"github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal/client"
 	"context"
 	"fmt"
 	"os"
 
-	kafkainstance "github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal"
+	kafkainstanceapi "github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal"
 	"golang.org/x/oauth2"
 )
 
@@ -16,9 +17,11 @@ func main() {
 	)
 	tc := oauth2.NewClient(ctx, ts)
 
-	apiClient := kafkainstance.NewAPIClient(&kafkainstance.Config{
+	apiClient := kafkainstanceapi.NewAPIClient(&kafkainstanceapi.Config{
 		HTTPClient: tc,
 	})
+
+	x := kafkainstance.Topic{}
 
 	res, _, err := apiClient.DefaultApi.GetTopics(context.Background()).Execute()
 	if err != nil {
