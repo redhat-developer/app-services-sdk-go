@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Reason** | Pointer to **string** |  | [optional] 
 **OperationId** | Pointer to **string** |  | [optional] 
 
+
 ## Methods
 
 ### NewError
@@ -29,6 +30,7 @@ will change when the set of required properties is changed
 NewErrorWithDefaults instantiates a new Error object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
 
 ### GetId
 
@@ -55,6 +57,7 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+
 ### GetKind
 
 `func (o *Error) GetKind() string`
@@ -79,6 +82,7 @@ SetKind sets Kind field to given value.
 `func (o *Error) HasKind() bool`
 
 HasKind returns a boolean if a field has been set.
+
 
 ### GetHref
 
@@ -105,6 +109,7 @@ SetHref sets Href field to given value.
 
 HasHref returns a boolean if a field has been set.
 
+
 ### GetCode
 
 `func (o *Error) GetCode() string`
@@ -130,6 +135,7 @@ SetCode sets Code field to given value.
 
 HasCode returns a boolean if a field has been set.
 
+
 ### GetReason
 
 `func (o *Error) GetReason() string`
@@ -154,6 +160,7 @@ SetReason sets Reason field to given value.
 `func (o *Error) HasReason() bool`
 
 HasReason returns a boolean if a field has been set.
+
 
 ### GetOperationId
 
@@ -181,6 +188,6 @@ SetOperationId sets OperationId field to given value.
 HasOperationId returns a boolean if a field has been set.
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

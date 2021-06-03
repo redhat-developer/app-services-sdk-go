@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Kind** | **string** |  | 
 **Items** | [**[]ServiceAccountListItem**](ServiceAccountListItem.md) |  | 
 
+
 ## Methods
 
 ### NewServiceAccountList
@@ -26,6 +27,7 @@ NewServiceAccountListWithDefaults instantiates a new ServiceAccountList object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+
 ### GetKind
 
 `func (o *ServiceAccountList) GetKind() string`
@@ -44,6 +46,7 @@ and a boolean to check if the value has been set.
 `func (o *ServiceAccountList) SetKind(v string)`
 
 SetKind sets Kind field to given value.
+
 
 
 ### GetItems
@@ -67,6 +70,6 @@ SetItems sets Items field to given value.
 
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

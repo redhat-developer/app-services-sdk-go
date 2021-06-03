@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **FailedReason** | Pointer to **string** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
 
+
 ## Methods
 
 ### NewKafkaRequest
@@ -37,6 +38,7 @@ will change when the set of required properties is changed
 NewKafkaRequestWithDefaults instantiates a new KafkaRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
 
 ### GetId
 
@@ -63,6 +65,7 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+
 ### GetKind
 
 `func (o *KafkaRequest) GetKind() string`
@@ -87,6 +90,7 @@ SetKind sets Kind field to given value.
 `func (o *KafkaRequest) HasKind() bool`
 
 HasKind returns a boolean if a field has been set.
+
 
 ### GetHref
 
@@ -113,6 +117,7 @@ SetHref sets Href field to given value.
 
 HasHref returns a boolean if a field has been set.
 
+
 ### GetStatus
 
 `func (o *KafkaRequest) GetStatus() string`
@@ -137,6 +142,7 @@ SetStatus sets Status field to given value.
 `func (o *KafkaRequest) HasStatus() bool`
 
 HasStatus returns a boolean if a field has been set.
+
 
 ### GetCloudProvider
 
@@ -163,6 +169,7 @@ SetCloudProvider sets CloudProvider field to given value.
 
 HasCloudProvider returns a boolean if a field has been set.
 
+
 ### GetMultiAz
 
 `func (o *KafkaRequest) GetMultiAz() bool`
@@ -187,6 +194,7 @@ SetMultiAz sets MultiAz field to given value.
 `func (o *KafkaRequest) HasMultiAz() bool`
 
 HasMultiAz returns a boolean if a field has been set.
+
 
 ### GetRegion
 
@@ -213,6 +221,7 @@ SetRegion sets Region field to given value.
 
 HasRegion returns a boolean if a field has been set.
 
+
 ### GetOwner
 
 `func (o *KafkaRequest) GetOwner() string`
@@ -237,6 +246,7 @@ SetOwner sets Owner field to given value.
 `func (o *KafkaRequest) HasOwner() bool`
 
 HasOwner returns a boolean if a field has been set.
+
 
 ### GetName
 
@@ -263,6 +273,7 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+
 ### GetBootstrapServerHost
 
 `func (o *KafkaRequest) GetBootstrapServerHost() string`
@@ -287,6 +298,7 @@ SetBootstrapServerHost sets BootstrapServerHost field to given value.
 `func (o *KafkaRequest) HasBootstrapServerHost() bool`
 
 HasBootstrapServerHost returns a boolean if a field has been set.
+
 
 ### GetCreatedAt
 
@@ -313,6 +325,7 @@ SetCreatedAt sets CreatedAt field to given value.
 
 HasCreatedAt returns a boolean if a field has been set.
 
+
 ### GetUpdatedAt
 
 `func (o *KafkaRequest) GetUpdatedAt() time.Time`
@@ -338,6 +351,7 @@ SetUpdatedAt sets UpdatedAt field to given value.
 
 HasUpdatedAt returns a boolean if a field has been set.
 
+
 ### GetFailedReason
 
 `func (o *KafkaRequest) GetFailedReason() string`
@@ -362,6 +376,7 @@ SetFailedReason sets FailedReason field to given value.
 `func (o *KafkaRequest) HasFailedReason() bool`
 
 HasFailedReason returns a boolean if a field has been set.
+
 
 ### GetVersion
 
@@ -389,6 +404,6 @@ SetVersion sets Version field to given value.
 HasVersion returns a boolean if a field has been set.
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

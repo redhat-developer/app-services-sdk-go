@@ -33,6 +33,7 @@ func NewServiceStatus() *ServiceStatus {
 // but it doesn't guarantee that properties required by API are set
 func NewServiceStatusWithDefaults() *ServiceStatus {
 	this := ServiceStatus{}
+
 	return &this
 }
 
@@ -70,9 +71,11 @@ func (o *ServiceStatus) SetKafkas(v ServiceStatusKafkas) {
 
 func (o ServiceStatus) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Kafkas != nil {
 		toSerialize["kafkas"] = o.Kafkas
 	}
+
 	return json.Marshal(toSerialize)
 }
 

@@ -17,16 +17,25 @@ import (
 
 // ServiceAccount Service Account created in MAS-SSO for the Kafka Cluster for authentication
 type ServiceAccount struct {
+
 	// server generated unique id of the service account
-	Id           *string    `json:"id,omitempty"`
-	Kind         *string    `json:"kind,omitempty"`
-	Href         *string    `json:"href,omitempty"`
-	Name         *string    `json:"name,omitempty"`
-	Description  *string    `json:"description,omitempty"`
-	ClientID     *string    `json:"clientID,omitempty"`
-	ClientSecret *string    `json:"clientSecret,omitempty"`
-	Owner        *string    `json:"owner,omitempty"`
-	CreatedAt    *time.Time `json:"created_at,omitempty"`
+	Id *string `json:"id,omitempty"`
+
+	Kind *string `json:"kind,omitempty"`
+
+	Href *string `json:"href,omitempty"`
+
+	Name *string `json:"name,omitempty"`
+
+	Description *string `json:"description,omitempty"`
+
+	ClientId *string `json:"client_id,omitempty"`
+
+	ClientSecret *string `json:"client_secret,omitempty"`
+
+	Owner *string `json:"owner,omitempty"`
+
+	CreatedAt *time.Time `json:"created_at,omitempty"`
 }
 
 // NewServiceAccount instantiates a new ServiceAccount object
@@ -43,6 +52,7 @@ func NewServiceAccount() *ServiceAccount {
 // but it doesn't guarantee that properties required by API are set
 func NewServiceAccountWithDefaults() *ServiceAccount {
 	this := ServiceAccount{}
+
 	return &this
 }
 
@@ -206,36 +216,36 @@ func (o *ServiceAccount) SetDescription(v string) {
 	o.Description = &v
 }
 
-// GetClientID returns the ClientID field value if set, zero value otherwise.
-func (o *ServiceAccount) GetClientID() string {
-	if o == nil || o.ClientID == nil {
+// GetClientId returns the ClientId field value if set, zero value otherwise.
+func (o *ServiceAccount) GetClientId() string {
+	if o == nil || o.ClientId == nil {
 		var ret string
 		return ret
 	}
-	return *o.ClientID
+	return *o.ClientId
 }
 
-// GetClientIDOk returns a tuple with the ClientID field value if set, nil otherwise
+// GetClientIdOk returns a tuple with the ClientId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ServiceAccount) GetClientIDOk() (*string, bool) {
-	if o == nil || o.ClientID == nil {
+func (o *ServiceAccount) GetClientIdOk() (*string, bool) {
+	if o == nil || o.ClientId == nil {
 		return nil, false
 	}
-	return o.ClientID, true
+	return o.ClientId, true
 }
 
-// HasClientID returns a boolean if a field has been set.
-func (o *ServiceAccount) HasClientID() bool {
-	if o != nil && o.ClientID != nil {
+// HasClientId returns a boolean if a field has been set.
+func (o *ServiceAccount) HasClientId() bool {
+	if o != nil && o.ClientId != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetClientID gets a reference to the given string and assigns it to the ClientID field.
-func (o *ServiceAccount) SetClientID(v string) {
-	o.ClientID = &v
+// SetClientId gets a reference to the given string and assigns it to the ClientId field.
+func (o *ServiceAccount) SetClientId(v string) {
+	o.ClientId = &v
 }
 
 // GetClientSecret returns the ClientSecret field value if set, zero value otherwise.
@@ -336,33 +346,43 @@ func (o *ServiceAccount) SetCreatedAt(v time.Time) {
 
 func (o ServiceAccount) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
+
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
+
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
 	}
+
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
+
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-	if o.ClientID != nil {
-		toSerialize["clientID"] = o.ClientID
+
+	if o.ClientId != nil {
+		toSerialize["client_id"] = o.ClientId
 	}
+
 	if o.ClientSecret != nil {
-		toSerialize["clientSecret"] = o.ClientSecret
+		toSerialize["client_secret"] = o.ClientSecret
 	}
+
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
 	}
+
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt
 	}
+
 	return json.Marshal(toSerialize)
 }
 

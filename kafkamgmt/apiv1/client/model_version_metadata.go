@@ -16,9 +16,12 @@ import (
 
 // VersionMetadata struct for VersionMetadata
 type VersionMetadata struct {
-	Id          *string            `json:"id,omitempty"`
-	Kind        *string            `json:"kind,omitempty"`
-	Href        *string            `json:"href,omitempty"`
+	Id *string `json:"id,omitempty"`
+
+	Kind *string `json:"kind,omitempty"`
+
+	Href *string `json:"href,omitempty"`
+
 	Collections *[]ObjectReference `json:"collections,omitempty"`
 }
 
@@ -36,6 +39,7 @@ func NewVersionMetadata() *VersionMetadata {
 // but it doesn't guarantee that properties required by API are set
 func NewVersionMetadataWithDefaults() *VersionMetadata {
 	this := VersionMetadata{}
+
 	return &this
 }
 
@@ -169,18 +173,23 @@ func (o *VersionMetadata) SetCollections(v []ObjectReference) {
 
 func (o VersionMetadata) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
+
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
+
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
 	}
+
 	if o.Collections != nil {
 		toSerialize["collections"] = o.Collections
 	}
+
 	return json.Marshal(toSerialize)
 }
 

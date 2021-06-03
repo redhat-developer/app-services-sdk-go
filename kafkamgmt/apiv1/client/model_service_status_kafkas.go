@@ -16,6 +16,7 @@ import (
 
 // ServiceStatusKafkas The kafka resource api status
 type ServiceStatusKafkas struct {
+
 	// Indicates whether we have reached kafka maximum capacity
 	MaxCapacityReached bool `json:"max_capacity_reached"`
 }
@@ -35,6 +36,7 @@ func NewServiceStatusKafkas(maxCapacityReached bool) *ServiceStatusKafkas {
 // but it doesn't guarantee that properties required by API are set
 func NewServiceStatusKafkasWithDefaults() *ServiceStatusKafkas {
 	this := ServiceStatusKafkas{}
+
 	return &this
 }
 
@@ -64,9 +66,11 @@ func (o *ServiceStatusKafkas) SetMaxCapacityReached(v bool) {
 
 func (o ServiceStatusKafkas) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if true {
 		toSerialize["max_capacity_reached"] = o.MaxCapacityReached
 	}
+
 	return json.Marshal(toSerialize)
 }
 

@@ -17,14 +17,21 @@ import (
 
 // ServiceAccountAllOf struct for ServiceAccountAllOf
 type ServiceAccountAllOf struct {
+
 	// server generated unique id of the service account
-	Id           *string    `json:"id,omitempty"`
-	Name         *string    `json:"name,omitempty"`
-	Description  *string    `json:"description,omitempty"`
-	ClientID     *string    `json:"clientID,omitempty"`
-	ClientSecret *string    `json:"clientSecret,omitempty"`
-	Owner        *string    `json:"owner,omitempty"`
-	CreatedAt    *time.Time `json:"created_at,omitempty"`
+	Id *string `json:"id,omitempty"`
+
+	Name *string `json:"name,omitempty"`
+
+	Description *string `json:"description,omitempty"`
+
+	ClientId *string `json:"client_id,omitempty"`
+
+	ClientSecret *string `json:"client_secret,omitempty"`
+
+	Owner *string `json:"owner,omitempty"`
+
+	CreatedAt *time.Time `json:"created_at,omitempty"`
 }
 
 // NewServiceAccountAllOf instantiates a new ServiceAccountAllOf object
@@ -41,6 +48,7 @@ func NewServiceAccountAllOf() *ServiceAccountAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewServiceAccountAllOfWithDefaults() *ServiceAccountAllOf {
 	this := ServiceAccountAllOf{}
+
 	return &this
 }
 
@@ -140,36 +148,36 @@ func (o *ServiceAccountAllOf) SetDescription(v string) {
 	o.Description = &v
 }
 
-// GetClientID returns the ClientID field value if set, zero value otherwise.
-func (o *ServiceAccountAllOf) GetClientID() string {
-	if o == nil || o.ClientID == nil {
+// GetClientId returns the ClientId field value if set, zero value otherwise.
+func (o *ServiceAccountAllOf) GetClientId() string {
+	if o == nil || o.ClientId == nil {
 		var ret string
 		return ret
 	}
-	return *o.ClientID
+	return *o.ClientId
 }
 
-// GetClientIDOk returns a tuple with the ClientID field value if set, nil otherwise
+// GetClientIdOk returns a tuple with the ClientId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ServiceAccountAllOf) GetClientIDOk() (*string, bool) {
-	if o == nil || o.ClientID == nil {
+func (o *ServiceAccountAllOf) GetClientIdOk() (*string, bool) {
+	if o == nil || o.ClientId == nil {
 		return nil, false
 	}
-	return o.ClientID, true
+	return o.ClientId, true
 }
 
-// HasClientID returns a boolean if a field has been set.
-func (o *ServiceAccountAllOf) HasClientID() bool {
-	if o != nil && o.ClientID != nil {
+// HasClientId returns a boolean if a field has been set.
+func (o *ServiceAccountAllOf) HasClientId() bool {
+	if o != nil && o.ClientId != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetClientID gets a reference to the given string and assigns it to the ClientID field.
-func (o *ServiceAccountAllOf) SetClientID(v string) {
-	o.ClientID = &v
+// SetClientId gets a reference to the given string and assigns it to the ClientId field.
+func (o *ServiceAccountAllOf) SetClientId(v string) {
+	o.ClientId = &v
 }
 
 // GetClientSecret returns the ClientSecret field value if set, zero value otherwise.
@@ -270,27 +278,35 @@ func (o *ServiceAccountAllOf) SetCreatedAt(v time.Time) {
 
 func (o ServiceAccountAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
+
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
+
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-	if o.ClientID != nil {
-		toSerialize["clientID"] = o.ClientID
+
+	if o.ClientId != nil {
+		toSerialize["client_id"] = o.ClientId
 	}
+
 	if o.ClientSecret != nil {
-		toSerialize["clientSecret"] = o.ClientSecret
+		toSerialize["client_secret"] = o.ClientSecret
 	}
+
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
 	}
+
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt
 	}
+
 	return json.Marshal(toSerialize)
 }
 

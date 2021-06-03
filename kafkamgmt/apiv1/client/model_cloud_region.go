@@ -16,12 +16,16 @@ import (
 
 // CloudRegion Description of a region of a cloud provider.
 type CloudRegion struct {
+
 	// Indicates the type of this object. Will be 'CloudRegion'.
 	Kind *string `json:"kind,omitempty"`
+
 	// Unique identifier of the object.
 	Id *string `json:"id,omitempty"`
+
 	// Name of the region for display purposes, for example `N. Virginia`.
 	DisplayName *string `json:"display_name,omitempty"`
+
 	// Whether the region is enabled for deploying an OSD cluster.
 	Enabled bool `json:"enabled"`
 }
@@ -41,8 +45,10 @@ func NewCloudRegion(enabled bool) *CloudRegion {
 // but it doesn't guarantee that properties required by API are set
 func NewCloudRegionWithDefaults() *CloudRegion {
 	this := CloudRegion{}
+
 	var enabled bool = false
 	this.Enabled = enabled
+
 	return &this
 }
 
@@ -168,18 +174,23 @@ func (o *CloudRegion) SetEnabled(v bool) {
 
 func (o CloudRegion) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
+
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
+
 	if o.DisplayName != nil {
 		toSerialize["display_name"] = o.DisplayName
 	}
+
 	if true {
 		toSerialize["enabled"] = o.Enabled
 	}
+
 	return json.Marshal(toSerialize)
 }
 

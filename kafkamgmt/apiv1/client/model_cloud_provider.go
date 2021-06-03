@@ -16,14 +16,19 @@ import (
 
 // CloudProvider Cloud provider.
 type CloudProvider struct {
+
 	// Indicates the type of this object. Will be 'CloudProvider' link.
 	Kind *string `json:"kind,omitempty"`
+
 	// Unique identifier of the object.
 	Id *string `json:"id,omitempty"`
+
 	// Name of the cloud provider for display purposes.
 	DisplayName *string `json:"display_name,omitempty"`
+
 	// Human friendly identifier of the cloud provider, for example `aws`.
 	Name *string `json:"name,omitempty"`
+
 	// Whether the cloud provider is enabled for deploying an OSD cluster.
 	Enabled bool `json:"enabled"`
 }
@@ -43,6 +48,7 @@ func NewCloudProvider(enabled bool) *CloudProvider {
 // but it doesn't guarantee that properties required by API are set
 func NewCloudProviderWithDefaults() *CloudProvider {
 	this := CloudProvider{}
+
 	return &this
 }
 
@@ -200,21 +206,27 @@ func (o *CloudProvider) SetEnabled(v bool) {
 
 func (o CloudProvider) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
+
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
+
 	if o.DisplayName != nil {
 		toSerialize["display_name"] = o.DisplayName
 	}
+
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
+
 	if true {
 		toSerialize["enabled"] = o.Enabled
 	}
+
 	return json.Marshal(toSerialize)
 }
 

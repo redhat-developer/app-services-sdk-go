@@ -33,6 +33,7 @@ func NewKafkaRequestListAllOf() *KafkaRequestListAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewKafkaRequestListAllOfWithDefaults() *KafkaRequestListAllOf {
 	this := KafkaRequestListAllOf{}
+
 	return &this
 }
 
@@ -70,9 +71,11 @@ func (o *KafkaRequestListAllOf) SetItems(v []KafkaRequest) {
 
 func (o KafkaRequestListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
+
 	return json.Marshal(toSerialize)
 }
 

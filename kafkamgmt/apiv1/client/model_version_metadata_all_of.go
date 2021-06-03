@@ -33,6 +33,7 @@ func NewVersionMetadataAllOf() *VersionMetadataAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewVersionMetadataAllOfWithDefaults() *VersionMetadataAllOf {
 	this := VersionMetadataAllOf{}
+
 	return &this
 }
 
@@ -70,9 +71,11 @@ func (o *VersionMetadataAllOf) SetCollections(v []ObjectReference) {
 
 func (o VersionMetadataAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Collections != nil {
 		toSerialize["collections"] = o.Collections
 	}
+
 	return json.Marshal(toSerialize)
 }
 

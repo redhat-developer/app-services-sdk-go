@@ -16,8 +16,10 @@ import (
 
 // ObjectReference struct for ObjectReference
 type ObjectReference struct {
-	Id   *string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
+
 	Kind *string `json:"kind,omitempty"`
+
 	Href *string `json:"href,omitempty"`
 }
 
@@ -35,6 +37,7 @@ func NewObjectReference() *ObjectReference {
 // but it doesn't guarantee that properties required by API are set
 func NewObjectReferenceWithDefaults() *ObjectReference {
 	this := ObjectReference{}
+
 	return &this
 }
 
@@ -136,15 +139,19 @@ func (o *ObjectReference) SetHref(v string) {
 
 func (o ObjectReference) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
+
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
+
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
 	}
+
 	return json.Marshal(toSerialize)
 }
 

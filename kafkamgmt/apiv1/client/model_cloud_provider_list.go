@@ -16,10 +16,14 @@ import (
 
 // CloudProviderList struct for CloudProviderList
 type CloudProviderList struct {
-	Kind  string          `json:"kind"`
-	Page  int32           `json:"page"`
-	Size  int32           `json:"size"`
-	Total int32           `json:"total"`
+	Kind string `json:"kind"`
+
+	Page int32 `json:"page"`
+
+	Size int32 `json:"size"`
+
+	Total int32 `json:"total"`
+
 	Items []CloudProvider `json:"items"`
 }
 
@@ -42,6 +46,7 @@ func NewCloudProviderList(kind string, page int32, size int32, total int32, item
 // but it doesn't guarantee that properties required by API are set
 func NewCloudProviderListWithDefaults() *CloudProviderList {
 	this := CloudProviderList{}
+
 	return &this
 }
 
@@ -167,21 +172,27 @@ func (o *CloudProviderList) SetItems(v []CloudProvider) {
 
 func (o CloudProviderList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
+
 	if true {
 		toSerialize["page"] = o.Page
 	}
+
 	if true {
 		toSerialize["size"] = o.Size
 	}
+
 	if true {
 		toSerialize["total"] = o.Total
 	}
+
 	if true {
 		toSerialize["items"] = o.Items
 	}
+
 	return json.Marshal(toSerialize)
 }
 

@@ -16,8 +16,9 @@ import (
 
 // Values struct for Values
 type Values struct {
-	Timestamp *int64  `json:"Timestamp,omitempty"`
-	Value     float64 `json:"Value"`
+	Timestamp *int64 `json:"timestamp,omitempty"`
+
+	Value float64 `json:"value"`
 }
 
 // NewValues instantiates a new Values object
@@ -35,6 +36,7 @@ func NewValues(value float64) *Values {
 // but it doesn't guarantee that properties required by API are set
 func NewValuesWithDefaults() *Values {
 	this := Values{}
+
 	return &this
 }
 
@@ -96,12 +98,15 @@ func (o *Values) SetValue(v float64) {
 
 func (o Values) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Timestamp != nil {
-		toSerialize["Timestamp"] = o.Timestamp
+		toSerialize["timestamp"] = o.Timestamp
 	}
+
 	if true {
-		toSerialize["Value"] = o.Value
+		toSerialize["value"] = o.Value
 	}
+
 	return json.Marshal(toSerialize)
 }
 

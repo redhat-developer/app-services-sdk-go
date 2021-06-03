@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **DisplayName** | Pointer to **string** | Name of the region for display purposes, for example &#x60;N. Virginia&#x60;. | [optional] 
 **Enabled** | **bool** | Whether the region is enabled for deploying an OSD cluster. | [default to false]
 
+
 ## Methods
 
 ### NewCloudRegion
@@ -27,6 +28,7 @@ will change when the set of required properties is changed
 NewCloudRegionWithDefaults instantiates a new CloudRegion object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
 
 ### GetKind
 
@@ -53,6 +55,7 @@ SetKind sets Kind field to given value.
 
 HasKind returns a boolean if a field has been set.
 
+
 ### GetId
 
 `func (o *CloudRegion) GetId() string`
@@ -77,6 +80,7 @@ SetId sets Id field to given value.
 `func (o *CloudRegion) HasId() bool`
 
 HasId returns a boolean if a field has been set.
+
 
 ### GetDisplayName
 
@@ -103,6 +107,7 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
+
 ### GetEnabled
 
 `func (o *CloudRegion) GetEnabled() bool`
@@ -124,6 +129,6 @@ SetEnabled sets Enabled field to given value.
 
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

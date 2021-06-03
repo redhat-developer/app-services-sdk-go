@@ -16,10 +16,13 @@ import (
 
 // List struct for List
 type List struct {
-	Kind  string `json:"kind"`
-	Page  int32  `json:"page"`
-	Size  int32  `json:"size"`
-	Total int32  `json:"total"`
+	Kind string `json:"kind"`
+
+	Page int32 `json:"page"`
+
+	Size int32 `json:"size"`
+
+	Total int32 `json:"total"`
 }
 
 // NewList instantiates a new List object
@@ -40,6 +43,7 @@ func NewList(kind string, page int32, size int32, total int32) *List {
 // but it doesn't guarantee that properties required by API are set
 func NewListWithDefaults() *List {
 	this := List{}
+
 	return &this
 }
 
@@ -141,18 +145,23 @@ func (o *List) SetTotal(v int32) {
 
 func (o List) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
+
 	if true {
 		toSerialize["page"] = o.Page
 	}
+
 	if true {
 		toSerialize["size"] = o.Size
 	}
+
 	if true {
 		toSerialize["total"] = o.Total
 	}
+
 	return json.Marshal(toSerialize)
 }
 

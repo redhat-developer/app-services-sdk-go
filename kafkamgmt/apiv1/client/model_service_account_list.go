@@ -16,7 +16,8 @@ import (
 
 // ServiceAccountList struct for ServiceAccountList
 type ServiceAccountList struct {
-	Kind  string                   `json:"kind"`
+	Kind string `json:"kind"`
+
 	Items []ServiceAccountListItem `json:"items"`
 }
 
@@ -36,6 +37,7 @@ func NewServiceAccountList(kind string, items []ServiceAccountListItem) *Service
 // but it doesn't guarantee that properties required by API are set
 func NewServiceAccountListWithDefaults() *ServiceAccountList {
 	this := ServiceAccountList{}
+
 	return &this
 }
 
@@ -89,12 +91,15 @@ func (o *ServiceAccountList) SetItems(v []ServiceAccountListItem) {
 
 func (o ServiceAccountList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
+
 	if true {
 		toSerialize["items"] = o.Items
 	}
+
 	return json.Marshal(toSerialize)
 }
 

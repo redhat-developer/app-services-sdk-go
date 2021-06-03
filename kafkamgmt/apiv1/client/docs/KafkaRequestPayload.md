@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The name of the Kafka cluster. It must consist of lower-case alphanumeric characters or &#39;-&#39;, start with an alphabetic character, and end with an alphanumeric character, and can not be longer than 32 characters. | 
 **Region** | Pointer to **string** | The region where the Kafka cluster will be created in | [optional] 
 
+
 ## Methods
 
 ### NewKafkaRequestPayload
@@ -27,6 +28,7 @@ will change when the set of required properties is changed
 NewKafkaRequestPayloadWithDefaults instantiates a new KafkaRequestPayload object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
 
 ### GetCloudProvider
 
@@ -53,6 +55,7 @@ SetCloudProvider sets CloudProvider field to given value.
 
 HasCloudProvider returns a boolean if a field has been set.
 
+
 ### GetMultiAz
 
 `func (o *KafkaRequestPayload) GetMultiAz() bool`
@@ -78,6 +81,7 @@ SetMultiAz sets MultiAz field to given value.
 
 HasMultiAz returns a boolean if a field has been set.
 
+
 ### GetName
 
 `func (o *KafkaRequestPayload) GetName() string`
@@ -96,6 +100,7 @@ and a boolean to check if the value has been set.
 `func (o *KafkaRequestPayload) SetName(v string)`
 
 SetName sets Name field to given value.
+
 
 
 ### GetRegion
@@ -124,6 +129,6 @@ SetRegion sets Region field to given value.
 HasRegion returns a boolean if a field has been set.
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
