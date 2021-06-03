@@ -21,9 +21,12 @@ func NewAPIClient(cfg *Config) *apiClient.APIClient {
 	if cfg.HTTPClient != nil {
 		apiCfg.HTTPClient = cfg.HTTPClient
 	}
-	if cfg.ServerURL != nil {
-		apiCfg.Host = cfg.ServerURL.Host
-		apiCfg.Scheme = cfg.ServerURL.Scheme
+	if cfg.BaseURL != "" {
+		apiCfg.Servers = []apiClient.ServerConfiguration{
+			{
+				URL: cfg.BaseURL,
+			},
+		}
 	}
 
 	apiCfg.Debug = cfg.Debug
