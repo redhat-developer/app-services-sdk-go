@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal/client"
 	"context"
 	"fmt"
 	"os"
@@ -19,9 +18,9 @@ func main() {
 
 	apiClient := kafkainstanceapi.NewAPIClient(&kafkainstanceapi.Config{
 		HTTPClient: tc,
+		Debug:      true,
+		BaseURL:    "http://localhost:9000/custom/path/to/rest",
 	})
-
-	x := kafkainstance.Topic{}
 
 	res, _, err := apiClient.DefaultApi.GetTopics(context.Background()).Execute()
 	if err != nil {

@@ -39,11 +39,10 @@ kafkas, resp, err := client.DefaultApi.GetKafkas(context.Background()).Execute()
 You can override the default configuration options:
 
 ```go
-baseURL, _ := url.Parse("http://localhost:8001")
 cfg := kafkamgmt.Config{
     HTTPClient: yourHTTPClient,
     Debug: true,
-    ServerURL: baseURL,
+    BaseURL: "http://localhost:8080",
 }
 
 client := kafkamgmt.NewAPIClient(&cfg)

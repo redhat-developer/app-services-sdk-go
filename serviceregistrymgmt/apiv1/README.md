@@ -39,11 +39,10 @@ registries, resp, err := client.DefaultApi.GetRegistries(context.Background()).E
 You can override the default configuration options:
 
 ```go
-baseURL, _ := url.Parse("http://localhost:8001")
 cfg := serviceregistrymgmt.Config{
     HTTPClient: yourHTTPClient,
     Debug: true,
-    ServerURL: baseURL,
+    BaseURL: "http://localhost:8080",
 }
 
 client := serviceregistrymgmt.NewAPIClient(&cfg)
