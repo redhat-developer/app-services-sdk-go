@@ -33,6 +33,7 @@ func NewErrorListAllOf() *ErrorListAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewErrorListAllOfWithDefaults() *ErrorListAllOf {
 	this := ErrorListAllOf{}
+
 	return &this
 }
 
@@ -70,9 +71,11 @@ func (o *ErrorListAllOf) SetItems(v []Error) {
 
 func (o ErrorListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
+
 	return json.Marshal(toSerialize)
 }
 

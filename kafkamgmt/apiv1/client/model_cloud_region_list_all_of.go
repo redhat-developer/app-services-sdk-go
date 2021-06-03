@@ -33,6 +33,7 @@ func NewCloudRegionListAllOf() *CloudRegionListAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewCloudRegionListAllOfWithDefaults() *CloudRegionListAllOf {
 	this := CloudRegionListAllOf{}
+
 	return &this
 }
 
@@ -70,9 +71,11 @@ func (o *CloudRegionListAllOf) SetItems(v []CloudRegion) {
 
 func (o CloudRegionListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
+
 	return json.Marshal(toSerialize)
 }
 

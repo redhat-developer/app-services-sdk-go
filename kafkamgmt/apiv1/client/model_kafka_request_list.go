@@ -16,10 +16,14 @@ import (
 
 // KafkaRequestList struct for KafkaRequestList
 type KafkaRequestList struct {
-	Kind  string         `json:"kind"`
-	Page  int32          `json:"page"`
-	Size  int32          `json:"size"`
-	Total int32          `json:"total"`
+	Kind string `json:"kind"`
+
+	Page int32 `json:"page"`
+
+	Size int32 `json:"size"`
+
+	Total int32 `json:"total"`
+
 	Items []KafkaRequest `json:"items"`
 }
 
@@ -42,6 +46,7 @@ func NewKafkaRequestList(kind string, page int32, size int32, total int32, items
 // but it doesn't guarantee that properties required by API are set
 func NewKafkaRequestListWithDefaults() *KafkaRequestList {
 	this := KafkaRequestList{}
+
 	return &this
 }
 
@@ -167,21 +172,27 @@ func (o *KafkaRequestList) SetItems(v []KafkaRequest) {
 
 func (o KafkaRequestList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
+
 	if true {
 		toSerialize["page"] = o.Page
 	}
+
 	if true {
 		toSerialize["size"] = o.Size
 	}
+
 	if true {
 		toSerialize["total"] = o.Total
 	}
+
 	if true {
 		toSerialize["items"] = o.Items
 	}
+
 	return json.Marshal(toSerialize)
 }
 

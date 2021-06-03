@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Kafkas** | Pointer to [**ServiceStatusKafkas**](ServiceStatusKafkas.md) |  | [optional] 
 
+
 ## Methods
 
 ### NewServiceStatus
@@ -24,6 +25,7 @@ will change when the set of required properties is changed
 NewServiceStatusWithDefaults instantiates a new ServiceStatus object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
 
 ### GetKafkas
 
@@ -51,6 +53,6 @@ SetKafkas sets Kafkas field to given value.
 HasKafkas returns a boolean if a field has been set.
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

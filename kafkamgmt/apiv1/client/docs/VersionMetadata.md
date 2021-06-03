@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Href** | Pointer to **string** |  | [optional] 
 **Collections** | Pointer to [**[]ObjectReference**](ObjectReference.md) |  | [optional] 
 
+
 ## Methods
 
 ### NewVersionMetadata
@@ -27,6 +28,7 @@ will change when the set of required properties is changed
 NewVersionMetadataWithDefaults instantiates a new VersionMetadata object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
 
 ### GetId
 
@@ -53,6 +55,7 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+
 ### GetKind
 
 `func (o *VersionMetadata) GetKind() string`
@@ -78,6 +81,7 @@ SetKind sets Kind field to given value.
 
 HasKind returns a boolean if a field has been set.
 
+
 ### GetHref
 
 `func (o *VersionMetadata) GetHref() string`
@@ -102,6 +106,7 @@ SetHref sets Href field to given value.
 `func (o *VersionMetadata) HasHref() bool`
 
 HasHref returns a boolean if a field has been set.
+
 
 ### GetCollections
 
@@ -129,6 +134,6 @@ SetCollections sets Collections field to given value.
 HasCollections returns a boolean if a field has been set.
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **int64** |  | [optional] 
 **Value** | **float64** |  | 
 
+
 ## Methods
 
 ### NewInstantQuery
@@ -26,6 +27,7 @@ will change when the set of required properties is changed
 NewInstantQueryWithDefaults instantiates a new InstantQuery object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
 
 ### GetMetric
 
@@ -52,6 +54,7 @@ SetMetric sets Metric field to given value.
 
 HasMetric returns a boolean if a field has been set.
 
+
 ### GetTimestamp
 
 `func (o *InstantQuery) GetTimestamp() int64`
@@ -77,6 +80,7 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
+
 ### GetValue
 
 `func (o *InstantQuery) GetValue() float64`
@@ -98,6 +102,6 @@ SetValue sets Value field to given value.
 
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

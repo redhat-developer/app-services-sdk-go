@@ -16,10 +16,14 @@ import (
 
 // CloudRegionList struct for CloudRegionList
 type CloudRegionList struct {
-	Kind  string        `json:"kind"`
-	Page  int32         `json:"page"`
-	Size  int32         `json:"size"`
-	Total int32         `json:"total"`
+	Kind string `json:"kind"`
+
+	Page int32 `json:"page"`
+
+	Size int32 `json:"size"`
+
+	Total int32 `json:"total"`
+
 	Items []CloudRegion `json:"items"`
 }
 
@@ -42,6 +46,7 @@ func NewCloudRegionList(kind string, page int32, size int32, total int32, items 
 // but it doesn't guarantee that properties required by API are set
 func NewCloudRegionListWithDefaults() *CloudRegionList {
 	this := CloudRegionList{}
+
 	return &this
 }
 
@@ -167,21 +172,27 @@ func (o *CloudRegionList) SetItems(v []CloudRegion) {
 
 func (o CloudRegionList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
+
 	if true {
 		toSerialize["page"] = o.Page
 	}
+
 	if true {
 		toSerialize["size"] = o.Size
 	}
+
 	if true {
 		toSerialize["total"] = o.Total
 	}
+
 	if true {
 		toSerialize["items"] = o.Items
 	}
+
 	return json.Marshal(toSerialize)
 }
 

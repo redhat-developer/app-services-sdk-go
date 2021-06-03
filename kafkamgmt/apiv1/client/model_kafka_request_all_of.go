@@ -17,17 +17,27 @@ import (
 
 // KafkaRequestAllOf struct for KafkaRequestAllOf
 type KafkaRequestAllOf struct {
-	Status              *string    `json:"status,omitempty"`
-	CloudProvider       *string    `json:"cloud_provider,omitempty"`
-	MultiAz             *bool      `json:"multi_az,omitempty"`
-	Region              *string    `json:"region,omitempty"`
-	Owner               *string    `json:"owner,omitempty"`
-	Name                *string    `json:"name,omitempty"`
-	BootstrapServerHost *string    `json:"bootstrapServerHost,omitempty"`
-	CreatedAt           *time.Time `json:"created_at,omitempty"`
-	UpdatedAt           *time.Time `json:"updated_at,omitempty"`
-	FailedReason        *string    `json:"failed_reason,omitempty"`
-	Version             *string    `json:"version,omitempty"`
+	Status *string `json:"status,omitempty"`
+
+	CloudProvider *string `json:"cloud_provider,omitempty"`
+
+	MultiAz *bool `json:"multi_az,omitempty"`
+
+	Region *string `json:"region,omitempty"`
+
+	Owner *string `json:"owner,omitempty"`
+
+	Name *string `json:"name,omitempty"`
+
+	BootstrapServerHost *string `json:"bootstrap_server_host,omitempty"`
+
+	CreatedAt *time.Time `json:"created_at,omitempty"`
+
+	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+
+	FailedReason *string `json:"failed_reason,omitempty"`
+
+	Version *string `json:"version,omitempty"`
 }
 
 // NewKafkaRequestAllOf instantiates a new KafkaRequestAllOf object
@@ -44,6 +54,7 @@ func NewKafkaRequestAllOf() *KafkaRequestAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewKafkaRequestAllOfWithDefaults() *KafkaRequestAllOf {
 	this := KafkaRequestAllOf{}
+
 	return &this
 }
 
@@ -401,39 +412,51 @@ func (o *KafkaRequestAllOf) SetVersion(v string) {
 
 func (o KafkaRequestAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Status != nil {
 		toSerialize["status"] = o.Status
 	}
+
 	if o.CloudProvider != nil {
 		toSerialize["cloud_provider"] = o.CloudProvider
 	}
+
 	if o.MultiAz != nil {
 		toSerialize["multi_az"] = o.MultiAz
 	}
+
 	if o.Region != nil {
 		toSerialize["region"] = o.Region
 	}
+
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
 	}
+
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
+
 	if o.BootstrapServerHost != nil {
-		toSerialize["bootstrapServerHost"] = o.BootstrapServerHost
+		toSerialize["bootstrap_server_host"] = o.BootstrapServerHost
 	}
+
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt
 	}
+
 	if o.UpdatedAt != nil {
 		toSerialize["updated_at"] = o.UpdatedAt
 	}
+
 	if o.FailedReason != nil {
 		toSerialize["failed_reason"] = o.FailedReason
 	}
+
 	if o.Version != nil {
 		toSerialize["version"] = o.Version
 	}
+
 	return json.Marshal(toSerialize)
 }
 

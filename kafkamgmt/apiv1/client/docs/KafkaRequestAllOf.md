@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **FailedReason** | Pointer to **string** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
 
+
 ## Methods
 
 ### NewKafkaRequestAllOf
@@ -34,6 +35,7 @@ will change when the set of required properties is changed
 NewKafkaRequestAllOfWithDefaults instantiates a new KafkaRequestAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
 
 ### GetStatus
 
@@ -60,6 +62,7 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+
 ### GetCloudProvider
 
 `func (o *KafkaRequestAllOf) GetCloudProvider() string`
@@ -84,6 +87,7 @@ SetCloudProvider sets CloudProvider field to given value.
 `func (o *KafkaRequestAllOf) HasCloudProvider() bool`
 
 HasCloudProvider returns a boolean if a field has been set.
+
 
 ### GetMultiAz
 
@@ -110,6 +114,7 @@ SetMultiAz sets MultiAz field to given value.
 
 HasMultiAz returns a boolean if a field has been set.
 
+
 ### GetRegion
 
 `func (o *KafkaRequestAllOf) GetRegion() string`
@@ -134,6 +139,7 @@ SetRegion sets Region field to given value.
 `func (o *KafkaRequestAllOf) HasRegion() bool`
 
 HasRegion returns a boolean if a field has been set.
+
 
 ### GetOwner
 
@@ -160,6 +166,7 @@ SetOwner sets Owner field to given value.
 
 HasOwner returns a boolean if a field has been set.
 
+
 ### GetName
 
 `func (o *KafkaRequestAllOf) GetName() string`
@@ -184,6 +191,7 @@ SetName sets Name field to given value.
 `func (o *KafkaRequestAllOf) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
 
 ### GetBootstrapServerHost
 
@@ -210,6 +218,7 @@ SetBootstrapServerHost sets BootstrapServerHost field to given value.
 
 HasBootstrapServerHost returns a boolean if a field has been set.
 
+
 ### GetCreatedAt
 
 `func (o *KafkaRequestAllOf) GetCreatedAt() time.Time`
@@ -234,6 +243,7 @@ SetCreatedAt sets CreatedAt field to given value.
 `func (o *KafkaRequestAllOf) HasCreatedAt() bool`
 
 HasCreatedAt returns a boolean if a field has been set.
+
 
 ### GetUpdatedAt
 
@@ -260,6 +270,7 @@ SetUpdatedAt sets UpdatedAt field to given value.
 
 HasUpdatedAt returns a boolean if a field has been set.
 
+
 ### GetFailedReason
 
 `func (o *KafkaRequestAllOf) GetFailedReason() string`
@@ -284,6 +295,7 @@ SetFailedReason sets FailedReason field to given value.
 `func (o *KafkaRequestAllOf) HasFailedReason() bool`
 
 HasFailedReason returns a boolean if a field has been set.
+
 
 ### GetVersion
 
@@ -311,6 +323,6 @@ SetVersion sets Version field to given value.
 HasVersion returns a boolean if a field has been set.
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

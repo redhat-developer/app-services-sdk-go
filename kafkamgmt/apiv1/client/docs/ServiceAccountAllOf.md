@@ -7,10 +7,11 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** | server generated unique id of the service account | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**ClientID** | Pointer to **string** |  | [optional] 
+**ClientId** | Pointer to **string** |  | [optional] 
 **ClientSecret** | Pointer to **string** |  | [optional] 
 **Owner** | Pointer to **string** |  | [optional] 
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
+
 
 ## Methods
 
@@ -30,6 +31,7 @@ will change when the set of required properties is changed
 NewServiceAccountAllOfWithDefaults instantiates a new ServiceAccountAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
 
 ### GetId
 
@@ -56,6 +58,7 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+
 ### GetName
 
 `func (o *ServiceAccountAllOf) GetName() string`
@@ -80,6 +83,7 @@ SetName sets Name field to given value.
 `func (o *ServiceAccountAllOf) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
 
 ### GetDescription
 
@@ -106,30 +110,32 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### GetClientID
 
-`func (o *ServiceAccountAllOf) GetClientID() string`
+### GetClientId
 
-GetClientID returns the ClientID field if non-nil, zero value otherwise.
+`func (o *ServiceAccountAllOf) GetClientId() string`
 
-### GetClientIDOk
+GetClientId returns the ClientId field if non-nil, zero value otherwise.
 
-`func (o *ServiceAccountAllOf) GetClientIDOk() (*string, bool)`
+### GetClientIdOk
 
-GetClientIDOk returns a tuple with the ClientID field if it's non-nil, zero value otherwise
+`func (o *ServiceAccountAllOf) GetClientIdOk() (*string, bool)`
+
+GetClientIdOk returns a tuple with the ClientId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetClientID
+### SetClientId
 
-`func (o *ServiceAccountAllOf) SetClientID(v string)`
+`func (o *ServiceAccountAllOf) SetClientId(v string)`
 
-SetClientID sets ClientID field to given value.
+SetClientId sets ClientId field to given value.
 
-### HasClientID
+### HasClientId
 
-`func (o *ServiceAccountAllOf) HasClientID() bool`
+`func (o *ServiceAccountAllOf) HasClientId() bool`
 
-HasClientID returns a boolean if a field has been set.
+HasClientId returns a boolean if a field has been set.
+
 
 ### GetClientSecret
 
@@ -156,6 +162,7 @@ SetClientSecret sets ClientSecret field to given value.
 
 HasClientSecret returns a boolean if a field has been set.
 
+
 ### GetOwner
 
 `func (o *ServiceAccountAllOf) GetOwner() string`
@@ -180,6 +187,7 @@ SetOwner sets Owner field to given value.
 `func (o *ServiceAccountAllOf) HasOwner() bool`
 
 HasOwner returns a boolean if a field has been set.
+
 
 ### GetCreatedAt
 
@@ -207,6 +215,6 @@ SetCreatedAt sets CreatedAt field to given value.
 HasCreatedAt returns a boolean if a field has been set.
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

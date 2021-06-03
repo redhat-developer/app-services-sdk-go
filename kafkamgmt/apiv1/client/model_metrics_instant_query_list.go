@@ -16,8 +16,10 @@ import (
 
 // MetricsInstantQueryList struct for MetricsInstantQueryList
 type MetricsInstantQueryList struct {
-	Kind  *string         `json:"kind,omitempty"`
-	Id    *string         `json:"id,omitempty"`
+	Kind *string `json:"kind,omitempty"`
+
+	Id *string `json:"id,omitempty"`
+
 	Items *[]InstantQuery `json:"items,omitempty"`
 }
 
@@ -35,6 +37,7 @@ func NewMetricsInstantQueryList() *MetricsInstantQueryList {
 // but it doesn't guarantee that properties required by API are set
 func NewMetricsInstantQueryListWithDefaults() *MetricsInstantQueryList {
 	this := MetricsInstantQueryList{}
+
 	return &this
 }
 
@@ -136,15 +139,19 @@ func (o *MetricsInstantQueryList) SetItems(v []InstantQuery) {
 
 func (o MetricsInstantQueryList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
+
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
+
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
+
 	return json.Marshal(toSerialize)
 }
 

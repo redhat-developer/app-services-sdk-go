@@ -16,9 +16,11 @@ import (
 
 // InstantQuery struct for InstantQuery
 type InstantQuery struct {
-	Metric    *map[string]string `json:"metric,omitempty"`
-	Timestamp *int64             `json:"Timestamp,omitempty"`
-	Value     float64            `json:"Value"`
+	Metric *map[string]string `json:"metric,omitempty"`
+
+	Timestamp *int64 `json:"timestamp,omitempty"`
+
+	Value float64 `json:"value"`
 }
 
 // NewInstantQuery instantiates a new InstantQuery object
@@ -36,6 +38,7 @@ func NewInstantQuery(value float64) *InstantQuery {
 // but it doesn't guarantee that properties required by API are set
 func NewInstantQueryWithDefaults() *InstantQuery {
 	this := InstantQuery{}
+
 	return &this
 }
 
@@ -129,15 +132,19 @@ func (o *InstantQuery) SetValue(v float64) {
 
 func (o InstantQuery) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Metric != nil {
 		toSerialize["metric"] = o.Metric
 	}
+
 	if o.Timestamp != nil {
-		toSerialize["Timestamp"] = o.Timestamp
+		toSerialize["timestamp"] = o.Timestamp
 	}
+
 	if true {
-		toSerialize["Value"] = o.Value
+		toSerialize["value"] = o.Value
 	}
+
 	return json.Marshal(toSerialize)
 }
 

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The name of the service account | 
 **Description** | Pointer to **string** | A description for the service account | [optional] 
 
+
 ## Methods
 
 ### NewServiceAccountRequest
@@ -26,6 +27,7 @@ NewServiceAccountRequestWithDefaults instantiates a new ServiceAccountRequest ob
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+
 ### GetName
 
 `func (o *ServiceAccountRequest) GetName() string`
@@ -44,6 +46,7 @@ and a boolean to check if the value has been set.
 `func (o *ServiceAccountRequest) SetName(v string)`
 
 SetName sets Name field to given value.
+
 
 
 ### GetDescription
@@ -72,6 +75,6 @@ SetDescription sets Description field to given value.
 HasDescription returns a boolean if a field has been set.
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

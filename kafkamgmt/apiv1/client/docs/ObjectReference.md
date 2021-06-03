@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Kind** | Pointer to **string** |  | [optional] 
 **Href** | Pointer to **string** |  | [optional] 
 
+
 ## Methods
 
 ### NewObjectReference
@@ -26,6 +27,7 @@ will change when the set of required properties is changed
 NewObjectReferenceWithDefaults instantiates a new ObjectReference object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
 
 ### GetId
 
@@ -52,6 +54,7 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+
 ### GetKind
 
 `func (o *ObjectReference) GetKind() string`
@@ -76,6 +79,7 @@ SetKind sets Kind field to given value.
 `func (o *ObjectReference) HasKind() bool`
 
 HasKind returns a boolean if a field has been set.
+
 
 ### GetHref
 
@@ -103,6 +107,6 @@ SetHref sets Href field to given value.
 HasHref returns a boolean if a field has been set.
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

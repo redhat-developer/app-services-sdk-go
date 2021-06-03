@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Collections** | Pointer to [**[]ObjectReference**](ObjectReference.md) |  | [optional] 
 
+
 ## Methods
 
 ### NewVersionMetadataAllOf
@@ -24,6 +25,7 @@ will change when the set of required properties is changed
 NewVersionMetadataAllOfWithDefaults instantiates a new VersionMetadataAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
 
 ### GetCollections
 
@@ -51,6 +53,6 @@ SetCollections sets Collections field to given value.
 HasCollections returns a boolean if a field has been set.
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

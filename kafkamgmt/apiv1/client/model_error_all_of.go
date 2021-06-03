@@ -16,8 +16,10 @@ import (
 
 // ErrorAllOf struct for ErrorAllOf
 type ErrorAllOf struct {
-	Code        *string `json:"code,omitempty"`
-	Reason      *string `json:"reason,omitempty"`
+	Code *string `json:"code,omitempty"`
+
+	Reason *string `json:"reason,omitempty"`
+
 	OperationId *string `json:"operation_id,omitempty"`
 }
 
@@ -35,6 +37,7 @@ func NewErrorAllOf() *ErrorAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewErrorAllOfWithDefaults() *ErrorAllOf {
 	this := ErrorAllOf{}
+
 	return &this
 }
 
@@ -136,15 +139,19 @@ func (o *ErrorAllOf) SetOperationId(v string) {
 
 func (o ErrorAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Code != nil {
 		toSerialize["code"] = o.Code
 	}
+
 	if o.Reason != nil {
 		toSerialize["reason"] = o.Reason
 	}
+
 	if o.OperationId != nil {
 		toSerialize["operation_id"] = o.OperationId
 	}
+
 	return json.Marshal(toSerialize)
 }
 

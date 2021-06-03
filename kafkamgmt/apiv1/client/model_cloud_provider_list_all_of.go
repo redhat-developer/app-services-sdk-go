@@ -33,6 +33,7 @@ func NewCloudProviderListAllOf() *CloudProviderListAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewCloudProviderListAllOfWithDefaults() *CloudProviderListAllOf {
 	this := CloudProviderListAllOf{}
+
 	return &this
 }
 
@@ -70,9 +71,11 @@ func (o *CloudProviderListAllOf) SetItems(v []CloudProvider) {
 
 func (o CloudProviderListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
+
 	return json.Marshal(toSerialize)
 }
 

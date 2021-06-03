@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MaxCapacityReached** | **bool** | Indicates whether we have reached kafka maximum capacity | 
 
+
 ## Methods
 
 ### NewServiceStatusKafkas
@@ -24,6 +25,7 @@ will change when the set of required properties is changed
 NewServiceStatusKafkasWithDefaults instantiates a new ServiceStatusKafkas object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
 
 ### GetMaxCapacityReached
 
@@ -46,6 +48,6 @@ SetMaxCapacityReached sets MaxCapacityReached field to given value.
 
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

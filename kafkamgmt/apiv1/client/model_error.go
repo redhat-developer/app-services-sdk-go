@@ -16,11 +16,16 @@ import (
 
 // Error struct for Error
 type Error struct {
-	Id          *string `json:"id,omitempty"`
-	Kind        *string `json:"kind,omitempty"`
-	Href        *string `json:"href,omitempty"`
-	Code        *string `json:"code,omitempty"`
-	Reason      *string `json:"reason,omitempty"`
+	Id *string `json:"id,omitempty"`
+
+	Kind *string `json:"kind,omitempty"`
+
+	Href *string `json:"href,omitempty"`
+
+	Code *string `json:"code,omitempty"`
+
+	Reason *string `json:"reason,omitempty"`
+
 	OperationId *string `json:"operation_id,omitempty"`
 }
 
@@ -38,6 +43,7 @@ func NewError() *Error {
 // but it doesn't guarantee that properties required by API are set
 func NewErrorWithDefaults() *Error {
 	this := Error{}
+
 	return &this
 }
 
@@ -235,24 +241,31 @@ func (o *Error) SetOperationId(v string) {
 
 func (o Error) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
+
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
+
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
 	}
+
 	if o.Code != nil {
 		toSerialize["code"] = o.Code
 	}
+
 	if o.Reason != nil {
 		toSerialize["reason"] = o.Reason
 	}
+
 	if o.OperationId != nil {
 		toSerialize["operation_id"] = o.OperationId
 	}
+
 	return json.Marshal(toSerialize)
 }
 

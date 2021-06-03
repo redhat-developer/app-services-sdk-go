@@ -16,8 +16,10 @@ import (
 
 // MetricsRangeQueryListAllOf struct for MetricsRangeQueryListAllOf
 type MetricsRangeQueryListAllOf struct {
-	Kind  *string       `json:"kind,omitempty"`
-	Id    *string       `json:"id,omitempty"`
+	Kind *string `json:"kind,omitempty"`
+
+	Id *string `json:"id,omitempty"`
+
 	Items *[]RangeQuery `json:"items,omitempty"`
 }
 
@@ -35,6 +37,7 @@ func NewMetricsRangeQueryListAllOf() *MetricsRangeQueryListAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewMetricsRangeQueryListAllOfWithDefaults() *MetricsRangeQueryListAllOf {
 	this := MetricsRangeQueryListAllOf{}
+
 	return &this
 }
 
@@ -136,15 +139,19 @@ func (o *MetricsRangeQueryListAllOf) SetItems(v []RangeQuery) {
 
 func (o MetricsRangeQueryListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
+
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
+
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
+
 	return json.Marshal(toSerialize)
 }
 
