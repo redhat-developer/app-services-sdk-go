@@ -16,6 +16,7 @@ import (
 
 // CloudProviderList struct for CloudProviderList
 type CloudProviderList struct {
+
 	Kind string `json:"kind"`
 
 	Page int32 `json:"page"`
@@ -25,6 +26,7 @@ type CloudProviderList struct {
 	Total int32 `json:"total"`
 
 	Items []CloudProvider `json:"items"`
+
 }
 
 // NewCloudProviderList instantiates a new CloudProviderList object
@@ -47,8 +49,14 @@ func NewCloudProviderList(kind string, page int32, size int32, total int32, item
 func NewCloudProviderListWithDefaults() *CloudProviderList {
 	this := CloudProviderList{}
 
+
+
+
+
+
 	return &this
 }
+
 
 // GetKind returns the Kind field value
 func (o *CloudProviderList) GetKind() string {
@@ -63,7 +71,7 @@ func (o *CloudProviderList) GetKind() string {
 // GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
 func (o *CloudProviderList) GetKindOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Kind, true
@@ -73,6 +81,7 @@ func (o *CloudProviderList) GetKindOk() (*string, bool) {
 func (o *CloudProviderList) SetKind(v string) {
 	o.Kind = v
 }
+
 
 // GetPage returns the Page field value
 func (o *CloudProviderList) GetPage() int32 {
@@ -87,7 +96,7 @@ func (o *CloudProviderList) GetPage() int32 {
 // GetPageOk returns a tuple with the Page field value
 // and a boolean to check if the value has been set.
 func (o *CloudProviderList) GetPageOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Page, true
@@ -97,6 +106,7 @@ func (o *CloudProviderList) GetPageOk() (*int32, bool) {
 func (o *CloudProviderList) SetPage(v int32) {
 	o.Page = v
 }
+
 
 // GetSize returns the Size field value
 func (o *CloudProviderList) GetSize() int32 {
@@ -111,7 +121,7 @@ func (o *CloudProviderList) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *CloudProviderList) GetSizeOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Size, true
@@ -121,6 +131,7 @@ func (o *CloudProviderList) GetSizeOk() (*int32, bool) {
 func (o *CloudProviderList) SetSize(v int32) {
 	o.Size = v
 }
+
 
 // GetTotal returns the Total field value
 func (o *CloudProviderList) GetTotal() int32 {
@@ -135,7 +146,7 @@ func (o *CloudProviderList) GetTotal() int32 {
 // GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
 func (o *CloudProviderList) GetTotalOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Total, true
@@ -145,6 +156,7 @@ func (o *CloudProviderList) GetTotalOk() (*int32, bool) {
 func (o *CloudProviderList) SetTotal(v int32) {
 	o.Total = v
 }
+
 
 // GetItems returns the Items field value
 func (o *CloudProviderList) GetItems() []CloudProvider {
@@ -159,7 +171,7 @@ func (o *CloudProviderList) GetItems() []CloudProvider {
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
 func (o *CloudProviderList) GetItemsOk() (*[]CloudProvider, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Items, true
@@ -170,29 +182,30 @@ func (o *CloudProviderList) SetItems(v []CloudProvider) {
 	o.Items = v
 }
 
+
 func (o CloudProviderList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-
+    
 	if true {
 		toSerialize["page"] = o.Page
 	}
-
+    
 	if true {
 		toSerialize["size"] = o.Size
 	}
-
+    
 	if true {
 		toSerialize["total"] = o.Total
 	}
-
+    
 	if true {
 		toSerialize["items"] = o.Items
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -231,3 +244,4 @@ func (v *NullableCloudProviderList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

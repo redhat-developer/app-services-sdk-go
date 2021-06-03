@@ -28,6 +28,7 @@ type KafkaRequestPayload struct {
 
 	// The region where the Kafka cluster will be created in
 	Region *string `json:"region,omitempty"`
+
 }
 
 // NewKafkaRequestPayload instantiates a new KafkaRequestPayload object
@@ -46,8 +47,13 @@ func NewKafkaRequestPayload(name string) *KafkaRequestPayload {
 func NewKafkaRequestPayloadWithDefaults() *KafkaRequestPayload {
 	this := KafkaRequestPayload{}
 
+
+
+
+
 	return &this
 }
+
 
 // GetCloudProvider returns the CloudProvider field value if set, zero value otherwise.
 func (o *KafkaRequestPayload) GetCloudProvider() string {
@@ -81,6 +87,7 @@ func (o *KafkaRequestPayload) SetCloudProvider(v string) {
 	o.CloudProvider = &v
 }
 
+
 // GetMultiAz returns the MultiAz field value if set, zero value otherwise.
 func (o *KafkaRequestPayload) GetMultiAz() bool {
 	if o == nil || o.MultiAz == nil {
@@ -113,6 +120,7 @@ func (o *KafkaRequestPayload) SetMultiAz(v bool) {
 	o.MultiAz = &v
 }
 
+
 // GetName returns the Name field value
 func (o *KafkaRequestPayload) GetName() string {
 	if o == nil {
@@ -126,7 +134,7 @@ func (o *KafkaRequestPayload) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *KafkaRequestPayload) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Name, true
@@ -136,6 +144,7 @@ func (o *KafkaRequestPayload) GetNameOk() (*string, bool) {
 func (o *KafkaRequestPayload) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetRegion returns the Region field value if set, zero value otherwise.
 func (o *KafkaRequestPayload) GetRegion() string {
@@ -169,25 +178,26 @@ func (o *KafkaRequestPayload) SetRegion(v string) {
 	o.Region = &v
 }
 
+
 func (o KafkaRequestPayload) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if o.CloudProvider != nil {
 		toSerialize["cloud_provider"] = o.CloudProvider
 	}
-
+    
 	if o.MultiAz != nil {
 		toSerialize["multi_az"] = o.MultiAz
 	}
-
+    
 	if true {
 		toSerialize["name"] = o.Name
 	}
-
+    
 	if o.Region != nil {
 		toSerialize["region"] = o.Region
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -226,3 +236,4 @@ func (v *NullableKafkaRequestPayload) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

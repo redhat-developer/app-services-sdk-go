@@ -16,7 +16,9 @@ import (
 
 // ServiceStatus Schema for the service status response body
 type ServiceStatus struct {
+
 	Kafkas *ServiceStatusKafkas `json:"kafkas,omitempty"`
+
 }
 
 // NewServiceStatus instantiates a new ServiceStatus object
@@ -34,8 +36,10 @@ func NewServiceStatus() *ServiceStatus {
 func NewServiceStatusWithDefaults() *ServiceStatus {
 	this := ServiceStatus{}
 
+
 	return &this
 }
+
 
 // GetKafkas returns the Kafkas field value if set, zero value otherwise.
 func (o *ServiceStatus) GetKafkas() ServiceStatusKafkas {
@@ -69,13 +73,14 @@ func (o *ServiceStatus) SetKafkas(v ServiceStatusKafkas) {
 	o.Kafkas = &v
 }
 
+
 func (o ServiceStatus) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if o.Kafkas != nil {
 		toSerialize["kafkas"] = o.Kafkas
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -114,3 +119,4 @@ func (v *NullableServiceStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

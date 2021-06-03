@@ -16,9 +16,11 @@ import (
 
 // ServiceAccountListAllOf struct for ServiceAccountListAllOf
 type ServiceAccountListAllOf struct {
+
 	Kind string `json:"kind"`
 
 	Items []ServiceAccountListItem `json:"items"`
+
 }
 
 // NewServiceAccountListAllOf instantiates a new ServiceAccountListAllOf object
@@ -38,8 +40,11 @@ func NewServiceAccountListAllOf(kind string, items []ServiceAccountListItem) *Se
 func NewServiceAccountListAllOfWithDefaults() *ServiceAccountListAllOf {
 	this := ServiceAccountListAllOf{}
 
+
+
 	return &this
 }
+
 
 // GetKind returns the Kind field value
 func (o *ServiceAccountListAllOf) GetKind() string {
@@ -54,7 +59,7 @@ func (o *ServiceAccountListAllOf) GetKind() string {
 // GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
 func (o *ServiceAccountListAllOf) GetKindOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Kind, true
@@ -64,6 +69,7 @@ func (o *ServiceAccountListAllOf) GetKindOk() (*string, bool) {
 func (o *ServiceAccountListAllOf) SetKind(v string) {
 	o.Kind = v
 }
+
 
 // GetItems returns the Items field value
 func (o *ServiceAccountListAllOf) GetItems() []ServiceAccountListItem {
@@ -78,7 +84,7 @@ func (o *ServiceAccountListAllOf) GetItems() []ServiceAccountListItem {
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
 func (o *ServiceAccountListAllOf) GetItemsOk() (*[]ServiceAccountListItem, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Items, true
@@ -89,17 +95,18 @@ func (o *ServiceAccountListAllOf) SetItems(v []ServiceAccountListItem) {
 	o.Items = v
 }
 
+
 func (o ServiceAccountListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-
+    
 	if true {
 		toSerialize["items"] = o.Items
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -138,3 +145,4 @@ func (v *NullableServiceAccountListAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

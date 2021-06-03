@@ -31,6 +31,7 @@ type CloudProvider struct {
 
 	// Whether the cloud provider is enabled for deploying an OSD cluster.
 	Enabled bool `json:"enabled"`
+
 }
 
 // NewCloudProvider instantiates a new CloudProvider object
@@ -49,8 +50,14 @@ func NewCloudProvider(enabled bool) *CloudProvider {
 func NewCloudProviderWithDefaults() *CloudProvider {
 	this := CloudProvider{}
 
+
+
+
+
+
 	return &this
 }
+
 
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *CloudProvider) GetKind() string {
@@ -84,6 +91,7 @@ func (o *CloudProvider) SetKind(v string) {
 	o.Kind = &v
 }
 
+
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *CloudProvider) GetId() string {
 	if o == nil || o.Id == nil {
@@ -115,6 +123,7 @@ func (o *CloudProvider) HasId() bool {
 func (o *CloudProvider) SetId(v string) {
 	o.Id = &v
 }
+
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *CloudProvider) GetDisplayName() string {
@@ -148,6 +157,7 @@ func (o *CloudProvider) SetDisplayName(v string) {
 	o.DisplayName = &v
 }
 
+
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *CloudProvider) GetName() string {
 	if o == nil || o.Name == nil {
@@ -180,6 +190,7 @@ func (o *CloudProvider) SetName(v string) {
 	o.Name = &v
 }
 
+
 // GetEnabled returns the Enabled field value
 func (o *CloudProvider) GetEnabled() bool {
 	if o == nil {
@@ -193,7 +204,7 @@ func (o *CloudProvider) GetEnabled() bool {
 // GetEnabledOk returns a tuple with the Enabled field value
 // and a boolean to check if the value has been set.
 func (o *CloudProvider) GetEnabledOk() (*bool, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Enabled, true
@@ -204,29 +215,30 @@ func (o *CloudProvider) SetEnabled(v bool) {
 	o.Enabled = v
 }
 
+
 func (o CloudProvider) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-
+    
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-
+    
 	if o.DisplayName != nil {
 		toSerialize["display_name"] = o.DisplayName
 	}
-
+    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-
+    
 	if true {
 		toSerialize["enabled"] = o.Enabled
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -265,3 +277,4 @@ func (v *NullableCloudProvider) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

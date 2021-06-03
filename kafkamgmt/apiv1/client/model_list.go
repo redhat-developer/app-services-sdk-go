@@ -16,6 +16,7 @@ import (
 
 // List struct for List
 type List struct {
+
 	Kind string `json:"kind"`
 
 	Page int32 `json:"page"`
@@ -23,6 +24,7 @@ type List struct {
 	Size int32 `json:"size"`
 
 	Total int32 `json:"total"`
+
 }
 
 // NewList instantiates a new List object
@@ -44,8 +46,13 @@ func NewList(kind string, page int32, size int32, total int32) *List {
 func NewListWithDefaults() *List {
 	this := List{}
 
+
+
+
+
 	return &this
 }
+
 
 // GetKind returns the Kind field value
 func (o *List) GetKind() string {
@@ -60,7 +67,7 @@ func (o *List) GetKind() string {
 // GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
 func (o *List) GetKindOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Kind, true
@@ -70,6 +77,7 @@ func (o *List) GetKindOk() (*string, bool) {
 func (o *List) SetKind(v string) {
 	o.Kind = v
 }
+
 
 // GetPage returns the Page field value
 func (o *List) GetPage() int32 {
@@ -84,7 +92,7 @@ func (o *List) GetPage() int32 {
 // GetPageOk returns a tuple with the Page field value
 // and a boolean to check if the value has been set.
 func (o *List) GetPageOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Page, true
@@ -94,6 +102,7 @@ func (o *List) GetPageOk() (*int32, bool) {
 func (o *List) SetPage(v int32) {
 	o.Page = v
 }
+
 
 // GetSize returns the Size field value
 func (o *List) GetSize() int32 {
@@ -108,7 +117,7 @@ func (o *List) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *List) GetSizeOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Size, true
@@ -118,6 +127,7 @@ func (o *List) GetSizeOk() (*int32, bool) {
 func (o *List) SetSize(v int32) {
 	o.Size = v
 }
+
 
 // GetTotal returns the Total field value
 func (o *List) GetTotal() int32 {
@@ -132,7 +142,7 @@ func (o *List) GetTotal() int32 {
 // GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
 func (o *List) GetTotalOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Total, true
@@ -143,25 +153,26 @@ func (o *List) SetTotal(v int32) {
 	o.Total = v
 }
 
+
 func (o List) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-
+    
 	if true {
 		toSerialize["page"] = o.Page
 	}
-
+    
 	if true {
 		toSerialize["size"] = o.Size
 	}
-
+    
 	if true {
 		toSerialize["total"] = o.Total
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -200,3 +211,4 @@ func (v *NullableList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

@@ -16,6 +16,7 @@ import (
 
 // KafkaRequestList struct for KafkaRequestList
 type KafkaRequestList struct {
+
 	Kind string `json:"kind"`
 
 	Page int32 `json:"page"`
@@ -25,6 +26,7 @@ type KafkaRequestList struct {
 	Total int32 `json:"total"`
 
 	Items []KafkaRequest `json:"items"`
+
 }
 
 // NewKafkaRequestList instantiates a new KafkaRequestList object
@@ -47,8 +49,14 @@ func NewKafkaRequestList(kind string, page int32, size int32, total int32, items
 func NewKafkaRequestListWithDefaults() *KafkaRequestList {
 	this := KafkaRequestList{}
 
+
+
+
+
+
 	return &this
 }
+
 
 // GetKind returns the Kind field value
 func (o *KafkaRequestList) GetKind() string {
@@ -63,7 +71,7 @@ func (o *KafkaRequestList) GetKind() string {
 // GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
 func (o *KafkaRequestList) GetKindOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Kind, true
@@ -73,6 +81,7 @@ func (o *KafkaRequestList) GetKindOk() (*string, bool) {
 func (o *KafkaRequestList) SetKind(v string) {
 	o.Kind = v
 }
+
 
 // GetPage returns the Page field value
 func (o *KafkaRequestList) GetPage() int32 {
@@ -87,7 +96,7 @@ func (o *KafkaRequestList) GetPage() int32 {
 // GetPageOk returns a tuple with the Page field value
 // and a boolean to check if the value has been set.
 func (o *KafkaRequestList) GetPageOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Page, true
@@ -97,6 +106,7 @@ func (o *KafkaRequestList) GetPageOk() (*int32, bool) {
 func (o *KafkaRequestList) SetPage(v int32) {
 	o.Page = v
 }
+
 
 // GetSize returns the Size field value
 func (o *KafkaRequestList) GetSize() int32 {
@@ -111,7 +121,7 @@ func (o *KafkaRequestList) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *KafkaRequestList) GetSizeOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Size, true
@@ -121,6 +131,7 @@ func (o *KafkaRequestList) GetSizeOk() (*int32, bool) {
 func (o *KafkaRequestList) SetSize(v int32) {
 	o.Size = v
 }
+
 
 // GetTotal returns the Total field value
 func (o *KafkaRequestList) GetTotal() int32 {
@@ -135,7 +146,7 @@ func (o *KafkaRequestList) GetTotal() int32 {
 // GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
 func (o *KafkaRequestList) GetTotalOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Total, true
@@ -145,6 +156,7 @@ func (o *KafkaRequestList) GetTotalOk() (*int32, bool) {
 func (o *KafkaRequestList) SetTotal(v int32) {
 	o.Total = v
 }
+
 
 // GetItems returns the Items field value
 func (o *KafkaRequestList) GetItems() []KafkaRequest {
@@ -159,7 +171,7 @@ func (o *KafkaRequestList) GetItems() []KafkaRequest {
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
 func (o *KafkaRequestList) GetItemsOk() (*[]KafkaRequest, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Items, true
@@ -170,29 +182,30 @@ func (o *KafkaRequestList) SetItems(v []KafkaRequest) {
 	o.Items = v
 }
 
+
 func (o KafkaRequestList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-
+    
 	if true {
 		toSerialize["page"] = o.Page
 	}
-
+    
 	if true {
 		toSerialize["size"] = o.Size
 	}
-
+    
 	if true {
 		toSerialize["total"] = o.Total
 	}
-
+    
 	if true {
 		toSerialize["items"] = o.Items
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -231,3 +244,4 @@ func (v *NullableKafkaRequestList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

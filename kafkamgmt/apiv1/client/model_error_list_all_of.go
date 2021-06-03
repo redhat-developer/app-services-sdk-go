@@ -16,7 +16,9 @@ import (
 
 // ErrorListAllOf struct for ErrorListAllOf
 type ErrorListAllOf struct {
+
 	Items *[]Error `json:"items,omitempty"`
+
 }
 
 // NewErrorListAllOf instantiates a new ErrorListAllOf object
@@ -34,8 +36,10 @@ func NewErrorListAllOf() *ErrorListAllOf {
 func NewErrorListAllOfWithDefaults() *ErrorListAllOf {
 	this := ErrorListAllOf{}
 
+
 	return &this
 }
+
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *ErrorListAllOf) GetItems() []Error {
@@ -69,13 +73,14 @@ func (o *ErrorListAllOf) SetItems(v []Error) {
 	o.Items = &v
 }
 
+
 func (o ErrorListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -114,3 +119,4 @@ func (v *NullableErrorListAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

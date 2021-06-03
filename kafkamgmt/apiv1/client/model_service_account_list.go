@@ -16,9 +16,11 @@ import (
 
 // ServiceAccountList struct for ServiceAccountList
 type ServiceAccountList struct {
+
 	Kind string `json:"kind"`
 
 	Items []ServiceAccountListItem `json:"items"`
+
 }
 
 // NewServiceAccountList instantiates a new ServiceAccountList object
@@ -38,8 +40,11 @@ func NewServiceAccountList(kind string, items []ServiceAccountListItem) *Service
 func NewServiceAccountListWithDefaults() *ServiceAccountList {
 	this := ServiceAccountList{}
 
+
+
 	return &this
 }
+
 
 // GetKind returns the Kind field value
 func (o *ServiceAccountList) GetKind() string {
@@ -54,7 +59,7 @@ func (o *ServiceAccountList) GetKind() string {
 // GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
 func (o *ServiceAccountList) GetKindOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Kind, true
@@ -64,6 +69,7 @@ func (o *ServiceAccountList) GetKindOk() (*string, bool) {
 func (o *ServiceAccountList) SetKind(v string) {
 	o.Kind = v
 }
+
 
 // GetItems returns the Items field value
 func (o *ServiceAccountList) GetItems() []ServiceAccountListItem {
@@ -78,7 +84,7 @@ func (o *ServiceAccountList) GetItems() []ServiceAccountListItem {
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
 func (o *ServiceAccountList) GetItemsOk() (*[]ServiceAccountListItem, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Items, true
@@ -89,17 +95,18 @@ func (o *ServiceAccountList) SetItems(v []ServiceAccountListItem) {
 	o.Items = v
 }
 
+
 func (o ServiceAccountList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-
+    
 	if true {
 		toSerialize["items"] = o.Items
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -138,3 +145,4 @@ func (v *NullableServiceAccountList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

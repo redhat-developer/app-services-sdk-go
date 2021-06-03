@@ -99,8 +99,8 @@ type SecurityApi interface {
 type SecurityApiService service
 
 type ApiCreateServiceAccountRequest struct {
-	ctx                   _context.Context
-	ApiService            SecurityApi
+	ctx _context.Context
+	ApiService SecurityApi
 	serviceAccountRequest *ServiceAccountRequest
 }
 
@@ -121,7 +121,7 @@ func (r ApiCreateServiceAccountRequest) Execute() (ServiceAccount, *_nethttp.Res
 func (a *SecurityApiService) CreateServiceAccount(ctx _context.Context) ApiCreateServiceAccountRequest {
 	return ApiCreateServiceAccountRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -239,10 +239,11 @@ func (a *SecurityApiService) CreateServiceAccountExecute(r ApiCreateServiceAccou
 }
 
 type ApiDeleteServiceAccountByIdRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService SecurityApi
-	id         string
+	id string
 }
+
 
 func (r ApiDeleteServiceAccountByIdRequest) Execute() (Error, *_nethttp.Response, error) {
 	return r.ApiService.DeleteServiceAccountByIdExecute(r)
@@ -257,8 +258,8 @@ func (r ApiDeleteServiceAccountByIdRequest) Execute() (Error, *_nethttp.Response
 func (a *SecurityApiService) DeleteServiceAccountById(ctx _context.Context, id string) ApiDeleteServiceAccountByIdRequest {
 	return ApiDeleteServiceAccountByIdRequest{
 		ApiService: a,
-		ctx:        ctx,
-		id:         id,
+		ctx: ctx,
+		id: id,
 	}
 }
 
@@ -372,10 +373,11 @@ func (a *SecurityApiService) DeleteServiceAccountByIdExecute(r ApiDeleteServiceA
 }
 
 type ApiGetServiceAccountByIdRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService SecurityApi
-	id         string
+	id string
 }
+
 
 func (r ApiGetServiceAccountByIdRequest) Execute() (ServiceAccount, *_nethttp.Response, error) {
 	return r.ApiService.GetServiceAccountByIdExecute(r)
@@ -390,8 +392,8 @@ func (r ApiGetServiceAccountByIdRequest) Execute() (ServiceAccount, *_nethttp.Re
 func (a *SecurityApiService) GetServiceAccountById(ctx _context.Context, id string) ApiGetServiceAccountByIdRequest {
 	return ApiGetServiceAccountByIdRequest{
 		ApiService: a,
-		ctx:        ctx,
-		id:         id,
+		ctx: ctx,
+		id: id,
 	}
 }
 
@@ -476,9 +478,10 @@ func (a *SecurityApiService) GetServiceAccountByIdExecute(r ApiGetServiceAccount
 }
 
 type ApiGetServiceAccountsRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService SecurityApi
 }
+
 
 func (r ApiGetServiceAccountsRequest) Execute() (ServiceAccountList, *_nethttp.Response, error) {
 	return r.ApiService.GetServiceAccountsExecute(r)
@@ -492,7 +495,7 @@ func (r ApiGetServiceAccountsRequest) Execute() (ServiceAccountList, *_nethttp.R
 func (a *SecurityApiService) GetServiceAccounts(ctx _context.Context) ApiGetServiceAccountsRequest {
 	return ApiGetServiceAccountsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -605,10 +608,11 @@ func (a *SecurityApiService) GetServiceAccountsExecute(r ApiGetServiceAccountsRe
 }
 
 type ApiResetServiceAccountCredsRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService SecurityApi
-	id         string
+	id string
 }
+
 
 func (r ApiResetServiceAccountCredsRequest) Execute() (ServiceAccount, *_nethttp.Response, error) {
 	return r.ApiService.ResetServiceAccountCredsExecute(r)
@@ -623,8 +627,8 @@ func (r ApiResetServiceAccountCredsRequest) Execute() (ServiceAccount, *_nethttp
 func (a *SecurityApiService) ResetServiceAccountCreds(ctx _context.Context, id string) ApiResetServiceAccountCredsRequest {
 	return ApiResetServiceAccountCredsRequest{
 		ApiService: a,
-		ctx:        ctx,
-		id:         id,
+		ctx: ctx,
+		id: id,
 	}
 }
 

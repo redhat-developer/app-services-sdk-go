@@ -16,6 +16,7 @@ import (
 
 // VersionMetadata struct for VersionMetadata
 type VersionMetadata struct {
+
 	Id *string `json:"id,omitempty"`
 
 	Kind *string `json:"kind,omitempty"`
@@ -23,6 +24,7 @@ type VersionMetadata struct {
 	Href *string `json:"href,omitempty"`
 
 	Collections *[]ObjectReference `json:"collections,omitempty"`
+
 }
 
 // NewVersionMetadata instantiates a new VersionMetadata object
@@ -40,8 +42,13 @@ func NewVersionMetadata() *VersionMetadata {
 func NewVersionMetadataWithDefaults() *VersionMetadata {
 	this := VersionMetadata{}
 
+
+
+
+
 	return &this
 }
+
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *VersionMetadata) GetId() string {
@@ -75,6 +82,7 @@ func (o *VersionMetadata) SetId(v string) {
 	o.Id = &v
 }
 
+
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *VersionMetadata) GetKind() string {
 	if o == nil || o.Kind == nil {
@@ -106,6 +114,7 @@ func (o *VersionMetadata) HasKind() bool {
 func (o *VersionMetadata) SetKind(v string) {
 	o.Kind = &v
 }
+
 
 // GetHref returns the Href field value if set, zero value otherwise.
 func (o *VersionMetadata) GetHref() string {
@@ -139,6 +148,7 @@ func (o *VersionMetadata) SetHref(v string) {
 	o.Href = &v
 }
 
+
 // GetCollections returns the Collections field value if set, zero value otherwise.
 func (o *VersionMetadata) GetCollections() []ObjectReference {
 	if o == nil || o.Collections == nil {
@@ -171,25 +181,26 @@ func (o *VersionMetadata) SetCollections(v []ObjectReference) {
 	o.Collections = &v
 }
 
+
 func (o VersionMetadata) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-
+    
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-
+    
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
 	}
-
+    
 	if o.Collections != nil {
 		toSerialize["collections"] = o.Collections
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -228,3 +239,4 @@ func (v *NullableVersionMetadata) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

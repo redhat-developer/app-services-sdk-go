@@ -17,6 +17,7 @@ import (
 
 // KafkaRequest struct for KafkaRequest
 type KafkaRequest struct {
+
 	Id *string `json:"id,omitempty"`
 
 	Kind *string `json:"kind,omitempty"`
@@ -44,6 +45,7 @@ type KafkaRequest struct {
 	FailedReason *string `json:"failed_reason,omitempty"`
 
 	Version *string `json:"version,omitempty"`
+
 }
 
 // NewKafkaRequest instantiates a new KafkaRequest object
@@ -61,8 +63,23 @@ func NewKafkaRequest() *KafkaRequest {
 func NewKafkaRequestWithDefaults() *KafkaRequest {
 	this := KafkaRequest{}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	return &this
 }
+
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *KafkaRequest) GetId() string {
@@ -96,6 +113,7 @@ func (o *KafkaRequest) SetId(v string) {
 	o.Id = &v
 }
 
+
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *KafkaRequest) GetKind() string {
 	if o == nil || o.Kind == nil {
@@ -127,6 +145,7 @@ func (o *KafkaRequest) HasKind() bool {
 func (o *KafkaRequest) SetKind(v string) {
 	o.Kind = &v
 }
+
 
 // GetHref returns the Href field value if set, zero value otherwise.
 func (o *KafkaRequest) GetHref() string {
@@ -160,6 +179,7 @@ func (o *KafkaRequest) SetHref(v string) {
 	o.Href = &v
 }
 
+
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *KafkaRequest) GetStatus() string {
 	if o == nil || o.Status == nil {
@@ -191,6 +211,7 @@ func (o *KafkaRequest) HasStatus() bool {
 func (o *KafkaRequest) SetStatus(v string) {
 	o.Status = &v
 }
+
 
 // GetCloudProvider returns the CloudProvider field value if set, zero value otherwise.
 func (o *KafkaRequest) GetCloudProvider() string {
@@ -224,6 +245,7 @@ func (o *KafkaRequest) SetCloudProvider(v string) {
 	o.CloudProvider = &v
 }
 
+
 // GetMultiAz returns the MultiAz field value if set, zero value otherwise.
 func (o *KafkaRequest) GetMultiAz() bool {
 	if o == nil || o.MultiAz == nil {
@@ -255,6 +277,7 @@ func (o *KafkaRequest) HasMultiAz() bool {
 func (o *KafkaRequest) SetMultiAz(v bool) {
 	o.MultiAz = &v
 }
+
 
 // GetRegion returns the Region field value if set, zero value otherwise.
 func (o *KafkaRequest) GetRegion() string {
@@ -288,6 +311,7 @@ func (o *KafkaRequest) SetRegion(v string) {
 	o.Region = &v
 }
 
+
 // GetOwner returns the Owner field value if set, zero value otherwise.
 func (o *KafkaRequest) GetOwner() string {
 	if o == nil || o.Owner == nil {
@@ -319,6 +343,7 @@ func (o *KafkaRequest) HasOwner() bool {
 func (o *KafkaRequest) SetOwner(v string) {
 	o.Owner = &v
 }
+
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *KafkaRequest) GetName() string {
@@ -352,6 +377,7 @@ func (o *KafkaRequest) SetName(v string) {
 	o.Name = &v
 }
 
+
 // GetBootstrapServerHost returns the BootstrapServerHost field value if set, zero value otherwise.
 func (o *KafkaRequest) GetBootstrapServerHost() string {
 	if o == nil || o.BootstrapServerHost == nil {
@@ -383,6 +409,7 @@ func (o *KafkaRequest) HasBootstrapServerHost() bool {
 func (o *KafkaRequest) SetBootstrapServerHost(v string) {
 	o.BootstrapServerHost = &v
 }
+
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *KafkaRequest) GetCreatedAt() time.Time {
@@ -416,6 +443,7 @@ func (o *KafkaRequest) SetCreatedAt(v time.Time) {
 	o.CreatedAt = &v
 }
 
+
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
 func (o *KafkaRequest) GetUpdatedAt() time.Time {
 	if o == nil || o.UpdatedAt == nil {
@@ -447,6 +475,7 @@ func (o *KafkaRequest) HasUpdatedAt() bool {
 func (o *KafkaRequest) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt = &v
 }
+
 
 // GetFailedReason returns the FailedReason field value if set, zero value otherwise.
 func (o *KafkaRequest) GetFailedReason() string {
@@ -480,6 +509,7 @@ func (o *KafkaRequest) SetFailedReason(v string) {
 	o.FailedReason = &v
 }
 
+
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *KafkaRequest) GetVersion() string {
 	if o == nil || o.Version == nil {
@@ -512,65 +542,66 @@ func (o *KafkaRequest) SetVersion(v string) {
 	o.Version = &v
 }
 
+
 func (o KafkaRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-
+    
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-
+    
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
 	}
-
+    
 	if o.Status != nil {
 		toSerialize["status"] = o.Status
 	}
-
+    
 	if o.CloudProvider != nil {
 		toSerialize["cloud_provider"] = o.CloudProvider
 	}
-
+    
 	if o.MultiAz != nil {
 		toSerialize["multi_az"] = o.MultiAz
 	}
-
+    
 	if o.Region != nil {
 		toSerialize["region"] = o.Region
 	}
-
+    
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
 	}
-
+    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-
+    
 	if o.BootstrapServerHost != nil {
 		toSerialize["bootstrap_server_host"] = o.BootstrapServerHost
 	}
-
+    
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt
 	}
-
+    
 	if o.UpdatedAt != nil {
 		toSerialize["updated_at"] = o.UpdatedAt
 	}
-
+    
 	if o.FailedReason != nil {
 		toSerialize["failed_reason"] = o.FailedReason
 	}
-
+    
 	if o.Version != nil {
 		toSerialize["version"] = o.Version
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -609,3 +640,4 @@ func (v *NullableKafkaRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

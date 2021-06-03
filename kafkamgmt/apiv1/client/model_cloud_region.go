@@ -28,6 +28,7 @@ type CloudRegion struct {
 
 	// Whether the region is enabled for deploying an OSD cluster.
 	Enabled bool `json:"enabled"`
+
 }
 
 // NewCloudRegion instantiates a new CloudRegion object
@@ -46,11 +47,15 @@ func NewCloudRegion(enabled bool) *CloudRegion {
 func NewCloudRegionWithDefaults() *CloudRegion {
 	this := CloudRegion{}
 
+
+
+
 	var enabled bool = false
 	this.Enabled = enabled
 
 	return &this
 }
+
 
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *CloudRegion) GetKind() string {
@@ -84,6 +89,7 @@ func (o *CloudRegion) SetKind(v string) {
 	o.Kind = &v
 }
 
+
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *CloudRegion) GetId() string {
 	if o == nil || o.Id == nil {
@@ -115,6 +121,7 @@ func (o *CloudRegion) HasId() bool {
 func (o *CloudRegion) SetId(v string) {
 	o.Id = &v
 }
+
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *CloudRegion) GetDisplayName() string {
@@ -148,6 +155,7 @@ func (o *CloudRegion) SetDisplayName(v string) {
 	o.DisplayName = &v
 }
 
+
 // GetEnabled returns the Enabled field value
 func (o *CloudRegion) GetEnabled() bool {
 	if o == nil {
@@ -161,7 +169,7 @@ func (o *CloudRegion) GetEnabled() bool {
 // GetEnabledOk returns a tuple with the Enabled field value
 // and a boolean to check if the value has been set.
 func (o *CloudRegion) GetEnabledOk() (*bool, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Enabled, true
@@ -172,25 +180,26 @@ func (o *CloudRegion) SetEnabled(v bool) {
 	o.Enabled = v
 }
 
+
 func (o CloudRegion) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-
+    
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-
+    
 	if o.DisplayName != nil {
 		toSerialize["display_name"] = o.DisplayName
 	}
-
+    
 	if true {
 		toSerialize["enabled"] = o.Enabled
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -229,3 +238,4 @@ func (v *NullableCloudRegion) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

@@ -16,7 +16,9 @@ import (
 
 // KafkaRequestListAllOf struct for KafkaRequestListAllOf
 type KafkaRequestListAllOf struct {
+
 	Items *[]KafkaRequest `json:"items,omitempty"`
+
 }
 
 // NewKafkaRequestListAllOf instantiates a new KafkaRequestListAllOf object
@@ -34,8 +36,10 @@ func NewKafkaRequestListAllOf() *KafkaRequestListAllOf {
 func NewKafkaRequestListAllOfWithDefaults() *KafkaRequestListAllOf {
 	this := KafkaRequestListAllOf{}
 
+
 	return &this
 }
+
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *KafkaRequestListAllOf) GetItems() []KafkaRequest {
@@ -69,13 +73,14 @@ func (o *KafkaRequestListAllOf) SetItems(v []KafkaRequest) {
 	o.Items = &v
 }
 
+
 func (o KafkaRequestListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -114,3 +119,4 @@ func (v *NullableKafkaRequestListAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
