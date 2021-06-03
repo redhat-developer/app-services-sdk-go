@@ -1,6 +1,6 @@
-# Go API client for Kafka Service Fleet Manager
+# Go API client for kafkainstance
 
-Kafka Service Fleet Manager is a REST API to manage Kafka instances and connectors.
+An API to provide REST endpoints for query Kafka for admin operations
 
 ## Installation
 
@@ -14,13 +14,13 @@ go get github.com/redhat-developer/app-services-sdk-go
 
 ### Importing the package
 
-Import the `github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1` package into your code:
+Import the `github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal` package into your code:
 
 ```go
 package main
 
 import (
-    "github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1"
+    "github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal"
 )
 ```
 
@@ -29,9 +29,9 @@ import (
 If you do not need to customise any of the default configuration values you can pass `nil` to the `NewAPIClient` constructor:
 
 ```go
-client := kafkamgmt.NewAPIClient(nil)
+client := kafkainstance.NewAPIClient(nil)
 
-kafkas, resp, err := client.DefaultApi.GetKafkas(context.Background()).Execute()
+kafkas, resp, err := client.DefaultApi.GetTopics(context.Background()).Execute()
 ```
 
 ### Configuration
@@ -40,13 +40,13 @@ You can override the default configuration options:
 
 ```go
 baseURL, _ := url.Parse("http://localhost:8001")
-cfg := kafkamgmt.Config{
+cfg := kafkainstance.Config{
     HTTPClient: yourHTTPClient,
     Debug: true,
     ServerURL: baseURL,
 }
 
-client := kafkamgmt.NewAPIClient(&cfg)
+client := kafkainstance.NewAPIClient(&cfg)
 ```
 
 ## Authentication
@@ -63,11 +63,11 @@ ts := oauth2.StaticTokenSource(
 
 tc := oauth2.NewClient(ctx, ts)
 
-client := kafkamgmt.NewAPIClient(&kafkamgmt.Config{
+client := kafkainstance.NewAPIClient(&kafkainstance.Config{
     HTTPClient: tc,
 })
 
-kafkas, _, err := client.DefaultApi.GetKafkas(ctx).Execute()
+topics, _, err := client.DefaultApi.GetTopics(ctx).Execute()
 ```
 
 ## Endpoints

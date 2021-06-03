@@ -1,6 +1,6 @@
-# Go API client for Kafka Service Fleet Manager
+# Go API client for serviceregistrymgmt
 
-Kafka Service Fleet Manager is a REST API to manage Kafka instances and connectors.
+Main entry point for the system, responsible for all sorts of management operations for the whole service of managed service registry.
 
 ## Installation
 
@@ -14,13 +14,13 @@ go get github.com/redhat-developer/app-services-sdk-go
 
 ### Importing the package
 
-Import the `github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1` package into your code:
+Import the `github.com/redhat-developer/app-services-sdk-go/serviceregistrymgmt/apiv1` package into your code:
 
 ```go
 package main
 
 import (
-    "github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1"
+    "github.com/redhat-developer/app-services-sdk-go/serviceregistrymgmt/apiv1"
 )
 ```
 
@@ -29,9 +29,9 @@ import (
 If you do not need to customise any of the default configuration values you can pass `nil` to the `NewAPIClient` constructor:
 
 ```go
-client := kafkamgmt.NewAPIClient(nil)
+client := serviceregistrymgmt.NewAPIClient(nil)
 
-kafkas, resp, err := client.DefaultApi.GetKafkas(context.Background()).Execute()
+registries, resp, err := client.DefaultApi.GetRegistries(context.Background()).Execute()
 ```
 
 ### Configuration
@@ -40,13 +40,13 @@ You can override the default configuration options:
 
 ```go
 baseURL, _ := url.Parse("http://localhost:8001")
-cfg := kafkamgmt.Config{
+cfg := serviceregistrymgmt.Config{
     HTTPClient: yourHTTPClient,
     Debug: true,
     ServerURL: baseURL,
 }
 
-client := kafkamgmt.NewAPIClient(&cfg)
+client := serviceregistrymgmt.NewAPIClient(&cfg)
 ```
 
 ## Authentication
@@ -63,11 +63,11 @@ ts := oauth2.StaticTokenSource(
 
 tc := oauth2.NewClient(ctx, ts)
 
-client := kafkamgmt.NewAPIClient(&kafkamgmt.Config{
+client := serviceregistrymgmt.NewAPIClient(&kafkamgmt.Config{
     HTTPClient: tc,
 })
 
-kafkas, _, err := client.DefaultApi.GetKafkas(ctx).Execute()
+registries, _, err := client.DefaultApi.Registries(ctx).Execute()
 ```
 
 ## Endpoints
