@@ -8,12 +8,12 @@ API_VERSION="api$(node $(dirname $0)/get-mapped-config.js "$CLIENT_ID" "apiVersi
 OPENAPI_FILENAME=$(node $(dirname $0)/get-openapi-filename.js "$OPENAPI_FILE_URL")
 
 # set the Go package name
-PACKAGE_NAME="$(node $(dirname $0)/get-mapped-config.js "$CLIENT_ID" "apiPackageName")"
+PACKAGE_NAME="$(node $(dirname $0)/get-mapped-config.js "$CLIENT_ID" "apiPackageName")client"
 if [[ ! -v "$PACKAGE_NAME" ]]; then
     echo "No package name is set, using apiGroup as package name"
     PACKAGE_NAME="$API_GROUP"
 fi
-OUTPUT_PATH="$API_GROUP/$API_VERSION"
+OUTPUT_PATH="$API_GROUP/$API_VERSION/client"
 
 npx @openapitools/openapi-generator-cli version-manager set 5.1.1
 npx @openapitools/openapi-generator-cli generate -g go -i "$OPENAPI_FILENAME" -o "$OUTPUT_PATH" --package-name "$PACKAGE_NAME" --git-user-id="redhat-developer" --git-repo-id="app-services-sdk-go/$PACKAGE_NAME" -p "generateInterfaces=true" --ignore-file-override=.openapi-generator-ignore

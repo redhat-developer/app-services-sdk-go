@@ -1,21 +1,21 @@
-package serviceregistrymgmt
+package kafkamgmt
 
 import (
 	"github.com/redhat-developer/app-services-sdk-go/internal"
 
-	apiClient "github.com/redhat-developer/app-services-sdk-go/serviceregistrymgmt/apiv1/client"
+	apiv1 "github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1/client"
 )
 
-// Config defines the available configuration options
+// APIConfig defines the available configuration options
 // to customise the API client settings
 type Config = internal.APIConfig
 
 // NewAPIClient returns a new KafkaManagement v1 API client
 // using a custom config
-func NewAPIClient(cfg *Config) *apiClient.APIClient {
-	apiCfg := apiClient.NewConfiguration()
+func NewAPIClient(cfg *Config) *apiv1.APIClient {
+	apiCfg := apiv1.NewConfiguration()
 	if cfg == nil {
-		return apiClient.NewAPIClient(apiCfg)
+		return apiv1.NewAPIClient(apiCfg)
 	}
 
 	if cfg.HTTPClient != nil {
@@ -28,7 +28,7 @@ func NewAPIClient(cfg *Config) *apiClient.APIClient {
 
 	apiCfg.Debug = cfg.Debug
 
-	client := apiClient.NewAPIClient(apiCfg)
+	client := apiv1.NewAPIClient(apiCfg)
 
 	return client
 }
