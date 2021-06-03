@@ -32,6 +32,7 @@ type ServiceAccountAllOf struct {
 	Owner *string `json:"owner,omitempty"`
 
 	CreatedAt *time.Time `json:"created_at,omitempty"`
+
 }
 
 // NewServiceAccountAllOf instantiates a new ServiceAccountAllOf object
@@ -49,8 +50,16 @@ func NewServiceAccountAllOf() *ServiceAccountAllOf {
 func NewServiceAccountAllOfWithDefaults() *ServiceAccountAllOf {
 	this := ServiceAccountAllOf{}
 
+
+
+
+
+
+
+
 	return &this
 }
+
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *ServiceAccountAllOf) GetId() string {
@@ -84,6 +93,7 @@ func (o *ServiceAccountAllOf) SetId(v string) {
 	o.Id = &v
 }
 
+
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ServiceAccountAllOf) GetName() string {
 	if o == nil || o.Name == nil {
@@ -115,6 +125,7 @@ func (o *ServiceAccountAllOf) HasName() bool {
 func (o *ServiceAccountAllOf) SetName(v string) {
 	o.Name = &v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ServiceAccountAllOf) GetDescription() string {
@@ -148,6 +159,7 @@ func (o *ServiceAccountAllOf) SetDescription(v string) {
 	o.Description = &v
 }
 
+
 // GetClientId returns the ClientId field value if set, zero value otherwise.
 func (o *ServiceAccountAllOf) GetClientId() string {
 	if o == nil || o.ClientId == nil {
@@ -179,6 +191,7 @@ func (o *ServiceAccountAllOf) HasClientId() bool {
 func (o *ServiceAccountAllOf) SetClientId(v string) {
 	o.ClientId = &v
 }
+
 
 // GetClientSecret returns the ClientSecret field value if set, zero value otherwise.
 func (o *ServiceAccountAllOf) GetClientSecret() string {
@@ -212,6 +225,7 @@ func (o *ServiceAccountAllOf) SetClientSecret(v string) {
 	o.ClientSecret = &v
 }
 
+
 // GetOwner returns the Owner field value if set, zero value otherwise.
 func (o *ServiceAccountAllOf) GetOwner() string {
 	if o == nil || o.Owner == nil {
@@ -243,6 +257,7 @@ func (o *ServiceAccountAllOf) HasOwner() bool {
 func (o *ServiceAccountAllOf) SetOwner(v string) {
 	o.Owner = &v
 }
+
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *ServiceAccountAllOf) GetCreatedAt() time.Time {
@@ -276,37 +291,38 @@ func (o *ServiceAccountAllOf) SetCreatedAt(v time.Time) {
 	o.CreatedAt = &v
 }
 
+
 func (o ServiceAccountAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-
+    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-
+    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-
+    
 	if o.ClientId != nil {
 		toSerialize["client_id"] = o.ClientId
 	}
-
+    
 	if o.ClientSecret != nil {
 		toSerialize["client_secret"] = o.ClientSecret
 	}
-
+    
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
 	}
-
+    
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -345,3 +361,4 @@ func (v *NullableServiceAccountAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

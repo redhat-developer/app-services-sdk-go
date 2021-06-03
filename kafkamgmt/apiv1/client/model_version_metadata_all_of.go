@@ -16,7 +16,9 @@ import (
 
 // VersionMetadataAllOf struct for VersionMetadataAllOf
 type VersionMetadataAllOf struct {
+
 	Collections *[]ObjectReference `json:"collections,omitempty"`
+
 }
 
 // NewVersionMetadataAllOf instantiates a new VersionMetadataAllOf object
@@ -34,8 +36,10 @@ func NewVersionMetadataAllOf() *VersionMetadataAllOf {
 func NewVersionMetadataAllOfWithDefaults() *VersionMetadataAllOf {
 	this := VersionMetadataAllOf{}
 
+
 	return &this
 }
+
 
 // GetCollections returns the Collections field value if set, zero value otherwise.
 func (o *VersionMetadataAllOf) GetCollections() []ObjectReference {
@@ -69,13 +73,14 @@ func (o *VersionMetadataAllOf) SetCollections(v []ObjectReference) {
 	o.Collections = &v
 }
 
+
 func (o VersionMetadataAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if o.Collections != nil {
 		toSerialize["collections"] = o.Collections
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -114,3 +119,4 @@ func (v *NullableVersionMetadataAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

@@ -35,6 +35,7 @@ type ServiceAccountListItemAllOf struct {
 
 	// description of the service account
 	Description *string `json:"description,omitempty"`
+
 }
 
 // NewServiceAccountListItemAllOf instantiates a new ServiceAccountListItemAllOf object
@@ -52,8 +53,15 @@ func NewServiceAccountListItemAllOf() *ServiceAccountListItemAllOf {
 func NewServiceAccountListItemAllOfWithDefaults() *ServiceAccountListItemAllOf {
 	this := ServiceAccountListItemAllOf{}
 
+
+
+
+
+
+
 	return &this
 }
+
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *ServiceAccountListItemAllOf) GetId() string {
@@ -87,6 +95,7 @@ func (o *ServiceAccountListItemAllOf) SetId(v string) {
 	o.Id = &v
 }
 
+
 // GetClientId returns the ClientId field value if set, zero value otherwise.
 func (o *ServiceAccountListItemAllOf) GetClientId() string {
 	if o == nil || o.ClientId == nil {
@@ -118,6 +127,7 @@ func (o *ServiceAccountListItemAllOf) HasClientId() bool {
 func (o *ServiceAccountListItemAllOf) SetClientId(v string) {
 	o.ClientId = &v
 }
+
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ServiceAccountListItemAllOf) GetName() string {
@@ -151,6 +161,7 @@ func (o *ServiceAccountListItemAllOf) SetName(v string) {
 	o.Name = &v
 }
 
+
 // GetOwner returns the Owner field value if set, zero value otherwise.
 func (o *ServiceAccountListItemAllOf) GetOwner() string {
 	if o == nil || o.Owner == nil {
@@ -182,6 +193,7 @@ func (o *ServiceAccountListItemAllOf) HasOwner() bool {
 func (o *ServiceAccountListItemAllOf) SetOwner(v string) {
 	o.Owner = &v
 }
+
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *ServiceAccountListItemAllOf) GetCreatedAt() time.Time {
@@ -215,6 +227,7 @@ func (o *ServiceAccountListItemAllOf) SetCreatedAt(v time.Time) {
 	o.CreatedAt = &v
 }
 
+
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ServiceAccountListItemAllOf) GetDescription() string {
 	if o == nil || o.Description == nil {
@@ -247,33 +260,34 @@ func (o *ServiceAccountListItemAllOf) SetDescription(v string) {
 	o.Description = &v
 }
 
+
 func (o ServiceAccountListItemAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-
+    
 	if o.ClientId != nil {
 		toSerialize["client_id"] = o.ClientId
 	}
-
+    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-
+    
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
 	}
-
+    
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt
 	}
-
+    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -312,3 +326,4 @@ func (v *NullableServiceAccountListItemAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

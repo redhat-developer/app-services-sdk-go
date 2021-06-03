@@ -17,6 +17,7 @@ import (
 
 // KafkaRequestAllOf struct for KafkaRequestAllOf
 type KafkaRequestAllOf struct {
+
 	Status *string `json:"status,omitempty"`
 
 	CloudProvider *string `json:"cloud_provider,omitempty"`
@@ -38,6 +39,7 @@ type KafkaRequestAllOf struct {
 	FailedReason *string `json:"failed_reason,omitempty"`
 
 	Version *string `json:"version,omitempty"`
+
 }
 
 // NewKafkaRequestAllOf instantiates a new KafkaRequestAllOf object
@@ -55,8 +57,20 @@ func NewKafkaRequestAllOf() *KafkaRequestAllOf {
 func NewKafkaRequestAllOfWithDefaults() *KafkaRequestAllOf {
 	this := KafkaRequestAllOf{}
 
+
+
+
+
+
+
+
+
+
+
+
 	return &this
 }
+
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetStatus() string {
@@ -90,6 +104,7 @@ func (o *KafkaRequestAllOf) SetStatus(v string) {
 	o.Status = &v
 }
 
+
 // GetCloudProvider returns the CloudProvider field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetCloudProvider() string {
 	if o == nil || o.CloudProvider == nil {
@@ -121,6 +136,7 @@ func (o *KafkaRequestAllOf) HasCloudProvider() bool {
 func (o *KafkaRequestAllOf) SetCloudProvider(v string) {
 	o.CloudProvider = &v
 }
+
 
 // GetMultiAz returns the MultiAz field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetMultiAz() bool {
@@ -154,6 +170,7 @@ func (o *KafkaRequestAllOf) SetMultiAz(v bool) {
 	o.MultiAz = &v
 }
 
+
 // GetRegion returns the Region field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetRegion() string {
 	if o == nil || o.Region == nil {
@@ -185,6 +202,7 @@ func (o *KafkaRequestAllOf) HasRegion() bool {
 func (o *KafkaRequestAllOf) SetRegion(v string) {
 	o.Region = &v
 }
+
 
 // GetOwner returns the Owner field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetOwner() string {
@@ -218,6 +236,7 @@ func (o *KafkaRequestAllOf) SetOwner(v string) {
 	o.Owner = &v
 }
 
+
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetName() string {
 	if o == nil || o.Name == nil {
@@ -249,6 +268,7 @@ func (o *KafkaRequestAllOf) HasName() bool {
 func (o *KafkaRequestAllOf) SetName(v string) {
 	o.Name = &v
 }
+
 
 // GetBootstrapServerHost returns the BootstrapServerHost field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetBootstrapServerHost() string {
@@ -282,6 +302,7 @@ func (o *KafkaRequestAllOf) SetBootstrapServerHost(v string) {
 	o.BootstrapServerHost = &v
 }
 
+
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetCreatedAt() time.Time {
 	if o == nil || o.CreatedAt == nil {
@@ -313,6 +334,7 @@ func (o *KafkaRequestAllOf) HasCreatedAt() bool {
 func (o *KafkaRequestAllOf) SetCreatedAt(v time.Time) {
 	o.CreatedAt = &v
 }
+
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetUpdatedAt() time.Time {
@@ -346,6 +368,7 @@ func (o *KafkaRequestAllOf) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt = &v
 }
 
+
 // GetFailedReason returns the FailedReason field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetFailedReason() string {
 	if o == nil || o.FailedReason == nil {
@@ -377,6 +400,7 @@ func (o *KafkaRequestAllOf) HasFailedReason() bool {
 func (o *KafkaRequestAllOf) SetFailedReason(v string) {
 	o.FailedReason = &v
 }
+
 
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetVersion() string {
@@ -410,53 +434,54 @@ func (o *KafkaRequestAllOf) SetVersion(v string) {
 	o.Version = &v
 }
 
+
 func (o KafkaRequestAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if o.Status != nil {
 		toSerialize["status"] = o.Status
 	}
-
+    
 	if o.CloudProvider != nil {
 		toSerialize["cloud_provider"] = o.CloudProvider
 	}
-
+    
 	if o.MultiAz != nil {
 		toSerialize["multi_az"] = o.MultiAz
 	}
-
+    
 	if o.Region != nil {
 		toSerialize["region"] = o.Region
 	}
-
+    
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
 	}
-
+    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-
+    
 	if o.BootstrapServerHost != nil {
 		toSerialize["bootstrap_server_host"] = o.BootstrapServerHost
 	}
-
+    
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt
 	}
-
+    
 	if o.UpdatedAt != nil {
 		toSerialize["updated_at"] = o.UpdatedAt
 	}
-
+    
 	if o.FailedReason != nil {
 		toSerialize["failed_reason"] = o.FailedReason
 	}
-
+    
 	if o.Version != nil {
 		toSerialize["version"] = o.Version
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -495,3 +520,4 @@ func (v *NullableKafkaRequestAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

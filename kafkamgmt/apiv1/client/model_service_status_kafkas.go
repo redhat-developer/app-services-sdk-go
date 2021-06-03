@@ -19,6 +19,7 @@ type ServiceStatusKafkas struct {
 
 	// Indicates whether we have reached kafka maximum capacity
 	MaxCapacityReached bool `json:"max_capacity_reached"`
+
 }
 
 // NewServiceStatusKafkas instantiates a new ServiceStatusKafkas object
@@ -37,8 +38,10 @@ func NewServiceStatusKafkas(maxCapacityReached bool) *ServiceStatusKafkas {
 func NewServiceStatusKafkasWithDefaults() *ServiceStatusKafkas {
 	this := ServiceStatusKafkas{}
 
+
 	return &this
 }
+
 
 // GetMaxCapacityReached returns the MaxCapacityReached field value
 func (o *ServiceStatusKafkas) GetMaxCapacityReached() bool {
@@ -53,7 +56,7 @@ func (o *ServiceStatusKafkas) GetMaxCapacityReached() bool {
 // GetMaxCapacityReachedOk returns a tuple with the MaxCapacityReached field value
 // and a boolean to check if the value has been set.
 func (o *ServiceStatusKafkas) GetMaxCapacityReachedOk() (*bool, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.MaxCapacityReached, true
@@ -64,13 +67,14 @@ func (o *ServiceStatusKafkas) SetMaxCapacityReached(v bool) {
 	o.MaxCapacityReached = v
 }
 
+
 func (o ServiceStatusKafkas) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if true {
 		toSerialize["max_capacity_reached"] = o.MaxCapacityReached
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -109,3 +113,4 @@ func (v *NullableServiceStatusKafkas) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
