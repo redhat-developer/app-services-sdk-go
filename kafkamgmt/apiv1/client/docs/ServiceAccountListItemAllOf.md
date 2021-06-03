@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | server generated unique id of the service account | [optional] 
 **ClientID** | Pointer to **string** | client id of the service account | [optional] 
+**ClientId** | Pointer to **string** | client id of the service account | [optional] 
 **Name** | Pointer to **string** | name of the service account | [optional] 
 **Owner** | Pointer to **string** | owner of the service account | [optional] 
 **CreatedAt** | Pointer to **time.Time** | service account creation timestamp | [optional] 
@@ -79,6 +80,31 @@ SetClientID sets ClientID field to given value.
 `func (o *ServiceAccountListItemAllOf) HasClientID() bool`
 
 HasClientID returns a boolean if a field has been set.
+
+### GetClientId
+
+`func (o *ServiceAccountListItemAllOf) GetClientId() string`
+
+GetClientId returns the ClientId field if non-nil, zero value otherwise.
+
+### GetClientIdOk
+
+`func (o *ServiceAccountListItemAllOf) GetClientIdOk() (*string, bool)`
+
+GetClientIdOk returns a tuple with the ClientId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClientId
+
+`func (o *ServiceAccountListItemAllOf) SetClientId(v string)`
+
+SetClientId sets ClientId field to given value.
+
+### HasClientId
+
+`func (o *ServiceAccountListItemAllOf) HasClientId() bool`
+
+HasClientId returns a boolean if a field has been set.
 
 ### GetName
 

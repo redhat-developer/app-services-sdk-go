@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Owner** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **BootstrapServerHost** | Pointer to **string** |  | [optional] 
+**BootstrapServerHost** | Pointer to **string** |  | [optional] 
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
 **UpdatedAt** | Pointer to **time.Time** |  | [optional] 
 **FailedReason** | Pointer to **string** |  | [optional] 
@@ -184,6 +185,31 @@ SetName sets Name field to given value.
 `func (o *KafkaRequestAllOf) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetBootstrapServerHost
+
+`func (o *KafkaRequestAllOf) GetBootstrapServerHost() string`
+
+GetBootstrapServerHost returns the BootstrapServerHost field if non-nil, zero value otherwise.
+
+### GetBootstrapServerHostOk
+
+`func (o *KafkaRequestAllOf) GetBootstrapServerHostOk() (*string, bool)`
+
+GetBootstrapServerHostOk returns a tuple with the BootstrapServerHost field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBootstrapServerHost
+
+`func (o *KafkaRequestAllOf) SetBootstrapServerHost(v string)`
+
+SetBootstrapServerHost sets BootstrapServerHost field to given value.
+
+### HasBootstrapServerHost
+
+`func (o *KafkaRequestAllOf) HasBootstrapServerHost() bool`
+
+HasBootstrapServerHost returns a boolean if a field has been set.
 
 ### GetBootstrapServerHost
 
