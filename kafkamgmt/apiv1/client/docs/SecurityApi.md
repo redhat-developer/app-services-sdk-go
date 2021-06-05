@@ -4,11 +4,11 @@ All URIs are relative to *https://api.openshift.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateServiceAccount**](SecurityApi.md#CreateServiceAccount) | **Post** /api/kafkas_mgmt/v1/service_accounts | Create a service account
-[**DeleteServiceAccountById**](SecurityApi.md#DeleteServiceAccountById) | **Delete** /api/kafkas_mgmt/v1/service_accounts/{id} | Delete service account
-[**GetServiceAccountById**](SecurityApi.md#GetServiceAccountById) | **Get** /api/kafkas_mgmt/v1/service_accounts/{id} | get service account by id
-[**GetServiceAccounts**](SecurityApi.md#GetServiceAccounts) | **Get** /api/kafkas_mgmt/v1/service_accounts | List service accounts
-[**ResetServiceAccountCreds**](SecurityApi.md#ResetServiceAccountCreds) | **Post** /api/kafkas_mgmt/v1/service_accounts/{id}/reset_credentials | reset credentials for the service account
+[**CreateServiceAccount**](SecurityApi.md#CreateServiceAccount) | **Post** /api/kafkas_mgmt/v1/service_accounts | Creates a service account
+[**DeleteServiceAccountById**](SecurityApi.md#DeleteServiceAccountById) | **Delete** /api/kafkas_mgmt/v1/service_accounts/{id} | Deletes a service account by ID
+[**GetServiceAccountById**](SecurityApi.md#GetServiceAccountById) | **Get** /api/kafkas_mgmt/v1/service_accounts/{id} | Returned service account by ID
+[**GetServiceAccounts**](SecurityApi.md#GetServiceAccounts) | **Get** /api/kafkas_mgmt/v1/service_accounts | Returns a list of service accounts
+[**ResetServiceAccountCreds**](SecurityApi.md#ResetServiceAccountCreds) | **Post** /api/kafkas_mgmt/v1/service_accounts/{id}/reset_credentials | Resets the credentials for a service account by ID
 
 
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 > ServiceAccount CreateServiceAccount(ctx).ServiceAccountRequest(serviceAccountRequest).Execute()
 
-Create a service account
+Creates a service account
 
 ### Example
 
@@ -31,7 +31,7 @@ import (
 )
 
 func main() {
-    serviceAccountRequest := *openapiclient.NewServiceAccountRequest("Name_example") // ServiceAccountRequest | service account request
+    serviceAccountRequest := *openapiclient.NewServiceAccountRequest("Name_example") // ServiceAccountRequest | Service account request
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -56,7 +56,7 @@ Other parameters are passed through a pointer to a apiCreateServiceAccountReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **serviceAccountRequest** | [**ServiceAccountRequest**](ServiceAccountRequest.md) | service account request | 
+ **serviceAccountRequest** | [**ServiceAccountRequest**](ServiceAccountRequest.md) | Service account request | 
 
 ### Return type
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 > Error DeleteServiceAccountById(ctx, id).Execute()
 
-Delete service account
+Deletes a service account by ID
 
 ### Example
 
@@ -95,7 +95,7 @@ import (
 )
 
 func main() {
-    id := "id_example" // string | The id of record
+    id := "id_example" // string | The ID of record
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -115,7 +115,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The id of record | 
+**id** | **string** | The ID of record | 
 
 ### Other Parameters
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 > ServiceAccount GetServiceAccountById(ctx, id).Execute()
 
-get service account by id
+Returned service account by ID
 
 ### Example
 
@@ -163,7 +163,7 @@ import (
 )
 
 func main() {
-    id := "id_example" // string | The id of record
+    id := "id_example" // string | The ID of record
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -183,7 +183,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The id of record | 
+**id** | **string** | The ID of record | 
 
 ### Other Parameters
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 > ServiceAccountList GetServiceAccounts(ctx).Execute()
 
-List service accounts
+Returns a list of service accounts
 
 ### Example
 
@@ -275,7 +275,7 @@ Other parameters are passed through a pointer to a apiGetServiceAccountsRequest 
 
 > ServiceAccount ResetServiceAccountCreds(ctx, id).Execute()
 
-reset credentials for the service account
+Resets the credentials for a service account by ID
 
 ### Example
 
@@ -290,7 +290,7 @@ import (
 )
 
 func main() {
-    id := "id_example" // string | The id of record
+    id := "id_example" // string | The ID of record
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -310,7 +310,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The id of record | 
+**id** | **string** | The ID of record | 
 
 ### Other Parameters
 
