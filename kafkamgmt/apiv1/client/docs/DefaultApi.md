@@ -4,14 +4,14 @@ All URIs are relative to *https://api.openshift.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateKafka**](DefaultApi.md#CreateKafka) | **Post** /api/kafkas_mgmt/v1/kafkas | Creates a Kakfa request
-[**DeleteKafkaById**](DefaultApi.md#DeleteKafkaById) | **Delete** /api/kafkas_mgmt/v1/kafkas/{id} | Deletes a Kakfa request by ID
+[**CreateKafka**](DefaultApi.md#CreateKafka) | **Post** /api/kafkas_mgmt/v1/kafkas | Creates a Kafka request
+[**DeleteKafkaById**](DefaultApi.md#DeleteKafkaById) | **Delete** /api/kafkas_mgmt/v1/kafkas/{id} | Deletes a Kafka request by ID
 [**GetCloudProviderRegions**](DefaultApi.md#GetCloudProviderRegions) | **Get** /api/kafkas_mgmt/v1/cloud_providers/{id}/regions | Returns the list of supported regions of the supported cloud provider
 [**GetCloudProviders**](DefaultApi.md#GetCloudProviders) | **Get** /api/kafkas_mgmt/v1/cloud_providers | Returns the list of supported cloud providers
-[**GetKafkaById**](DefaultApi.md#GetKafkaById) | **Get** /api/kafkas_mgmt/v1/kafkas/{id} | Returns a Kakfa request by ID
+[**GetKafkaById**](DefaultApi.md#GetKafkaById) | **Get** /api/kafkas_mgmt/v1/kafkas/{id} | Returns a Kafka request by ID
 [**GetKafkas**](DefaultApi.md#GetKafkas) | **Get** /api/kafkas_mgmt/v1/kafkas | Returns a list of Kafka requests
-[**GetMetricsByInstantQuery**](DefaultApi.md#GetMetricsByInstantQuery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query | Returns metrics with instant query by Kakfa ID
-[**GetMetricsByRangeQuery**](DefaultApi.md#GetMetricsByRangeQuery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query_range | Returns metrics with timeseries range query by Kakfa ID
+[**GetMetricsByInstantQuery**](DefaultApi.md#GetMetricsByInstantQuery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query | Returns metrics with instant query by Kafka ID
+[**GetMetricsByRangeQuery**](DefaultApi.md#GetMetricsByRangeQuery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query_range | Returns metrics with timeseries range query by Kafka ID
 [**GetServiceStatus**](DefaultApi.md#GetServiceStatus) | **Get** /api/kafkas_mgmt/v1/status | Returns the status of resources, such as whether maximum service capacity has been reached
 [**GetVersionMetadata**](DefaultApi.md#GetVersionMetadata) | **Get** /api/kafkas_mgmt/v1 | Returns the version metadata
 
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 > KafkaRequest CreateKafka(ctx).Async(async).KafkaRequestPayload(kafkaRequestPayload).Execute()
 
-Creates a Kakfa request
+Creates a Kafka request
 
 ### Example
 
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 > Error DeleteKafkaById(ctx, id).Async(async).Execute()
 
-Deletes a Kakfa request by ID
+Deletes a Kafka request by ID
 
 ### Example
 
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 > KafkaRequest GetKafkaById(ctx, id).Execute()
 
-Returns a Kakfa request by ID
+Returns a Kafka request by ID
 
 ### Example
 
@@ -380,8 +380,8 @@ import (
 func main() {
     page := "1" // string | Page index (optional)
     size := "100" // string | Number of items in each page (optional)
-    orderBy := "name asc" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the `order by` clause of an SQL statement. Each query can be ordered by any of the `kafkaRequests` fields. For example, to return all Kakfa instances ordered by their name, use the following syntax:  ```sql name asc ```  To return all Kakfa instances ordered by their name _and_ created date, use the following syntax:  ```sql name asc, created_at asc ```  If the parameter isn't provided, or if the value is empty, then the results are ordered by name. (optional)
-    search := "name = my-kafka and cloud_provider = aws" // string | Search criteria.  The syntax of this parameter is similar to the syntax of the `where` clause of an SQL statement. Allowed fields in the search are `cloud_provider`, `name`, `owner`, `region`, and `status`. Allowed comparators are `<>`, `=`, or `LIKE`. Allowed joins are `AND` and `OR`. However, you can use a maximum of 10 joins in a search query.  Examples:  To return a Kakfa instance with the name `my-kafka` and the region `aws`, use the following syntax:  ``` name = my-kafka and cloud_provider = aws ```[p-]  To return a Kakfa instance with a name that starts with `my`, use the following syntax:  ``` name like my%25 ```  If the parameter isn't provided, or if the value is empty, then all the Kakfa instances that the user has permission to see are returned.  Note. If the query is invalid, an error is returned.  (optional)
+    orderBy := "name asc" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the `order by` clause of an SQL statement. Each query can be ordered by any of the `kafkaRequests` fields. For example, to return all Kafka instances ordered by their name, use the following syntax:  ```sql name asc ```  To return all Kafka instances ordered by their name _and_ created date, use the following syntax:  ```sql name asc, created_at asc ```  If the parameter isn't provided, or if the value is empty, then the results are ordered by name. (optional)
+    search := "name = my-kafka and cloud_provider = aws" // string | Search criteria.  The syntax of this parameter is similar to the syntax of the `where` clause of an SQL statement. Allowed fields in the search are `cloud_provider`, `name`, `owner`, `region`, and `status`. Allowed comparators are `<>`, `=`, or `LIKE`. Allowed joins are `AND` and `OR`. However, you can use a maximum of 10 joins in a search query.  Examples:  To return a Kafka instance with the name `my-kafka` and the region `aws`, use the following syntax:  ``` name = my-kafka and cloud_provider = aws ```[p-]  To return a Kafka instance with a name that starts with `my`, use the following syntax:  ``` name like my%25 ```  If the parameter isn't provided, or if the value is empty, then all the Kafka instances that the user has permission to see are returned.  Note. If the query is invalid, an error is returned.  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -408,8 +408,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **string** | Page index | 
  **size** | **string** | Number of items in each page | 
- **orderBy** | **string** | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the &#x60;order by&#x60; clause of an SQL statement. Each query can be ordered by any of the &#x60;kafkaRequests&#x60; fields. For example, to return all Kakfa instances ordered by their name, use the following syntax:  &#x60;&#x60;&#x60;sql name asc &#x60;&#x60;&#x60;  To return all Kakfa instances ordered by their name _and_ created date, use the following syntax:  &#x60;&#x60;&#x60;sql name asc, created_at asc &#x60;&#x60;&#x60;  If the parameter isn&#39;t provided, or if the value is empty, then the results are ordered by name. | 
- **search** | **string** | Search criteria.  The syntax of this parameter is similar to the syntax of the &#x60;where&#x60; clause of an SQL statement. Allowed fields in the search are &#x60;cloud_provider&#x60;, &#x60;name&#x60;, &#x60;owner&#x60;, &#x60;region&#x60;, and &#x60;status&#x60;. Allowed comparators are &#x60;&lt;&gt;&#x60;, &#x60;&#x3D;&#x60;, or &#x60;LIKE&#x60;. Allowed joins are &#x60;AND&#x60; and &#x60;OR&#x60;. However, you can use a maximum of 10 joins in a search query.  Examples:  To return a Kakfa instance with the name &#x60;my-kafka&#x60; and the region &#x60;aws&#x60;, use the following syntax:  &#x60;&#x60;&#x60; name &#x3D; my-kafka and cloud_provider &#x3D; aws &#x60;&#x60;&#x60;[p-]  To return a Kakfa instance with a name that starts with &#x60;my&#x60;, use the following syntax:  &#x60;&#x60;&#x60; name like my%25 &#x60;&#x60;&#x60;  If the parameter isn&#39;t provided, or if the value is empty, then all the Kakfa instances that the user has permission to see are returned.  Note. If the query is invalid, an error is returned.  | 
+ **orderBy** | **string** | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the &#x60;order by&#x60; clause of an SQL statement. Each query can be ordered by any of the &#x60;kafkaRequests&#x60; fields. For example, to return all Kafka instances ordered by their name, use the following syntax:  &#x60;&#x60;&#x60;sql name asc &#x60;&#x60;&#x60;  To return all Kafka instances ordered by their name _and_ created date, use the following syntax:  &#x60;&#x60;&#x60;sql name asc, created_at asc &#x60;&#x60;&#x60;  If the parameter isn&#39;t provided, or if the value is empty, then the results are ordered by name. | 
+ **search** | **string** | Search criteria.  The syntax of this parameter is similar to the syntax of the &#x60;where&#x60; clause of an SQL statement. Allowed fields in the search are &#x60;cloud_provider&#x60;, &#x60;name&#x60;, &#x60;owner&#x60;, &#x60;region&#x60;, and &#x60;status&#x60;. Allowed comparators are &#x60;&lt;&gt;&#x60;, &#x60;&#x3D;&#x60;, or &#x60;LIKE&#x60;. Allowed joins are &#x60;AND&#x60; and &#x60;OR&#x60;. However, you can use a maximum of 10 joins in a search query.  Examples:  To return a Kafka instance with the name &#x60;my-kafka&#x60; and the region &#x60;aws&#x60;, use the following syntax:  &#x60;&#x60;&#x60; name &#x3D; my-kafka and cloud_provider &#x3D; aws &#x60;&#x60;&#x60;[p-]  To return a Kafka instance with a name that starts with &#x60;my&#x60;, use the following syntax:  &#x60;&#x60;&#x60; name like my%25 &#x60;&#x60;&#x60;  If the parameter isn&#39;t provided, or if the value is empty, then all the Kafka instances that the user has permission to see are returned.  Note. If the query is invalid, an error is returned.  | 
 
 ### Return type
 
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 
 > MetricsInstantQueryList GetMetricsByInstantQuery(ctx, id).Filters(filters).Execute()
 
-Returns metrics with instant query by Kakfa ID
+Returns metrics with instant query by Kafka ID
 
 ### Example
 
@@ -449,7 +449,7 @@ import (
 
 func main() {
     id := "id_example" // string | The ID of record
-    filters := []string{"Inner_example"} // []string | List of metrics to fetch. Fetch all metrics when empty. List entries are Kakfa internal metric names. (optional) (default to [])
+    filters := []string{"Inner_example"} // []string | List of metrics to fetch. Fetch all metrics when empty. List entries are Kafka internal metric names. (optional) (default to [])
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -479,7 +479,7 @@ Other parameters are passed through a pointer to a apiGetMetricsByInstantQueryRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **filters** | **[]string** | List of metrics to fetch. Fetch all metrics when empty. List entries are Kakfa internal metric names. | [default to []]
+ **filters** | **[]string** | List of metrics to fetch. Fetch all metrics when empty. List entries are Kafka internal metric names. | [default to []]
 
 ### Return type
 
@@ -503,7 +503,7 @@ Name | Type | Description  | Notes
 
 > MetricsRangeQueryList GetMetricsByRangeQuery(ctx, id).Duration(duration).Interval(interval).Filters(filters).Execute()
 
-Returns metrics with timeseries range query by Kakfa ID
+Returns metrics with timeseries range query by Kafka ID
 
 ### Example
 
@@ -521,7 +521,7 @@ func main() {
     id := "id_example" // string | The ID of record
     duration := int64(5) // int64 | The length of time in minutes for which to return the metrics (default to 5)
     interval := int64(30) // int64 | The interval in seconds between data points (default to 30)
-    filters := []string{"Inner_example"} // []string | List of metrics to fetch. Fetch all metrics when empty. List entries are Kakfa internal metric names. (optional) (default to [])
+    filters := []string{"Inner_example"} // []string | List of metrics to fetch. Fetch all metrics when empty. List entries are Kafka internal metric names. (optional) (default to [])
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -553,7 +553,7 @@ Name | Type | Description  | Notes
 
  **duration** | **int64** | The length of time in minutes for which to return the metrics | [default to 5]
  **interval** | **int64** | The interval in seconds between data points | [default to 30]
- **filters** | **[]string** | List of metrics to fetch. Fetch all metrics when empty. List entries are Kakfa internal metric names. | [default to []]
+ **filters** | **[]string** | List of metrics to fetch. Fetch all metrics when empty. List entries are Kafka internal metric names. | [default to []]
 
 ### Return type
 

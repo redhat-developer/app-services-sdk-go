@@ -1,7 +1,7 @@
 /*
  * Kafka Service Fleet Manager
  *
- * Kafka Service Fleet Manager is a Rest API to manage Kakfa instances and connectors.
+ * Kafka Service Fleet Manager is a Rest API to manage Kafka instances and connectors.
  *
  * API version: 1.1.1
  */
@@ -28,7 +28,7 @@ var (
 type DefaultApi interface {
 
 	/*
-	 * CreateKafka Creates a Kakfa request
+	 * CreateKafka Creates a Kafka request
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @return ApiCreateKafkaRequest
 	 */
@@ -41,7 +41,7 @@ type DefaultApi interface {
 	CreateKafkaExecute(r ApiCreateKafkaRequest) (KafkaRequest, *_nethttp.Response, error)
 
 	/*
-	 * DeleteKafkaById Deletes a Kakfa request by ID
+	 * DeleteKafkaById Deletes a Kafka request by ID
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @param id The ID of record
 	 * @return ApiDeleteKafkaByIdRequest
@@ -82,7 +82,7 @@ type DefaultApi interface {
 	GetCloudProvidersExecute(r ApiGetCloudProvidersRequest) (CloudProviderList, *_nethttp.Response, error)
 
 	/*
-	 * GetKafkaById Returns a Kakfa request by ID
+	 * GetKafkaById Returns a Kafka request by ID
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @param id The ID of record
 	 * @return ApiGetKafkaByIdRequest
@@ -109,7 +109,7 @@ type DefaultApi interface {
 	GetKafkasExecute(r ApiGetKafkasRequest) (KafkaRequestList, *_nethttp.Response, error)
 
 	/*
-	 * GetMetricsByInstantQuery Returns metrics with instant query by Kakfa ID
+	 * GetMetricsByInstantQuery Returns metrics with instant query by Kafka ID
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @param id The ID of record
 	 * @return ApiGetMetricsByInstantQueryRequest
@@ -123,7 +123,7 @@ type DefaultApi interface {
 	GetMetricsByInstantQueryExecute(r ApiGetMetricsByInstantQueryRequest) (MetricsInstantQueryList, *_nethttp.Response, error)
 
 	/*
-	 * GetMetricsByRangeQuery Returns metrics with timeseries range query by Kakfa ID
+	 * GetMetricsByRangeQuery Returns metrics with timeseries range query by Kafka ID
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @param id The ID of record
 	 * @return ApiGetMetricsByRangeQueryRequest
@@ -187,7 +187,7 @@ func (r ApiCreateKafkaRequest) Execute() (KafkaRequest, *_nethttp.Response, erro
 }
 
 /*
- * CreateKafka Creates a Kakfa request
+ * CreateKafka Creates a Kafka request
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiCreateKafkaRequest
  */
@@ -362,7 +362,7 @@ func (r ApiDeleteKafkaByIdRequest) Execute() (Error, *_nethttp.Response, error) 
 }
 
 /*
- * DeleteKafkaById Deletes a Kakfa request by ID
+ * DeleteKafkaById Deletes a Kafka request by ID
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The ID of record
  * @return ApiDeleteKafkaByIdRequest
@@ -796,7 +796,7 @@ func (r ApiGetKafkaByIdRequest) Execute() (KafkaRequest, *_nethttp.Response, err
 }
 
 /*
- * GetKafkaById Returns a Kakfa request by ID
+ * GetKafkaById Returns a Kafka request by ID
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The ID of record
  * @return ApiGetKafkaByIdRequest
@@ -1117,7 +1117,7 @@ func (r ApiGetMetricsByInstantQueryRequest) Execute() (MetricsInstantQueryList, 
 }
 
 /*
- * GetMetricsByInstantQuery Returns metrics with instant query by Kakfa ID
+ * GetMetricsByInstantQuery Returns metrics with instant query by Kafka ID
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The ID of record
  * @return ApiGetMetricsByInstantQueryRequest
@@ -1267,7 +1267,7 @@ func (r ApiGetMetricsByRangeQueryRequest) Execute() (MetricsRangeQueryList, *_ne
 }
 
 /*
- * GetMetricsByRangeQuery Returns metrics with timeseries range query by Kakfa ID
+ * GetMetricsByRangeQuery Returns metrics with timeseries range query by Kafka ID
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The ID of record
  * @return ApiGetMetricsByRangeQueryRequest
