@@ -28,7 +28,7 @@ import "github.com/redhat-developer/app-services-sdk-go"
 | API                       | Status | Package |
 |---------------------------|--------|---------|
 | KafkaManagement           | beta |  [`github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1)      |
-| ServiceRegistryManagement | alpha  |  [`github.com/redhat-developer/app-services-sdk-go/serviceregistrymgmt/apiv1`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/serviceregistrymgmt/apiv1)       |
+| ServiceRegistryManagement | alpha  |  [`github.com/redhat-developer/app-services-sdk-go/srsmgmt/apiv1`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/srsmgmt/apiv1)       |
 
 **Alpha**: the API is still being developed and may have backwards-incompatible changes. It is not recommended for production use.
 
