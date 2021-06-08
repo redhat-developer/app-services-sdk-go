@@ -23,11 +23,7 @@ npx @openapitools/openapi-generator-cli generate -g go -i "$OPENAPI_FILENAME" -o
 # generate API interface mock
 mock_api_file="$OUTPUT_PATH/default_api_mock.go"
 
-if ! command -v moq &> /dev/null
-then
-    go get -u github.com/matryer/moq
-fi
-
+go get -u github.com/matryer/moq
 rm -rf $mock_api_file
 moq -out "$mock_api_file" "$OUTPUT_PATH" DefaultApi
 
