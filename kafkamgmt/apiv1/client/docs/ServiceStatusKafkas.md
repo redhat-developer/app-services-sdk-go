@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MaxCapacityReached** | **bool** | Indicates whether we have reached kafka maximum capacity | 
+**MaxCapacityReached** | **bool** | Indicates whether we have reached Kakfa maximum capacity | 
 
 
 ## Methods
