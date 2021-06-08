@@ -1,0 +1,376 @@
+openapi: 3.0.2
+info:
+  contact:
+    email: rhosak-eval-support@redhat.com
+    name: Cloud Red Hat
+    url: https://cloud.redhat.com/beta/application-services/streams/
+  description: Managed Service Registry cloud.redhat.com API Management API that lets
+    you create new registry instances. Registry is a datastore for standard event
+    schemas and API designs. Service Registry enables developers to manage and share
+    the structure of their data using a REST interface. For example, client applications
+    can dynamically push or pull the latest updates to or from the registry without
+    needing to redeploy. Registry is an Managed version of upstream project called
+    Apicurio Registry. Apicurio Registry also enables developers to create rules that
+    govern how registry content can evolve over time. For example, this includes rules
+    for content validation and version compatibility.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Service Registry Fleet Manager
+  version: 0.0.1
+servers:
+- description: Main (production) server
+  url: https://api.openshift.com
+- description: Staging server
+  url: https://api.stage.openshift.com
+- description: localhost
+  url: http://localhost:8000
+- description: current domain
+  url: /
+paths:
+  /api/serviceregistry_mgmt/v1/registries:
+    get:
+      operationId: getRegistries
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Registry'
+                type: array
+          description: A successful response.
+        "401":
+          content:
+            application/json:
+              examples:
+                "401Example":
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Auth token is invalid
+        "403":
+          content:
+            application/json:
+              examples:
+                "403Example":
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User not authorized to access the service.
+        "500":
+          content:
+            application/json:
+              examples:
+                "500Example":
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unexpected error occurred
+      security:
+      - Bearer: []
+      summary: Get the list of all registries.
+      tags:
+      - Registries
+    post:
+      operationId: createRegistry
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegistryCreate'
+        description: A new `Registry` to be created.
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Registry'
+          description: A successful response. The full request to create a new `Registry`
+            is processed asynchronously. User should verify the result of the operation
+            by reading the `status` property of the created `Registry` entity.
+        "401":
+          content:
+            application/json:
+              examples:
+                "401Example":
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Auth token is invalid
+        "403":
+          content:
+            application/json:
+              examples:
+                "403Example":
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User not authorized to access the service.
+        "500":
+          content:
+            application/json:
+              examples:
+                "500Example":
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unexpected error occurred
+      security:
+      - Bearer: []
+      summary: Create a new Registry instance
+      tags:
+      - Registries
+    summary: Manage the list of all registries.
+  /api/serviceregistry_mgmt/v1/{registryId}:
+    delete:
+      description: Deletes an existing `Registry`.
+      operationId: deleteRegistry
+      parameters:
+      - description: A unique identifier for a `Registry`.
+        explode: false
+        in: path
+        name: registryId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          description: Successful response.
+        "401":
+          content:
+            application/json:
+              examples:
+                "401Example":
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Auth token is invalid
+        "403":
+          content:
+            application/json:
+              examples:
+                "403Example":
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User not authorized to access the service.
+        "404":
+          content:
+            application/json:
+              examples:
+                "404Example":
+                  $ref: '#/components/examples/404Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: No Service Registry with specified id exists
+      security:
+      - Bearer: []
+      summary: Delete a Registry
+      tags:
+      - Registries
+    get:
+      description: Gets the details of a single instance of a `Registry`.
+      operationId: getRegistry
+      parameters:
+      - description: A unique identifier for a `Registry`.
+        explode: false
+        in: path
+        name: registryId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Registry'
+          description: Successful response - returns a single `Registry`.
+        "401":
+          content:
+            application/json:
+              examples:
+                "401Example":
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Auth token is invalid
+        "403":
+          content:
+            application/json:
+              examples:
+                "403Example":
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User not authorized to access the service.
+        "404":
+          content:
+            application/json:
+              examples:
+                "404Example":
+                  $ref: '#/components/examples/404Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: No service registry with specified id exists
+      security:
+      - Bearer: []
+      summary: Get a Registry
+      tags:
+      - Registries
+    summary: Manage a specific Registry.
+components:
+  examples:
+    "404Example":
+      value:
+        id: "404"
+        kind: Error
+        href: /api/managed-services-api/v1/errors/7
+        code: MGD-SERV-API-7
+        reason: The requested resource doesn't exist
+    "401Example":
+      value:
+        id: "11"
+        kind: Error
+        href: /api/serviceregistry_mgmt/v1/errors/11
+        code: CLOUD-SERV-API-11
+        reason: 'Unable to verify JWT token: Required authorization token not found'
+        operation_id: 1iY3UhEhwmXBpWPfI2lNekpd4ZD
+    "403Example":
+      value:
+        id: "4"
+        kind: Error
+        href: /api/serviceregistry_mgmt/v1/errors/4
+        code: MGD-SERV-API-4
+        reason: User 'foo-bar' is not authorized to access the service.
+        operation_id: 1lY3UiEhznXBpWPfI2lNejpd4YC
+    "500Example":
+      value:
+        id: "9"
+        kind: Error
+        href: /api/serviceregistry_mgmt/v1/errors/9
+        code: MGD-SERV-API-9
+        reason: Unspecified error
+        operation_id: 1ieELvF9jMQY6YghfM9gGRsHvEW
+  schemas:
+    ObjectReference:
+      properties:
+        id:
+          type: string
+        kind:
+          type: string
+        href:
+          type: string
+      type: object
+    List:
+      properties:
+        kind:
+          type: string
+        page:
+          type: integer
+        size:
+          type: integer
+        total:
+          type: integer
+      required:
+      - items
+      - kind
+      - page
+      - size
+      - total
+      type: object
+    Error:
+      allOf:
+      - $ref: '#/components/schemas/ObjectReference'
+      - $ref: '#/components/schemas/Error_allOf'
+    ErrorList:
+      allOf:
+      - $ref: '#/components/schemas/List'
+      - $ref: '#/components/schemas/ErrorList_allOf'
+    Registry:
+      description: Service Registry instance within a multi-tenant deployment.
+      example:
+        id: 42
+        name: my-registry
+        registryUrl: https://registry.apps.example.com/t/5213600b-afc9-487e-8cc3-339f4248d706
+        status:
+          status: PROVISIONING
+          lastUpdated: 2021-05-04T12:34:56Z
+        registryDeploymentId: 1
+      properties:
+        id:
+          type: integer
+        status:
+          $ref: '#/components/schemas/RegistryStatus'
+        registryUrl:
+          type: string
+        name:
+          description: User-defined Registry name. Does not have to be unique.
+          type: string
+        registryDeploymentId:
+          description: Identifier of a multi-tenant deployment, where this Service
+            Registry instance resides.
+          type: integer
+      required:
+      - id
+      - registryUrl
+      - status
+      title: Root Type for Registry
+      type: object
+    RegistryStatus:
+      example:
+        value: AVAILABLE
+        lastUpdated: 2021-05-04T12:34:56Z
+      properties:
+        lastUpdated:
+          description: ISO 8601 UTC timestamp.
+          format: date-time
+          type: string
+        value:
+          $ref: '#/components/schemas/RegistryStatusValue'
+      required:
+      - lastUpdated
+      - value
+      type: object
+    RegistryCreate:
+      description: Information used to create a new Service Registry instance within
+        a multi-tenant deployment.
+      example:
+        name: my-registry
+      properties:
+        name:
+          description: User-defined Registry name. Does not have to be unique.
+          type: string
+      title: Root Type for RegistryCreate
+      type: object
+    RegistryStatusValue:
+      enum:
+      - PROVISIONING
+      - AVAILABLE
+      - UNAVAILABLE
+      type: string
+    Error_allOf:
+      properties:
+        code:
+          type: string
+        reason:
+          type: string
+        operation_id:
+          type: string
+      type: object
+    ErrorList_allOf:
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/Error'
+          type: array
+      type: object
+  securitySchemes:
+    Bearer:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http
