@@ -8,5 +8,10 @@
     "apiGroup": "kafkainstance",
     "apiVersion": "v1internal",
     "release_level": "internal"
+  },
+  "srs-mgmt/v1": {
+    "apiGroup": "srsmgmt",
+    "apiVersion": "v1",
+    "release_level": "alpha"
   }
 }
