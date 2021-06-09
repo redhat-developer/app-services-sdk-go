@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
@@ -64,6 +63,12 @@ func main() {
 		log.Fatalln(err)
 	}
 
+	headBranch := fmt.Sprintf("generate-client/%v", clientID)
+	err = exec.Command("git", "checkout", "-b", headBranch).Run()
+	if err != nil {
+		log.Fatalln(err)
+	}
+
 	commitTitle := fmt.Sprintf("chore(%v): re-generate API client", clientID)
 	err = exec.Command("git", "add", ".").Run()
 	if err != nil {
@@ -74,22 +79,30 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	_, _ = metadata.GetSdkEntry(clientID, repoMetadataPath)
-
-	pullReq := github.NewPullRequest{
-		Title: github.String("titled"),
-		Base:  github.String("main"),
-		// Head:  github.String(author + ":" + "generator-improvements"),
-		Head: github.String("generator-improvements"),
-		Body: github.String("test"),
+	sdkEntry, err := metadata.GetSdkEntry(clientID, repoMetadataPath)
+	if err != nil {
+		log.Fatalln(err)
 	}
 
-	b, _ := json.Marshal(pullReq)
-	fmt.Println(string(b))
+	fullPackageName := metadata.GetPackageName(sdkEntry)
+	goPkgURL := fmt.Sprintf("https://pkg.go.dev/%v", fullPackageName)
+
+	pullReq := github.NewPullRequest{
+		Title: github.String(commitTitle),
+		Base:  github.String("main"),
+		Head:  github.String(fmt.Sprintf("generate-client/%v", clientID)),
+		Body: github.String(fmt.Sprintf(`
+			🤖 _This is an auto-generated pull request_
+
+			Generated a new client for [%v](%v) package.
+		`, fullPackageName, goPkgURL),
+		),
+	}
 
 	_, resp, err := client.PullRequests.Create(ctx, owner, repo, &pullReq)
+
+	fmt.Println(resp.Request.Body)
 	if err != nil {
-		log.Fatalln(resp.Status)
 		log.Fatalln(err)
 	}
 }
