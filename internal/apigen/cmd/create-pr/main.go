@@ -15,6 +15,7 @@ import (
 var clientID string
 var accessToken string
 var owner string
+var author string
 var repo string
 var repoMetadataPath string
 
@@ -22,6 +23,7 @@ func init() {
 	flag.StringVar(&repoMetadataPath, "repo-metadata", "", "path to repo metadata JSON")
 	flag.StringVar(&clientID, "client-id", "", "API client ID")
 	flag.StringVar(&accessToken, "token", "", "Access token")
+	flag.StringVar(&author, "author", "", "Pull request author")
 	flag.StringVar(&owner, "owner", "", "User who creates the pull request")
 	flag.StringVar(&repo, "repo", "", "The repo in which to create the pull request")
 }
