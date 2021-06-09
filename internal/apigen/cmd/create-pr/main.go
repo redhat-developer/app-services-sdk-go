@@ -79,8 +79,9 @@ func main() {
 	pullReq := github.NewPullRequest{
 		Title: github.String("titled"),
 		Base:  github.String("main"),
-		Head:  github.String(author + ":" + "generator-improvements"),
-		Body:  github.String("test"),
+		// Head:  github.String(author + ":" + "generator-improvements"),
+		Head: github.String("head"),
+		Body: github.String("test"),
 	}
 
 	b, _ := json.Marshal(pullReq)
