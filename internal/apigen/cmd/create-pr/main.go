@@ -56,6 +56,7 @@ func main() {
 
 	err := exec.Command("git", "config", "user.email", author+"@users.noreply.github.com").Run()
 	if err != nil {
+		fmt.Print("ss")
 		log.Fatalln(err)
 	}
 	err = exec.Command("git", "config", "user.name", author).Run()
