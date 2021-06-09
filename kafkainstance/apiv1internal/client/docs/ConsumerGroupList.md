@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Limit** | **float32** | The number of consumer groups per page. | 
 **Offset** | **int32** | The page offset | 
 
+
 ## Methods
 
 ### NewConsumerGroupList
@@ -28,6 +29,7 @@ NewConsumerGroupListWithDefaults instantiates a new ConsumerGroupList object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+
 ### GetItems
 
 `func (o *ConsumerGroupList) GetItems() []ConsumerGroup`
@@ -46,6 +48,7 @@ and a boolean to check if the value has been set.
 `func (o *ConsumerGroupList) SetItems(v []ConsumerGroup)`
 
 SetItems sets Items field to given value.
+
 
 
 ### GetCount
@@ -68,6 +71,7 @@ and a boolean to check if the value has been set.
 SetCount sets Count field to given value.
 
 
+
 ### GetLimit
 
 `func (o *ConsumerGroupList) GetLimit() float32`
@@ -86,6 +90,7 @@ and a boolean to check if the value has been set.
 `func (o *ConsumerGroupList) SetLimit(v float32)`
 
 SetLimit sets Limit field to given value.
+
 
 
 ### GetOffset
@@ -109,6 +114,6 @@ SetOffset sets Offset field to given value.
 
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -16,12 +16,16 @@ import (
 
 // Topic Kafka Topic (A feed where records are stored and published)
 type Topic struct {
+
 	// The name of the topic.
 	Name *string `json:"name,omitempty"`
+
 	// Topic configuration entry.
 	Config *[]ConfigEntry `json:"config,omitempty"`
+
 	// Partitions for this topic.
 	Partitions *[]Partition `json:"partitions,omitempty"`
+
 }
 
 // NewTopic instantiates a new Topic object
@@ -38,8 +42,13 @@ func NewTopic() *Topic {
 // but it doesn't guarantee that properties required by API are set
 func NewTopicWithDefaults() *Topic {
 	this := Topic{}
+
+
+
+
 	return &this
 }
+
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Topic) GetName() string {
@@ -73,6 +82,7 @@ func (o *Topic) SetName(v string) {
 	o.Name = &v
 }
 
+
 // GetConfig returns the Config field value if set, zero value otherwise.
 func (o *Topic) GetConfig() []ConfigEntry {
 	if o == nil || o.Config == nil {
@@ -104,6 +114,7 @@ func (o *Topic) HasConfig() bool {
 func (o *Topic) SetConfig(v []ConfigEntry) {
 	o.Config = &v
 }
+
 
 // GetPartitions returns the Partitions field value if set, zero value otherwise.
 func (o *Topic) GetPartitions() []Partition {
@@ -137,17 +148,22 @@ func (o *Topic) SetPartitions(v []Partition) {
 	o.Partitions = &v
 }
 
+
 func (o Topic) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
+    
 	if o.Config != nil {
 		toSerialize["config"] = o.Config
 	}
+    
 	if o.Partitions != nil {
 		toSerialize["partitions"] = o.Partitions
 	}
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -186,3 +202,4 @@ func (v *NullableTopic) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

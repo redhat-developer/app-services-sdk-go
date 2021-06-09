@@ -16,20 +16,28 @@ import (
 
 // Consumer A Kafka consumer is responsible for reading records from one or more topics and one or more partitions of a topic.
 type Consumer struct {
+
 	// Unique identifier for the consumer group to which this consumer belongs.
 	GroupId string `json:"groupId"`
+
 	// The unique topic name to which this consumer belongs
 	Topic string `json:"topic"`
+
 	// The partition number to which this consumer group is assigned to.
 	Partition int32 `json:"partition"`
+
 	// Offset denotes the position of the consumer in a partition.
 	Offset float32 `json:"offset"`
+
 	// The log end offset is the offset of the last message written to a log.
 	LogEndOffset *float32 `json:"logEndOffset,omitempty"`
+
 	// Offset Lag is the delta between the last produced message and the last consumer's committed offset.
 	Lag int32 `json:"lag"`
+
 	// The member ID is a unique identifier given to a consumer by the coordinator upon initially joining the group.
 	MemberId *string `json:"memberId,omitempty"`
+
 }
 
 // NewConsumer instantiates a new Consumer object
@@ -51,8 +59,17 @@ func NewConsumer(groupId string, topic string, partition int32, offset float32, 
 // but it doesn't guarantee that properties required by API are set
 func NewConsumerWithDefaults() *Consumer {
 	this := Consumer{}
+
+
+
+
+
+
+
+
 	return &this
 }
+
 
 // GetGroupId returns the GroupId field value
 func (o *Consumer) GetGroupId() string {
@@ -67,7 +84,7 @@ func (o *Consumer) GetGroupId() string {
 // GetGroupIdOk returns a tuple with the GroupId field value
 // and a boolean to check if the value has been set.
 func (o *Consumer) GetGroupIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.GroupId, true
@@ -77,6 +94,7 @@ func (o *Consumer) GetGroupIdOk() (*string, bool) {
 func (o *Consumer) SetGroupId(v string) {
 	o.GroupId = v
 }
+
 
 // GetTopic returns the Topic field value
 func (o *Consumer) GetTopic() string {
@@ -91,7 +109,7 @@ func (o *Consumer) GetTopic() string {
 // GetTopicOk returns a tuple with the Topic field value
 // and a boolean to check if the value has been set.
 func (o *Consumer) GetTopicOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Topic, true
@@ -101,6 +119,7 @@ func (o *Consumer) GetTopicOk() (*string, bool) {
 func (o *Consumer) SetTopic(v string) {
 	o.Topic = v
 }
+
 
 // GetPartition returns the Partition field value
 func (o *Consumer) GetPartition() int32 {
@@ -115,7 +134,7 @@ func (o *Consumer) GetPartition() int32 {
 // GetPartitionOk returns a tuple with the Partition field value
 // and a boolean to check if the value has been set.
 func (o *Consumer) GetPartitionOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Partition, true
@@ -125,6 +144,7 @@ func (o *Consumer) GetPartitionOk() (*int32, bool) {
 func (o *Consumer) SetPartition(v int32) {
 	o.Partition = v
 }
+
 
 // GetOffset returns the Offset field value
 func (o *Consumer) GetOffset() float32 {
@@ -139,7 +159,7 @@ func (o *Consumer) GetOffset() float32 {
 // GetOffsetOk returns a tuple with the Offset field value
 // and a boolean to check if the value has been set.
 func (o *Consumer) GetOffsetOk() (*float32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Offset, true
@@ -149,6 +169,7 @@ func (o *Consumer) GetOffsetOk() (*float32, bool) {
 func (o *Consumer) SetOffset(v float32) {
 	o.Offset = v
 }
+
 
 // GetLogEndOffset returns the LogEndOffset field value if set, zero value otherwise.
 func (o *Consumer) GetLogEndOffset() float32 {
@@ -182,6 +203,7 @@ func (o *Consumer) SetLogEndOffset(v float32) {
 	o.LogEndOffset = &v
 }
 
+
 // GetLag returns the Lag field value
 func (o *Consumer) GetLag() int32 {
 	if o == nil {
@@ -195,7 +217,7 @@ func (o *Consumer) GetLag() int32 {
 // GetLagOk returns a tuple with the Lag field value
 // and a boolean to check if the value has been set.
 func (o *Consumer) GetLagOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Lag, true
@@ -205,6 +227,7 @@ func (o *Consumer) GetLagOk() (*int32, bool) {
 func (o *Consumer) SetLag(v int32) {
 	o.Lag = v
 }
+
 
 // GetMemberId returns the MemberId field value if set, zero value otherwise.
 func (o *Consumer) GetMemberId() string {
@@ -238,29 +261,38 @@ func (o *Consumer) SetMemberId(v string) {
 	o.MemberId = &v
 }
 
+
 func (o Consumer) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	
 	if true {
 		toSerialize["groupId"] = o.GroupId
 	}
+    
 	if true {
 		toSerialize["topic"] = o.Topic
 	}
+    
 	if true {
 		toSerialize["partition"] = o.Partition
 	}
+    
 	if true {
 		toSerialize["offset"] = o.Offset
 	}
+    
 	if o.LogEndOffset != nil {
 		toSerialize["logEndOffset"] = o.LogEndOffset
 	}
+    
 	if true {
 		toSerialize["lag"] = o.Lag
 	}
+    
 	if o.MemberId != nil {
 		toSerialize["memberId"] = o.MemberId
 	}
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -299,3 +331,4 @@ func (v *NullableConsumer) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

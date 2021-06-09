@@ -16,14 +16,19 @@ import (
 
 // Partition Kafka topic partition
 type Partition struct {
+
 	// Uniquie id for the partition
 	Id int32 `json:"id"`
+
 	// List of replicas for the partition
 	Replicas *[]map[string]interface{} `json:"replicas,omitempty"`
+
 	// List isync-replicas for this partition.
 	Isr *[]map[string]interface{} `json:"isr,omitempty"`
+
 	// Kafka server / broker.
 	Leader *map[string]interface{} `json:"leader,omitempty"`
+
 }
 
 // NewPartition instantiates a new Partition object
@@ -41,8 +46,14 @@ func NewPartition(id int32) *Partition {
 // but it doesn't guarantee that properties required by API are set
 func NewPartitionWithDefaults() *Partition {
 	this := Partition{}
+
+
+
+
+
 	return &this
 }
+
 
 // GetId returns the Id field value
 func (o *Partition) GetId() int32 {
@@ -57,7 +68,7 @@ func (o *Partition) GetId() int32 {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *Partition) GetIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Id, true
@@ -67,6 +78,7 @@ func (o *Partition) GetIdOk() (*int32, bool) {
 func (o *Partition) SetId(v int32) {
 	o.Id = v
 }
+
 
 // GetReplicas returns the Replicas field value if set, zero value otherwise.
 func (o *Partition) GetReplicas() []map[string]interface{} {
@@ -100,6 +112,7 @@ func (o *Partition) SetReplicas(v []map[string]interface{}) {
 	o.Replicas = &v
 }
 
+
 // GetIsr returns the Isr field value if set, zero value otherwise.
 func (o *Partition) GetIsr() []map[string]interface{} {
 	if o == nil || o.Isr == nil {
@@ -131,6 +144,7 @@ func (o *Partition) HasIsr() bool {
 func (o *Partition) SetIsr(v []map[string]interface{}) {
 	o.Isr = &v
 }
+
 
 // GetLeader returns the Leader field value if set, zero value otherwise.
 func (o *Partition) GetLeader() map[string]interface{} {
@@ -164,20 +178,26 @@ func (o *Partition) SetLeader(v map[string]interface{}) {
 	o.Leader = &v
 }
 
+
 func (o Partition) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	
 	if true {
 		toSerialize["id"] = o.Id
 	}
+    
 	if o.Replicas != nil {
 		toSerialize["replicas"] = o.Replicas
 	}
+    
 	if o.Isr != nil {
 		toSerialize["isr"] = o.Isr
 	}
+    
 	if o.Leader != nil {
 		toSerialize["leader"] = o.Leader
 	}
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -216,3 +236,4 @@ func (v *NullablePartition) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

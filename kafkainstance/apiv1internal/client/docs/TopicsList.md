@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Count** | **int32** | Total number of topics | 
 **Items** | [**[]Topic**](Topic.md) | List of topics | 
 
+
 ## Methods
 
 ### NewTopicsList
@@ -28,6 +29,7 @@ NewTopicsListWithDefaults instantiates a new TopicsList object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+
 ### GetOffset
 
 `func (o *TopicsList) GetOffset() int32`
@@ -46,6 +48,7 @@ and a boolean to check if the value has been set.
 `func (o *TopicsList) SetOffset(v int32)`
 
 SetOffset sets Offset field to given value.
+
 
 
 ### GetLimit
@@ -68,6 +71,7 @@ and a boolean to check if the value has been set.
 SetLimit sets Limit field to given value.
 
 
+
 ### GetCount
 
 `func (o *TopicsList) GetCount() int32`
@@ -86,6 +90,7 @@ and a boolean to check if the value has been set.
 `func (o *TopicsList) SetCount(v int32)`
 
 SetCount sets Count field to given value.
+
 
 
 ### GetItems
@@ -109,6 +114,6 @@ SetItems sets Items field to given value.
 
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

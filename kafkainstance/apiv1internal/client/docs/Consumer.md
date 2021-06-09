@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Lag** | **int32** | Offset Lag is the delta between the last produced message and the last consumer&#39;s committed offset. | 
 **MemberId** | Pointer to **string** | The member ID is a unique identifier given to a consumer by the coordinator upon initially joining the group. | [optional] 
 
+
 ## Methods
 
 ### NewConsumer
@@ -31,6 +32,7 @@ NewConsumerWithDefaults instantiates a new Consumer object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+
 ### GetGroupId
 
 `func (o *Consumer) GetGroupId() string`
@@ -49,6 +51,7 @@ and a boolean to check if the value has been set.
 `func (o *Consumer) SetGroupId(v string)`
 
 SetGroupId sets GroupId field to given value.
+
 
 
 ### GetTopic
@@ -71,6 +74,7 @@ and a boolean to check if the value has been set.
 SetTopic sets Topic field to given value.
 
 
+
 ### GetPartition
 
 `func (o *Consumer) GetPartition() int32`
@@ -91,6 +95,7 @@ and a boolean to check if the value has been set.
 SetPartition sets Partition field to given value.
 
 
+
 ### GetOffset
 
 `func (o *Consumer) GetOffset() float32`
@@ -109,6 +114,7 @@ and a boolean to check if the value has been set.
 `func (o *Consumer) SetOffset(v float32)`
 
 SetOffset sets Offset field to given value.
+
 
 
 ### GetLogEndOffset
@@ -136,6 +142,7 @@ SetLogEndOffset sets LogEndOffset field to given value.
 
 HasLogEndOffset returns a boolean if a field has been set.
 
+
 ### GetLag
 
 `func (o *Consumer) GetLag() int32`
@@ -154,6 +161,7 @@ and a boolean to check if the value has been set.
 `func (o *Consumer) SetLag(v int32)`
 
 SetLag sets Lag field to given value.
+
 
 
 ### GetMemberId
@@ -182,6 +190,6 @@ SetMemberId sets MemberId field to given value.
 HasMemberId returns a boolean if a field has been set.
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

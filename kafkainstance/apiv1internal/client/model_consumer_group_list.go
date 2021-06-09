@@ -16,14 +16,19 @@ import (
 
 // ConsumerGroupList A list of consumer groups
 type ConsumerGroupList struct {
+
 	// Consumer group list items
 	Items []ConsumerGroup `json:"items"`
+
 	// The total number of consumer groups.
 	Count float32 `json:"count"`
+
 	// The number of consumer groups per page.
 	Limit float32 `json:"limit"`
+
 	// The page offset
 	Offset int32 `json:"offset"`
+
 }
 
 // NewConsumerGroupList instantiates a new ConsumerGroupList object
@@ -44,8 +49,14 @@ func NewConsumerGroupList(items []ConsumerGroup, count float32, limit float32, o
 // but it doesn't guarantee that properties required by API are set
 func NewConsumerGroupListWithDefaults() *ConsumerGroupList {
 	this := ConsumerGroupList{}
+
+
+
+
+
 	return &this
 }
+
 
 // GetItems returns the Items field value
 func (o *ConsumerGroupList) GetItems() []ConsumerGroup {
@@ -60,7 +71,7 @@ func (o *ConsumerGroupList) GetItems() []ConsumerGroup {
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
 func (o *ConsumerGroupList) GetItemsOk() (*[]ConsumerGroup, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Items, true
@@ -70,6 +81,7 @@ func (o *ConsumerGroupList) GetItemsOk() (*[]ConsumerGroup, bool) {
 func (o *ConsumerGroupList) SetItems(v []ConsumerGroup) {
 	o.Items = v
 }
+
 
 // GetCount returns the Count field value
 func (o *ConsumerGroupList) GetCount() float32 {
@@ -84,7 +96,7 @@ func (o *ConsumerGroupList) GetCount() float32 {
 // GetCountOk returns a tuple with the Count field value
 // and a boolean to check if the value has been set.
 func (o *ConsumerGroupList) GetCountOk() (*float32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Count, true
@@ -94,6 +106,7 @@ func (o *ConsumerGroupList) GetCountOk() (*float32, bool) {
 func (o *ConsumerGroupList) SetCount(v float32) {
 	o.Count = v
 }
+
 
 // GetLimit returns the Limit field value
 func (o *ConsumerGroupList) GetLimit() float32 {
@@ -108,7 +121,7 @@ func (o *ConsumerGroupList) GetLimit() float32 {
 // GetLimitOk returns a tuple with the Limit field value
 // and a boolean to check if the value has been set.
 func (o *ConsumerGroupList) GetLimitOk() (*float32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Limit, true
@@ -118,6 +131,7 @@ func (o *ConsumerGroupList) GetLimitOk() (*float32, bool) {
 func (o *ConsumerGroupList) SetLimit(v float32) {
 	o.Limit = v
 }
+
 
 // GetOffset returns the Offset field value
 func (o *ConsumerGroupList) GetOffset() int32 {
@@ -132,7 +146,7 @@ func (o *ConsumerGroupList) GetOffset() int32 {
 // GetOffsetOk returns a tuple with the Offset field value
 // and a boolean to check if the value has been set.
 func (o *ConsumerGroupList) GetOffsetOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Offset, true
@@ -143,20 +157,26 @@ func (o *ConsumerGroupList) SetOffset(v int32) {
 	o.Offset = v
 }
 
+
 func (o ConsumerGroupList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	
 	if true {
 		toSerialize["items"] = o.Items
 	}
+    
 	if true {
 		toSerialize["count"] = o.Count
 	}
+    
 	if true {
 		toSerialize["limit"] = o.Limit
 	}
+    
 	if true {
 		toSerialize["offset"] = o.Offset
 	}
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -195,3 +215,4 @@ func (v *NullableConsumerGroupList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

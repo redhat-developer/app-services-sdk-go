@@ -7,12 +7,10 @@ info:
     name: Apache 2.0
     url: 'https://www.apache.org/licenses/LICENSE-2.0'
 servers:
-  - url: 'https://api.openshift.com'
-    description: Main (production) server
-  - url: 'https://api.stage.openshift.com'
-    description: Staging server
-  - url: 'http://localhost:8000'
-    description: localhost
+  - url: '/rest'
+    description: Kafka Admin REST API
+security:
+  - Bearer: []
 paths:
   /topics:
     get:
@@ -66,8 +64,6 @@ paths:
           content:
             application/json: {}
           description: Unable to connect to the Kafka cluster.
-      # security:
-        # - Bearer: []
       operationId: getTopics
       summary: List of topics
       description: >-
@@ -110,8 +106,6 @@ paths:
           description: Internal server error.
         '503':
           description: Unable to connect to the Kafka cluster.
-      # security:
-        # - Bearer: []
       operationId: createTopic
       summary: Creates a new topic
       description: Creates a new topic for Kafka.
@@ -147,8 +141,6 @@ paths:
           content:
             application/json: {}
           description: Unable to connect to the Kafka cluster.
-      # security:
-        # - Bearer: []
       operationId: getTopic
       summary: Retrieves the topic with the specified name.
       description: Topic
@@ -171,8 +163,6 @@ paths:
           description: Internal server error.
         '503':
           description: Unable to connect to the Kafka cluster.
-      # security:
-        # - Bearer: []
       operationId: deleteTopic
       summary: Deletes a  topic
       description: Deletes the topic with the specified name.
@@ -207,8 +197,6 @@ paths:
           description: Internal server error.
         '503':
           description: Unable to connect to the Kafka cluster.
-      # security:
-        # - Bearer: []
       operationId: updateTopic
       summary: Updates the topic with the specified name.
       description: updates the topic with the new data.
@@ -289,8 +277,6 @@ paths:
           content:
             application/json: {}
           description: Unable to connect to the Kafka cluster.
-      # security:
-        # - Bearer: []
       operationId: getConsumerGroupById
       summary: Get a single consumer group by its unique ID.
     delete:
@@ -330,8 +316,6 @@ paths:
           content:
             application/json: {}
           description: Unable to connect to the Kafka cluster.
-      # security:
-        # - Bearer: []
       operationId: deleteConsumerGroupById
       summary: Delete a consumer group.
       description: 'Delete a consumer group, along with its consumers.'
@@ -427,8 +411,6 @@ paths:
           content:
             application/json: {}
           description: Unable to connect to the Kafka cluster.
-      # security:
-        # - Bearer: []
       operationId: getConsumerGroups
       summary: List of consumer groups in the Kafka instance.
       description: Returns a list of all consumer groups for a particular Kafka instance.
@@ -781,6 +763,10 @@ components:
             value: '1050000'
   securitySchemes:
     Bearer:
-      flows: {}
       type: oauth2
       description: Access token used with OAuth 2.0
+      flows:
+        clientCredentials:
+          # Place-holder value for `tokenUrl`
+          tokenUrl: "/token"
+          scopes: {}
