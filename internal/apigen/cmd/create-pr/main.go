@@ -86,9 +86,7 @@ func main() {
 	b, _ := json.Marshal(pullReq)
 	fmt.Println(string(b))
 
-	_, resp, err := client.PullRequests.Create(ctx, owner, repo, &pullReq)
-
-	fmt.Println(resp.StatusCode)
+	_, _, err = client.PullRequests.Create(ctx, owner, repo, &pullReq)
 	if err != nil {
 		log.Fatalln(err)
 	}
