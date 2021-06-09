@@ -79,7 +79,7 @@ func main() {
 	pullReq := github.NewPullRequest{
 		Title: github.String("title"),
 		Base:  github.String("main"),
-		Head:  github.String("generate-client/"),
+		Head:  github.String("generator-improvements"),
 		Body:  github.String("test"),
 	}
 
