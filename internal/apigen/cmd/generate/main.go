@@ -1,9 +1,7 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
-	"io/ioutil"
 	"log"
 	"os"
 	"path"
@@ -52,19 +50,8 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	fullMetadataPath := path.Join(root, repoMetadataPath)
-	f, err := ioutil.ReadFile(fullMetadataPath)
-	if err != nil {
-		log.Fatalln(err)
-	}
-	var repoMetadata metadata.RepoMetadata
-	err = json.Unmarshal([]byte(f), &repoMetadata)
-	if err != nil {
-		log.Fatalln(err)
-	}
-
-	clientConfig, ok := repoMetadata[clientID]
-	if !ok && generatorInput == "go" {
+	clientConfig, err := metadata.GetSdkEntry(clientID, repoMetadataPath)
+	if err != nil && generatorInput == "go" {
 		log.Fatalln("no config found for client:", clientID)
 	}
 
@@ -75,7 +62,7 @@ func main() {
 		DownloadURL:    downloadURL,
 		ClientID:       clientID,
 		AccessToken:    accessToken,
-		ClientMetadata: &clientConfig,
+		ClientMetadata: clientConfig,
 		TemplatesDir:   fullTemplatesDirPath,
 	}
 	err = generator.Generate(&genOpts)
