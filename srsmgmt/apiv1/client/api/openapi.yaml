@@ -1,32 +1,14 @@
 openapi: 3.0.2
 info:
-  contact:
-    email: rhosak-eval-support@redhat.com
-    name: Cloud Red Hat
-    url: https://cloud.redhat.com/beta/application-services/streams/
-  description: Managed Service Registry cloud.redhat.com API Management API that lets
-    you create new registry instances. Registry is a datastore for standard event
-    schemas and API designs. Service Registry enables developers to manage and share
-    the structure of their data using a REST interface. For example, client applications
-    can dynamically push or pull the latest updates to or from the registry without
-    needing to redeploy. Registry is an Managed version of upstream project called
-    Apicurio Registry. Apicurio Registry also enables developers to create rules that
-    govern how registry content can evolve over time. For example, this includes rules
-    for content validation and version compatibility.
+  description: Main entry point for the system, responsible for all sorts of management
+    operations for the whole service of managed service registry.
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-  title: Service Registry Fleet Manager
+  title: Service Registry Service - Fleet Manager - v0
   version: 0.0.1
 servers:
-- description: Main (production) server
-  url: https://api.openshift.com
-- description: Staging server
-  url: https://api.stage.openshift.com
-- description: localhost
-  url: http://localhost:8000
-- description: current domain
-  url: /
+- url: /
 paths:
   /api/serviceregistry_mgmt/v1/registries:
     get:
@@ -40,35 +22,13 @@ paths:
                   $ref: '#/components/schemas/Registry'
                 type: array
           description: A successful response.
-        "401":
-          content:
-            application/json:
-              examples:
-                "401Example":
-                  $ref: '#/components/examples/401Example'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Auth token is invalid
-        "403":
-          content:
-            application/json:
-              examples:
-                "403Example":
-                  $ref: '#/components/examples/403Example'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: User not authorized to access the service.
         "500":
           content:
             application/json:
-              examples:
-                "500Example":
-                  $ref: '#/components/examples/500Example'
               schema:
-                $ref: '#/components/schemas/Error'
-          description: Unexpected error occurred
-      security:
-      - Bearer: []
+                $ref: '#/components/schemas/ErrorInfo1'
+          description: "The response sent from the server when an unexpected error\
+            \ occurs (for example \na database connection error)."
       summary: Get the list of all registries.
       tags:
       - Registries
@@ -90,40 +50,18 @@ paths:
           description: A successful response. The full request to create a new `Registry`
             is processed asynchronously. User should verify the result of the operation
             by reading the `status` property of the created `Registry` entity.
-        "401":
-          content:
-            application/json:
-              examples:
-                "401Example":
-                  $ref: '#/components/examples/401Example'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Auth token is invalid
-        "403":
-          content:
-            application/json:
-              examples:
-                "403Example":
-                  $ref: '#/components/examples/403Example'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: User not authorized to access the service.
         "500":
           content:
             application/json:
-              examples:
-                "500Example":
-                  $ref: '#/components/examples/500Example'
               schema:
-                $ref: '#/components/schemas/Error'
-          description: Unexpected error occurred
-      security:
-      - Bearer: []
-      summary: Create a new Registry instance
+                $ref: '#/components/schemas/ErrorInfo1'
+          description: "The response sent from the server when an unexpected error\
+            \ occurs (for example \na database connection error)."
+      summary: Create a Registry.
       tags:
       - Registries
     summary: Manage the list of all registries.
-  /api/serviceregistry_mgmt/v1/{registryId}:
+  /api/serviceregistry_mgmt/v1/registries/{registryId}:
     delete:
       description: Deletes an existing `Registry`.
       operationId: deleteRegistry
@@ -139,35 +77,20 @@ paths:
       responses:
         "204":
           description: Successful response.
-        "401":
-          content:
-            application/json:
-              examples:
-                "401Example":
-                  $ref: '#/components/examples/401Example'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Auth token is invalid
-        "403":
-          content:
-            application/json:
-              examples:
-                "403Example":
-                  $ref: '#/components/examples/403Example'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: User not authorized to access the service.
         "404":
           content:
             application/json:
-              examples:
-                "404Example":
-                  $ref: '#/components/examples/404Example'
               schema:
-                $ref: '#/components/schemas/Error'
-          description: No Service Registry with specified id exists
-      security:
-      - Bearer: []
+                $ref: '#/components/schemas/ErrorInfo1'
+          description: The response returned when something is requested but cannot
+            be found.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo1'
+          description: "The response sent from the server when an unexpected error\
+            \ occurs (for example \na database connection error)."
       summary: Delete a Registry
       tags:
       - Registries
@@ -190,107 +113,57 @@ paths:
               schema:
                 $ref: '#/components/schemas/Registry'
           description: Successful response - returns a single `Registry`.
-        "401":
-          content:
-            application/json:
-              examples:
-                "401Example":
-                  $ref: '#/components/examples/401Example'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Auth token is invalid
-        "403":
-          content:
-            application/json:
-              examples:
-                "403Example":
-                  $ref: '#/components/examples/403Example'
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: User not authorized to access the service.
         "404":
           content:
             application/json:
-              examples:
-                "404Example":
-                  $ref: '#/components/examples/404Example'
               schema:
-                $ref: '#/components/schemas/Error'
-          description: No service registry with specified id exists
-      security:
-      - Bearer: []
+                $ref: '#/components/schemas/ErrorInfo1'
+          description: The response returned when something is requested but cannot
+            be found.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo1'
+          description: "The response sent from the server when an unexpected error\
+            \ occurs (for example \na database connection error)."
       summary: Get a Registry
       tags:
       - Registries
     summary: Manage a specific Registry.
+  /api/serviceregistry_mgmt/v1:
+    get:
+      operationId: getSchema
+      responses:
+        "200":
+          content:
+            application/json: {}
+          description: A successful response.
+      summary: Get the OpenAPI schema for version 1 of this REST API.
+      tags:
+      - Info
+    summary: Get the OpenAPI schema for version 1 of this REST API.
 components:
-  examples:
-    "404Example":
-      value:
-        id: "404"
-        kind: Error
-        href: /api/managed-services-api/v1/errors/7
-        code: MGD-SERV-API-7
-        reason: The requested resource doesn't exist
-    "401Example":
-      value:
-        id: "11"
-        kind: Error
-        href: /api/serviceregistry_mgmt/v1/errors/11
-        code: CLOUD-SERV-API-11
-        reason: 'Unable to verify JWT token: Required authorization token not found'
-        operation_id: 1iY3UhEhwmXBpWPfI2lNekpd4ZD
-    "403Example":
-      value:
-        id: "4"
-        kind: Error
-        href: /api/serviceregistry_mgmt/v1/errors/4
-        code: MGD-SERV-API-4
-        reason: User 'foo-bar' is not authorized to access the service.
-        operation_id: 1lY3UiEhznXBpWPfI2lNejpd4YC
-    "500Example":
-      value:
-        id: "9"
-        kind: Error
-        href: /api/serviceregistry_mgmt/v1/errors/9
-        code: MGD-SERV-API-9
-        reason: Unspecified error
-        operation_id: 1ieELvF9jMQY6YghfM9gGRsHvEW
+  responses:
+    NotFound:
+      $ref: '#/components/responses/NotFound1'
+    ServerError:
+      $ref: '#/components/responses/ServerError1'
+    NotFound1:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorInfo1'
+      description: The response returned when something is requested but cannot be
+        found.
+    ServerError1:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorInfo1'
+      description: "The response sent from the server when an unexpected error occurs\
+        \ (for example \na database connection error)."
   schemas:
-    ObjectReference:
-      properties:
-        id:
-          type: string
-        kind:
-          type: string
-        href:
-          type: string
-      type: object
-    List:
-      properties:
-        kind:
-          type: string
-        page:
-          type: integer
-        size:
-          type: integer
-        total:
-          type: integer
-      required:
-      - items
-      - kind
-      - page
-      - size
-      - total
-      type: object
-    Error:
-      allOf:
-      - $ref: '#/components/schemas/ObjectReference'
-      - $ref: '#/components/schemas/Error_allOf'
-    ErrorList:
-      allOf:
-      - $ref: '#/components/schemas/List'
-      - $ref: '#/components/schemas/ErrorList_allOf'
     Registry:
       description: Service Registry instance within a multi-tenant deployment.
       example:
@@ -353,24 +226,19 @@ components:
       - AVAILABLE
       - UNAVAILABLE
       type: string
-    Error_allOf:
+    ErrorInfo:
+      $ref: '#/components/schemas/ErrorInfo1'
+    ErrorInfo1:
+      description: Details about a specific error returned by the server.
+      example:
+        error_code: 500
+        message: An error occurred on the server.
       properties:
-        code:
+        error_code:
+          type: integer
+        message:
           type: string
-        reason:
-          type: string
-        operation_id:
-          type: string
+      required:
+      - error_code
+      title: Root Type for ErrorInfo
       type: object
-    ErrorList_allOf:
-      properties:
-        items:
-          items:
-            $ref: '#/components/schemas/Error'
-          type: array
-      type: object
-  securitySchemes:
-    Bearer:
-      bearerFormat: JWT
-      scheme: bearer
-      type: http

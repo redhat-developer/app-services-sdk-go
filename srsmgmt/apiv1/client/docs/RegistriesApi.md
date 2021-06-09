@@ -1,13 +1,13 @@
 # \RegistriesApi
 
-All URIs are relative to *https://api.openshift.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateRegistry**](RegistriesApi.md#CreateRegistry) | **Post** /api/serviceregistry_mgmt/v1/registries | Create a new Registry instance
-[**DeleteRegistry**](RegistriesApi.md#DeleteRegistry) | **Delete** /api/serviceregistry_mgmt/v1/{registryId} | Delete a Registry
+[**CreateRegistry**](RegistriesApi.md#CreateRegistry) | **Post** /api/serviceregistry_mgmt/v1/registries | Create a Registry.
+[**DeleteRegistry**](RegistriesApi.md#DeleteRegistry) | **Delete** /api/serviceregistry_mgmt/v1/registries/{registryId} | Delete a Registry
 [**GetRegistries**](RegistriesApi.md#GetRegistries) | **Get** /api/serviceregistry_mgmt/v1/registries | Get the list of all registries.
-[**GetRegistry**](RegistriesApi.md#GetRegistry) | **Get** /api/serviceregistry_mgmt/v1/{registryId} | Get a Registry
+[**GetRegistry**](RegistriesApi.md#GetRegistry) | **Get** /api/serviceregistry_mgmt/v1/registries/{registryId} | Get a Registry
 
 
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 > Registry CreateRegistry(ctx).RegistryCreate(registryCreate).Execute()
 
-Create a new Registry instance
+Create a Registry.
 
 ### Example
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -190,7 +190,7 @@ Other parameters are passed through a pointer to a apiGetRegistriesRequest struc
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 
