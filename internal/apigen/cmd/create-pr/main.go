@@ -54,11 +54,11 @@ func main() {
 
 	client := github.NewClient(tc)
 
-	err := exec.Command("git", "config", "user.email", owner+"@users.noreply.github.com").Run()
+	err := exec.Command("git", "config", "user.email", author+"@users.noreply.github.com").Run()
 	if err != nil {
 		log.Fatalln(err)
 	}
-	err = exec.Command("git", "config", "user.name", owner).Run()
+	err = exec.Command("git", "config", "user.name", author).Run()
 	if err != nil {
 		log.Fatalln(err)
 	}
