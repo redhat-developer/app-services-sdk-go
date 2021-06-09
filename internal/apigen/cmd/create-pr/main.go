@@ -88,6 +88,7 @@ func main() {
 
 	_, _, err = client.PullRequests.Create(ctx, owner, repo, &pullReq)
 	if err != nil {
+		log.Fatalln("s")
 		log.Fatalln(err)
 	}
 }
