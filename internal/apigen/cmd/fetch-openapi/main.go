@@ -45,7 +45,7 @@ func main() {
 	req.Header.Set("Authorization", "token "+accessToken)
 	resp, err := client.Do(req)
 	if resp.StatusCode != 200 {
-		log.Fatalln("could not find the OpenAPI file at URL: ", downloadURL)
+		log.Fatalln("could not download", downloadURL, "-", resp.Status)
 	}
 	if err != nil {
 		log.Fatal(err)
