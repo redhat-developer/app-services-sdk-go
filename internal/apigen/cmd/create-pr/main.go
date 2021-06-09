@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
@@ -81,6 +82,9 @@ func main() {
 		Head:  github.String("generate-client/"),
 		Body:  github.String("test"),
 	}
+
+	b, _ := json.Marshal(pullReq)
+	fmt.Println(string(b))
 
 	_, resp, err := client.PullRequests.Create(ctx, owner, repo, &pullReq)
 
