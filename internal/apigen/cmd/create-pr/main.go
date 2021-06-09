@@ -73,17 +73,13 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	sdkEntry, err := metadata.GetSdkEntry(clientID, repoMetadataPath)
+	_, _ = metadata.GetSdkEntry(clientID, repoMetadataPath)
 
 	pullReq := github.NewPullRequest{
-		Title: github.String("test"),
+		Title: github.String("title"),
 		Base:  github.String("main"),
-		Head:  github.String("generate-client/" + clientID),
-		Body: github.String(fmt.Sprintf(`
-			_Auto generated pull request_
-
-			This pull request updates the %v API client
-		`, metadata.GetPackageName(sdkEntry))),
+		Head:  github.String("generate-client/"),
+		Body:  github.String("test"),
 	}
 
 	_, resp, err := client.PullRequests.Create(ctx, owner, repo, &pullReq)
