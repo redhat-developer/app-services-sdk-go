@@ -27,6 +27,23 @@ func init() {
 }
 
 func main() {
+	flag.Parse()
+	if repoMetadataPath == "" {
+		log.Fatalln("Missing required flag: --repo-metadata")
+	}
+	if clientID == "" {
+		log.Fatalln("Missing required flag: --client-id")
+	}
+	if accessToken == "" {
+		log.Fatalln("Missing required flag: --token")
+	}
+	if owner == "" {
+		log.Fatalln("Missing required flag: --owner")
+	}
+	if repo == "" {
+		log.Fatalln("Missing required flag: --repo")
+	}
+
 	ctx := context.Background()
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: accessToken},
