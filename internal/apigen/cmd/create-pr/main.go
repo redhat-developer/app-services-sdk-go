@@ -76,7 +76,7 @@ func main() {
 	sdkEntry, err := metadata.GetSdkEntry(clientID, repoMetadataPath)
 
 	pullReq := github.NewPullRequest{
-		Title: &commitTitle,
+		Title: github.String("test"),
 		Base:  github.String("main"),
 		Head:  github.String("generate-client/" + clientID),
 		Body: github.String(fmt.Sprintf(`
