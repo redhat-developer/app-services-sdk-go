@@ -56,7 +56,6 @@ func main() {
 
 	err := exec.Command("git", "config", "user.email", author+"@users.noreply.github.com").Run()
 	if err != nil {
-		fmt.Print("ss")
 		log.Fatalln(err)
 	}
 	err = exec.Command("git", "config", "user.name", author).Run()
@@ -84,7 +83,8 @@ func main() {
 	}
 
 	_, resp, err := client.PullRequests.Create(ctx, owner, repo, &pullReq)
-	fmt.Println(resp.Status)
+
+	fmt.Println(resp.Request.Body)
 	if err != nil {
 		log.Fatalln(err)
 	}
