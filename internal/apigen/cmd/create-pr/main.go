@@ -77,7 +77,7 @@ func main() {
 	_, _ = metadata.GetSdkEntry(clientID, repoMetadataPath)
 
 	pullReq := github.NewPullRequest{
-		Title: github.String("title"),
+		Title: github.String("titled"),
 		Base:  github.String("main"),
 		Head:  github.String(repo + ":" + "generator-improvements"),
 		Body:  github.String("test"),
