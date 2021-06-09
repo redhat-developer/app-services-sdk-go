@@ -88,7 +88,7 @@ func main() {
 
 	_, resp, err := client.PullRequests.Create(ctx, owner, repo, &pullReq)
 
-	fmt.Println(resp.Request.Body)
+	fmt.Println(resp.StatusCode)
 	if err != nil {
 		log.Fatalln(err)
 	}
