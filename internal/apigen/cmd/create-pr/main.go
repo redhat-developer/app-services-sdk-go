@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"context"
 	"flag"
 	"fmt"
@@ -64,7 +65,16 @@ func main() {
 	}
 
 	headBranch := fmt.Sprintf("generate-client/%v", clientID)
-	err = exec.Command("git", "checkout", "-b", headBranch).Run()
+	cmd := exec.Command("git", "checkout", "-b", headBranch)
+	var out bytes.Buffer
+	var stderr bytes.Buffer
+	cmd.Stdout = &out
+	cmd.Stderr = &stderr
+	err = cmd.Run()
+	if err != nil {
+		fmt.Println(fmt.Sprint(err) + ": " + stderr.String())
+	}
+	err = exec.Command("git", "push", "-u", "origin", headBranch).Run()
 	if err != nil {
 		log.Fatalln(err)
 	}
