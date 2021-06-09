@@ -80,7 +80,7 @@ func main() {
 		Title: github.String("titled"),
 		Base:  github.String("main"),
 		// Head:  github.String(author + ":" + "generator-improvements"),
-		Head: github.String("app-services-sdk-go:head"),
+		Head: github.String("generator-improvements"),
 		Body: github.String("test"),
 	}
 
