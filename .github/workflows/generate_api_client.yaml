@@ -5,32 +5,25 @@ on:
 
 jobs:
   generate_client:
-    env:
-      APP_SERVICES_TOKEN: "${{ secrets.CI_USER_TOKEN }}"
-      BF2_TOKEN: "${{ secrets.BF2_TOKEN }}"
-
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-go@v1
         with:
-          go-version: 1.13
-      - uses: actions/setup-node@v2
-      - uses: actions/checkout@v2
-      - run: ./scripts/fetch_api.sh ${{ github.event.client_payload.download_url }}
-      - run: ./scripts/generate_go.sh ${{ github.event.client_payload.id }} ${{ github.event.client_payload.download_url }}
-      - uses: peter-evans/create-pull-request@v3
-        with:
-          title: "chore: re-generate API client"
-          token: "${{ env.APP_SERVICES_TOKEN }}"
-          commit-message: "chore: generate new API client"
-          author: "app-services-ci <app-services-ci@users.noreply.github.com>"
-          delete-branch: true
-          reviewers: "craicoverflow, wtrocki"
-          body: |
-            _ :robot: This pull request was generated_
+          go-version: 1.16
+      - name: Fetch OpenAPI schema
+        run: |
+          go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-fetch@main
 
-            Generate a new API client
+          api-fetch --download-url=${{ github.event.client_payload.download_url }} --token=${{ secrets.BF2_TOKEN }}
+      - name: Generate OpenAPI client
+        run: |
+          go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-generate@main
 
-            
+          api-generate --client-id=${{ github.event.client_payload.id }} --download-url=${{ github.event.client_payload.download_url}} --generator=go --templates-dir="./scripts/templates" --repo-metadata ".config/api-client-metadata.json"
+        
+      - name: Create Pull Request
+        run: |
+          go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-create-pr@main
+          go mod tidy
 
-
+          api-create-pr --repo-metadata ".config/api-client-metadata.json" --client-id=${{ github.event.client_payload.id }} --token=${{ secrets.CI_USER_TOKEN }} --author="app-services-ci" --owner="redhat-developer" --repo="app-services-sdk-go"
