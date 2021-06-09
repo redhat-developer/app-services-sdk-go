@@ -84,5 +84,8 @@ func main() {
 		`, metadata.GetPackageName(sdkEntry))),
 	}
 
-	client.PullRequests.Create(ctx, owner, repo, &pullReq)
+	_, _, err = client.PullRequests.Create(ctx, owner, repo, &pullReq)
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
