@@ -18,6 +18,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: ./scripts/fetch_api.sh ${{ github.event.client_payload.download_url }}
       - run: ./scripts/generate_go.sh ${{ github.event.client_payload.id }} ${{ github.event.client_payload.download_url }}
+      - run: make generate-mocks
       - uses: peter-evans/create-pull-request@v3
         with:
           title: "chore: re-generate API client"
@@ -27,5 +28,6 @@ jobs:
           delete-branch: true
           reviewers: "craicoverflow, wtrocki"
           body: |
-            _ :robot: This pull request was generated_
+            :robot: _This pull request was auto-generated_
+            
             Generate a new API client
