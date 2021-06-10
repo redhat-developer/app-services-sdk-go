@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Isr** | Pointer to **[]map[string]interface{}** | List isync-replicas for this partition. | [optional] 
 **Leader** | Pointer to **map[string]interface{}** | Kafka server / broker. | [optional] 
 
+
 ## Methods
 
 ### NewPartition
@@ -28,6 +29,7 @@ NewPartitionWithDefaults instantiates a new Partition object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+
 ### GetId
 
 `func (o *Partition) GetId() int32`
@@ -46,6 +48,7 @@ and a boolean to check if the value has been set.
 `func (o *Partition) SetId(v int32)`
 
 SetId sets Id field to given value.
+
 
 
 ### GetReplicas
@@ -73,6 +76,7 @@ SetReplicas sets Replicas field to given value.
 
 HasReplicas returns a boolean if a field has been set.
 
+
 ### GetIsr
 
 `func (o *Partition) GetIsr() []map[string]interface{}`
@@ -97,6 +101,7 @@ SetIsr sets Isr field to given value.
 `func (o *Partition) HasIsr() bool`
 
 HasIsr returns a boolean if a field has been set.
+
 
 ### GetLeader
 
@@ -124,6 +129,6 @@ SetLeader sets Leader field to given value.
 HasLeader returns a boolean if a field has been set.
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -16,14 +16,19 @@ import (
 
 // TopicsList A list of topics.
 type TopicsList struct {
+
 	// The page offset
 	Offset int32 `json:"offset"`
+
 	// number of entries per page
 	Limit int32 `json:"limit"`
+
 	// Total number of topics
 	Count int32 `json:"count"`
+
 	// List of topics
 	Items []Topic `json:"items"`
+
 }
 
 // NewTopicsList instantiates a new TopicsList object
@@ -44,8 +49,14 @@ func NewTopicsList(offset int32, limit int32, count int32, items []Topic) *Topic
 // but it doesn't guarantee that properties required by API are set
 func NewTopicsListWithDefaults() *TopicsList {
 	this := TopicsList{}
+
+
+
+
+
 	return &this
 }
+
 
 // GetOffset returns the Offset field value
 func (o *TopicsList) GetOffset() int32 {
@@ -60,7 +71,7 @@ func (o *TopicsList) GetOffset() int32 {
 // GetOffsetOk returns a tuple with the Offset field value
 // and a boolean to check if the value has been set.
 func (o *TopicsList) GetOffsetOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Offset, true
@@ -70,6 +81,7 @@ func (o *TopicsList) GetOffsetOk() (*int32, bool) {
 func (o *TopicsList) SetOffset(v int32) {
 	o.Offset = v
 }
+
 
 // GetLimit returns the Limit field value
 func (o *TopicsList) GetLimit() int32 {
@@ -84,7 +96,7 @@ func (o *TopicsList) GetLimit() int32 {
 // GetLimitOk returns a tuple with the Limit field value
 // and a boolean to check if the value has been set.
 func (o *TopicsList) GetLimitOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Limit, true
@@ -94,6 +106,7 @@ func (o *TopicsList) GetLimitOk() (*int32, bool) {
 func (o *TopicsList) SetLimit(v int32) {
 	o.Limit = v
 }
+
 
 // GetCount returns the Count field value
 func (o *TopicsList) GetCount() int32 {
@@ -108,7 +121,7 @@ func (o *TopicsList) GetCount() int32 {
 // GetCountOk returns a tuple with the Count field value
 // and a boolean to check if the value has been set.
 func (o *TopicsList) GetCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Count, true
@@ -118,6 +131,7 @@ func (o *TopicsList) GetCountOk() (*int32, bool) {
 func (o *TopicsList) SetCount(v int32) {
 	o.Count = v
 }
+
 
 // GetItems returns the Items field value
 func (o *TopicsList) GetItems() []Topic {
@@ -132,7 +146,7 @@ func (o *TopicsList) GetItems() []Topic {
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
 func (o *TopicsList) GetItemsOk() (*[]Topic, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Items, true
@@ -143,20 +157,26 @@ func (o *TopicsList) SetItems(v []Topic) {
 	o.Items = v
 }
 
+
 func (o TopicsList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	
 	if true {
 		toSerialize["offset"] = o.Offset
 	}
+    
 	if true {
 		toSerialize["limit"] = o.Limit
 	}
+    
 	if true {
 		toSerialize["count"] = o.Count
 	}
+    
 	if true {
 		toSerialize["items"] = o.Items
 	}
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -195,3 +215,4 @@ func (v *NullableTopicsList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

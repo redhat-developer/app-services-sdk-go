@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **GroupId** | **string** | Unique identifier for the consumer group | 
 **Consumers** | [**[]Consumer**](Consumer.md) | The list of consumers associated with this consumer group | 
 
+
 ## Methods
 
 ### NewConsumerGroup
@@ -26,6 +27,7 @@ NewConsumerGroupWithDefaults instantiates a new ConsumerGroup object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+
 ### GetGroupId
 
 `func (o *ConsumerGroup) GetGroupId() string`
@@ -44,6 +46,7 @@ and a boolean to check if the value has been set.
 `func (o *ConsumerGroup) SetGroupId(v string)`
 
 SetGroupId sets GroupId field to given value.
+
 
 
 ### GetConsumers
@@ -67,6 +70,6 @@ SetConsumers sets Consumers field to given value.
 
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

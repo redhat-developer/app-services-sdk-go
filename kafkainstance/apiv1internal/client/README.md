@@ -1,4 +1,4 @@
-# Go API client for kafkainstance
+# Go API client for kafkainstanceclient
 
 An API to provide REST endpoints for query Kafka for admin operations
 
@@ -22,7 +22,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```golang
-import sw "./kafkainstance"
+import sw "./kafkainstanceclient"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:
@@ -74,7 +74,7 @@ ctx = context.WithValue(context.Background(), sw.ContextOperationServerVariables
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.openshift.com*
+All URIs are relative to *http://localhost/rest*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -104,7 +104,34 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
- Endpoints do not require authorization.
+
+
+### Bearer
+
+
+- **Type**: OAuth
+- **Flow**: application
+- **Authorization URL**: 
+- **Scopes**: N/A
+
+Example
+
+```golang
+auth := context.WithValue(context.Background(), sw.ContextAccessToken, "ACCESSTOKENSTRING")
+r, err := client.Service.Operation(auth, args)
+```
+
+Or via OAuth2 module to automatically refresh tokens and perform user authentication.
+
+```golang
+import "golang.org/x/oauth2"
+
+/* Perform OAuth2 round trip request and obtain a token */
+
+tokenSource := oauth2cfg.TokenSource(createContext(httpClient), &token)
+auth := context.WithValue(oauth2.NoContext, sw.ContextOAuth2, tokenSource)
+r, err := client.Service.Operation(auth, args)
+```
 
 
 ## Documentation for Utility Methods

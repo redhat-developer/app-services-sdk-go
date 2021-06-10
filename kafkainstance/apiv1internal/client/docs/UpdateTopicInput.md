@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Config** | Pointer to [**[]ConfigEntry**](ConfigEntry.md) | Topic configuration entry. | [optional] 
 
+
 ## Methods
 
 ### NewUpdateTopicInput
@@ -24,6 +25,7 @@ will change when the set of required properties is changed
 NewUpdateTopicInputWithDefaults instantiates a new UpdateTopicInput object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
 
 ### GetConfig
 
@@ -51,6 +53,6 @@ SetConfig sets Config field to given value.
 HasConfig returns a boolean if a field has been set.
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

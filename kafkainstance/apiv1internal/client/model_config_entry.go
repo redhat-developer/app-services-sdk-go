@@ -16,10 +16,13 @@ import (
 
 // ConfigEntry Key value pair indicating possible configuration options for a topic.
 type ConfigEntry struct {
+
 	// The key indicating what configuration entry you would like to set for the topic.
 	Key *string `json:"key,omitempty"`
+
 	// Value to indicate the setting on the topic configuration entry.
 	Value *string `json:"value,omitempty"`
+
 }
 
 // NewConfigEntry instantiates a new ConfigEntry object
@@ -36,8 +39,12 @@ func NewConfigEntry() *ConfigEntry {
 // but it doesn't guarantee that properties required by API are set
 func NewConfigEntryWithDefaults() *ConfigEntry {
 	this := ConfigEntry{}
+
+
+
 	return &this
 }
+
 
 // GetKey returns the Key field value if set, zero value otherwise.
 func (o *ConfigEntry) GetKey() string {
@@ -71,6 +78,7 @@ func (o *ConfigEntry) SetKey(v string) {
 	o.Key = &v
 }
 
+
 // GetValue returns the Value field value if set, zero value otherwise.
 func (o *ConfigEntry) GetValue() string {
 	if o == nil || o.Value == nil {
@@ -103,14 +111,18 @@ func (o *ConfigEntry) SetValue(v string) {
 	o.Value = &v
 }
 
+
 func (o ConfigEntry) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	
 	if o.Key != nil {
 		toSerialize["key"] = o.Key
 	}
+    
 	if o.Value != nil {
 		toSerialize["value"] = o.Value
 	}
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -149,3 +161,4 @@ func (v *NullableConfigEntry) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
