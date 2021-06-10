@@ -12,18 +12,18 @@ jobs:
           go-version: 1.16
       - name: Fetch OpenAPI schema
         run: |
-          go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-fetch@main
+          go install github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-fetch@main
 
           api-fetch --download-url=${{ github.event.client_payload.download_url }} --token=${{ secrets.BF2_TOKEN }}
       - name: Generate OpenAPI client
         run: |
-          go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-generate@main
+          go install github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-generate@main
 
           api-generate --client-id=${{ github.event.client_payload.id }} --download-url=${{ github.event.client_payload.download_url}} --generator=go --templates-dir="./scripts/templates" --repo-metadata ".config/api-client-metadata.json"
         
       - name: Create Pull Request
         run: |
-          go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-create-pr@main
+          go install github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-create-pr@main
           go mod tidy
 
           api-create-pr --repo-metadata ".config/api-client-metadata.json" --client-id=${{ github.event.client_payload.id }} --token=${{ secrets.CI_USER_TOKEN }} --author="app-services-ci" --owner="redhat-developer" --repo="app-services-sdk-go"
