@@ -7,12 +7,10 @@ info:
   title: Kafka Admin REST API
   version: 0.2.0
 servers:
-- description: Main (production) server
-  url: https://api.openshift.com
-- description: Staging server
-  url: https://api.stage.openshift.com
-- description: localhost
-  url: http://localhost:8000
+- description: Kafka Admin REST API
+  url: /rest
+security:
+- Bearer: []
 paths:
   /topics:
     get:
@@ -777,5 +775,8 @@ components:
   securitySchemes:
     Bearer:
       description: Access token used with OAuth 2.0
-      flows: {}
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: /token
       type: oauth2

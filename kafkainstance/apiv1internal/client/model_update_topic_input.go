@@ -16,8 +16,10 @@ import (
 
 // UpdateTopicInput Kafka Topic (A feed where records are stored and published)
 type UpdateTopicInput struct {
+
 	// Topic configuration entry.
 	Config *[]ConfigEntry `json:"config,omitempty"`
+
 }
 
 // NewUpdateTopicInput instantiates a new UpdateTopicInput object
@@ -34,8 +36,11 @@ func NewUpdateTopicInput() *UpdateTopicInput {
 // but it doesn't guarantee that properties required by API are set
 func NewUpdateTopicInputWithDefaults() *UpdateTopicInput {
 	this := UpdateTopicInput{}
+
+
 	return &this
 }
+
 
 // GetConfig returns the Config field value if set, zero value otherwise.
 func (o *UpdateTopicInput) GetConfig() []ConfigEntry {
@@ -69,11 +74,14 @@ func (o *UpdateTopicInput) SetConfig(v []ConfigEntry) {
 	o.Config = &v
 }
 
+
 func (o UpdateTopicInput) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	
 	if o.Config != nil {
 		toSerialize["config"] = o.Config
 	}
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -112,3 +120,4 @@ func (v *NullableUpdateTopicInput) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

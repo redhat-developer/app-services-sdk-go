@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **NumPartitions** | **int32** | Number of partitions for this topic. | 
 **Config** | Pointer to [**[]ConfigEntry**](ConfigEntry.md) | Topic configuration entry. | [optional] 
 
+
 ## Methods
 
 ### NewTopicSettings
@@ -26,6 +27,7 @@ NewTopicSettingsWithDefaults instantiates a new TopicSettings object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+
 ### GetNumPartitions
 
 `func (o *TopicSettings) GetNumPartitions() int32`
@@ -44,6 +46,7 @@ and a boolean to check if the value has been set.
 `func (o *TopicSettings) SetNumPartitions(v int32)`
 
 SetNumPartitions sets NumPartitions field to given value.
+
 
 
 ### GetConfig
@@ -72,6 +75,6 @@ SetConfig sets Config field to given value.
 HasConfig returns a boolean if a field has been set.
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

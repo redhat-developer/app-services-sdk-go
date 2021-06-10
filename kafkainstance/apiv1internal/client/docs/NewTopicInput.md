@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The topic name, this value must be unique. | 
 **Settings** | [**TopicSettings**](TopicSettings.md) |  | 
 
+
 ## Methods
 
 ### NewNewTopicInput
@@ -26,6 +27,7 @@ NewNewTopicInputWithDefaults instantiates a new NewTopicInput object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+
 ### GetName
 
 `func (o *NewTopicInput) GetName() string`
@@ -44,6 +46,7 @@ and a boolean to check if the value has been set.
 `func (o *NewTopicInput) SetName(v string)`
 
 SetName sets Name field to given value.
+
 
 
 ### GetSettings
@@ -67,6 +70,6 @@ SetSettings sets Settings field to given value.
 
 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

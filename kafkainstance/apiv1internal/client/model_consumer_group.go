@@ -16,10 +16,13 @@ import (
 
 // ConsumerGroup A group of Kafka consumers
 type ConsumerGroup struct {
+
 	// Unique identifier for the consumer group
 	GroupId string `json:"groupId"`
+
 	// The list of consumers associated with this consumer group
 	Consumers []Consumer `json:"consumers"`
+
 }
 
 // NewConsumerGroup instantiates a new ConsumerGroup object
@@ -38,8 +41,12 @@ func NewConsumerGroup(groupId string, consumers []Consumer) *ConsumerGroup {
 // but it doesn't guarantee that properties required by API are set
 func NewConsumerGroupWithDefaults() *ConsumerGroup {
 	this := ConsumerGroup{}
+
+
+
 	return &this
 }
+
 
 // GetGroupId returns the GroupId field value
 func (o *ConsumerGroup) GetGroupId() string {
@@ -54,7 +61,7 @@ func (o *ConsumerGroup) GetGroupId() string {
 // GetGroupIdOk returns a tuple with the GroupId field value
 // and a boolean to check if the value has been set.
 func (o *ConsumerGroup) GetGroupIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.GroupId, true
@@ -64,6 +71,7 @@ func (o *ConsumerGroup) GetGroupIdOk() (*string, bool) {
 func (o *ConsumerGroup) SetGroupId(v string) {
 	o.GroupId = v
 }
+
 
 // GetConsumers returns the Consumers field value
 func (o *ConsumerGroup) GetConsumers() []Consumer {
@@ -78,7 +86,7 @@ func (o *ConsumerGroup) GetConsumers() []Consumer {
 // GetConsumersOk returns a tuple with the Consumers field value
 // and a boolean to check if the value has been set.
 func (o *ConsumerGroup) GetConsumersOk() (*[]Consumer, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Consumers, true
@@ -89,14 +97,18 @@ func (o *ConsumerGroup) SetConsumers(v []Consumer) {
 	o.Consumers = v
 }
 
+
 func (o ConsumerGroup) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	
 	if true {
 		toSerialize["groupId"] = o.GroupId
 	}
+    
 	if true {
 		toSerialize["consumers"] = o.Consumers
 	}
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -135,3 +147,4 @@ func (v *NullableConsumerGroup) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
