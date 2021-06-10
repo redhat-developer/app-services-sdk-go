@@ -112,3 +112,7 @@ Copy [kafkamgmt/apiv1/api_client.go](kafkamgmt/apiv1/api_client.go) into the `fo
 #### 5. Add custom code (optional)
 
 If your SDK requires custom code, define them in your desired structure in `foomgmt/v1beta`. Please do not add custom code to `foomgmt/v1beta/client` as this could be overwritten.
+
+## Linting
+
+Run `make lint` to perform a lint check of the Go code.
