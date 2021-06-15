@@ -6,16 +6,19 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path"
 
 	"github.com/redhat-developer/app-services-sdk-go/internal/apigen/openapi"
 )
 
 var accessToken string
 var downloadURL string
+var downloadLocation string
 
 func init() {
 	flag.StringVar(&accessToken, "token", "", "Access token")
 	flag.StringVar(&downloadURL, "download-url", "", "Download URL")
+	flag.StringVar(&downloadLocation, "download-location", ".", "The location to download the file to")
 }
 
 func main() {
@@ -56,6 +59,8 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+
+	os.Rename(fileName, path.Join(downloadLocation, fileName))
 
 	defer file.Close()
 }
