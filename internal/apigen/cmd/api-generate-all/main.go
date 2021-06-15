@@ -12,7 +12,6 @@ import (
 
 var repoMetadataPath string
 var accessToken string
-var clientID string
 var clientPayloadStr string
 var generatorInput string
 var templatesDir string
@@ -20,7 +19,6 @@ var templatesDir string
 func init() {
 	flag.StringVar(&repoMetadataPath, "repo-metadata", "", "path to repo metadata JSON")
 	flag.StringVar(&accessToken, "token", "", "Access token")
-	flag.StringVar(&clientID, "client-id", "", "Client ID")
 	flag.StringVar(&generatorInput, "generator", "", "Language: go, java, ts")
 	flag.StringVar(&templatesDir, "templates-dir", "", "Templates directory")
 }
@@ -29,9 +27,6 @@ func main() {
 	flag.Parse()
 	if repoMetadataPath == "" {
 		log.Fatalln("Missing required flag: --repo-metadata")
-	}
-	if clientID == "" {
-		log.Fatalln("Missing required flag: --client-id")
 	}
 	if generatorInput == "" {
 		log.Fatalln("Missing required flag: --generator")
@@ -44,22 +39,24 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	clientConfig, err := metadata.GetSdkEntry(clientID, repoMetadataPath)
+	clientConfig, err := metadata.GetClientMetadata(repoMetadataPath)
 	if err != nil && generatorInput == "go" {
-		log.Fatalln("no config found for client:", clientID)
+		log.Fatalln("no metadata found:", err)
 	}
 
 	fullTemplatesDirPath := path.Join(root, templatesDir)
 
-	genOpts := generator.Options{
-		Generator:      generatorInput,
-		ClientID:       clientID,
-		AccessToken:    accessToken,
-		ClientMetadata: clientConfig,
-		TemplatesDir:   fullTemplatesDirPath,
-	}
-	err = generator.Generate(&genOpts)
-	if err != nil {
-		log.Fatalln(err)
+	for id, metadata := range *clientConfig {
+		genOpts := generator.Options{
+			Generator:      generatorInput,
+			ClientID:       id,
+			AccessToken:    accessToken,
+			ClientMetadata: &metadata,
+			TemplatesDir:   fullTemplatesDirPath,
+		}
+		err = generator.Generate(&genOpts)
+		if err != nil {
+			log.Fatalln(err)
+		}
 	}
 }

@@ -1,6 +1,8 @@
 package generator
 
 import (
+	"fmt"
+	"os"
 	"os/exec"
 
 	"github.com/redhat-developer/app-services-sdk-go/internal/apigen/generator/common"
@@ -10,7 +12,6 @@ import (
 
 type Options struct {
 	Generator      string
-	DownloadURL    string
 	AccessToken    string
 	ClientID       string
 	TemplatesDir   string
@@ -22,13 +23,13 @@ func Generate(opts *Options) error {
 	cfg := common.Config{
 		ClientID:           opts.ClientID,
 		Version:            "5.1.1",
-		Input:              opts.DownloadURL,
+		Input:              opts.ClientMetadata.OpenApiFile,
 		TemplatesDir:       opts.TemplatesDir,
 		IgnoreFileOverride: ".openapi-generator-ignore",
 		ClientMetadata:     opts.ClientMetadata,
 	}
-	err := exec.Command("npx", common.CmdName, "version-manager", "set", cfg.Version).Run()
-	if err != nil {
+	if out, err := exec.Command("npx", common.CmdName, "version-manager", "set", cfg.Version).CombinedOutput(); err != nil {
+		fmt.Fprintln(os.Stderr, string(out))
 		return err
 	}
 	switch opts.Generator {

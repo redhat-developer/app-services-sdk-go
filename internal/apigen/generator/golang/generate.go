@@ -7,8 +7,6 @@ import (
 	"path"
 
 	"github.com/redhat-developer/app-services-sdk-go/internal/apigen/generator/common"
-
-	"github.com/redhat-developer/app-services-sdk-go/internal/apigen/openapi"
 )
 
 type GoGen struct {
@@ -16,16 +14,12 @@ type GoGen struct {
 }
 
 // Generate generates an API client in Golang
-func (g *GoGen) Generate() error {
+func (g *GoGen) Generate() (err error) {
 	packageName := fmt.Sprintf("%vclient", g.Config.ClientMetadata.APIGroup)
 	apiVersion := fmt.Sprintf("api%v", g.Config.ClientMetadata.APIVersion)
 	outputPath := fmt.Sprintf("%v/%v/client", g.Config.ClientMetadata.APIGroup, apiVersion)
-	inputFile, err := openapi.GetFileName(g.Config.Input)
-	if err != nil {
-		return err
-	}
-	_, err = os.Stat(inputFile)
-	if err != nil {
+	inputFile := g.Config.Input
+	if _, err = os.Stat(inputFile); err != nil {
 		return err
 	}
 
@@ -45,18 +39,18 @@ func (g *GoGen) Generate() error {
 		cmdArgs = append(cmdArgs, "-t", g.Config.TemplatesDir)
 	}
 
-	err = exec.Command("npx", cmdArgs...).Run()
+	out, err := exec.Command("npx", cmdArgs...).CombinedOutput()
+	fmt.Fprintln(os.Stderr, string(out))
 	if err != nil {
 		return err
 	}
 
-	err = generateMocks(outputPath)
-	if err != nil {
-		return err
-	}
+	// err = generateMocks(outputPath)
+	// if err != nil {
+	// 	return err
+	// }
 
-	// when all is done move the OpenAPI file to .openapi
-	return os.Rename(inputFile, path.Join(".openapi", inputFile))
+	return nil
 }
 
 func generateMocks(output string) error {

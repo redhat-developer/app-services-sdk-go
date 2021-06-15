@@ -13,6 +13,7 @@ type SdkEntry struct {
 	APIGroup     string `json:"apiGroup"`
 	APIVersion   string `json:"apiVersion"`
 	ReleaseLevel string `json:"release_level"`
+	OpenApiFile  string `json:"openapi_file"`
 }
 
 type RepoMetadata map[string]SdkEntry
@@ -26,11 +27,12 @@ func GetPackageName(sdkEntry *SdkEntry) string {
 	return fmt.Sprintf("github.com/redhat-developer/app-services-sdk-go/%v/api%v", sdkEntry.APIGroup, sdkEntry.APIVersion)
 }
 
-func GetSdkEntry(clientID string, pathToMetadata string) (*SdkEntry, error) {
+func GetClientMetadata(pathToMetadata string) (*RepoMetadata, error) {
 	root, err := os.Getwd()
 	if err != nil {
 		return nil, err
 	}
+
 	fullMetadataPath := path.Join(root, pathToMetadata)
 	f, err := ioutil.ReadFile(fullMetadataPath)
 	if err != nil {
@@ -39,10 +41,26 @@ func GetSdkEntry(clientID string, pathToMetadata string) (*SdkEntry, error) {
 	var repoMetadata RepoMetadata
 	err = json.Unmarshal([]byte(f), &repoMetadata)
 	if err != nil {
-		log.Fatalln(err)
+		return nil, err
 	}
 
-	clientConfig, ok := repoMetadata[clientID]
+	return &repoMetadata, nil
+}
+
+func GetSdkEntry(clientID string, pathToMetadata string) (*SdkEntry, error) {
+	repoMetadata, err := GetClientMetadata(pathToMetadata)
+	if err != nil {
+		return nil, err
+	}
+	repoMetadataV := *repoMetadata
+	clientConfig, ok := repoMetadataV[clientID]
+
+	root, err := os.Getwd()
+	if err != nil {
+		return nil, err
+	}
+	clientConfig.OpenApiFile = path.Join(root, clientConfig.OpenApiFile)
+
 	if !ok {
 		return nil, fmt.Errorf("no SDK entry found for %v", clientID)
 	}
