@@ -5,7 +5,9 @@ import (
 	"os"
 	"os/exec"
 	"path"
+	"strings"
 
+	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/redhat-developer/app-services-sdk-go/internal/apigen/generator/common"
 )
 
@@ -40,37 +42,69 @@ func (g *GoGen) Generate() (err error) {
 	}
 
 	out, err := exec.Command("npx", cmdArgs...).CombinedOutput()
-	fmt.Fprintln(os.Stderr, string(out))
+	if err != nil {
+		fmt.Fprintln(os.Stderr, string(out))
+		return err
+	} else {
+		fmt.Println(string(out))
+	}
+
+	doc, err := openapi3.NewLoader().LoadFromFile(inputFile)
 	if err != nil {
 		return err
 	}
 
-	// err = generateMocks(outputPath)
-	// if err != nil {
-	// 	return err
-	// }
+	if len(doc.Tags) == 0 {
+		if err = generateMocks("default", outputPath); err != nil {
+			return err
+		}
+	}
+	for _, tag := range doc.Tags {
+		if err = generateMocks(tag.Name, outputPath); err != nil {
+			return err
+		}
+	}
 
 	return nil
 }
 
-func generateMocks(output string) error {
+// generate mocks for each API interface present
+func generateMocks(tag string, output string) error {
 	err := os.Setenv("GO111MODULE", "on")
 	if err != nil {
 		return err
 	}
-	err = exec.Command("go", "get", "github.com/matryer/moq").Run()
+	out, err := exec.Command("go", "get", "github.com/matryer/moq").CombinedOutput()
 	if err != nil {
+		fmt.Fprintln(os.Stderr, string(out))
 		return err
+	} else {
+		fmt.Println(string(out))
 	}
-	defaultMockApiFile := path.Join(output, "default_api_mock.go")
+	mockFilePath := path.Join(output, fmt.Sprintf("%v_api_mock.go", tag))
 
-	err = exec.Command("rm", "-f", defaultMockApiFile).Run()
+	out, err = exec.Command("rm", "-f", mockFilePath).CombinedOutput()
 	if err != nil {
+		fmt.Fprintln(os.Stderr, string(out))
 		return err
+	} else {
+		fmt.Println(string(out))
 	}
-	err = exec.Command("moq", "-out", defaultMockApiFile, output, "DefaultApi").Run()
+	interfaceName := fmt.Sprintf("%vApi", strings.Title(strings.ToLower(tag)))
+
+	out, err = exec.Command("moq", "-out", mockFilePath, output, interfaceName).CombinedOutput()
 	if err != nil {
+		fmt.Fprintln(os.Stderr, string(out))
 		return err
+	} else {
+		fmt.Println(string(out))
 	}
-	return exec.Command("go", "mod", "tidy").Run()
+	out, err = exec.Command("go", "mod", "tidy").CombinedOutput()
+	if err != nil {
+		fmt.Fprintln(os.Stderr, string(out))
+		return err
+	} else {
+		fmt.Println(string(out))
+	}
+	return nil
 }
