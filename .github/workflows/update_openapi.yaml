@@ -25,17 +25,17 @@ jobs:
 
       - uses: peter-evans/create-pull-request@v3
         with:
-          title: "chore(openapi): add latest ${{ github.event.payload.client_id }} OpenAPI specification file"
+          title: "chore(openapi): add latest ${{ github.event.client_payload.client_id }} OpenAPI specification file"
           token: "${{ secrets.CI_USER_TOKEN }}"
-          commit-message: "chore(openapi): add latest ${{ github.event.payload.client_id }} OpenAPI specification file"
+          commit-message: "chore(openapi): add latest ${{ github.event.client_payload.client_id }} OpenAPI specification file"
           author: "app-services-ci <app-services-ci@users.noreply.github.com>"
           delete-branch: true
           body: |
             _This pull request was auto-generated_
 
-            This PR adds the latest version of **${{ github.event.payload.client_id }}** OpenAPI specification file.
+            This PR adds the latest version of **${{ github.event.client_payload.client_id }}** OpenAPI specification file.
 
             **Actions**:
                 1. Review changes on OpenAPI file and validate if it s correct
                 2. Perform manual changes if needed or apply local patches for the OpenAPI files.
-                3. Merge this pull request only when the **${{ github.event.payload.client_id }}** API has been released.
+                3. Merge this pull request only when the **${{ github.event.client_payload.client_id }}** API has been released.
