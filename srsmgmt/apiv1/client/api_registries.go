@@ -44,10 +44,10 @@ type RegistriesApi interface {
 	 * DeleteRegistry Delete a Registry
 	 * Deletes an existing `Registry`.
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @param registryId A unique identifier for a `Registry`.
+	 * @param id A unique identifier for a `Registry`.
 	 * @return ApiDeleteRegistryRequest
 	 */
-	DeleteRegistry(ctx _context.Context, registryId int32) ApiDeleteRegistryRequest
+	DeleteRegistry(ctx _context.Context, id int32) ApiDeleteRegistryRequest
 
 	/*
 	 * DeleteRegistryExecute executes the request
@@ -63,18 +63,18 @@ type RegistriesApi interface {
 
 	/*
 	 * GetRegistriesExecute executes the request
-	 * @return []Registry
+	 * @return RegistryRestList
 	 */
-	GetRegistriesExecute(r ApiGetRegistriesRequest) ([]Registry, *_nethttp.Response, error)
+	GetRegistriesExecute(r ApiGetRegistriesRequest) (RegistryRestList, *_nethttp.Response, error)
 
 	/*
 	 * GetRegistry Get a Registry
 	 * Gets the details of a single instance of a `Registry`.
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @param registryId A unique identifier for a `Registry`.
+	 * @param id A unique identifier for a `Registry`.
 	 * @return ApiGetRegistryRequest
 	 */
-	GetRegistry(ctx _context.Context, registryId int32) ApiGetRegistryRequest
+	GetRegistry(ctx _context.Context, id int32) ApiGetRegistryRequest
 
 	/*
 	 * GetRegistryExecute executes the request
@@ -229,7 +229,7 @@ func (a *RegistriesApiService) CreateRegistryExecute(r ApiCreateRegistryRequest)
 type ApiDeleteRegistryRequest struct {
 	ctx _context.Context
 	ApiService RegistriesApi
-	registryId int32
+	id int32
 }
 
 
@@ -241,14 +241,14 @@ func (r ApiDeleteRegistryRequest) Execute() (*_nethttp.Response, error) {
  * DeleteRegistry Delete a Registry
  * Deletes an existing `Registry`.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param registryId A unique identifier for a `Registry`.
+ * @param id A unique identifier for a `Registry`.
  * @return ApiDeleteRegistryRequest
  */
-func (a *RegistriesApiService) DeleteRegistry(ctx _context.Context, registryId int32) ApiDeleteRegistryRequest {
+func (a *RegistriesApiService) DeleteRegistry(ctx _context.Context, id int32) ApiDeleteRegistryRequest {
 	return ApiDeleteRegistryRequest{
 		ApiService: a,
 		ctx: ctx,
-		registryId: registryId,
+		id: id,
 	}
 }
 
@@ -269,8 +269,8 @@ func (a *RegistriesApiService) DeleteRegistryExecute(r ApiDeleteRegistryRequest)
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/serviceregistry_mgmt/v1/{registryId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"registryId"+"}", _neturl.PathEscape(parameterToString(r.registryId, "")), -1)
+	localVarPath := localBasePath + "/api/serviceregistry_mgmt/v1/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -353,10 +353,30 @@ func (a *RegistriesApiService) DeleteRegistryExecute(r ApiDeleteRegistryRequest)
 type ApiGetRegistriesRequest struct {
 	ctx _context.Context
 	ApiService RegistriesApi
+	page *string
+	size *string
+	orderBy *string
+	search *string
 }
 
+func (r ApiGetRegistriesRequest) Page(page string) ApiGetRegistriesRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGetRegistriesRequest) Size(size string) ApiGetRegistriesRequest {
+	r.size = &size
+	return r
+}
+func (r ApiGetRegistriesRequest) OrderBy(orderBy string) ApiGetRegistriesRequest {
+	r.orderBy = &orderBy
+	return r
+}
+func (r ApiGetRegistriesRequest) Search(search string) ApiGetRegistriesRequest {
+	r.search = &search
+	return r
+}
 
-func (r ApiGetRegistriesRequest) Execute() ([]Registry, *_nethttp.Response, error) {
+func (r ApiGetRegistriesRequest) Execute() (RegistryRestList, *_nethttp.Response, error) {
 	return r.ApiService.GetRegistriesExecute(r)
 }
 
@@ -374,16 +394,16 @@ func (a *RegistriesApiService) GetRegistries(ctx _context.Context) ApiGetRegistr
 
 /*
  * Execute executes the request
- * @return []Registry
+ * @return RegistryRestList
  */
-func (a *RegistriesApiService) GetRegistriesExecute(r ApiGetRegistriesRequest) ([]Registry, *_nethttp.Response, error) {
+func (a *RegistriesApiService) GetRegistriesExecute(r ApiGetRegistriesRequest) (RegistryRestList, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []Registry
+		localVarReturnValue  RegistryRestList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistriesApiService.GetRegistries")
@@ -397,6 +417,18 @@ func (a *RegistriesApiService) GetRegistriesExecute(r ApiGetRegistriesRequest) (
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.size != nil {
+		localVarQueryParams.Add("size", parameterToString(*r.size, ""))
+	}
+	if r.orderBy != nil {
+		localVarQueryParams.Add("orderBy", parameterToString(*r.orderBy, ""))
+	}
+	if r.search != nil {
+		localVarQueryParams.Add("search", parameterToString(*r.search, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -483,7 +515,7 @@ func (a *RegistriesApiService) GetRegistriesExecute(r ApiGetRegistriesRequest) (
 type ApiGetRegistryRequest struct {
 	ctx _context.Context
 	ApiService RegistriesApi
-	registryId int32
+	id int32
 }
 
 
@@ -495,14 +527,14 @@ func (r ApiGetRegistryRequest) Execute() (Registry, *_nethttp.Response, error) {
  * GetRegistry Get a Registry
  * Gets the details of a single instance of a `Registry`.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param registryId A unique identifier for a `Registry`.
+ * @param id A unique identifier for a `Registry`.
  * @return ApiGetRegistryRequest
  */
-func (a *RegistriesApiService) GetRegistry(ctx _context.Context, registryId int32) ApiGetRegistryRequest {
+func (a *RegistriesApiService) GetRegistry(ctx _context.Context, id int32) ApiGetRegistryRequest {
 	return ApiGetRegistryRequest{
 		ApiService: a,
 		ctx: ctx,
-		registryId: registryId,
+		id: id,
 	}
 }
 
@@ -525,8 +557,8 @@ func (a *RegistriesApiService) GetRegistryExecute(r ApiGetRegistryRequest) (Regi
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/serviceregistry_mgmt/v1/{registryId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"registryId"+"}", _neturl.PathEscape(parameterToString(r.registryId, "")), -1)
+	localVarPath := localBasePath + "/api/serviceregistry_mgmt/v1/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

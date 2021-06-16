@@ -40,6 +40,7 @@ jobs:
 
             **Actions**:
 
-              1. Review changes and validate against the examples in [./examples](./examples)
-              2. Approve and merge.
-              3. Create a release.
+              1. Review changes and validate against the examples.
+              2. Make changes where necessary.
+              3. Approve and merge.
+              4. Create a release.
