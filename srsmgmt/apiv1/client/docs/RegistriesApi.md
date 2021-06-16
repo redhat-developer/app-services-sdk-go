@@ -5,9 +5,9 @@ All URIs are relative to *https://api.openshift.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateRegistry**](RegistriesApi.md#CreateRegistry) | **Post** /api/serviceregistry_mgmt/v1/registries | Create a new Registry instance
-[**DeleteRegistry**](RegistriesApi.md#DeleteRegistry) | **Delete** /api/serviceregistry_mgmt/v1/{registryId} | Delete a Registry
+[**DeleteRegistry**](RegistriesApi.md#DeleteRegistry) | **Delete** /api/serviceregistry_mgmt/v1/{id} | Delete a Registry
 [**GetRegistries**](RegistriesApi.md#GetRegistries) | **Get** /api/serviceregistry_mgmt/v1/registries | Get the list of all registries.
-[**GetRegistry**](RegistriesApi.md#GetRegistry) | **Get** /api/serviceregistry_mgmt/v1/{registryId} | Get a Registry
+[**GetRegistry**](RegistriesApi.md#GetRegistry) | **Get** /api/serviceregistry_mgmt/v1/{id} | Get a Registry
 
 
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ## DeleteRegistry
 
-> DeleteRegistry(ctx, registryId).Execute()
+> DeleteRegistry(ctx, id).Execute()
 
 Delete a Registry
 
@@ -96,11 +96,11 @@ import (
 )
 
 func main() {
-    registryId := int32(56) // int32 | A unique identifier for a `Registry`.
+    id := int32(56) // int32 | A unique identifier for a `Registry`.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.RegistriesApi.DeleteRegistry(context.Background(), registryId).Execute()
+    resp, r, err := api_client.RegistriesApi.DeleteRegistry(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistriesApi.DeleteRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -114,7 +114,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**registryId** | **int32** | A unique identifier for a &#x60;Registry&#x60;. | 
+**id** | **int32** | A unique identifier for a &#x60;Registry&#x60;. | 
 
 ### Other Parameters
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ## GetRegistries
 
-> []Registry GetRegistries(ctx).Execute()
+> RegistryRestList GetRegistries(ctx).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
 
 Get the list of all registries.
 
@@ -162,31 +162,42 @@ import (
 )
 
 func main() {
+    page := "1" // string | Page index (optional)
+    size := "100" // string | Number of items in each page (optional)
+    orderBy := "name asc" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement. Each query can be ordered by any of the kafkaRequests fields. For example, in order to retrieve all kafkas ordered by their name:  ```sql name asc ```  Or in order to retrieve all kafkas ordered by their name _and_ created date:  ```sql name asc, created_at asc ```  If the parameter isn't provided, or if the value is empty, then the results will be ordered by name. (optional)
+    search := "name = my-kafka and cloud_provider = aws" // string | Search criteria.  The syntax of this parameter is similar to the syntax of the _where_ clause of an SQL statement. Allowed fields in the search are: cloud_provider, name, owner, region and status. Allowed comparators are `<>`, `=` or `LIKE`. Allowed joins are `AND` and `OR`, however there is a limit of max 10 joins in the search query.  Examples:  To retrieve kafka request with name equal `my-kafka` and region equal `aws`, the value should be:  ``` name = my-kafka and cloud_provider = aws ```  To retrieve kafka request with its name starting with `my`, the value should be:  ``` name like my%25 ```  If the parameter isn't provided, or if the value is empty, then all the kafkas that the user has permission to see will be returned.  Note. If the query is invalid, an error will be returned  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.RegistriesApi.GetRegistries(context.Background()).Execute()
+    resp, r, err := api_client.RegistriesApi.GetRegistries(context.Background()).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistriesApi.GetRegistries``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetRegistries`: []Registry
+    // response from `GetRegistries`: RegistryRestList
     fmt.Fprintf(os.Stdout, "Response from `RegistriesApi.GetRegistries`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGetRegistriesRequest struct via the builder pattern
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **string** | Page index | 
+ **size** | **string** | Number of items in each page | 
+ **orderBy** | **string** | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement. Each query can be ordered by any of the kafkaRequests fields. For example, in order to retrieve all kafkas ordered by their name:  &#x60;&#x60;&#x60;sql name asc &#x60;&#x60;&#x60;  Or in order to retrieve all kafkas ordered by their name _and_ created date:  &#x60;&#x60;&#x60;sql name asc, created_at asc &#x60;&#x60;&#x60;  If the parameter isn&#39;t provided, or if the value is empty, then the results will be ordered by name. | 
+ **search** | **string** | Search criteria.  The syntax of this parameter is similar to the syntax of the _where_ clause of an SQL statement. Allowed fields in the search are: cloud_provider, name, owner, region and status. Allowed comparators are &#x60;&lt;&gt;&#x60;, &#x60;&#x3D;&#x60; or &#x60;LIKE&#x60;. Allowed joins are &#x60;AND&#x60; and &#x60;OR&#x60;, however there is a limit of max 10 joins in the search query.  Examples:  To retrieve kafka request with name equal &#x60;my-kafka&#x60; and region equal &#x60;aws&#x60;, the value should be:  &#x60;&#x60;&#x60; name &#x3D; my-kafka and cloud_provider &#x3D; aws &#x60;&#x60;&#x60;  To retrieve kafka request with its name starting with &#x60;my&#x60;, the value should be:  &#x60;&#x60;&#x60; name like my%25 &#x60;&#x60;&#x60;  If the parameter isn&#39;t provided, or if the value is empty, then all the kafkas that the user has permission to see will be returned.  Note. If the query is invalid, an error will be returned  | 
+
 ### Return type
 
-[**[]Registry**](Registry.md)
+[**RegistryRestList**](RegistryRestList.md)
 
 ### Authorization
 
@@ -204,7 +215,7 @@ Other parameters are passed through a pointer to a apiGetRegistriesRequest struc
 
 ## GetRegistry
 
-> Registry GetRegistry(ctx, registryId).Execute()
+> Registry GetRegistry(ctx, id).Execute()
 
 Get a Registry
 
@@ -223,11 +234,11 @@ import (
 )
 
 func main() {
-    registryId := int32(56) // int32 | A unique identifier for a `Registry`.
+    id := int32(56) // int32 | A unique identifier for a `Registry`.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.RegistriesApi.GetRegistry(context.Background(), registryId).Execute()
+    resp, r, err := api_client.RegistriesApi.GetRegistry(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistriesApi.GetRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -243,7 +254,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**registryId** | **int32** | A unique identifier for a &#x60;Registry&#x60;. | 
+**id** | **int32** | A unique identifier for a &#x60;Registry&#x60;. | 
 
 ### Other Parameters
 

@@ -15,14 +15,10 @@ import (
 	"encoding/json"
 )
 
-// Registry struct for Registry
-type Registry struct {
+// RootTypeForRegistry Service Registry instance within a multi-tenant deployment.
+type RootTypeForRegistry struct {
 
 	Id int32 `json:"id"`
-
-	Kind *string `json:"kind,omitempty"`
-
-	Href *string `json:"href,omitempty"`
 
 	Status RegistryStatusValue `json:"status"`
 
@@ -36,25 +32,23 @@ type Registry struct {
 
 }
 
-// NewRegistry instantiates a new Registry object
+// NewRootTypeForRegistry instantiates a new RootTypeForRegistry object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRegistry(id int32, status RegistryStatusValue, registryUrl string) *Registry {
-	this := Registry{}
+func NewRootTypeForRegistry(id int32, status RegistryStatusValue, registryUrl string) *RootTypeForRegistry {
+	this := RootTypeForRegistry{}
 	this.Id = id
 	this.Status = status
 	this.RegistryUrl = registryUrl
 	return &this
 }
 
-// NewRegistryWithDefaults instantiates a new Registry object
+// NewRootTypeForRegistryWithDefaults instantiates a new RootTypeForRegistry object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewRegistryWithDefaults() *Registry {
-	this := Registry{}
-
-
+func NewRootTypeForRegistryWithDefaults() *RootTypeForRegistry {
+	this := RootTypeForRegistry{}
 
 
 
@@ -66,7 +60,7 @@ func NewRegistryWithDefaults() *Registry {
 
 
 // GetId returns the Id field value
-func (o *Registry) GetId() int32 {
+func (o *RootTypeForRegistry) GetId() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -77,7 +71,7 @@ func (o *Registry) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *Registry) GetIdOk() (*int32, bool) {
+func (o *RootTypeForRegistry) GetIdOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -85,79 +79,13 @@ func (o *Registry) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *Registry) SetId(v int32) {
+func (o *RootTypeForRegistry) SetId(v int32) {
 	o.Id = v
 }
 
 
-// GetKind returns the Kind field value if set, zero value otherwise.
-func (o *Registry) GetKind() string {
-	if o == nil || o.Kind == nil {
-		var ret string
-		return ret
-	}
-	return *o.Kind
-}
-
-// GetKindOk returns a tuple with the Kind field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Registry) GetKindOk() (*string, bool) {
-	if o == nil || o.Kind == nil {
-		return nil, false
-	}
-	return o.Kind, true
-}
-
-// HasKind returns a boolean if a field has been set.
-func (o *Registry) HasKind() bool {
-	if o != nil && o.Kind != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetKind gets a reference to the given string and assigns it to the Kind field.
-func (o *Registry) SetKind(v string) {
-	o.Kind = &v
-}
-
-
-// GetHref returns the Href field value if set, zero value otherwise.
-func (o *Registry) GetHref() string {
-	if o == nil || o.Href == nil {
-		var ret string
-		return ret
-	}
-	return *o.Href
-}
-
-// GetHrefOk returns a tuple with the Href field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Registry) GetHrefOk() (*string, bool) {
-	if o == nil || o.Href == nil {
-		return nil, false
-	}
-	return o.Href, true
-}
-
-// HasHref returns a boolean if a field has been set.
-func (o *Registry) HasHref() bool {
-	if o != nil && o.Href != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetHref gets a reference to the given string and assigns it to the Href field.
-func (o *Registry) SetHref(v string) {
-	o.Href = &v
-}
-
-
 // GetStatus returns the Status field value
-func (o *Registry) GetStatus() RegistryStatusValue {
+func (o *RootTypeForRegistry) GetStatus() RegistryStatusValue {
 	if o == nil {
 		var ret RegistryStatusValue
 		return ret
@@ -168,7 +96,7 @@ func (o *Registry) GetStatus() RegistryStatusValue {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *Registry) GetStatusOk() (*RegistryStatusValue, bool) {
+func (o *RootTypeForRegistry) GetStatusOk() (*RegistryStatusValue, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -176,13 +104,13 @@ func (o *Registry) GetStatusOk() (*RegistryStatusValue, bool) {
 }
 
 // SetStatus sets field value
-func (o *Registry) SetStatus(v RegistryStatusValue) {
+func (o *RootTypeForRegistry) SetStatus(v RegistryStatusValue) {
 	o.Status = v
 }
 
 
 // GetRegistryUrl returns the RegistryUrl field value
-func (o *Registry) GetRegistryUrl() string {
+func (o *RootTypeForRegistry) GetRegistryUrl() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -193,7 +121,7 @@ func (o *Registry) GetRegistryUrl() string {
 
 // GetRegistryUrlOk returns a tuple with the RegistryUrl field value
 // and a boolean to check if the value has been set.
-func (o *Registry) GetRegistryUrlOk() (*string, bool) {
+func (o *RootTypeForRegistry) GetRegistryUrlOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -201,13 +129,13 @@ func (o *Registry) GetRegistryUrlOk() (*string, bool) {
 }
 
 // SetRegistryUrl sets field value
-func (o *Registry) SetRegistryUrl(v string) {
+func (o *RootTypeForRegistry) SetRegistryUrl(v string) {
 	o.RegistryUrl = v
 }
 
 
 // GetName returns the Name field value if set, zero value otherwise.
-func (o *Registry) GetName() string {
+func (o *RootTypeForRegistry) GetName() string {
 	if o == nil || o.Name == nil {
 		var ret string
 		return ret
@@ -217,7 +145,7 @@ func (o *Registry) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Registry) GetNameOk() (*string, bool) {
+func (o *RootTypeForRegistry) GetNameOk() (*string, bool) {
 	if o == nil || o.Name == nil {
 		return nil, false
 	}
@@ -225,7 +153,7 @@ func (o *Registry) GetNameOk() (*string, bool) {
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *Registry) HasName() bool {
+func (o *RootTypeForRegistry) HasName() bool {
 	if o != nil && o.Name != nil {
 		return true
 	}
@@ -234,13 +162,13 @@ func (o *Registry) HasName() bool {
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
-func (o *Registry) SetName(v string) {
+func (o *RootTypeForRegistry) SetName(v string) {
 	o.Name = &v
 }
 
 
 // GetRegistryDeploymentId returns the RegistryDeploymentId field value if set, zero value otherwise.
-func (o *Registry) GetRegistryDeploymentId() int32 {
+func (o *RootTypeForRegistry) GetRegistryDeploymentId() int32 {
 	if o == nil || o.RegistryDeploymentId == nil {
 		var ret int32
 		return ret
@@ -250,7 +178,7 @@ func (o *Registry) GetRegistryDeploymentId() int32 {
 
 // GetRegistryDeploymentIdOk returns a tuple with the RegistryDeploymentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Registry) GetRegistryDeploymentIdOk() (*int32, bool) {
+func (o *RootTypeForRegistry) GetRegistryDeploymentIdOk() (*int32, bool) {
 	if o == nil || o.RegistryDeploymentId == nil {
 		return nil, false
 	}
@@ -258,7 +186,7 @@ func (o *Registry) GetRegistryDeploymentIdOk() (*int32, bool) {
 }
 
 // HasRegistryDeploymentId returns a boolean if a field has been set.
-func (o *Registry) HasRegistryDeploymentId() bool {
+func (o *RootTypeForRegistry) HasRegistryDeploymentId() bool {
 	if o != nil && o.RegistryDeploymentId != nil {
 		return true
 	}
@@ -267,24 +195,16 @@ func (o *Registry) HasRegistryDeploymentId() bool {
 }
 
 // SetRegistryDeploymentId gets a reference to the given int32 and assigns it to the RegistryDeploymentId field.
-func (o *Registry) SetRegistryDeploymentId(v int32) {
+func (o *RootTypeForRegistry) SetRegistryDeploymentId(v int32) {
 	o.RegistryDeploymentId = &v
 }
 
 
-func (o Registry) MarshalJSON() ([]byte, error) {
+func (o RootTypeForRegistry) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if true {
 		toSerialize["id"] = o.Id
-	}
-    
-	if o.Kind != nil {
-		toSerialize["kind"] = o.Kind
-	}
-    
-	if o.Href != nil {
-		toSerialize["href"] = o.Href
 	}
     
 	if true {
@@ -306,38 +226,38 @@ func (o Registry) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableRegistry struct {
-	value *Registry
+type NullableRootTypeForRegistry struct {
+	value *RootTypeForRegistry
 	isSet bool
 }
 
-func (v NullableRegistry) Get() *Registry {
+func (v NullableRootTypeForRegistry) Get() *RootTypeForRegistry {
 	return v.value
 }
 
-func (v *NullableRegistry) Set(val *Registry) {
+func (v *NullableRootTypeForRegistry) Set(val *RootTypeForRegistry) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableRegistry) IsSet() bool {
+func (v NullableRootTypeForRegistry) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableRegistry) Unset() {
+func (v *NullableRootTypeForRegistry) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableRegistry(val *Registry) *NullableRegistry {
-	return &NullableRegistry{value: val, isSet: true}
+func NewNullableRootTypeForRegistry(val *RootTypeForRegistry) *NullableRootTypeForRegistry {
+	return &NullableRootTypeForRegistry{value: val, isSet: true}
 }
 
-func (v NullableRegistry) MarshalJSON() ([]byte, error) {
+func (v NullableRootTypeForRegistry) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableRegistry) UnmarshalJSON(src []byte) error {
+func (v *NullableRootTypeForRegistry) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

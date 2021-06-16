@@ -80,9 +80,9 @@ All URIs are relative to *https://api.openshift.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *RegistriesApi* | [**CreateRegistry**](docs/RegistriesApi.md#createregistry) | **Post** /api/serviceregistry_mgmt/v1/registries | Create a new Registry instance
-*RegistriesApi* | [**DeleteRegistry**](docs/RegistriesApi.md#deleteregistry) | **Delete** /api/serviceregistry_mgmt/v1/{registryId} | Delete a Registry
+*RegistriesApi* | [**DeleteRegistry**](docs/RegistriesApi.md#deleteregistry) | **Delete** /api/serviceregistry_mgmt/v1/{id} | Delete a Registry
 *RegistriesApi* | [**GetRegistries**](docs/RegistriesApi.md#getregistries) | **Get** /api/serviceregistry_mgmt/v1/registries | Get the list of all registries.
-*RegistriesApi* | [**GetRegistry**](docs/RegistriesApi.md#getregistry) | **Get** /api/serviceregistry_mgmt/v1/{registryId} | Get a Registry
+*RegistriesApi* | [**GetRegistry**](docs/RegistriesApi.md#getregistry) | **Get** /api/serviceregistry_mgmt/v1/{id} | Get a Registry
 
 
 ## Documentation For Models
@@ -95,8 +95,10 @@ Class | Method | HTTP request | Description
  - [ObjectReference](docs/ObjectReference.md)
  - [Registry](docs/Registry.md)
  - [RegistryCreate](docs/RegistryCreate.md)
- - [RegistryStatus](docs/RegistryStatus.md)
+ - [RegistryRestList](docs/RegistryRestList.md)
+ - [RegistryRestListAllOf](docs/RegistryRestListAllOf.md)
  - [RegistryStatusValue](docs/RegistryStatusValue.md)
+ - [RootTypeForRegistry](docs/RootTypeForRegistry.md)
 
 
 ## Documentation For Authorization
