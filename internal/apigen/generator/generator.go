@@ -37,7 +37,9 @@ func Generate(opts *Options) error {
 		goGen := golang.GoGen{
 			Config: &cfg,
 		}
-		return goGen.Generate()
+		if err := goGen.Generate(); err != nil {
+			return err
+		}
 	}
 	return nil
 }

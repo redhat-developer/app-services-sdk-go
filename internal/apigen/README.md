@@ -27,19 +27,19 @@ go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/ap
 Usage:
 
 ```shell
-api-generate --client-id="kafka-mgmt/v1" --download-url="https://raw.githubusercontent.com/bf2fc6cc711aee1a0c2a/kas-fleet-manager/main/openapi/kas-fleet-manager.yaml" --generator=go --templates-dir="./scripts/templates" --repo-metadata ".config/api-client-metadata.json"
+api-generate --client-id="kafka-mgmt/v1" --generator=go --templates-dir="./scripts/templates" --repo-metadata ".config/api-client-metadata.json"
 ```
 
-### Create Pull Request
+### Generate all API clients
 
-Install
+Install:
 
 ```shell
-go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-create-pr@main
+go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-generate-all@main
 ```
 
 Usage:
 
 ```shell
-api-create-pr --repo-metadata ".config/api-client-metadata.json" --client-id="kafka-mgmt/v1" --token=$APP_SERVICES_CI_TOKEN --author="app-services-ci" --owner="redhat-developer" --repo="app-services-sdk-go"
+api-generate-all --repo-metadata=.config/api-client-metadata.json --generator go --templates-dir=./scripts/templates
 ```

@@ -17,13 +17,14 @@ type GoGen struct {
 
 // Generate generates an API client in Golang
 func (g *GoGen) Generate() (err error) {
-	packageName := fmt.Sprintf("%vclient", g.Config.ClientMetadata.APIGroup)
-	apiVersion := fmt.Sprintf("api%v", g.Config.ClientMetadata.APIVersion)
-	outputPath := fmt.Sprintf("%v/%v/client", g.Config.ClientMetadata.APIGroup, apiVersion)
 	inputFile := g.Config.Input
 	if _, err = os.Stat(inputFile); err != nil {
 		return err
 	}
+
+	clientMetadata := g.Config.ClientMetadata
+	packageName := clientMetadata.PackageName()
+	outputPath := clientMetadata.OutputPath()
 
 	cmdArgs := []string{
 		common.CmdName,
@@ -55,14 +56,10 @@ func (g *GoGen) Generate() (err error) {
 	}
 
 	if len(doc.Tags) == 0 {
-		if err = generateMocks("default", outputPath); err != nil {
-			return err
-		}
+		_ = generateMocks("default", outputPath)
 	}
 	for _, tag := range doc.Tags {
-		if err = generateMocks(tag.Name, outputPath); err != nil {
-			return err
-		}
+		_ = generateMocks(tag.Name, outputPath)
 	}
 
 	return nil
@@ -74,7 +71,7 @@ func generateMocks(tag string, output string) error {
 	if err != nil {
 		return err
 	}
-	out, err := exec.Command("go", "get", "github.com/matryer/moq").CombinedOutput()
+	out, err := exec.Command("go", "get", "-u", "github.com/matryer/moq").CombinedOutput()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, string(out))
 		return err
@@ -106,5 +103,6 @@ func generateMocks(tag string, output string) error {
 	} else {
 		fmt.Println(string(out))
 	}
+
 	return nil
 }

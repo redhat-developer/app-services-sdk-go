@@ -16,6 +16,14 @@ type SdkEntry struct {
 	OpenApiFile  string `json:"openapi_file"`
 }
 
+func (s *SdkEntry) OutputPath() string {
+	return fmt.Sprintf("%v/api%v/client", s.APIGroup, s.APIVersion)
+}
+
+func (s *SdkEntry) PackageName() string {
+	return fmt.Sprintf("%vclient", s.APIGroup)
+}
+
 type RepoMetadata map[string]SdkEntry
 
 type ClientPayload struct {

@@ -29,6 +29,7 @@ jobs:
           token: "${{ secrets.CI_USER_TOKEN }}"
           commit-message: "chore(openapi): add latest ${{ github.event.client_payload.client_id }} OpenAPI specification file"
           author: "app-services-ci <app-services-ci@users.noreply.github.com>"
+          branch: chore/add-${{ github.event.client_payload.client_id }}-openapi
           delete-branch: true
           body: |
             _This pull request was auto-generated_
