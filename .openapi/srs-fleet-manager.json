@@ -34,7 +34,7 @@
   ],
   "paths": {
     "/api/serviceregistry_mgmt/v1/registries": {
-      "summary": "Manage the list of all registries",
+      "summary": "Manage the list of all registries.",
       "description": "",
       "get": {
         "tags": [
@@ -343,7 +343,7 @@
           "name": "id",
           "description": "A unique identifier for a `Registry`.",
           "schema": {
-            "type": "integer"
+            "type": "string"
           },
           "in": "path",
           "required": true
