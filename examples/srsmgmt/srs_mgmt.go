@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/redhat-developer/app-services-sdk-go/srsmgmt/apiv1"
+	srsmgmt "github.com/redhat-developer/app-services-sdk-go/srsmgmt/apiv1"
 	"golang.org/x/oauth2"
 )
 
@@ -24,5 +24,5 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Fprintln(os.Stdout, len(registries))
+	fmt.Fprintln(os.Stdout, len(registries.GetItems()))
 }
