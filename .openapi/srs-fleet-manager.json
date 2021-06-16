@@ -34,7 +34,7 @@
   ],
   "paths": {
     "/api/serviceregistry_mgmt/v1/registries": {
-      "summary": "Manage the list of all registries.",
+      "summary": "Manage the list of all registries",
       "description": "",
       "get": {
         "tags": [
