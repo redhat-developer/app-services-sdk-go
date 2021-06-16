@@ -7,7 +7,7 @@ Internal tools for generating API clients
 Install:
 
 ```shell
-go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-fetch@main
+go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-fetch@latest
 ```
 
 Usage:
@@ -21,7 +21,7 @@ api-fetch --download-url="https://raw.githubusercontent.com/bf2fc6cc711aee1a0c2a
 Install:
 
 ```shell
-go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-generate@main
+go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-generate@latest
 ```
 
 Usage:
@@ -35,7 +35,7 @@ api-generate --client-id="kafka-mgmt/v1" --generator=go --templates-dir="./scrip
 Install:
 
 ```shell
-go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-generate-all@main
+go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-generate-all@latest
 ```
 
 Usage:

@@ -19,7 +19,7 @@ jobs:
           export PATH=${PATH}:`go env GOPATH`/bin
 
           # fetch API spec
-          go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-fetch@main
+          go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-fetch@latest
           api-fetch --download-url="https://raw.githubusercontent.com/bf2fc6cc711aee1a0c2a/kas-fleet-manager/main/openapi/kas-fleet-manager.yaml" --download-location=".openapi" --token=${{ secrets.BF2_TOKEN }}
           go mod tidy
 

@@ -21,7 +21,7 @@ jobs:
         run: |
           export PATH=${PATH}:`go env GOPATH`/bin
 
-          go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-generate-all@main
+          go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-generate-all@latest
           api-generate-all --repo-metadata=.config/api-client-metadata.json --generator go --templates-dir=./scripts/templates
           go mod tidy
 
