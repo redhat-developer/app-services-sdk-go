@@ -1,0 +1,48 @@
+name: Go
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.go'
+      - '.openapi/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - '**.go'
+      - '.openapi/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          base: main
+          list-files: shell
+          filters: |
+            openapi:
+              - '.openapi/*.yaml'
+            go:
+              - '**.go'
+      - name: Install Go
+        if: steps.filter.outputs.go == true
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.16.x
+      - name: golangci-lint
+        if: steps.filter.outputs.go == true
+        uses: golangci/golangci-lint-action@v2
+        with:
+          version: v1.29
+          args: --timeout 2m0s
+      - name: Validate OpenAPI
+        if: steps.filter.outputs.openapi == true
+        run: |
+          for i in ${{ steps.filter.outputs.openapi_files }}
+          do
+            npx @openapitools/openapi-generator-cli validate -i $i
+          done
