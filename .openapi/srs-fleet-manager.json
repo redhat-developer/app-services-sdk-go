@@ -55,7 +55,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "https://raw.githubusercontent.com/redhat-developer/app-services-api-guidelines/main/.openapi/components.yaml#/schemas/Error"
                 },
                 "examples": {
                   "401Example": {
@@ -70,7 +70,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "https://raw.githubusercontent.com/redhat-developer/app-services-api-guidelines/main/.openapi/components.yaml#/schemas/Error"
                 },
                 "examples": {
                   "403Example": {
@@ -85,7 +85,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "https://raw.githubusercontent.com/redhat-developer/app-services-api-guidelines/main/.openapi/components.yaml#/schemas/Error"
                 },
                 "examples": {
                   "500Example": {
@@ -150,7 +150,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "https://raw.githubusercontent.com/redhat-developer/app-services-api-guidelines/main/.openapi/components.yaml#/schemas/Error"
                 },
                 "examples": {
                   "401Example": {
@@ -165,7 +165,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "https://raw.githubusercontent.com/redhat-developer/app-services-api-guidelines/main/.openapi/components.yaml#/schemas/Error"
                 },
                 "examples": {
                   "403Example": {
@@ -180,7 +180,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "https://raw.githubusercontent.com/redhat-developer/app-services-api-guidelines/main/.openapi/components.yaml#/schemas/Error"
                 },
                 "examples": {
                   "500Example": {
@@ -224,7 +224,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "https://raw.githubusercontent.com/redhat-developer/app-services-api-guidelines/main/.openapi/components.yaml#/schemas/Error"
                 },
                 "examples": {
                   "401Example": {
@@ -239,7 +239,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "https://raw.githubusercontent.com/redhat-developer/app-services-api-guidelines/main/.openapi/components.yaml#/schemas/Error"
                 },
                 "examples": {
                   "403Example": {
@@ -254,7 +254,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "https://raw.githubusercontent.com/redhat-developer/app-services-api-guidelines/main/.openapi/components.yaml#/schemas/Error"
                 },
                 "examples": {
                   "404Example": {
@@ -287,7 +287,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "https://raw.githubusercontent.com/redhat-developer/app-services-api-guidelines/main/.openapi/components.yaml#/schemas/Error"
                 },
                 "examples": {
                   "401Example": {
@@ -302,7 +302,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "https://raw.githubusercontent.com/redhat-developer/app-services-api-guidelines/main/.openapi/components.yaml#/schemas/Error"
                 },
                 "examples": {
                   "403Example": {
@@ -317,7 +317,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "https://raw.githubusercontent.com/redhat-developer/app-services-api-guidelines/main/.openapi/components.yaml#/schemas/Error"
                 },
                 "examples": {
                   "404Example": {
@@ -423,7 +423,7 @@
               "items": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "https://raw.githubusercontent.com/redhat-developer/app-services-api-guidelines/main/.openapi/components.yaml#/schemas/Error"
                 }
               }
             }
