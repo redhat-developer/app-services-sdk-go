@@ -35,10 +35,24 @@ paths:
           in: query
         - name: order
           description: >-
-            Order of the items sorting. If "asc" is set as a value, ascending order is used,
-            descending otherwise.
+            Order of the items sorting. Ascending order is used as default.
           schema:
             type: string
+            enum:
+              - asc
+              - desc
+          in: query
+          required: false
+        - name: orderKey
+          description: >-
+            Order key to sort the topics by.
+          schema:
+            type: string
+            enum:
+              - name
+              - partitions
+              - retention.ms
+              - retention.bytes
           in: query
           required: false
       responses:
@@ -124,7 +138,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Topic'
-          description: Kakfa topic details.
+          description: Kafka topic details.
         '401':
           content:
             application/json: {}
@@ -350,6 +364,25 @@ paths:
           schema:
             type: string
           in: query
+        - name: order
+          description: >-
+            Order of the consumer groups sorting. Ascending order is used as default.
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+          in: query
+          required: false
+        - name: orderKey
+          description: >-
+            Order key to sort the items by. Only the value 'name' is currently applicable.
+          schema:
+            type: string
+            enum:
+              - name
+          in: query
+          required: false
       responses:
         '200':
           content:
@@ -414,6 +447,67 @@ paths:
       operationId: getConsumerGroups
       summary: List of consumer groups in the Kafka instance.
       description: Returns a list of all consumer groups for a particular Kafka instance.
+  '/consumer-groups/{consumerGroupId}/reset-offset':
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsumerGroupResetOffsetParameters'
+            examples:
+              ConsumerGroupOffsetResetExample:
+                value:
+                  topics:
+                    -
+                      topic: my-topic
+                      partitions:
+                        - 0
+                  offset: absolute
+                  value: '4'
+        required: true
+      parameters:
+        - name: consumerGroupId
+          description: The ID of the consumer group.
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ConsumerGroupResetOffsetResult'
+          description: The consumer group offsets have been reset.
+        '400':
+          description: The consumer group to reset the offset does have active consumers.
+        '401':
+          content:
+            application/json: {}
+          description: >-
+            Unauthorized, request has not been applied because it lacks valid authentication
+            credentials.
+        '403':
+          content:
+            application/json: {}
+          description: Forbidden to delete this consumer group.
+        '404':
+          content:
+            application/json: {}
+          description: Specified topic or its partition does not exist.
+        '500':
+          content:
+            application/json: {}
+          description: Internal Server Error.
+        '503':
+          content:
+            application/json: {}
+          description: Unable to connect to the Kafka cluster.
+      operationId: resetConsumerGroupOffset
+      summary: Reset the offset for a consumer group.
+      description: Reset the offset for a particular consumer group.
   /: {}
 components:
   schemas:
@@ -749,10 +843,13 @@ components:
       type: object
       properties:
         config:
-          description: Topic configuration entry.
+          description: Topic configuration entries.
           type: array
           items:
             $ref: '#/components/schemas/ConfigEntry'
+        partitions:
+          description: Number of partitions (only increasing supported)
+          type: integer
       example:
         config:
           -
@@ -761,6 +858,76 @@ components:
           -
             key: max.message.bytes
             value: '1050000'
+    ConsumerGroupResetOffsetParameters:
+      title: Root Type for ConsumerGroupResetOffsetParameters
+      description: ''
+      required:
+        - offset
+        - value
+      type: object
+      properties:
+        value:
+          type: string
+        offset:
+          type: string
+          enum:
+            - timestamp
+            - absolute
+            - latest
+            - earliest
+        topics:
+          type: array
+          items:
+            $ref: '#/components/schemas/TopicsToResetOffset'
+      example:
+        topics:
+          - topic: my-topic
+            partitions:
+              - 0
+        offset: absolute
+        value: '4'
+    TopicsToResetOffset:
+      title: Root Type for TopicsToResetOffset
+      description: ''
+      required:
+        - topic
+      type: object
+      properties:
+        topic:
+          type: string
+        partitions:
+          type: array
+          items:
+            format: int32
+            type: integer
+      example:
+        topic: foo
+        partitions:
+          - 0
+          - 1
+          - 2
+    ConsumerGroupResetOffsetResult:
+      title: Root Type for ConsumerGroupResetOffsetResult
+      description: ''
+      type: array
+      items:
+        type: object
+        properties:
+          topic:
+            type: string
+          partition:
+            format: int32
+            type: integer
+          offset:
+            format: int32
+            type: integer
+      example:
+        - topic: your-topic
+          partition: 0
+          offset: 4
+        - topic: my-topic
+          partition: 0
+          offset: 0
   securitySchemes:
     Bearer:
       type: oauth2
