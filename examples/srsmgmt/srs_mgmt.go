@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	srsmgmt "github.com/redhat-developer/app-services-sdk-go/srsmgmt/apiv1"
+	registrymgmt "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1"
 	"golang.org/x/oauth2"
 )
 
@@ -16,7 +16,7 @@ func main() {
 	)
 	tc := oauth2.NewClient(ctx, ts)
 
-	apiClient := srsmgmt.NewAPIClient(&srsmgmt.Config{
+	apiClient := registrymgmt.NewAPIClient(&registrymgmt.Config{
 		HTTPClient: tc,
 	})
 

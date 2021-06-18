@@ -1,4 +1,4 @@
-# Go API client for srsmgmtclient
+# Go API client for registrymgmtclient
 
 Managed Service Registry cloud.redhat.com API Management API that lets you create new registry instances. Registry is a datastore for standard event schemas and API designs. Service Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Registry is an Managed version of upstream project called Apicurio Registry. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.
 
@@ -23,7 +23,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```golang
-import sw "./srsmgmtclient"
+import sw "./registrymgmtclient"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:
