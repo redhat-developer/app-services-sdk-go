@@ -1,9 +1,9 @@
-package srsmgmt
+package registrymgmt
 
 import (
 	"github.com/redhat-developer/app-services-sdk-go/internal"
 
-	apiv1 "github.com/redhat-developer/app-services-sdk-go/srsmgmt/apiv1/client"
+	apiv1 "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/client"
 )
 
 // APIConfig defines the available configuration options

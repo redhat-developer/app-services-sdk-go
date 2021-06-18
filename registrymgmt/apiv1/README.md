@@ -14,13 +14,13 @@ go get github.com/redhat-developer/app-services-sdk-go
 
 ### Importing the package
 
-Import the `github.com/redhat-developer/app-services-sdk-go/srsmgmt/apiv1` package into your code:
+Import the `github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1` package into your code:
 
 ```go
 package main
 
 import (
-    "github.com/redhat-developer/app-services-sdk-go/srsmgmt/apiv1"
+    "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1"
 )
 ```
 
@@ -29,7 +29,7 @@ import (
 If you do not need to customise any of the default configuration values you can pass `nil` to the `NewAPIClient` constructor:
 
 ```go
-client := srsmgmt.NewAPIClient(nil)
+client := registrymgmt.NewAPIClient(nil)
 
 registries, resp, err := client.RegistriesApi.GetRegistries(context.Background()).Execute()
 ```
@@ -39,13 +39,13 @@ registries, resp, err := client.RegistriesApi.GetRegistries(context.Background()
 You can override the default configuration options:
 
 ```go
-cfg := srsmgmt.Config{
+cfg := registrymgmt.Config{
     HTTPClient: yourHTTPClient,
     Debug: true,
     BaseURL: "http://localhost:8080",
 }
 
-client := srsmgmt.NewAPIClient(&cfg)
+client := registrymgmt.NewAPIClient(&cfg)
 ```
 
 ## Authentication
@@ -62,7 +62,7 @@ ts := oauth2.StaticTokenSource(
 
 tc := oauth2.NewClient(ctx, ts)
 
-client := srsmgmt.NewAPIClient(&srsmgmt.Config{
+client := registrymgmt.NewAPIClient(&registrymgmt.Config{
     HTTPClient: tc,
 })
 

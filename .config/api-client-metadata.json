@@ -12,7 +12,7 @@
     "openapi_file": ".openapi/kafka-admin-rest.yaml"
   },
   "srs-mgmt/v1": {
-    "apiGroup": "srsmgmt",
+    "apiGroup": "registrymgmt",
     "apiVersion": "v1",
     "release_level": "alpha",
     "openapi_file": ".openapi/srs-fleet-manager.json"
