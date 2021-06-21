@@ -25,18 +25,19 @@ jobs:
 
       - uses: peter-evans/create-pull-request@v3
         with:
-          title: "chore(openapi): update OpenAPI specification file"
+          title: "chore(openapi): update ${{ github.event.client_payload.id }} OpenAPI document"
           token: "${{ secrets.CI_USER_TOKEN }}"
-          commit-message: "chore(openapi): update OpenAPI specification file"
+          commit-message: "chore(openapi): update ${{ github.event.client_payload.id }} OpenAPI document"
           author: "app-services-ci <app-services-ci@users.noreply.github.com>"
-          branch: chore/add-openapi
+          branch: chore/add-${{ github.event.client_payload.id }}-openapi
           delete-branch: true
           body: |
             _This pull request was auto-generated_
 
-            This PR adds the latest version of OpenAPI specification file.
+            This PR adds the latest version OpenAPI document version for **${{ github.event.client_payload.id }}**.
 
             **Actions**:
-                1. Review changes on OpenAPI file and validate if it s correct
+
+                1. Review changes on the OpenAPI file and validate if it is correct
                 2. Perform manual changes if needed or apply local patches for the OpenAPI files.
                 3. Merge this pull request only when the API has been released.
