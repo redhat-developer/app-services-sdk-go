@@ -17,8 +17,11 @@ import (
 // UpdateTopicInput Kafka Topic (A feed where records are stored and published)
 type UpdateTopicInput struct {
 
-	// Topic configuration entry.
+	// Topic configuration entries.
 	Config *[]ConfigEntry `json:"config,omitempty"`
+
+	// Number of partitions (only increasing supported)
+	Partitions *int32 `json:"partitions,omitempty"`
 
 }
 
@@ -36,6 +39,7 @@ func NewUpdateTopicInput() *UpdateTopicInput {
 // but it doesn't guarantee that properties required by API are set
 func NewUpdateTopicInputWithDefaults() *UpdateTopicInput {
 	this := UpdateTopicInput{}
+
 
 
 	return &this
@@ -75,11 +79,48 @@ func (o *UpdateTopicInput) SetConfig(v []ConfigEntry) {
 }
 
 
+// GetPartitions returns the Partitions field value if set, zero value otherwise.
+func (o *UpdateTopicInput) GetPartitions() int32 {
+	if o == nil || o.Partitions == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Partitions
+}
+
+// GetPartitionsOk returns a tuple with the Partitions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateTopicInput) GetPartitionsOk() (*int32, bool) {
+	if o == nil || o.Partitions == nil {
+		return nil, false
+	}
+	return o.Partitions, true
+}
+
+// HasPartitions returns a boolean if a field has been set.
+func (o *UpdateTopicInput) HasPartitions() bool {
+	if o != nil && o.Partitions != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPartitions gets a reference to the given int32 and assigns it to the Partitions field.
+func (o *UpdateTopicInput) SetPartitions(v int32) {
+	o.Partitions = &v
+}
+
+
 func (o UpdateTopicInput) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if o.Config != nil {
 		toSerialize["config"] = o.Config
+	}
+    
+	if o.Partitions != nil {
+		toSerialize["partitions"] = o.Partitions
 	}
     
 	return json.Marshal(toSerialize)

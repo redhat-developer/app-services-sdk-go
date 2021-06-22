@@ -18,7 +18,7 @@ import (
 // Registry struct for Registry
 type Registry struct {
 
-	Id int32 `json:"id"`
+	Id string `json:"id"`
 
 	Kind *string `json:"kind,omitempty"`
 
@@ -40,7 +40,7 @@ type Registry struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRegistry(id int32, status RegistryStatusValue, registryUrl string) *Registry {
+func NewRegistry(id string, status RegistryStatusValue, registryUrl string) *Registry {
 	this := Registry{}
 	this.Id = id
 	this.Status = status
@@ -66,9 +66,9 @@ func NewRegistryWithDefaults() *Registry {
 
 
 // GetId returns the Id field value
-func (o *Registry) GetId() int32 {
+func (o *Registry) GetId() string {
 	if o == nil {
-		var ret int32
+		var ret string
 		return ret
 	}
 
@@ -77,7 +77,7 @@ func (o *Registry) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *Registry) GetIdOk() (*int32, bool) {
+func (o *Registry) GetIdOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -85,7 +85,7 @@ func (o *Registry) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *Registry) SetId(v int32) {
+func (o *Registry) SetId(v string) {
 	o.Id = v
 }
 

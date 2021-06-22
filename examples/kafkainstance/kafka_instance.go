@@ -19,7 +19,7 @@ func main() {
 	apiClient := kafkainstanceapi.NewAPIClient(&kafkainstanceapi.Config{
 		HTTPClient: tc,
 		Debug:      true,
-		BaseURL:    "http://localhost:9000/custom/path/to/rest",
+		BaseURL:    os.Getenv("API_URL"),
 	})
 
 	res, _, err := apiClient.DefaultApi.GetTopics(context.Background()).Execute()

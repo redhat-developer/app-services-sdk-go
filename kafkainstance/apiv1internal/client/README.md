@@ -85,6 +85,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetConsumerGroups**](docs/DefaultApi.md#getconsumergroups) | **Get** /consumer-groups | List of consumer groups in the Kafka instance.
 *DefaultApi* | [**GetTopic**](docs/DefaultApi.md#gettopic) | **Get** /topics/{topicName} | Retrieves the topic with the specified name.
 *DefaultApi* | [**GetTopics**](docs/DefaultApi.md#gettopics) | **Get** /topics | List of topics
+*DefaultApi* | [**ResetConsumerGroupOffset**](docs/DefaultApi.md#resetconsumergroupoffset) | **Post** /consumer-groups/{consumerGroupId}/reset-offset | Reset the offset for a consumer group.
 *DefaultApi* | [**UpdateTopic**](docs/DefaultApi.md#updatetopic) | **Patch** /topics/{topicName} | Updates the topic with the specified name.
 
 
@@ -94,11 +95,13 @@ Class | Method | HTTP request | Description
  - [Consumer](docs/Consumer.md)
  - [ConsumerGroup](docs/ConsumerGroup.md)
  - [ConsumerGroupList](docs/ConsumerGroupList.md)
+ - [ConsumerGroupResetOffsetParameters](docs/ConsumerGroupResetOffsetParameters.md)
  - [NewTopicInput](docs/NewTopicInput.md)
  - [Partition](docs/Partition.md)
  - [Topic](docs/Topic.md)
  - [TopicSettings](docs/TopicSettings.md)
  - [TopicsList](docs/TopicsList.md)
+ - [TopicsToResetOffset](docs/TopicsToResetOffset.md)
  - [UpdateTopicInput](docs/UpdateTopicInput.md)
 
 
