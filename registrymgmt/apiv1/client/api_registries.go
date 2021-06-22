@@ -47,7 +47,7 @@ type RegistriesApi interface {
 	 * @param id A unique identifier for a `Registry`.
 	 * @return ApiDeleteRegistryRequest
 	 */
-	DeleteRegistry(ctx _context.Context, id int32) ApiDeleteRegistryRequest
+	DeleteRegistry(ctx _context.Context, id string) ApiDeleteRegistryRequest
 
 	/*
 	 * DeleteRegistryExecute executes the request
@@ -74,7 +74,7 @@ type RegistriesApi interface {
 	 * @param id A unique identifier for a `Registry`.
 	 * @return ApiGetRegistryRequest
 	 */
-	GetRegistry(ctx _context.Context, id int32) ApiGetRegistryRequest
+	GetRegistry(ctx _context.Context, id string) ApiGetRegistryRequest
 
 	/*
 	 * GetRegistryExecute executes the request
@@ -87,8 +87,8 @@ type RegistriesApi interface {
 type RegistriesApiService service
 
 type ApiCreateRegistryRequest struct {
-	ctx            _context.Context
-	ApiService     RegistriesApi
+	ctx _context.Context
+	ApiService RegistriesApi
 	registryCreate *RegistryCreate
 }
 
@@ -109,7 +109,7 @@ func (r ApiCreateRegistryRequest) Execute() (Registry, *_nethttp.Response, error
 func (a *RegistriesApiService) CreateRegistry(ctx _context.Context) ApiCreateRegistryRequest {
 	return ApiCreateRegistryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -227,10 +227,11 @@ func (a *RegistriesApiService) CreateRegistryExecute(r ApiCreateRegistryRequest)
 }
 
 type ApiDeleteRegistryRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService RegistriesApi
-	id         int32
+	id string
 }
+
 
 func (r ApiDeleteRegistryRequest) Execute() (*_nethttp.Response, error) {
 	return r.ApiService.DeleteRegistryExecute(r)
@@ -243,11 +244,11 @@ func (r ApiDeleteRegistryRequest) Execute() (*_nethttp.Response, error) {
  * @param id A unique identifier for a `Registry`.
  * @return ApiDeleteRegistryRequest
  */
-func (a *RegistriesApiService) DeleteRegistry(ctx _context.Context, id int32) ApiDeleteRegistryRequest {
+func (a *RegistriesApiService) DeleteRegistry(ctx _context.Context, id string) ApiDeleteRegistryRequest {
 	return ApiDeleteRegistryRequest{
 		ApiService: a,
-		ctx:        ctx,
-		id:         id,
+		ctx: ctx,
+		id: id,
 	}
 }
 
@@ -350,12 +351,12 @@ func (a *RegistriesApiService) DeleteRegistryExecute(r ApiDeleteRegistryRequest)
 }
 
 type ApiGetRegistriesRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService RegistriesApi
-	page       *string
-	size       *string
-	orderBy    *string
-	search     *string
+	page *string
+	size *string
+	orderBy *string
+	search *string
 }
 
 func (r ApiGetRegistriesRequest) Page(page string) ApiGetRegistriesRequest {
@@ -387,7 +388,7 @@ func (r ApiGetRegistriesRequest) Execute() (RegistryRestList, *_nethttp.Response
 func (a *RegistriesApiService) GetRegistries(ctx _context.Context) ApiGetRegistriesRequest {
 	return ApiGetRegistriesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -512,10 +513,11 @@ func (a *RegistriesApiService) GetRegistriesExecute(r ApiGetRegistriesRequest) (
 }
 
 type ApiGetRegistryRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService RegistriesApi
-	id         int32
+	id string
 }
+
 
 func (r ApiGetRegistryRequest) Execute() (Registry, *_nethttp.Response, error) {
 	return r.ApiService.GetRegistryExecute(r)
@@ -528,11 +530,11 @@ func (r ApiGetRegistryRequest) Execute() (Registry, *_nethttp.Response, error) {
  * @param id A unique identifier for a `Registry`.
  * @return ApiGetRegistryRequest
  */
-func (a *RegistriesApiService) GetRegistry(ctx _context.Context, id int32) ApiGetRegistryRequest {
+func (a *RegistriesApiService) GetRegistry(ctx _context.Context, id string) ApiGetRegistryRequest {
 	return ApiGetRegistryRequest{
 		ApiService: a,
-		ctx:        ctx,
-		id:         id,
+		ctx: ctx,
+		id: id,
 	}
 }
 

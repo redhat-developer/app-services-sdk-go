@@ -17,6 +17,7 @@ import (
 
 // RegistryRestList struct for RegistryRestList
 type RegistryRestList struct {
+
 	Kind string `json:"kind"`
 
 	Page int32 `json:"page"`
@@ -26,6 +27,7 @@ type RegistryRestList struct {
 	Total int32 `json:"total"`
 
 	Items []Registry `json:"items"`
+
 }
 
 // NewRegistryRestList instantiates a new RegistryRestList object
@@ -48,8 +50,14 @@ func NewRegistryRestList(kind string, page int32, size int32, total int32, items
 func NewRegistryRestListWithDefaults() *RegistryRestList {
 	this := RegistryRestList{}
 
+
+
+
+
+
 	return &this
 }
+
 
 // GetKind returns the Kind field value
 func (o *RegistryRestList) GetKind() string {
@@ -64,7 +72,7 @@ func (o *RegistryRestList) GetKind() string {
 // GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
 func (o *RegistryRestList) GetKindOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Kind, true
@@ -74,6 +82,7 @@ func (o *RegistryRestList) GetKindOk() (*string, bool) {
 func (o *RegistryRestList) SetKind(v string) {
 	o.Kind = v
 }
+
 
 // GetPage returns the Page field value
 func (o *RegistryRestList) GetPage() int32 {
@@ -88,7 +97,7 @@ func (o *RegistryRestList) GetPage() int32 {
 // GetPageOk returns a tuple with the Page field value
 // and a boolean to check if the value has been set.
 func (o *RegistryRestList) GetPageOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Page, true
@@ -98,6 +107,7 @@ func (o *RegistryRestList) GetPageOk() (*int32, bool) {
 func (o *RegistryRestList) SetPage(v int32) {
 	o.Page = v
 }
+
 
 // GetSize returns the Size field value
 func (o *RegistryRestList) GetSize() int32 {
@@ -112,7 +122,7 @@ func (o *RegistryRestList) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *RegistryRestList) GetSizeOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Size, true
@@ -122,6 +132,7 @@ func (o *RegistryRestList) GetSizeOk() (*int32, bool) {
 func (o *RegistryRestList) SetSize(v int32) {
 	o.Size = v
 }
+
 
 // GetTotal returns the Total field value
 func (o *RegistryRestList) GetTotal() int32 {
@@ -136,7 +147,7 @@ func (o *RegistryRestList) GetTotal() int32 {
 // GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
 func (o *RegistryRestList) GetTotalOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Total, true
@@ -146,6 +157,7 @@ func (o *RegistryRestList) GetTotalOk() (*int32, bool) {
 func (o *RegistryRestList) SetTotal(v int32) {
 	o.Total = v
 }
+
 
 // GetItems returns the Items field value
 func (o *RegistryRestList) GetItems() []Registry {
@@ -160,7 +172,7 @@ func (o *RegistryRestList) GetItems() []Registry {
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
 func (o *RegistryRestList) GetItemsOk() (*[]Registry, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Items, true
@@ -171,29 +183,30 @@ func (o *RegistryRestList) SetItems(v []Registry) {
 	o.Items = v
 }
 
+
 func (o RegistryRestList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-
+    
 	if true {
 		toSerialize["page"] = o.Page
 	}
-
+    
 	if true {
 		toSerialize["size"] = o.Size
 	}
-
+    
 	if true {
 		toSerialize["total"] = o.Total
 	}
-
+    
 	if true {
 		toSerialize["items"] = o.Items
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -232,3 +245,4 @@ func (v *NullableRegistryRestList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

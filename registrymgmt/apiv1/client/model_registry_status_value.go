@@ -22,8 +22,8 @@ type RegistryStatusValue string
 // List of RegistryStatusValue
 const (
 	PROVISIONING RegistryStatusValue = "PROVISIONING"
-	AVAILABLE    RegistryStatusValue = "AVAILABLE"
-	UNAVAILABLE  RegistryStatusValue = "UNAVAILABLE"
+	AVAILABLE RegistryStatusValue = "AVAILABLE"
+	UNAVAILABLE RegistryStatusValue = "UNAVAILABLE"
 )
 
 var allowedRegistryStatusValueEnumValues = []RegistryStatusValue{
@@ -110,3 +110,4 @@ func (v *NullableRegistryStatusValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

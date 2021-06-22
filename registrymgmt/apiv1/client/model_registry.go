@@ -17,6 +17,7 @@ import (
 
 // Registry struct for Registry
 type Registry struct {
+
 	Id int32 `json:"id"`
 
 	Kind *string `json:"kind,omitempty"`
@@ -32,6 +33,7 @@ type Registry struct {
 
 	// Identifier of a multi-tenant deployment, where this Service Registry instance resides.
 	RegistryDeploymentId *int32 `json:"registryDeploymentId,omitempty"`
+
 }
 
 // NewRegistry instantiates a new Registry object
@@ -52,8 +54,16 @@ func NewRegistry(id int32, status RegistryStatusValue, registryUrl string) *Regi
 func NewRegistryWithDefaults() *Registry {
 	this := Registry{}
 
+
+
+
+
+
+
+
 	return &this
 }
+
 
 // GetId returns the Id field value
 func (o *Registry) GetId() int32 {
@@ -68,7 +78,7 @@ func (o *Registry) GetId() int32 {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *Registry) GetIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Id, true
@@ -78,6 +88,7 @@ func (o *Registry) GetIdOk() (*int32, bool) {
 func (o *Registry) SetId(v int32) {
 	o.Id = v
 }
+
 
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *Registry) GetKind() string {
@@ -111,6 +122,7 @@ func (o *Registry) SetKind(v string) {
 	o.Kind = &v
 }
 
+
 // GetHref returns the Href field value if set, zero value otherwise.
 func (o *Registry) GetHref() string {
 	if o == nil || o.Href == nil {
@@ -143,6 +155,7 @@ func (o *Registry) SetHref(v string) {
 	o.Href = &v
 }
 
+
 // GetStatus returns the Status field value
 func (o *Registry) GetStatus() RegistryStatusValue {
 	if o == nil {
@@ -156,7 +169,7 @@ func (o *Registry) GetStatus() RegistryStatusValue {
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *Registry) GetStatusOk() (*RegistryStatusValue, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Status, true
@@ -166,6 +179,7 @@ func (o *Registry) GetStatusOk() (*RegistryStatusValue, bool) {
 func (o *Registry) SetStatus(v RegistryStatusValue) {
 	o.Status = v
 }
+
 
 // GetRegistryUrl returns the RegistryUrl field value
 func (o *Registry) GetRegistryUrl() string {
@@ -180,7 +194,7 @@ func (o *Registry) GetRegistryUrl() string {
 // GetRegistryUrlOk returns a tuple with the RegistryUrl field value
 // and a boolean to check if the value has been set.
 func (o *Registry) GetRegistryUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.RegistryUrl, true
@@ -190,6 +204,7 @@ func (o *Registry) GetRegistryUrlOk() (*string, bool) {
 func (o *Registry) SetRegistryUrl(v string) {
 	o.RegistryUrl = v
 }
+
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Registry) GetName() string {
@@ -223,6 +238,7 @@ func (o *Registry) SetName(v string) {
 	o.Name = &v
 }
 
+
 // GetRegistryDeploymentId returns the RegistryDeploymentId field value if set, zero value otherwise.
 func (o *Registry) GetRegistryDeploymentId() int32 {
 	if o == nil || o.RegistryDeploymentId == nil {
@@ -255,37 +271,38 @@ func (o *Registry) SetRegistryDeploymentId(v int32) {
 	o.RegistryDeploymentId = &v
 }
 
+
 func (o Registry) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if true {
 		toSerialize["id"] = o.Id
 	}
-
+    
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-
+    
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
 	}
-
+    
 	if true {
 		toSerialize["status"] = o.Status
 	}
-
+    
 	if true {
 		toSerialize["registryUrl"] = o.RegistryUrl
 	}
-
+    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-
+    
 	if o.RegistryDeploymentId != nil {
 		toSerialize["registryDeploymentId"] = o.RegistryDeploymentId
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -324,3 +341,4 @@ func (v *NullableRegistry) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

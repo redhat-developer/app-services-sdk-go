@@ -206,7 +206,7 @@ paths:
       summary: Create a new Registry instance
       tags:
       - Registries
-    summary: Manage the list of all registries
+    summary: Manage the list of all registries.
   /api/serviceregistry_mgmt/v1/{id}:
     delete:
       description: Deletes an existing `Registry`.
@@ -218,7 +218,7 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
+          type: string
         style: simple
       responses:
         "204":
@@ -265,7 +265,7 @@ paths:
         name: id
         required: true
         schema:
-          type: integer
+          type: string
         style: simple
       responses:
         "200":

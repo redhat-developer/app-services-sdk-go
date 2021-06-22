@@ -17,11 +17,13 @@ import (
 
 // ObjectReference struct for ObjectReference
 type ObjectReference struct {
+
 	Id *string `json:"id,omitempty"`
 
 	Kind *string `json:"kind,omitempty"`
 
 	Href *string `json:"href,omitempty"`
+
 }
 
 // NewObjectReference instantiates a new ObjectReference object
@@ -39,8 +41,12 @@ func NewObjectReference() *ObjectReference {
 func NewObjectReferenceWithDefaults() *ObjectReference {
 	this := ObjectReference{}
 
+
+
+
 	return &this
 }
+
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *ObjectReference) GetId() string {
@@ -74,6 +80,7 @@ func (o *ObjectReference) SetId(v string) {
 	o.Id = &v
 }
 
+
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *ObjectReference) GetKind() string {
 	if o == nil || o.Kind == nil {
@@ -105,6 +112,7 @@ func (o *ObjectReference) HasKind() bool {
 func (o *ObjectReference) SetKind(v string) {
 	o.Kind = &v
 }
+
 
 // GetHref returns the Href field value if set, zero value otherwise.
 func (o *ObjectReference) GetHref() string {
@@ -138,21 +146,22 @@ func (o *ObjectReference) SetHref(v string) {
 	o.Href = &v
 }
 
+
 func (o ObjectReference) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-
+    
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-
+    
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -191,3 +200,4 @@ func (v *NullableObjectReference) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

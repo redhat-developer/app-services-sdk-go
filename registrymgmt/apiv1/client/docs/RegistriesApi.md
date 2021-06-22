@@ -96,7 +96,7 @@ import (
 )
 
 func main() {
-    id := int32(56) // int32 | A unique identifier for a `Registry`.
+    id := "id_example" // string | A unique identifier for a `Registry`.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -114,7 +114,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | A unique identifier for a &#x60;Registry&#x60;. | 
+**id** | **string** | A unique identifier for a &#x60;Registry&#x60;. | 
 
 ### Other Parameters
 
@@ -234,7 +234,7 @@ import (
 )
 
 func main() {
-    id := int32(56) // int32 | A unique identifier for a `Registry`.
+    id := "id_example" // string | A unique identifier for a `Registry`.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -254,7 +254,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | A unique identifier for a &#x60;Registry&#x60;. | 
+**id** | **string** | A unique identifier for a &#x60;Registry&#x60;. | 
 
 ### Other Parameters
 
