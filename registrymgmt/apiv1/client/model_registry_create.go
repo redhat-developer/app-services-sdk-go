@@ -20,6 +20,7 @@ type RegistryCreate struct {
 
 	// User-defined Registry name. Does not have to be unique.
 	Name *string `json:"name,omitempty"`
+
 }
 
 // NewRegistryCreate instantiates a new RegistryCreate object
@@ -37,8 +38,10 @@ func NewRegistryCreate() *RegistryCreate {
 func NewRegistryCreateWithDefaults() *RegistryCreate {
 	this := RegistryCreate{}
 
+
 	return &this
 }
+
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *RegistryCreate) GetName() string {
@@ -72,13 +75,14 @@ func (o *RegistryCreate) SetName(v string) {
 	o.Name = &v
 }
 
+
 func (o RegistryCreate) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -117,3 +121,4 @@ func (v *NullableRegistryCreate) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

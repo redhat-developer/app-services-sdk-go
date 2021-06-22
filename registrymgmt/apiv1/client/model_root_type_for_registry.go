@@ -17,6 +17,7 @@ import (
 
 // RootTypeForRegistry Service Registry instance within a multi-tenant deployment.
 type RootTypeForRegistry struct {
+
 	Id int32 `json:"id"`
 
 	Status RegistryStatusValue `json:"status"`
@@ -28,6 +29,7 @@ type RootTypeForRegistry struct {
 
 	// Identifier of a multi-tenant deployment, where this Service Registry instance resides.
 	RegistryDeploymentId *int32 `json:"registryDeploymentId,omitempty"`
+
 }
 
 // NewRootTypeForRegistry instantiates a new RootTypeForRegistry object
@@ -48,8 +50,14 @@ func NewRootTypeForRegistry(id int32, status RegistryStatusValue, registryUrl st
 func NewRootTypeForRegistryWithDefaults() *RootTypeForRegistry {
 	this := RootTypeForRegistry{}
 
+
+
+
+
+
 	return &this
 }
+
 
 // GetId returns the Id field value
 func (o *RootTypeForRegistry) GetId() int32 {
@@ -64,7 +72,7 @@ func (o *RootTypeForRegistry) GetId() int32 {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *RootTypeForRegistry) GetIdOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Id, true
@@ -74,6 +82,7 @@ func (o *RootTypeForRegistry) GetIdOk() (*int32, bool) {
 func (o *RootTypeForRegistry) SetId(v int32) {
 	o.Id = v
 }
+
 
 // GetStatus returns the Status field value
 func (o *RootTypeForRegistry) GetStatus() RegistryStatusValue {
@@ -88,7 +97,7 @@ func (o *RootTypeForRegistry) GetStatus() RegistryStatusValue {
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *RootTypeForRegistry) GetStatusOk() (*RegistryStatusValue, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Status, true
@@ -98,6 +107,7 @@ func (o *RootTypeForRegistry) GetStatusOk() (*RegistryStatusValue, bool) {
 func (o *RootTypeForRegistry) SetStatus(v RegistryStatusValue) {
 	o.Status = v
 }
+
 
 // GetRegistryUrl returns the RegistryUrl field value
 func (o *RootTypeForRegistry) GetRegistryUrl() string {
@@ -112,7 +122,7 @@ func (o *RootTypeForRegistry) GetRegistryUrl() string {
 // GetRegistryUrlOk returns a tuple with the RegistryUrl field value
 // and a boolean to check if the value has been set.
 func (o *RootTypeForRegistry) GetRegistryUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.RegistryUrl, true
@@ -122,6 +132,7 @@ func (o *RootTypeForRegistry) GetRegistryUrlOk() (*string, bool) {
 func (o *RootTypeForRegistry) SetRegistryUrl(v string) {
 	o.RegistryUrl = v
 }
+
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *RootTypeForRegistry) GetName() string {
@@ -155,6 +166,7 @@ func (o *RootTypeForRegistry) SetName(v string) {
 	o.Name = &v
 }
 
+
 // GetRegistryDeploymentId returns the RegistryDeploymentId field value if set, zero value otherwise.
 func (o *RootTypeForRegistry) GetRegistryDeploymentId() int32 {
 	if o == nil || o.RegistryDeploymentId == nil {
@@ -187,29 +199,30 @@ func (o *RootTypeForRegistry) SetRegistryDeploymentId(v int32) {
 	o.RegistryDeploymentId = &v
 }
 
+
 func (o RootTypeForRegistry) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if true {
 		toSerialize["id"] = o.Id
 	}
-
+    
 	if true {
 		toSerialize["status"] = o.Status
 	}
-
+    
 	if true {
 		toSerialize["registryUrl"] = o.RegistryUrl
 	}
-
+    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-
+    
 	if o.RegistryDeploymentId != nil {
 		toSerialize["registryDeploymentId"] = o.RegistryDeploymentId
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -248,3 +261,4 @@ func (v *NullableRootTypeForRegistry) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

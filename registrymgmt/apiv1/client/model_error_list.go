@@ -17,6 +17,7 @@ import (
 
 // ErrorList struct for ErrorList
 type ErrorList struct {
+
 	Kind string `json:"kind"`
 
 	Page int32 `json:"page"`
@@ -26,6 +27,7 @@ type ErrorList struct {
 	Total int32 `json:"total"`
 
 	Items []Error `json:"items"`
+
 }
 
 // NewErrorList instantiates a new ErrorList object
@@ -48,8 +50,14 @@ func NewErrorList(kind string, page int32, size int32, total int32, items []Erro
 func NewErrorListWithDefaults() *ErrorList {
 	this := ErrorList{}
 
+
+
+
+
+
 	return &this
 }
+
 
 // GetKind returns the Kind field value
 func (o *ErrorList) GetKind() string {
@@ -64,7 +72,7 @@ func (o *ErrorList) GetKind() string {
 // GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
 func (o *ErrorList) GetKindOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Kind, true
@@ -74,6 +82,7 @@ func (o *ErrorList) GetKindOk() (*string, bool) {
 func (o *ErrorList) SetKind(v string) {
 	o.Kind = v
 }
+
 
 // GetPage returns the Page field value
 func (o *ErrorList) GetPage() int32 {
@@ -88,7 +97,7 @@ func (o *ErrorList) GetPage() int32 {
 // GetPageOk returns a tuple with the Page field value
 // and a boolean to check if the value has been set.
 func (o *ErrorList) GetPageOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Page, true
@@ -98,6 +107,7 @@ func (o *ErrorList) GetPageOk() (*int32, bool) {
 func (o *ErrorList) SetPage(v int32) {
 	o.Page = v
 }
+
 
 // GetSize returns the Size field value
 func (o *ErrorList) GetSize() int32 {
@@ -112,7 +122,7 @@ func (o *ErrorList) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *ErrorList) GetSizeOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Size, true
@@ -122,6 +132,7 @@ func (o *ErrorList) GetSizeOk() (*int32, bool) {
 func (o *ErrorList) SetSize(v int32) {
 	o.Size = v
 }
+
 
 // GetTotal returns the Total field value
 func (o *ErrorList) GetTotal() int32 {
@@ -136,7 +147,7 @@ func (o *ErrorList) GetTotal() int32 {
 // GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
 func (o *ErrorList) GetTotalOk() (*int32, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Total, true
@@ -146,6 +157,7 @@ func (o *ErrorList) GetTotalOk() (*int32, bool) {
 func (o *ErrorList) SetTotal(v int32) {
 	o.Total = v
 }
+
 
 // GetItems returns the Items field value
 func (o *ErrorList) GetItems() []Error {
@@ -160,7 +172,7 @@ func (o *ErrorList) GetItems() []Error {
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
 func (o *ErrorList) GetItemsOk() (*[]Error, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Items, true
@@ -171,29 +183,30 @@ func (o *ErrorList) SetItems(v []Error) {
 	o.Items = v
 }
 
+
 func (o ErrorList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-
+    
 	if true {
 		toSerialize["page"] = o.Page
 	}
-
+    
 	if true {
 		toSerialize["size"] = o.Size
 	}
-
+    
 	if true {
 		toSerialize["total"] = o.Total
 	}
-
+    
 	if true {
 		toSerialize["items"] = o.Items
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -232,3 +245,4 @@ func (v *NullableErrorList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

@@ -17,7 +17,9 @@ import (
 
 // RegistryRestListAllOf struct for RegistryRestListAllOf
 type RegistryRestListAllOf struct {
+
 	Items *[]Registry `json:"items,omitempty"`
+
 }
 
 // NewRegistryRestListAllOf instantiates a new RegistryRestListAllOf object
@@ -35,8 +37,10 @@ func NewRegistryRestListAllOf() *RegistryRestListAllOf {
 func NewRegistryRestListAllOfWithDefaults() *RegistryRestListAllOf {
 	this := RegistryRestListAllOf{}
 
+
 	return &this
 }
+
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *RegistryRestListAllOf) GetItems() []Registry {
@@ -70,13 +74,14 @@ func (o *RegistryRestListAllOf) SetItems(v []Registry) {
 	o.Items = &v
 }
 
+
 func (o RegistryRestListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -115,3 +120,4 @@ func (v *NullableRegistryRestListAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
