@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"os"
 	"path"
@@ -47,6 +48,10 @@ func main() {
 	fullTemplatesDirPath := path.Join(root, templatesDir)
 
 	for id, metadata := range *clientConfig {
+		if metadata.Disabled {
+			fmt.Fprintf(os.Stderr, "Skipping generation of '%v': generation disabled\n", id)
+			continue
+		}
 		genOpts := generator.Options{
 			Generator:      generatorInput,
 			ClientID:       id,

@@ -21,6 +21,7 @@
     "apiGroup": "connectormgmt",
     "apiVersion": "v1",
     "release_level": "alpha",
-    "openapi_file": ".openapi/connector_mgmt.yaml"
+    "openapi_file": ".openapi/connector_mgmt.yaml",
+    "disabled": true
   }
 }

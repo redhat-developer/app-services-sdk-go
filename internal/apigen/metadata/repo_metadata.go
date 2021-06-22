@@ -14,6 +14,7 @@ type SdkEntry struct {
 	APIVersion   string `json:"apiVersion"`
 	ReleaseLevel string `json:"release_level"`
 	OpenApiFile  string `json:"openapi_file"`
+	Disabled     bool   `json:"disabled,omitempty"`
 }
 
 func (s *SdkEntry) OutputPath() string {

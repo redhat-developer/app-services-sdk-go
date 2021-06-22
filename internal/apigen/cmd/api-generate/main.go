@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"os"
 	"path"
@@ -47,6 +48,10 @@ func main() {
 	clientConfig, err := metadata.GetSdkEntry(clientID, repoMetadataPath)
 	if err != nil && generatorInput == "go" {
 		log.Fatalln("no config found for client:", clientID)
+	}
+	if clientConfig.Disabled {
+		fmt.Fprintf(os.Stderr, "Skipping generation of '%v': generation disabled\n", clientID)
+		return
 	}
 
 	fullTemplatesDirPath := path.Join(root, templatesDir)
