@@ -61,6 +61,12 @@ var _ DefaultApi = &DefaultApiMock{}
 // 			GetTopicsExecuteFunc: func(r ApiGetTopicsRequest) (TopicsList, *_nethttp.Response, error) {
 // 				panic("mock out the GetTopicsExecute method")
 // 			},
+// 			ResetConsumerGroupOffsetFunc: func(ctx _context.Context, consumerGroupId string) ApiResetConsumerGroupOffsetRequest {
+// 				panic("mock out the ResetConsumerGroupOffset method")
+// 			},
+// 			ResetConsumerGroupOffsetExecuteFunc: func(r ApiResetConsumerGroupOffsetRequest) ([][]map[string]interface{}, *_nethttp.Response, error) {
+// 				panic("mock out the ResetConsumerGroupOffsetExecute method")
+// 			},
 // 			UpdateTopicFunc: func(ctx _context.Context, topicName string) ApiUpdateTopicRequest {
 // 				panic("mock out the UpdateTopic method")
 // 			},
@@ -115,6 +121,12 @@ type DefaultApiMock struct {
 
 	// GetTopicsExecuteFunc mocks the GetTopicsExecute method.
 	GetTopicsExecuteFunc func(r ApiGetTopicsRequest) (TopicsList, *_nethttp.Response, error)
+
+	// ResetConsumerGroupOffsetFunc mocks the ResetConsumerGroupOffset method.
+	ResetConsumerGroupOffsetFunc func(ctx _context.Context, consumerGroupId string) ApiResetConsumerGroupOffsetRequest
+
+	// ResetConsumerGroupOffsetExecuteFunc mocks the ResetConsumerGroupOffsetExecute method.
+	ResetConsumerGroupOffsetExecuteFunc func(r ApiResetConsumerGroupOffsetRequest) ([][]map[string]interface{}, *_nethttp.Response, error)
 
 	// UpdateTopicFunc mocks the UpdateTopic method.
 	UpdateTopicFunc func(ctx _context.Context, topicName string) ApiUpdateTopicRequest
@@ -202,6 +214,18 @@ type DefaultApiMock struct {
 			// R is the r argument value.
 			R ApiGetTopicsRequest
 		}
+		// ResetConsumerGroupOffset holds details about calls to the ResetConsumerGroupOffset method.
+		ResetConsumerGroupOffset []struct {
+			// Ctx is the ctx argument value.
+			Ctx _context.Context
+			// ConsumerGroupId is the consumerGroupId argument value.
+			ConsumerGroupId string
+		}
+		// ResetConsumerGroupOffsetExecute holds details about calls to the ResetConsumerGroupOffsetExecute method.
+		ResetConsumerGroupOffsetExecute []struct {
+			// R is the r argument value.
+			R ApiResetConsumerGroupOffsetRequest
+		}
 		// UpdateTopic holds details about calls to the UpdateTopic method.
 		UpdateTopic []struct {
 			// Ctx is the ctx argument value.
@@ -215,22 +239,24 @@ type DefaultApiMock struct {
 			R ApiUpdateTopicRequest
 		}
 	}
-	lockCreateTopic                    sync.RWMutex
-	lockCreateTopicExecute             sync.RWMutex
-	lockDeleteConsumerGroupById        sync.RWMutex
-	lockDeleteConsumerGroupByIdExecute sync.RWMutex
-	lockDeleteTopic                    sync.RWMutex
-	lockDeleteTopicExecute             sync.RWMutex
-	lockGetConsumerGroupById           sync.RWMutex
-	lockGetConsumerGroupByIdExecute    sync.RWMutex
-	lockGetConsumerGroups              sync.RWMutex
-	lockGetConsumerGroupsExecute       sync.RWMutex
-	lockGetTopic                       sync.RWMutex
-	lockGetTopicExecute                sync.RWMutex
-	lockGetTopics                      sync.RWMutex
-	lockGetTopicsExecute               sync.RWMutex
-	lockUpdateTopic                    sync.RWMutex
-	lockUpdateTopicExecute             sync.RWMutex
+	lockCreateTopic                     sync.RWMutex
+	lockCreateTopicExecute              sync.RWMutex
+	lockDeleteConsumerGroupById         sync.RWMutex
+	lockDeleteConsumerGroupByIdExecute  sync.RWMutex
+	lockDeleteTopic                     sync.RWMutex
+	lockDeleteTopicExecute              sync.RWMutex
+	lockGetConsumerGroupById            sync.RWMutex
+	lockGetConsumerGroupByIdExecute     sync.RWMutex
+	lockGetConsumerGroups               sync.RWMutex
+	lockGetConsumerGroupsExecute        sync.RWMutex
+	lockGetTopic                        sync.RWMutex
+	lockGetTopicExecute                 sync.RWMutex
+	lockGetTopics                       sync.RWMutex
+	lockGetTopicsExecute                sync.RWMutex
+	lockResetConsumerGroupOffset        sync.RWMutex
+	lockResetConsumerGroupOffsetExecute sync.RWMutex
+	lockUpdateTopic                     sync.RWMutex
+	lockUpdateTopicExecute              sync.RWMutex
 }
 
 // CreateTopic calls CreateTopicFunc.
@@ -680,6 +706,72 @@ func (mock *DefaultApiMock) GetTopicsExecuteCalls() []struct {
 	mock.lockGetTopicsExecute.RLock()
 	calls = mock.calls.GetTopicsExecute
 	mock.lockGetTopicsExecute.RUnlock()
+	return calls
+}
+
+// ResetConsumerGroupOffset calls ResetConsumerGroupOffsetFunc.
+func (mock *DefaultApiMock) ResetConsumerGroupOffset(ctx _context.Context, consumerGroupId string) ApiResetConsumerGroupOffsetRequest {
+	if mock.ResetConsumerGroupOffsetFunc == nil {
+		panic("DefaultApiMock.ResetConsumerGroupOffsetFunc: method is nil but DefaultApi.ResetConsumerGroupOffset was just called")
+	}
+	callInfo := struct {
+		Ctx             _context.Context
+		ConsumerGroupId string
+	}{
+		Ctx:             ctx,
+		ConsumerGroupId: consumerGroupId,
+	}
+	mock.lockResetConsumerGroupOffset.Lock()
+	mock.calls.ResetConsumerGroupOffset = append(mock.calls.ResetConsumerGroupOffset, callInfo)
+	mock.lockResetConsumerGroupOffset.Unlock()
+	return mock.ResetConsumerGroupOffsetFunc(ctx, consumerGroupId)
+}
+
+// ResetConsumerGroupOffsetCalls gets all the calls that were made to ResetConsumerGroupOffset.
+// Check the length with:
+//     len(mockedDefaultApi.ResetConsumerGroupOffsetCalls())
+func (mock *DefaultApiMock) ResetConsumerGroupOffsetCalls() []struct {
+	Ctx             _context.Context
+	ConsumerGroupId string
+} {
+	var calls []struct {
+		Ctx             _context.Context
+		ConsumerGroupId string
+	}
+	mock.lockResetConsumerGroupOffset.RLock()
+	calls = mock.calls.ResetConsumerGroupOffset
+	mock.lockResetConsumerGroupOffset.RUnlock()
+	return calls
+}
+
+// ResetConsumerGroupOffsetExecute calls ResetConsumerGroupOffsetExecuteFunc.
+func (mock *DefaultApiMock) ResetConsumerGroupOffsetExecute(r ApiResetConsumerGroupOffsetRequest) ([][]map[string]interface{}, *_nethttp.Response, error) {
+	if mock.ResetConsumerGroupOffsetExecuteFunc == nil {
+		panic("DefaultApiMock.ResetConsumerGroupOffsetExecuteFunc: method is nil but DefaultApi.ResetConsumerGroupOffsetExecute was just called")
+	}
+	callInfo := struct {
+		R ApiResetConsumerGroupOffsetRequest
+	}{
+		R: r,
+	}
+	mock.lockResetConsumerGroupOffsetExecute.Lock()
+	mock.calls.ResetConsumerGroupOffsetExecute = append(mock.calls.ResetConsumerGroupOffsetExecute, callInfo)
+	mock.lockResetConsumerGroupOffsetExecute.Unlock()
+	return mock.ResetConsumerGroupOffsetExecuteFunc(r)
+}
+
+// ResetConsumerGroupOffsetExecuteCalls gets all the calls that were made to ResetConsumerGroupOffsetExecute.
+// Check the length with:
+//     len(mockedDefaultApi.ResetConsumerGroupOffsetExecuteCalls())
+func (mock *DefaultApiMock) ResetConsumerGroupOffsetExecuteCalls() []struct {
+	R ApiResetConsumerGroupOffsetRequest
+} {
+	var calls []struct {
+		R ApiResetConsumerGroupOffsetRequest
+	}
+	mock.lockResetConsumerGroupOffsetExecute.RLock()
+	calls = mock.calls.ResetConsumerGroupOffsetExecute
+	mock.lockResetConsumerGroupOffsetExecute.RUnlock()
 	return calls
 }
 

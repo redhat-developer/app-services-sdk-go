@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | 
+**Id** | **string** |  | 
 **Status** | [**RegistryStatusValue**](RegistryStatusValue.md) |  | 
 **RegistryUrl** | **string** |  | 
 **Name** | Pointer to **string** | User-defined Registry name. Does not have to be unique. | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewRootTypeForRegistry
 
-`func NewRootTypeForRegistry(id int32, status RegistryStatusValue, registryUrl string, ) *RootTypeForRegistry`
+`func NewRootTypeForRegistry(id string, status RegistryStatusValue, registryUrl string, ) *RootTypeForRegistry`
 
 NewRootTypeForRegistry instantiates a new RootTypeForRegistry object
 This constructor will assign default values to properties that have it defined,
@@ -33,20 +33,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *RootTypeForRegistry) GetId() int32`
+`func (o *RootTypeForRegistry) GetId() string`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *RootTypeForRegistry) GetIdOk() (*int32, bool)`
+`func (o *RootTypeForRegistry) GetIdOk() (*string, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *RootTypeForRegistry) SetId(v int32)`
+`func (o *RootTypeForRegistry) SetId(v string)`
 
 SetId sets Id field to given value.
 

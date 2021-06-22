@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Config** | Pointer to [**[]ConfigEntry**](ConfigEntry.md) | Topic configuration entry. | [optional] 
+**Config** | Pointer to [**[]ConfigEntry**](ConfigEntry.md) | Topic configuration entries. | [optional] 
+**Partitions** | Pointer to **int32** | Number of partitions (only increasing supported) | [optional] 
 
 
 ## Methods
@@ -51,6 +52,32 @@ SetConfig sets Config field to given value.
 `func (o *UpdateTopicInput) HasConfig() bool`
 
 HasConfig returns a boolean if a field has been set.
+
+
+### GetPartitions
+
+`func (o *UpdateTopicInput) GetPartitions() int32`
+
+GetPartitions returns the Partitions field if non-nil, zero value otherwise.
+
+### GetPartitionsOk
+
+`func (o *UpdateTopicInput) GetPartitionsOk() (*int32, bool)`
+
+GetPartitionsOk returns a tuple with the Partitions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPartitions
+
+`func (o *UpdateTopicInput) SetPartitions(v int32)`
+
+SetPartitions sets Partitions field to given value.
+
+### HasPartitions
+
+`func (o *UpdateTopicInput) HasPartitions() bool`
+
+HasPartitions returns a boolean if a field has been set.
 
 
 

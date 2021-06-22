@@ -548,7 +548,7 @@ components:
         registryDeploymentId: 1
       properties:
         id:
-          type: integer
+          type: string
         status:
           $ref: '#/components/schemas/RegistryStatusValue'
         registryUrl:

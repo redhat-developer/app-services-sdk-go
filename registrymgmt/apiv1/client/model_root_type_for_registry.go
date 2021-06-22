@@ -18,7 +18,7 @@ import (
 // RootTypeForRegistry Service Registry instance within a multi-tenant deployment.
 type RootTypeForRegistry struct {
 
-	Id int32 `json:"id"`
+	Id string `json:"id"`
 
 	Status RegistryStatusValue `json:"status"`
 
@@ -36,7 +36,7 @@ type RootTypeForRegistry struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRootTypeForRegistry(id int32, status RegistryStatusValue, registryUrl string) *RootTypeForRegistry {
+func NewRootTypeForRegistry(id string, status RegistryStatusValue, registryUrl string) *RootTypeForRegistry {
 	this := RootTypeForRegistry{}
 	this.Id = id
 	this.Status = status
@@ -60,9 +60,9 @@ func NewRootTypeForRegistryWithDefaults() *RootTypeForRegistry {
 
 
 // GetId returns the Id field value
-func (o *RootTypeForRegistry) GetId() int32 {
+func (o *RootTypeForRegistry) GetId() string {
 	if o == nil {
-		var ret int32
+		var ret string
 		return ret
 	}
 
@@ -71,7 +71,7 @@ func (o *RootTypeForRegistry) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *RootTypeForRegistry) GetIdOk() (*int32, bool) {
+func (o *RootTypeForRegistry) GetIdOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -79,7 +79,7 @@ func (o *RootTypeForRegistry) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *RootTypeForRegistry) SetId(v int32) {
+func (o *RootTypeForRegistry) SetId(v string) {
 	o.Id = v
 }
 
