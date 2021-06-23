@@ -32,7 +32,7 @@ jobs:
           commit-message: "chore(all): re-generate OpenAPI client(s)"
           author: "app-services-ci <app-services-ci@users.noreply.github.com>"
           branch: chore/generate-api-clients
-          branch-suffix: true
+          branch-suffix: timestamp
           reviewers: craicoverflow, wtrocki
           delete-branch: true
           body: |
