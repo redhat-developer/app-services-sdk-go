@@ -577,20 +577,30 @@ func (a *DefaultApiService) GetConsumerGroupByIdExecute(r ApiGetConsumerGroupByI
 type ApiGetConsumerGroupsRequest struct {
 	ctx _context.Context
 	ApiService DefaultApi
-	limit *int32
 	offset *int32
+	limit *int32
+	size *int32
+	page *int32
 	topic *string
 	groupIdFilter *string
 	order *string
 	orderKey *string
 }
 
+func (r ApiGetConsumerGroupsRequest) Offset(offset int32) ApiGetConsumerGroupsRequest {
+	r.offset = &offset
+	return r
+}
 func (r ApiGetConsumerGroupsRequest) Limit(limit int32) ApiGetConsumerGroupsRequest {
 	r.limit = &limit
 	return r
 }
-func (r ApiGetConsumerGroupsRequest) Offset(offset int32) ApiGetConsumerGroupsRequest {
-	r.offset = &offset
+func (r ApiGetConsumerGroupsRequest) Size(size int32) ApiGetConsumerGroupsRequest {
+	r.size = &size
+	return r
+}
+func (r ApiGetConsumerGroupsRequest) Page(page int32) ApiGetConsumerGroupsRequest {
+	r.page = &page
 	return r
 }
 func (r ApiGetConsumerGroupsRequest) Topic(topic string) ApiGetConsumerGroupsRequest {
@@ -652,11 +662,17 @@ func (a *DefaultApiService) GetConsumerGroupsExecute(r ApiGetConsumerGroupsReque
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.offset != nil {
+		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+	}
 	if r.limit != nil {
 		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
 	}
-	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+	if r.size != nil {
+		localVarQueryParams.Add("size", parameterToString(*r.size, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
 	}
 	if r.topic != nil {
 		localVarQueryParams.Add("topic", parameterToString(*r.topic, ""))
@@ -833,23 +849,33 @@ func (a *DefaultApiService) GetTopicExecute(r ApiGetTopicRequest) (Topic, *_neth
 type ApiGetTopicsRequest struct {
 	ctx _context.Context
 	ApiService DefaultApi
-	limit *int32
-	filter *string
 	offset *int32
+	limit *int32
+	size *int32
+	filter *string
+	page *int32
 	order *string
 	orderKey *string
 }
 
+func (r ApiGetTopicsRequest) Offset(offset int32) ApiGetTopicsRequest {
+	r.offset = &offset
+	return r
+}
 func (r ApiGetTopicsRequest) Limit(limit int32) ApiGetTopicsRequest {
 	r.limit = &limit
+	return r
+}
+func (r ApiGetTopicsRequest) Size(size int32) ApiGetTopicsRequest {
+	r.size = &size
 	return r
 }
 func (r ApiGetTopicsRequest) Filter(filter string) ApiGetTopicsRequest {
 	r.filter = &filter
 	return r
 }
-func (r ApiGetTopicsRequest) Offset(offset int32) ApiGetTopicsRequest {
-	r.offset = &offset
+func (r ApiGetTopicsRequest) Page(page int32) ApiGetTopicsRequest {
+	r.page = &page
 	return r
 }
 func (r ApiGetTopicsRequest) Order(order string) ApiGetTopicsRequest {
@@ -903,14 +929,20 @@ func (a *DefaultApiService) GetTopicsExecute(r ApiGetTopicsRequest) (TopicsList,
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.offset != nil {
+		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+	}
 	if r.limit != nil {
 		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+	}
+	if r.size != nil {
+		localVarQueryParams.Add("size", parameterToString(*r.size, ""))
 	}
 	if r.filter != nil {
 		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
 	}
-	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
 	}
 	if r.order != nil {
 		localVarQueryParams.Add("order", parameterToString(*r.order, ""))

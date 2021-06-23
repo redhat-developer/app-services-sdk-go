@@ -4,17 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Offset** | **int32** | The page offset | 
-**Limit** | **int32** | number of entries per page | 
-**Count** | **int32** | Total number of topics | 
-**Items** | [**[]Topic**](Topic.md) | List of topics | 
+**Page** | Pointer to **int32** | The page | [optional] 
+**Size** | Pointer to **int32** | number of entries per page | [optional] 
+**Offset** | Pointer to **int32** | Deprecated offset of the topic list | [optional] 
+**Limit** | Pointer to **int32** | Deprecated maximum of returned topics | [optional] 
+**Total** | Pointer to **int32** | Total number of topics | [optional] 
+**Items** | Pointer to [**[]Topic**](Topic.md) | List of topics | [optional] 
 
 
 ## Methods
 
 ### NewTopicsList
 
-`func NewTopicsList(offset int32, limit int32, count int32, items []Topic, ) *TopicsList`
+`func NewTopicsList() *TopicsList`
 
 NewTopicsList instantiates a new TopicsList object
 This constructor will assign default values to properties that have it defined,
@@ -28,6 +30,58 @@ will change when the set of required properties is changed
 NewTopicsListWithDefaults instantiates a new TopicsList object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+
+### GetPage
+
+`func (o *TopicsList) GetPage() int32`
+
+GetPage returns the Page field if non-nil, zero value otherwise.
+
+### GetPageOk
+
+`func (o *TopicsList) GetPageOk() (*int32, bool)`
+
+GetPageOk returns a tuple with the Page field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPage
+
+`func (o *TopicsList) SetPage(v int32)`
+
+SetPage sets Page field to given value.
+
+### HasPage
+
+`func (o *TopicsList) HasPage() bool`
+
+HasPage returns a boolean if a field has been set.
+
+
+### GetSize
+
+`func (o *TopicsList) GetSize() int32`
+
+GetSize returns the Size field if non-nil, zero value otherwise.
+
+### GetSizeOk
+
+`func (o *TopicsList) GetSizeOk() (*int32, bool)`
+
+GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSize
+
+`func (o *TopicsList) SetSize(v int32)`
+
+SetSize sets Size field to given value.
+
+### HasSize
+
+`func (o *TopicsList) HasSize() bool`
+
+HasSize returns a boolean if a field has been set.
 
 
 ### GetOffset
@@ -49,6 +103,11 @@ and a boolean to check if the value has been set.
 
 SetOffset sets Offset field to given value.
 
+### HasOffset
+
+`func (o *TopicsList) HasOffset() bool`
+
+HasOffset returns a boolean if a field has been set.
 
 
 ### GetLimit
@@ -70,27 +129,37 @@ and a boolean to check if the value has been set.
 
 SetLimit sets Limit field to given value.
 
+### HasLimit
+
+`func (o *TopicsList) HasLimit() bool`
+
+HasLimit returns a boolean if a field has been set.
 
 
-### GetCount
+### GetTotal
 
-`func (o *TopicsList) GetCount() int32`
+`func (o *TopicsList) GetTotal() int32`
 
-GetCount returns the Count field if non-nil, zero value otherwise.
+GetTotal returns the Total field if non-nil, zero value otherwise.
 
-### GetCountOk
+### GetTotalOk
 
-`func (o *TopicsList) GetCountOk() (*int32, bool)`
+`func (o *TopicsList) GetTotalOk() (*int32, bool)`
 
-GetCountOk returns a tuple with the Count field if it's non-nil, zero value otherwise
+GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCount
+### SetTotal
 
-`func (o *TopicsList) SetCount(v int32)`
+`func (o *TopicsList) SetTotal(v int32)`
 
-SetCount sets Count field to given value.
+SetTotal sets Total field to given value.
 
+### HasTotal
+
+`func (o *TopicsList) HasTotal() bool`
+
+HasTotal returns a boolean if a field has been set.
 
 
 ### GetItems
@@ -112,6 +181,11 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
+### HasItems
+
+`func (o *TopicsList) HasItems() bool`
+
+HasItems returns a boolean if a field has been set.
 
 
 

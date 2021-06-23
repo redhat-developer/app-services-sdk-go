@@ -18,16 +18,22 @@ import (
 type ConsumerGroupList struct {
 
 	// Consumer group list items
-	Items []ConsumerGroup `json:"items"`
+	Items *[]ConsumerGroup `json:"items,omitempty"`
 
 	// The total number of consumer groups.
-	Count float32 `json:"count"`
+	Total *float32 `json:"total,omitempty"`
 
 	// The number of consumer groups per page.
-	Limit float32 `json:"limit"`
+	Size *float32 `json:"size,omitempty"`
 
-	// The page offset
-	Offset int32 `json:"offset"`
+	// The page
+	Page *int32 `json:"page,omitempty"`
+
+	// Deprecated offset of the topic list
+	Offset *int32 `json:"offset,omitempty"`
+
+	// Deprecated maximum of returned topics
+	Limit *int32 `json:"limit,omitempty"`
 
 }
 
@@ -35,12 +41,8 @@ type ConsumerGroupList struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConsumerGroupList(items []ConsumerGroup, count float32, limit float32, offset int32) *ConsumerGroupList {
+func NewConsumerGroupList() *ConsumerGroupList {
 	this := ConsumerGroupList{}
-	this.Items = items
-	this.Count = count
-	this.Limit = limit
-	this.Offset = offset
 	return &this
 }
 
@@ -54,127 +56,235 @@ func NewConsumerGroupListWithDefaults() *ConsumerGroupList {
 
 
 
+
+
 	return &this
 }
 
 
-// GetItems returns the Items field value
+// GetItems returns the Items field value if set, zero value otherwise.
 func (o *ConsumerGroupList) GetItems() []ConsumerGroup {
-	if o == nil {
+	if o == nil || o.Items == nil {
 		var ret []ConsumerGroup
 		return ret
 	}
-
-	return o.Items
+	return *o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value
+// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConsumerGroupList) GetItemsOk() (*[]ConsumerGroup, bool) {
-	if o == nil  {
+	if o == nil || o.Items == nil {
 		return nil, false
 	}
-	return &o.Items, true
+	return o.Items, true
 }
 
-// SetItems sets field value
+// HasItems returns a boolean if a field has been set.
+func (o *ConsumerGroupList) HasItems() bool {
+	if o != nil && o.Items != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetItems gets a reference to the given []ConsumerGroup and assigns it to the Items field.
 func (o *ConsumerGroupList) SetItems(v []ConsumerGroup) {
-	o.Items = v
+	o.Items = &v
 }
 
 
-// GetCount returns the Count field value
-func (o *ConsumerGroupList) GetCount() float32 {
-	if o == nil {
+// GetTotal returns the Total field value if set, zero value otherwise.
+func (o *ConsumerGroupList) GetTotal() float32 {
+	if o == nil || o.Total == nil {
 		var ret float32
 		return ret
 	}
-
-	return o.Count
+	return *o.Total
 }
 
-// GetCountOk returns a tuple with the Count field value
+// GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConsumerGroupList) GetCountOk() (*float32, bool) {
-	if o == nil  {
+func (o *ConsumerGroupList) GetTotalOk() (*float32, bool) {
+	if o == nil || o.Total == nil {
 		return nil, false
 	}
-	return &o.Count, true
+	return o.Total, true
 }
 
-// SetCount sets field value
-func (o *ConsumerGroupList) SetCount(v float32) {
-	o.Count = v
+// HasTotal returns a boolean if a field has been set.
+func (o *ConsumerGroupList) HasTotal() bool {
+	if o != nil && o.Total != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTotal gets a reference to the given float32 and assigns it to the Total field.
+func (o *ConsumerGroupList) SetTotal(v float32) {
+	o.Total = &v
 }
 
 
-// GetLimit returns the Limit field value
-func (o *ConsumerGroupList) GetLimit() float32 {
-	if o == nil {
+// GetSize returns the Size field value if set, zero value otherwise.
+func (o *ConsumerGroupList) GetSize() float32 {
+	if o == nil || o.Size == nil {
 		var ret float32
 		return ret
 	}
-
-	return o.Limit
+	return *o.Size
 }
 
-// GetLimitOk returns a tuple with the Limit field value
+// GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConsumerGroupList) GetLimitOk() (*float32, bool) {
-	if o == nil  {
+func (o *ConsumerGroupList) GetSizeOk() (*float32, bool) {
+	if o == nil || o.Size == nil {
 		return nil, false
 	}
-	return &o.Limit, true
+	return o.Size, true
 }
 
-// SetLimit sets field value
-func (o *ConsumerGroupList) SetLimit(v float32) {
-	o.Limit = v
+// HasSize returns a boolean if a field has been set.
+func (o *ConsumerGroupList) HasSize() bool {
+	if o != nil && o.Size != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSize gets a reference to the given float32 and assigns it to the Size field.
+func (o *ConsumerGroupList) SetSize(v float32) {
+	o.Size = &v
 }
 
 
-// GetOffset returns the Offset field value
-func (o *ConsumerGroupList) GetOffset() int32 {
-	if o == nil {
+// GetPage returns the Page field value if set, zero value otherwise.
+func (o *ConsumerGroupList) GetPage() int32 {
+	if o == nil || o.Page == nil {
 		var ret int32
 		return ret
 	}
-
-	return o.Offset
+	return *o.Page
 }
 
-// GetOffsetOk returns a tuple with the Offset field value
+// GetPageOk returns a tuple with the Page field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConsumerGroupList) GetOffsetOk() (*int32, bool) {
-	if o == nil  {
+func (o *ConsumerGroupList) GetPageOk() (*int32, bool) {
+	if o == nil || o.Page == nil {
 		return nil, false
 	}
-	return &o.Offset, true
+	return o.Page, true
 }
 
-// SetOffset sets field value
+// HasPage returns a boolean if a field has been set.
+func (o *ConsumerGroupList) HasPage() bool {
+	if o != nil && o.Page != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPage gets a reference to the given int32 and assigns it to the Page field.
+func (o *ConsumerGroupList) SetPage(v int32) {
+	o.Page = &v
+}
+
+
+// GetOffset returns the Offset field value if set, zero value otherwise.
+func (o *ConsumerGroupList) GetOffset() int32 {
+	if o == nil || o.Offset == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Offset
+}
+
+// GetOffsetOk returns a tuple with the Offset field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConsumerGroupList) GetOffsetOk() (*int32, bool) {
+	if o == nil || o.Offset == nil {
+		return nil, false
+	}
+	return o.Offset, true
+}
+
+// HasOffset returns a boolean if a field has been set.
+func (o *ConsumerGroupList) HasOffset() bool {
+	if o != nil && o.Offset != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOffset gets a reference to the given int32 and assigns it to the Offset field.
 func (o *ConsumerGroupList) SetOffset(v int32) {
-	o.Offset = v
+	o.Offset = &v
+}
+
+
+// GetLimit returns the Limit field value if set, zero value otherwise.
+func (o *ConsumerGroupList) GetLimit() int32 {
+	if o == nil || o.Limit == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Limit
+}
+
+// GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConsumerGroupList) GetLimitOk() (*int32, bool) {
+	if o == nil || o.Limit == nil {
+		return nil, false
+	}
+	return o.Limit, true
+}
+
+// HasLimit returns a boolean if a field has been set.
+func (o *ConsumerGroupList) HasLimit() bool {
+	if o != nil && o.Limit != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLimit gets a reference to the given int32 and assigns it to the Limit field.
+func (o *ConsumerGroupList) SetLimit(v int32) {
+	o.Limit = &v
 }
 
 
 func (o ConsumerGroupList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
-	if true {
+	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
     
-	if true {
-		toSerialize["count"] = o.Count
+	if o.Total != nil {
+		toSerialize["total"] = o.Total
 	}
     
-	if true {
-		toSerialize["limit"] = o.Limit
+	if o.Size != nil {
+		toSerialize["size"] = o.Size
 	}
     
-	if true {
+	if o.Page != nil {
+		toSerialize["page"] = o.Page
+	}
+    
+	if o.Offset != nil {
 		toSerialize["offset"] = o.Offset
+	}
+    
+	if o.Limit != nil {
+		toSerialize["limit"] = o.Limit
 	}
     
 	return json.Marshal(toSerialize)

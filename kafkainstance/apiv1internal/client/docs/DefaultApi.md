@@ -290,7 +290,7 @@ Name | Type | Description  | Notes
 
 ## GetConsumerGroups
 
-> ConsumerGroupList GetConsumerGroups(ctx).Limit(limit).Offset(offset).Topic(topic).GroupIdFilter(groupIdFilter).Order(order).OrderKey(orderKey).Execute()
+> ConsumerGroupList GetConsumerGroups(ctx).Offset(offset).Limit(limit).Size(size).Page(page).Topic(topic).GroupIdFilter(groupIdFilter).Order(order).OrderKey(orderKey).Execute()
 
 List of consumer groups in the Kafka instance.
 
@@ -309,8 +309,10 @@ import (
 )
 
 func main() {
-    limit := int32(56) // int32 | Maximum number of consumer groups to returnd (optional)
-    offset := int32(56) // int32 | The page offset when returning the list of consumer groups (optional)
+    offset := int32(56) // int32 | The page offset (optional)
+    limit := int32(56) // int32 | Maximum number of consumer groups to return (optional)
+    size := int32(56) // int32 | Maximum number of consumer groups to return on single page (optional)
+    page := int32(56) // int32 | The page when returning the list of consumer groups (optional)
     topic := "topic_example" // string | Return consumer groups for this topic (optional)
     groupIdFilter := "groupIdFilter_example" // string | Return the consumer groups where the ID begins with this value (optional)
     order := "order_example" // string | Order of the consumer groups sorting. Ascending order is used as default. (optional)
@@ -318,7 +320,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.GetConsumerGroups(context.Background()).Limit(limit).Offset(offset).Topic(topic).GroupIdFilter(groupIdFilter).Order(order).OrderKey(orderKey).Execute()
+    resp, r, err := api_client.DefaultApi.GetConsumerGroups(context.Background()).Offset(offset).Limit(limit).Size(size).Page(page).Topic(topic).GroupIdFilter(groupIdFilter).Order(order).OrderKey(orderKey).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetConsumerGroups``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -339,8 +341,10 @@ Other parameters are passed through a pointer to a apiGetConsumerGroupsRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int32** | Maximum number of consumer groups to returnd | 
- **offset** | **int32** | The page offset when returning the list of consumer groups | 
+ **offset** | **int32** | The page offset | 
+ **limit** | **int32** | Maximum number of consumer groups to return | 
+ **size** | **int32** | Maximum number of consumer groups to return on single page | 
+ **page** | **int32** | The page when returning the list of consumer groups | 
  **topic** | **string** | Return consumer groups for this topic | 
  **groupIdFilter** | **string** | Return the consumer groups where the ID begins with this value | 
  **order** | **string** | Order of the consumer groups sorting. Ascending order is used as default. | 
@@ -436,7 +440,7 @@ Name | Type | Description  | Notes
 
 ## GetTopics
 
-> TopicsList GetTopics(ctx).Limit(limit).Filter(filter).Offset(offset).Order(order).OrderKey(orderKey).Execute()
+> TopicsList GetTopics(ctx).Offset(offset).Limit(limit).Size(size).Filter(filter).Page(page).Order(order).OrderKey(orderKey).Execute()
 
 List of topics
 
@@ -455,15 +459,17 @@ import (
 )
 
 func main() {
+    offset := int32(56) // int32 | The page offset (optional)
     limit := int32(56) // int32 | Maximum number of topics to return (optional)
+    size := int32(56) // int32 | Maximum number of topics to return on single page (optional)
     filter := "filter_example" // string | Filter to apply when returning the list of topics (optional)
-    offset := int32(56) // int32 | The page offset when returning the limit of requested topics. (optional)
+    page := int32(56) // int32 | The page when returning the limit of requested topics. (optional)
     order := "order_example" // string | Order of the items sorting. Ascending order is used as default. (optional)
     orderKey := "orderKey_example" // string | Order key to sort the topics by. (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.GetTopics(context.Background()).Limit(limit).Filter(filter).Offset(offset).Order(order).OrderKey(orderKey).Execute()
+    resp, r, err := api_client.DefaultApi.GetTopics(context.Background()).Offset(offset).Limit(limit).Size(size).Filter(filter).Page(page).Order(order).OrderKey(orderKey).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetTopics``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -484,9 +490,11 @@ Other parameters are passed through a pointer to a apiGetTopicsRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **offset** | **int32** | The page offset | 
  **limit** | **int32** | Maximum number of topics to return | 
+ **size** | **int32** | Maximum number of topics to return on single page | 
  **filter** | **string** | Filter to apply when returning the list of topics | 
- **offset** | **int32** | The page offset when returning the limit of requested topics. | 
+ **page** | **int32** | The page when returning the limit of requested topics. | 
  **order** | **string** | Order of the items sorting. Ascending order is used as default. | 
  **orderKey** | **string** | Order key to sort the topics by. | 
 
