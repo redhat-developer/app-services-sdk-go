@@ -31,7 +31,7 @@ jobs:
           author: "app-services-ci <app-services-ci@users.noreply.github.com>"
           branch: chore/add-${{ github.event.client_payload.id }}-openapi
           branch-suffix: timestamp
-          assignees: craicoverflow, wtrocki
+          reviewers: craicoverflow, wtrocki
           delete-branch: true
           body: |
             _This pull request was auto-generated_
