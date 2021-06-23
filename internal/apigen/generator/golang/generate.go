@@ -55,11 +55,23 @@ func (g *GoGen) Generate() (err error) {
 		return err
 	}
 
-	if len(doc.Tags) == 0 {
-		_ = generateMocks("default", outputPath)
+	var tags []string = []string{}
+	for _, path := range doc.Paths {
+		tags = appendOperationTags(tags, path.Get)
+		tags = appendOperationTags(tags, path.Post)
+		tags = appendOperationTags(tags, path.Put)
+		tags = appendOperationTags(tags, path.Patch)
+		tags = appendOperationTags(tags, path.Delete)
 	}
-	for _, tag := range doc.Tags {
-		_ = generateMocks(tag.Name, outputPath)
+
+	if len(tags) == 0 {
+		_ = generateMocks("default", outputPath)
+		return nil
+	}
+
+	tags = unique(tags)
+	for _, tag := range tags {
+		_ = generateMocks(tag, outputPath)
 	}
 
 	return nil
@@ -110,4 +122,24 @@ func generateMocks(tag string, output string) error {
 	}
 
 	return nil
+}
+
+// returns a slice with duplicate values removed
+func unique(stringSlice []string) []string {
+	keys := make(map[string]bool)
+	list := []string{}
+	for _, entry := range stringSlice {
+		if _, value := keys[entry]; !value {
+			keys[entry] = true
+			list = append(list, entry)
+		}
+	}
+	return list
+}
+
+func appendOperationTags(tags []string, operation *openapi3.Operation) []string {
+	if operation == nil {
+		return tags
+	}
+	return append(tags, operation.Tags...)
 }
