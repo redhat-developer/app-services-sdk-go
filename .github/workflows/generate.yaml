@@ -31,7 +31,9 @@ jobs:
           token: "${{ secrets.CI_USER_TOKEN }}"
           commit-message: "chore(all): re-generate OpenAPI client(s)"
           author: "app-services-ci <app-services-ci@users.noreply.github.com>"
-          branch: chore/generate-api-client
+          branch: chore/generate-api-clients
+          branch-suffix: true
+          reviewers: craicoverflow, wtrocki
           delete-branch: true
           body: |
             _This pull request was auto-generated_
