@@ -306,7 +306,7 @@ func (a *ConnectorsApiService) DeleteConnectorExecute(r ApiDeleteConnectorReques
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafkas_connectors/{id}"
+	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafka_connectors/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -448,7 +448,7 @@ func (a *ConnectorsApiService) GetConnectorExecute(r ApiGetConnectorRequest) (Co
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafkas_connectors/{id}"
+	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafka_connectors/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -739,7 +739,7 @@ func (a *ConnectorsApiService) PatchConnectorExecute(r ApiPatchConnectorRequest)
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafkas_connectors/{id}"
+	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafka_connectors/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
