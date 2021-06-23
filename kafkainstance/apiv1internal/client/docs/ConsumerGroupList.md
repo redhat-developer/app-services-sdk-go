@@ -4,17 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]ConsumerGroup**](ConsumerGroup.md) | Consumer group list items | 
-**Count** | **float32** | The total number of consumer groups. | 
-**Limit** | **float32** | The number of consumer groups per page. | 
-**Offset** | **int32** | The page offset | 
+**Items** | Pointer to [**[]ConsumerGroup**](ConsumerGroup.md) | Consumer group list items | [optional] 
+**Total** | Pointer to **float32** | The total number of consumer groups. | [optional] 
+**Size** | Pointer to **float32** | The number of consumer groups per page. | [optional] 
+**Page** | Pointer to **int32** | The page | [optional] 
+**Offset** | Pointer to **int32** | Deprecated offset of the topic list | [optional] 
+**Limit** | Pointer to **int32** | Deprecated maximum of returned topics | [optional] 
 
 
 ## Methods
 
 ### NewConsumerGroupList
 
-`func NewConsumerGroupList(items []ConsumerGroup, count float32, limit float32, offset int32, ) *ConsumerGroupList`
+`func NewConsumerGroupList() *ConsumerGroupList`
 
 NewConsumerGroupList instantiates a new ConsumerGroupList object
 This constructor will assign default values to properties that have it defined,
@@ -49,48 +51,89 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
+### HasItems
+
+`func (o *ConsumerGroupList) HasItems() bool`
+
+HasItems returns a boolean if a field has been set.
 
 
-### GetCount
+### GetTotal
 
-`func (o *ConsumerGroupList) GetCount() float32`
+`func (o *ConsumerGroupList) GetTotal() float32`
 
-GetCount returns the Count field if non-nil, zero value otherwise.
+GetTotal returns the Total field if non-nil, zero value otherwise.
 
-### GetCountOk
+### GetTotalOk
 
-`func (o *ConsumerGroupList) GetCountOk() (*float32, bool)`
+`func (o *ConsumerGroupList) GetTotalOk() (*float32, bool)`
 
-GetCountOk returns a tuple with the Count field if it's non-nil, zero value otherwise
+GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCount
+### SetTotal
 
-`func (o *ConsumerGroupList) SetCount(v float32)`
+`func (o *ConsumerGroupList) SetTotal(v float32)`
 
-SetCount sets Count field to given value.
+SetTotal sets Total field to given value.
+
+### HasTotal
+
+`func (o *ConsumerGroupList) HasTotal() bool`
+
+HasTotal returns a boolean if a field has been set.
 
 
+### GetSize
 
-### GetLimit
+`func (o *ConsumerGroupList) GetSize() float32`
 
-`func (o *ConsumerGroupList) GetLimit() float32`
+GetSize returns the Size field if non-nil, zero value otherwise.
 
-GetLimit returns the Limit field if non-nil, zero value otherwise.
+### GetSizeOk
 
-### GetLimitOk
+`func (o *ConsumerGroupList) GetSizeOk() (*float32, bool)`
 
-`func (o *ConsumerGroupList) GetLimitOk() (*float32, bool)`
-
-GetLimitOk returns a tuple with the Limit field if it's non-nil, zero value otherwise
+GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLimit
+### SetSize
 
-`func (o *ConsumerGroupList) SetLimit(v float32)`
+`func (o *ConsumerGroupList) SetSize(v float32)`
 
-SetLimit sets Limit field to given value.
+SetSize sets Size field to given value.
 
+### HasSize
+
+`func (o *ConsumerGroupList) HasSize() bool`
+
+HasSize returns a boolean if a field has been set.
+
+
+### GetPage
+
+`func (o *ConsumerGroupList) GetPage() int32`
+
+GetPage returns the Page field if non-nil, zero value otherwise.
+
+### GetPageOk
+
+`func (o *ConsumerGroupList) GetPageOk() (*int32, bool)`
+
+GetPageOk returns a tuple with the Page field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPage
+
+`func (o *ConsumerGroupList) SetPage(v int32)`
+
+SetPage sets Page field to given value.
+
+### HasPage
+
+`func (o *ConsumerGroupList) HasPage() bool`
+
+HasPage returns a boolean if a field has been set.
 
 
 ### GetOffset
@@ -112,6 +155,37 @@ and a boolean to check if the value has been set.
 
 SetOffset sets Offset field to given value.
 
+### HasOffset
+
+`func (o *ConsumerGroupList) HasOffset() bool`
+
+HasOffset returns a boolean if a field has been set.
+
+
+### GetLimit
+
+`func (o *ConsumerGroupList) GetLimit() int32`
+
+GetLimit returns the Limit field if non-nil, zero value otherwise.
+
+### GetLimitOk
+
+`func (o *ConsumerGroupList) GetLimitOk() (*int32, bool)`
+
+GetLimitOk returns a tuple with the Limit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLimit
+
+`func (o *ConsumerGroupList) SetLimit(v int32)`
+
+SetLimit sets Limit field to given value.
+
+### HasLimit
+
+`func (o *ConsumerGroupList) HasLimit() bool`
+
+HasLimit returns a boolean if a field has been set.
 
 
 

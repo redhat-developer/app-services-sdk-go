@@ -18,10 +18,26 @@ paths:
         that meet the users URL Query Parameters.
       operationId: getTopics
       parameters:
+      - description: The page offset
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
       - description: Maximum number of topics to return
         explode: true
         in: query
         name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Maximum number of topics to return on single page
+        explode: true
+        in: query
+        name: size
         required: false
         schema:
           format: int32
@@ -35,10 +51,10 @@ paths:
         schema:
           type: string
         style: form
-      - description: The page offset when returning the limit of requested topics.
+      - description: The page when returning the limit of requested topics.
         explode: true
         in: query
-        name: offset
+        name: page
         required: false
         schema:
           format: int32
@@ -350,7 +366,15 @@ paths:
       description: Returns a list of all consumer groups for a particular Kafka instance.
       operationId: getConsumerGroups
       parameters:
-      - description: Maximum number of consumer groups to returnd
+      - description: The page offset
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Maximum number of consumer groups to return
         explode: true
         in: query
         name: limit
@@ -358,10 +382,18 @@ paths:
         schema:
           type: integer
         style: form
-      - description: The page offset when returning the list of consumer groups
+      - description: Maximum number of consumer groups to return on single page
         explode: true
         in: query
-        name: offset
+        name: size
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: The page when returning the list of consumer groups
+        explode: true
+        in: query
+        name: page
         required: false
         schema:
           type: integer
@@ -654,13 +686,19 @@ components:
         limit: 90
         count: 94
       properties:
-        offset:
-          description: The page offset
+        page:
+          description: The page
           type: integer
-        limit:
+        size:
           description: number of entries per page
           type: integer
-        count:
+        offset:
+          description: Deprecated offset of the topic list
+          type: integer
+        limit:
+          description: Deprecated maximum of returned topics
+          type: integer
+        total:
           description: Total number of topics
           type: integer
         items:
@@ -668,11 +706,6 @@ components:
           items:
             $ref: '#/components/schemas/Topic'
           type: array
-      required:
-      - count
-      - items
-      - limit
-      - offset
       type: object
     TopicSettings:
       description: Kafka Topic (A feed where records are stored and published)
@@ -840,20 +873,21 @@ components:
           items:
             $ref: '#/components/schemas/ConsumerGroup'
           type: array
-        count:
+        total:
           description: The total number of consumer groups.
           type: number
-        limit:
+        size:
           description: The number of consumer groups per page.
           type: number
-        offset:
-          description: The page offset
+        page:
+          description: The page
           type: integer
-      required:
-      - count
-      - items
-      - limit
-      - offset
+        offset:
+          description: Deprecated offset of the topic list
+          type: integer
+        limit:
+          description: Deprecated maximum of returned topics
+          type: integer
       type: object
     UpdateTopicInput:
       description: Kafka Topic (A feed where records are stored and published)
