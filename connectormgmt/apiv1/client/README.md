@@ -86,10 +86,10 @@ Class | Method | HTTP request | Description
 *ConnectorTypesApi* | [**GetConnectorTypeByID**](docs/ConnectorTypesApi.md#getconnectortypebyid) | **Get** /api/connector_mgmt/v1/kafka_connector_types/{connector_type_id} | Get a connector type by id
 *ConnectorTypesApi* | [**ListConnectorTypes**](docs/ConnectorTypesApi.md#listconnectortypes) | **Get** /api/connector_mgmt/v1/kafka_connector_types | Returns a list of connector types
 *ConnectorsApi* | [**CreateConnector**](docs/ConnectorsApi.md#createconnector) | **Post** /api/connector_mgmt/v1/kafka_connectors | Create a new connector
-*ConnectorsApi* | [**DeleteConnector**](docs/ConnectorsApi.md#deleteconnector) | **Delete** /api/connector_mgmt/v1/kafkas_connectors/{id} | Delete a connector
-*ConnectorsApi* | [**GetConnector**](docs/ConnectorsApi.md#getconnector) | **Get** /api/connector_mgmt/v1/kafkas_connectors/{id} | Get a connector
+*ConnectorsApi* | [**DeleteConnector**](docs/ConnectorsApi.md#deleteconnector) | **Delete** /api/connector_mgmt/v1/kafka_connectors/{id} | Delete a connector
+*ConnectorsApi* | [**GetConnector**](docs/ConnectorsApi.md#getconnector) | **Get** /api/connector_mgmt/v1/kafka_connectors/{id} | Get a connector
 *ConnectorsApi* | [**ListConnectors**](docs/ConnectorsApi.md#listconnectors) | **Get** /api/connector_mgmt/v1/kafka_connectors | Returns a list of connector types
-*ConnectorsApi* | [**PatchConnector**](docs/ConnectorsApi.md#patchconnector) | **Patch** /api/connector_mgmt/v1/kafkas_connectors/{id} | patch a connector
+*ConnectorsApi* | [**PatchConnector**](docs/ConnectorsApi.md#patchconnector) | **Patch** /api/connector_mgmt/v1/kafka_connectors/{id} | patch a connector
 
 
 ## Documentation For Models
