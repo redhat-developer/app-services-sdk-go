@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Page** | Pointer to **int32** | The page | [optional] 
 **Size** | Pointer to **int32** | number of entries per page | [optional] 
-**Offset** | Pointer to **int32** | Deprecated offset of the topic list | [optional] 
-**Limit** | Pointer to **int32** | Deprecated maximum of returned topics | [optional] 
 **Total** | Pointer to **int32** | Total number of topics | [optional] 
 **Items** | Pointer to [**[]Topic**](Topic.md) | List of topics | [optional] 
 
@@ -82,58 +80,6 @@ SetSize sets Size field to given value.
 `func (o *TopicsList) HasSize() bool`
 
 HasSize returns a boolean if a field has been set.
-
-
-### GetOffset
-
-`func (o *TopicsList) GetOffset() int32`
-
-GetOffset returns the Offset field if non-nil, zero value otherwise.
-
-### GetOffsetOk
-
-`func (o *TopicsList) GetOffsetOk() (*int32, bool)`
-
-GetOffsetOk returns a tuple with the Offset field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOffset
-
-`func (o *TopicsList) SetOffset(v int32)`
-
-SetOffset sets Offset field to given value.
-
-### HasOffset
-
-`func (o *TopicsList) HasOffset() bool`
-
-HasOffset returns a boolean if a field has been set.
-
-
-### GetLimit
-
-`func (o *TopicsList) GetLimit() int32`
-
-GetLimit returns the Limit field if non-nil, zero value otherwise.
-
-### GetLimitOk
-
-`func (o *TopicsList) GetLimitOk() (*int32, bool)`
-
-GetLimitOk returns a tuple with the Limit field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLimit
-
-`func (o *TopicsList) SetLimit(v int32)`
-
-SetLimit sets Limit field to given value.
-
-### HasLimit
-
-`func (o *TopicsList) HasLimit() bool`
-
-HasLimit returns a boolean if a field has been set.
 
 
 ### GetTotal

@@ -693,10 +693,12 @@ components:
           description: number of entries per page
           type: integer
         offset:
-          description: Deprecated offset of the topic list
+          deprecated: true
+          description: Offset of the topic list
           type: integer
         limit:
-          description: Deprecated maximum of returned topics
+          deprecated: true
+          description: Maximum of returned topics
           type: integer
         total:
           description: Total number of topics
@@ -883,10 +885,12 @@ components:
           description: The page
           type: integer
         offset:
-          description: Deprecated offset of the topic list
+          deprecated: true
+          description: Offset of the topic list
           type: integer
         limit:
-          description: Deprecated maximum of returned topics
+          deprecated: true
+          description: Maximum of returned topics
           type: integer
       type: object
     UpdateTopicInput:
@@ -932,7 +936,6 @@ components:
           type: array
       required:
       - offset
-      - value
       title: Root Type for ConsumerGroupResetOffsetParameters
       type: object
     TopicsToResetOffset:

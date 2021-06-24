@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **Total** | Pointer to **float32** | The total number of consumer groups. | [optional] 
 **Size** | Pointer to **float32** | The number of consumer groups per page. | [optional] 
 **Page** | Pointer to **int32** | The page | [optional] 
-**Offset** | Pointer to **int32** | Deprecated offset of the topic list | [optional] 
-**Limit** | Pointer to **int32** | Deprecated maximum of returned topics | [optional] 
 
 
 ## Methods
@@ -134,58 +132,6 @@ SetPage sets Page field to given value.
 `func (o *ConsumerGroupList) HasPage() bool`
 
 HasPage returns a boolean if a field has been set.
-
-
-### GetOffset
-
-`func (o *ConsumerGroupList) GetOffset() int32`
-
-GetOffset returns the Offset field if non-nil, zero value otherwise.
-
-### GetOffsetOk
-
-`func (o *ConsumerGroupList) GetOffsetOk() (*int32, bool)`
-
-GetOffsetOk returns a tuple with the Offset field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOffset
-
-`func (o *ConsumerGroupList) SetOffset(v int32)`
-
-SetOffset sets Offset field to given value.
-
-### HasOffset
-
-`func (o *ConsumerGroupList) HasOffset() bool`
-
-HasOffset returns a boolean if a field has been set.
-
-
-### GetLimit
-
-`func (o *ConsumerGroupList) GetLimit() int32`
-
-GetLimit returns the Limit field if non-nil, zero value otherwise.
-
-### GetLimitOk
-
-`func (o *ConsumerGroupList) GetLimitOk() (*int32, bool)`
-
-GetLimitOk returns a tuple with the Limit field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLimit
-
-`func (o *ConsumerGroupList) SetLimit(v int32)`
-
-SetLimit sets Limit field to given value.
-
-### HasLimit
-
-`func (o *ConsumerGroupList) HasLimit() bool`
-
-HasLimit returns a boolean if a field has been set.
 
 
 
