@@ -538,7 +538,7 @@ import (
 
 func main() {
     consumerGroupId := "consumerGroupId_example" // string | The ID of the consumer group.
-    consumerGroupResetOffsetParameters := *openapiclient.NewConsumerGroupResetOffsetParameters("Value_example", "Offset_example") // ConsumerGroupResetOffsetParameters | 
+    consumerGroupResetOffsetParameters := *openapiclient.NewConsumerGroupResetOffsetParameters("Offset_example") // ConsumerGroupResetOffsetParameters | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
