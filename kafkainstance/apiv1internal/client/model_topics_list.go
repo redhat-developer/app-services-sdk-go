@@ -23,12 +23,6 @@ type TopicsList struct {
 	// number of entries per page
 	Size *int32 `json:"size,omitempty"`
 
-	// Deprecated offset of the topic list
-	Offset *int32 `json:"offset,omitempty"`
-
-	// Deprecated maximum of returned topics
-	Limit *int32 `json:"limit,omitempty"`
-
 	// Total number of topics
 	Total *int32 `json:"total,omitempty"`
 
@@ -51,8 +45,6 @@ func NewTopicsList() *TopicsList {
 // but it doesn't guarantee that properties required by API are set
 func NewTopicsListWithDefaults() *TopicsList {
 	this := TopicsList{}
-
-
 
 
 
@@ -125,72 +117,6 @@ func (o *TopicsList) HasSize() bool {
 // SetSize gets a reference to the given int32 and assigns it to the Size field.
 func (o *TopicsList) SetSize(v int32) {
 	o.Size = &v
-}
-
-
-// GetOffset returns the Offset field value if set, zero value otherwise.
-func (o *TopicsList) GetOffset() int32 {
-	if o == nil || o.Offset == nil {
-		var ret int32
-		return ret
-	}
-	return *o.Offset
-}
-
-// GetOffsetOk returns a tuple with the Offset field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *TopicsList) GetOffsetOk() (*int32, bool) {
-	if o == nil || o.Offset == nil {
-		return nil, false
-	}
-	return o.Offset, true
-}
-
-// HasOffset returns a boolean if a field has been set.
-func (o *TopicsList) HasOffset() bool {
-	if o != nil && o.Offset != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetOffset gets a reference to the given int32 and assigns it to the Offset field.
-func (o *TopicsList) SetOffset(v int32) {
-	o.Offset = &v
-}
-
-
-// GetLimit returns the Limit field value if set, zero value otherwise.
-func (o *TopicsList) GetLimit() int32 {
-	if o == nil || o.Limit == nil {
-		var ret int32
-		return ret
-	}
-	return *o.Limit
-}
-
-// GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *TopicsList) GetLimitOk() (*int32, bool) {
-	if o == nil || o.Limit == nil {
-		return nil, false
-	}
-	return o.Limit, true
-}
-
-// HasLimit returns a boolean if a field has been set.
-func (o *TopicsList) HasLimit() bool {
-	if o != nil && o.Limit != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetLimit gets a reference to the given int32 and assigns it to the Limit field.
-func (o *TopicsList) SetLimit(v int32) {
-	o.Limit = &v
 }
 
 
@@ -269,14 +195,6 @@ func (o TopicsList) MarshalJSON() ([]byte, error) {
     
 	if o.Size != nil {
 		toSerialize["size"] = o.Size
-	}
-    
-	if o.Offset != nil {
-		toSerialize["offset"] = o.Offset
-	}
-    
-	if o.Limit != nil {
-		toSerialize["limit"] = o.Limit
 	}
     
 	if o.Total != nil {

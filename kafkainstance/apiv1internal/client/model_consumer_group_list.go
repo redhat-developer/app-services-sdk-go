@@ -29,12 +29,6 @@ type ConsumerGroupList struct {
 	// The page
 	Page *int32 `json:"page,omitempty"`
 
-	// Deprecated offset of the topic list
-	Offset *int32 `json:"offset,omitempty"`
-
-	// Deprecated maximum of returned topics
-	Limit *int32 `json:"limit,omitempty"`
-
 }
 
 // NewConsumerGroupList instantiates a new ConsumerGroupList object
@@ -51,8 +45,6 @@ func NewConsumerGroupList() *ConsumerGroupList {
 // but it doesn't guarantee that properties required by API are set
 func NewConsumerGroupListWithDefaults() *ConsumerGroupList {
 	this := ConsumerGroupList{}
-
-
 
 
 
@@ -194,72 +186,6 @@ func (o *ConsumerGroupList) SetPage(v int32) {
 }
 
 
-// GetOffset returns the Offset field value if set, zero value otherwise.
-func (o *ConsumerGroupList) GetOffset() int32 {
-	if o == nil || o.Offset == nil {
-		var ret int32
-		return ret
-	}
-	return *o.Offset
-}
-
-// GetOffsetOk returns a tuple with the Offset field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ConsumerGroupList) GetOffsetOk() (*int32, bool) {
-	if o == nil || o.Offset == nil {
-		return nil, false
-	}
-	return o.Offset, true
-}
-
-// HasOffset returns a boolean if a field has been set.
-func (o *ConsumerGroupList) HasOffset() bool {
-	if o != nil && o.Offset != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetOffset gets a reference to the given int32 and assigns it to the Offset field.
-func (o *ConsumerGroupList) SetOffset(v int32) {
-	o.Offset = &v
-}
-
-
-// GetLimit returns the Limit field value if set, zero value otherwise.
-func (o *ConsumerGroupList) GetLimit() int32 {
-	if o == nil || o.Limit == nil {
-		var ret int32
-		return ret
-	}
-	return *o.Limit
-}
-
-// GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ConsumerGroupList) GetLimitOk() (*int32, bool) {
-	if o == nil || o.Limit == nil {
-		return nil, false
-	}
-	return o.Limit, true
-}
-
-// HasLimit returns a boolean if a field has been set.
-func (o *ConsumerGroupList) HasLimit() bool {
-	if o != nil && o.Limit != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetLimit gets a reference to the given int32 and assigns it to the Limit field.
-func (o *ConsumerGroupList) SetLimit(v int32) {
-	o.Limit = &v
-}
-
-
 func (o ConsumerGroupList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
@@ -277,14 +203,6 @@ func (o ConsumerGroupList) MarshalJSON() ([]byte, error) {
     
 	if o.Page != nil {
 		toSerialize["page"] = o.Page
-	}
-    
-	if o.Offset != nil {
-		toSerialize["offset"] = o.Offset
-	}
-    
-	if o.Limit != nil {
-		toSerialize["limit"] = o.Limit
 	}
     
 	return json.Marshal(toSerialize)
