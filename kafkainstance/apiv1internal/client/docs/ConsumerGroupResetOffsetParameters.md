@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | **string** |  | 
+**Value** | Pointer to **string** |  | [optional] 
 **Offset** | **string** |  | 
 **Topics** | Pointer to [**[]TopicsToResetOffset**](TopicsToResetOffset.md) |  | [optional] 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewConsumerGroupResetOffsetParameters
 
-`func NewConsumerGroupResetOffsetParameters(value string, offset string, ) *ConsumerGroupResetOffsetParameters`
+`func NewConsumerGroupResetOffsetParameters(offset string, ) *ConsumerGroupResetOffsetParameters`
 
 NewConsumerGroupResetOffsetParameters instantiates a new ConsumerGroupResetOffsetParameters object
 This constructor will assign default values to properties that have it defined,
@@ -48,6 +48,11 @@ and a boolean to check if the value has been set.
 
 SetValue sets Value field to given value.
 
+### HasValue
+
+`func (o *ConsumerGroupResetOffsetParameters) HasValue() bool`
+
+HasValue returns a boolean if a field has been set.
 
 
 ### GetOffset
