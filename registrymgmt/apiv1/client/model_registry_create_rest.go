@@ -15,28 +15,28 @@ import (
 	"encoding/json"
 )
 
-// RegistryCreate Information used to create a new Service Registry instance within a multi-tenant deployment.
-type RegistryCreate struct {
+// RegistryCreateRest Information used to create a new Service Registry instance within a multi-tenant deployment.
+type RegistryCreateRest struct {
 
 	// User-defined Registry name. Does not have to be unique.
 	Name *string `json:"name,omitempty"`
 
 }
 
-// NewRegistryCreate instantiates a new RegistryCreate object
+// NewRegistryCreateRest instantiates a new RegistryCreateRest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRegistryCreate() *RegistryCreate {
-	this := RegistryCreate{}
+func NewRegistryCreateRest() *RegistryCreateRest {
+	this := RegistryCreateRest{}
 	return &this
 }
 
-// NewRegistryCreateWithDefaults instantiates a new RegistryCreate object
+// NewRegistryCreateRestWithDefaults instantiates a new RegistryCreateRest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewRegistryCreateWithDefaults() *RegistryCreate {
-	this := RegistryCreate{}
+func NewRegistryCreateRestWithDefaults() *RegistryCreateRest {
+	this := RegistryCreateRest{}
 
 
 	return &this
@@ -44,7 +44,7 @@ func NewRegistryCreateWithDefaults() *RegistryCreate {
 
 
 // GetName returns the Name field value if set, zero value otherwise.
-func (o *RegistryCreate) GetName() string {
+func (o *RegistryCreateRest) GetName() string {
 	if o == nil || o.Name == nil {
 		var ret string
 		return ret
@@ -54,7 +54,7 @@ func (o *RegistryCreate) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RegistryCreate) GetNameOk() (*string, bool) {
+func (o *RegistryCreateRest) GetNameOk() (*string, bool) {
 	if o == nil || o.Name == nil {
 		return nil, false
 	}
@@ -62,7 +62,7 @@ func (o *RegistryCreate) GetNameOk() (*string, bool) {
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *RegistryCreate) HasName() bool {
+func (o *RegistryCreateRest) HasName() bool {
 	if o != nil && o.Name != nil {
 		return true
 	}
@@ -71,12 +71,12 @@ func (o *RegistryCreate) HasName() bool {
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
-func (o *RegistryCreate) SetName(v string) {
+func (o *RegistryCreateRest) SetName(v string) {
 	o.Name = &v
 }
 
 
-func (o RegistryCreate) MarshalJSON() ([]byte, error) {
+func (o RegistryCreateRest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if o.Name != nil {
@@ -86,38 +86,38 @@ func (o RegistryCreate) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableRegistryCreate struct {
-	value *RegistryCreate
+type NullableRegistryCreateRest struct {
+	value *RegistryCreateRest
 	isSet bool
 }
 
-func (v NullableRegistryCreate) Get() *RegistryCreate {
+func (v NullableRegistryCreateRest) Get() *RegistryCreateRest {
 	return v.value
 }
 
-func (v *NullableRegistryCreate) Set(val *RegistryCreate) {
+func (v *NullableRegistryCreateRest) Set(val *RegistryCreateRest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableRegistryCreate) IsSet() bool {
+func (v NullableRegistryCreateRest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableRegistryCreate) Unset() {
+func (v *NullableRegistryCreateRest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableRegistryCreate(val *RegistryCreate) *NullableRegistryCreate {
-	return &NullableRegistryCreate{value: val, isSet: true}
+func NewNullableRegistryCreateRest(val *RegistryCreateRest) *NullableRegistryCreateRest {
+	return &NullableRegistryCreateRest{value: val, isSet: true}
 }
 
-func (v NullableRegistryCreate) MarshalJSON() ([]byte, error) {
+func (v NullableRegistryCreateRest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableRegistryCreate) UnmarshalJSON(src []byte) error {
+func (v *NullableRegistryCreateRest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

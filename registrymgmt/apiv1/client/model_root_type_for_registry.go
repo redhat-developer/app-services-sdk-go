@@ -20,7 +20,7 @@ type RootTypeForRegistry struct {
 
 	Id string `json:"id"`
 
-	Status RegistryStatusValue `json:"status"`
+	Status RegistryStatusValueRest `json:"status"`
 
 	RegistryUrl string `json:"registryUrl"`
 
@@ -36,7 +36,7 @@ type RootTypeForRegistry struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRootTypeForRegistry(id string, status RegistryStatusValue, registryUrl string) *RootTypeForRegistry {
+func NewRootTypeForRegistry(id string, status RegistryStatusValueRest, registryUrl string) *RootTypeForRegistry {
 	this := RootTypeForRegistry{}
 	this.Id = id
 	this.Status = status
@@ -85,9 +85,9 @@ func (o *RootTypeForRegistry) SetId(v string) {
 
 
 // GetStatus returns the Status field value
-func (o *RootTypeForRegistry) GetStatus() RegistryStatusValue {
+func (o *RootTypeForRegistry) GetStatus() RegistryStatusValueRest {
 	if o == nil {
-		var ret RegistryStatusValue
+		var ret RegistryStatusValueRest
 		return ret
 	}
 
@@ -96,7 +96,7 @@ func (o *RootTypeForRegistry) GetStatus() RegistryStatusValue {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *RootTypeForRegistry) GetStatusOk() (*RegistryStatusValue, bool) {
+func (o *RootTypeForRegistry) GetStatusOk() (*RegistryStatusValueRest, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -104,7 +104,7 @@ func (o *RootTypeForRegistry) GetStatusOk() (*RegistryStatusValue, bool) {
 }
 
 // SetStatus sets field value
-func (o *RootTypeForRegistry) SetStatus(v RegistryStatusValue) {
+func (o *RootTypeForRegistry) SetStatus(v RegistryStatusValueRest) {
 	o.Status = v
 }
 

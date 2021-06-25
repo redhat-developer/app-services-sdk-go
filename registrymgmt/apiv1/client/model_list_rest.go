@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// List struct for List
-type List struct {
+// ListRest struct for ListRest
+type ListRest struct {
 
 	Kind string `json:"kind"`
 
@@ -28,12 +28,12 @@ type List struct {
 
 }
 
-// NewList instantiates a new List object
+// NewListRest instantiates a new ListRest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewList(kind string, page int32, size int32, total int32) *List {
-	this := List{}
+func NewListRest(kind string, page int32, size int32, total int32) *ListRest {
+	this := ListRest{}
 	this.Kind = kind
 	this.Page = page
 	this.Size = size
@@ -41,11 +41,11 @@ func NewList(kind string, page int32, size int32, total int32) *List {
 	return &this
 }
 
-// NewListWithDefaults instantiates a new List object
+// NewListRestWithDefaults instantiates a new ListRest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewListWithDefaults() *List {
-	this := List{}
+func NewListRestWithDefaults() *ListRest {
+	this := ListRest{}
 
 
 
@@ -56,7 +56,7 @@ func NewListWithDefaults() *List {
 
 
 // GetKind returns the Kind field value
-func (o *List) GetKind() string {
+func (o *ListRest) GetKind() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -67,7 +67,7 @@ func (o *List) GetKind() string {
 
 // GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
-func (o *List) GetKindOk() (*string, bool) {
+func (o *ListRest) GetKindOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -75,13 +75,13 @@ func (o *List) GetKindOk() (*string, bool) {
 }
 
 // SetKind sets field value
-func (o *List) SetKind(v string) {
+func (o *ListRest) SetKind(v string) {
 	o.Kind = v
 }
 
 
 // GetPage returns the Page field value
-func (o *List) GetPage() int32 {
+func (o *ListRest) GetPage() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -92,7 +92,7 @@ func (o *List) GetPage() int32 {
 
 // GetPageOk returns a tuple with the Page field value
 // and a boolean to check if the value has been set.
-func (o *List) GetPageOk() (*int32, bool) {
+func (o *ListRest) GetPageOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -100,13 +100,13 @@ func (o *List) GetPageOk() (*int32, bool) {
 }
 
 // SetPage sets field value
-func (o *List) SetPage(v int32) {
+func (o *ListRest) SetPage(v int32) {
 	o.Page = v
 }
 
 
 // GetSize returns the Size field value
-func (o *List) GetSize() int32 {
+func (o *ListRest) GetSize() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -117,7 +117,7 @@ func (o *List) GetSize() int32 {
 
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
-func (o *List) GetSizeOk() (*int32, bool) {
+func (o *ListRest) GetSizeOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -125,13 +125,13 @@ func (o *List) GetSizeOk() (*int32, bool) {
 }
 
 // SetSize sets field value
-func (o *List) SetSize(v int32) {
+func (o *ListRest) SetSize(v int32) {
 	o.Size = v
 }
 
 
 // GetTotal returns the Total field value
-func (o *List) GetTotal() int32 {
+func (o *ListRest) GetTotal() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -142,7 +142,7 @@ func (o *List) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
-func (o *List) GetTotalOk() (*int32, bool) {
+func (o *ListRest) GetTotalOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -150,12 +150,12 @@ func (o *List) GetTotalOk() (*int32, bool) {
 }
 
 // SetTotal sets field value
-func (o *List) SetTotal(v int32) {
+func (o *ListRest) SetTotal(v int32) {
 	o.Total = v
 }
 
 
-func (o List) MarshalJSON() ([]byte, error) {
+func (o ListRest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if true {
@@ -177,38 +177,38 @@ func (o List) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableList struct {
-	value *List
+type NullableListRest struct {
+	value *ListRest
 	isSet bool
 }
 
-func (v NullableList) Get() *List {
+func (v NullableListRest) Get() *ListRest {
 	return v.value
 }
 
-func (v *NullableList) Set(val *List) {
+func (v *NullableListRest) Set(val *ListRest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableList) IsSet() bool {
+func (v NullableListRest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableList) Unset() {
+func (v *NullableListRest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableList(val *List) *NullableList {
-	return &NullableList{value: val, isSet: true}
+func NewNullableListRest(val *ListRest) *NullableListRest {
+	return &NullableListRest{value: val, isSet: true}
 }
 
-func (v NullableList) MarshalJSON() ([]byte, error) {
+func (v NullableListRest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableList) UnmarshalJSON(src []byte) error {
+func (v *NullableListRest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

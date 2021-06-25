@@ -5,15 +5,15 @@ All URIs are relative to *https://api.openshift.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateRegistry**](RegistriesApi.md#CreateRegistry) | **Post** /api/serviceregistry_mgmt/v1/registries | Create a new Registry instance
-[**DeleteRegistry**](RegistriesApi.md#DeleteRegistry) | **Delete** /api/serviceregistry_mgmt/v1/{id} | Delete a Registry
+[**DeleteRegistry**](RegistriesApi.md#DeleteRegistry) | **Delete** /api/serviceregistry_mgmt/v1/registries/{id} | Delete a Registry
 [**GetRegistries**](RegistriesApi.md#GetRegistries) | **Get** /api/serviceregistry_mgmt/v1/registries | Get the list of all registries.
-[**GetRegistry**](RegistriesApi.md#GetRegistry) | **Get** /api/serviceregistry_mgmt/v1/{id} | Get a Registry
+[**GetRegistry**](RegistriesApi.md#GetRegistry) | **Get** /api/serviceregistry_mgmt/v1/registries/{id} | Get a Registry
 
 
 
 ## CreateRegistry
 
-> Registry CreateRegistry(ctx).RegistryCreate(registryCreate).Execute()
+> RegistryRest CreateRegistry(ctx).RegistryCreateRest(registryCreateRest).Execute()
 
 Create a new Registry instance
 
@@ -30,16 +30,16 @@ import (
 )
 
 func main() {
-    registryCreate := *openapiclient.NewRegistryCreate() // RegistryCreate | A new `Registry` to be created.
+    registryCreateRest := *openapiclient.NewRegistryCreateRest() // RegistryCreateRest | A new `Registry` to be created.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.RegistriesApi.CreateRegistry(context.Background()).RegistryCreate(registryCreate).Execute()
+    resp, r, err := api_client.RegistriesApi.CreateRegistry(context.Background()).RegistryCreateRest(registryCreateRest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistriesApi.CreateRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateRegistry`: Registry
+    // response from `CreateRegistry`: RegistryRest
     fmt.Fprintf(os.Stdout, "Response from `RegistriesApi.CreateRegistry`: %v\n", resp)
 }
 ```
@@ -55,11 +55,11 @@ Other parameters are passed through a pointer to a apiCreateRegistryRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **registryCreate** | [**RegistryCreate**](RegistryCreate.md) | A new &#x60;Registry&#x60; to be created. | 
+ **registryCreateRest** | [**RegistryCreateRest**](RegistryCreateRest.md) | A new &#x60;Registry&#x60; to be created. | 
 
 ### Return type
 
-[**Registry**](Registry.md)
+[**RegistryRest**](RegistryRest.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ## GetRegistries
 
-> RegistryRestList GetRegistries(ctx).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
+> RegistryListRest GetRegistries(ctx).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
 
 Get the list of all registries.
 
@@ -162,8 +162,8 @@ import (
 )
 
 func main() {
-    page := "1" // string | Page index (optional)
-    size := "100" // string | Number of items in each page (optional)
+    page := int32(1) // int32 | Page index (optional)
+    size := int32(100) // int32 | Number of items in each page (optional)
     orderBy := "name asc" // string | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement. Each query can be ordered by any of the kafkaRequests fields. For example, in order to retrieve all kafkas ordered by their name:  ```sql name asc ```  Or in order to retrieve all kafkas ordered by their name _and_ created date:  ```sql name asc, created_at asc ```  If the parameter isn't provided, or if the value is empty, then the results will be ordered by name. (optional)
     search := "name = my-kafka and cloud_provider = aws" // string | Search criteria.  The syntax of this parameter is similar to the syntax of the _where_ clause of an SQL statement. Allowed fields in the search are: cloud_provider, name, owner, region and status. Allowed comparators are `<>`, `=` or `LIKE`. Allowed joins are `AND` and `OR`, however there is a limit of max 10 joins in the search query.  Examples:  To retrieve kafka request with name equal `my-kafka` and region equal `aws`, the value should be:  ``` name = my-kafka and cloud_provider = aws ```  To retrieve kafka request with its name starting with `my`, the value should be:  ``` name like my%25 ```  If the parameter isn't provided, or if the value is empty, then all the kafkas that the user has permission to see will be returned.  Note. If the query is invalid, an error will be returned  (optional)
 
@@ -174,7 +174,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistriesApi.GetRegistries``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetRegistries`: RegistryRestList
+    // response from `GetRegistries`: RegistryListRest
     fmt.Fprintf(os.Stdout, "Response from `RegistriesApi.GetRegistries`: %v\n", resp)
 }
 ```
@@ -190,14 +190,14 @@ Other parameters are passed through a pointer to a apiGetRegistriesRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **string** | Page index | 
- **size** | **string** | Number of items in each page | 
+ **page** | **int32** | Page index | 
+ **size** | **int32** | Number of items in each page | 
  **orderBy** | **string** | Specifies the order by criteria. The syntax of this parameter is similar to the syntax of the _order by_ clause of an SQL statement. Each query can be ordered by any of the kafkaRequests fields. For example, in order to retrieve all kafkas ordered by their name:  &#x60;&#x60;&#x60;sql name asc &#x60;&#x60;&#x60;  Or in order to retrieve all kafkas ordered by their name _and_ created date:  &#x60;&#x60;&#x60;sql name asc, created_at asc &#x60;&#x60;&#x60;  If the parameter isn&#39;t provided, or if the value is empty, then the results will be ordered by name. | 
  **search** | **string** | Search criteria.  The syntax of this parameter is similar to the syntax of the _where_ clause of an SQL statement. Allowed fields in the search are: cloud_provider, name, owner, region and status. Allowed comparators are &#x60;&lt;&gt;&#x60;, &#x60;&#x3D;&#x60; or &#x60;LIKE&#x60;. Allowed joins are &#x60;AND&#x60; and &#x60;OR&#x60;, however there is a limit of max 10 joins in the search query.  Examples:  To retrieve kafka request with name equal &#x60;my-kafka&#x60; and region equal &#x60;aws&#x60;, the value should be:  &#x60;&#x60;&#x60; name &#x3D; my-kafka and cloud_provider &#x3D; aws &#x60;&#x60;&#x60;  To retrieve kafka request with its name starting with &#x60;my&#x60;, the value should be:  &#x60;&#x60;&#x60; name like my%25 &#x60;&#x60;&#x60;  If the parameter isn&#39;t provided, or if the value is empty, then all the kafkas that the user has permission to see will be returned.  Note. If the query is invalid, an error will be returned  | 
 
 ### Return type
 
-[**RegistryRestList**](RegistryRestList.md)
+[**RegistryListRest**](RegistryListRest.md)
 
 ### Authorization
 
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ## GetRegistry
 
-> Registry GetRegistry(ctx, id).Execute()
+> RegistryRest GetRegistry(ctx, id).Execute()
 
 Get a Registry
 
@@ -243,7 +243,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistriesApi.GetRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetRegistry`: Registry
+    // response from `GetRegistry`: RegistryRest
     fmt.Fprintf(os.Stdout, "Response from `RegistriesApi.GetRegistry`: %v\n", resp)
 }
 ```
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Registry**](Registry.md)
+[**RegistryRest**](RegistryRest.md)
 
 ### Authorization
 

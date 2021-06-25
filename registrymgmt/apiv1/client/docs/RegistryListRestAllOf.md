@@ -1,54 +1,54 @@
-# RegistryRestListAllOf
+# RegistryListRestAllOf
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]Registry**](Registry.md) |  | [optional] 
+**Items** | Pointer to [**[]RegistryRest**](RegistryRest.md) |  | [optional] 
 
 
 ## Methods
 
-### NewRegistryRestListAllOf
+### NewRegistryListRestAllOf
 
-`func NewRegistryRestListAllOf() *RegistryRestListAllOf`
+`func NewRegistryListRestAllOf() *RegistryListRestAllOf`
 
-NewRegistryRestListAllOf instantiates a new RegistryRestListAllOf object
+NewRegistryListRestAllOf instantiates a new RegistryListRestAllOf object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewRegistryRestListAllOfWithDefaults
+### NewRegistryListRestAllOfWithDefaults
 
-`func NewRegistryRestListAllOfWithDefaults() *RegistryRestListAllOf`
+`func NewRegistryListRestAllOfWithDefaults() *RegistryListRestAllOf`
 
-NewRegistryRestListAllOfWithDefaults instantiates a new RegistryRestListAllOf object
+NewRegistryListRestAllOfWithDefaults instantiates a new RegistryListRestAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 
 ### GetItems
 
-`func (o *RegistryRestListAllOf) GetItems() []Registry`
+`func (o *RegistryListRestAllOf) GetItems() []RegistryRest`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *RegistryRestListAllOf) GetItemsOk() (*[]Registry, bool)`
+`func (o *RegistryListRestAllOf) GetItemsOk() (*[]RegistryRest, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *RegistryRestListAllOf) SetItems(v []Registry)`
+`func (o *RegistryListRestAllOf) SetItems(v []RegistryRest)`
 
 SetItems sets Items field to given value.
 
 ### HasItems
 
-`func (o *RegistryRestListAllOf) HasItems() bool`
+`func (o *RegistryListRestAllOf) HasItems() bool`
 
 HasItems returns a boolean if a field has been set.
 

@@ -15,27 +15,27 @@ import (
 	"encoding/json"
 )
 
-// ErrorListAllOf struct for ErrorListAllOf
-type ErrorListAllOf struct {
+// RegistryListRestAllOf struct for RegistryListRestAllOf
+type RegistryListRestAllOf struct {
 
-	Items *[]Error `json:"items,omitempty"`
+	Items *[]RegistryRest `json:"items,omitempty"`
 
 }
 
-// NewErrorListAllOf instantiates a new ErrorListAllOf object
+// NewRegistryListRestAllOf instantiates a new RegistryListRestAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewErrorListAllOf() *ErrorListAllOf {
-	this := ErrorListAllOf{}
+func NewRegistryListRestAllOf() *RegistryListRestAllOf {
+	this := RegistryListRestAllOf{}
 	return &this
 }
 
-// NewErrorListAllOfWithDefaults instantiates a new ErrorListAllOf object
+// NewRegistryListRestAllOfWithDefaults instantiates a new RegistryListRestAllOf object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewErrorListAllOfWithDefaults() *ErrorListAllOf {
-	this := ErrorListAllOf{}
+func NewRegistryListRestAllOfWithDefaults() *RegistryListRestAllOf {
+	this := RegistryListRestAllOf{}
 
 
 	return &this
@@ -43,9 +43,9 @@ func NewErrorListAllOfWithDefaults() *ErrorListAllOf {
 
 
 // GetItems returns the Items field value if set, zero value otherwise.
-func (o *ErrorListAllOf) GetItems() []Error {
+func (o *RegistryListRestAllOf) GetItems() []RegistryRest {
 	if o == nil || o.Items == nil {
-		var ret []Error
+		var ret []RegistryRest
 		return ret
 	}
 	return *o.Items
@@ -53,7 +53,7 @@ func (o *ErrorListAllOf) GetItems() []Error {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ErrorListAllOf) GetItemsOk() (*[]Error, bool) {
+func (o *RegistryListRestAllOf) GetItemsOk() (*[]RegistryRest, bool) {
 	if o == nil || o.Items == nil {
 		return nil, false
 	}
@@ -61,7 +61,7 @@ func (o *ErrorListAllOf) GetItemsOk() (*[]Error, bool) {
 }
 
 // HasItems returns a boolean if a field has been set.
-func (o *ErrorListAllOf) HasItems() bool {
+func (o *RegistryListRestAllOf) HasItems() bool {
 	if o != nil && o.Items != nil {
 		return true
 	}
@@ -69,13 +69,13 @@ func (o *ErrorListAllOf) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []Error and assigns it to the Items field.
-func (o *ErrorListAllOf) SetItems(v []Error) {
+// SetItems gets a reference to the given []RegistryRest and assigns it to the Items field.
+func (o *RegistryListRestAllOf) SetItems(v []RegistryRest) {
 	o.Items = &v
 }
 
 
-func (o ErrorListAllOf) MarshalJSON() ([]byte, error) {
+func (o RegistryListRestAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if o.Items != nil {
@@ -85,38 +85,38 @@ func (o ErrorListAllOf) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableErrorListAllOf struct {
-	value *ErrorListAllOf
+type NullableRegistryListRestAllOf struct {
+	value *RegistryListRestAllOf
 	isSet bool
 }
 
-func (v NullableErrorListAllOf) Get() *ErrorListAllOf {
+func (v NullableRegistryListRestAllOf) Get() *RegistryListRestAllOf {
 	return v.value
 }
 
-func (v *NullableErrorListAllOf) Set(val *ErrorListAllOf) {
+func (v *NullableRegistryListRestAllOf) Set(val *RegistryListRestAllOf) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableErrorListAllOf) IsSet() bool {
+func (v NullableRegistryListRestAllOf) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableErrorListAllOf) Unset() {
+func (v *NullableRegistryListRestAllOf) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableErrorListAllOf(val *ErrorListAllOf) *NullableErrorListAllOf {
-	return &NullableErrorListAllOf{value: val, isSet: true}
+func NewNullableRegistryListRestAllOf(val *RegistryListRestAllOf) *NullableRegistryListRestAllOf {
+	return &NullableRegistryListRestAllOf{value: val, isSet: true}
 }
 
-func (v NullableErrorListAllOf) MarshalJSON() ([]byte, error) {
+func (v NullableRegistryListRestAllOf) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableErrorListAllOf) UnmarshalJSON(src []byte) error {
+func (v *NullableRegistryListRestAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// Registry struct for Registry
-type Registry struct {
+// RegistryRest struct for RegistryRest
+type RegistryRest struct {
 
 	Id string `json:"id"`
 
@@ -24,7 +24,7 @@ type Registry struct {
 
 	Href *string `json:"href,omitempty"`
 
-	Status RegistryStatusValue `json:"status"`
+	Status RegistryStatusValueRest `json:"status"`
 
 	RegistryUrl string `json:"registryUrl"`
 
@@ -36,23 +36,23 @@ type Registry struct {
 
 }
 
-// NewRegistry instantiates a new Registry object
+// NewRegistryRest instantiates a new RegistryRest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRegistry(id string, status RegistryStatusValue, registryUrl string) *Registry {
-	this := Registry{}
+func NewRegistryRest(id string, status RegistryStatusValueRest, registryUrl string) *RegistryRest {
+	this := RegistryRest{}
 	this.Id = id
 	this.Status = status
 	this.RegistryUrl = registryUrl
 	return &this
 }
 
-// NewRegistryWithDefaults instantiates a new Registry object
+// NewRegistryRestWithDefaults instantiates a new RegistryRest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewRegistryWithDefaults() *Registry {
-	this := Registry{}
+func NewRegistryRestWithDefaults() *RegistryRest {
+	this := RegistryRest{}
 
 
 
@@ -66,7 +66,7 @@ func NewRegistryWithDefaults() *Registry {
 
 
 // GetId returns the Id field value
-func (o *Registry) GetId() string {
+func (o *RegistryRest) GetId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -77,7 +77,7 @@ func (o *Registry) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *Registry) GetIdOk() (*string, bool) {
+func (o *RegistryRest) GetIdOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -85,13 +85,13 @@ func (o *Registry) GetIdOk() (*string, bool) {
 }
 
 // SetId sets field value
-func (o *Registry) SetId(v string) {
+func (o *RegistryRest) SetId(v string) {
 	o.Id = v
 }
 
 
 // GetKind returns the Kind field value if set, zero value otherwise.
-func (o *Registry) GetKind() string {
+func (o *RegistryRest) GetKind() string {
 	if o == nil || o.Kind == nil {
 		var ret string
 		return ret
@@ -101,7 +101,7 @@ func (o *Registry) GetKind() string {
 
 // GetKindOk returns a tuple with the Kind field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Registry) GetKindOk() (*string, bool) {
+func (o *RegistryRest) GetKindOk() (*string, bool) {
 	if o == nil || o.Kind == nil {
 		return nil, false
 	}
@@ -109,7 +109,7 @@ func (o *Registry) GetKindOk() (*string, bool) {
 }
 
 // HasKind returns a boolean if a field has been set.
-func (o *Registry) HasKind() bool {
+func (o *RegistryRest) HasKind() bool {
 	if o != nil && o.Kind != nil {
 		return true
 	}
@@ -118,13 +118,13 @@ func (o *Registry) HasKind() bool {
 }
 
 // SetKind gets a reference to the given string and assigns it to the Kind field.
-func (o *Registry) SetKind(v string) {
+func (o *RegistryRest) SetKind(v string) {
 	o.Kind = &v
 }
 
 
 // GetHref returns the Href field value if set, zero value otherwise.
-func (o *Registry) GetHref() string {
+func (o *RegistryRest) GetHref() string {
 	if o == nil || o.Href == nil {
 		var ret string
 		return ret
@@ -134,7 +134,7 @@ func (o *Registry) GetHref() string {
 
 // GetHrefOk returns a tuple with the Href field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Registry) GetHrefOk() (*string, bool) {
+func (o *RegistryRest) GetHrefOk() (*string, bool) {
 	if o == nil || o.Href == nil {
 		return nil, false
 	}
@@ -142,7 +142,7 @@ func (o *Registry) GetHrefOk() (*string, bool) {
 }
 
 // HasHref returns a boolean if a field has been set.
-func (o *Registry) HasHref() bool {
+func (o *RegistryRest) HasHref() bool {
 	if o != nil && o.Href != nil {
 		return true
 	}
@@ -151,15 +151,15 @@ func (o *Registry) HasHref() bool {
 }
 
 // SetHref gets a reference to the given string and assigns it to the Href field.
-func (o *Registry) SetHref(v string) {
+func (o *RegistryRest) SetHref(v string) {
 	o.Href = &v
 }
 
 
 // GetStatus returns the Status field value
-func (o *Registry) GetStatus() RegistryStatusValue {
+func (o *RegistryRest) GetStatus() RegistryStatusValueRest {
 	if o == nil {
-		var ret RegistryStatusValue
+		var ret RegistryStatusValueRest
 		return ret
 	}
 
@@ -168,7 +168,7 @@ func (o *Registry) GetStatus() RegistryStatusValue {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *Registry) GetStatusOk() (*RegistryStatusValue, bool) {
+func (o *RegistryRest) GetStatusOk() (*RegistryStatusValueRest, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -176,13 +176,13 @@ func (o *Registry) GetStatusOk() (*RegistryStatusValue, bool) {
 }
 
 // SetStatus sets field value
-func (o *Registry) SetStatus(v RegistryStatusValue) {
+func (o *RegistryRest) SetStatus(v RegistryStatusValueRest) {
 	o.Status = v
 }
 
 
 // GetRegistryUrl returns the RegistryUrl field value
-func (o *Registry) GetRegistryUrl() string {
+func (o *RegistryRest) GetRegistryUrl() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -193,7 +193,7 @@ func (o *Registry) GetRegistryUrl() string {
 
 // GetRegistryUrlOk returns a tuple with the RegistryUrl field value
 // and a boolean to check if the value has been set.
-func (o *Registry) GetRegistryUrlOk() (*string, bool) {
+func (o *RegistryRest) GetRegistryUrlOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -201,13 +201,13 @@ func (o *Registry) GetRegistryUrlOk() (*string, bool) {
 }
 
 // SetRegistryUrl sets field value
-func (o *Registry) SetRegistryUrl(v string) {
+func (o *RegistryRest) SetRegistryUrl(v string) {
 	o.RegistryUrl = v
 }
 
 
 // GetName returns the Name field value if set, zero value otherwise.
-func (o *Registry) GetName() string {
+func (o *RegistryRest) GetName() string {
 	if o == nil || o.Name == nil {
 		var ret string
 		return ret
@@ -217,7 +217,7 @@ func (o *Registry) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Registry) GetNameOk() (*string, bool) {
+func (o *RegistryRest) GetNameOk() (*string, bool) {
 	if o == nil || o.Name == nil {
 		return nil, false
 	}
@@ -225,7 +225,7 @@ func (o *Registry) GetNameOk() (*string, bool) {
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *Registry) HasName() bool {
+func (o *RegistryRest) HasName() bool {
 	if o != nil && o.Name != nil {
 		return true
 	}
@@ -234,13 +234,13 @@ func (o *Registry) HasName() bool {
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
-func (o *Registry) SetName(v string) {
+func (o *RegistryRest) SetName(v string) {
 	o.Name = &v
 }
 
 
 // GetRegistryDeploymentId returns the RegistryDeploymentId field value if set, zero value otherwise.
-func (o *Registry) GetRegistryDeploymentId() int32 {
+func (o *RegistryRest) GetRegistryDeploymentId() int32 {
 	if o == nil || o.RegistryDeploymentId == nil {
 		var ret int32
 		return ret
@@ -250,7 +250,7 @@ func (o *Registry) GetRegistryDeploymentId() int32 {
 
 // GetRegistryDeploymentIdOk returns a tuple with the RegistryDeploymentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Registry) GetRegistryDeploymentIdOk() (*int32, bool) {
+func (o *RegistryRest) GetRegistryDeploymentIdOk() (*int32, bool) {
 	if o == nil || o.RegistryDeploymentId == nil {
 		return nil, false
 	}
@@ -258,7 +258,7 @@ func (o *Registry) GetRegistryDeploymentIdOk() (*int32, bool) {
 }
 
 // HasRegistryDeploymentId returns a boolean if a field has been set.
-func (o *Registry) HasRegistryDeploymentId() bool {
+func (o *RegistryRest) HasRegistryDeploymentId() bool {
 	if o != nil && o.RegistryDeploymentId != nil {
 		return true
 	}
@@ -267,12 +267,12 @@ func (o *Registry) HasRegistryDeploymentId() bool {
 }
 
 // SetRegistryDeploymentId gets a reference to the given int32 and assigns it to the RegistryDeploymentId field.
-func (o *Registry) SetRegistryDeploymentId(v int32) {
+func (o *RegistryRest) SetRegistryDeploymentId(v int32) {
 	o.RegistryDeploymentId = &v
 }
 
 
-func (o Registry) MarshalJSON() ([]byte, error) {
+func (o RegistryRest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if true {
@@ -306,38 +306,38 @@ func (o Registry) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableRegistry struct {
-	value *Registry
+type NullableRegistryRest struct {
+	value *RegistryRest
 	isSet bool
 }
 
-func (v NullableRegistry) Get() *Registry {
+func (v NullableRegistryRest) Get() *RegistryRest {
 	return v.value
 }
 
-func (v *NullableRegistry) Set(val *Registry) {
+func (v *NullableRegistryRest) Set(val *RegistryRest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableRegistry) IsSet() bool {
+func (v NullableRegistryRest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableRegistry) Unset() {
+func (v *NullableRegistryRest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableRegistry(val *Registry) *NullableRegistry {
-	return &NullableRegistry{value: val, isSet: true}
+func NewNullableRegistryRest(val *RegistryRest) *NullableRegistryRest {
+	return &NullableRegistryRest{value: val, isSet: true}
 }
 
-func (v NullableRegistry) MarshalJSON() ([]byte, error) {
+func (v NullableRegistryRest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableRegistry) UnmarshalJSON(src []byte) error {
+func (v *NullableRegistryRest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

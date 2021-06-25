@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// ErrorAllOf struct for ErrorAllOf
-type ErrorAllOf struct {
+// ErrorRestAllOf struct for ErrorRestAllOf
+type ErrorRestAllOf struct {
 
 	Code *string `json:"code,omitempty"`
 
@@ -26,20 +26,20 @@ type ErrorAllOf struct {
 
 }
 
-// NewErrorAllOf instantiates a new ErrorAllOf object
+// NewErrorRestAllOf instantiates a new ErrorRestAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewErrorAllOf() *ErrorAllOf {
-	this := ErrorAllOf{}
+func NewErrorRestAllOf() *ErrorRestAllOf {
+	this := ErrorRestAllOf{}
 	return &this
 }
 
-// NewErrorAllOfWithDefaults instantiates a new ErrorAllOf object
+// NewErrorRestAllOfWithDefaults instantiates a new ErrorRestAllOf object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewErrorAllOfWithDefaults() *ErrorAllOf {
-	this := ErrorAllOf{}
+func NewErrorRestAllOfWithDefaults() *ErrorRestAllOf {
+	this := ErrorRestAllOf{}
 
 
 
@@ -49,7 +49,7 @@ func NewErrorAllOfWithDefaults() *ErrorAllOf {
 
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *ErrorAllOf) GetCode() string {
+func (o *ErrorRestAllOf) GetCode() string {
 	if o == nil || o.Code == nil {
 		var ret string
 		return ret
@@ -59,7 +59,7 @@ func (o *ErrorAllOf) GetCode() string {
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ErrorAllOf) GetCodeOk() (*string, bool) {
+func (o *ErrorRestAllOf) GetCodeOk() (*string, bool) {
 	if o == nil || o.Code == nil {
 		return nil, false
 	}
@@ -67,7 +67,7 @@ func (o *ErrorAllOf) GetCodeOk() (*string, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *ErrorAllOf) HasCode() bool {
+func (o *ErrorRestAllOf) HasCode() bool {
 	if o != nil && o.Code != nil {
 		return true
 	}
@@ -76,13 +76,13 @@ func (o *ErrorAllOf) HasCode() bool {
 }
 
 // SetCode gets a reference to the given string and assigns it to the Code field.
-func (o *ErrorAllOf) SetCode(v string) {
+func (o *ErrorRestAllOf) SetCode(v string) {
 	o.Code = &v
 }
 
 
 // GetReason returns the Reason field value if set, zero value otherwise.
-func (o *ErrorAllOf) GetReason() string {
+func (o *ErrorRestAllOf) GetReason() string {
 	if o == nil || o.Reason == nil {
 		var ret string
 		return ret
@@ -92,7 +92,7 @@ func (o *ErrorAllOf) GetReason() string {
 
 // GetReasonOk returns a tuple with the Reason field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ErrorAllOf) GetReasonOk() (*string, bool) {
+func (o *ErrorRestAllOf) GetReasonOk() (*string, bool) {
 	if o == nil || o.Reason == nil {
 		return nil, false
 	}
@@ -100,7 +100,7 @@ func (o *ErrorAllOf) GetReasonOk() (*string, bool) {
 }
 
 // HasReason returns a boolean if a field has been set.
-func (o *ErrorAllOf) HasReason() bool {
+func (o *ErrorRestAllOf) HasReason() bool {
 	if o != nil && o.Reason != nil {
 		return true
 	}
@@ -109,13 +109,13 @@ func (o *ErrorAllOf) HasReason() bool {
 }
 
 // SetReason gets a reference to the given string and assigns it to the Reason field.
-func (o *ErrorAllOf) SetReason(v string) {
+func (o *ErrorRestAllOf) SetReason(v string) {
 	o.Reason = &v
 }
 
 
 // GetOperationId returns the OperationId field value if set, zero value otherwise.
-func (o *ErrorAllOf) GetOperationId() string {
+func (o *ErrorRestAllOf) GetOperationId() string {
 	if o == nil || o.OperationId == nil {
 		var ret string
 		return ret
@@ -125,7 +125,7 @@ func (o *ErrorAllOf) GetOperationId() string {
 
 // GetOperationIdOk returns a tuple with the OperationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ErrorAllOf) GetOperationIdOk() (*string, bool) {
+func (o *ErrorRestAllOf) GetOperationIdOk() (*string, bool) {
 	if o == nil || o.OperationId == nil {
 		return nil, false
 	}
@@ -133,7 +133,7 @@ func (o *ErrorAllOf) GetOperationIdOk() (*string, bool) {
 }
 
 // HasOperationId returns a boolean if a field has been set.
-func (o *ErrorAllOf) HasOperationId() bool {
+func (o *ErrorRestAllOf) HasOperationId() bool {
 	if o != nil && o.OperationId != nil {
 		return true
 	}
@@ -142,12 +142,12 @@ func (o *ErrorAllOf) HasOperationId() bool {
 }
 
 // SetOperationId gets a reference to the given string and assigns it to the OperationId field.
-func (o *ErrorAllOf) SetOperationId(v string) {
+func (o *ErrorRestAllOf) SetOperationId(v string) {
 	o.OperationId = &v
 }
 
 
-func (o ErrorAllOf) MarshalJSON() ([]byte, error) {
+func (o ErrorRestAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if o.Code != nil {
@@ -165,38 +165,38 @@ func (o ErrorAllOf) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableErrorAllOf struct {
-	value *ErrorAllOf
+type NullableErrorRestAllOf struct {
+	value *ErrorRestAllOf
 	isSet bool
 }
 
-func (v NullableErrorAllOf) Get() *ErrorAllOf {
+func (v NullableErrorRestAllOf) Get() *ErrorRestAllOf {
 	return v.value
 }
 
-func (v *NullableErrorAllOf) Set(val *ErrorAllOf) {
+func (v *NullableErrorRestAllOf) Set(val *ErrorRestAllOf) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableErrorAllOf) IsSet() bool {
+func (v NullableErrorRestAllOf) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableErrorAllOf) Unset() {
+func (v *NullableErrorRestAllOf) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableErrorAllOf(val *ErrorAllOf) *NullableErrorAllOf {
-	return &NullableErrorAllOf{value: val, isSet: true}
+func NewNullableErrorRestAllOf(val *ErrorRestAllOf) *NullableErrorRestAllOf {
+	return &NullableErrorRestAllOf{value: val, isSet: true}
 }
 
-func (v NullableErrorAllOf) MarshalJSON() ([]byte, error) {
+func (v NullableErrorRestAllOf) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableErrorAllOf) UnmarshalJSON(src []byte) error {
+func (v *NullableErrorRestAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

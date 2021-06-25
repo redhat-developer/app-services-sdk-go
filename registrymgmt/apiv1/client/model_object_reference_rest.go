@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// ObjectReference struct for ObjectReference
-type ObjectReference struct {
+// ObjectReferenceRest struct for ObjectReferenceRest
+type ObjectReferenceRest struct {
 
 	Id *string `json:"id,omitempty"`
 
@@ -26,20 +26,20 @@ type ObjectReference struct {
 
 }
 
-// NewObjectReference instantiates a new ObjectReference object
+// NewObjectReferenceRest instantiates a new ObjectReferenceRest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewObjectReference() *ObjectReference {
-	this := ObjectReference{}
+func NewObjectReferenceRest() *ObjectReferenceRest {
+	this := ObjectReferenceRest{}
 	return &this
 }
 
-// NewObjectReferenceWithDefaults instantiates a new ObjectReference object
+// NewObjectReferenceRestWithDefaults instantiates a new ObjectReferenceRest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewObjectReferenceWithDefaults() *ObjectReference {
-	this := ObjectReference{}
+func NewObjectReferenceRestWithDefaults() *ObjectReferenceRest {
+	this := ObjectReferenceRest{}
 
 
 
@@ -49,7 +49,7 @@ func NewObjectReferenceWithDefaults() *ObjectReference {
 
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *ObjectReference) GetId() string {
+func (o *ObjectReferenceRest) GetId() string {
 	if o == nil || o.Id == nil {
 		var ret string
 		return ret
@@ -59,7 +59,7 @@ func (o *ObjectReference) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ObjectReference) GetIdOk() (*string, bool) {
+func (o *ObjectReferenceRest) GetIdOk() (*string, bool) {
 	if o == nil || o.Id == nil {
 		return nil, false
 	}
@@ -67,7 +67,7 @@ func (o *ObjectReference) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ObjectReference) HasId() bool {
+func (o *ObjectReferenceRest) HasId() bool {
 	if o != nil && o.Id != nil {
 		return true
 	}
@@ -76,13 +76,13 @@ func (o *ObjectReference) HasId() bool {
 }
 
 // SetId gets a reference to the given string and assigns it to the Id field.
-func (o *ObjectReference) SetId(v string) {
+func (o *ObjectReferenceRest) SetId(v string) {
 	o.Id = &v
 }
 
 
 // GetKind returns the Kind field value if set, zero value otherwise.
-func (o *ObjectReference) GetKind() string {
+func (o *ObjectReferenceRest) GetKind() string {
 	if o == nil || o.Kind == nil {
 		var ret string
 		return ret
@@ -92,7 +92,7 @@ func (o *ObjectReference) GetKind() string {
 
 // GetKindOk returns a tuple with the Kind field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ObjectReference) GetKindOk() (*string, bool) {
+func (o *ObjectReferenceRest) GetKindOk() (*string, bool) {
 	if o == nil || o.Kind == nil {
 		return nil, false
 	}
@@ -100,7 +100,7 @@ func (o *ObjectReference) GetKindOk() (*string, bool) {
 }
 
 // HasKind returns a boolean if a field has been set.
-func (o *ObjectReference) HasKind() bool {
+func (o *ObjectReferenceRest) HasKind() bool {
 	if o != nil && o.Kind != nil {
 		return true
 	}
@@ -109,13 +109,13 @@ func (o *ObjectReference) HasKind() bool {
 }
 
 // SetKind gets a reference to the given string and assigns it to the Kind field.
-func (o *ObjectReference) SetKind(v string) {
+func (o *ObjectReferenceRest) SetKind(v string) {
 	o.Kind = &v
 }
 
 
 // GetHref returns the Href field value if set, zero value otherwise.
-func (o *ObjectReference) GetHref() string {
+func (o *ObjectReferenceRest) GetHref() string {
 	if o == nil || o.Href == nil {
 		var ret string
 		return ret
@@ -125,7 +125,7 @@ func (o *ObjectReference) GetHref() string {
 
 // GetHrefOk returns a tuple with the Href field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ObjectReference) GetHrefOk() (*string, bool) {
+func (o *ObjectReferenceRest) GetHrefOk() (*string, bool) {
 	if o == nil || o.Href == nil {
 		return nil, false
 	}
@@ -133,7 +133,7 @@ func (o *ObjectReference) GetHrefOk() (*string, bool) {
 }
 
 // HasHref returns a boolean if a field has been set.
-func (o *ObjectReference) HasHref() bool {
+func (o *ObjectReferenceRest) HasHref() bool {
 	if o != nil && o.Href != nil {
 		return true
 	}
@@ -142,12 +142,12 @@ func (o *ObjectReference) HasHref() bool {
 }
 
 // SetHref gets a reference to the given string and assigns it to the Href field.
-func (o *ObjectReference) SetHref(v string) {
+func (o *ObjectReferenceRest) SetHref(v string) {
 	o.Href = &v
 }
 
 
-func (o ObjectReference) MarshalJSON() ([]byte, error) {
+func (o ObjectReferenceRest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if o.Id != nil {
@@ -165,38 +165,38 @@ func (o ObjectReference) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableObjectReference struct {
-	value *ObjectReference
+type NullableObjectReferenceRest struct {
+	value *ObjectReferenceRest
 	isSet bool
 }
 
-func (v NullableObjectReference) Get() *ObjectReference {
+func (v NullableObjectReferenceRest) Get() *ObjectReferenceRest {
 	return v.value
 }
 
-func (v *NullableObjectReference) Set(val *ObjectReference) {
+func (v *NullableObjectReferenceRest) Set(val *ObjectReferenceRest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableObjectReference) IsSet() bool {
+func (v NullableObjectReferenceRest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableObjectReference) Unset() {
+func (v *NullableObjectReferenceRest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableObjectReference(val *ObjectReference) *NullableObjectReference {
-	return &NullableObjectReference{value: val, isSet: true}
+func NewNullableObjectReferenceRest(val *ObjectReferenceRest) *NullableObjectReferenceRest {
+	return &NullableObjectReferenceRest{value: val, isSet: true}
 }
 
-func (v NullableObjectReference) MarshalJSON() ([]byte, error) {
+func (v NullableObjectReferenceRest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableObjectReference) UnmarshalJSON(src []byte) error {
+func (v *NullableObjectReferenceRest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
