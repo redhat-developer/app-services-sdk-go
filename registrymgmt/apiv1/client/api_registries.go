@@ -36,9 +36,9 @@ type RegistriesApi interface {
 
 	/*
 	 * CreateRegistryExecute executes the request
-	 * @return Registry
+	 * @return RegistryRest
 	 */
-	CreateRegistryExecute(r ApiCreateRegistryRequest) (Registry, *_nethttp.Response, error)
+	CreateRegistryExecute(r ApiCreateRegistryRequest) (RegistryRest, *_nethttp.Response, error)
 
 	/*
 	 * DeleteRegistry Delete a Registry
@@ -63,9 +63,9 @@ type RegistriesApi interface {
 
 	/*
 	 * GetRegistriesExecute executes the request
-	 * @return RegistryRestList
+	 * @return RegistryListRest
 	 */
-	GetRegistriesExecute(r ApiGetRegistriesRequest) (RegistryRestList, *_nethttp.Response, error)
+	GetRegistriesExecute(r ApiGetRegistriesRequest) (RegistryListRest, *_nethttp.Response, error)
 
 	/*
 	 * GetRegistry Get a Registry
@@ -78,9 +78,9 @@ type RegistriesApi interface {
 
 	/*
 	 * GetRegistryExecute executes the request
-	 * @return Registry
+	 * @return RegistryRest
 	 */
-	GetRegistryExecute(r ApiGetRegistryRequest) (Registry, *_nethttp.Response, error)
+	GetRegistryExecute(r ApiGetRegistryRequest) (RegistryRest, *_nethttp.Response, error)
 }
 
 // RegistriesApiService RegistriesApi service
@@ -89,15 +89,15 @@ type RegistriesApiService service
 type ApiCreateRegistryRequest struct {
 	ctx _context.Context
 	ApiService RegistriesApi
-	registryCreate *RegistryCreate
+	registryCreateRest *RegistryCreateRest
 }
 
-func (r ApiCreateRegistryRequest) RegistryCreate(registryCreate RegistryCreate) ApiCreateRegistryRequest {
-	r.registryCreate = &registryCreate
+func (r ApiCreateRegistryRequest) RegistryCreateRest(registryCreateRest RegistryCreateRest) ApiCreateRegistryRequest {
+	r.registryCreateRest = &registryCreateRest
 	return r
 }
 
-func (r ApiCreateRegistryRequest) Execute() (Registry, *_nethttp.Response, error) {
+func (r ApiCreateRegistryRequest) Execute() (RegistryRest, *_nethttp.Response, error) {
 	return r.ApiService.CreateRegistryExecute(r)
 }
 
@@ -115,16 +115,16 @@ func (a *RegistriesApiService) CreateRegistry(ctx _context.Context) ApiCreateReg
 
 /*
  * Execute executes the request
- * @return Registry
+ * @return RegistryRest
  */
-func (a *RegistriesApiService) CreateRegistryExecute(r ApiCreateRegistryRequest) (Registry, *_nethttp.Response, error) {
+func (a *RegistriesApiService) CreateRegistryExecute(r ApiCreateRegistryRequest) (RegistryRest, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Registry
+		localVarReturnValue  RegistryRest
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistriesApiService.CreateRegistry")
@@ -137,8 +137,8 @@ func (a *RegistriesApiService) CreateRegistryExecute(r ApiCreateRegistryRequest)
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
-	if r.registryCreate == nil {
-		return localVarReturnValue, nil, reportError("registryCreate is required and must be specified")
+	if r.registryCreateRest == nil {
+		return localVarReturnValue, nil, reportError("registryCreateRest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -159,7 +159,7 @@ func (a *RegistriesApiService) CreateRegistryExecute(r ApiCreateRegistryRequest)
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.registryCreate
+	localVarPostBody = r.registryCreateRest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -183,7 +183,7 @@ func (a *RegistriesApiService) CreateRegistryExecute(r ApiCreateRegistryRequest)
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v Error
+			var v ErrorRest
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -193,7 +193,7 @@ func (a *RegistriesApiService) CreateRegistryExecute(r ApiCreateRegistryRequest)
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v Error
+			var v ErrorRest
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -203,7 +203,7 @@ func (a *RegistriesApiService) CreateRegistryExecute(r ApiCreateRegistryRequest)
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v Error
+			var v ErrorRest
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -269,7 +269,7 @@ func (a *RegistriesApiService) DeleteRegistryExecute(r ApiDeleteRegistryRequest)
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/serviceregistry_mgmt/v1/{id}"
+	localVarPath := localBasePath + "/api/serviceregistry_mgmt/v1/registries/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -316,7 +316,7 @@ func (a *RegistriesApiService) DeleteRegistryExecute(r ApiDeleteRegistryRequest)
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v Error
+			var v ErrorRest
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -326,7 +326,7 @@ func (a *RegistriesApiService) DeleteRegistryExecute(r ApiDeleteRegistryRequest)
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v Error
+			var v ErrorRest
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -336,7 +336,7 @@ func (a *RegistriesApiService) DeleteRegistryExecute(r ApiDeleteRegistryRequest)
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v Error
+			var v ErrorRest
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -353,17 +353,17 @@ func (a *RegistriesApiService) DeleteRegistryExecute(r ApiDeleteRegistryRequest)
 type ApiGetRegistriesRequest struct {
 	ctx _context.Context
 	ApiService RegistriesApi
-	page *string
-	size *string
+	page *int32
+	size *int32
 	orderBy *string
 	search *string
 }
 
-func (r ApiGetRegistriesRequest) Page(page string) ApiGetRegistriesRequest {
+func (r ApiGetRegistriesRequest) Page(page int32) ApiGetRegistriesRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGetRegistriesRequest) Size(size string) ApiGetRegistriesRequest {
+func (r ApiGetRegistriesRequest) Size(size int32) ApiGetRegistriesRequest {
 	r.size = &size
 	return r
 }
@@ -376,7 +376,7 @@ func (r ApiGetRegistriesRequest) Search(search string) ApiGetRegistriesRequest {
 	return r
 }
 
-func (r ApiGetRegistriesRequest) Execute() (RegistryRestList, *_nethttp.Response, error) {
+func (r ApiGetRegistriesRequest) Execute() (RegistryListRest, *_nethttp.Response, error) {
 	return r.ApiService.GetRegistriesExecute(r)
 }
 
@@ -394,16 +394,16 @@ func (a *RegistriesApiService) GetRegistries(ctx _context.Context) ApiGetRegistr
 
 /*
  * Execute executes the request
- * @return RegistryRestList
+ * @return RegistryListRest
  */
-func (a *RegistriesApiService) GetRegistriesExecute(r ApiGetRegistriesRequest) (RegistryRestList, *_nethttp.Response, error) {
+func (a *RegistriesApiService) GetRegistriesExecute(r ApiGetRegistriesRequest) (RegistryListRest, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  RegistryRestList
+		localVarReturnValue  RegistryListRest
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistriesApiService.GetRegistries")
@@ -469,7 +469,7 @@ func (a *RegistriesApiService) GetRegistriesExecute(r ApiGetRegistriesRequest) (
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v Error
+			var v ErrorRest
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -479,7 +479,7 @@ func (a *RegistriesApiService) GetRegistriesExecute(r ApiGetRegistriesRequest) (
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v Error
+			var v ErrorRest
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -489,7 +489,7 @@ func (a *RegistriesApiService) GetRegistriesExecute(r ApiGetRegistriesRequest) (
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v Error
+			var v ErrorRest
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -519,7 +519,7 @@ type ApiGetRegistryRequest struct {
 }
 
 
-func (r ApiGetRegistryRequest) Execute() (Registry, *_nethttp.Response, error) {
+func (r ApiGetRegistryRequest) Execute() (RegistryRest, *_nethttp.Response, error) {
 	return r.ApiService.GetRegistryExecute(r)
 }
 
@@ -540,16 +540,16 @@ func (a *RegistriesApiService) GetRegistry(ctx _context.Context, id string) ApiG
 
 /*
  * Execute executes the request
- * @return Registry
+ * @return RegistryRest
  */
-func (a *RegistriesApiService) GetRegistryExecute(r ApiGetRegistryRequest) (Registry, *_nethttp.Response, error) {
+func (a *RegistriesApiService) GetRegistryExecute(r ApiGetRegistryRequest) (RegistryRest, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Registry
+		localVarReturnValue  RegistryRest
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegistriesApiService.GetRegistry")
@@ -557,7 +557,7 @@ func (a *RegistriesApiService) GetRegistryExecute(r ApiGetRegistryRequest) (Regi
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/serviceregistry_mgmt/v1/{id}"
+	localVarPath := localBasePath + "/api/serviceregistry_mgmt/v1/registries/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -604,7 +604,7 @@ func (a *RegistriesApiService) GetRegistryExecute(r ApiGetRegistryRequest) (Regi
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v Error
+			var v ErrorRest
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -614,7 +614,7 @@ func (a *RegistriesApiService) GetRegistryExecute(r ApiGetRegistryRequest) (Regi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v Error
+			var v ErrorRest
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -624,7 +624,7 @@ func (a *RegistriesApiService) GetRegistryExecute(r ApiGetRegistryRequest) (Regi
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v Error
+			var v ErrorRest
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
