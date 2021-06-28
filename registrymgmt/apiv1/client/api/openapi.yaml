@@ -17,7 +17,7 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Service Registry Fleet Manager
-  version: 0.0.4
+  version: 0.0.5
 servers:
 - description: Main (production) server
   url: https://api.openshift.com
