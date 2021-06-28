@@ -26,6 +26,11 @@ func (g *GoGen) Generate() (err error) {
 	packageName := clientMetadata.PackageName()
 	outputPath := clientMetadata.OutputPath()
 
+	fmt.Fprintln(os.Stderr, "deleting old API client before generation")
+	if err = os.RemoveAll(outputPath); err != nil {
+		fmt.Fprintln(os.Stderr, "failed to remove old client code")
+	}
+
 	cmdArgs := []string{
 		common.CmdName,
 		"generate",
