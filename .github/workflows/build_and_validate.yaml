@@ -16,6 +16,8 @@ on:
 
 jobs:
   build:
+    env:
+      GOPATH: /home/runner/work/app-services-sdk-go/go
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -34,7 +36,6 @@ jobs:
               - '**.go'
       - run: echo ${{ steps.filter.outputs.openapi }}
       - name: Install Go
-        if: steps.filter.outputs.go == 'true'
         uses: actions/setup-go@v2
         with:
           go-version: 1.16.x
@@ -44,10 +45,11 @@ jobs:
         with:
           version: v1.29
           args: --timeout 2m0s
-      - name: Validate OpenAPI
+      - name: Validate clients
         if: steps.filter.outputs.openapi == 'true'
         run: |
-          for i in ${{ steps.filter.outputs.openapi_files }}
-          do
-            npx @openapitools/openapi-generator-cli validate -i $i
-          done
+          export PATH=${PATH}:`go env GOPATH`/bin
+
+          go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-generate-all@latest
+          api-generate-all --repo-metadata=.config/api-client-metadata.json --generator go --templates-dir=./scripts/templates
+          go mod tidy
