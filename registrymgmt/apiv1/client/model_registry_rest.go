@@ -34,6 +34,9 @@ type RegistryRest struct {
 	// Identifier of a multi-tenant deployment, where this Service Registry instance resides.
 	RegistryDeploymentId *int32 `json:"registryDeploymentId,omitempty"`
 
+	// Registry instance owner
+	Owner *string `json:"owner,omitempty"`
+
 }
 
 // NewRegistryRest instantiates a new RegistryRest object
@@ -53,6 +56,7 @@ func NewRegistryRest(id string, status RegistryStatusValueRest, registryUrl stri
 // but it doesn't guarantee that properties required by API are set
 func NewRegistryRestWithDefaults() *RegistryRest {
 	this := RegistryRest{}
+
 
 
 
@@ -272,6 +276,39 @@ func (o *RegistryRest) SetRegistryDeploymentId(v int32) {
 }
 
 
+// GetOwner returns the Owner field value if set, zero value otherwise.
+func (o *RegistryRest) GetOwner() string {
+	if o == nil || o.Owner == nil {
+		var ret string
+		return ret
+	}
+	return *o.Owner
+}
+
+// GetOwnerOk returns a tuple with the Owner field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RegistryRest) GetOwnerOk() (*string, bool) {
+	if o == nil || o.Owner == nil {
+		return nil, false
+	}
+	return o.Owner, true
+}
+
+// HasOwner returns a boolean if a field has been set.
+func (o *RegistryRest) HasOwner() bool {
+	if o != nil && o.Owner != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOwner gets a reference to the given string and assigns it to the Owner field.
+func (o *RegistryRest) SetOwner(v string) {
+	o.Owner = &v
+}
+
+
 func (o RegistryRest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
@@ -301,6 +338,10 @@ func (o RegistryRest) MarshalJSON() ([]byte, error) {
     
 	if o.RegistryDeploymentId != nil {
 		toSerialize["registryDeploymentId"] = o.RegistryDeploymentId
+	}
+    
+	if o.Owner != nil {
+		toSerialize["owner"] = o.Owner
 	}
     
 	return json.Marshal(toSerialize)

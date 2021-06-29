@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **RegistryUrl** | **string** |  | 
 **Name** | Pointer to **string** | User-defined Registry name. Does not have to be unique. | [optional] 
 **RegistryDeploymentId** | Pointer to **int32** | Identifier of a multi-tenant deployment, where this Service Registry instance resides. | [optional] 
+**Owner** | Pointer to **string** | Registry instance owner | [optional] 
 
 
 ## Methods
@@ -198,6 +199,32 @@ SetRegistryDeploymentId sets RegistryDeploymentId field to given value.
 `func (o *RegistryRest) HasRegistryDeploymentId() bool`
 
 HasRegistryDeploymentId returns a boolean if a field has been set.
+
+
+### GetOwner
+
+`func (o *RegistryRest) GetOwner() string`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *RegistryRest) GetOwnerOk() (*string, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *RegistryRest) SetOwner(v string)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *RegistryRest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
 
 
 
