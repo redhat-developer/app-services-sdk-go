@@ -13,6 +13,7 @@ package registrymgmtclient
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // RegistryRest struct for RegistryRest
@@ -26,7 +27,7 @@ type RegistryRest struct {
 
 	Status RegistryStatusValueRest `json:"status"`
 
-	RegistryUrl string `json:"registryUrl"`
+	RegistryUrl *string `json:"registryUrl,omitempty"`
 
 	// User-defined Registry name. Does not have to be unique.
 	Name *string `json:"name,omitempty"`
@@ -37,17 +38,27 @@ type RegistryRest struct {
 	// Registry instance owner
 	Owner *string `json:"owner,omitempty"`
 
+	// Description of the Registry instance.
+	Description *string `json:"description,omitempty"`
+
+	// ISO 8601 UTC timestamp.
+	CreatedAt time.Time `json:"created_at"`
+
+	// ISO 8601 UTC timestamp.
+	UpdatedAt time.Time `json:"updated_at"`
+
 }
 
 // NewRegistryRest instantiates a new RegistryRest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRegistryRest(id string, status RegistryStatusValueRest, registryUrl string) *RegistryRest {
+func NewRegistryRest(id string, status RegistryStatusValueRest, createdAt time.Time, updatedAt time.Time) *RegistryRest {
 	this := RegistryRest{}
 	this.Id = id
 	this.Status = status
-	this.RegistryUrl = registryUrl
+	this.CreatedAt = createdAt
+	this.UpdatedAt = updatedAt
 	return &this
 }
 
@@ -56,6 +67,9 @@ func NewRegistryRest(id string, status RegistryStatusValueRest, registryUrl stri
 // but it doesn't guarantee that properties required by API are set
 func NewRegistryRestWithDefaults() *RegistryRest {
 	this := RegistryRest{}
+
+
+
 
 
 
@@ -185,28 +199,36 @@ func (o *RegistryRest) SetStatus(v RegistryStatusValueRest) {
 }
 
 
-// GetRegistryUrl returns the RegistryUrl field value
+// GetRegistryUrl returns the RegistryUrl field value if set, zero value otherwise.
 func (o *RegistryRest) GetRegistryUrl() string {
-	if o == nil {
+	if o == nil || o.RegistryUrl == nil {
 		var ret string
 		return ret
 	}
-
-	return o.RegistryUrl
+	return *o.RegistryUrl
 }
 
-// GetRegistryUrlOk returns a tuple with the RegistryUrl field value
+// GetRegistryUrlOk returns a tuple with the RegistryUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RegistryRest) GetRegistryUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil || o.RegistryUrl == nil {
 		return nil, false
 	}
-	return &o.RegistryUrl, true
+	return o.RegistryUrl, true
 }
 
-// SetRegistryUrl sets field value
+// HasRegistryUrl returns a boolean if a field has been set.
+func (o *RegistryRest) HasRegistryUrl() bool {
+	if o != nil && o.RegistryUrl != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRegistryUrl gets a reference to the given string and assigns it to the RegistryUrl field.
 func (o *RegistryRest) SetRegistryUrl(v string) {
-	o.RegistryUrl = v
+	o.RegistryUrl = &v
 }
 
 
@@ -309,6 +331,89 @@ func (o *RegistryRest) SetOwner(v string) {
 }
 
 
+// GetDescription returns the Description field value if set, zero value otherwise.
+func (o *RegistryRest) GetDescription() string {
+	if o == nil || o.Description == nil {
+		var ret string
+		return ret
+	}
+	return *o.Description
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RegistryRest) GetDescriptionOk() (*string, bool) {
+	if o == nil || o.Description == nil {
+		return nil, false
+	}
+	return o.Description, true
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *RegistryRest) HasDescription() bool {
+	if o != nil && o.Description != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
+func (o *RegistryRest) SetDescription(v string) {
+	o.Description = &v
+}
+
+
+// GetCreatedAt returns the CreatedAt field value
+func (o *RegistryRest) GetCreatedAt() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.CreatedAt
+}
+
+// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// and a boolean to check if the value has been set.
+func (o *RegistryRest) GetCreatedAtOk() (*time.Time, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.CreatedAt, true
+}
+
+// SetCreatedAt sets field value
+func (o *RegistryRest) SetCreatedAt(v time.Time) {
+	o.CreatedAt = v
+}
+
+
+// GetUpdatedAt returns the UpdatedAt field value
+func (o *RegistryRest) GetUpdatedAt() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.UpdatedAt
+}
+
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
+// and a boolean to check if the value has been set.
+func (o *RegistryRest) GetUpdatedAtOk() (*time.Time, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.UpdatedAt, true
+}
+
+// SetUpdatedAt sets field value
+func (o *RegistryRest) SetUpdatedAt(v time.Time) {
+	o.UpdatedAt = v
+}
+
+
 func (o RegistryRest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
@@ -328,7 +433,7 @@ func (o RegistryRest) MarshalJSON() ([]byte, error) {
 		toSerialize["status"] = o.Status
 	}
     
-	if true {
+	if o.RegistryUrl != nil {
 		toSerialize["registryUrl"] = o.RegistryUrl
 	}
     
@@ -342,6 +447,18 @@ func (o RegistryRest) MarshalJSON() ([]byte, error) {
     
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
+	}
+    
+	if o.Description != nil {
+		toSerialize["description"] = o.Description
+	}
+    
+	if true {
+		toSerialize["created_at"] = o.CreatedAt
+	}
+    
+	if true {
+		toSerialize["updated_at"] = o.UpdatedAt
 	}
     
 	return json.Marshal(toSerialize)

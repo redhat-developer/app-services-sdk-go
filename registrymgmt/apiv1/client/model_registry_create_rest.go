@@ -18,8 +18,11 @@ import (
 // RegistryCreateRest Information used to create a new Service Registry instance within a multi-tenant deployment.
 type RegistryCreateRest struct {
 
-	// User-defined Registry name. Does not have to be unique.
+	// User-defined Registry name. Required. Does not have to be unique.
 	Name *string `json:"name,omitempty"`
+
+	// User-provided description of the new Registry instance. Not required.
+	Description *string `json:"description,omitempty"`
 
 }
 
@@ -37,6 +40,7 @@ func NewRegistryCreateRest() *RegistryCreateRest {
 // but it doesn't guarantee that properties required by API are set
 func NewRegistryCreateRestWithDefaults() *RegistryCreateRest {
 	this := RegistryCreateRest{}
+
 
 
 	return &this
@@ -76,11 +80,48 @@ func (o *RegistryCreateRest) SetName(v string) {
 }
 
 
+// GetDescription returns the Description field value if set, zero value otherwise.
+func (o *RegistryCreateRest) GetDescription() string {
+	if o == nil || o.Description == nil {
+		var ret string
+		return ret
+	}
+	return *o.Description
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RegistryCreateRest) GetDescriptionOk() (*string, bool) {
+	if o == nil || o.Description == nil {
+		return nil, false
+	}
+	return o.Description, true
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *RegistryCreateRest) HasDescription() bool {
+	if o != nil && o.Description != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
+func (o *RegistryCreateRest) SetDescription(v string) {
+	o.Description = &v
+}
+
+
 func (o RegistryCreateRest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
+	}
+    
+	if o.Description != nil {
+		toSerialize["description"] = o.Description
 	}
     
 	return json.Marshal(toSerialize)

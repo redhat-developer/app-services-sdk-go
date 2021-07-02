@@ -79,7 +79,6 @@ All URIs are relative to *https://api.openshift.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**GetSchema**](docs/DefaultApi.md#getschema) | **Get** /api/serviceregistry_mgmt/v1/openapi | Get an OpenAPI schema for this API.
 *RegistriesApi* | [**CreateRegistry**](docs/RegistriesApi.md#createregistry) | **Post** /api/serviceregistry_mgmt/v1/registries | Create a new Registry instance
 *RegistriesApi* | [**DeleteRegistry**](docs/RegistriesApi.md#deleteregistry) | **Delete** /api/serviceregistry_mgmt/v1/registries/{id} | Delete a Registry
 *RegistriesApi* | [**GetRegistries**](docs/RegistriesApi.md#getregistries) | **Get** /api/serviceregistry_mgmt/v1/registries | Get the list of all registries.

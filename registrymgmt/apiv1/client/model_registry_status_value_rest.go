@@ -16,20 +16,26 @@ import (
 	"fmt"
 )
 
-// RegistryStatusValueRest the model 'RegistryStatusValueRest'
+// RegistryStatusValueRest \"accepted\": Registry status when accepted for processing.  \"provisioning\": Registry status when provisioning a new instance.  \"ready\": Registry status when ready for use.  \"failed\": Registry status when the provisioning failed. When removing a Registry in this state, the status transitions directly to \"deleting\".   \"deprovision\": Registry status when accepted for deprovisioning.  \"deleting\": Registry status when deprovisioning. 
 type RegistryStatusValueRest string
 
 // List of RegistryStatusValueRest
 const (
-	PROVISIONING RegistryStatusValueRest = "PROVISIONING"
-	AVAILABLE RegistryStatusValueRest = "AVAILABLE"
-	UNAVAILABLE RegistryStatusValueRest = "UNAVAILABLE"
+	ACCEPTED RegistryStatusValueRest = "accepted"
+	PROVISIONING RegistryStatusValueRest = "provisioning"
+	READY RegistryStatusValueRest = "ready"
+	FAILED RegistryStatusValueRest = "failed"
+	DEPROVISION RegistryStatusValueRest = "deprovision"
+	DELETING RegistryStatusValueRest = "deleting"
 )
 
 var allowedRegistryStatusValueRestEnumValues = []RegistryStatusValueRest{
-	"PROVISIONING",
-	"AVAILABLE",
-	"UNAVAILABLE",
+	"accepted",
+	"provisioning",
+	"ready",
+	"failed",
+	"deprovision",
+	"deleting",
 }
 
 func (v *RegistryStatusValueRest) UnmarshalJSON(src []byte) error {

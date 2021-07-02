@@ -3,11 +3,17 @@
 ## Enum
 
 
-* `PROVISIONING` (value: `"PROVISIONING"`)
+* `ACCEPTED` (value: `"accepted"`)
 
-* `AVAILABLE` (value: `"AVAILABLE"`)
+* `PROVISIONING` (value: `"provisioning"`)
 
-* `UNAVAILABLE` (value: `"UNAVAILABLE"`)
+* `READY` (value: `"ready"`)
+
+* `FAILED` (value: `"failed"`)
+
+* `DEPROVISION` (value: `"deprovision"`)
+
+* `DELETING` (value: `"deleting"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

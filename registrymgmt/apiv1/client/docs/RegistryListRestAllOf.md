@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]RegistryRest**](RegistryRest.md) |  | [optional] 
+**Items** | [**[]RegistryRest**](RegistryRest.md) |  | 
 
 
 ## Methods
 
 ### NewRegistryListRestAllOf
 
-`func NewRegistryListRestAllOf() *RegistryListRestAllOf`
+`func NewRegistryListRestAllOf(items []RegistryRest, ) *RegistryListRestAllOf`
 
 NewRegistryListRestAllOf instantiates a new RegistryListRestAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -46,11 +46,6 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
-### HasItems
-
-`func (o *RegistryListRestAllOf) HasItems() bool`
-
-HasItems returns a boolean if a field has been set.
 
 
 
