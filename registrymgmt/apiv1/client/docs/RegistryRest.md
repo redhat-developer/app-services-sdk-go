@@ -8,17 +8,20 @@ Name | Type | Description | Notes
 **Kind** | Pointer to **string** |  | [optional] 
 **Href** | Pointer to **string** |  | [optional] 
 **Status** | [**RegistryStatusValueRest**](RegistryStatusValueRest.md) |  | 
-**RegistryUrl** | **string** |  | 
+**RegistryUrl** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** | User-defined Registry name. Does not have to be unique. | [optional] 
 **RegistryDeploymentId** | Pointer to **int32** | Identifier of a multi-tenant deployment, where this Service Registry instance resides. | [optional] 
 **Owner** | Pointer to **string** | Registry instance owner | [optional] 
+**Description** | Pointer to **string** | Description of the Registry instance. | [optional] 
+**CreatedAt** | **time.Time** | ISO 8601 UTC timestamp. | 
+**UpdatedAt** | **time.Time** | ISO 8601 UTC timestamp. | 
 
 
 ## Methods
 
 ### NewRegistryRest
 
-`func NewRegistryRest(id string, status RegistryStatusValueRest, registryUrl string, ) *RegistryRest`
+`func NewRegistryRest(id string, status RegistryStatusValueRest, createdAt time.Time, updatedAt time.Time, ) *RegistryRest`
 
 NewRegistryRest instantiates a new RegistryRest object
 This constructor will assign default values to properties that have it defined,
@@ -147,6 +150,11 @@ and a boolean to check if the value has been set.
 
 SetRegistryUrl sets RegistryUrl field to given value.
 
+### HasRegistryUrl
+
+`func (o *RegistryRest) HasRegistryUrl() bool`
+
+HasRegistryUrl returns a boolean if a field has been set.
 
 
 ### GetName
@@ -225,6 +233,74 @@ SetOwner sets Owner field to given value.
 `func (o *RegistryRest) HasOwner() bool`
 
 HasOwner returns a boolean if a field has been set.
+
+
+### GetDescription
+
+`func (o *RegistryRest) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *RegistryRest) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *RegistryRest) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *RegistryRest) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+
+### GetCreatedAt
+
+`func (o *RegistryRest) GetCreatedAt() time.Time`
+
+GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
+
+### GetCreatedAtOk
+
+`func (o *RegistryRest) GetCreatedAtOk() (*time.Time, bool)`
+
+GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedAt
+
+`func (o *RegistryRest) SetCreatedAt(v time.Time)`
+
+SetCreatedAt sets CreatedAt field to given value.
+
+
+
+### GetUpdatedAt
+
+`func (o *RegistryRest) GetUpdatedAt() time.Time`
+
+GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.
+
+### GetUpdatedAtOk
+
+`func (o *RegistryRest) GetUpdatedAtOk() (*time.Time, bool)`
+
+GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpdatedAt
+
+`func (o *RegistryRest) SetUpdatedAt(v time.Time)`
+
+SetUpdatedAt sets UpdatedAt field to given value.
+
 
 
 

@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | User-defined Registry name. Does not have to be unique. | [optional] 
+**Name** | Pointer to **string** | User-defined Registry name. Required. Does not have to be unique. | [optional] 
+**Description** | Pointer to **string** | User-provided description of the new Registry instance. Not required. | [optional] 
 
 
 ## Methods
@@ -51,6 +52,32 @@ SetName sets Name field to given value.
 `func (o *RegistryCreateRest) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+
+### GetDescription
+
+`func (o *RegistryCreateRest) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *RegistryCreateRest) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *RegistryCreateRest) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *RegistryCreateRest) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
 
 
 

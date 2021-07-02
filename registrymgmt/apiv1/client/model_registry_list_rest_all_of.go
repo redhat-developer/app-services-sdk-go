@@ -18,7 +18,7 @@ import (
 // RegistryListRestAllOf struct for RegistryListRestAllOf
 type RegistryListRestAllOf struct {
 
-	Items *[]RegistryRest `json:"items,omitempty"`
+	Items []RegistryRest `json:"items"`
 
 }
 
@@ -26,8 +26,9 @@ type RegistryListRestAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRegistryListRestAllOf() *RegistryListRestAllOf {
+func NewRegistryListRestAllOf(items []RegistryRest) *RegistryListRestAllOf {
 	this := RegistryListRestAllOf{}
+	this.Items = items
 	return &this
 }
 
@@ -42,43 +43,35 @@ func NewRegistryListRestAllOfWithDefaults() *RegistryListRestAllOf {
 }
 
 
-// GetItems returns the Items field value if set, zero value otherwise.
+// GetItems returns the Items field value
 func (o *RegistryListRestAllOf) GetItems() []RegistryRest {
-	if o == nil || o.Items == nil {
+	if o == nil {
 		var ret []RegistryRest
 		return ret
 	}
-	return *o.Items
+
+	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
+// GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
 func (o *RegistryListRestAllOf) GetItemsOk() (*[]RegistryRest, bool) {
-	if o == nil || o.Items == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Items, true
+	return &o.Items, true
 }
 
-// HasItems returns a boolean if a field has been set.
-func (o *RegistryListRestAllOf) HasItems() bool {
-	if o != nil && o.Items != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetItems gets a reference to the given []RegistryRest and assigns it to the Items field.
+// SetItems sets field value
 func (o *RegistryListRestAllOf) SetItems(v []RegistryRest) {
-	o.Items = &v
+	o.Items = v
 }
 
 
 func (o RegistryListRestAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
-	if o.Items != nil {
+	if true {
 		toSerialize["items"] = o.Items
 	}
     

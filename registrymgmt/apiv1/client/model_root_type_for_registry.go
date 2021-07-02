@@ -13,6 +13,7 @@ package registrymgmtclient
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // RootTypeForRegistry Service Registry instance within a multi-tenant deployment.
@@ -22,7 +23,7 @@ type RootTypeForRegistry struct {
 
 	Status RegistryStatusValueRest `json:"status"`
 
-	RegistryUrl string `json:"registryUrl"`
+	RegistryUrl *string `json:"registryUrl,omitempty"`
 
 	// User-defined Registry name. Does not have to be unique.
 	Name *string `json:"name,omitempty"`
@@ -33,17 +34,27 @@ type RootTypeForRegistry struct {
 	// Registry instance owner
 	Owner *string `json:"owner,omitempty"`
 
+	// Description of the Registry instance.
+	Description *string `json:"description,omitempty"`
+
+	// ISO 8601 UTC timestamp.
+	CreatedAt time.Time `json:"created_at"`
+
+	// ISO 8601 UTC timestamp.
+	UpdatedAt time.Time `json:"updated_at"`
+
 }
 
 // NewRootTypeForRegistry instantiates a new RootTypeForRegistry object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRootTypeForRegistry(id string, status RegistryStatusValueRest, registryUrl string) *RootTypeForRegistry {
+func NewRootTypeForRegistry(id string, status RegistryStatusValueRest, createdAt time.Time, updatedAt time.Time) *RootTypeForRegistry {
 	this := RootTypeForRegistry{}
 	this.Id = id
 	this.Status = status
-	this.RegistryUrl = registryUrl
+	this.CreatedAt = createdAt
+	this.UpdatedAt = updatedAt
 	return &this
 }
 
@@ -52,6 +63,9 @@ func NewRootTypeForRegistry(id string, status RegistryStatusValueRest, registryU
 // but it doesn't guarantee that properties required by API are set
 func NewRootTypeForRegistryWithDefaults() *RootTypeForRegistry {
 	this := RootTypeForRegistry{}
+
+
+
 
 
 
@@ -113,28 +127,36 @@ func (o *RootTypeForRegistry) SetStatus(v RegistryStatusValueRest) {
 }
 
 
-// GetRegistryUrl returns the RegistryUrl field value
+// GetRegistryUrl returns the RegistryUrl field value if set, zero value otherwise.
 func (o *RootTypeForRegistry) GetRegistryUrl() string {
-	if o == nil {
+	if o == nil || o.RegistryUrl == nil {
 		var ret string
 		return ret
 	}
-
-	return o.RegistryUrl
+	return *o.RegistryUrl
 }
 
-// GetRegistryUrlOk returns a tuple with the RegistryUrl field value
+// GetRegistryUrlOk returns a tuple with the RegistryUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *RootTypeForRegistry) GetRegistryUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil || o.RegistryUrl == nil {
 		return nil, false
 	}
-	return &o.RegistryUrl, true
+	return o.RegistryUrl, true
 }
 
-// SetRegistryUrl sets field value
+// HasRegistryUrl returns a boolean if a field has been set.
+func (o *RootTypeForRegistry) HasRegistryUrl() bool {
+	if o != nil && o.RegistryUrl != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRegistryUrl gets a reference to the given string and assigns it to the RegistryUrl field.
 func (o *RootTypeForRegistry) SetRegistryUrl(v string) {
-	o.RegistryUrl = v
+	o.RegistryUrl = &v
 }
 
 
@@ -237,6 +259,89 @@ func (o *RootTypeForRegistry) SetOwner(v string) {
 }
 
 
+// GetDescription returns the Description field value if set, zero value otherwise.
+func (o *RootTypeForRegistry) GetDescription() string {
+	if o == nil || o.Description == nil {
+		var ret string
+		return ret
+	}
+	return *o.Description
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RootTypeForRegistry) GetDescriptionOk() (*string, bool) {
+	if o == nil || o.Description == nil {
+		return nil, false
+	}
+	return o.Description, true
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *RootTypeForRegistry) HasDescription() bool {
+	if o != nil && o.Description != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
+func (o *RootTypeForRegistry) SetDescription(v string) {
+	o.Description = &v
+}
+
+
+// GetCreatedAt returns the CreatedAt field value
+func (o *RootTypeForRegistry) GetCreatedAt() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.CreatedAt
+}
+
+// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// and a boolean to check if the value has been set.
+func (o *RootTypeForRegistry) GetCreatedAtOk() (*time.Time, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.CreatedAt, true
+}
+
+// SetCreatedAt sets field value
+func (o *RootTypeForRegistry) SetCreatedAt(v time.Time) {
+	o.CreatedAt = v
+}
+
+
+// GetUpdatedAt returns the UpdatedAt field value
+func (o *RootTypeForRegistry) GetUpdatedAt() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.UpdatedAt
+}
+
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
+// and a boolean to check if the value has been set.
+func (o *RootTypeForRegistry) GetUpdatedAtOk() (*time.Time, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.UpdatedAt, true
+}
+
+// SetUpdatedAt sets field value
+func (o *RootTypeForRegistry) SetUpdatedAt(v time.Time) {
+	o.UpdatedAt = v
+}
+
+
 func (o RootTypeForRegistry) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
@@ -248,7 +353,7 @@ func (o RootTypeForRegistry) MarshalJSON() ([]byte, error) {
 		toSerialize["status"] = o.Status
 	}
     
-	if true {
+	if o.RegistryUrl != nil {
 		toSerialize["registryUrl"] = o.RegistryUrl
 	}
     
@@ -262,6 +367,18 @@ func (o RootTypeForRegistry) MarshalJSON() ([]byte, error) {
     
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
+	}
+    
+	if o.Description != nil {
+		toSerialize["description"] = o.Description
+	}
+    
+	if true {
+		toSerialize["created_at"] = o.CreatedAt
+	}
+    
+	if true {
+		toSerialize["updated_at"] = o.UpdatedAt
 	}
     
 	return json.Marshal(toSerialize)
