@@ -689,12 +689,12 @@ type ApiPatchConnectorRequest struct {
 	ctx _context.Context
 	ApiService ConnectorsApi
 	id string
-	body *map[string]interface{}
+	connector *Connector
 	kafkaId *string
 }
 
-func (r ApiPatchConnectorRequest) Body(body map[string]interface{}) ApiPatchConnectorRequest {
-	r.body = &body
+func (r ApiPatchConnectorRequest) Connector(connector Connector) ApiPatchConnectorRequest {
+	r.connector = &connector
 	return r
 }
 func (r ApiPatchConnectorRequest) KafkaId(kafkaId string) ApiPatchConnectorRequest {
@@ -745,15 +745,15 @@ func (a *ConnectorsApiService) PatchConnectorExecute(r ApiPatchConnectorRequest)
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
-	if r.body == nil {
-		return localVarReturnValue, nil, reportError("body is required and must be specified")
+	if r.connector == nil {
+		return localVarReturnValue, nil, reportError("connector is required and must be specified")
 	}
 
 	if r.kafkaId != nil {
 		localVarQueryParams.Add("kafka_id", parameterToString(*r.kafkaId, ""))
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/merge-patch+json"}
+	localVarHTTPContentTypes := []string{"application/json", "application/merge-patch+json", "application/json-patch+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -770,7 +770,7 @@ func (a *ConnectorsApiService) PatchConnectorExecute(r ApiPatchConnectorRequest)
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.body
+	localVarPostBody = r.connector
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
