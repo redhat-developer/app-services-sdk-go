@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 
 ## PatchConnector
 
-> Connector PatchConnector(ctx, id).Body(body).KafkaId(kafkaId).Execute()
+> Connector PatchConnector(ctx, id).Connector(connector).KafkaId(kafkaId).Execute()
 
 patch a connector
 
@@ -306,12 +306,12 @@ import (
 
 func main() {
     id := "id_example" // string | The ID of record
-    body := map[string]interface{}(Object) // map[string]interface{} | Data to patch the connector with
+    connector := *openapiclient.NewConnector() // Connector | Data to patch the connector with
     kafkaId := "kafkaId_example" // string | The kafka cluster id (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ConnectorsApi.PatchConnector(context.Background(), id).Body(body).KafkaId(kafkaId).Execute()
+    resp, r, err := api_client.ConnectorsApi.PatchConnector(context.Background(), id).Connector(connector).KafkaId(kafkaId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsApi.PatchConnector``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -337,7 +337,7 @@ Other parameters are passed through a pointer to a apiPatchConnectorRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | **map[string]interface{}** | Data to patch the connector with | 
+ **connector** | [**Connector**](Connector.md) | Data to patch the connector with | 
  **kafkaId** | **string** | The kafka cluster id | 
 
 ### Return type
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/merge-patch+json
+- **Content-Type**: application/json, application/merge-patch+json, application/json-patch+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
