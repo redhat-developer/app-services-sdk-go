@@ -34,6 +34,12 @@ import "github.com/redhat-developer/app-services-sdk-go"
 | ConnectorManagement       | alpha  | [`github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1) |
 
  
+ ## Instances SDKs
+
+| API                       | Status | Package                                                                                                                                                         |
+| ------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| KafkaInstance          | beta   | [`github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal)         |
+
 ## Documentation
 
 [Documentation](./docs)
