@@ -12,7 +12,7 @@ When authenticating please use following keycloak client configuration:
   "realm": "redhat-external",
   "auth-server-url": "https://sso.redhat.com/auth/",
   "ssl-required": "all",
-  "resource": "cloud-services",
+  "resource": "rhoas-cli-prod",
   "public-client": true,
   "confidential-port": 0
 }
@@ -20,14 +20,13 @@ When authenticating please use following keycloak client configuration:
 
 Valid redirect urls: 
 
-`.openshift.com/*, https://prod.foo.redhat.com/*, https://prod.food.redhat.com:1337/*`
+`http://localhost/sso-redhat-callback`, `http://127.0.0.1/sso-redhat-callback`
 
 ## Authentication for Instance SDK's
 
 To authenticate to the Instance SDK's we need to create service account
 Service account can be created using [RHOAS CLI](https://github.com/redhat-developer/app-services-cli/blob/main/docs/commands/rhoas_serviceaccount_create.adoc) or
 by UI (https://cloud.redhat.com)
-
 
 Once we have created service account we can use it to obtain token to the instances SDK
 
