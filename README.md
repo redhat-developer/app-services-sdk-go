@@ -22,22 +22,21 @@ Import:
 import "github.com/redhat-developer/app-services-sdk-go"
 ```
 
-## Supported APIs
+## Management SDKs
 
 > NOTE: Some of these APIs are under development and may sometimes cause backwards-incompatible changes.
 
 
-| API                       | Status | Package |
-|---------------------------|--------|---------|
-| KafkaManagement           | beta |  [`github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1)      |
-| ServiceRegistryManagement | alpha  |  [`github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1)       |
-| ConnectorManagement | alpha  |  [`github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1)       |
+| API                       | Status | Package                                                                                                                                                         |
+| ------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| KafkaManagement           | beta   | [`github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1)         |
+| ServiceRegistryManagement | alpha  | [`github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1)   |
+| ConnectorManagement       | alpha  | [`github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1) |
 
-**Alpha**: the API is still being developed and may have backwards-incompatible changes. It is not recommended for production use.
+ 
+## Documentation
 
-**Beta**: the API is mostly complete and stable, but still has outstanding features to be addressed. There may be minor backwards-incomptable changes.
-
-**Stable**: the API is ready for production use.
+[Documentation](./docs)
 
 ## Contributing
 
