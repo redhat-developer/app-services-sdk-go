@@ -1,6 +1,6 @@
 ## RHOAS App Services SDK
 
-### Management SDK's documentation
+### Management SDKs documentation
 
 - [Kafka Management](github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1)
 - [Service Registry Management](github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1)
