@@ -1,4 +1,4 @@
-## Authentication for Management SDK's
+## Authentication for Management SDKs
 
 Management SDKs are used to created instances. 
 For those instances we can use OAuth.
