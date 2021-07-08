@@ -1,6 +1,6 @@
 ## API stability
 
-SDKs uses following lables 
+SDKs uses following labels 
 
 **Alpha**: the API is still being developed and may have backwards-incompatible changes. It is not recommended for general use.
 
