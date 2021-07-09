@@ -25,7 +25,7 @@ jobs:
       - name: Set OpenAPI file path
         id: set_filepath
         run: |
-          echo "::set-output openapi_file::${{fromJson(steps.set_config.outputs.client_config)[${{ github.event.client_payload.id }}].openapi_file}}"
+          echo "::set-output openapi_file::${{ fromJSON(steps.set_config.outputs.client_config)[${{ github.event.client_payload.id }}].openapi_file }}"
       - name: Fetch OpenAPI schema
         run: |
           export PATH=${PATH}:`go env GOPATH`/bin
