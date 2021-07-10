@@ -907,7 +907,7 @@ components:
           items:
             $ref: '#/components/schemas/ConfigEntry'
           type: array
-        partitions:
+        numPartitions:
           description: Number of partitions (only increasing supported)
           type: integer
       title: Root Type for UpdateTopicInput
