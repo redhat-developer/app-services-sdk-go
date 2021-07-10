@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Config** | Pointer to [**[]ConfigEntry**](ConfigEntry.md) | Topic configuration entries. | [optional] 
-**Partitions** | Pointer to **int32** | Number of partitions (only increasing supported) | [optional] 
+**NumPartitions** | Pointer to **int32** | Number of partitions (only increasing supported) | [optional] 
 
 
 ## Methods
@@ -54,30 +54,30 @@ SetConfig sets Config field to given value.
 HasConfig returns a boolean if a field has been set.
 
 
-### GetPartitions
+### GetNumPartitions
 
-`func (o *UpdateTopicInput) GetPartitions() int32`
+`func (o *UpdateTopicInput) GetNumPartitions() int32`
 
-GetPartitions returns the Partitions field if non-nil, zero value otherwise.
+GetNumPartitions returns the NumPartitions field if non-nil, zero value otherwise.
 
-### GetPartitionsOk
+### GetNumPartitionsOk
 
-`func (o *UpdateTopicInput) GetPartitionsOk() (*int32, bool)`
+`func (o *UpdateTopicInput) GetNumPartitionsOk() (*int32, bool)`
 
-GetPartitionsOk returns a tuple with the Partitions field if it's non-nil, zero value otherwise
+GetNumPartitionsOk returns a tuple with the NumPartitions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPartitions
+### SetNumPartitions
 
-`func (o *UpdateTopicInput) SetPartitions(v int32)`
+`func (o *UpdateTopicInput) SetNumPartitions(v int32)`
 
-SetPartitions sets Partitions field to given value.
+SetNumPartitions sets NumPartitions field to given value.
 
-### HasPartitions
+### HasNumPartitions
 
-`func (o *UpdateTopicInput) HasPartitions() bool`
+`func (o *UpdateTopicInput) HasNumPartitions() bool`
 
-HasPartitions returns a boolean if a field has been set.
+HasNumPartitions returns a boolean if a field has been set.
 
 
 

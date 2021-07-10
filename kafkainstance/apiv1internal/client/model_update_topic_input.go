@@ -21,7 +21,7 @@ type UpdateTopicInput struct {
 	Config *[]ConfigEntry `json:"config,omitempty"`
 
 	// Number of partitions (only increasing supported)
-	Partitions *int32 `json:"partitions,omitempty"`
+	NumPartitions *int32 `json:"numPartitions,omitempty"`
 
 }
 
@@ -79,36 +79,36 @@ func (o *UpdateTopicInput) SetConfig(v []ConfigEntry) {
 }
 
 
-// GetPartitions returns the Partitions field value if set, zero value otherwise.
-func (o *UpdateTopicInput) GetPartitions() int32 {
-	if o == nil || o.Partitions == nil {
+// GetNumPartitions returns the NumPartitions field value if set, zero value otherwise.
+func (o *UpdateTopicInput) GetNumPartitions() int32 {
+	if o == nil || o.NumPartitions == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Partitions
+	return *o.NumPartitions
 }
 
-// GetPartitionsOk returns a tuple with the Partitions field value if set, nil otherwise
+// GetNumPartitionsOk returns a tuple with the NumPartitions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdateTopicInput) GetPartitionsOk() (*int32, bool) {
-	if o == nil || o.Partitions == nil {
+func (o *UpdateTopicInput) GetNumPartitionsOk() (*int32, bool) {
+	if o == nil || o.NumPartitions == nil {
 		return nil, false
 	}
-	return o.Partitions, true
+	return o.NumPartitions, true
 }
 
-// HasPartitions returns a boolean if a field has been set.
-func (o *UpdateTopicInput) HasPartitions() bool {
-	if o != nil && o.Partitions != nil {
+// HasNumPartitions returns a boolean if a field has been set.
+func (o *UpdateTopicInput) HasNumPartitions() bool {
+	if o != nil && o.NumPartitions != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetPartitions gets a reference to the given int32 and assigns it to the Partitions field.
-func (o *UpdateTopicInput) SetPartitions(v int32) {
-	o.Partitions = &v
+// SetNumPartitions gets a reference to the given int32 and assigns it to the NumPartitions field.
+func (o *UpdateTopicInput) SetNumPartitions(v int32) {
+	o.NumPartitions = &v
 }
 
 
@@ -119,8 +119,8 @@ func (o UpdateTopicInput) MarshalJSON() ([]byte, error) {
 		toSerialize["config"] = o.Config
 	}
     
-	if o.Partitions != nil {
-		toSerialize["partitions"] = o.Partitions
+	if o.NumPartitions != nil {
+		toSerialize["numPartitions"] = o.NumPartitions
 	}
     
 	return json.Marshal(toSerialize)
