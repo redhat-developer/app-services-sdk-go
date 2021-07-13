@@ -892,6 +892,10 @@ components:
           deprecated: true
           description: Maximum of returned topics
           type: integer
+        count:
+          deprecated: true
+          description: The total number of consumer groups.
+          type: number
       type: object
     UpdateTopicInput:
       description: Kafka Topic (A feed where records are stored and published)
