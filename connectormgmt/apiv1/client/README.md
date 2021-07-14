@@ -83,6 +83,7 @@ Class | Method | HTTP request | Description
 *ConnectorClustersApi* | [**GetConnectorCluster**](docs/ConnectorClustersApi.md#getconnectorcluster) | **Get** /api/connector_mgmt/v1/kafka_connector_clusters/{connector_cluster_id} | Get a connector cluster
 *ConnectorClustersApi* | [**GetConnectorClusterAddonParameters**](docs/ConnectorClustersApi.md#getconnectorclusteraddonparameters) | **Get** /api/connector_mgmt/v1/kafka_connector_clusters/{connector_cluster_id}/addon_parameters | Get a connector cluster&#39;s addon parameters
 *ConnectorClustersApi* | [**ListConnectorClusters**](docs/ConnectorClustersApi.md#listconnectorclusters) | **Get** /api/connector_mgmt/v1/kafka_connector_clusters | Returns a list of connector clusters
+*ConnectorClustersApi* | [**UpdateConnectorClusterById**](docs/ConnectorClustersApi.md#updateconnectorclusterbyid) | **Put** /api/connector_mgmt/v1/kafka_connector_clusters/{connector_cluster_id} | udpate a connector cluster
 *ConnectorTypesApi* | [**GetConnectorTypeByID**](docs/ConnectorTypesApi.md#getconnectortypebyid) | **Get** /api/connector_mgmt/v1/kafka_connector_types/{connector_type_id} | Get a connector type by id
 *ConnectorTypesApi* | [**ListConnectorTypes**](docs/ConnectorTypesApi.md#listconnectortypes) | **Get** /api/connector_mgmt/v1/kafka_connector_types | Returns a list of connector types
 *ConnectorsApi* | [**CreateConnector**](docs/ConnectorsApi.md#createconnector) | **Post** /api/connector_mgmt/v1/kafka_connectors | Create a new connector
