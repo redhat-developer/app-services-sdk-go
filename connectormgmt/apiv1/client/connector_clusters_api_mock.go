@@ -49,6 +49,12 @@ var _ ConnectorClustersApi = &ConnectorClustersApiMock{}
 // 			ListConnectorClustersExecuteFunc: func(r ApiListConnectorClustersRequest) (ConnectorClusterList, *_nethttp.Response, error) {
 // 				panic("mock out the ListConnectorClustersExecute method")
 // 			},
+// 			UpdateConnectorClusterByIdFunc: func(ctx _context.Context, connectorClusterId string) ApiUpdateConnectorClusterByIdRequest {
+// 				panic("mock out the UpdateConnectorClusterById method")
+// 			},
+// 			UpdateConnectorClusterByIdExecuteFunc: func(r ApiUpdateConnectorClusterByIdRequest) (*_nethttp.Response, error) {
+// 				panic("mock out the UpdateConnectorClusterByIdExecute method")
+// 			},
 // 		}
 //
 // 		// use mockedConnectorClustersApi in code that requires ConnectorClustersApi
@@ -85,6 +91,12 @@ type ConnectorClustersApiMock struct {
 
 	// ListConnectorClustersExecuteFunc mocks the ListConnectorClustersExecute method.
 	ListConnectorClustersExecuteFunc func(r ApiListConnectorClustersRequest) (ConnectorClusterList, *_nethttp.Response, error)
+
+	// UpdateConnectorClusterByIdFunc mocks the UpdateConnectorClusterById method.
+	UpdateConnectorClusterByIdFunc func(ctx _context.Context, connectorClusterId string) ApiUpdateConnectorClusterByIdRequest
+
+	// UpdateConnectorClusterByIdExecuteFunc mocks the UpdateConnectorClusterByIdExecute method.
+	UpdateConnectorClusterByIdExecuteFunc func(r ApiUpdateConnectorClusterByIdRequest) (*_nethttp.Response, error)
 
 	// calls tracks calls to the methods.
 	calls struct {
@@ -144,6 +156,18 @@ type ConnectorClustersApiMock struct {
 			// R is the r argument value.
 			R ApiListConnectorClustersRequest
 		}
+		// UpdateConnectorClusterById holds details about calls to the UpdateConnectorClusterById method.
+		UpdateConnectorClusterById []struct {
+			// Ctx is the ctx argument value.
+			Ctx _context.Context
+			// ConnectorClusterId is the connectorClusterId argument value.
+			ConnectorClusterId string
+		}
+		// UpdateConnectorClusterByIdExecute holds details about calls to the UpdateConnectorClusterByIdExecute method.
+		UpdateConnectorClusterByIdExecute []struct {
+			// R is the r argument value.
+			R ApiUpdateConnectorClusterByIdRequest
+		}
 	}
 	lockCreateConnectorCluster                    sync.RWMutex
 	lockCreateConnectorClusterExecute             sync.RWMutex
@@ -155,6 +179,8 @@ type ConnectorClustersApiMock struct {
 	lockGetConnectorClusterExecute                sync.RWMutex
 	lockListConnectorClusters                     sync.RWMutex
 	lockListConnectorClustersExecute              sync.RWMutex
+	lockUpdateConnectorClusterById                sync.RWMutex
+	lockUpdateConnectorClusterByIdExecute         sync.RWMutex
 }
 
 // CreateConnectorCluster calls CreateConnectorClusterFunc.
@@ -476,5 +502,71 @@ func (mock *ConnectorClustersApiMock) ListConnectorClustersExecuteCalls() []stru
 	mock.lockListConnectorClustersExecute.RLock()
 	calls = mock.calls.ListConnectorClustersExecute
 	mock.lockListConnectorClustersExecute.RUnlock()
+	return calls
+}
+
+// UpdateConnectorClusterById calls UpdateConnectorClusterByIdFunc.
+func (mock *ConnectorClustersApiMock) UpdateConnectorClusterById(ctx _context.Context, connectorClusterId string) ApiUpdateConnectorClusterByIdRequest {
+	if mock.UpdateConnectorClusterByIdFunc == nil {
+		panic("ConnectorClustersApiMock.UpdateConnectorClusterByIdFunc: method is nil but ConnectorClustersApi.UpdateConnectorClusterById was just called")
+	}
+	callInfo := struct {
+		Ctx                _context.Context
+		ConnectorClusterId string
+	}{
+		Ctx:                ctx,
+		ConnectorClusterId: connectorClusterId,
+	}
+	mock.lockUpdateConnectorClusterById.Lock()
+	mock.calls.UpdateConnectorClusterById = append(mock.calls.UpdateConnectorClusterById, callInfo)
+	mock.lockUpdateConnectorClusterById.Unlock()
+	return mock.UpdateConnectorClusterByIdFunc(ctx, connectorClusterId)
+}
+
+// UpdateConnectorClusterByIdCalls gets all the calls that were made to UpdateConnectorClusterById.
+// Check the length with:
+//     len(mockedConnectorClustersApi.UpdateConnectorClusterByIdCalls())
+func (mock *ConnectorClustersApiMock) UpdateConnectorClusterByIdCalls() []struct {
+	Ctx                _context.Context
+	ConnectorClusterId string
+} {
+	var calls []struct {
+		Ctx                _context.Context
+		ConnectorClusterId string
+	}
+	mock.lockUpdateConnectorClusterById.RLock()
+	calls = mock.calls.UpdateConnectorClusterById
+	mock.lockUpdateConnectorClusterById.RUnlock()
+	return calls
+}
+
+// UpdateConnectorClusterByIdExecute calls UpdateConnectorClusterByIdExecuteFunc.
+func (mock *ConnectorClustersApiMock) UpdateConnectorClusterByIdExecute(r ApiUpdateConnectorClusterByIdRequest) (*_nethttp.Response, error) {
+	if mock.UpdateConnectorClusterByIdExecuteFunc == nil {
+		panic("ConnectorClustersApiMock.UpdateConnectorClusterByIdExecuteFunc: method is nil but ConnectorClustersApi.UpdateConnectorClusterByIdExecute was just called")
+	}
+	callInfo := struct {
+		R ApiUpdateConnectorClusterByIdRequest
+	}{
+		R: r,
+	}
+	mock.lockUpdateConnectorClusterByIdExecute.Lock()
+	mock.calls.UpdateConnectorClusterByIdExecute = append(mock.calls.UpdateConnectorClusterByIdExecute, callInfo)
+	mock.lockUpdateConnectorClusterByIdExecute.Unlock()
+	return mock.UpdateConnectorClusterByIdExecuteFunc(r)
+}
+
+// UpdateConnectorClusterByIdExecuteCalls gets all the calls that were made to UpdateConnectorClusterByIdExecute.
+// Check the length with:
+//     len(mockedConnectorClustersApi.UpdateConnectorClusterByIdExecuteCalls())
+func (mock *ConnectorClustersApiMock) UpdateConnectorClusterByIdExecuteCalls() []struct {
+	R ApiUpdateConnectorClusterByIdRequest
+} {
+	var calls []struct {
+		R ApiUpdateConnectorClusterByIdRequest
+	}
+	mock.lockUpdateConnectorClusterByIdExecute.RLock()
+	calls = mock.calls.UpdateConnectorClusterByIdExecute
+	mock.lockUpdateConnectorClusterByIdExecute.RUnlock()
 	return calls
 }

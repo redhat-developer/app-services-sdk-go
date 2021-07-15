@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetConnectorCluster**](ConnectorClustersApi.md#GetConnectorCluster) | **Get** /api/connector_mgmt/v1/kafka_connector_clusters/{connector_cluster_id} | Get a connector cluster
 [**GetConnectorClusterAddonParameters**](ConnectorClustersApi.md#GetConnectorClusterAddonParameters) | **Get** /api/connector_mgmt/v1/kafka_connector_clusters/{connector_cluster_id}/addon_parameters | Get a connector cluster&#39;s addon parameters
 [**ListConnectorClusters**](ConnectorClustersApi.md#ListConnectorClusters) | **Get** /api/connector_mgmt/v1/kafka_connector_clusters | Returns a list of connector clusters
+[**UpdateConnectorClusterById**](ConnectorClustersApi.md#UpdateConnectorClusterById) | **Put** /api/connector_mgmt/v1/kafka_connector_clusters/{connector_cluster_id} | udpate a connector cluster
 
 
 
@@ -341,6 +342,74 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateConnectorClusterById
+
+> UpdateConnectorClusterById(ctx, connectorClusterId).ConnectorCluster(connectorCluster).Execute()
+
+udpate a connector cluster
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    connectorClusterId := "connectorClusterId_example" // string | The id of the connector cluster
+    connectorCluster := *openapiclient.NewConnectorCluster() // ConnectorCluster | Data to updated connector with
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ConnectorClustersApi.UpdateConnectorClusterById(context.Background(), connectorClusterId).ConnectorCluster(connectorCluster).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConnectorClustersApi.UpdateConnectorClusterById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**connectorClusterId** | **string** | The id of the connector cluster | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateConnectorClusterByIdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **connectorCluster** | [**ConnectorCluster**](ConnectorCluster.md) | Data to updated connector with | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
