@@ -16,25 +16,10 @@
 
 ## Generating an API client locally
 
-You may want to generate an SDK locally. This can be done in two steps.
+You may want to generate an SDK locally. 
+See Codegen [README](./internal/apigen/README.md) for more details
 
-1. Fetch the OpenAPI specification file.
-
-```shell
-# Set the arguments
-remote_openapi_url="https://raw.githubusercontent.com/bf2fc6cc711aee1a0c2a/kas-fleet-manager/main/openapi/kas-fleet-manager.yaml"
-
-# List of client IDs can be found in `.config/api-client-metadata.json`
-client_id="kafka-mgmt/v1"
-
-./scripts/fetch_api.sh $remote_openapi_url
-```
-
-2. Generate the OpenAPI client
-
-```shell
-./scripts/generate_go.sh $client_id $remote_openapi_url
-```
+ 
 
 ## Adding a new service
 
