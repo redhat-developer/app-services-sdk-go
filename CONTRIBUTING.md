@@ -113,6 +113,10 @@ Copy [kafkamgmt/apiv1/api_client.go](kafkamgmt/apiv1/api_client.go) into the `fo
 
 If your SDK requires custom code, define them in your desired structure in `foomgmt/v1beta`. Please do not add custom code to `foomgmt/v1beta/client` as this could be overwritten.
 
+#### 6. Use codegen cli to generate CLI
+
+See Codegen [README](./internal/apigen/README.md)
+
 ## Linting
 
 Run `make lint` to perform a lint check of the Go code.
