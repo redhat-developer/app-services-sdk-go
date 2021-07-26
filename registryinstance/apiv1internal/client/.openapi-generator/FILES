@@ -6,7 +6,6 @@ api_artifact_rules.go
 api_artifacts.go
 api_global_rules.go
 api_metadata.go
-api_search.go
 api_system.go
 api_users.go
 api_versions.go
@@ -35,7 +34,6 @@ docs/RuleType.md
 docs/RuleViolationCause.md
 docs/RuleViolationError.md
 docs/RuleViolationErrorAllOf.md
-docs/SearchApi.md
 docs/SearchedArtifact.md
 docs/SearchedVersion.md
 docs/SortBy.md
