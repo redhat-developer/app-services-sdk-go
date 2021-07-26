@@ -88,10 +88,11 @@ type GroupsApi interface {
 type GroupsApiService service
 
 type ApiDeleteConsumerGroupByIdRequest struct {
-	ctx             _context.Context
-	ApiService      GroupsApi
+	ctx _context.Context
+	ApiService GroupsApi
 	consumerGroupId string
 }
+
 
 func (r ApiDeleteConsumerGroupByIdRequest) Execute() (*_nethttp.Response, error) {
 	return r.ApiService.DeleteConsumerGroupByIdExecute(r)
@@ -106,8 +107,8 @@ func (r ApiDeleteConsumerGroupByIdRequest) Execute() (*_nethttp.Response, error)
  */
 func (a *GroupsApiService) DeleteConsumerGroupById(ctx _context.Context, consumerGroupId string) ApiDeleteConsumerGroupByIdRequest {
 	return ApiDeleteConsumerGroupByIdRequest{
-		ApiService:      a,
-		ctx:             ctx,
+		ApiService: a,
+		ctx: ctx,
 		consumerGroupId: consumerGroupId,
 	}
 }
@@ -182,13 +183,13 @@ func (a *GroupsApiService) DeleteConsumerGroupByIdExecute(r ApiDeleteConsumerGro
 }
 
 type ApiGetConsumerGroupByIdRequest struct {
-	ctx             _context.Context
-	ApiService      GroupsApi
+	ctx _context.Context
+	ApiService GroupsApi
 	consumerGroupId string
-	order           *string
-	orderKey        *string
+	order *string
+	orderKey *string
 	partitionFilter *int32
-	topic           *string
+	topic *string
 }
 
 func (r ApiGetConsumerGroupByIdRequest) Order(order string) ApiGetConsumerGroupByIdRequest {
@@ -220,8 +221,8 @@ func (r ApiGetConsumerGroupByIdRequest) Execute() (ConsumerGroup, *_nethttp.Resp
  */
 func (a *GroupsApiService) GetConsumerGroupById(ctx _context.Context, consumerGroupId string) ApiGetConsumerGroupByIdRequest {
 	return ApiGetConsumerGroupByIdRequest{
-		ApiService:      a,
-		ctx:             ctx,
+		ApiService: a,
+		ctx: ctx,
 		consumerGroupId: consumerGroupId,
 	}
 }
@@ -319,16 +320,16 @@ func (a *GroupsApiService) GetConsumerGroupByIdExecute(r ApiGetConsumerGroupById
 }
 
 type ApiGetConsumerGroupsRequest struct {
-	ctx           _context.Context
-	ApiService    GroupsApi
-	offset        *int32
-	limit         *int32
-	size          *int32
-	page          *int32
-	topic         *string
+	ctx _context.Context
+	ApiService GroupsApi
+	offset *int32
+	limit *int32
+	size *int32
+	page *int32
+	topic *string
 	groupIdFilter *string
-	order         *string
-	orderKey      *string
+	order *string
+	orderKey *string
 }
 
 func (r ApiGetConsumerGroupsRequest) Offset(offset int32) ApiGetConsumerGroupsRequest {
@@ -377,7 +378,7 @@ func (r ApiGetConsumerGroupsRequest) Execute() (ConsumerGroupList, *_nethttp.Res
 func (a *GroupsApiService) GetConsumerGroups(ctx _context.Context) ApiGetConsumerGroupsRequest {
 	return ApiGetConsumerGroupsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -485,9 +486,9 @@ func (a *GroupsApiService) GetConsumerGroupsExecute(r ApiGetConsumerGroupsReques
 }
 
 type ApiResetConsumerGroupOffsetRequest struct {
-	ctx                                _context.Context
-	ApiService                         GroupsApi
-	consumerGroupId                    string
+	ctx _context.Context
+	ApiService GroupsApi
+	consumerGroupId string
 	consumerGroupResetOffsetParameters *ConsumerGroupResetOffsetParameters
 }
 
@@ -509,8 +510,8 @@ func (r ApiResetConsumerGroupOffsetRequest) Execute() ([][]map[string]interface{
  */
 func (a *GroupsApiService) ResetConsumerGroupOffset(ctx _context.Context, consumerGroupId string) ApiResetConsumerGroupOffsetRequest {
 	return ApiResetConsumerGroupOffsetRequest{
-		ApiService:      a,
-		ctx:             ctx,
+		ApiService: a,
+		ctx: ctx,
 		consumerGroupId: consumerGroupId,
 	}
 }
