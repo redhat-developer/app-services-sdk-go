@@ -10,7 +10,7 @@ import (
 // to customise the API client settings
 type Config = internal.APIConfig
 
-// NewAPIClient returns a new KafkaManagement v1 API client
+// NewAPIClient returns a new v1 API client
 // using a custom config
 func NewAPIClient(cfg *Config) *apiv1.APIClient {
 	apiCfg := apiv1.NewConfiguration()

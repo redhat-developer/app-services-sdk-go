@@ -1,16 +1,16 @@
-package registrymgmt
+package registryinstance
 
 import (
 	"github.com/redhat-developer/app-services-sdk-go/internal"
 
-	apiv1 "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/client"
+	apiv1 "github.com/redhat-developer/app-services-sdk-go/registryinstance/apiv1internal/client"
 )
 
 // APIConfig defines the available configuration options
 // to customise the API client settings
 type Config = internal.APIConfig
 
-// NewAPIClient returns a new KafkaManagement v1 API client
+// NewAPIClient returns a new v1 API client
 // using a custom config
 func NewAPIClient(cfg *Config) *apiv1.APIClient {
 	apiCfg := apiv1.NewConfiguration()
