@@ -22,7 +22,7 @@ func main() {
 		BaseURL:    os.Getenv("API_URL"),
 	})
 
-	res, _, err := apiClient.DefaultApi.GetTopics(context.Background()).Execute()
+	res, _, err := apiClient.TopicsApi.GetTopics(context.Background()).Execute()
 	if err != nil {
 		panic(err)
 	}
