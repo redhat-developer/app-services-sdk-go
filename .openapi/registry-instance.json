@@ -120,8 +120,7 @@
             "summary": "Manage the global rules that apply to all artifacts if not otherwise configured.",
             "get": {
                 "tags": [
-                    "Global rules",
-                    "Admin"
+                    "Global rules"
                 ],
                 "responses": {
                     "200": {
@@ -157,7 +156,6 @@
                     "required": true
                 },
                 "tags": [
-                    "Global rules",
                     "Admin"
                 ],
                 "responses": {
@@ -180,7 +178,6 @@
             },
             "delete": {
                 "tags": [
-                    "Global rules",
                     "Admin"
                 ],
                 "responses": {
@@ -200,7 +197,6 @@
             "summary": "Manage the configuration of a single global artifact rule.",
             "get": {
                 "tags": [
-                    "Global rules",
                     "Admin"
                 ],
                 "responses": {
@@ -237,7 +233,6 @@
                     "required": true
                 },
                 "tags": [
-                    "Global rules",
                     "Admin"
                 ],
                 "responses": {
@@ -264,8 +259,7 @@
             },
             "delete": {
                 "tags": [
-                    "Global rules",
-                    "Admin"
+                    "Global rules"
                 ],
                 "responses": {
                     "204": {
@@ -447,7 +441,6 @@
             "summary": "Search for artifacts in the registry.",
             "get": {
                 "tags": [
-                    "Search",
                     "Artifacts"
                 ],
                 "parameters": [
@@ -566,7 +559,6 @@
                     "required": true
                 },
                 "tags": [
-                    "Search",
                     "Artifacts"
                 ],
                 "parameters": [
@@ -2182,8 +2174,7 @@
                 "summary": "Get current user",
                 "description": "Returns information about the currently authenticated user."
             }
-        },
-        "x-codegen-contextRoot": "/apis/registry/v2"
+        }
     },
     "components": {
         "schemas": {
@@ -3147,4 +3138,3 @@
         ]
     }
 }
-{"mode":"full","isActive":false}
