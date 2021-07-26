@@ -51,3 +51,14 @@ client := registryinstance.NewAPIClient(&cfg)
 ## Endpoints
 
 For a full list of the available endpoints, see [Documentation for API Endpoints](./client/README.md#documentation-for-api-endpoints).
+
+## Local development
+
+Registry API requires local patch in order to be valid. 
+Plese execute manually 
+
+```bash
+./scripts/patch_apis.sh
+```
+
+to patch API
