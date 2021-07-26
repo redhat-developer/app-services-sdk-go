@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **GroupId** | **string** | Unique identifier for the consumer group | 
+**State** | Pointer to **string** |  | [optional] 
 **Consumers** | [**[]Consumer**](Consumer.md) | The list of consumers associated with this consumer group | 
 
 
@@ -47,6 +48,32 @@ and a boolean to check if the value has been set.
 
 SetGroupId sets GroupId field to given value.
 
+
+
+### GetState
+
+`func (o *ConsumerGroup) GetState() string`
+
+GetState returns the State field if non-nil, zero value otherwise.
+
+### GetStateOk
+
+`func (o *ConsumerGroup) GetStateOk() (*string, bool)`
+
+GetStateOk returns a tuple with the State field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetState
+
+`func (o *ConsumerGroup) SetState(v string)`
+
+SetState sets State field to given value.
+
+### HasState
+
+`func (o *ConsumerGroup) HasState() bool`
+
+HasState returns a boolean if a field has been set.
 
 
 ### GetConsumers
