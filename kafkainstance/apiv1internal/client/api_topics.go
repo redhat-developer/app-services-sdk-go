@@ -103,8 +103,8 @@ type TopicsApi interface {
 type TopicsApiService service
 
 type ApiCreateTopicRequest struct {
-	ctx _context.Context
-	ApiService TopicsApi
+	ctx           _context.Context
+	ApiService    TopicsApi
 	newTopicInput *NewTopicInput
 }
 
@@ -126,7 +126,7 @@ func (r ApiCreateTopicRequest) Execute() (Topic, *_nethttp.Response, error) {
 func (a *TopicsApiService) CreateTopic(ctx _context.Context) ApiCreateTopicRequest {
 	return ApiCreateTopicRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -215,11 +215,10 @@ func (a *TopicsApiService) CreateTopicExecute(r ApiCreateTopicRequest) (Topic, *
 }
 
 type ApiDeleteTopicRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService TopicsApi
-	topicName string
+	topicName  string
 }
-
 
 func (r ApiDeleteTopicRequest) Execute() (*_nethttp.Response, error) {
 	return r.ApiService.DeleteTopicExecute(r)
@@ -235,8 +234,8 @@ func (r ApiDeleteTopicRequest) Execute() (*_nethttp.Response, error) {
 func (a *TopicsApiService) DeleteTopic(ctx _context.Context, topicName string) ApiDeleteTopicRequest {
 	return ApiDeleteTopicRequest{
 		ApiService: a,
-		ctx: ctx,
-		topicName: topicName,
+		ctx:        ctx,
+		topicName:  topicName,
 	}
 }
 
@@ -310,11 +309,10 @@ func (a *TopicsApiService) DeleteTopicExecute(r ApiDeleteTopicRequest) (*_nethtt
 }
 
 type ApiGetTopicRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService TopicsApi
-	topicName string
+	topicName  string
 }
-
 
 func (r ApiGetTopicRequest) Execute() (Topic, *_nethttp.Response, error) {
 	return r.ApiService.GetTopicExecute(r)
@@ -330,8 +328,8 @@ func (r ApiGetTopicRequest) Execute() (Topic, *_nethttp.Response, error) {
 func (a *TopicsApiService) GetTopic(ctx _context.Context, topicName string) ApiGetTopicRequest {
 	return ApiGetTopicRequest{
 		ApiService: a,
-		ctx: ctx,
-		topicName: topicName,
+		ctx:        ctx,
+		topicName:  topicName,
 	}
 }
 
@@ -416,15 +414,15 @@ func (a *TopicsApiService) GetTopicExecute(r ApiGetTopicRequest) (Topic, *_netht
 }
 
 type ApiGetTopicsRequest struct {
-	ctx _context.Context
+	ctx        _context.Context
 	ApiService TopicsApi
-	offset *int32
-	limit *int32
-	size *int32
-	filter *string
-	page *int32
-	order *string
-	orderKey *string
+	offset     *int32
+	limit      *int32
+	size       *int32
+	filter     *string
+	page       *int32
+	order      *string
+	orderKey   *string
 }
 
 func (r ApiGetTopicsRequest) Offset(offset int32) ApiGetTopicsRequest {
@@ -469,7 +467,7 @@ func (r ApiGetTopicsRequest) Execute() (TopicsList, *_nethttp.Response, error) {
 func (a *TopicsApiService) GetTopics(ctx _context.Context) ApiGetTopicsRequest {
 	return ApiGetTopicsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -574,9 +572,9 @@ func (a *TopicsApiService) GetTopicsExecute(r ApiGetTopicsRequest) (TopicsList, 
 }
 
 type ApiUpdateTopicRequest struct {
-	ctx _context.Context
-	ApiService TopicsApi
-	topicName string
+	ctx              _context.Context
+	ApiService       TopicsApi
+	topicName        string
 	updateTopicInput *UpdateTopicInput
 }
 
@@ -599,8 +597,8 @@ func (r ApiUpdateTopicRequest) Execute() (Topic, *_nethttp.Response, error) {
 func (a *TopicsApiService) UpdateTopic(ctx _context.Context, topicName string) ApiUpdateTopicRequest {
 	return ApiUpdateTopicRequest{
 		ApiService: a,
-		ctx: ctx,
-		topicName: topicName,
+		ctx:        ctx,
+		topicName:  topicName,
 	}
 }
 
