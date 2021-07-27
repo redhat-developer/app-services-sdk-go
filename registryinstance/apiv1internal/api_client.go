@@ -1,12 +1,12 @@
-package registrymgmt
+package registryinstance
 
 import (
 	"github.com/redhat-developer/app-services-sdk-go/internal"
 
-	apiv1 "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/client"
+	apiv1 "github.com/redhat-developer/app-services-sdk-go/registryinstance/apiv1internal/client"
 )
 
-// APIConfig defines the available configuration options
+// Config defines the available configuration options
 // to customise the API client settings
 type Config = internal.APIConfig
 

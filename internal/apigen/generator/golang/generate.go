@@ -109,7 +109,11 @@ func generateMocks(tag string, output string) error {
 		fmt.Println(string(out))
 	}
 
-	interfaceName := fmt.Sprintf("%vApi", strings.Title(strings.Join(strings.Split(tag, " "), "")))
+	tagChunks := strings.Split(tag, " ")
+	for index := range tagChunks {
+		tagChunks[index] = strings.Title(tagChunks[index])
+	}
+	interfaceName := fmt.Sprintf("%vApi", strings.Join(tagChunks, ""))
 
 	out, err = exec.Command("moq", "-out", mockFilePath, output, interfaceName).CombinedOutput()
 	if err != nil {

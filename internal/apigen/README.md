@@ -43,3 +43,11 @@ Usage:
 ```shell
 api-generate-all --repo-metadata=.config/api-client-metadata.json --generator go --templates-dir=./scripts/templates
 ```
+
+### Local development
+
+Execute command to install all  versions of the commandline directly from source code.
+
+```shell
+make install
+```
