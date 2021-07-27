@@ -55,7 +55,7 @@ For a full list of the available endpoints, see [Documentation for API Endpoints
 ## Local development
 
 Registry API requires local patch in order to be valid. 
-Plese execute manually 
+Please execute manually:
 
 ```bash
 ./scripts/patch_apis.sh
