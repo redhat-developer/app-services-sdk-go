@@ -1,7 +1,7 @@
 /*
  * Apicurio Registry API [v2]
  *
- * Apicurio Registry is a datastore for standard event schemas and API designs. Apicurio Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.  The Apicurio Registry REST API enables client applications to manage the artifacts in the registry. This API provides create, read, update, and delete operations for schema and API artifacts, rules, versions, and metadata.   The supported artifact types include: - Apache Avro schema - AsyncAPI specification - Google protocol buffers - GraphQL schema - JSON Schema - Kafka Connect schema - OpenAPI specification - Web Services Description Language - XML Schema Definition   **Important**: The Apicurio Registry REST API is available from `https://MY-REGISTRY-URL/apis/registry/v2` by default. Therefore you must prefix all API operation paths with `../apis/registry/v2` in this case. For example: `../apis/registry/v2/ids/globalIds/{globalId}`.
+ * Apicurio Registry is a datastore for standard event schemas and API designs. Apicurio Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.  The Apicurio Registry REST API enables client applications to manage the artifacts in the registry. This API provides create, read, update, and delete operations for schema and API artifacts, rules, versions, and metadata.   The supported artifact types include: - Apache Avro schema - AsyncAPI specification - Google protocol buffers - GraphQL schema - JSON Schema - Kafka Connect schema - OpenAPI specification - Web Services Description Language - XML Schema Definition   **Important**: The Apicurio Registry REST API is available from `https://MY-REGISTRY-URL/apis/registry/v2` by default. Therefore you must prefix all API operation paths with `../apis/registry/v2` in this case. For example: `../apis/registry/v2/ids/globalIds/{globalId}`. 
  *
  * API version: 2.1.0-SNAPSHOT
  * Contact: apicurio@lists.jboss.org
@@ -17,9 +17,9 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 	"os"
 	"reflect"
-	"strings"
 )
 
 // Linger please
@@ -30,63 +30,63 @@ var (
 type ArtifactsApi interface {
 
 	/*
-			 * CreateArtifact Create artifact
-			 * Creates a new artifact by posting the artifact content.  The body of the request should
-		be the raw content of the artifact.  This is typically in JSON format for *most* of the
-		supported types, but may be in another format for a few (for example, `PROTOBUF`).
+	 * CreateArtifact Create artifact
+	 * Creates a new artifact by posting the artifact content.  The body of the request should
+be the raw content of the artifact.  This is typically in JSON format for *most* of the 
+supported types, but may be in another format for a few (for example, `PROTOBUF`).
 
-		The registry attempts to figure out what kind of artifact is being added from the
-		following supported list:
+The registry attempts to figure out what kind of artifact is being added from the
+following supported list:
 
-		* Avro (`AVRO`)
-		* Protobuf (`PROTOBUF`)
-		* JSON Schema (`JSON`)
-		* Kafka Connect (`KCONNECT`)
-		* OpenAPI (`OPENAPI`)
-		* AsyncAPI (`ASYNCAPI`)
-		* GraphQL (`GRAPHQL`)
-		* Web Services Description Language (`WSDL`)
-		* XML Schema (`XSD`)
+* Avro (`AVRO`)
+* Protobuf (`PROTOBUF`)
+* JSON Schema (`JSON`)
+* Kafka Connect (`KCONNECT`)
+* OpenAPI (`OPENAPI`)
+* AsyncAPI (`ASYNCAPI`)
+* GraphQL (`GRAPHQL`)
+* Web Services Description Language (`WSDL`)
+* XML Schema (`XSD`)
 
-		Alternatively, you can specify the artifact type using the `X-Registry-ArtifactType`
-		HTTP request header, or include a hint in the request's `Content-Type`.  For example:
+Alternatively, you can specify the artifact type using the `X-Registry-ArtifactType` 
+HTTP request header, or include a hint in the request's `Content-Type`.  For example:
 
-		```
-		Content-Type: application/json; artifactType=AVRO
-		```
+```
+Content-Type: application/json; artifactType=AVRO
+```
 
-		An artifact is created using the content provided in the body of the request.  This
-		content is created under a unique artifact ID that can be provided in the request
-		using the `X-Registry-ArtifactId` request header.  If not provided in the request,
-		the server generates a unique ID for the artifact.  It is typically recommended
-		that callers provide the ID, because this is typically a meaningful identifier,
-		and for most use cases should be supplied by the caller.
+An artifact is created using the content provided in the body of the request.  This
+content is created under a unique artifact ID that can be provided in the request
+using the `X-Registry-ArtifactId` request header.  If not provided in the request,
+the server generates a unique ID for the artifact.  It is typically recommended
+that callers provide the ID, because this is typically a meaningful identifier, 
+and for most use cases should be supplied by the caller.
 
-		If an artifact with the provided artifact ID already exists, the default behavior
-		is for the server to reject the content with a 409 error.  However, the caller can
-		supply the `ifExists` query parameter to alter this default behavior. The `ifExists`
-		query parameter can have one of the following values:
+If an artifact with the provided artifact ID already exists, the default behavior
+is for the server to reject the content with a 409 error.  However, the caller can
+supply the `ifExists` query parameter to alter this default behavior. The `ifExists`
+query parameter can have one of the following values:
 
-		* `FAIL` (*default*) - server rejects the content with a 409 error
-		* `UPDATE` - server updates the existing artifact and returns the new metadata
-		* `RETURN` - server does not create or add content to the server, but instead
-		returns the metadata for the existing artifact
-		* `RETURN_OR_UPDATE` - server returns an existing **version** that matches the
-		provided content if such a version exists, otherwise a new version is created
+* `FAIL` (*default*) - server rejects the content with a 409 error
+* `UPDATE` - server updates the existing artifact and returns the new metadata
+* `RETURN` - server does not create or add content to the server, but instead 
+returns the metadata for the existing artifact
+* `RETURN_OR_UPDATE` - server returns an existing **version** that matches the 
+provided content if such a version exists, otherwise a new version is created
 
-		This operation may fail for one of the following reasons:
+This operation may fail for one of the following reasons:
 
-		* An invalid `ArtifactType` was indicated (HTTP error `400`)
-		* No `ArtifactType` was indicated and the server could not determine one from the content (HTTP error `400`)
-		* Provided content (request body) was empty (HTTP error `400`)
-		* An artifact with the provided ID already exists (HTTP error `409`)
-		* The content violates one of the configured global rules (HTTP error `409`)
-		* A server error occurred (HTTP error `500`)
+* An invalid `ArtifactType` was indicated (HTTP error `400`)
+* No `ArtifactType` was indicated and the server could not determine one from the content (HTTP error `400`)
+* Provided content (request body) was empty (HTTP error `400`)
+* An artifact with the provided ID already exists (HTTP error `409`)
+* The content violates one of the configured global rules (HTTP error `409`)
+* A server error occurred (HTTP error `500`)
 
-			 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			 * @param groupId Unique ID of an artifact group.
-			 * @return ApiCreateArtifactRequest
-	*/
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param groupId Unique ID of an artifact group.
+	 * @return ApiCreateArtifactRequest
+	 */
 	CreateArtifact(ctx _context.Context, groupId string) ApiCreateArtifactRequest
 
 	/*
@@ -96,17 +96,17 @@ type ArtifactsApi interface {
 	CreateArtifactExecute(r ApiCreateArtifactRequest) (ArtifactMetaData, *_nethttp.Response, error)
 
 	/*
-			 * DeleteArtifact Delete artifact
-			 * Deletes an artifact completely, resulting in all versions of the artifact also being
-		deleted.  This may fail for one of the following reasons:
+	 * DeleteArtifact Delete artifact
+	 * Deletes an artifact completely, resulting in all versions of the artifact also being
+deleted.  This may fail for one of the following reasons:
 
-		* No artifact with the `artifactId` exists (HTTP error `404`)
-		* A server error occurred (HTTP error `500`)
-			 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			 * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
-			 * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-			 * @return ApiDeleteArtifactRequest
-	*/
+* No artifact with the `artifactId` exists (HTTP error `404`)
+* A server error occurred (HTTP error `500`)
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+	 * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+	 * @return ApiDeleteArtifactRequest
+	 */
 	DeleteArtifact(ctx _context.Context, groupId string, artifactId string) ApiDeleteArtifactRequest
 
 	/*
@@ -129,19 +129,19 @@ type ArtifactsApi interface {
 	DeleteArtifactsInGroupExecute(r ApiDeleteArtifactsInGroupRequest) (*_nethttp.Response, error)
 
 	/*
-			 * GetContentByGlobalId Get artifact by global ID
-			 * Gets the content for an artifact version in the registry using its globally unique
-		identifier.
+	 * GetContentByGlobalId Get artifact by global ID
+	 * Gets the content for an artifact version in the registry using its globally unique
+identifier.
 
-		This operation may fail for one of the following reasons:
+This operation may fail for one of the following reasons:
 
-		* No artifact version with this `globalId` exists (HTTP error `404`)
-		* A server error occurred (HTTP error `500`)
+* No artifact version with this `globalId` exists (HTTP error `404`)
+* A server error occurred (HTTP error `500`)
 
-			 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			 * @param globalId Global identifier for an artifact version.
-			 * @return ApiGetContentByGlobalIdRequest
-	*/
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param globalId Global identifier for an artifact version.
+	 * @return ApiGetContentByGlobalIdRequest
+	 */
 	GetContentByGlobalId(ctx _context.Context, globalId int64) ApiGetContentByGlobalIdRequest
 
 	/*
@@ -151,20 +151,20 @@ type ArtifactsApi interface {
 	GetContentByGlobalIdExecute(r ApiGetContentByGlobalIdRequest) (*os.File, *_nethttp.Response, error)
 
 	/*
-			 * GetContentByHash Get artifact content by SHA-256 hash
-			 * Gets the content for an artifact version in the registry using the
-		SHA-256 hash of the content.  This content hash may be shared by multiple artifact
-		versions in the case where the artifact versions have identical content.
+	 * GetContentByHash Get artifact content by SHA-256 hash
+	 * Gets the content for an artifact version in the registry using the 
+SHA-256 hash of the content.  This content hash may be shared by multiple artifact
+versions in the case where the artifact versions have identical content.
 
-		This operation may fail for one of the following reasons:
+This operation may fail for one of the following reasons:
 
-		* No content with this `contentHash` exists (HTTP error `404`)
-		* A server error occurred (HTTP error `500`)
+* No content with this `contentHash` exists (HTTP error `404`)
+* A server error occurred (HTTP error `500`)
 
-			 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			 * @param contentHash SHA-256 content hash for a single artifact content.
-			 * @return ApiGetContentByHashRequest
-	*/
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param contentHash SHA-256 content hash for a single artifact content.
+	 * @return ApiGetContentByHashRequest
+	 */
 	GetContentByHash(ctx _context.Context, contentHash string) ApiGetContentByHashRequest
 
 	/*
@@ -174,20 +174,20 @@ type ArtifactsApi interface {
 	GetContentByHashExecute(r ApiGetContentByHashRequest) (*os.File, *_nethttp.Response, error)
 
 	/*
-			 * GetContentById Get artifact content by ID
-			 * Gets the content for an artifact version in the registry using the unique content
-		identifier for that content.  This content ID may be shared by multiple artifact
-		versions in the case where the artifact versions are identical.
+	 * GetContentById Get artifact content by ID
+	 * Gets the content for an artifact version in the registry using the unique content
+identifier for that content.  This content ID may be shared by multiple artifact
+versions in the case where the artifact versions are identical.
 
-		This operation may fail for one of the following reasons:
+This operation may fail for one of the following reasons:
 
-		* No content with this `contentId` exists (HTTP error `404`)
-		* A server error occurred (HTTP error `500`)
+* No content with this `contentId` exists (HTTP error `404`)
+* A server error occurred (HTTP error `500`)
 
-			 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			 * @param contentId Global identifier for a single artifact content.
-			 * @return ApiGetContentByIdRequest
-	*/
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param contentId Global identifier for a single artifact content.
+	 * @return ApiGetContentByIdRequest
+	 */
 	GetContentById(ctx _context.Context, contentId int64) ApiGetContentByIdRequest
 
 	/*
@@ -197,21 +197,21 @@ type ArtifactsApi interface {
 	GetContentByIdExecute(r ApiGetContentByIdRequest) (*os.File, *_nethttp.Response, error)
 
 	/*
-			 * GetLatestArtifact Get latest artifact
-			 * Returns the latest version of the artifact in its raw form.  The `Content-Type` of the
-		response depends on the artifact type.  In most cases, this is `application/json`, but
-		for some types it may be different (for example, `PROTOBUF`).
+	 * GetLatestArtifact Get latest artifact
+	 * Returns the latest version of the artifact in its raw form.  The `Content-Type` of the
+response depends on the artifact type.  In most cases, this is `application/json`, but 
+for some types it may be different (for example, `PROTOBUF`).
 
-		This operation may fail for one of the following reasons:
+This operation may fail for one of the following reasons:
 
-		* No artifact with this `artifactId` exists (HTTP error `404`)
-		* A server error occurred (HTTP error `500`)
+* No artifact with this `artifactId` exists (HTTP error `404`)
+* A server error occurred (HTTP error `500`)
 
-			 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			 * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
-			 * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-			 * @return ApiGetLatestArtifactRequest
-	*/
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+	 * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+	 * @return ApiGetLatestArtifactRequest
+	 */
 	GetLatestArtifact(ctx _context.Context, groupId string, artifactId string) ApiGetLatestArtifactRequest
 
 	/*
@@ -251,13 +251,13 @@ type ArtifactsApi interface {
 	SearchArtifactsExecute(r ApiSearchArtifactsRequest) (ArtifactSearchResults, *_nethttp.Response, error)
 
 	/*
-			 * SearchArtifactsByContent Search for artifacts by content
-			 * Returns a paginated list of all artifacts with at least one version that matches the
-		posted content.
+	 * SearchArtifactsByContent Search for artifacts by content
+	 * Returns a paginated list of all artifacts with at least one version that matches the
+posted content.
 
-			 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			 * @return ApiSearchArtifactsByContentRequest
-	*/
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @return ApiSearchArtifactsByContentRequest
+	 */
 	SearchArtifactsByContent(ctx _context.Context) ApiSearchArtifactsByContentRequest
 
 	/*
@@ -267,27 +267,27 @@ type ArtifactsApi interface {
 	SearchArtifactsByContentExecute(r ApiSearchArtifactsByContentRequest) (ArtifactSearchResults, *_nethttp.Response, error)
 
 	/*
-			 * UpdateArtifact Update artifact
-			 * Updates an artifact by uploading new content.  The body of the request should
-		be the raw content of the artifact.  This is typically in JSON format for *most*
-		of the supported types, but may be in another format for a few (for example, `PROTOBUF`).
-		The type of the content should be compatible with the artifact's type (it would be
-		an error to update an `AVRO` artifact with new `OPENAPI` content, for example).
+	 * UpdateArtifact Update artifact
+	 * Updates an artifact by uploading new content.  The body of the request should
+be the raw content of the artifact.  This is typically in JSON format for *most*
+of the supported types, but may be in another format for a few (for example, `PROTOBUF`).
+The type of the content should be compatible with the artifact's type (it would be
+an error to update an `AVRO` artifact with new `OPENAPI` content, for example).
 
-		The update could fail for a number of reasons including:
+The update could fail for a number of reasons including:
 
-		* Provided content (request body) was empty (HTTP error `400`)
-		* No artifact with the `artifactId` exists (HTTP error `404`)
-		* The new content violates one of the rules configured for the artifact (HTTP error `409`)
-		* A server error occurred (HTTP error `500`)
+* Provided content (request body) was empty (HTTP error `400`)
+* No artifact with the `artifactId` exists (HTTP error `404`)
+* The new content violates one of the rules configured for the artifact (HTTP error `409`)
+* A server error occurred (HTTP error `500`)
 
-		When successful, this creates a new version of the artifact, making it the most recent
-		(and therefore official) version of the artifact.
-			 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			 * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
-			 * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-			 * @return ApiUpdateArtifactRequest
-	*/
+When successful, this creates a new version of the artifact, making it the most recent
+(and therefore official) version of the artifact.
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+	 * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+	 * @return ApiUpdateArtifactRequest
+	 */
 	UpdateArtifact(ctx _context.Context, groupId string, artifactId string) ApiUpdateArtifactRequest
 
 	/*
@@ -297,21 +297,21 @@ type ArtifactsApi interface {
 	UpdateArtifactExecute(r ApiUpdateArtifactRequest) (ArtifactMetaData, *_nethttp.Response, error)
 
 	/*
-			 * UpdateArtifactState Update artifact state
-			 * Updates the state of the artifact.  For example, you can use this to mark the latest
-		version of an artifact as `DEPRECATED`.  The operation changes the state of the latest
-		version of the artifact.  If multiple versions exist, only the most recent is changed.
+	 * UpdateArtifactState Update artifact state
+	 * Updates the state of the artifact.  For example, you can use this to mark the latest
+version of an artifact as `DEPRECATED`.  The operation changes the state of the latest 
+version of the artifact.  If multiple versions exist, only the most recent is changed.
 
-		This operation can fail for the following reasons:
+This operation can fail for the following reasons:
 
-		* No artifact with this `artifactId` exists (HTTP error `404`)
-		* A server error occurred (HTTP error `500`)
+* No artifact with this `artifactId` exists (HTTP error `404`)
+* A server error occurred (HTTP error `500`)
 
-			 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			 * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
-			 * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-			 * @return ApiUpdateArtifactStateRequest
-	*/
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+	 * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+	 * @return ApiUpdateArtifactStateRequest
+	 */
 	UpdateArtifactState(ctx _context.Context, groupId string, artifactId string) ApiUpdateArtifactStateRequest
 
 	/*
@@ -324,15 +324,15 @@ type ArtifactsApi interface {
 type ArtifactsApiService service
 
 type ApiCreateArtifactRequest struct {
-	ctx                   _context.Context
-	ApiService            ArtifactsApi
-	groupId               string
-	body                  **os.File
+	ctx _context.Context
+	ApiService ArtifactsApi
+	groupId string
+	body **os.File
 	xRegistryArtifactType *ArtifactType
-	xRegistryArtifactId   *string
-	xRegistryVersion      *string
-	ifExists              *IfExists
-	canonical             *bool
+	xRegistryArtifactId *string
+	xRegistryVersion *string
+	ifExists *IfExists
+	canonical *bool
 }
 
 func (r ApiCreateArtifactRequest) Body(body *os.File) ApiCreateArtifactRequest {
@@ -367,7 +367,7 @@ func (r ApiCreateArtifactRequest) Execute() (ArtifactMetaData, *_nethttp.Respons
 /*
  * CreateArtifact Create artifact
  * Creates a new artifact by posting the artifact content.  The body of the request should
-be the raw content of the artifact.  This is typically in JSON format for *most* of the
+be the raw content of the artifact.  This is typically in JSON format for *most* of the 
 supported types, but may be in another format for a few (for example, `PROTOBUF`).
 
 The registry attempts to figure out what kind of artifact is being added from the
@@ -383,7 +383,7 @@ following supported list:
 * Web Services Description Language (`WSDL`)
 * XML Schema (`XSD`)
 
-Alternatively, you can specify the artifact type using the `X-Registry-ArtifactType`
+Alternatively, you can specify the artifact type using the `X-Registry-ArtifactType` 
 HTTP request header, or include a hint in the request's `Content-Type`.  For example:
 
 ```
@@ -394,7 +394,7 @@ An artifact is created using the content provided in the body of the request.  T
 content is created under a unique artifact ID that can be provided in the request
 using the `X-Registry-ArtifactId` request header.  If not provided in the request,
 the server generates a unique ID for the artifact.  It is typically recommended
-that callers provide the ID, because this is typically a meaningful identifier,
+that callers provide the ID, because this is typically a meaningful identifier, 
 and for most use cases should be supplied by the caller.
 
 If an artifact with the provided artifact ID already exists, the default behavior
@@ -404,9 +404,9 @@ query parameter can have one of the following values:
 
 * `FAIL` (*default*) - server rejects the content with a 409 error
 * `UPDATE` - server updates the existing artifact and returns the new metadata
-* `RETURN` - server does not create or add content to the server, but instead
+* `RETURN` - server does not create or add content to the server, but instead 
 returns the metadata for the existing artifact
-* `RETURN_OR_UPDATE` - server returns an existing **version** that matches the
+* `RETURN_OR_UPDATE` - server returns an existing **version** that matches the 
 provided content if such a version exists, otherwise a new version is created
 
 This operation may fail for one of the following reasons:
@@ -421,12 +421,12 @@ This operation may fail for one of the following reasons:
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param groupId Unique ID of an artifact group.
  * @return ApiCreateArtifactRequest
-*/
+ */
 func (a *ArtifactsApiService) CreateArtifact(ctx _context.Context, groupId string) ApiCreateArtifactRequest {
 	return ApiCreateArtifactRequest{
 		ApiService: a,
-		ctx:        ctx,
-		groupId:    groupId,
+		ctx: ctx,
+		groupId: groupId,
 	}
 }
 
@@ -560,11 +560,12 @@ func (a *ArtifactsApiService) CreateArtifactExecute(r ApiCreateArtifactRequest) 
 }
 
 type ApiDeleteArtifactRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService ArtifactsApi
-	groupId    string
+	groupId string
 	artifactId string
 }
+
 
 func (r ApiDeleteArtifactRequest) Execute() (*_nethttp.Response, error) {
 	return r.ApiService.DeleteArtifactExecute(r)
@@ -581,12 +582,12 @@ deleted.  This may fail for one of the following reasons:
  * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
  * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
  * @return ApiDeleteArtifactRequest
-*/
+ */
 func (a *ArtifactsApiService) DeleteArtifact(ctx _context.Context, groupId string, artifactId string) ApiDeleteArtifactRequest {
 	return ApiDeleteArtifactRequest{
 		ApiService: a,
-		ctx:        ctx,
-		groupId:    groupId,
+		ctx: ctx,
+		groupId: groupId,
 		artifactId: artifactId,
 	}
 }
@@ -681,10 +682,11 @@ func (a *ArtifactsApiService) DeleteArtifactExecute(r ApiDeleteArtifactRequest) 
 }
 
 type ApiDeleteArtifactsInGroupRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService ArtifactsApi
-	groupId    string
+	groupId string
 }
+
 
 func (r ApiDeleteArtifactsInGroupRequest) Execute() (*_nethttp.Response, error) {
 	return r.ApiService.DeleteArtifactsInGroupExecute(r)
@@ -700,8 +702,8 @@ func (r ApiDeleteArtifactsInGroupRequest) Execute() (*_nethttp.Response, error) 
 func (a *ArtifactsApiService) DeleteArtifactsInGroup(ctx _context.Context, groupId string) ApiDeleteArtifactsInGroupRequest {
 	return ApiDeleteArtifactsInGroupRequest{
 		ApiService: a,
-		ctx:        ctx,
-		groupId:    groupId,
+		ctx: ctx,
+		groupId: groupId,
 	}
 }
 
@@ -784,10 +786,11 @@ func (a *ArtifactsApiService) DeleteArtifactsInGroupExecute(r ApiDeleteArtifacts
 }
 
 type ApiGetContentByGlobalIdRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService ArtifactsApi
-	globalId   int64
+	globalId int64
 }
+
 
 func (r ApiGetContentByGlobalIdRequest) Execute() (*os.File, *_nethttp.Response, error) {
 	return r.ApiService.GetContentByGlobalIdExecute(r)
@@ -806,12 +809,12 @@ This operation may fail for one of the following reasons:
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param globalId Global identifier for an artifact version.
  * @return ApiGetContentByGlobalIdRequest
-*/
+ */
 func (a *ArtifactsApiService) GetContentByGlobalId(ctx _context.Context, globalId int64) ApiGetContentByGlobalIdRequest {
 	return ApiGetContentByGlobalIdRequest{
 		ApiService: a,
-		ctx:        ctx,
-		globalId:   globalId,
+		ctx: ctx,
+		globalId: globalId,
 	}
 }
 
@@ -915,10 +918,11 @@ func (a *ArtifactsApiService) GetContentByGlobalIdExecute(r ApiGetContentByGloba
 }
 
 type ApiGetContentByHashRequest struct {
-	ctx         _context.Context
-	ApiService  ArtifactsApi
+	ctx _context.Context
+	ApiService ArtifactsApi
 	contentHash string
 }
+
 
 func (r ApiGetContentByHashRequest) Execute() (*os.File, *_nethttp.Response, error) {
 	return r.ApiService.GetContentByHashExecute(r)
@@ -926,7 +930,7 @@ func (r ApiGetContentByHashRequest) Execute() (*os.File, *_nethttp.Response, err
 
 /*
  * GetContentByHash Get artifact content by SHA-256 hash
- * Gets the content for an artifact version in the registry using the
+ * Gets the content for an artifact version in the registry using the 
 SHA-256 hash of the content.  This content hash may be shared by multiple artifact
 versions in the case where the artifact versions have identical content.
 
@@ -938,11 +942,11 @@ This operation may fail for one of the following reasons:
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param contentHash SHA-256 content hash for a single artifact content.
  * @return ApiGetContentByHashRequest
-*/
+ */
 func (a *ArtifactsApiService) GetContentByHash(ctx _context.Context, contentHash string) ApiGetContentByHashRequest {
 	return ApiGetContentByHashRequest{
-		ApiService:  a,
-		ctx:         ctx,
+		ApiService: a,
+		ctx: ctx,
 		contentHash: contentHash,
 	}
 }
@@ -1047,10 +1051,11 @@ func (a *ArtifactsApiService) GetContentByHashExecute(r ApiGetContentByHashReque
 }
 
 type ApiGetContentByIdRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService ArtifactsApi
-	contentId  int64
+	contentId int64
 }
+
 
 func (r ApiGetContentByIdRequest) Execute() (*os.File, *_nethttp.Response, error) {
 	return r.ApiService.GetContentByIdExecute(r)
@@ -1070,12 +1075,12 @@ This operation may fail for one of the following reasons:
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param contentId Global identifier for a single artifact content.
  * @return ApiGetContentByIdRequest
-*/
+ */
 func (a *ArtifactsApiService) GetContentById(ctx _context.Context, contentId int64) ApiGetContentByIdRequest {
 	return ApiGetContentByIdRequest{
 		ApiService: a,
-		ctx:        ctx,
-		contentId:  contentId,
+		ctx: ctx,
+		contentId: contentId,
 	}
 }
 
@@ -1179,11 +1184,12 @@ func (a *ArtifactsApiService) GetContentByIdExecute(r ApiGetContentByIdRequest) 
 }
 
 type ApiGetLatestArtifactRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService ArtifactsApi
-	groupId    string
+	groupId string
 	artifactId string
 }
+
 
 func (r ApiGetLatestArtifactRequest) Execute() (*os.File, *_nethttp.Response, error) {
 	return r.ApiService.GetLatestArtifactExecute(r)
@@ -1192,7 +1198,7 @@ func (r ApiGetLatestArtifactRequest) Execute() (*os.File, *_nethttp.Response, er
 /*
  * GetLatestArtifact Get latest artifact
  * Returns the latest version of the artifact in its raw form.  The `Content-Type` of the
-response depends on the artifact type.  In most cases, this is `application/json`, but
+response depends on the artifact type.  In most cases, this is `application/json`, but 
 for some types it may be different (for example, `PROTOBUF`).
 
 This operation may fail for one of the following reasons:
@@ -1204,12 +1210,12 @@ This operation may fail for one of the following reasons:
  * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
  * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
  * @return ApiGetLatestArtifactRequest
-*/
+ */
 func (a *ArtifactsApiService) GetLatestArtifact(ctx _context.Context, groupId string, artifactId string) ApiGetLatestArtifactRequest {
 	return ApiGetLatestArtifactRequest{
 		ApiService: a,
-		ctx:        ctx,
-		groupId:    groupId,
+		ctx: ctx,
+		groupId: groupId,
 		artifactId: artifactId,
 	}
 }
@@ -1315,13 +1321,13 @@ func (a *ArtifactsApiService) GetLatestArtifactExecute(r ApiGetLatestArtifactReq
 }
 
 type ApiListArtifactsInGroupRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService ArtifactsApi
-	groupId    string
-	limit      *int32
-	offset     *int32
-	order      *SortOrder
-	orderby    *SortBy
+	groupId string
+	limit *int32
+	offset *int32
+	order *SortOrder
+	orderby *SortBy
 }
 
 func (r ApiListArtifactsInGroupRequest) Limit(limit int32) ApiListArtifactsInGroupRequest {
@@ -1355,8 +1361,8 @@ func (r ApiListArtifactsInGroupRequest) Execute() (ArtifactSearchResults, *_neth
 func (a *ArtifactsApiService) ListArtifactsInGroup(ctx _context.Context, groupId string) ApiListArtifactsInGroupRequest {
 	return ApiListArtifactsInGroupRequest{
 		ApiService: a,
-		ctx:        ctx,
-		groupId:    groupId,
+		ctx: ctx,
+		groupId: groupId,
 	}
 }
 
@@ -1462,17 +1468,17 @@ func (a *ArtifactsApiService) ListArtifactsInGroupExecute(r ApiListArtifactsInGr
 }
 
 type ApiSearchArtifactsRequest struct {
-	ctx         _context.Context
-	ApiService  ArtifactsApi
-	name        *string
-	offset      *int32
-	limit       *int32
-	order       *SortOrder
-	orderby     *SortBy
-	labels      *[]string
-	properties  *[]string
+	ctx _context.Context
+	ApiService ArtifactsApi
+	name *string
+	offset *int32
+	limit *int32
+	order *SortOrder
+	orderby *SortBy
+	labels *[]string
+	properties *[]string
 	description *string
-	group       *string
+	group *string
 }
 
 func (r ApiSearchArtifactsRequest) Name(name string) ApiSearchArtifactsRequest {
@@ -1526,7 +1532,7 @@ func (r ApiSearchArtifactsRequest) Execute() (ArtifactSearchResults, *_nethttp.R
 func (a *ArtifactsApiService) SearchArtifacts(ctx _context.Context) ApiSearchArtifactsRequest {
 	return ApiSearchArtifactsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -1662,15 +1668,15 @@ func (a *ArtifactsApiService) SearchArtifactsExecute(r ApiSearchArtifactsRequest
 }
 
 type ApiSearchArtifactsByContentRequest struct {
-	ctx          _context.Context
-	ApiService   ArtifactsApi
-	body         **os.File
-	canonical    *bool
+	ctx _context.Context
+	ApiService ArtifactsApi
+	body **os.File
+	canonical *bool
 	artifactType *ArtifactType
-	offset       *int32
-	limit        *int32
-	order        *string
-	orderby      *string
+	offset *int32
+	limit *int32
+	order *string
+	orderby *string
 }
 
 func (r ApiSearchArtifactsByContentRequest) Body(body *os.File) ApiSearchArtifactsByContentRequest {
@@ -1713,11 +1719,11 @@ posted content.
 
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiSearchArtifactsByContentRequest
-*/
+ */
 func (a *ArtifactsApiService) SearchArtifactsByContent(ctx _context.Context) ApiSearchArtifactsByContentRequest {
 	return ApiSearchArtifactsByContentRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -1833,11 +1839,11 @@ func (a *ArtifactsApiService) SearchArtifactsByContentExecute(r ApiSearchArtifac
 }
 
 type ApiUpdateArtifactRequest struct {
-	ctx              _context.Context
-	ApiService       ArtifactsApi
-	groupId          string
-	artifactId       string
-	body             **os.File
+	ctx _context.Context
+	ApiService ArtifactsApi
+	groupId string
+	artifactId string
+	body **os.File
 	xRegistryVersion *string
 }
 
@@ -1875,12 +1881,12 @@ When successful, this creates a new version of the artifact, making it the most 
  * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
  * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
  * @return ApiUpdateArtifactRequest
-*/
+ */
 func (a *ArtifactsApiService) UpdateArtifact(ctx _context.Context, groupId string, artifactId string) ApiUpdateArtifactRequest {
 	return ApiUpdateArtifactRequest{
 		ApiService: a,
-		ctx:        ctx,
-		groupId:    groupId,
+		ctx: ctx,
+		groupId: groupId,
 		artifactId: artifactId,
 	}
 }
@@ -2004,10 +2010,10 @@ func (a *ArtifactsApiService) UpdateArtifactExecute(r ApiUpdateArtifactRequest) 
 }
 
 type ApiUpdateArtifactStateRequest struct {
-	ctx         _context.Context
-	ApiService  ArtifactsApi
-	groupId     string
-	artifactId  string
+	ctx _context.Context
+	ApiService ArtifactsApi
+	groupId string
+	artifactId string
 	updateState *UpdateState
 }
 
@@ -2023,7 +2029,7 @@ func (r ApiUpdateArtifactStateRequest) Execute() (*_nethttp.Response, error) {
 /*
  * UpdateArtifactState Update artifact state
  * Updates the state of the artifact.  For example, you can use this to mark the latest
-version of an artifact as `DEPRECATED`.  The operation changes the state of the latest
+version of an artifact as `DEPRECATED`.  The operation changes the state of the latest 
 version of the artifact.  If multiple versions exist, only the most recent is changed.
 
 This operation can fail for the following reasons:
@@ -2035,12 +2041,12 @@ This operation can fail for the following reasons:
  * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
  * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
  * @return ApiUpdateArtifactStateRequest
-*/
+ */
 func (a *ArtifactsApiService) UpdateArtifactState(ctx _context.Context, groupId string, artifactId string) ApiUpdateArtifactStateRequest {
 	return ApiUpdateArtifactStateRequest{
 		ApiService: a,
-		ctx:        ctx,
-		groupId:    groupId,
+		ctx: ctx,
+		groupId: groupId,
 		artifactId: artifactId,
 	}
 }
