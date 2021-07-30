@@ -1,7 +1,7 @@
 /*
  * Apicurio Registry API [v2]
  *
- * Apicurio Registry is a datastore for standard event schemas and API designs. Apicurio Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.  The Apicurio Registry REST API enables client applications to manage the artifacts in the registry. This API provides create, read, update, and delete operations for schema and API artifacts, rules, versions, and metadata.   The supported artifact types include: - Apache Avro schema - AsyncAPI specification - Google protocol buffers - GraphQL schema - JSON Schema - Kafka Connect schema - OpenAPI specification - Web Services Description Language - XML Schema Definition   **Important**: The Apicurio Registry REST API is available from `https://MY-REGISTRY-URL/apis/registry/v2` by default. Therefore you must prefix all API operation paths with `../apis/registry/v2` in this case. For example: `../apis/registry/v2/ids/globalIds/{globalId}`.
+ * Apicurio Registry is a datastore for standard event schemas and API designs. Apicurio Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.  The Apicurio Registry REST API enables client applications to manage the artifacts in the registry. This API provides create, read, update, and delete operations for schema and API artifacts, rules, versions, and metadata.   The supported artifact types include: - Apache Avro schema - AsyncAPI specification - Google protocol buffers - GraphQL schema - JSON Schema - Kafka Connect schema - OpenAPI specification - Web Services Description Language - XML Schema Definition   **Important**: The Apicurio Registry REST API is available from `https://MY-REGISTRY-URL/apis/registry/v2` by default. Therefore you must prefix all API operation paths with `../apis/registry/v2` in this case. For example: `../apis/registry/v2/ids/globalIds/{globalId}`. 
  *
  * API version: 2.1.0-SNAPSHOT
  * Contact: apicurio@lists.jboss.org
@@ -18,11 +18,12 @@ import (
 
 // SearchedVersion Models a single artifact from the result set returned when searching for artifacts.
 type SearchedVersion struct {
+
 	Name *string `json:"name,omitempty"`
 
 	Description *string `json:"description,omitempty"`
 
-	CreatedOn time.Time `json:"-"`
+	CreatedOn time.Time `json:"createdOn"`
 
 	CreatedBy string `json:"createdBy"`
 
@@ -40,6 +41,7 @@ type SearchedVersion struct {
 	Properties *map[string]string `json:"properties,omitempty"`
 
 	ContentId int64 `json:"contentId"`
+
 }
 
 // NewSearchedVersion instantiates a new SearchedVersion object
@@ -64,8 +66,20 @@ func NewSearchedVersion(createdOn time.Time, createdBy string, type_ ArtifactTyp
 func NewSearchedVersionWithDefaults() *SearchedVersion {
 	this := SearchedVersion{}
 
+
+
+
+
+
+
+
+
+
+
+
 	return &this
 }
+
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *SearchedVersion) GetName() string {
@@ -99,6 +113,7 @@ func (o *SearchedVersion) SetName(v string) {
 	o.Name = &v
 }
 
+
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *SearchedVersion) GetDescription() string {
 	if o == nil || o.Description == nil {
@@ -131,6 +146,7 @@ func (o *SearchedVersion) SetDescription(v string) {
 	o.Description = &v
 }
 
+
 // GetCreatedOn returns the CreatedOn field value
 func (o *SearchedVersion) GetCreatedOn() time.Time {
 	if o == nil {
@@ -144,7 +160,7 @@ func (o *SearchedVersion) GetCreatedOn() time.Time {
 // GetCreatedOnOk returns a tuple with the CreatedOn field value
 // and a boolean to check if the value has been set.
 func (o *SearchedVersion) GetCreatedOnOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.CreatedOn, true
@@ -154,6 +170,7 @@ func (o *SearchedVersion) GetCreatedOnOk() (*time.Time, bool) {
 func (o *SearchedVersion) SetCreatedOn(v time.Time) {
 	o.CreatedOn = v
 }
+
 
 // GetCreatedBy returns the CreatedBy field value
 func (o *SearchedVersion) GetCreatedBy() string {
@@ -168,7 +185,7 @@ func (o *SearchedVersion) GetCreatedBy() string {
 // GetCreatedByOk returns a tuple with the CreatedBy field value
 // and a boolean to check if the value has been set.
 func (o *SearchedVersion) GetCreatedByOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.CreatedBy, true
@@ -178,6 +195,7 @@ func (o *SearchedVersion) GetCreatedByOk() (*string, bool) {
 func (o *SearchedVersion) SetCreatedBy(v string) {
 	o.CreatedBy = v
 }
+
 
 // GetType returns the Type field value
 func (o *SearchedVersion) GetType() ArtifactType {
@@ -192,7 +210,7 @@ func (o *SearchedVersion) GetType() ArtifactType {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *SearchedVersion) GetTypeOk() (*ArtifactType, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Type, true
@@ -202,6 +220,7 @@ func (o *SearchedVersion) GetTypeOk() (*ArtifactType, bool) {
 func (o *SearchedVersion) SetType(v ArtifactType) {
 	o.Type = v
 }
+
 
 // GetLabels returns the Labels field value if set, zero value otherwise.
 func (o *SearchedVersion) GetLabels() []string {
@@ -235,6 +254,7 @@ func (o *SearchedVersion) SetLabels(v []string) {
 	o.Labels = &v
 }
 
+
 // GetState returns the State field value
 func (o *SearchedVersion) GetState() ArtifactState {
 	if o == nil {
@@ -248,7 +268,7 @@ func (o *SearchedVersion) GetState() ArtifactState {
 // GetStateOk returns a tuple with the State field value
 // and a boolean to check if the value has been set.
 func (o *SearchedVersion) GetStateOk() (*ArtifactState, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.State, true
@@ -258,6 +278,7 @@ func (o *SearchedVersion) GetStateOk() (*ArtifactState, bool) {
 func (o *SearchedVersion) SetState(v ArtifactState) {
 	o.State = v
 }
+
 
 // GetGlobalId returns the GlobalId field value
 func (o *SearchedVersion) GetGlobalId() int64 {
@@ -272,7 +293,7 @@ func (o *SearchedVersion) GetGlobalId() int64 {
 // GetGlobalIdOk returns a tuple with the GlobalId field value
 // and a boolean to check if the value has been set.
 func (o *SearchedVersion) GetGlobalIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.GlobalId, true
@@ -282,6 +303,7 @@ func (o *SearchedVersion) GetGlobalIdOk() (*int64, bool) {
 func (o *SearchedVersion) SetGlobalId(v int64) {
 	o.GlobalId = v
 }
+
 
 // GetVersion returns the Version field value
 func (o *SearchedVersion) GetVersion() string {
@@ -296,7 +318,7 @@ func (o *SearchedVersion) GetVersion() string {
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *SearchedVersion) GetVersionOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Version, true
@@ -306,6 +328,7 @@ func (o *SearchedVersion) GetVersionOk() (*string, bool) {
 func (o *SearchedVersion) SetVersion(v string) {
 	o.Version = v
 }
+
 
 // GetProperties returns the Properties field value if set, zero value otherwise.
 func (o *SearchedVersion) GetProperties() map[string]string {
@@ -339,6 +362,7 @@ func (o *SearchedVersion) SetProperties(v map[string]string) {
 	o.Properties = &v
 }
 
+
 // GetContentId returns the ContentId field value
 func (o *SearchedVersion) GetContentId() int64 {
 	if o == nil {
@@ -352,7 +376,7 @@ func (o *SearchedVersion) GetContentId() int64 {
 // GetContentIdOk returns a tuple with the ContentId field value
 // and a boolean to check if the value has been set.
 func (o *SearchedVersion) GetContentIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.ContentId, true
@@ -363,53 +387,54 @@ func (o *SearchedVersion) SetContentId(v int64) {
 	o.ContentId = v
 }
 
+
 func (o SearchedVersion) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-
+    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-
+    
 	if true {
 		toSerialize["createdOn"] = o.CreatedOn
 	}
-
+    
 	if true {
 		toSerialize["createdBy"] = o.CreatedBy
 	}
-
+    
 	if true {
 		toSerialize["type"] = o.Type
 	}
-
+    
 	if o.Labels != nil {
 		toSerialize["labels"] = o.Labels
 	}
-
+    
 	if true {
 		toSerialize["state"] = o.State
 	}
-
+    
 	if true {
 		toSerialize["globalId"] = o.GlobalId
 	}
-
+    
 	if true {
 		toSerialize["version"] = o.Version
 	}
-
+    
 	if o.Properties != nil {
 		toSerialize["properties"] = o.Properties
 	}
-
+    
 	if true {
 		toSerialize["contentId"] = o.ContentId
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -448,3 +473,4 @@ func (v *NullableSearchedVersion) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

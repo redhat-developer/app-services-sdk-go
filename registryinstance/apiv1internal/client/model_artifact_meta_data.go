@@ -1,7 +1,7 @@
 /*
  * Apicurio Registry API [v2]
  *
- * Apicurio Registry is a datastore for standard event schemas and API designs. Apicurio Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.  The Apicurio Registry REST API enables client applications to manage the artifacts in the registry. This API provides create, read, update, and delete operations for schema and API artifacts, rules, versions, and metadata.   The supported artifact types include: - Apache Avro schema - AsyncAPI specification - Google protocol buffers - GraphQL schema - JSON Schema - Kafka Connect schema - OpenAPI specification - Web Services Description Language - XML Schema Definition   **Important**: The Apicurio Registry REST API is available from `https://MY-REGISTRY-URL/apis/registry/v2` by default. Therefore you must prefix all API operation paths with `../apis/registry/v2` in this case. For example: `../apis/registry/v2/ids/globalIds/{globalId}`.
+ * Apicurio Registry is a datastore for standard event schemas and API designs. Apicurio Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.  The Apicurio Registry REST API enables client applications to manage the artifacts in the registry. This API provides create, read, update, and delete operations for schema and API artifacts, rules, versions, and metadata.   The supported artifact types include: - Apache Avro schema - AsyncAPI specification - Google protocol buffers - GraphQL schema - JSON Schema - Kafka Connect schema - OpenAPI specification - Web Services Description Language - XML Schema Definition   **Important**: The Apicurio Registry REST API is available from `https://MY-REGISTRY-URL/apis/registry/v2` by default. Therefore you must prefix all API operation paths with `../apis/registry/v2` in this case. For example: `../apis/registry/v2/ids/globalIds/{globalId}`. 
  *
  * API version: 2.1.0-SNAPSHOT
  * Contact: apicurio@lists.jboss.org
@@ -18,17 +18,18 @@ import (
 
 // ArtifactMetaData struct for ArtifactMetaData
 type ArtifactMetaData struct {
+
 	Name *string `json:"name,omitempty"`
 
 	Description *string `json:"description,omitempty"`
 
 	CreatedBy string `json:"createdBy"`
 
-	CreatedOn time.Time `json:"-"`
+	CreatedOn time.Time `json:"createdOn"`
 
 	ModifiedBy string `json:"modifiedBy"`
 
-	ModifiedOn time.Time `json:"-"`
+	ModifiedOn time.Time `json:"modifiedOn"`
 
 	// The ID of a single artifact.
 	Id string `json:"id"`
@@ -50,6 +51,7 @@ type ArtifactMetaData struct {
 	GroupId *string `json:"groupId,omitempty"`
 
 	ContentId int64 `json:"contentId"`
+
 }
 
 // NewArtifactMetaData instantiates a new ArtifactMetaData object
@@ -77,8 +79,24 @@ func NewArtifactMetaData(createdBy string, createdOn time.Time, modifiedBy strin
 func NewArtifactMetaDataWithDefaults() *ArtifactMetaData {
 	this := ArtifactMetaData{}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	return &this
 }
+
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ArtifactMetaData) GetName() string {
@@ -112,6 +130,7 @@ func (o *ArtifactMetaData) SetName(v string) {
 	o.Name = &v
 }
 
+
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ArtifactMetaData) GetDescription() string {
 	if o == nil || o.Description == nil {
@@ -144,6 +163,7 @@ func (o *ArtifactMetaData) SetDescription(v string) {
 	o.Description = &v
 }
 
+
 // GetCreatedBy returns the CreatedBy field value
 func (o *ArtifactMetaData) GetCreatedBy() string {
 	if o == nil {
@@ -157,7 +177,7 @@ func (o *ArtifactMetaData) GetCreatedBy() string {
 // GetCreatedByOk returns a tuple with the CreatedBy field value
 // and a boolean to check if the value has been set.
 func (o *ArtifactMetaData) GetCreatedByOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.CreatedBy, true
@@ -167,6 +187,7 @@ func (o *ArtifactMetaData) GetCreatedByOk() (*string, bool) {
 func (o *ArtifactMetaData) SetCreatedBy(v string) {
 	o.CreatedBy = v
 }
+
 
 // GetCreatedOn returns the CreatedOn field value
 func (o *ArtifactMetaData) GetCreatedOn() time.Time {
@@ -181,7 +202,7 @@ func (o *ArtifactMetaData) GetCreatedOn() time.Time {
 // GetCreatedOnOk returns a tuple with the CreatedOn field value
 // and a boolean to check if the value has been set.
 func (o *ArtifactMetaData) GetCreatedOnOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.CreatedOn, true
@@ -191,6 +212,7 @@ func (o *ArtifactMetaData) GetCreatedOnOk() (*time.Time, bool) {
 func (o *ArtifactMetaData) SetCreatedOn(v time.Time) {
 	o.CreatedOn = v
 }
+
 
 // GetModifiedBy returns the ModifiedBy field value
 func (o *ArtifactMetaData) GetModifiedBy() string {
@@ -205,7 +227,7 @@ func (o *ArtifactMetaData) GetModifiedBy() string {
 // GetModifiedByOk returns a tuple with the ModifiedBy field value
 // and a boolean to check if the value has been set.
 func (o *ArtifactMetaData) GetModifiedByOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.ModifiedBy, true
@@ -215,6 +237,7 @@ func (o *ArtifactMetaData) GetModifiedByOk() (*string, bool) {
 func (o *ArtifactMetaData) SetModifiedBy(v string) {
 	o.ModifiedBy = v
 }
+
 
 // GetModifiedOn returns the ModifiedOn field value
 func (o *ArtifactMetaData) GetModifiedOn() time.Time {
@@ -229,7 +252,7 @@ func (o *ArtifactMetaData) GetModifiedOn() time.Time {
 // GetModifiedOnOk returns a tuple with the ModifiedOn field value
 // and a boolean to check if the value has been set.
 func (o *ArtifactMetaData) GetModifiedOnOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.ModifiedOn, true
@@ -239,6 +262,7 @@ func (o *ArtifactMetaData) GetModifiedOnOk() (*time.Time, bool) {
 func (o *ArtifactMetaData) SetModifiedOn(v time.Time) {
 	o.ModifiedOn = v
 }
+
 
 // GetId returns the Id field value
 func (o *ArtifactMetaData) GetId() string {
@@ -253,7 +277,7 @@ func (o *ArtifactMetaData) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *ArtifactMetaData) GetIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Id, true
@@ -263,6 +287,7 @@ func (o *ArtifactMetaData) GetIdOk() (*string, bool) {
 func (o *ArtifactMetaData) SetId(v string) {
 	o.Id = v
 }
+
 
 // GetVersion returns the Version field value
 func (o *ArtifactMetaData) GetVersion() string {
@@ -277,7 +302,7 @@ func (o *ArtifactMetaData) GetVersion() string {
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *ArtifactMetaData) GetVersionOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Version, true
@@ -287,6 +312,7 @@ func (o *ArtifactMetaData) GetVersionOk() (*string, bool) {
 func (o *ArtifactMetaData) SetVersion(v string) {
 	o.Version = v
 }
+
 
 // GetType returns the Type field value
 func (o *ArtifactMetaData) GetType() ArtifactType {
@@ -301,7 +327,7 @@ func (o *ArtifactMetaData) GetType() ArtifactType {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *ArtifactMetaData) GetTypeOk() (*ArtifactType, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Type, true
@@ -311,6 +337,7 @@ func (o *ArtifactMetaData) GetTypeOk() (*ArtifactType, bool) {
 func (o *ArtifactMetaData) SetType(v ArtifactType) {
 	o.Type = v
 }
+
 
 // GetGlobalId returns the GlobalId field value
 func (o *ArtifactMetaData) GetGlobalId() int64 {
@@ -325,7 +352,7 @@ func (o *ArtifactMetaData) GetGlobalId() int64 {
 // GetGlobalIdOk returns a tuple with the GlobalId field value
 // and a boolean to check if the value has been set.
 func (o *ArtifactMetaData) GetGlobalIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.GlobalId, true
@@ -335,6 +362,7 @@ func (o *ArtifactMetaData) GetGlobalIdOk() (*int64, bool) {
 func (o *ArtifactMetaData) SetGlobalId(v int64) {
 	o.GlobalId = v
 }
+
 
 // GetState returns the State field value
 func (o *ArtifactMetaData) GetState() ArtifactState {
@@ -349,7 +377,7 @@ func (o *ArtifactMetaData) GetState() ArtifactState {
 // GetStateOk returns a tuple with the State field value
 // and a boolean to check if the value has been set.
 func (o *ArtifactMetaData) GetStateOk() (*ArtifactState, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.State, true
@@ -359,6 +387,7 @@ func (o *ArtifactMetaData) GetStateOk() (*ArtifactState, bool) {
 func (o *ArtifactMetaData) SetState(v ArtifactState) {
 	o.State = v
 }
+
 
 // GetLabels returns the Labels field value if set, zero value otherwise.
 func (o *ArtifactMetaData) GetLabels() []string {
@@ -392,6 +421,7 @@ func (o *ArtifactMetaData) SetLabels(v []string) {
 	o.Labels = &v
 }
 
+
 // GetProperties returns the Properties field value if set, zero value otherwise.
 func (o *ArtifactMetaData) GetProperties() map[string]string {
 	if o == nil || o.Properties == nil {
@@ -423,6 +453,7 @@ func (o *ArtifactMetaData) HasProperties() bool {
 func (o *ArtifactMetaData) SetProperties(v map[string]string) {
 	o.Properties = &v
 }
+
 
 // GetGroupId returns the GroupId field value if set, zero value otherwise.
 func (o *ArtifactMetaData) GetGroupId() string {
@@ -456,6 +487,7 @@ func (o *ArtifactMetaData) SetGroupId(v string) {
 	o.GroupId = &v
 }
 
+
 // GetContentId returns the ContentId field value
 func (o *ArtifactMetaData) GetContentId() int64 {
 	if o == nil {
@@ -469,7 +501,7 @@ func (o *ArtifactMetaData) GetContentId() int64 {
 // GetContentIdOk returns a tuple with the ContentId field value
 // and a boolean to check if the value has been set.
 func (o *ArtifactMetaData) GetContentIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.ContentId, true
@@ -480,69 +512,70 @@ func (o *ArtifactMetaData) SetContentId(v int64) {
 	o.ContentId = v
 }
 
+
 func (o ArtifactMetaData) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-
+    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-
+    
 	if true {
 		toSerialize["createdBy"] = o.CreatedBy
 	}
-
+    
 	if true {
 		toSerialize["createdOn"] = o.CreatedOn
 	}
-
+    
 	if true {
 		toSerialize["modifiedBy"] = o.ModifiedBy
 	}
-
+    
 	if true {
 		toSerialize["modifiedOn"] = o.ModifiedOn
 	}
-
+    
 	if true {
 		toSerialize["id"] = o.Id
 	}
-
+    
 	if true {
 		toSerialize["version"] = o.Version
 	}
-
+    
 	if true {
 		toSerialize["type"] = o.Type
 	}
-
+    
 	if true {
 		toSerialize["globalId"] = o.GlobalId
 	}
-
+    
 	if true {
 		toSerialize["state"] = o.State
 	}
-
+    
 	if o.Labels != nil {
 		toSerialize["labels"] = o.Labels
 	}
-
+    
 	if o.Properties != nil {
 		toSerialize["properties"] = o.Properties
 	}
-
+    
 	if o.GroupId != nil {
 		toSerialize["groupId"] = o.GroupId
 	}
-
+    
 	if true {
 		toSerialize["contentId"] = o.ContentId
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -581,3 +614,4 @@ func (v *NullableArtifactMetaData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
