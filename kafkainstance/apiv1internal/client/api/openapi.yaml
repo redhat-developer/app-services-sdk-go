@@ -100,20 +100,28 @@ paths:
           description: List of topics matching the users query paramters.
         "400":
           content:
-            application/json: {}
-          description: Unable to retreive topics.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unable to retrieve topics.
         "401":
           content:
-            application/json: {}
-          description: Unauthorized, unable to retrive topics.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Request authentication missing or invalid
         "500":
           content:
-            application/json: {}
-          description: Internal server error.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error
         "503":
           content:
-            application/json: {}
-          description: Unable to connect to the Kafka cluster.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Kafka service unavailable
       summary: List of topics
       tags:
       - topics
@@ -147,15 +155,35 @@ paths:
                 $ref: '#/components/schemas/Topic'
           description: Topic created successfully.
         "400":
-          description: Unable to create topic.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The client request was invalid
         "401":
-          description: Unauthorized, Unable to create topic.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Request authentication missing or invalid
         "409":
-          description: Entry already exisits
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The resource already exists.
         "500":
-          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error
         "503":
-          description: Unable to connect to the Kafka cluster.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Kafka service unavailable
       summary: Creates a new topic
       tags:
       - topics
@@ -176,13 +204,29 @@ paths:
         "200":
           description: Topic deleted successfully.
         "401":
-          description: Unathorized, unable to delete topic.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Request authentication missing or invalid
         "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Topic not found.
         "500":
-          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error
         "503":
-          description: Unable to connect to the Kafka cluster.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Kafka service unavailable
       summary: Deletes a  topic
       tags:
       - topics
@@ -207,20 +251,28 @@ paths:
           description: Kafka topic details.
         "401":
           content:
-            application/json: {}
-          description: Unauthorized, unable to retrieve topics.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Request authentication missing or invalid
         "404":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Topic not found.
         "500":
           content:
-            application/json: {}
-          description: Internal server error.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error
         "503":
           content:
-            application/json: {}
-          description: Unable to connect to the Kafka cluster.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Kafka service unavailable
       summary: Retrieves the topic with the specified name.
       tags:
       - topics
@@ -250,15 +302,35 @@ paths:
                 $ref: '#/components/schemas/Topic'
           description: Topic updated successfully.
         "400":
-          description: Unable to update topic.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: The client request was invalid
         "401":
-          description: Unauthroized, unable to update topic.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Request authentication missing or invalid
         "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Topic not found.
         "500":
-          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error
         "503":
-          description: Unable to connect to the Kafka cluster.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Kafka service unavailable
       summary: Updates the topic with the specified name.
       tags:
       - topics
@@ -280,29 +352,40 @@ paths:
           description: The consumer group was deleted successfully.
         "401":
           content:
-            application/json: {}
-          description: Unauthorized, request has not been applied because it lacks
-            valid authentication credentials.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Request authentication missing or invalid
         "403":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Forbidden to delete this consumer group.
         "404":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
           description: The consumer group does not exist.
         "423":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
           description: User cannot delete consumer group with active members.
         "500":
           content:
-            application/json: {}
-          description: Internal Server Error.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error
         "503":
           content:
-            application/json: {}
-          description: Unable to connect to the Kafka cluster.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Kafka service unavailable
       summary: Delete a consumer group.
       tags:
       - groups
@@ -392,25 +475,34 @@ paths:
           description: Consumer group details.
         "401":
           content:
-            application/json: {}
-          description: Unauthorized, request has not been applied because it lacks
-            valid authentication credentials.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Request authentication missing or invalid
         "403":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
           description: User is forbidden this view this consumer group.
         "404":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Consumer group not found.
         "500":
           content:
-            application/json: {}
-          description: Internal server error.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error
         "503":
           content:
-            application/json: {}
-          description: Unable to connect to the Kafka cluster.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Kafka service unavailable
       summary: Get a single consumer group by its unique ID.
       tags:
       - groups
@@ -529,26 +621,35 @@ paths:
           description: List of consumer groups matching the request parameters.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
           description: The server cannot or will not process the request due to something
             that is perceived to be a client error such as malformed request syntax.
         "401":
           content:
-            application/json: {}
-          description: Unauthorized, request has not been applied because it lacks
-            valid authentication credentials.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Request authentication missing or invalid
         "403":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
           description: User is forbidden to retrieve the list of consumer groups.
         "500":
           content:
-            application/json: {}
-          description: An internal server error occurred.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error
         "503":
           content:
-            application/json: {}
-          description: Unable to connect to the Kafka cluster.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Kafka service unavailable
       summary: List of consumer groups in the Kafka instance.
       tags:
       - groups
@@ -594,25 +695,34 @@ paths:
           description: The consumer group to reset the offset does have active consumers.
         "401":
           content:
-            application/json: {}
-          description: Unauthorized, request has not been applied because it lacks
-            valid authentication credentials.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Request authentication missing or invalid
         "403":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Forbidden to delete this consumer group.
         "404":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
           description: Specified topic or its partition does not exist.
         "500":
           content:
-            application/json: {}
-          description: Internal Server Error.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error
         "503":
           content:
-            application/json: {}
-          description: Unable to connect to the Kafka cluster.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Kafka service unavailable
       summary: Reset the offset for a consumer group.
       tags:
       - groups
@@ -1177,6 +1287,12 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
       description: User is not authorized to access requested resource
+    Conflict:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+      description: The resource already exists.
     ServerError:
       content:
         application/json:
