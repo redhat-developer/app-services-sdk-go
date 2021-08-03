@@ -22,7 +22,7 @@ type Options struct {
 func Generate(opts *Options) error {
 	cfg := common.Config{
 		ClientID:           opts.ClientID,
-		Version:            "5.1.1",
+		Version:            "5.2.0",
 		Input:              opts.ClientMetadata.OpenApiFile,
 		TemplatesDir:       opts.TemplatesDir,
 		IgnoreFileOverride: ".openapi-generator-ignore",
