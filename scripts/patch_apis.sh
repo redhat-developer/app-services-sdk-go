@@ -1,10 +1,14 @@
 echo "Patching service registry instances"
 
+cd .openapi
 echo "Removing codegen "
-cat ./.openapi/registry-instance.json | jq 'del(.paths."x-codegen-contextRoot")'  > ./.openapi/registry-instance-tmp.json
+cat registry-instance.json | jq 'del(.paths."x-codegen-contextRoot")'  > registry-instance-tmp.json
 echo "Ensuring only single tag is created "
-cat ./.openapi/registry-instance.json | jq 'walk( if type == "object" and has("tags") 
+cat registry-instance.json | jq 'walk( if type == "object" and has("tags") 
        then .tags |= select(.[0])
-       else . end )' > ./.openapi/registry-instance-tmp.json
+       else . end )' > registry-instance-tmp.json
 
-mv -f ./.openapi/registry-instance-tmp.json  ./.openapi/registry-instance.json
+echo "Removing invalid datetime definitions"
+sed -i '' 's/date-time/utc-date/' registry-instance-tmp.json
+
+mv -f registry-instance-tmp.json registry-instance.json

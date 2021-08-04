@@ -13,7 +13,6 @@ package registryinstanceclient
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // SystemInfo struct for SystemInfo
@@ -25,7 +24,7 @@ type SystemInfo struct {
 
 	Version *string `json:"version,omitempty"`
 
-	BuiltOn *time.Time `json:"builtOn,omitempty"`
+	BuiltOn *string `json:"builtOn,omitempty"`
 
 }
 
@@ -152,9 +151,9 @@ func (o *SystemInfo) SetVersion(v string) {
 
 
 // GetBuiltOn returns the BuiltOn field value if set, zero value otherwise.
-func (o *SystemInfo) GetBuiltOn() time.Time {
+func (o *SystemInfo) GetBuiltOn() string {
 	if o == nil || o.BuiltOn == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.BuiltOn
@@ -162,7 +161,7 @@ func (o *SystemInfo) GetBuiltOn() time.Time {
 
 // GetBuiltOnOk returns a tuple with the BuiltOn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SystemInfo) GetBuiltOnOk() (*time.Time, bool) {
+func (o *SystemInfo) GetBuiltOnOk() (*string, bool) {
 	if o == nil || o.BuiltOn == nil {
 		return nil, false
 	}
@@ -178,8 +177,8 @@ func (o *SystemInfo) HasBuiltOn() bool {
 	return false
 }
 
-// SetBuiltOn gets a reference to the given time.Time and assigns it to the BuiltOn field.
-func (o *SystemInfo) SetBuiltOn(v time.Time) {
+// SetBuiltOn gets a reference to the given string and assigns it to the BuiltOn field.
+func (o *SystemInfo) SetBuiltOn(v string) {
 	o.BuiltOn = &v
 }
 

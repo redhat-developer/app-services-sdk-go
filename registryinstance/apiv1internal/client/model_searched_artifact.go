@@ -1,7 +1,7 @@
 /*
  * Apicurio Registry API [v2]
  *
- * Apicurio Registry is a datastore for standard event schemas and API designs. Apicurio Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.  The Apicurio Registry REST API enables client applications to manage the artifacts in the registry. This API provides create, read, update, and delete operations for schema and API artifacts, rules, versions, and metadata.   The supported artifact types include: - Apache Avro schema - AsyncAPI specification - Google protocol buffers - GraphQL schema - JSON Schema - Kafka Connect schema - OpenAPI specification - Web Services Description Language - XML Schema Definition   **Important**: The Apicurio Registry REST API is available from `https://MY-REGISTRY-URL/apis/registry/v2` by default. Therefore you must prefix all API operation paths with `../apis/registry/v2` in this case. For example: `../apis/registry/v2/ids/globalIds/{globalId}`.
+ * Apicurio Registry is a datastore for standard event schemas and API designs. Apicurio Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.  The Apicurio Registry REST API enables client applications to manage the artifacts in the registry. This API provides create, read, update, and delete operations for schema and API artifacts, rules, versions, and metadata.   The supported artifact types include: - Apache Avro schema - AsyncAPI specification - Google protocol buffers - GraphQL schema - JSON Schema - Kafka Connect schema - OpenAPI specification - Web Services Description Language - XML Schema Definition   **Important**: The Apicurio Registry REST API is available from `https://MY-REGISTRY-URL/apis/registry/v2` by default. Therefore you must prefix all API operation paths with `../apis/registry/v2` in this case. For example: `../apis/registry/v2/ids/globalIds/{globalId}`. 
  *
  * API version: 2.1.0-SNAPSHOT
  * Contact: apicurio@lists.jboss.org
@@ -13,7 +13,6 @@ package registryinstanceclient
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // SearchedArtifact Models a single artifact from the result set returned when searching for artifacts.
@@ -26,7 +25,7 @@ type SearchedArtifact struct {
 
 	Description *string `json:"description,omitempty"`
 
-	CreatedOn time.Time `json:"-"`
+	CreatedOn string `json:"createdOn"`
 
 	CreatedBy string `json:"createdBy"`
 
@@ -36,19 +35,20 @@ type SearchedArtifact struct {
 
 	State ArtifactState `json:"state"`
 
-	ModifiedOn *time.Time `json:"-"`
+	ModifiedOn *string `json:"modifiedOn,omitempty"`
 
 	ModifiedBy *string `json:"modifiedBy,omitempty"`
 
 	// An ID of a single artifact group.
 	GroupId *string `json:"groupId,omitempty"`
+
 }
 
 // NewSearchedArtifact instantiates a new SearchedArtifact object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchedArtifact(id string, createdOn time.Time, createdBy string, type_ ArtifactType, state ArtifactState) *SearchedArtifact {
+func NewSearchedArtifact(id string, createdOn string, createdBy string, type_ ArtifactType, state ArtifactState) *SearchedArtifact {
 	this := SearchedArtifact{}
 	this.Id = id
 	this.CreatedOn = createdOn
@@ -64,8 +64,20 @@ func NewSearchedArtifact(id string, createdOn time.Time, createdBy string, type_
 func NewSearchedArtifactWithDefaults() *SearchedArtifact {
 	this := SearchedArtifact{}
 
+
+
+
+
+
+
+
+
+
+
+
 	return &this
 }
+
 
 // GetId returns the Id field value
 func (o *SearchedArtifact) GetId() string {
@@ -80,7 +92,7 @@ func (o *SearchedArtifact) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *SearchedArtifact) GetIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Id, true
@@ -90,6 +102,7 @@ func (o *SearchedArtifact) GetIdOk() (*string, bool) {
 func (o *SearchedArtifact) SetId(v string) {
 	o.Id = v
 }
+
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *SearchedArtifact) GetName() string {
@@ -123,6 +136,7 @@ func (o *SearchedArtifact) SetName(v string) {
 	o.Name = &v
 }
 
+
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *SearchedArtifact) GetDescription() string {
 	if o == nil || o.Description == nil {
@@ -155,10 +169,11 @@ func (o *SearchedArtifact) SetDescription(v string) {
 	o.Description = &v
 }
 
+
 // GetCreatedOn returns the CreatedOn field value
-func (o *SearchedArtifact) GetCreatedOn() time.Time {
+func (o *SearchedArtifact) GetCreatedOn() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -167,17 +182,18 @@ func (o *SearchedArtifact) GetCreatedOn() time.Time {
 
 // GetCreatedOnOk returns a tuple with the CreatedOn field value
 // and a boolean to check if the value has been set.
-func (o *SearchedArtifact) GetCreatedOnOk() (*time.Time, bool) {
-	if o == nil {
+func (o *SearchedArtifact) GetCreatedOnOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.CreatedOn, true
 }
 
 // SetCreatedOn sets field value
-func (o *SearchedArtifact) SetCreatedOn(v time.Time) {
+func (o *SearchedArtifact) SetCreatedOn(v string) {
 	o.CreatedOn = v
 }
+
 
 // GetCreatedBy returns the CreatedBy field value
 func (o *SearchedArtifact) GetCreatedBy() string {
@@ -192,7 +208,7 @@ func (o *SearchedArtifact) GetCreatedBy() string {
 // GetCreatedByOk returns a tuple with the CreatedBy field value
 // and a boolean to check if the value has been set.
 func (o *SearchedArtifact) GetCreatedByOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.CreatedBy, true
@@ -202,6 +218,7 @@ func (o *SearchedArtifact) GetCreatedByOk() (*string, bool) {
 func (o *SearchedArtifact) SetCreatedBy(v string) {
 	o.CreatedBy = v
 }
+
 
 // GetType returns the Type field value
 func (o *SearchedArtifact) GetType() ArtifactType {
@@ -216,7 +233,7 @@ func (o *SearchedArtifact) GetType() ArtifactType {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *SearchedArtifact) GetTypeOk() (*ArtifactType, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Type, true
@@ -226,6 +243,7 @@ func (o *SearchedArtifact) GetTypeOk() (*ArtifactType, bool) {
 func (o *SearchedArtifact) SetType(v ArtifactType) {
 	o.Type = v
 }
+
 
 // GetLabels returns the Labels field value if set, zero value otherwise.
 func (o *SearchedArtifact) GetLabels() []string {
@@ -259,6 +277,7 @@ func (o *SearchedArtifact) SetLabels(v []string) {
 	o.Labels = &v
 }
 
+
 // GetState returns the State field value
 func (o *SearchedArtifact) GetState() ArtifactState {
 	if o == nil {
@@ -272,7 +291,7 @@ func (o *SearchedArtifact) GetState() ArtifactState {
 // GetStateOk returns a tuple with the State field value
 // and a boolean to check if the value has been set.
 func (o *SearchedArtifact) GetStateOk() (*ArtifactState, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.State, true
@@ -283,10 +302,11 @@ func (o *SearchedArtifact) SetState(v ArtifactState) {
 	o.State = v
 }
 
+
 // GetModifiedOn returns the ModifiedOn field value if set, zero value otherwise.
-func (o *SearchedArtifact) GetModifiedOn() time.Time {
+func (o *SearchedArtifact) GetModifiedOn() string {
 	if o == nil || o.ModifiedOn == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.ModifiedOn
@@ -294,7 +314,7 @@ func (o *SearchedArtifact) GetModifiedOn() time.Time {
 
 // GetModifiedOnOk returns a tuple with the ModifiedOn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SearchedArtifact) GetModifiedOnOk() (*time.Time, bool) {
+func (o *SearchedArtifact) GetModifiedOnOk() (*string, bool) {
 	if o == nil || o.ModifiedOn == nil {
 		return nil, false
 	}
@@ -310,10 +330,11 @@ func (o *SearchedArtifact) HasModifiedOn() bool {
 	return false
 }
 
-// SetModifiedOn gets a reference to the given time.Time and assigns it to the ModifiedOn field.
-func (o *SearchedArtifact) SetModifiedOn(v time.Time) {
+// SetModifiedOn gets a reference to the given string and assigns it to the ModifiedOn field.
+func (o *SearchedArtifact) SetModifiedOn(v string) {
 	o.ModifiedOn = &v
 }
+
 
 // GetModifiedBy returns the ModifiedBy field value if set, zero value otherwise.
 func (o *SearchedArtifact) GetModifiedBy() string {
@@ -347,6 +368,7 @@ func (o *SearchedArtifact) SetModifiedBy(v string) {
 	o.ModifiedBy = &v
 }
 
+
 // GetGroupId returns the GroupId field value if set, zero value otherwise.
 func (o *SearchedArtifact) GetGroupId() string {
 	if o == nil || o.GroupId == nil {
@@ -379,53 +401,54 @@ func (o *SearchedArtifact) SetGroupId(v string) {
 	o.GroupId = &v
 }
 
+
 func (o SearchedArtifact) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if true {
 		toSerialize["id"] = o.Id
 	}
-
+    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-
+    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-
+    
 	if true {
 		toSerialize["createdOn"] = o.CreatedOn
 	}
-
+    
 	if true {
 		toSerialize["createdBy"] = o.CreatedBy
 	}
-
+    
 	if true {
 		toSerialize["type"] = o.Type
 	}
-
+    
 	if o.Labels != nil {
 		toSerialize["labels"] = o.Labels
 	}
-
+    
 	if true {
 		toSerialize["state"] = o.State
 	}
-
+    
 	if o.ModifiedOn != nil {
 		toSerialize["modifiedOn"] = o.ModifiedOn
 	}
-
+    
 	if o.ModifiedBy != nil {
 		toSerialize["modifiedBy"] = o.ModifiedBy
 	}
-
+    
 	if o.GroupId != nil {
 		toSerialize["groupId"] = o.GroupId
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -464,3 +487,4 @@ func (v *NullableSearchedArtifact) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

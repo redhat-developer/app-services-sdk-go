@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**CreatedOn** | **time.Time** |  | 
+**CreatedOn** | **string** |  | 
 **CreatedBy** | **string** |  | 
 **Type** | [**ArtifactType**](ArtifactType.md) |  | 
 **Labels** | Pointer to **[]string** |  | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewSearchedVersion
 
-`func NewSearchedVersion(createdOn time.Time, createdBy string, type_ ArtifactType, state ArtifactState, globalId int64, version string, contentId int64, ) *SearchedVersion`
+`func NewSearchedVersion(createdOn string, createdBy string, type_ ArtifactType, state ArtifactState, globalId int64, version string, contentId int64, ) *SearchedVersion`
 
 NewSearchedVersion instantiates a new SearchedVersion object
 This constructor will assign default values to properties that have it defined,
@@ -91,20 +91,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetCreatedOn
 
-`func (o *SearchedVersion) GetCreatedOn() time.Time`
+`func (o *SearchedVersion) GetCreatedOn() string`
 
 GetCreatedOn returns the CreatedOn field if non-nil, zero value otherwise.
 
 ### GetCreatedOnOk
 
-`func (o *SearchedVersion) GetCreatedOnOk() (*time.Time, bool)`
+`func (o *SearchedVersion) GetCreatedOnOk() (*string, bool)`
 
 GetCreatedOnOk returns a tuple with the CreatedOn field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedOn
 
-`func (o *SearchedVersion) SetCreatedOn(v time.Time)`
+`func (o *SearchedVersion) SetCreatedOn(v string)`
 
 SetCreatedOn sets CreatedOn field to given value.
 
