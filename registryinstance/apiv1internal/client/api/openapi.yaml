@@ -3424,7 +3424,7 @@ components:
         createdBy:
           type: string
         createdOn:
-          format: date-time
+          format: utc-date
           type: string
         type:
           $ref: '#/components/schemas/ArtifactType'
@@ -3666,7 +3666,7 @@ components:
         description:
           type: string
         createdOn:
-          format: date-time
+          format: utc-date
           type: string
         createdBy:
           type: string
@@ -3771,7 +3771,7 @@ components:
         description:
           type: string
         createdOn:
-          format: date-time
+          format: utc-date
           type: string
         createdBy:
           type: string
@@ -3784,7 +3784,7 @@ components:
         state:
           $ref: '#/components/schemas/ArtifactState'
         modifiedOn:
-          format: date-time
+          format: utc-date
           type: string
         modifiedBy:
           type: string
@@ -3828,12 +3828,12 @@ components:
         createdBy:
           type: string
         createdOn:
-          format: date-time
+          format: utc-date
           type: string
         modifiedBy:
           type: string
         modifiedOn:
-          format: date-time
+          format: utc-date
           type: string
         id:
           description: The ID of a single artifact.
@@ -3941,7 +3941,7 @@ components:
         version:
           type: string
         builtOn:
-          format: date-time
+          format: utc-date
           type: string
       title: Root Type for SystemInfo
       type: object

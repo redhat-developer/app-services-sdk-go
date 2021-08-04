@@ -7,12 +7,12 @@ Name | Type | Description | Notes
 **Id** | **string** | The ID of a single artifact. | 
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**CreatedOn** | **time.Time** |  | 
+**CreatedOn** | **string** |  | 
 **CreatedBy** | **string** |  | 
 **Type** | [**ArtifactType**](ArtifactType.md) |  | 
 **Labels** | Pointer to **[]string** |  | [optional] 
 **State** | [**ArtifactState**](ArtifactState.md) |  | 
-**ModifiedOn** | Pointer to **time.Time** |  | [optional] 
+**ModifiedOn** | Pointer to **string** |  | [optional] 
 **ModifiedBy** | Pointer to **string** |  | [optional] 
 **GroupId** | Pointer to **string** | An ID of a single artifact group. | [optional] 
 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewSearchedArtifact
 
-`func NewSearchedArtifact(id string, createdOn time.Time, createdBy string, type_ ArtifactType, state ArtifactState, ) *SearchedArtifact`
+`func NewSearchedArtifact(id string, createdOn string, createdBy string, type_ ArtifactType, state ArtifactState, ) *SearchedArtifact`
 
 NewSearchedArtifact instantiates a new SearchedArtifact object
 This constructor will assign default values to properties that have it defined,
@@ -112,20 +112,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetCreatedOn
 
-`func (o *SearchedArtifact) GetCreatedOn() time.Time`
+`func (o *SearchedArtifact) GetCreatedOn() string`
 
 GetCreatedOn returns the CreatedOn field if non-nil, zero value otherwise.
 
 ### GetCreatedOnOk
 
-`func (o *SearchedArtifact) GetCreatedOnOk() (*time.Time, bool)`
+`func (o *SearchedArtifact) GetCreatedOnOk() (*string, bool)`
 
 GetCreatedOnOk returns a tuple with the CreatedOn field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedOn
 
-`func (o *SearchedArtifact) SetCreatedOn(v time.Time)`
+`func (o *SearchedArtifact) SetCreatedOn(v string)`
 
 SetCreatedOn sets CreatedOn field to given value.
 
@@ -222,20 +222,20 @@ SetState sets State field to given value.
 
 ### GetModifiedOn
 
-`func (o *SearchedArtifact) GetModifiedOn() time.Time`
+`func (o *SearchedArtifact) GetModifiedOn() string`
 
 GetModifiedOn returns the ModifiedOn field if non-nil, zero value otherwise.
 
 ### GetModifiedOnOk
 
-`func (o *SearchedArtifact) GetModifiedOnOk() (*time.Time, bool)`
+`func (o *SearchedArtifact) GetModifiedOnOk() (*string, bool)`
 
 GetModifiedOnOk returns a tuple with the ModifiedOn field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModifiedOn
 
-`func (o *SearchedArtifact) SetModifiedOn(v time.Time)`
+`func (o *SearchedArtifact) SetModifiedOn(v string)`
 
 SetModifiedOn sets ModifiedOn field to given value.
 

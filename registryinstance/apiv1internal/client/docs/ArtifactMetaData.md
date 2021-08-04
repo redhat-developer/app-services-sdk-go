@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **CreatedBy** | **string** |  | 
-**CreatedOn** | **time.Time** |  | 
+**CreatedOn** | **string** |  | 
 **ModifiedBy** | **string** |  | 
-**ModifiedOn** | **time.Time** |  | 
+**ModifiedOn** | **string** |  | 
 **Id** | **string** | The ID of a single artifact. | 
 **Version** | **string** |  | 
 **Type** | [**ArtifactType**](ArtifactType.md) |  | 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewArtifactMetaData
 
-`func NewArtifactMetaData(createdBy string, createdOn time.Time, modifiedBy string, modifiedOn time.Time, id string, version string, type_ ArtifactType, globalId int64, state ArtifactState, contentId int64, ) *ArtifactMetaData`
+`func NewArtifactMetaData(createdBy string, createdOn string, modifiedBy string, modifiedOn string, id string, version string, type_ ArtifactType, globalId int64, state ArtifactState, contentId int64, ) *ArtifactMetaData`
 
 NewArtifactMetaData instantiates a new ArtifactMetaData object
 This constructor will assign default values to properties that have it defined,
@@ -116,20 +116,20 @@ SetCreatedBy sets CreatedBy field to given value.
 
 ### GetCreatedOn
 
-`func (o *ArtifactMetaData) GetCreatedOn() time.Time`
+`func (o *ArtifactMetaData) GetCreatedOn() string`
 
 GetCreatedOn returns the CreatedOn field if non-nil, zero value otherwise.
 
 ### GetCreatedOnOk
 
-`func (o *ArtifactMetaData) GetCreatedOnOk() (*time.Time, bool)`
+`func (o *ArtifactMetaData) GetCreatedOnOk() (*string, bool)`
 
 GetCreatedOnOk returns a tuple with the CreatedOn field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedOn
 
-`func (o *ArtifactMetaData) SetCreatedOn(v time.Time)`
+`func (o *ArtifactMetaData) SetCreatedOn(v string)`
 
 SetCreatedOn sets CreatedOn field to given value.
 
@@ -158,20 +158,20 @@ SetModifiedBy sets ModifiedBy field to given value.
 
 ### GetModifiedOn
 
-`func (o *ArtifactMetaData) GetModifiedOn() time.Time`
+`func (o *ArtifactMetaData) GetModifiedOn() string`
 
 GetModifiedOn returns the ModifiedOn field if non-nil, zero value otherwise.
 
 ### GetModifiedOnOk
 
-`func (o *ArtifactMetaData) GetModifiedOnOk() (*time.Time, bool)`
+`func (o *ArtifactMetaData) GetModifiedOnOk() (*string, bool)`
 
 GetModifiedOnOk returns a tuple with the ModifiedOn field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModifiedOn
 
-`func (o *ArtifactMetaData) SetModifiedOn(v time.Time)`
+`func (o *ArtifactMetaData) SetModifiedOn(v string)`
 
 SetModifiedOn sets ModifiedOn field to given value.
 

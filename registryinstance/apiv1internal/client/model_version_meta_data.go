@@ -1,7 +1,7 @@
 /*
  * Apicurio Registry API [v2]
  *
- * Apicurio Registry is a datastore for standard event schemas and API designs. Apicurio Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.  The Apicurio Registry REST API enables client applications to manage the artifacts in the registry. This API provides create, read, update, and delete operations for schema and API artifacts, rules, versions, and metadata.   The supported artifact types include: - Apache Avro schema - AsyncAPI specification - Google protocol buffers - GraphQL schema - JSON Schema - Kafka Connect schema - OpenAPI specification - Web Services Description Language - XML Schema Definition   **Important**: The Apicurio Registry REST API is available from `https://MY-REGISTRY-URL/apis/registry/v2` by default. Therefore you must prefix all API operation paths with `../apis/registry/v2` in this case. For example: `../apis/registry/v2/ids/globalIds/{globalId}`.
+ * Apicurio Registry is a datastore for standard event schemas and API designs. Apicurio Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.  The Apicurio Registry REST API enables client applications to manage the artifacts in the registry. This API provides create, read, update, and delete operations for schema and API artifacts, rules, versions, and metadata.   The supported artifact types include: - Apache Avro schema - AsyncAPI specification - Google protocol buffers - GraphQL schema - JSON Schema - Kafka Connect schema - OpenAPI specification - Web Services Description Language - XML Schema Definition   **Important**: The Apicurio Registry REST API is available from `https://MY-REGISTRY-URL/apis/registry/v2` by default. Therefore you must prefix all API operation paths with `../apis/registry/v2` in this case. For example: `../apis/registry/v2/ids/globalIds/{globalId}`. 
  *
  * API version: 2.1.0-SNAPSHOT
  * Contact: apicurio@lists.jboss.org
@@ -13,11 +13,11 @@ package registryinstanceclient
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // VersionMetaData struct for VersionMetaData
 type VersionMetaData struct {
+
 	Version string `json:"version"`
 
 	Name *string `json:"name,omitempty"`
@@ -26,7 +26,7 @@ type VersionMetaData struct {
 
 	CreatedBy string `json:"createdBy"`
 
-	CreatedOn time.Time `json:"-"`
+	CreatedOn string `json:"createdOn"`
 
 	Type ArtifactType `json:"type"`
 
@@ -46,13 +46,14 @@ type VersionMetaData struct {
 	GroupId *string `json:"groupId,omitempty"`
 
 	ContentId int64 `json:"contentId"`
+
 }
 
 // NewVersionMetaData instantiates a new VersionMetaData object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVersionMetaData(version string, createdBy string, createdOn time.Time, type_ ArtifactType, globalId int64, id string, contentId int64) *VersionMetaData {
+func NewVersionMetaData(version string, createdBy string, createdOn string, type_ ArtifactType, globalId int64, id string, contentId int64) *VersionMetaData {
 	this := VersionMetaData{}
 	this.Version = version
 	this.CreatedBy = createdBy
@@ -70,8 +71,22 @@ func NewVersionMetaData(version string, createdBy string, createdOn time.Time, t
 func NewVersionMetaDataWithDefaults() *VersionMetaData {
 	this := VersionMetaData{}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 	return &this
 }
+
 
 // GetVersion returns the Version field value
 func (o *VersionMetaData) GetVersion() string {
@@ -86,7 +101,7 @@ func (o *VersionMetaData) GetVersion() string {
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *VersionMetaData) GetVersionOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Version, true
@@ -96,6 +111,7 @@ func (o *VersionMetaData) GetVersionOk() (*string, bool) {
 func (o *VersionMetaData) SetVersion(v string) {
 	o.Version = v
 }
+
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *VersionMetaData) GetName() string {
@@ -129,6 +145,7 @@ func (o *VersionMetaData) SetName(v string) {
 	o.Name = &v
 }
 
+
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *VersionMetaData) GetDescription() string {
 	if o == nil || o.Description == nil {
@@ -161,6 +178,7 @@ func (o *VersionMetaData) SetDescription(v string) {
 	o.Description = &v
 }
 
+
 // GetCreatedBy returns the CreatedBy field value
 func (o *VersionMetaData) GetCreatedBy() string {
 	if o == nil {
@@ -174,7 +192,7 @@ func (o *VersionMetaData) GetCreatedBy() string {
 // GetCreatedByOk returns a tuple with the CreatedBy field value
 // and a boolean to check if the value has been set.
 func (o *VersionMetaData) GetCreatedByOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.CreatedBy, true
@@ -185,10 +203,11 @@ func (o *VersionMetaData) SetCreatedBy(v string) {
 	o.CreatedBy = v
 }
 
+
 // GetCreatedOn returns the CreatedOn field value
-func (o *VersionMetaData) GetCreatedOn() time.Time {
+func (o *VersionMetaData) GetCreatedOn() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -197,17 +216,18 @@ func (o *VersionMetaData) GetCreatedOn() time.Time {
 
 // GetCreatedOnOk returns a tuple with the CreatedOn field value
 // and a boolean to check if the value has been set.
-func (o *VersionMetaData) GetCreatedOnOk() (*time.Time, bool) {
-	if o == nil {
+func (o *VersionMetaData) GetCreatedOnOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.CreatedOn, true
 }
 
 // SetCreatedOn sets field value
-func (o *VersionMetaData) SetCreatedOn(v time.Time) {
+func (o *VersionMetaData) SetCreatedOn(v string) {
 	o.CreatedOn = v
 }
+
 
 // GetType returns the Type field value
 func (o *VersionMetaData) GetType() ArtifactType {
@@ -222,7 +242,7 @@ func (o *VersionMetaData) GetType() ArtifactType {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *VersionMetaData) GetTypeOk() (*ArtifactType, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Type, true
@@ -232,6 +252,7 @@ func (o *VersionMetaData) GetTypeOk() (*ArtifactType, bool) {
 func (o *VersionMetaData) SetType(v ArtifactType) {
 	o.Type = v
 }
+
 
 // GetGlobalId returns the GlobalId field value
 func (o *VersionMetaData) GetGlobalId() int64 {
@@ -246,7 +267,7 @@ func (o *VersionMetaData) GetGlobalId() int64 {
 // GetGlobalIdOk returns a tuple with the GlobalId field value
 // and a boolean to check if the value has been set.
 func (o *VersionMetaData) GetGlobalIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.GlobalId, true
@@ -256,6 +277,7 @@ func (o *VersionMetaData) GetGlobalIdOk() (*int64, bool) {
 func (o *VersionMetaData) SetGlobalId(v int64) {
 	o.GlobalId = v
 }
+
 
 // GetState returns the State field value if set, zero value otherwise.
 func (o *VersionMetaData) GetState() ArtifactState {
@@ -289,6 +311,7 @@ func (o *VersionMetaData) SetState(v ArtifactState) {
 	o.State = &v
 }
 
+
 // GetId returns the Id field value
 func (o *VersionMetaData) GetId() string {
 	if o == nil {
@@ -302,7 +325,7 @@ func (o *VersionMetaData) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *VersionMetaData) GetIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Id, true
@@ -312,6 +335,7 @@ func (o *VersionMetaData) GetIdOk() (*string, bool) {
 func (o *VersionMetaData) SetId(v string) {
 	o.Id = v
 }
+
 
 // GetLabels returns the Labels field value if set, zero value otherwise.
 func (o *VersionMetaData) GetLabels() []string {
@@ -345,6 +369,7 @@ func (o *VersionMetaData) SetLabels(v []string) {
 	o.Labels = &v
 }
 
+
 // GetProperties returns the Properties field value if set, zero value otherwise.
 func (o *VersionMetaData) GetProperties() map[string]string {
 	if o == nil || o.Properties == nil {
@@ -376,6 +401,7 @@ func (o *VersionMetaData) HasProperties() bool {
 func (o *VersionMetaData) SetProperties(v map[string]string) {
 	o.Properties = &v
 }
+
 
 // GetGroupId returns the GroupId field value if set, zero value otherwise.
 func (o *VersionMetaData) GetGroupId() string {
@@ -409,6 +435,7 @@ func (o *VersionMetaData) SetGroupId(v string) {
 	o.GroupId = &v
 }
 
+
 // GetContentId returns the ContentId field value
 func (o *VersionMetaData) GetContentId() int64 {
 	if o == nil {
@@ -422,7 +449,7 @@ func (o *VersionMetaData) GetContentId() int64 {
 // GetContentIdOk returns a tuple with the ContentId field value
 // and a boolean to check if the value has been set.
 func (o *VersionMetaData) GetContentIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.ContentId, true
@@ -433,61 +460,62 @@ func (o *VersionMetaData) SetContentId(v int64) {
 	o.ContentId = v
 }
 
+
 func (o VersionMetaData) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-
+	
 	if true {
 		toSerialize["version"] = o.Version
 	}
-
+    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-
+    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-
+    
 	if true {
 		toSerialize["createdBy"] = o.CreatedBy
 	}
-
+    
 	if true {
 		toSerialize["createdOn"] = o.CreatedOn
 	}
-
+    
 	if true {
 		toSerialize["type"] = o.Type
 	}
-
+    
 	if true {
 		toSerialize["globalId"] = o.GlobalId
 	}
-
+    
 	if o.State != nil {
 		toSerialize["state"] = o.State
 	}
-
+    
 	if true {
 		toSerialize["id"] = o.Id
 	}
-
+    
 	if o.Labels != nil {
 		toSerialize["labels"] = o.Labels
 	}
-
+    
 	if o.Properties != nil {
 		toSerialize["properties"] = o.Properties
 	}
-
+    
 	if o.GroupId != nil {
 		toSerialize["groupId"] = o.GroupId
 	}
-
+    
 	if true {
 		toSerialize["contentId"] = o.ContentId
 	}
-
+    
 	return json.Marshal(toSerialize)
 }
 
@@ -526,3 +554,4 @@ func (v *NullableVersionMetaData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+

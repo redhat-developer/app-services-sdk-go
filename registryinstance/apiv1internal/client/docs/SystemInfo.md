@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
-**BuiltOn** | Pointer to **time.Time** |  | [optional] 
+**BuiltOn** | Pointer to **string** |  | [optional] 
 
 
 ## Methods
@@ -110,20 +110,20 @@ HasVersion returns a boolean if a field has been set.
 
 ### GetBuiltOn
 
-`func (o *SystemInfo) GetBuiltOn() time.Time`
+`func (o *SystemInfo) GetBuiltOn() string`
 
 GetBuiltOn returns the BuiltOn field if non-nil, zero value otherwise.
 
 ### GetBuiltOnOk
 
-`func (o *SystemInfo) GetBuiltOnOk() (*time.Time, bool)`
+`func (o *SystemInfo) GetBuiltOnOk() (*string, bool)`
 
 GetBuiltOnOk returns a tuple with the BuiltOn field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBuiltOn
 
-`func (o *SystemInfo) SetBuiltOn(v time.Time)`
+`func (o *SystemInfo) SetBuiltOn(v string)`
 
 SetBuiltOn sets BuiltOn field to given value.
 
