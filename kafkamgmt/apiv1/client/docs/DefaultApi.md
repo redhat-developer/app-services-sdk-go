@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**GetMetricsByRangeQuery**](DefaultApi.md#GetMetricsByRangeQuery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query_range | Returns metrics with timeseries range query by Kafka ID
 [**GetServiceStatus**](DefaultApi.md#GetServiceStatus) | **Get** /api/kafkas_mgmt/v1/status | Returns the status of resources, such as whether maximum service capacity has been reached
 [**GetVersionMetadata**](DefaultApi.md#GetVersionMetadata) | **Get** /api/kafkas_mgmt/v1 | Returns the version metadata
+[**UpdateKafkaById**](DefaultApi.md#UpdateKafkaById) | **Patch** /api/kafkas_mgmt/v1/kafkas/{id} | Update a Kafka instance by id
 
 
 
@@ -684,6 +685,76 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateKafkaById
+
+> KafkaRequest UpdateKafkaById(ctx, id).KafkaUpdateRequest(kafkaUpdateRequest).Execute()
+
+Update a Kafka instance by id
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := "id_example" // string | The ID of record
+    kafkaUpdateRequest := *openapiclient.NewKafkaUpdateRequest("Owner_example") // KafkaUpdateRequest | Update owner of kafka
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.UpdateKafkaById(context.Background(), id).KafkaUpdateRequest(kafkaUpdateRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.UpdateKafkaById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateKafkaById`: KafkaRequest
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.UpdateKafkaById`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The ID of record | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateKafkaByIdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **kafkaUpdateRequest** | [**KafkaUpdateRequest**](KafkaUpdateRequest.md) | Update owner of kafka | 
+
+### Return type
+
+[**KafkaRequest**](KafkaRequest.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

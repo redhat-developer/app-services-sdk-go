@@ -22,6 +22,7 @@ docs/KafkaRequestAllOf.md
 docs/KafkaRequestList.md
 docs/KafkaRequestListAllOf.md
 docs/KafkaRequestPayload.md
+docs/KafkaUpdateRequest.md
 docs/List.md
 docs/MetricsInstantQueryList.md
 docs/MetricsInstantQueryListAllOf.md
@@ -58,6 +59,7 @@ model_kafka_request_all_of.go
 model_kafka_request_list.go
 model_kafka_request_list_all_of.go
 model_kafka_request_payload.go
+model_kafka_update_request.go
 model_list.go
 model_metrics_instant_query_list.go
 model_metrics_instant_query_list_all_of.go
