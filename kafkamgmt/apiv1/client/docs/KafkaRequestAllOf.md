@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **UpdatedAt** | Pointer to **time.Time** |  | [optional] 
 **FailedReason** | Pointer to **string** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
+**InstanceType** | Pointer to **string** |  | [optional] 
 
 
 ## Methods
@@ -321,6 +322,32 @@ SetVersion sets Version field to given value.
 `func (o *KafkaRequestAllOf) HasVersion() bool`
 
 HasVersion returns a boolean if a field has been set.
+
+
+### GetInstanceType
+
+`func (o *KafkaRequestAllOf) GetInstanceType() string`
+
+GetInstanceType returns the InstanceType field if non-nil, zero value otherwise.
+
+### GetInstanceTypeOk
+
+`func (o *KafkaRequestAllOf) GetInstanceTypeOk() (*string, bool)`
+
+GetInstanceTypeOk returns a tuple with the InstanceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstanceType
+
+`func (o *KafkaRequestAllOf) SetInstanceType(v string)`
+
+SetInstanceType sets InstanceType field to given value.
+
+### HasInstanceType
+
+`func (o *KafkaRequestAllOf) HasInstanceType() bool`
+
+HasInstanceType returns a boolean if a field has been set.
 
 
 

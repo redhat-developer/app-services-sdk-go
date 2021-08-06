@@ -88,6 +88,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetMetricsByRangeQuery**](docs/DefaultApi.md#getmetricsbyrangequery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query_range | Returns metrics with timeseries range query by Kafka ID
 *DefaultApi* | [**GetServiceStatus**](docs/DefaultApi.md#getservicestatus) | **Get** /api/kafkas_mgmt/v1/status | Returns the status of resources, such as whether maximum service capacity has been reached
 *DefaultApi* | [**GetVersionMetadata**](docs/DefaultApi.md#getversionmetadata) | **Get** /api/kafkas_mgmt/v1 | Returns the version metadata
+*DefaultApi* | [**UpdateKafkaById**](docs/DefaultApi.md#updatekafkabyid) | **Patch** /api/kafkas_mgmt/v1/kafkas/{id} | Update a Kafka instance by id
 *SecurityApi* | [**CreateServiceAccount**](docs/SecurityApi.md#createserviceaccount) | **Post** /api/kafkas_mgmt/v1/service_accounts | Creates a service account
 *SecurityApi* | [**DeleteServiceAccountById**](docs/SecurityApi.md#deleteserviceaccountbyid) | **Delete** /api/kafkas_mgmt/v1/service_accounts/{id} | Deletes a service account by ID
 *SecurityApi* | [**GetServiceAccountById**](docs/SecurityApi.md#getserviceaccountbyid) | **Get** /api/kafkas_mgmt/v1/service_accounts/{id} | Returned service account by ID
@@ -113,6 +114,7 @@ Class | Method | HTTP request | Description
  - [KafkaRequestList](docs/KafkaRequestList.md)
  - [KafkaRequestListAllOf](docs/KafkaRequestListAllOf.md)
  - [KafkaRequestPayload](docs/KafkaRequestPayload.md)
+ - [KafkaUpdateRequest](docs/KafkaUpdateRequest.md)
  - [List](docs/List.md)
  - [MetricsInstantQueryList](docs/MetricsInstantQueryList.md)
  - [MetricsInstantQueryListAllOf](docs/MetricsInstantQueryListAllOf.md)

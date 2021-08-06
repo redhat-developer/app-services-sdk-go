@@ -49,6 +49,8 @@ type KafkaRequest struct {
 
 	Version *string `json:"version,omitempty"`
 
+	InstanceType *string `json:"instance_type,omitempty"`
+
 }
 
 // NewKafkaRequest instantiates a new KafkaRequest object
@@ -65,6 +67,7 @@ func NewKafkaRequest() *KafkaRequest {
 // but it doesn't guarantee that properties required by API are set
 func NewKafkaRequestWithDefaults() *KafkaRequest {
 	this := KafkaRequest{}
+
 
 
 
@@ -546,6 +549,39 @@ func (o *KafkaRequest) SetVersion(v string) {
 }
 
 
+// GetInstanceType returns the InstanceType field value if set, zero value otherwise.
+func (o *KafkaRequest) GetInstanceType() string {
+	if o == nil || o.InstanceType == nil {
+		var ret string
+		return ret
+	}
+	return *o.InstanceType
+}
+
+// GetInstanceTypeOk returns a tuple with the InstanceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *KafkaRequest) GetInstanceTypeOk() (*string, bool) {
+	if o == nil || o.InstanceType == nil {
+		return nil, false
+	}
+	return o.InstanceType, true
+}
+
+// HasInstanceType returns a boolean if a field has been set.
+func (o *KafkaRequest) HasInstanceType() bool {
+	if o != nil && o.InstanceType != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInstanceType gets a reference to the given string and assigns it to the InstanceType field.
+func (o *KafkaRequest) SetInstanceType(v string) {
+	o.InstanceType = &v
+}
+
+
 func (o KafkaRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
@@ -603,6 +639,10 @@ func (o KafkaRequest) MarshalJSON() ([]byte, error) {
     
 	if o.Version != nil {
 		toSerialize["version"] = o.Version
+	}
+    
+	if o.InstanceType != nil {
+		toSerialize["instance_type"] = o.InstanceType
 	}
     
 	return json.Marshal(toSerialize)
