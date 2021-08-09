@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Total** | Pointer to **float32** | Total number of entries in the full result set | [optional] 
-**Page** | Pointer to **int32** | Current page number | [optional] 
-**Size** | Pointer to **float32** | Number of entries per page | [optional] 
+**Total** | **float32** | Total number of entries in the full result set | 
+**Page** | Pointer to **int32** | Current page number (returned for fetch requests) | [optional] 
+**Size** | Pointer to **float32** | Number of entries per page (returned for fetch requests) | [optional] 
 
 
 ## Methods
 
 ### NewResultListPage
 
-`func NewResultListPage() *ResultListPage`
+`func NewResultListPage(total float32, ) *ResultListPage`
 
 NewResultListPage instantiates a new ResultListPage object
 This constructor will assign default values to properties that have it defined,
@@ -48,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetTotal sets Total field to given value.
 
-### HasTotal
-
-`func (o *ResultListPage) HasTotal() bool`
-
-HasTotal returns a boolean if a field has been set.
 
 
 ### GetPage

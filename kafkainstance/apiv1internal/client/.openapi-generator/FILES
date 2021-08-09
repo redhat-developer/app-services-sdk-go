@@ -25,6 +25,9 @@ docs/Consumer.md
 docs/ConsumerGroup.md
 docs/ConsumerGroupList.md
 docs/ConsumerGroupResetOffsetParameters.md
+docs/ConsumerGroupResetOffsetResult.md
+docs/ConsumerGroupResetOffsetResultAllOf.md
+docs/ConsumerGroupResetOffsetResultItem.md
 docs/Error.md
 docs/GroupsApi.md
 docs/NewTopicInput.md
@@ -54,6 +57,9 @@ model_consumer.go
 model_consumer_group.go
 model_consumer_group_list.go
 model_consumer_group_reset_offset_parameters.go
+model_consumer_group_reset_offset_result.go
+model_consumer_group_reset_offset_result_all_of.go
+model_consumer_group_reset_offset_result_item.go
 model_error.go
 model_new_topic_input.go
 model_partition.go

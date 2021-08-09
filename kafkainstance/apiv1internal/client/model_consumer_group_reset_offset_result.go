@@ -14,10 +14,10 @@ import (
 	"encoding/json"
 )
 
-// AclBindingListPage A page of ACL binding entries
-type AclBindingListPage struct {
+// ConsumerGroupResetOffsetResult struct for ConsumerGroupResetOffsetResult
+type ConsumerGroupResetOffsetResult struct {
 
-	Items *[]AclBinding `json:"items,omitempty"`
+	Items *[]ConsumerGroupResetOffsetResultItem `json:"items,omitempty"`
 
 	// Total number of entries in the full result set
 	Total float32 `json:"total"`
@@ -30,21 +30,21 @@ type AclBindingListPage struct {
 
 }
 
-// NewAclBindingListPage instantiates a new AclBindingListPage object
+// NewConsumerGroupResetOffsetResult instantiates a new ConsumerGroupResetOffsetResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAclBindingListPage(total float32) *AclBindingListPage {
-	this := AclBindingListPage{}
+func NewConsumerGroupResetOffsetResult(total float32) *ConsumerGroupResetOffsetResult {
+	this := ConsumerGroupResetOffsetResult{}
 	this.Total = total
 	return &this
 }
 
-// NewAclBindingListPageWithDefaults instantiates a new AclBindingListPage object
+// NewConsumerGroupResetOffsetResultWithDefaults instantiates a new ConsumerGroupResetOffsetResult object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewAclBindingListPageWithDefaults() *AclBindingListPage {
-	this := AclBindingListPage{}
+func NewConsumerGroupResetOffsetResultWithDefaults() *ConsumerGroupResetOffsetResult {
+	this := ConsumerGroupResetOffsetResult{}
 
 
 
@@ -55,9 +55,9 @@ func NewAclBindingListPageWithDefaults() *AclBindingListPage {
 
 
 // GetItems returns the Items field value if set, zero value otherwise.
-func (o *AclBindingListPage) GetItems() []AclBinding {
+func (o *ConsumerGroupResetOffsetResult) GetItems() []ConsumerGroupResetOffsetResultItem {
 	if o == nil || o.Items == nil {
-		var ret []AclBinding
+		var ret []ConsumerGroupResetOffsetResultItem
 		return ret
 	}
 	return *o.Items
@@ -65,7 +65,7 @@ func (o *AclBindingListPage) GetItems() []AclBinding {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AclBindingListPage) GetItemsOk() (*[]AclBinding, bool) {
+func (o *ConsumerGroupResetOffsetResult) GetItemsOk() (*[]ConsumerGroupResetOffsetResultItem, bool) {
 	if o == nil || o.Items == nil {
 		return nil, false
 	}
@@ -73,7 +73,7 @@ func (o *AclBindingListPage) GetItemsOk() (*[]AclBinding, bool) {
 }
 
 // HasItems returns a boolean if a field has been set.
-func (o *AclBindingListPage) HasItems() bool {
+func (o *ConsumerGroupResetOffsetResult) HasItems() bool {
 	if o != nil && o.Items != nil {
 		return true
 	}
@@ -81,14 +81,14 @@ func (o *AclBindingListPage) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []AclBinding and assigns it to the Items field.
-func (o *AclBindingListPage) SetItems(v []AclBinding) {
+// SetItems gets a reference to the given []ConsumerGroupResetOffsetResultItem and assigns it to the Items field.
+func (o *ConsumerGroupResetOffsetResult) SetItems(v []ConsumerGroupResetOffsetResultItem) {
 	o.Items = &v
 }
 
 
 // GetTotal returns the Total field value
-func (o *AclBindingListPage) GetTotal() float32 {
+func (o *ConsumerGroupResetOffsetResult) GetTotal() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -99,7 +99,7 @@ func (o *AclBindingListPage) GetTotal() float32 {
 
 // GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
-func (o *AclBindingListPage) GetTotalOk() (*float32, bool) {
+func (o *ConsumerGroupResetOffsetResult) GetTotalOk() (*float32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -107,13 +107,13 @@ func (o *AclBindingListPage) GetTotalOk() (*float32, bool) {
 }
 
 // SetTotal sets field value
-func (o *AclBindingListPage) SetTotal(v float32) {
+func (o *ConsumerGroupResetOffsetResult) SetTotal(v float32) {
 	o.Total = v
 }
 
 
 // GetPage returns the Page field value if set, zero value otherwise.
-func (o *AclBindingListPage) GetPage() int32 {
+func (o *ConsumerGroupResetOffsetResult) GetPage() int32 {
 	if o == nil || o.Page == nil {
 		var ret int32
 		return ret
@@ -123,7 +123,7 @@ func (o *AclBindingListPage) GetPage() int32 {
 
 // GetPageOk returns a tuple with the Page field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AclBindingListPage) GetPageOk() (*int32, bool) {
+func (o *ConsumerGroupResetOffsetResult) GetPageOk() (*int32, bool) {
 	if o == nil || o.Page == nil {
 		return nil, false
 	}
@@ -131,7 +131,7 @@ func (o *AclBindingListPage) GetPageOk() (*int32, bool) {
 }
 
 // HasPage returns a boolean if a field has been set.
-func (o *AclBindingListPage) HasPage() bool {
+func (o *ConsumerGroupResetOffsetResult) HasPage() bool {
 	if o != nil && o.Page != nil {
 		return true
 	}
@@ -140,13 +140,13 @@ func (o *AclBindingListPage) HasPage() bool {
 }
 
 // SetPage gets a reference to the given int32 and assigns it to the Page field.
-func (o *AclBindingListPage) SetPage(v int32) {
+func (o *ConsumerGroupResetOffsetResult) SetPage(v int32) {
 	o.Page = &v
 }
 
 
 // GetSize returns the Size field value if set, zero value otherwise.
-func (o *AclBindingListPage) GetSize() float32 {
+func (o *ConsumerGroupResetOffsetResult) GetSize() float32 {
 	if o == nil || o.Size == nil {
 		var ret float32
 		return ret
@@ -156,7 +156,7 @@ func (o *AclBindingListPage) GetSize() float32 {
 
 // GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AclBindingListPage) GetSizeOk() (*float32, bool) {
+func (o *ConsumerGroupResetOffsetResult) GetSizeOk() (*float32, bool) {
 	if o == nil || o.Size == nil {
 		return nil, false
 	}
@@ -164,7 +164,7 @@ func (o *AclBindingListPage) GetSizeOk() (*float32, bool) {
 }
 
 // HasSize returns a boolean if a field has been set.
-func (o *AclBindingListPage) HasSize() bool {
+func (o *ConsumerGroupResetOffsetResult) HasSize() bool {
 	if o != nil && o.Size != nil {
 		return true
 	}
@@ -173,12 +173,12 @@ func (o *AclBindingListPage) HasSize() bool {
 }
 
 // SetSize gets a reference to the given float32 and assigns it to the Size field.
-func (o *AclBindingListPage) SetSize(v float32) {
+func (o *ConsumerGroupResetOffsetResult) SetSize(v float32) {
 	o.Size = &v
 }
 
 
-func (o AclBindingListPage) MarshalJSON() ([]byte, error) {
+func (o ConsumerGroupResetOffsetResult) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if o.Items != nil {
@@ -200,38 +200,38 @@ func (o AclBindingListPage) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableAclBindingListPage struct {
-	value *AclBindingListPage
+type NullableConsumerGroupResetOffsetResult struct {
+	value *ConsumerGroupResetOffsetResult
 	isSet bool
 }
 
-func (v NullableAclBindingListPage) Get() *AclBindingListPage {
+func (v NullableConsumerGroupResetOffsetResult) Get() *ConsumerGroupResetOffsetResult {
 	return v.value
 }
 
-func (v *NullableAclBindingListPage) Set(val *AclBindingListPage) {
+func (v *NullableConsumerGroupResetOffsetResult) Set(val *ConsumerGroupResetOffsetResult) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableAclBindingListPage) IsSet() bool {
+func (v NullableConsumerGroupResetOffsetResult) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableAclBindingListPage) Unset() {
+func (v *NullableConsumerGroupResetOffsetResult) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableAclBindingListPage(val *AclBindingListPage) *NullableAclBindingListPage {
-	return &NullableAclBindingListPage{value: val, isSet: true}
+func NewNullableConsumerGroupResetOffsetResult(val *ConsumerGroupResetOffsetResult) *NullableConsumerGroupResetOffsetResult {
+	return &NullableConsumerGroupResetOffsetResult{value: val, isSet: true}
 }
 
-func (v NullableAclBindingListPage) MarshalJSON() ([]byte, error) {
+func (v NullableConsumerGroupResetOffsetResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableAclBindingListPage) UnmarshalJSON(src []byte) error {
+func (v *NullableConsumerGroupResetOffsetResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

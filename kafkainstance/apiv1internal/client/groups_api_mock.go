@@ -40,7 +40,7 @@ var _ GroupsApi = &GroupsApiMock{}
 // 			ResetConsumerGroupOffsetFunc: func(ctx _context.Context, consumerGroupId string) ApiResetConsumerGroupOffsetRequest {
 // 				panic("mock out the ResetConsumerGroupOffset method")
 // 			},
-// 			ResetConsumerGroupOffsetExecuteFunc: func(r ApiResetConsumerGroupOffsetRequest) ([][]map[string]interface{}, *_nethttp.Response, error) {
+// 			ResetConsumerGroupOffsetExecuteFunc: func(r ApiResetConsumerGroupOffsetRequest) (ConsumerGroupResetOffsetResult, *_nethttp.Response, error) {
 // 				panic("mock out the ResetConsumerGroupOffsetExecute method")
 // 			},
 // 		}
@@ -72,7 +72,7 @@ type GroupsApiMock struct {
 	ResetConsumerGroupOffsetFunc func(ctx _context.Context, consumerGroupId string) ApiResetConsumerGroupOffsetRequest
 
 	// ResetConsumerGroupOffsetExecuteFunc mocks the ResetConsumerGroupOffsetExecute method.
-	ResetConsumerGroupOffsetExecuteFunc func(r ApiResetConsumerGroupOffsetRequest) ([][]map[string]interface{}, *_nethttp.Response, error)
+	ResetConsumerGroupOffsetExecuteFunc func(r ApiResetConsumerGroupOffsetRequest) (ConsumerGroupResetOffsetResult, *_nethttp.Response, error)
 
 	// calls tracks calls to the methods.
 	calls struct {
@@ -363,7 +363,7 @@ func (mock *GroupsApiMock) ResetConsumerGroupOffsetCalls() []struct {
 }
 
 // ResetConsumerGroupOffsetExecute calls ResetConsumerGroupOffsetExecuteFunc.
-func (mock *GroupsApiMock) ResetConsumerGroupOffsetExecute(r ApiResetConsumerGroupOffsetRequest) ([][]map[string]interface{}, *_nethttp.Response, error) {
+func (mock *GroupsApiMock) ResetConsumerGroupOffsetExecute(r ApiResetConsumerGroupOffsetRequest) (ConsumerGroupResetOffsetResult, *_nethttp.Response, error) {
 	if mock.ResetConsumerGroupOffsetExecuteFunc == nil {
 		panic("GroupsApiMock.ResetConsumerGroupOffsetExecuteFunc: method is nil but GroupsApi.ResetConsumerGroupOffsetExecute was just called")
 	}
