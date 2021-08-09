@@ -79,9 +79,9 @@ type GroupsApi interface {
 
 	/*
 	 * ResetConsumerGroupOffsetExecute executes the request
-	 * @return [][]map[string]interface{}
+	 * @return ConsumerGroupResetOffsetResult
 	 */
-	ResetConsumerGroupOffsetExecute(r ApiResetConsumerGroupOffsetRequest) ([][]map[string]interface{}, *_nethttp.Response, error)
+	ResetConsumerGroupOffsetExecute(r ApiResetConsumerGroupOffsetRequest) (ConsumerGroupResetOffsetResult, *_nethttp.Response, error)
 }
 
 // GroupsApiService GroupsApi service
@@ -654,7 +654,7 @@ func (r ApiResetConsumerGroupOffsetRequest) ConsumerGroupResetOffsetParameters(c
 	return r
 }
 
-func (r ApiResetConsumerGroupOffsetRequest) Execute() ([][]map[string]interface{}, *_nethttp.Response, error) {
+func (r ApiResetConsumerGroupOffsetRequest) Execute() (ConsumerGroupResetOffsetResult, *_nethttp.Response, error) {
 	return r.ApiService.ResetConsumerGroupOffsetExecute(r)
 }
 
@@ -675,16 +675,16 @@ func (a *GroupsApiService) ResetConsumerGroupOffset(ctx _context.Context, consum
 
 /*
  * Execute executes the request
- * @return [][]map[string]interface{}
+ * @return ConsumerGroupResetOffsetResult
  */
-func (a *GroupsApiService) ResetConsumerGroupOffsetExecute(r ApiResetConsumerGroupOffsetRequest) ([][]map[string]interface{}, *_nethttp.Response, error) {
+func (a *GroupsApiService) ResetConsumerGroupOffsetExecute(r ApiResetConsumerGroupOffsetRequest) (ConsumerGroupResetOffsetResult, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  [][]map[string]interface{}
+		localVarReturnValue  ConsumerGroupResetOffsetResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupsApiService.ResetConsumerGroupOffset")

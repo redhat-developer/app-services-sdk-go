@@ -18,12 +18,12 @@ import (
 type ResultListPage struct {
 
 	// Total number of entries in the full result set
-	Total *float32 `json:"total,omitempty"`
+	Total float32 `json:"total"`
 
-	// Current page number
+	// Current page number (returned for fetch requests)
 	Page *int32 `json:"page,omitempty"`
 
-	// Number of entries per page
+	// Number of entries per page (returned for fetch requests)
 	Size *float32 `json:"size,omitempty"`
 
 }
@@ -32,8 +32,9 @@ type ResultListPage struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewResultListPage() *ResultListPage {
+func NewResultListPage(total float32) *ResultListPage {
 	this := ResultListPage{}
+	this.Total = total
 	return &this
 }
 
@@ -50,36 +51,28 @@ func NewResultListPageWithDefaults() *ResultListPage {
 }
 
 
-// GetTotal returns the Total field value if set, zero value otherwise.
+// GetTotal returns the Total field value
 func (o *ResultListPage) GetTotal() float32 {
-	if o == nil || o.Total == nil {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.Total
+
+	return o.Total
 }
 
-// GetTotalOk returns a tuple with the Total field value if set, nil otherwise
+// GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
 func (o *ResultListPage) GetTotalOk() (*float32, bool) {
-	if o == nil || o.Total == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Total, true
+	return &o.Total, true
 }
 
-// HasTotal returns a boolean if a field has been set.
-func (o *ResultListPage) HasTotal() bool {
-	if o != nil && o.Total != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTotal gets a reference to the given float32 and assigns it to the Total field.
+// SetTotal sets field value
 func (o *ResultListPage) SetTotal(v float32) {
-	o.Total = &v
+	o.Total = v
 }
 
 
@@ -152,7 +145,7 @@ func (o *ResultListPage) SetSize(v float32) {
 func (o ResultListPage) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
-	if o.Total != nil {
+	if true {
 		toSerialize["total"] = o.Total
 	}
     

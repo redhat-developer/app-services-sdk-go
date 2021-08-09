@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ## ResetConsumerGroupOffset
 
-> [][]map[string]interface{} ResetConsumerGroupOffset(ctx, consumerGroupId).ConsumerGroupResetOffsetParameters(consumerGroupResetOffsetParameters).Execute()
+> ConsumerGroupResetOffsetResult ResetConsumerGroupOffset(ctx, consumerGroupId).ConsumerGroupResetOffsetParameters(consumerGroupResetOffsetParameters).Execute()
 
 Reset the offset for a consumer group.
 
@@ -266,7 +266,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.ResetConsumerGroupOffset``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ResetConsumerGroupOffset`: [][]map[string]interface{}
+    // response from `ResetConsumerGroupOffset`: ConsumerGroupResetOffsetResult
     fmt.Fprintf(os.Stdout, "Response from `GroupsApi.ResetConsumerGroupOffset`: %v\n", resp)
 }
 ```
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[][]map[string]interface{}**](array.md)
+[**ConsumerGroupResetOffsetResult**](ConsumerGroupResetOffsetResult.md)
 
 ### Authorization
 
