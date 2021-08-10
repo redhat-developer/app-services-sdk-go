@@ -39,7 +39,7 @@ import "github.com/redhat-developer/app-services-sdk-go"
 | API                       | Status | Package                                                                                                                                                         |
 | ------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | KafkaInstance          | beta   | [`github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal)         |
-| RegistryInstance       | beta   | [`github.com/redhat-developer/app-services-sdk-go/registryinstance/apiv1internal`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/apiv1internal/apiv1internal)         |
+| RegistryInstance       | beta   | [`github.com/redhat-developer/app-services-sdk-go/registryinstance/apiv1internal`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/registryinstance/apiv1internal)         |
 
 
 ## Documentation
