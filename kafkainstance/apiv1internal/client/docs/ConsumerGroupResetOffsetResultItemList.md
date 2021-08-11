@@ -1,4 +1,4 @@
-# ConsumerGroupResetOffsetResultAllOf
+# ConsumerGroupResetOffsetResultItemList
 
 ## Properties
 
@@ -9,46 +9,46 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewConsumerGroupResetOffsetResultAllOf
+### NewConsumerGroupResetOffsetResultItemList
 
-`func NewConsumerGroupResetOffsetResultAllOf() *ConsumerGroupResetOffsetResultAllOf`
+`func NewConsumerGroupResetOffsetResultItemList() *ConsumerGroupResetOffsetResultItemList`
 
-NewConsumerGroupResetOffsetResultAllOf instantiates a new ConsumerGroupResetOffsetResultAllOf object
+NewConsumerGroupResetOffsetResultItemList instantiates a new ConsumerGroupResetOffsetResultItemList object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewConsumerGroupResetOffsetResultAllOfWithDefaults
+### NewConsumerGroupResetOffsetResultItemListWithDefaults
 
-`func NewConsumerGroupResetOffsetResultAllOfWithDefaults() *ConsumerGroupResetOffsetResultAllOf`
+`func NewConsumerGroupResetOffsetResultItemListWithDefaults() *ConsumerGroupResetOffsetResultItemList`
 
-NewConsumerGroupResetOffsetResultAllOfWithDefaults instantiates a new ConsumerGroupResetOffsetResultAllOf object
+NewConsumerGroupResetOffsetResultItemListWithDefaults instantiates a new ConsumerGroupResetOffsetResultItemList object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 
 ### GetItems
 
-`func (o *ConsumerGroupResetOffsetResultAllOf) GetItems() []ConsumerGroupResetOffsetResultItem`
+`func (o *ConsumerGroupResetOffsetResultItemList) GetItems() []ConsumerGroupResetOffsetResultItem`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *ConsumerGroupResetOffsetResultAllOf) GetItemsOk() (*[]ConsumerGroupResetOffsetResultItem, bool)`
+`func (o *ConsumerGroupResetOffsetResultItemList) GetItemsOk() (*[]ConsumerGroupResetOffsetResultItem, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *ConsumerGroupResetOffsetResultAllOf) SetItems(v []ConsumerGroupResetOffsetResultItem)`
+`func (o *ConsumerGroupResetOffsetResultItemList) SetItems(v []ConsumerGroupResetOffsetResultItem)`
 
 SetItems sets Items field to given value.
 
 ### HasItems
 
-`func (o *ConsumerGroupResetOffsetResultAllOf) HasItems() bool`
+`func (o *ConsumerGroupResetOffsetResultItemList) HasItems() bool`
 
 HasItems returns a boolean if a field has been set.
 

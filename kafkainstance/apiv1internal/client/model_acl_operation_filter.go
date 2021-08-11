@@ -15,91 +15,77 @@ import (
 	"fmt"
 )
 
-// AclOperationFilter - struct for AclOperationFilter
-type AclOperationFilter struct {
-	AclFilterAny *AclFilterAny
-	AclOperation *AclOperation
+// AclOperationFilter the model 'AclOperationFilter'
+type AclOperationFilter string
+
+// List of AclOperationFilter
+const (
+	ALL AclOperationFilter = "ALL"
+	READ AclOperationFilter = "READ"
+	WRITE AclOperationFilter = "WRITE"
+	CREATE AclOperationFilter = "CREATE"
+	DELETE AclOperationFilter = "DELETE"
+	ALTER AclOperationFilter = "ALTER"
+	DESCRIBE AclOperationFilter = "DESCRIBE"
+	DESCRIBE_CONFIGS AclOperationFilter = "DESCRIBE_CONFIGS"
+	ALTER_CONFIGS AclOperationFilter = "ALTER_CONFIGS"
+	ANY AclOperationFilter = "ANY"
+)
+
+var allowedAclOperationFilterEnumValues = []AclOperationFilter{
+	"ALL",
+	"READ",
+	"WRITE",
+	"CREATE",
+	"DELETE",
+	"ALTER",
+	"DESCRIBE",
+	"DESCRIBE_CONFIGS",
+	"ALTER_CONFIGS",
+	"ANY",
 }
 
-// AclFilterAnyAsAclOperationFilter is a convenience function that returns AclFilterAny wrapped in AclOperationFilter
-func AclFilterAnyAsAclOperationFilter(v *AclFilterAny) AclOperationFilter {
-	return AclOperationFilter{ AclFilterAny: v}
-}
-
-// AclOperationAsAclOperationFilter is a convenience function that returns AclOperation wrapped in AclOperationFilter
-func AclOperationAsAclOperationFilter(v *AclOperation) AclOperationFilter {
-	return AclOperationFilter{ AclOperation: v}
-}
-
-
-// Unmarshal JSON data into one of the pointers in the struct
-func (dst *AclOperationFilter) UnmarshalJSON(data []byte) error {
-	var err error
-	match := 0
-	// try to unmarshal data into AclFilterAny
-	err = json.Unmarshal(data, &dst.AclFilterAny)
-	if err == nil {
-		jsonAclFilterAny, _ := json.Marshal(dst.AclFilterAny)
-		if string(jsonAclFilterAny) == "{}" { // empty struct
-			dst.AclFilterAny = nil
-		} else {
-			match++
+func (v *AclOperationFilter) UnmarshalJSON(src []byte) error {
+	var value string
+	err := json.Unmarshal(src, &value)
+	if err != nil {
+		return err
+	}
+	enumTypeValue := AclOperationFilter(value)
+	for _, existing := range allowedAclOperationFilterEnumValues {
+		if existing == enumTypeValue {
+			*v = enumTypeValue
+			return nil
 		}
-	} else {
-		dst.AclFilterAny = nil
 	}
 
-	// try to unmarshal data into AclOperation
-	err = json.Unmarshal(data, &dst.AclOperation)
-	if err == nil {
-		jsonAclOperation, _ := json.Marshal(dst.AclOperation)
-		if string(jsonAclOperation) == "{}" { // empty struct
-			dst.AclOperation = nil
-		} else {
-			match++
+	return fmt.Errorf("%+v is not a valid AclOperationFilter", value)
+}
+
+// NewAclOperationFilterFromValue returns a pointer to a valid AclOperationFilter
+// for the value passed as argument, or an error if the value passed is not allowed by the enum
+func NewAclOperationFilterFromValue(v string) (*AclOperationFilter, error) {
+	ev := AclOperationFilter(v)
+	if ev.IsValid() {
+		return &ev, nil
+	} else {
+		return nil, fmt.Errorf("invalid value '%v' for AclOperationFilter: valid values are %v", v, allowedAclOperationFilterEnumValues)
+	}
+}
+
+// IsValid return true if the value is valid for the enum, false otherwise
+func (v AclOperationFilter) IsValid() bool {
+	for _, existing := range allowedAclOperationFilterEnumValues {
+		if existing == v {
+			return true
 		}
-	} else {
-		dst.AclOperation = nil
 	}
-
-	if match > 1 { // more than 1 match
-		// reset to nil
-		dst.AclFilterAny = nil
-		dst.AclOperation = nil
-
-		return fmt.Errorf("Data matches more than one schema in oneOf(AclOperationFilter)")
-	} else if match == 1 {
-		return nil // exactly one match
-	} else { // no match
-		return fmt.Errorf("Data failed to match schemas in oneOf(AclOperationFilter)")
-	}
+	return false
 }
 
-// Marshal data from the first non-nil pointers in the struct to JSON
-func (src AclOperationFilter) MarshalJSON() ([]byte, error) {
-	if src.AclFilterAny != nil {
-		return json.Marshal(&src.AclFilterAny)
-	}
-
-	if src.AclOperation != nil {
-		return json.Marshal(&src.AclOperation)
-	}
-
-	return nil, nil // no data in oneOf schemas
-}
-
-// Get the actual instance
-func (obj *AclOperationFilter) GetActualInstance() (interface{}) {
-	if obj.AclFilterAny != nil {
-		return obj.AclFilterAny
-	}
-
-	if obj.AclOperation != nil {
-		return obj.AclOperation
-	}
-
-	// all schemas are nil
-	return nil
+// Ptr returns reference to AclOperationFilter value
+func (v AclOperationFilter) Ptr() *AclOperationFilter {
+	return &v
 }
 
 type NullableAclOperationFilter struct {
@@ -137,5 +123,4 @@ func (v *NullableAclOperationFilter) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

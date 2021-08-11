@@ -15,91 +15,67 @@ import (
 	"fmt"
 )
 
-// AclResourceTypeFilter - struct for AclResourceTypeFilter
-type AclResourceTypeFilter struct {
-	AclFilterAny *AclFilterAny
-	AclResourceType *AclResourceType
+// AclResourceTypeFilter the model 'AclResourceTypeFilter'
+type AclResourceTypeFilter string
+
+// List of AclResourceTypeFilter
+const (
+	ANY AclResourceTypeFilter = "ANY"
+	GROUP AclResourceTypeFilter = "GROUP"
+	TOPIC AclResourceTypeFilter = "TOPIC"
+	CLUSTER AclResourceTypeFilter = "CLUSTER"
+	TRANSACTIONAL_ID AclResourceTypeFilter = "TRANSACTIONAL_ID"
+)
+
+var allowedAclResourceTypeFilterEnumValues = []AclResourceTypeFilter{
+	"ANY",
+	"GROUP",
+	"TOPIC",
+	"CLUSTER",
+	"TRANSACTIONAL_ID",
 }
 
-// AclFilterAnyAsAclResourceTypeFilter is a convenience function that returns AclFilterAny wrapped in AclResourceTypeFilter
-func AclFilterAnyAsAclResourceTypeFilter(v *AclFilterAny) AclResourceTypeFilter {
-	return AclResourceTypeFilter{ AclFilterAny: v}
-}
-
-// AclResourceTypeAsAclResourceTypeFilter is a convenience function that returns AclResourceType wrapped in AclResourceTypeFilter
-func AclResourceTypeAsAclResourceTypeFilter(v *AclResourceType) AclResourceTypeFilter {
-	return AclResourceTypeFilter{ AclResourceType: v}
-}
-
-
-// Unmarshal JSON data into one of the pointers in the struct
-func (dst *AclResourceTypeFilter) UnmarshalJSON(data []byte) error {
-	var err error
-	match := 0
-	// try to unmarshal data into AclFilterAny
-	err = json.Unmarshal(data, &dst.AclFilterAny)
-	if err == nil {
-		jsonAclFilterAny, _ := json.Marshal(dst.AclFilterAny)
-		if string(jsonAclFilterAny) == "{}" { // empty struct
-			dst.AclFilterAny = nil
-		} else {
-			match++
+func (v *AclResourceTypeFilter) UnmarshalJSON(src []byte) error {
+	var value string
+	err := json.Unmarshal(src, &value)
+	if err != nil {
+		return err
+	}
+	enumTypeValue := AclResourceTypeFilter(value)
+	for _, existing := range allowedAclResourceTypeFilterEnumValues {
+		if existing == enumTypeValue {
+			*v = enumTypeValue
+			return nil
 		}
-	} else {
-		dst.AclFilterAny = nil
 	}
 
-	// try to unmarshal data into AclResourceType
-	err = json.Unmarshal(data, &dst.AclResourceType)
-	if err == nil {
-		jsonAclResourceType, _ := json.Marshal(dst.AclResourceType)
-		if string(jsonAclResourceType) == "{}" { // empty struct
-			dst.AclResourceType = nil
-		} else {
-			match++
+	return fmt.Errorf("%+v is not a valid AclResourceTypeFilter", value)
+}
+
+// NewAclResourceTypeFilterFromValue returns a pointer to a valid AclResourceTypeFilter
+// for the value passed as argument, or an error if the value passed is not allowed by the enum
+func NewAclResourceTypeFilterFromValue(v string) (*AclResourceTypeFilter, error) {
+	ev := AclResourceTypeFilter(v)
+	if ev.IsValid() {
+		return &ev, nil
+	} else {
+		return nil, fmt.Errorf("invalid value '%v' for AclResourceTypeFilter: valid values are %v", v, allowedAclResourceTypeFilterEnumValues)
+	}
+}
+
+// IsValid return true if the value is valid for the enum, false otherwise
+func (v AclResourceTypeFilter) IsValid() bool {
+	for _, existing := range allowedAclResourceTypeFilterEnumValues {
+		if existing == v {
+			return true
 		}
-	} else {
-		dst.AclResourceType = nil
 	}
-
-	if match > 1 { // more than 1 match
-		// reset to nil
-		dst.AclFilterAny = nil
-		dst.AclResourceType = nil
-
-		return fmt.Errorf("Data matches more than one schema in oneOf(AclResourceTypeFilter)")
-	} else if match == 1 {
-		return nil // exactly one match
-	} else { // no match
-		return fmt.Errorf("Data failed to match schemas in oneOf(AclResourceTypeFilter)")
-	}
+	return false
 }
 
-// Marshal data from the first non-nil pointers in the struct to JSON
-func (src AclResourceTypeFilter) MarshalJSON() ([]byte, error) {
-	if src.AclFilterAny != nil {
-		return json.Marshal(&src.AclFilterAny)
-	}
-
-	if src.AclResourceType != nil {
-		return json.Marshal(&src.AclResourceType)
-	}
-
-	return nil, nil // no data in oneOf schemas
-}
-
-// Get the actual instance
-func (obj *AclResourceTypeFilter) GetActualInstance() (interface{}) {
-	if obj.AclFilterAny != nil {
-		return obj.AclFilterAny
-	}
-
-	if obj.AclResourceType != nil {
-		return obj.AclResourceType
-	}
-
-	// all schemas are nil
-	return nil
+// Ptr returns reference to AclResourceTypeFilter value
+func (v AclResourceTypeFilter) Ptr() *AclResourceTypeFilter {
+	return &v
 }
 
 type NullableAclResourceTypeFilter struct {
@@ -137,5 +113,4 @@ func (v *NullableAclResourceTypeFilter) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

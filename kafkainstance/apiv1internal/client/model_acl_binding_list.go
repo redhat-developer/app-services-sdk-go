@@ -14,27 +14,27 @@ import (
 	"encoding/json"
 )
 
-// AclBindingListPageAllOf struct for AclBindingListPageAllOf
-type AclBindingListPageAllOf struct {
+// AclBindingList struct for AclBindingList
+type AclBindingList struct {
 
 	Items *[]AclBinding `json:"items,omitempty"`
 
 }
 
-// NewAclBindingListPageAllOf instantiates a new AclBindingListPageAllOf object
+// NewAclBindingList instantiates a new AclBindingList object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAclBindingListPageAllOf() *AclBindingListPageAllOf {
-	this := AclBindingListPageAllOf{}
+func NewAclBindingList() *AclBindingList {
+	this := AclBindingList{}
 	return &this
 }
 
-// NewAclBindingListPageAllOfWithDefaults instantiates a new AclBindingListPageAllOf object
+// NewAclBindingListWithDefaults instantiates a new AclBindingList object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewAclBindingListPageAllOfWithDefaults() *AclBindingListPageAllOf {
-	this := AclBindingListPageAllOf{}
+func NewAclBindingListWithDefaults() *AclBindingList {
+	this := AclBindingList{}
 
 
 	return &this
@@ -42,7 +42,7 @@ func NewAclBindingListPageAllOfWithDefaults() *AclBindingListPageAllOf {
 
 
 // GetItems returns the Items field value if set, zero value otherwise.
-func (o *AclBindingListPageAllOf) GetItems() []AclBinding {
+func (o *AclBindingList) GetItems() []AclBinding {
 	if o == nil || o.Items == nil {
 		var ret []AclBinding
 		return ret
@@ -52,7 +52,7 @@ func (o *AclBindingListPageAllOf) GetItems() []AclBinding {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AclBindingListPageAllOf) GetItemsOk() (*[]AclBinding, bool) {
+func (o *AclBindingList) GetItemsOk() (*[]AclBinding, bool) {
 	if o == nil || o.Items == nil {
 		return nil, false
 	}
@@ -60,7 +60,7 @@ func (o *AclBindingListPageAllOf) GetItemsOk() (*[]AclBinding, bool) {
 }
 
 // HasItems returns a boolean if a field has been set.
-func (o *AclBindingListPageAllOf) HasItems() bool {
+func (o *AclBindingList) HasItems() bool {
 	if o != nil && o.Items != nil {
 		return true
 	}
@@ -69,12 +69,12 @@ func (o *AclBindingListPageAllOf) HasItems() bool {
 }
 
 // SetItems gets a reference to the given []AclBinding and assigns it to the Items field.
-func (o *AclBindingListPageAllOf) SetItems(v []AclBinding) {
+func (o *AclBindingList) SetItems(v []AclBinding) {
 	o.Items = &v
 }
 
 
-func (o AclBindingListPageAllOf) MarshalJSON() ([]byte, error) {
+func (o AclBindingList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if o.Items != nil {
@@ -84,38 +84,38 @@ func (o AclBindingListPageAllOf) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableAclBindingListPageAllOf struct {
-	value *AclBindingListPageAllOf
+type NullableAclBindingList struct {
+	value *AclBindingList
 	isSet bool
 }
 
-func (v NullableAclBindingListPageAllOf) Get() *AclBindingListPageAllOf {
+func (v NullableAclBindingList) Get() *AclBindingList {
 	return v.value
 }
 
-func (v *NullableAclBindingListPageAllOf) Set(val *AclBindingListPageAllOf) {
+func (v *NullableAclBindingList) Set(val *AclBindingList) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableAclBindingListPageAllOf) IsSet() bool {
+func (v NullableAclBindingList) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableAclBindingListPageAllOf) Unset() {
+func (v *NullableAclBindingList) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableAclBindingListPageAllOf(val *AclBindingListPageAllOf) *NullableAclBindingListPageAllOf {
-	return &NullableAclBindingListPageAllOf{value: val, isSet: true}
+func NewNullableAclBindingList(val *AclBindingList) *NullableAclBindingList {
+	return &NullableAclBindingList{value: val, isSet: true}
 }
 
-func (v NullableAclBindingListPageAllOf) MarshalJSON() ([]byte, error) {
+func (v NullableAclBindingList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableAclBindingListPageAllOf) UnmarshalJSON(src []byte) error {
+func (v *NullableAclBindingList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
