@@ -214,7 +214,7 @@ Other parameters are passed through a pointer to a apiGetAclResourceOperationsRe
 
 ## GetAcls
 
-> AclBindingListPage GetAcls(ctx).ResourceType(resourceType).ResourceName(resourceName).PatternType(patternType).Principal(principal).Operation(operation).Permission(permission).Page(page).Size(size).Execute()
+> AclBindingListPage GetAcls(ctx).ResourceType(resourceType).ResourceName(resourceName).PatternType(patternType).Principal(principal).Operation(operation).Permission(permission).Page(page).Size(size).Order(order).OrderKey(orderKey).Execute()
 
 List ACL bindings
 
@@ -241,10 +241,12 @@ func main() {
     permission := openapiclient.AclPermissionTypeFilter("ALLOW") // AclPermissionTypeFilter | ACL Permission Type Filter (optional) (default to "ANY")
     page := float32(8.14) // float32 | Page number for result lists (optional) (default to 1)
     size := float32(8.14) // float32 | Page size for result lists (optional) (default to 10)
+    order := "order_example" // string | Order of the ACL binding sorting. (optional) (default to "desc")
+    orderKey := "orderKey_example" // string | Order key to sort the items by. (optional) (default to "permission")
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AclsApi.GetAcls(context.Background()).ResourceType(resourceType).ResourceName(resourceName).PatternType(patternType).Principal(principal).Operation(operation).Permission(permission).Page(page).Size(size).Execute()
+    resp, r, err := api_client.AclsApi.GetAcls(context.Background()).ResourceType(resourceType).ResourceName(resourceName).PatternType(patternType).Principal(principal).Operation(operation).Permission(permission).Page(page).Size(size).Order(order).OrderKey(orderKey).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AclsApi.GetAcls``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -273,6 +275,8 @@ Name | Type | Description  | Notes
  **permission** | [**AclPermissionTypeFilter**](AclPermissionTypeFilter.md) | ACL Permission Type Filter | [default to &quot;ANY&quot;]
  **page** | **float32** | Page number for result lists | [default to 1]
  **size** | **float32** | Page size for result lists | [default to 10]
+ **order** | **string** | Order of the ACL binding sorting. | [default to &quot;desc&quot;]
+ **orderKey** | **string** | Order key to sort the items by. | [default to &quot;permission&quot;]
 
 ### Return type
 

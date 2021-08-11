@@ -575,6 +575,8 @@ type ApiGetAclsRequest struct {
 	permission *AclPermissionTypeFilter
 	page *float32
 	size *float32
+	order *string
+	orderKey *string
 }
 
 func (r ApiGetAclsRequest) ResourceType(resourceType AclResourceTypeFilter) ApiGetAclsRequest {
@@ -607,6 +609,14 @@ func (r ApiGetAclsRequest) Page(page float32) ApiGetAclsRequest {
 }
 func (r ApiGetAclsRequest) Size(size float32) ApiGetAclsRequest {
 	r.size = &size
+	return r
+}
+func (r ApiGetAclsRequest) Order(order string) ApiGetAclsRequest {
+	r.order = &order
+	return r
+}
+func (r ApiGetAclsRequest) OrderKey(orderKey string) ApiGetAclsRequest {
+	r.orderKey = &orderKey
 	return r
 }
 
@@ -675,6 +685,12 @@ func (a *AclsApiService) GetAclsExecute(r ApiGetAclsRequest) (AclBindingListPage
 	}
 	if r.size != nil {
 		localVarQueryParams.Add("size", parameterToString(*r.size, ""))
+	}
+	if r.order != nil {
+		localVarQueryParams.Add("order", parameterToString(*r.order, ""))
+	}
+	if r.orderKey != nil {
+		localVarQueryParams.Add("orderKey", parameterToString(*r.orderKey, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
