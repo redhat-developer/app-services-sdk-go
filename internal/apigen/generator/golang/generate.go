@@ -37,7 +37,7 @@ func (g *GoGen) Generate() (err error) {
 		"-g", "go",
 		"-i", inputFile,
 		"-o", outputPath,
-		"-p", "generateInterfaces=true",
+		"-p", "generateInterfaces=true,enumClassPrefix=true",
 		"--ignore-file-override", g.Config.IgnoreFileOverride,
 		"--git-user-id", "redhat-developer",
 		"--git-repo-id", fmt.Sprintf("%v/%v", "app-services-sdk-go", packageName),
