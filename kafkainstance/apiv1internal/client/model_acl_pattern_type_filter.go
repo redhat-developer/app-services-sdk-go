@@ -20,10 +20,10 @@ type AclPatternTypeFilter string
 
 // List of AclPatternTypeFilter
 const (
-	LITERAL AclPatternTypeFilter = "LITERAL"
-	PREFIXED AclPatternTypeFilter = "PREFIXED"
-	ANY AclPatternTypeFilter = "ANY"
-	MATCH AclPatternTypeFilter = "MATCH"
+	ACLPATTERNTYPEFILTER_LITERAL AclPatternTypeFilter = "LITERAL"
+	ACLPATTERNTYPEFILTER_PREFIXED AclPatternTypeFilter = "PREFIXED"
+	ACLPATTERNTYPEFILTER_ANY AclPatternTypeFilter = "ANY"
+	ACLPATTERNTYPEFILTER_MATCH AclPatternTypeFilter = "MATCH"
 )
 
 var allowedAclPatternTypeFilterEnumValues = []AclPatternTypeFilter{

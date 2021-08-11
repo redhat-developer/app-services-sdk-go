@@ -20,16 +20,16 @@ type AclOperationFilter string
 
 // List of AclOperationFilter
 const (
-	ALL AclOperationFilter = "ALL"
-	READ AclOperationFilter = "READ"
-	WRITE AclOperationFilter = "WRITE"
-	CREATE AclOperationFilter = "CREATE"
-	DELETE AclOperationFilter = "DELETE"
-	ALTER AclOperationFilter = "ALTER"
-	DESCRIBE AclOperationFilter = "DESCRIBE"
-	DESCRIBE_CONFIGS AclOperationFilter = "DESCRIBE_CONFIGS"
-	ALTER_CONFIGS AclOperationFilter = "ALTER_CONFIGS"
-	ANY AclOperationFilter = "ANY"
+	ACLOPERATIONFILTER_ALL AclOperationFilter = "ALL"
+	ACLOPERATIONFILTER_READ AclOperationFilter = "READ"
+	ACLOPERATIONFILTER_WRITE AclOperationFilter = "WRITE"
+	ACLOPERATIONFILTER_CREATE AclOperationFilter = "CREATE"
+	ACLOPERATIONFILTER_DELETE AclOperationFilter = "DELETE"
+	ACLOPERATIONFILTER_ALTER AclOperationFilter = "ALTER"
+	ACLOPERATIONFILTER_DESCRIBE AclOperationFilter = "DESCRIBE"
+	ACLOPERATIONFILTER_DESCRIBE_CONFIGS AclOperationFilter = "DESCRIBE_CONFIGS"
+	ACLOPERATIONFILTER_ALTER_CONFIGS AclOperationFilter = "ALTER_CONFIGS"
+	ACLOPERATIONFILTER_ANY AclOperationFilter = "ANY"
 )
 
 var allowedAclOperationFilterEnumValues = []AclOperationFilter{

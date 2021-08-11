@@ -20,9 +20,9 @@ type AclPermissionTypeFilter string
 
 // List of AclPermissionTypeFilter
 const (
-	ALLOW AclPermissionTypeFilter = "ALLOW"
-	DENY AclPermissionTypeFilter = "DENY"
-	ANY AclPermissionTypeFilter = "ANY"
+	ACLPERMISSIONTYPEFILTER_ALLOW AclPermissionTypeFilter = "ALLOW"
+	ACLPERMISSIONTYPEFILTER_DENY AclPermissionTypeFilter = "DENY"
+	ACLPERMISSIONTYPEFILTER_ANY AclPermissionTypeFilter = "ANY"
 )
 
 var allowedAclPermissionTypeFilterEnumValues = []AclPermissionTypeFilter{

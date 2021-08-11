@@ -20,11 +20,11 @@ type AclResourceTypeFilter string
 
 // List of AclResourceTypeFilter
 const (
-	ANY AclResourceTypeFilter = "ANY"
-	GROUP AclResourceTypeFilter = "GROUP"
-	TOPIC AclResourceTypeFilter = "TOPIC"
-	CLUSTER AclResourceTypeFilter = "CLUSTER"
-	TRANSACTIONAL_ID AclResourceTypeFilter = "TRANSACTIONAL_ID"
+	ACLRESOURCETYPEFILTER_ANY AclResourceTypeFilter = "ANY"
+	ACLRESOURCETYPEFILTER_GROUP AclResourceTypeFilter = "GROUP"
+	ACLRESOURCETYPEFILTER_TOPIC AclResourceTypeFilter = "TOPIC"
+	ACLRESOURCETYPEFILTER_CLUSTER AclResourceTypeFilter = "CLUSTER"
+	ACLRESOURCETYPEFILTER_TRANSACTIONAL_ID AclResourceTypeFilter = "TRANSACTIONAL_ID"
 )
 
 var allowedAclResourceTypeFilterEnumValues = []AclResourceTypeFilter{

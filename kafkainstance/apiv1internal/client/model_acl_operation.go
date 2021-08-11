@@ -20,15 +20,15 @@ type AclOperation string
 
 // List of AclOperation
 const (
-	ALL AclOperation = "ALL"
-	READ AclOperation = "READ"
-	WRITE AclOperation = "WRITE"
-	CREATE AclOperation = "CREATE"
-	DELETE AclOperation = "DELETE"
-	ALTER AclOperation = "ALTER"
-	DESCRIBE AclOperation = "DESCRIBE"
-	DESCRIBE_CONFIGS AclOperation = "DESCRIBE_CONFIGS"
-	ALTER_CONFIGS AclOperation = "ALTER_CONFIGS"
+	ACLOPERATION_ALL AclOperation = "ALL"
+	ACLOPERATION_READ AclOperation = "READ"
+	ACLOPERATION_WRITE AclOperation = "WRITE"
+	ACLOPERATION_CREATE AclOperation = "CREATE"
+	ACLOPERATION_DELETE AclOperation = "DELETE"
+	ACLOPERATION_ALTER AclOperation = "ALTER"
+	ACLOPERATION_DESCRIBE AclOperation = "DESCRIBE"
+	ACLOPERATION_DESCRIBE_CONFIGS AclOperation = "DESCRIBE_CONFIGS"
+	ACLOPERATION_ALTER_CONFIGS AclOperation = "ALTER_CONFIGS"
 )
 
 var allowedAclOperationEnumValues = []AclOperation{

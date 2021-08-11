@@ -21,8 +21,8 @@ type SortOrder string
 
 // List of SortOrder
 const (
-	ASC SortOrder = "asc"
-	DESC SortOrder = "desc"
+	SORTORDER_ASC SortOrder = "asc"
+	SORTORDER_DESC SortOrder = "desc"
 )
 
 var allowedSortOrderEnumValues = []SortOrder{
