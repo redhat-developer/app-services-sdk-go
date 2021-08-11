@@ -20,8 +20,8 @@ type AclPatternType string
 
 // List of AclPatternType
 const (
-	LITERAL AclPatternType = "LITERAL"
-	PREFIXED AclPatternType = "PREFIXED"
+	ACLPATTERNTYPE_LITERAL AclPatternType = "LITERAL"
+	ACLPATTERNTYPE_PREFIXED AclPatternType = "PREFIXED"
 )
 
 var allowedAclPatternTypeEnumValues = []AclPatternType{

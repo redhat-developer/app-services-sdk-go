@@ -21,9 +21,9 @@ type ArtifactState string
 
 // List of ArtifactState
 const (
-	ENABLED ArtifactState = "ENABLED"
-	DISABLED ArtifactState = "DISABLED"
-	DEPRECATED ArtifactState = "DEPRECATED"
+	ARTIFACTSTATE_ENABLED ArtifactState = "ENABLED"
+	ARTIFACTSTATE_DISABLED ArtifactState = "DISABLED"
+	ARTIFACTSTATE_DEPRECATED ArtifactState = "DEPRECATED"
 )
 
 var allowedArtifactStateEnumValues = []ArtifactState{

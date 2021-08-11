@@ -20,8 +20,8 @@ type AclPermissionType string
 
 // List of AclPermissionType
 const (
-	ALLOW AclPermissionType = "ALLOW"
-	DENY AclPermissionType = "DENY"
+	ACLPERMISSIONTYPE_ALLOW AclPermissionType = "ALLOW"
+	ACLPERMISSIONTYPE_DENY AclPermissionType = "DENY"
 )
 
 var allowedAclPermissionTypeEnumValues = []AclPermissionType{

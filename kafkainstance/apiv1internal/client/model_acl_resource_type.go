@@ -20,10 +20,10 @@ type AclResourceType string
 
 // List of AclResourceType
 const (
-	GROUP AclResourceType = "GROUP"
-	TOPIC AclResourceType = "TOPIC"
-	CLUSTER AclResourceType = "CLUSTER"
-	TRANSACTIONAL_ID AclResourceType = "TRANSACTIONAL_ID"
+	ACLRESOURCETYPE_GROUP AclResourceType = "GROUP"
+	ACLRESOURCETYPE_TOPIC AclResourceType = "TOPIC"
+	ACLRESOURCETYPE_CLUSTER AclResourceType = "CLUSTER"
+	ACLRESOURCETYPE_TRANSACTIONAL_ID AclResourceType = "TRANSACTIONAL_ID"
 )
 
 var allowedAclResourceTypeEnumValues = []AclResourceType{

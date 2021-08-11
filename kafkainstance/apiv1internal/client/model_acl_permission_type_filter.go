@@ -15,91 +15,63 @@ import (
 	"fmt"
 )
 
-// AclPermissionTypeFilter - struct for AclPermissionTypeFilter
-type AclPermissionTypeFilter struct {
-	AclFilterAny *AclFilterAny
-	AclPermissionType *AclPermissionType
+// AclPermissionTypeFilter the model 'AclPermissionTypeFilter'
+type AclPermissionTypeFilter string
+
+// List of AclPermissionTypeFilter
+const (
+	ACLPERMISSIONTYPEFILTER_ALLOW AclPermissionTypeFilter = "ALLOW"
+	ACLPERMISSIONTYPEFILTER_DENY AclPermissionTypeFilter = "DENY"
+	ACLPERMISSIONTYPEFILTER_ANY AclPermissionTypeFilter = "ANY"
+)
+
+var allowedAclPermissionTypeFilterEnumValues = []AclPermissionTypeFilter{
+	"ALLOW",
+	"DENY",
+	"ANY",
 }
 
-// AclFilterAnyAsAclPermissionTypeFilter is a convenience function that returns AclFilterAny wrapped in AclPermissionTypeFilter
-func AclFilterAnyAsAclPermissionTypeFilter(v *AclFilterAny) AclPermissionTypeFilter {
-	return AclPermissionTypeFilter{ AclFilterAny: v}
-}
-
-// AclPermissionTypeAsAclPermissionTypeFilter is a convenience function that returns AclPermissionType wrapped in AclPermissionTypeFilter
-func AclPermissionTypeAsAclPermissionTypeFilter(v *AclPermissionType) AclPermissionTypeFilter {
-	return AclPermissionTypeFilter{ AclPermissionType: v}
-}
-
-
-// Unmarshal JSON data into one of the pointers in the struct
-func (dst *AclPermissionTypeFilter) UnmarshalJSON(data []byte) error {
-	var err error
-	match := 0
-	// try to unmarshal data into AclFilterAny
-	err = json.Unmarshal(data, &dst.AclFilterAny)
-	if err == nil {
-		jsonAclFilterAny, _ := json.Marshal(dst.AclFilterAny)
-		if string(jsonAclFilterAny) == "{}" { // empty struct
-			dst.AclFilterAny = nil
-		} else {
-			match++
+func (v *AclPermissionTypeFilter) UnmarshalJSON(src []byte) error {
+	var value string
+	err := json.Unmarshal(src, &value)
+	if err != nil {
+		return err
+	}
+	enumTypeValue := AclPermissionTypeFilter(value)
+	for _, existing := range allowedAclPermissionTypeFilterEnumValues {
+		if existing == enumTypeValue {
+			*v = enumTypeValue
+			return nil
 		}
-	} else {
-		dst.AclFilterAny = nil
 	}
 
-	// try to unmarshal data into AclPermissionType
-	err = json.Unmarshal(data, &dst.AclPermissionType)
-	if err == nil {
-		jsonAclPermissionType, _ := json.Marshal(dst.AclPermissionType)
-		if string(jsonAclPermissionType) == "{}" { // empty struct
-			dst.AclPermissionType = nil
-		} else {
-			match++
+	return fmt.Errorf("%+v is not a valid AclPermissionTypeFilter", value)
+}
+
+// NewAclPermissionTypeFilterFromValue returns a pointer to a valid AclPermissionTypeFilter
+// for the value passed as argument, or an error if the value passed is not allowed by the enum
+func NewAclPermissionTypeFilterFromValue(v string) (*AclPermissionTypeFilter, error) {
+	ev := AclPermissionTypeFilter(v)
+	if ev.IsValid() {
+		return &ev, nil
+	} else {
+		return nil, fmt.Errorf("invalid value '%v' for AclPermissionTypeFilter: valid values are %v", v, allowedAclPermissionTypeFilterEnumValues)
+	}
+}
+
+// IsValid return true if the value is valid for the enum, false otherwise
+func (v AclPermissionTypeFilter) IsValid() bool {
+	for _, existing := range allowedAclPermissionTypeFilterEnumValues {
+		if existing == v {
+			return true
 		}
-	} else {
-		dst.AclPermissionType = nil
 	}
-
-	if match > 1 { // more than 1 match
-		// reset to nil
-		dst.AclFilterAny = nil
-		dst.AclPermissionType = nil
-
-		return fmt.Errorf("Data matches more than one schema in oneOf(AclPermissionTypeFilter)")
-	} else if match == 1 {
-		return nil // exactly one match
-	} else { // no match
-		return fmt.Errorf("Data failed to match schemas in oneOf(AclPermissionTypeFilter)")
-	}
+	return false
 }
 
-// Marshal data from the first non-nil pointers in the struct to JSON
-func (src AclPermissionTypeFilter) MarshalJSON() ([]byte, error) {
-	if src.AclFilterAny != nil {
-		return json.Marshal(&src.AclFilterAny)
-	}
-
-	if src.AclPermissionType != nil {
-		return json.Marshal(&src.AclPermissionType)
-	}
-
-	return nil, nil // no data in oneOf schemas
-}
-
-// Get the actual instance
-func (obj *AclPermissionTypeFilter) GetActualInstance() (interface{}) {
-	if obj.AclFilterAny != nil {
-		return obj.AclFilterAny
-	}
-
-	if obj.AclPermissionType != nil {
-		return obj.AclPermissionType
-	}
-
-	// all schemas are nil
-	return nil
+// Ptr returns reference to AclPermissionTypeFilter value
+func (v AclPermissionTypeFilter) Ptr() *AclPermissionTypeFilter {
+	return &v
 }
 
 type NullableAclPermissionTypeFilter struct {
@@ -137,5 +109,4 @@ func (v *NullableAclPermissionTypeFilter) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

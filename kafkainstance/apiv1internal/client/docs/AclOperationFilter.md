@@ -1,30 +1,27 @@
 # AclOperationFilter
 
-## Properties
-
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+## Enum
 
 
-## Methods
+* `ALL` (value: `"ALL"`)
 
-### NewAclOperationFilter
+* `READ` (value: `"READ"`)
 
-`func NewAclOperationFilter() *AclOperationFilter`
+* `WRITE` (value: `"WRITE"`)
 
-NewAclOperationFilter instantiates a new AclOperationFilter object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
+* `CREATE` (value: `"CREATE"`)
 
-### NewAclOperationFilterWithDefaults
+* `DELETE` (value: `"DELETE"`)
 
-`func NewAclOperationFilterWithDefaults() *AclOperationFilter`
+* `ALTER` (value: `"ALTER"`)
 
-NewAclOperationFilterWithDefaults instantiates a new AclOperationFilter object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
+* `DESCRIBE` (value: `"DESCRIBE"`)
 
+* `DESCRIBE_CONFIGS` (value: `"DESCRIBE_CONFIGS"`)
+
+* `ALTER_CONFIGS` (value: `"ALTER_CONFIGS"`)
+
+* `ANY` (value: `"ANY"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

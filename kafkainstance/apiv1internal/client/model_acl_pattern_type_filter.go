@@ -15,119 +15,65 @@ import (
 	"fmt"
 )
 
-// AclPatternTypeFilter - struct for AclPatternTypeFilter
-type AclPatternTypeFilter struct {
-	AclFilterAny *AclFilterAny
-	AclPatternType *AclPatternType
-	AclPatternTypeFilterOneOf *AclPatternTypeFilterOneOf
+// AclPatternTypeFilter Use value 'MATCH' to perform pattern matching.
+type AclPatternTypeFilter string
+
+// List of AclPatternTypeFilter
+const (
+	ACLPATTERNTYPEFILTER_LITERAL AclPatternTypeFilter = "LITERAL"
+	ACLPATTERNTYPEFILTER_PREFIXED AclPatternTypeFilter = "PREFIXED"
+	ACLPATTERNTYPEFILTER_ANY AclPatternTypeFilter = "ANY"
+	ACLPATTERNTYPEFILTER_MATCH AclPatternTypeFilter = "MATCH"
+)
+
+var allowedAclPatternTypeFilterEnumValues = []AclPatternTypeFilter{
+	"LITERAL",
+	"PREFIXED",
+	"ANY",
+	"MATCH",
 }
 
-// AclFilterAnyAsAclPatternTypeFilter is a convenience function that returns AclFilterAny wrapped in AclPatternTypeFilter
-func AclFilterAnyAsAclPatternTypeFilter(v *AclFilterAny) AclPatternTypeFilter {
-	return AclPatternTypeFilter{ AclFilterAny: v}
-}
-
-// AclPatternTypeAsAclPatternTypeFilter is a convenience function that returns AclPatternType wrapped in AclPatternTypeFilter
-func AclPatternTypeAsAclPatternTypeFilter(v *AclPatternType) AclPatternTypeFilter {
-	return AclPatternTypeFilter{ AclPatternType: v}
-}
-
-// AclPatternTypeFilterOneOfAsAclPatternTypeFilter is a convenience function that returns AclPatternTypeFilterOneOf wrapped in AclPatternTypeFilter
-func AclPatternTypeFilterOneOfAsAclPatternTypeFilter(v *AclPatternTypeFilterOneOf) AclPatternTypeFilter {
-	return AclPatternTypeFilter{ AclPatternTypeFilterOneOf: v}
-}
-
-
-// Unmarshal JSON data into one of the pointers in the struct
-func (dst *AclPatternTypeFilter) UnmarshalJSON(data []byte) error {
-	var err error
-	match := 0
-	// try to unmarshal data into AclFilterAny
-	err = json.Unmarshal(data, &dst.AclFilterAny)
-	if err == nil {
-		jsonAclFilterAny, _ := json.Marshal(dst.AclFilterAny)
-		if string(jsonAclFilterAny) == "{}" { // empty struct
-			dst.AclFilterAny = nil
-		} else {
-			match++
+func (v *AclPatternTypeFilter) UnmarshalJSON(src []byte) error {
+	var value string
+	err := json.Unmarshal(src, &value)
+	if err != nil {
+		return err
+	}
+	enumTypeValue := AclPatternTypeFilter(value)
+	for _, existing := range allowedAclPatternTypeFilterEnumValues {
+		if existing == enumTypeValue {
+			*v = enumTypeValue
+			return nil
 		}
-	} else {
-		dst.AclFilterAny = nil
 	}
 
-	// try to unmarshal data into AclPatternType
-	err = json.Unmarshal(data, &dst.AclPatternType)
-	if err == nil {
-		jsonAclPatternType, _ := json.Marshal(dst.AclPatternType)
-		if string(jsonAclPatternType) == "{}" { // empty struct
-			dst.AclPatternType = nil
-		} else {
-			match++
-		}
+	return fmt.Errorf("%+v is not a valid AclPatternTypeFilter", value)
+}
+
+// NewAclPatternTypeFilterFromValue returns a pointer to a valid AclPatternTypeFilter
+// for the value passed as argument, or an error if the value passed is not allowed by the enum
+func NewAclPatternTypeFilterFromValue(v string) (*AclPatternTypeFilter, error) {
+	ev := AclPatternTypeFilter(v)
+	if ev.IsValid() {
+		return &ev, nil
 	} else {
-		dst.AclPatternType = nil
-	}
-
-	// try to unmarshal data into AclPatternTypeFilterOneOf
-	err = json.Unmarshal(data, &dst.AclPatternTypeFilterOneOf)
-	if err == nil {
-		jsonAclPatternTypeFilterOneOf, _ := json.Marshal(dst.AclPatternTypeFilterOneOf)
-		if string(jsonAclPatternTypeFilterOneOf) == "{}" { // empty struct
-			dst.AclPatternTypeFilterOneOf = nil
-		} else {
-			match++
-		}
-	} else {
-		dst.AclPatternTypeFilterOneOf = nil
-	}
-
-	if match > 1 { // more than 1 match
-		// reset to nil
-		dst.AclFilterAny = nil
-		dst.AclPatternType = nil
-		dst.AclPatternTypeFilterOneOf = nil
-
-		return fmt.Errorf("Data matches more than one schema in oneOf(AclPatternTypeFilter)")
-	} else if match == 1 {
-		return nil // exactly one match
-	} else { // no match
-		return fmt.Errorf("Data failed to match schemas in oneOf(AclPatternTypeFilter)")
+		return nil, fmt.Errorf("invalid value '%v' for AclPatternTypeFilter: valid values are %v", v, allowedAclPatternTypeFilterEnumValues)
 	}
 }
 
-// Marshal data from the first non-nil pointers in the struct to JSON
-func (src AclPatternTypeFilter) MarshalJSON() ([]byte, error) {
-	if src.AclFilterAny != nil {
-		return json.Marshal(&src.AclFilterAny)
+// IsValid return true if the value is valid for the enum, false otherwise
+func (v AclPatternTypeFilter) IsValid() bool {
+	for _, existing := range allowedAclPatternTypeFilterEnumValues {
+		if existing == v {
+			return true
+		}
 	}
-
-	if src.AclPatternType != nil {
-		return json.Marshal(&src.AclPatternType)
-	}
-
-	if src.AclPatternTypeFilterOneOf != nil {
-		return json.Marshal(&src.AclPatternTypeFilterOneOf)
-	}
-
-	return nil, nil // no data in oneOf schemas
+	return false
 }
 
-// Get the actual instance
-func (obj *AclPatternTypeFilter) GetActualInstance() (interface{}) {
-	if obj.AclFilterAny != nil {
-		return obj.AclFilterAny
-	}
-
-	if obj.AclPatternType != nil {
-		return obj.AclPatternType
-	}
-
-	if obj.AclPatternTypeFilterOneOf != nil {
-		return obj.AclPatternTypeFilterOneOf
-	}
-
-	// all schemas are nil
-	return nil
+// Ptr returns reference to AclPatternTypeFilter value
+func (v AclPatternTypeFilter) Ptr() *AclPatternTypeFilter {
+	return &v
 }
 
 type NullableAclPatternTypeFilter struct {
@@ -165,5 +111,4 @@ func (v *NullableAclPatternTypeFilter) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
 

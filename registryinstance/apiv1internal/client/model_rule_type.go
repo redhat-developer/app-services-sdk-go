@@ -21,8 +21,8 @@ type RuleType string
 
 // List of RuleType
 const (
-	VALIDITY RuleType = "VALIDITY"
-	COMPATIBILITY RuleType = "COMPATIBILITY"
+	RULETYPE_VALIDITY RuleType = "VALIDITY"
+	RULETYPE_COMPATIBILITY RuleType = "COMPATIBILITY"
 )
 
 var allowedRuleTypeEnumValues = []RuleType{

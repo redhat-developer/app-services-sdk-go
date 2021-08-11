@@ -96,12 +96,12 @@ import (
 )
 
 func main() {
-    resourceType := openapiclient.AclResourceTypeFilter{AclFilterAny: penapiclient.AclFilterAny("ANY")} // AclResourceTypeFilter | ACL Resource Type Filter (optional) (default to "ANY")
+    resourceType := openapiclient.AclResourceTypeFilter("ANY") // AclResourceTypeFilter | ACL Resource Type Filter (optional) (default to "ANY")
     resourceName := "resourceName_example" // string | ACL Resource Name Filter (optional)
-    patternType := openapiclient.AclPatternTypeFilter{AclFilterAny: penapiclient.AclFilterAny("ANY")} // AclPatternTypeFilter | ACL Pattern Type Filter (optional) (default to "ANY")
+    patternType := openapiclient.AclPatternTypeFilter("LITERAL") // AclPatternTypeFilter | ACL Pattern Type Filter (optional) (default to "ANY")
     principal := "User:*" // string | ACL Principal Filter. Either a specific user or the wildcard user `User:*` may be provided. - When fetching by a specific user, the results will also include ACL bindings that apply to all users. - When deleting, ACL bindings to be delete must match the provided `principal` exactly. (optional)
-    operation := openapiclient.AclOperationFilter{AclFilterAny: penapiclient.AclFilterAny("ANY")} // AclOperationFilter | ACL Operation Filter. The ACL binding operation provided should be valid for the resource type in the request, if not `ANY`. (optional) (default to "ANY")
-    permission := openapiclient.AclPermissionTypeFilter{AclFilterAny: penapiclient.AclFilterAny("ANY")} // AclPermissionTypeFilter | ACL Permission Type Filter (optional) (default to "ANY")
+    operation := openapiclient.AclOperationFilter("ALL") // AclOperationFilter | ACL Operation Filter. The ACL binding operation provided should be valid for the resource type in the request, if not `ANY`. (optional) (default to "ANY")
+    permission := openapiclient.AclPermissionTypeFilter("ALLOW") // AclPermissionTypeFilter | ACL Permission Type Filter (optional) (default to "ANY")
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -233,12 +233,12 @@ import (
 )
 
 func main() {
-    resourceType := openapiclient.AclResourceTypeFilter{AclFilterAny: penapiclient.AclFilterAny("ANY")} // AclResourceTypeFilter | ACL Resource Type Filter (optional) (default to "ANY")
+    resourceType := openapiclient.AclResourceTypeFilter("ANY") // AclResourceTypeFilter | ACL Resource Type Filter (optional) (default to "ANY")
     resourceName := "resourceName_example" // string | ACL Resource Name Filter (optional)
-    patternType := openapiclient.AclPatternTypeFilter{AclFilterAny: penapiclient.AclFilterAny("ANY")} // AclPatternTypeFilter | ACL Pattern Type Filter (optional) (default to "ANY")
+    patternType := openapiclient.AclPatternTypeFilter("LITERAL") // AclPatternTypeFilter | ACL Pattern Type Filter (optional) (default to "ANY")
     principal := "User:*" // string | ACL Principal Filter. Either a specific user or the wildcard user `User:*` may be provided. - When fetching by a specific user, the results will also include ACL bindings that apply to all users. - When deleting, ACL bindings to be delete must match the provided `principal` exactly. (optional)
-    operation := openapiclient.AclOperationFilter{AclFilterAny: penapiclient.AclFilterAny("ANY")} // AclOperationFilter | ACL Operation Filter. The ACL binding operation provided should be valid for the resource type in the request, if not `ANY`. (optional) (default to "ANY")
-    permission := openapiclient.AclPermissionTypeFilter{AclFilterAny: penapiclient.AclFilterAny("ANY")} // AclPermissionTypeFilter | ACL Permission Type Filter (optional) (default to "ANY")
+    operation := openapiclient.AclOperationFilter("ALL") // AclOperationFilter | ACL Operation Filter. The ACL binding operation provided should be valid for the resource type in the request, if not `ANY`. (optional) (default to "ANY")
+    permission := openapiclient.AclPermissionTypeFilter("ALLOW") // AclPermissionTypeFilter | ACL Permission Type Filter (optional) (default to "ANY")
     page := float32(8.14) // float32 | Page number for result lists (optional) (default to 1)
     size := float32(8.14) // float32 | Page size for result lists (optional) (default to 10)
 
