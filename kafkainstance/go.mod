@@ -1,4 +1,4 @@
-module github.com/redhat-developer/app-services-sdk-go
+module github.com/redhat-developer/app-services-sdk-go/kafkainstance
 
 go 1.13
 

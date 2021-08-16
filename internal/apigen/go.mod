@@ -1,6 +1,6 @@
 module github.com/redhat-developer/app-services-sdk-go/internal/apigen
 
-go 1.16
+go 1.13
 
 require (
 	github.com/getkin/kin-openapi v0.73.0
