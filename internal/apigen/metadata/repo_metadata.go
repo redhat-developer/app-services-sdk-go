@@ -13,6 +13,7 @@ type SdkEntry struct {
 	APIGroup     string `json:"apiGroup"`
 	APIVersion   string `json:"apiVersion"`
 	ReleaseLevel string `json:"release_level"`
+	ModuleName   string `json:"package_name"`
 	OpenApiFile  string `json:"openapi_file"`
 	Disabled     bool   `json:"disabled,omitempty"`
 }

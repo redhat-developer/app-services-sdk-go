@@ -5,13 +5,6 @@
 2. Bot accounts creates PR with the new versions of the SDK that needs be reviewed by the team
 3. Once PR is merged developers are responsible for creating tagged release 
 
-
-## Release process
-
-1. Check what SDK changed
-2. Create tag
-3. Generate changelog and put it into release description
-
 ## Contributing to App Services SDK
 
 ## Generating an API client locally
