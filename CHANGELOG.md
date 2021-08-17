@@ -5,7 +5,7 @@
 ### Features
 
 * **auth**: move Endpoint type to a new oauth2 package
-* 
+
 ### Bug Fixes
 
 * **deps:** update module github.com/getkin/kin-openapi to v0.74.0 ([#235](https://github.com/redhat-developer/app-services-sdk-go/issues/235))

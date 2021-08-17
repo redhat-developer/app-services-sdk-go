@@ -2,4 +2,7 @@ module github.com/redhat-developer/app-services-sdk-go/kafkainstance
 
 go 1.13
 
-require golang.org/x/oauth2 v0.0.0-20210817223510-7df4dd6e12ab
+require (
+	github.com/redhat-developer/app-services-sdk-go v0.9.6
+	golang.org/x/oauth2 v0.0.0-20210810183815-faf39c7919d5
+)
