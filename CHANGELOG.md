@@ -1,5 +1,9 @@
 # Changelog
 
+## [v0.9.7]
+
+Version bump to introduce submodule compatibility.
+
 ## [v0.9.6](https://github.com/redhat-developer/app-services-sdk-go/compare/v0.9.5...v0.9.6) (2021-08-17)
 
 ### Features

@@ -7,7 +7,7 @@ Managed Service Registry API Instance API that lets you interact with registry i
 To install the package to your project use `go get`:
 
 ```shell
-go get github.com/redhat-developer/app-services-sdk-go
+go get github.com/redhat-developer/app-services-sdk-go/registryinstance
 ```
 
 ## Usage

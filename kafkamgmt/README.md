@@ -1,26 +1,26 @@
-# Go API client for Connector Service Fleet Manager
+# Go API client for Kafka Service Fleet Manager
 
-Connector Service Fleet Manager is a Rest API to manage connectors.
+Kafka Service Fleet Manager is a REST API to manage Kafka instances and connectors.
 
 ## Installation
 
 To install the package to your project use `go get`:
 
 ```shell
-go get github.com/redhat-developer/app-services-sdk-go
+go get github.com/redhat-developer/app-services-sdk-go/kafkamgmt
 ```
 
 ## Usage
 
 ### Importing the package
 
-Import the `github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1` package into your code:
+Import the `github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1` package into your code:
 
 ```go
 package main
 
 import (
-    "github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1"
+    "github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1"
 )
 ```
 
@@ -29,9 +29,9 @@ import (
 If you do not need to customise any of the default configuration values you can pass `nil` to the `NewAPIClient` constructor:
 
 ```go
-client := connectormgmt.NewAPIClient(nil)
+client := kafkamgmt.NewAPIClient(nil)
 
-connectors, resp, err := client.DefaultApi.GetConnectors(context.Background()).Execute()
+kafkas, resp, err := client.DefaultApi.GetKafkas(context.Background()).Execute()
 ```
 
 ### Configuration
@@ -39,13 +39,13 @@ connectors, resp, err := client.DefaultApi.GetConnectors(context.Background()).E
 You can override the default configuration options:
 
 ```go
-cfg := connectormgmt.Config{
+cfg := kafkamgmt.Config{
     HTTPClient: yourHTTPClient,
     Debug: true,
     BaseURL: "http://localhost:8080",
 }
 
-client := connectormgmt.NewAPIClient(&cfg)
+client := kafkamgmt.NewAPIClient(&cfg)
 ```
 
 ## Authentication
@@ -62,11 +62,11 @@ ts := oauth2.StaticTokenSource(
 
 tc := oauth2.NewClient(ctx, ts)
 
-client := connectormgmt.NewAPIClient(&connectormgmt.Config{
+client := kafkamgmt.NewAPIClient(&kafkamgmt.Config{
     HTTPClient: tc,
 })
 
-connectors, _, err := client.DefaultApi.GetConnectors(ctx).Execute()
+kafkas, _, err := client.DefaultApi.GetKafkas(ctx).Execute()
 ```
 
 ## Endpoints

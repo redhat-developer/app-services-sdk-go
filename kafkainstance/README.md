@@ -1,26 +1,26 @@
-# Go API client for Service Registry Service
+# Go API client for kafkainstance
 
-Managed Service Registry API Management API that lets you create new registry instances. Registry is a datastore for standard event schemas and API designs.
+An API to provide REST endpoints for query Kafka for admin operations
 
 ## Installation
 
 To install the package to your project use `go get`:
 
 ```shell
-go get github.com/redhat-developer/app-services-sdk-go
+go get github.com/redhat-developer/app-services-sdk-go/kafkainstance
 ```
 
 ## Usage
 
 ### Importing the package
 
-Import the `github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1` package into your code:
+Import the `github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal` package into your code:
 
 ```go
 package main
 
 import (
-    "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1"
+    "github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal"
 )
 ```
 
@@ -29,9 +29,9 @@ import (
 If you do not need to customise any of the default configuration values you can pass `nil` to the `NewAPIClient` constructor:
 
 ```go
-client := registrymgmt.NewAPIClient(nil)
+client := kafkainstance.NewAPIClient(nil)
 
-registries, resp, err := client.RegistriesApi.GetRegistries(context.Background()).Execute()
+kafkas, resp, err := client.DefaultApi.GetTopics(context.Background()).Execute()
 ```
 
 ### Configuration
@@ -39,13 +39,13 @@ registries, resp, err := client.RegistriesApi.GetRegistries(context.Background()
 You can override the default configuration options:
 
 ```go
-cfg := registrymgmt.Config{
+cfg := kafkainstance.Config{
     HTTPClient: yourHTTPClient,
     Debug: true,
-    BaseURL: "http://localhost:8080",
+    BaseURL: "http://localhost:8001/rest",
 }
 
-client := registrymgmt.NewAPIClient(&cfg)
+client := kafkainstance.NewAPIClient(&cfg)
 ```
 
 ## Authentication
@@ -62,11 +62,11 @@ ts := oauth2.StaticTokenSource(
 
 tc := oauth2.NewClient(ctx, ts)
 
-client := registrymgmt.NewAPIClient(&registrymgmt.Config{
+client := kafkainstance.NewAPIClient(&kafkainstance.Config{
     HTTPClient: tc,
 })
 
-registries, _, err := client.RegistriesApi.GetRegistries(ctx).Execute()
+topics, _, err := client.DefaultApi.GetTopics(ctx).Execute()
 ```
 
 ## Endpoints
