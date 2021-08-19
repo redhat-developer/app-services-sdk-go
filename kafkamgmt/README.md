@@ -7,7 +7,7 @@ Kafka Service Fleet Manager is a REST API to manage Kafka instances and connecto
 To install the package to your project use `go get`:
 
 ```shell
-go get github.com/redhat-developer/app-services-sdk-go
+go get github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1
 ```
 
 ## Usage
