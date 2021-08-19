@@ -7,7 +7,7 @@ Connector Service Fleet Manager is a Rest API to manage connectors.
 To install the package to your project use `go get`:
 
 ```shell
-go get github.com/redhat-developer/app-services-sdk-go
+go get github.com/redhat-developer/app-services-sdk-go/connectormgmt
 ```
 
 ## Usage
