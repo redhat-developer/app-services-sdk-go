@@ -1,4 +1,4 @@
-package oauth2
+package rhoas
 
 import "golang.org/x/oauth2"
 
