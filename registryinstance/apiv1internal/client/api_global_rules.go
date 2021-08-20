@@ -28,112 +28,114 @@ var (
 type GlobalRulesApi interface {
 
 	/*
-	 * DeleteGlobalRule Delete global rule
-	 * Deletes a single global rule.  If this is the only rule configured, this is the same
-as deleting **all** rules.
+	 * CreateGlobalRule Create global rule
+	 * Adds a rule to the list of globally configured rules.
+
+This operation can fail for the following reasons:
+
+* The rule type is unknown (HTTP error `400`)
+* The rule already exists (HTTP error `409`)
+* A server error occurred (HTTP error `500`)
+
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @return ApiCreateGlobalRuleRequest
+	 */
+	CreateGlobalRule(ctx _context.Context) ApiCreateGlobalRuleRequest
+
+	/*
+	 * CreateGlobalRuleExecute executes the request
+	 */
+	CreateGlobalRuleExecute(r ApiCreateGlobalRuleRequest) (*_nethttp.Response, error)
+
+	/*
+	 * UpdateGlobalRuleConfig Update global rule configuration
+	 * Updates the configuration for a globally configured rule.
 
 This operation can fail for the following reasons:
 
 * Invalid rule name/type (HTTP error `400`)
 * No rule with name/type `rule` exists (HTTP error `404`)
-* Rule cannot be deleted (HTTP error `409`)
 * A server error occurred (HTTP error `500`)
 
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @param rule The unique name/type of a rule.
-	 * @return ApiDeleteGlobalRuleRequest
+	 * @return ApiUpdateGlobalRuleConfigRequest
 	 */
-	DeleteGlobalRule(ctx _context.Context, rule RuleType) ApiDeleteGlobalRuleRequest
+	UpdateGlobalRuleConfig(ctx _context.Context, rule RuleType) ApiUpdateGlobalRuleConfigRequest
 
 	/*
-	 * DeleteGlobalRuleExecute executes the request
+	 * UpdateGlobalRuleConfigExecute executes the request
+	 * @return Rule
 	 */
-	DeleteGlobalRuleExecute(r ApiDeleteGlobalRuleRequest) (*_nethttp.Response, error)
-
-	/*
-	 * ListGlobalRules List global rules
-	 * Gets a list of all the currently configured global rules (if any).
-
-This operation can fail for the following reasons:
-
-* A server error occurred (HTTP error `500`)
-
-	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @return ApiListGlobalRulesRequest
-	 */
-	ListGlobalRules(ctx _context.Context) ApiListGlobalRulesRequest
-
-	/*
-	 * ListGlobalRulesExecute executes the request
-	 * @return []RuleType
-	 */
-	ListGlobalRulesExecute(r ApiListGlobalRulesRequest) ([]RuleType, *_nethttp.Response, error)
+	UpdateGlobalRuleConfigExecute(r ApiUpdateGlobalRuleConfigRequest) (Rule, *_nethttp.Response, error)
 }
 
 // GlobalRulesApiService GlobalRulesApi service
 type GlobalRulesApiService service
 
-type ApiDeleteGlobalRuleRequest struct {
+type ApiCreateGlobalRuleRequest struct {
 	ctx _context.Context
 	ApiService GlobalRulesApi
-	rule RuleType
+	rule *Rule
 }
 
+func (r ApiCreateGlobalRuleRequest) Rule(rule Rule) ApiCreateGlobalRuleRequest {
+	r.rule = &rule
+	return r
+}
 
-func (r ApiDeleteGlobalRuleRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.DeleteGlobalRuleExecute(r)
+func (r ApiCreateGlobalRuleRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.CreateGlobalRuleExecute(r)
 }
 
 /*
- * DeleteGlobalRule Delete global rule
- * Deletes a single global rule.  If this is the only rule configured, this is the same
-as deleting **all** rules.
+ * CreateGlobalRule Create global rule
+ * Adds a rule to the list of globally configured rules.
 
 This operation can fail for the following reasons:
 
-* Invalid rule name/type (HTTP error `400`)
-* No rule with name/type `rule` exists (HTTP error `404`)
-* Rule cannot be deleted (HTTP error `409`)
+* The rule type is unknown (HTTP error `400`)
+* The rule already exists (HTTP error `409`)
 * A server error occurred (HTTP error `500`)
 
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param rule The unique name/type of a rule.
- * @return ApiDeleteGlobalRuleRequest
+ * @return ApiCreateGlobalRuleRequest
  */
-func (a *GlobalRulesApiService) DeleteGlobalRule(ctx _context.Context, rule RuleType) ApiDeleteGlobalRuleRequest {
-	return ApiDeleteGlobalRuleRequest{
+func (a *GlobalRulesApiService) CreateGlobalRule(ctx _context.Context) ApiCreateGlobalRuleRequest {
+	return ApiCreateGlobalRuleRequest{
 		ApiService: a,
 		ctx: ctx,
-		rule: rule,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *GlobalRulesApiService) DeleteGlobalRuleExecute(r ApiDeleteGlobalRuleRequest) (*_nethttp.Response, error) {
+func (a *GlobalRulesApiService) CreateGlobalRuleExecute(r ApiCreateGlobalRuleRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
+		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GlobalRulesApiService.DeleteGlobalRule")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GlobalRulesApiService.CreateGlobalRule")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/admin/rules/{rule}"
-	localVarPath = strings.Replace(localVarPath, "{"+"rule"+"}", _neturl.PathEscape(parameterToString(r.rule, "")), -1)
+	localVarPath := localBasePath + "/admin/rules"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
+	if r.rule == nil {
+		return nil, reportError("rule is required and must be specified")
+	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -149,6 +151,8 @@ func (a *GlobalRulesApiService) DeleteGlobalRuleExecute(r ApiDeleteGlobalRuleReq
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.rule
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
@@ -171,7 +175,17 @@ func (a *GlobalRulesApiService) DeleteGlobalRuleExecute(r ApiDeleteGlobalRuleReq
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -196,61 +210,75 @@ func (a *GlobalRulesApiService) DeleteGlobalRuleExecute(r ApiDeleteGlobalRuleReq
 	return localVarHTTPResponse, nil
 }
 
-type ApiListGlobalRulesRequest struct {
+type ApiUpdateGlobalRuleConfigRequest struct {
 	ctx _context.Context
 	ApiService GlobalRulesApi
+	rule RuleType
+	rule2 *Rule
 }
 
+func (r ApiUpdateGlobalRuleConfigRequest) Rule2(rule2 Rule) ApiUpdateGlobalRuleConfigRequest {
+	r.rule2 = &rule2
+	return r
+}
 
-func (r ApiListGlobalRulesRequest) Execute() ([]RuleType, *_nethttp.Response, error) {
-	return r.ApiService.ListGlobalRulesExecute(r)
+func (r ApiUpdateGlobalRuleConfigRequest) Execute() (Rule, *_nethttp.Response, error) {
+	return r.ApiService.UpdateGlobalRuleConfigExecute(r)
 }
 
 /*
- * ListGlobalRules List global rules
- * Gets a list of all the currently configured global rules (if any).
+ * UpdateGlobalRuleConfig Update global rule configuration
+ * Updates the configuration for a globally configured rule.
 
 This operation can fail for the following reasons:
 
+* Invalid rule name/type (HTTP error `400`)
+* No rule with name/type `rule` exists (HTTP error `404`)
 * A server error occurred (HTTP error `500`)
 
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiListGlobalRulesRequest
+ * @param rule The unique name/type of a rule.
+ * @return ApiUpdateGlobalRuleConfigRequest
  */
-func (a *GlobalRulesApiService) ListGlobalRules(ctx _context.Context) ApiListGlobalRulesRequest {
-	return ApiListGlobalRulesRequest{
+func (a *GlobalRulesApiService) UpdateGlobalRuleConfig(ctx _context.Context, rule RuleType) ApiUpdateGlobalRuleConfigRequest {
+	return ApiUpdateGlobalRuleConfigRequest{
 		ApiService: a,
 		ctx: ctx,
+		rule: rule,
 	}
 }
 
 /*
  * Execute executes the request
- * @return []RuleType
+ * @return Rule
  */
-func (a *GlobalRulesApiService) ListGlobalRulesExecute(r ApiListGlobalRulesRequest) ([]RuleType, *_nethttp.Response, error) {
+func (a *GlobalRulesApiService) UpdateGlobalRuleConfigExecute(r ApiUpdateGlobalRuleConfigRequest) (Rule, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []RuleType
+		localVarReturnValue  Rule
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GlobalRulesApiService.ListGlobalRules")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GlobalRulesApiService.UpdateGlobalRuleConfig")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/admin/rules"
+	localVarPath := localBasePath + "/admin/rules/{rule}"
+	localVarPath = strings.Replace(localVarPath, "{"+"rule"+"}", _neturl.PathEscape(parameterToString(r.rule, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
+	if r.rule2 == nil {
+		return localVarReturnValue, nil, reportError("rule2 is required and must be specified")
+	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -266,6 +294,8 @@ func (a *GlobalRulesApiService) ListGlobalRulesExecute(r ApiListGlobalRulesReque
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.rule2
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -287,6 +317,16 @@ func (a *GlobalRulesApiService) ListGlobalRulesExecute(r ApiListGlobalRulesReque
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v Error

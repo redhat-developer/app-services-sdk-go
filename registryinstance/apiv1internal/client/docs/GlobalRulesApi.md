@@ -4,16 +4,80 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteGlobalRule**](GlobalRulesApi.md#DeleteGlobalRule) | **Delete** /admin/rules/{rule} | Delete global rule
-[**ListGlobalRules**](GlobalRulesApi.md#ListGlobalRules) | **Get** /admin/rules | List global rules
+[**CreateGlobalRule**](GlobalRulesApi.md#CreateGlobalRule) | **Post** /admin/rules | Create global rule
+[**UpdateGlobalRuleConfig**](GlobalRulesApi.md#UpdateGlobalRuleConfig) | **Put** /admin/rules/{rule} | Update global rule configuration
 
 
 
-## DeleteGlobalRule
+## CreateGlobalRule
 
-> DeleteGlobalRule(ctx, rule).Execute()
+> CreateGlobalRule(ctx).Rule(rule).Execute()
 
-Delete global rule
+Create global rule
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    rule := *openapiclient.NewRule("Config_example") // Rule | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.GlobalRulesApi.CreateGlobalRule(context.Background()).Rule(rule).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GlobalRulesApi.CreateGlobalRule``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateGlobalRuleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **rule** | [**Rule**](Rule.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateGlobalRuleConfig
+
+> Rule UpdateGlobalRuleConfig(ctx, rule).Rule2(rule2).Execute()
+
+Update global rule configuration
 
 
 
@@ -31,14 +95,17 @@ import (
 
 func main() {
     rule := openapiclient.RuleType("VALIDITY") // RuleType | The unique name/type of a rule.
+    rule2 := *openapiclient.NewRule("Config_example") // Rule | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.GlobalRulesApi.DeleteGlobalRule(context.Background(), rule).Execute()
+    resp, r, err := api_client.GlobalRulesApi.UpdateGlobalRuleConfig(context.Background(), rule).Rule2(rule2).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GlobalRulesApi.DeleteGlobalRule``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GlobalRulesApi.UpdateGlobalRuleConfig``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `UpdateGlobalRuleConfig`: Rule
+    fmt.Fprintf(os.Stdout, "Response from `GlobalRulesApi.UpdateGlobalRuleConfig`: %v\n", resp)
 }
 ```
 
@@ -52,16 +119,17 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteGlobalRuleRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateGlobalRuleConfigRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **rule2** | [**Rule**](Rule.md) |  | 
 
 ### Return type
 
- (empty response body)
+[**Rule**](Rule.md)
 
 ### Authorization
 
@@ -69,68 +137,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ListGlobalRules
-
-> []RuleType ListGlobalRules(ctx).Execute()
-
-List global rules
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.GlobalRulesApi.ListGlobalRules(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GlobalRulesApi.ListGlobalRules``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListGlobalRules`: []RuleType
-    fmt.Fprintf(os.Stdout, "Response from `GlobalRulesApi.ListGlobalRules`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListGlobalRulesRequest struct via the builder pattern
-
-
-### Return type
-
-[**[]RuleType**](RuleType.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -99,12 +99,14 @@ Class | Method | HTTP request | Description
 *AdminApi* | [**CreateGlobalRule**](docs/AdminApi.md#createglobalrule) | **Post** /admin/rules | Create global rule
 *AdminApi* | [**CreateRoleMapping**](docs/AdminApi.md#createrolemapping) | **Post** /admin/roleMappings | Create a new role mapping
 *AdminApi* | [**DeleteAllGlobalRules**](docs/AdminApi.md#deleteallglobalrules) | **Delete** /admin/rules | Delete all global rules
+*AdminApi* | [**DeleteGlobalRule**](docs/AdminApi.md#deleteglobalrule) | **Delete** /admin/rules/{rule} | Delete global rule
 *AdminApi* | [**DeleteRoleMapping**](docs/AdminApi.md#deleterolemapping) | **Delete** /admin/roleMappings/{principalId} | Delete a role mapping
 *AdminApi* | [**ExportData**](docs/AdminApi.md#exportdata) | **Get** /admin/export | Export registry data
 *AdminApi* | [**GetGlobalRuleConfig**](docs/AdminApi.md#getglobalruleconfig) | **Get** /admin/rules/{rule} | Get global rule configuration
 *AdminApi* | [**GetLogConfiguration**](docs/AdminApi.md#getlogconfiguration) | **Get** /admin/loggers/{logger} | Get a single logger configuration
 *AdminApi* | [**GetRoleMapping**](docs/AdminApi.md#getrolemapping) | **Get** /admin/roleMappings/{principalId} | Return a single role mapping
 *AdminApi* | [**ImportData**](docs/AdminApi.md#importdata) | **Post** /admin/import | Import registry data
+*AdminApi* | [**ListGlobalRules**](docs/AdminApi.md#listglobalrules) | **Get** /admin/rules | List global rules
 *AdminApi* | [**ListLogConfigurations**](docs/AdminApi.md#listlogconfigurations) | **Get** /admin/loggers | List logging configurations
 *AdminApi* | [**ListRoleMappings**](docs/AdminApi.md#listrolemappings) | **Get** /admin/roleMappings | List all role mappings
 *AdminApi* | [**RemoveLogConfiguration**](docs/AdminApi.md#removelogconfiguration) | **Delete** /admin/loggers/{logger} | Removes logger configuration
@@ -130,8 +132,8 @@ Class | Method | HTTP request | Description
 *ArtifactsApi* | [**SearchArtifactsByContent**](docs/ArtifactsApi.md#searchartifactsbycontent) | **Post** /search/artifacts | Search for artifacts by content
 *ArtifactsApi* | [**UpdateArtifact**](docs/ArtifactsApi.md#updateartifact) | **Put** /groups/{groupId}/artifacts/{artifactId} | Update artifact
 *ArtifactsApi* | [**UpdateArtifactState**](docs/ArtifactsApi.md#updateartifactstate) | **Put** /groups/{groupId}/artifacts/{artifactId}/state | Update artifact state
-*GlobalRulesApi* | [**DeleteGlobalRule**](docs/GlobalRulesApi.md#deleteglobalrule) | **Delete** /admin/rules/{rule} | Delete global rule
-*GlobalRulesApi* | [**ListGlobalRules**](docs/GlobalRulesApi.md#listglobalrules) | **Get** /admin/rules | List global rules
+*GlobalRulesApi* | [**CreateGlobalRule**](docs/GlobalRulesApi.md#createglobalrule) | **Post** /admin/rules | Create global rule
+*GlobalRulesApi* | [**UpdateGlobalRuleConfig**](docs/GlobalRulesApi.md#updateglobalruleconfig) | **Put** /admin/rules/{rule} | Update global rule configuration
 *MetadataApi* | [**DeleteArtifactVersionMetaData**](docs/MetadataApi.md#deleteartifactversionmetadata) | **Delete** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/meta | Delete artifact version metadata
 *MetadataApi* | [**GetArtifactMetaData**](docs/MetadataApi.md#getartifactmetadata) | **Get** /groups/{groupId}/artifacts/{artifactId}/meta | Get artifact metadata
 *MetadataApi* | [**GetArtifactVersionMetaData**](docs/MetadataApi.md#getartifactversionmetadata) | **Get** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/meta | Get artifact version metadata

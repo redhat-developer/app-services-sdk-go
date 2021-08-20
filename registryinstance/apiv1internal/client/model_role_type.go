@@ -21,9 +21,9 @@ type RoleType string
 
 // List of RoleType
 const (
-	ROLETYPE_READ_ONLY RoleType = "READ_ONLY"
-	ROLETYPE_DEVELOPER RoleType = "DEVELOPER"
-	ROLETYPE_ADMIN RoleType = "ADMIN"
+	READ_ONLY RoleType = "READ_ONLY"
+	DEVELOPER RoleType = "DEVELOPER"
+	ADMIN RoleType = "ADMIN"
 )
 
 var allowedRoleTypeEnumValues = []RoleType{

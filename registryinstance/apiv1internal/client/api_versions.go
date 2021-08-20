@@ -142,6 +142,10 @@ type ApiCreateArtifactVersionRequest struct {
 	artifactId string
 	body **os.File
 	xRegistryVersion *string
+	xRegistryName *string
+	xRegistryDescription *string
+	xRegistryDescriptionEncoded *string
+	xRegistryNameEncoded *string
 }
 
 func (r ApiCreateArtifactVersionRequest) Body(body *os.File) ApiCreateArtifactVersionRequest {
@@ -150,6 +154,22 @@ func (r ApiCreateArtifactVersionRequest) Body(body *os.File) ApiCreateArtifactVe
 }
 func (r ApiCreateArtifactVersionRequest) XRegistryVersion(xRegistryVersion string) ApiCreateArtifactVersionRequest {
 	r.xRegistryVersion = &xRegistryVersion
+	return r
+}
+func (r ApiCreateArtifactVersionRequest) XRegistryName(xRegistryName string) ApiCreateArtifactVersionRequest {
+	r.xRegistryName = &xRegistryName
+	return r
+}
+func (r ApiCreateArtifactVersionRequest) XRegistryDescription(xRegistryDescription string) ApiCreateArtifactVersionRequest {
+	r.xRegistryDescription = &xRegistryDescription
+	return r
+}
+func (r ApiCreateArtifactVersionRequest) XRegistryDescriptionEncoded(xRegistryDescriptionEncoded string) ApiCreateArtifactVersionRequest {
+	r.xRegistryDescriptionEncoded = &xRegistryDescriptionEncoded
+	return r
+}
+func (r ApiCreateArtifactVersionRequest) XRegistryNameEncoded(xRegistryNameEncoded string) ApiCreateArtifactVersionRequest {
+	r.xRegistryNameEncoded = &xRegistryNameEncoded
 	return r
 }
 
@@ -237,6 +257,18 @@ func (a *VersionsApiService) CreateArtifactVersionExecute(r ApiCreateArtifactVer
 	}
 	if r.xRegistryVersion != nil {
 		localVarHeaderParams["X-Registry-Version"] = parameterToString(*r.xRegistryVersion, "")
+	}
+	if r.xRegistryName != nil {
+		localVarHeaderParams["X-Registry-Name"] = parameterToString(*r.xRegistryName, "")
+	}
+	if r.xRegistryDescription != nil {
+		localVarHeaderParams["X-Registry-Description"] = parameterToString(*r.xRegistryDescription, "")
+	}
+	if r.xRegistryDescriptionEncoded != nil {
+		localVarHeaderParams["X-Registry-Description-Encoded"] = parameterToString(*r.xRegistryDescriptionEncoded, "")
+	}
+	if r.xRegistryNameEncoded != nil {
+		localVarHeaderParams["X-Registry-Name-Encoded"] = parameterToString(*r.xRegistryNameEncoded, "")
 	}
 	// body params
 	localVarPostBody = r.body

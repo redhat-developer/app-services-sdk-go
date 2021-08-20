@@ -21,8 +21,8 @@ type SortBy string
 
 // List of SortBy
 const (
-	SORTBY_NAME SortBy = "name"
-	SORTBY_CREATED_ON SortBy = "createdOn"
+	NAME SortBy = "name"
+	CREATED_ON SortBy = "createdOn"
 )
 
 var allowedSortByEnumValues = []SortBy{

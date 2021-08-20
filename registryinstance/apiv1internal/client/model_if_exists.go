@@ -21,10 +21,10 @@ type IfExists string
 
 // List of IfExists
 const (
-	IFEXISTS_FAIL IfExists = "FAIL"
-	IFEXISTS_UPDATE IfExists = "UPDATE"
-	IFEXISTS_RETURN IfExists = "RETURN"
-	IFEXISTS_RETURN_OR_UPDATE IfExists = "RETURN_OR_UPDATE"
+	FAIL IfExists = "FAIL"
+	UPDATE IfExists = "UPDATE"
+	RETURN IfExists = "RETURN"
+	RETURN_OR_UPDATE IfExists = "RETURN_OR_UPDATE"
 )
 
 var allowedIfExistsEnumValues = []IfExists{
