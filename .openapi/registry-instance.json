@@ -156,7 +156,6 @@
           "required": true
         },
         "tags": [
-          "Global rules",
           "Admin"
         ],
         "responses": {
@@ -234,7 +233,6 @@
           "required": true
         },
         "tags": [
-          "Global rules",
           "Admin"
         ],
         "responses": {
