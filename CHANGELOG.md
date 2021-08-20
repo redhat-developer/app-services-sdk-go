@@ -1,5 +1,12 @@
 # Changelog
 
+## [v0.9.8](https://github.com/redhat-developer/app-services-sdk-go/compare/v0.9.7...v0.9.8) (2021-08-20)
+
+### Fixes
+
+- move endpoint.go to root of modules
+- change invalid package name
+
 ## [v0.9.7]
 
 Version bump to introduce submodule compatibility.
