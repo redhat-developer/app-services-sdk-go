@@ -132,8 +132,6 @@ Class | Method | HTTP request | Description
 *ArtifactsApi* | [**SearchArtifactsByContent**](docs/ArtifactsApi.md#searchartifactsbycontent) | **Post** /search/artifacts | Search for artifacts by content
 *ArtifactsApi* | [**UpdateArtifact**](docs/ArtifactsApi.md#updateartifact) | **Put** /groups/{groupId}/artifacts/{artifactId} | Update artifact
 *ArtifactsApi* | [**UpdateArtifactState**](docs/ArtifactsApi.md#updateartifactstate) | **Put** /groups/{groupId}/artifacts/{artifactId}/state | Update artifact state
-*GlobalRulesApi* | [**CreateGlobalRule**](docs/GlobalRulesApi.md#createglobalrule) | **Post** /admin/rules | Create global rule
-*GlobalRulesApi* | [**UpdateGlobalRuleConfig**](docs/GlobalRulesApi.md#updateglobalruleconfig) | **Put** /admin/rules/{rule} | Update global rule configuration
 *MetadataApi* | [**DeleteArtifactVersionMetaData**](docs/MetadataApi.md#deleteartifactversionmetadata) | **Delete** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/meta | Delete artifact version metadata
 *MetadataApi* | [**GetArtifactMetaData**](docs/MetadataApi.md#getartifactmetadata) | **Get** /groups/{groupId}/artifacts/{artifactId}/meta | Get artifact metadata
 *MetadataApi* | [**GetArtifactVersionMetaData**](docs/MetadataApi.md#getartifactversionmetadata) | **Get** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/meta | Get artifact version metadata

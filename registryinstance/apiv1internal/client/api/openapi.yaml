@@ -368,7 +368,6 @@ paths:
             server error.
       summary: Create global rule
       tags:
-      - Global rules
       - Admin
     summary: Manage the global rules that apply to all artifacts if not otherwise
       configured.
@@ -535,7 +534,6 @@ paths:
             server error.
       summary: Update global rule configuration
       tags:
-      - Global rules
       - Admin
     summary: Manage the configuration of a single global artifact rule.
   /admin/loggers:

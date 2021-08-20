@@ -21,16 +21,16 @@ type ArtifactType string
 
 // List of ArtifactType
 const (
-	AVRO ArtifactType = "AVRO"
-	PROTOBUF ArtifactType = "PROTOBUF"
-	JSON ArtifactType = "JSON"
-	OPENAPI ArtifactType = "OPENAPI"
-	ASYNCAPI ArtifactType = "ASYNCAPI"
-	GRAPHQL ArtifactType = "GRAPHQL"
-	KCONNECT ArtifactType = "KCONNECT"
-	WSDL ArtifactType = "WSDL"
-	XSD ArtifactType = "XSD"
-	XML ArtifactType = "XML"
+	ARTIFACTTYPE_AVRO ArtifactType = "AVRO"
+	ARTIFACTTYPE_PROTOBUF ArtifactType = "PROTOBUF"
+	ARTIFACTTYPE_JSON ArtifactType = "JSON"
+	ARTIFACTTYPE_OPENAPI ArtifactType = "OPENAPI"
+	ARTIFACTTYPE_ASYNCAPI ArtifactType = "ASYNCAPI"
+	ARTIFACTTYPE_GRAPHQL ArtifactType = "GRAPHQL"
+	ARTIFACTTYPE_KCONNECT ArtifactType = "KCONNECT"
+	ARTIFACTTYPE_WSDL ArtifactType = "WSDL"
+	ARTIFACTTYPE_XSD ArtifactType = "XSD"
+	ARTIFACTTYPE_XML ArtifactType = "XML"
 )
 
 var allowedArtifactTypeEnumValues = []ArtifactType{

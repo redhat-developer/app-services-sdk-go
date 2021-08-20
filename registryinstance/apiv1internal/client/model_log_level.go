@@ -21,17 +21,17 @@ type LogLevel string
 
 // List of LogLevel
 const (
-	DEBUG LogLevel = "DEBUG"
-	TRACE LogLevel = "TRACE"
-	WARN LogLevel = "WARN"
-	ERROR LogLevel = "ERROR"
-	SEVERE LogLevel = "SEVERE"
-	WARNING LogLevel = "WARNING"
-	INFO LogLevel = "INFO"
-	CONFIG LogLevel = "CONFIG"
-	FINE LogLevel = "FINE"
-	FINER LogLevel = "FINER"
-	FINEST LogLevel = "FINEST"
+	LOGLEVEL_DEBUG LogLevel = "DEBUG"
+	LOGLEVEL_TRACE LogLevel = "TRACE"
+	LOGLEVEL_WARN LogLevel = "WARN"
+	LOGLEVEL_ERROR LogLevel = "ERROR"
+	LOGLEVEL_SEVERE LogLevel = "SEVERE"
+	LOGLEVEL_WARNING LogLevel = "WARNING"
+	LOGLEVEL_INFO LogLevel = "INFO"
+	LOGLEVEL_CONFIG LogLevel = "CONFIG"
+	LOGLEVEL_FINE LogLevel = "FINE"
+	LOGLEVEL_FINER LogLevel = "FINER"
+	LOGLEVEL_FINEST LogLevel = "FINEST"
 )
 
 var allowedLogLevelEnumValues = []LogLevel{

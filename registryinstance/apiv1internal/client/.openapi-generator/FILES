@@ -4,7 +4,6 @@ api/openapi.yaml
 api_admin.go
 api_artifact_rules.go
 api_artifacts.go
-api_global_rules.go
 api_metadata.go
 api_system.go
 api_users.go
@@ -20,7 +19,6 @@ docs/ArtifactType.md
 docs/ArtifactsApi.md
 docs/EditableMetaData.md
 docs/Error.md
-docs/GlobalRulesApi.md
 docs/IfExists.md
 docs/LogConfiguration.md
 docs/LogLevel.md
