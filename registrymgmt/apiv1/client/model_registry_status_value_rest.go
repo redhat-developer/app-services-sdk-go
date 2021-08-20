@@ -21,12 +21,12 @@ type RegistryStatusValueRest string
 
 // List of RegistryStatusValueRest
 const (
-	ACCEPTED RegistryStatusValueRest = "accepted"
-	PROVISIONING RegistryStatusValueRest = "provisioning"
-	READY RegistryStatusValueRest = "ready"
-	FAILED RegistryStatusValueRest = "failed"
-	DEPROVISION RegistryStatusValueRest = "deprovision"
-	DELETING RegistryStatusValueRest = "deleting"
+	REGISTRYSTATUSVALUEREST_ACCEPTED RegistryStatusValueRest = "accepted"
+	REGISTRYSTATUSVALUEREST_PROVISIONING RegistryStatusValueRest = "provisioning"
+	REGISTRYSTATUSVALUEREST_READY RegistryStatusValueRest = "ready"
+	REGISTRYSTATUSVALUEREST_FAILED RegistryStatusValueRest = "failed"
+	REGISTRYSTATUSVALUEREST_DEPROVISION RegistryStatusValueRest = "deprovision"
+	REGISTRYSTATUSVALUEREST_DELETING RegistryStatusValueRest = "deleting"
 )
 
 var allowedRegistryStatusValueRestEnumValues = []RegistryStatusValueRest{
