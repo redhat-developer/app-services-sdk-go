@@ -315,7 +315,7 @@ paths:
             server error.
       summary: List global rules
       tags:
-      - Global rules
+      - Admin
     post:
       description: |
         Adds a rule to the list of globally configured rules.
@@ -422,7 +422,7 @@ paths:
             server error.
       summary: Delete global rule
       tags:
-      - Global rules
+      - Admin
     get:
       description: |
         Returns information about the named globally configured rule.
@@ -2428,6 +2428,46 @@ paths:
         schema:
           type: boolean
         style: form
+      - description: Specifies the description of artifact being added. Description
+          must be ASCII-only string. If this is not provided, the server will extract
+          the description from the artifact content.
+        explode: false
+        in: header
+        name: X-Registry-Description
+        required: false
+        schema:
+          $ref: '#/components/schemas/ArtifactDescription'
+        style: simple
+      - description: Specifies the description of artifact being added. Value of this
+          must be Base64 encoded string. If this is not provided, the server will
+          extract the description from the artifact content.
+        explode: false
+        in: header
+        name: X-Registry-Description-Encoded
+        required: false
+        schema:
+          $ref: '#/components/schemas/EncodedArtifactDescription'
+        style: simple
+      - description: Specifies the name of artifact being added. Name must be ASCII-only
+          string. If this is not provided, the server will extract the name from the
+          artifact content.
+        explode: false
+        in: header
+        name: X-Registry-Name
+        required: false
+        schema:
+          $ref: '#/components/schemas/ArtifactName'
+        style: simple
+      - description: Specifies the name of artifact being added. Value of this must
+          be Base64 encoded string. If this is not provided, the server will extract
+          the name from the artifact content.
+        explode: false
+        in: header
+        name: X-Registry-Name-Encoded
+        required: false
+        schema:
+          $ref: '#/components/schemas/EncodedArtifactName'
+        style: simple
       requestBody:
         content:
           '*/*':
@@ -2702,7 +2742,48 @@ paths:
         name: X-Registry-Version
         required: false
         schema:
-          type: string
+          $ref: '#/components/schemas/Version'
+        style: simple
+      - description: |-
+          Specifies the artifact name of this new version of the artifact content. Name must be ASCII-only string. If this is not
+          provided, the server will extract the name from the artifact content.
+        explode: false
+        in: header
+        name: X-Registry-Name
+        required: false
+        schema:
+          $ref: '#/components/schemas/ArtifactName'
+        style: simple
+      - description: Specifies the artifact name of this new version of the artifact
+          content. Value of this must be Base64 encoded string. If this is not provided,
+          the server will extract the name from the artifact content.
+        explode: false
+        in: header
+        name: X-Registry-Name-Encoded
+        required: false
+        schema:
+          $ref: '#/components/schemas/EncodedArtifactName'
+        style: simple
+      - description: Specifies the artifact description of this new version of the
+          artifact content. Description must be ASCII-only string. If this is not
+          provided, the server will extract the description from the artifact content.
+        explode: false
+        in: header
+        name: X-Registry-Description
+        required: false
+        schema:
+          $ref: '#/components/schemas/ArtifactDescription'
+        style: simple
+      - description: Specifies the artifact description of this new version of the
+          artifact content. Value of this must be Base64 encoded string. If this is
+          not provided, the server will extract the description from the artifact
+          content.
+        explode: false
+        in: header
+        name: X-Registry-Description-Encoded
+        required: false
+        schema:
+          $ref: '#/components/schemas/EncodedArtifactDescription'
         style: simple
       requestBody:
         content:
@@ -2935,6 +3016,47 @@ paths:
         required: false
         schema:
           $ref: '#/components/schemas/Version'
+        style: simple
+      - description: |-
+          Specifies the artifact name of this new version of the artifact content. Name must be ASCII-only string. If this is not
+          provided, the server will extract the name from the artifact content.
+        explode: false
+        in: header
+        name: X-Registry-Name
+        required: false
+        schema:
+          $ref: '#/components/schemas/ArtifactName'
+        style: simple
+      - description: Specifies the artifact description of this new version of the
+          artifact content. Description must be ASCII-only string. If this is not
+          provided, the server will extract the description from the artifact content.
+        explode: false
+        in: header
+        name: X-Registry-Description
+        required: false
+        schema:
+          $ref: '#/components/schemas/ArtifactDescription'
+        style: simple
+      - description: Specifies the artifact description of this new version of the
+          artifact content. Value of this must be Base64 encoded string. If this is
+          not provided, the server will extract the description from the artifact
+          content.
+        explode: false
+        in: header
+        name: X-Registry-Description-Encoded
+        required: false
+        schema:
+          $ref: '#/components/schemas/EncodedArtifactDescription'
+        style: simple
+      - description: Specifies the artifact name of this new version of the artifact
+          content. Value of this must be Base64 encoded string. If this is not provided,
+          the server will extract the name from the artifact content.
+        explode: false
+        in: header
+        name: X-Registry-Name-Encoded
+        required: false
+        schema:
+          $ref: '#/components/schemas/EncodedArtifactName'
         style: simple
       requestBody:
         content:
@@ -4001,6 +4123,26 @@ components:
           type: boolean
       title: Root Type for UserInfo
       type: object
+    EncodedArtifactName:
+      description: Base64 encoded name of the artifact.
+      example: QXJ0aWZhY3QgbmFtZQo=
+      type: string
+      x-codegen-inline: true
+    EncodedArtifactDescription:
+      description: Base64 encoded description of the artifact.
+      example: QXJ0aWZhY3QgZGVzY3JpcHRpb24K
+      type: string
+      x-codegen-inline: true
+    ArtifactName:
+      description: Name of the artifact.
+      example: Artifact name
+      type: string
+      x-codegen-inline: true
+    ArtifactDescription:
+      description: Description of the artifact.
+      example: Artifact description
+      type: string
+      x-codegen-inline: true
     RuleViolationError_allOf:
       properties:
         causes:

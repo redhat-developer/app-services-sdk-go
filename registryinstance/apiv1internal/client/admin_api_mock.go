@@ -38,6 +38,12 @@ var _ AdminApi = &AdminApiMock{}
 // 			DeleteAllGlobalRulesExecuteFunc: func(r ApiDeleteAllGlobalRulesRequest) (*_nethttp.Response, error) {
 // 				panic("mock out the DeleteAllGlobalRulesExecute method")
 // 			},
+// 			DeleteGlobalRuleFunc: func(ctx _context.Context, rule RuleType) ApiDeleteGlobalRuleRequest {
+// 				panic("mock out the DeleteGlobalRule method")
+// 			},
+// 			DeleteGlobalRuleExecuteFunc: func(r ApiDeleteGlobalRuleRequest) (*_nethttp.Response, error) {
+// 				panic("mock out the DeleteGlobalRuleExecute method")
+// 			},
 // 			DeleteRoleMappingFunc: func(ctx _context.Context, principalId string) ApiDeleteRoleMappingRequest {
 // 				panic("mock out the DeleteRoleMapping method")
 // 			},
@@ -73,6 +79,12 @@ var _ AdminApi = &AdminApiMock{}
 // 			},
 // 			ImportDataExecuteFunc: func(r ApiImportDataRequest) (*_nethttp.Response, error) {
 // 				panic("mock out the ImportDataExecute method")
+// 			},
+// 			ListGlobalRulesFunc: func(ctx _context.Context) ApiListGlobalRulesRequest {
+// 				panic("mock out the ListGlobalRules method")
+// 			},
+// 			ListGlobalRulesExecuteFunc: func(r ApiListGlobalRulesRequest) ([]RuleType, *_nethttp.Response, error) {
+// 				panic("mock out the ListGlobalRulesExecute method")
 // 			},
 // 			ListLogConfigurationsFunc: func(ctx _context.Context) ApiListLogConfigurationsRequest {
 // 				panic("mock out the ListLogConfigurations method")
@@ -135,6 +147,12 @@ type AdminApiMock struct {
 	// DeleteAllGlobalRulesExecuteFunc mocks the DeleteAllGlobalRulesExecute method.
 	DeleteAllGlobalRulesExecuteFunc func(r ApiDeleteAllGlobalRulesRequest) (*_nethttp.Response, error)
 
+	// DeleteGlobalRuleFunc mocks the DeleteGlobalRule method.
+	DeleteGlobalRuleFunc func(ctx _context.Context, rule RuleType) ApiDeleteGlobalRuleRequest
+
+	// DeleteGlobalRuleExecuteFunc mocks the DeleteGlobalRuleExecute method.
+	DeleteGlobalRuleExecuteFunc func(r ApiDeleteGlobalRuleRequest) (*_nethttp.Response, error)
+
 	// DeleteRoleMappingFunc mocks the DeleteRoleMapping method.
 	DeleteRoleMappingFunc func(ctx _context.Context, principalId string) ApiDeleteRoleMappingRequest
 
@@ -170,6 +188,12 @@ type AdminApiMock struct {
 
 	// ImportDataExecuteFunc mocks the ImportDataExecute method.
 	ImportDataExecuteFunc func(r ApiImportDataRequest) (*_nethttp.Response, error)
+
+	// ListGlobalRulesFunc mocks the ListGlobalRules method.
+	ListGlobalRulesFunc func(ctx _context.Context) ApiListGlobalRulesRequest
+
+	// ListGlobalRulesExecuteFunc mocks the ListGlobalRulesExecute method.
+	ListGlobalRulesExecuteFunc func(r ApiListGlobalRulesRequest) ([]RuleType, *_nethttp.Response, error)
 
 	// ListLogConfigurationsFunc mocks the ListLogConfigurations method.
 	ListLogConfigurationsFunc func(ctx _context.Context) ApiListLogConfigurationsRequest
@@ -239,6 +263,18 @@ type AdminApiMock struct {
 			// R is the r argument value.
 			R ApiDeleteAllGlobalRulesRequest
 		}
+		// DeleteGlobalRule holds details about calls to the DeleteGlobalRule method.
+		DeleteGlobalRule []struct {
+			// Ctx is the ctx argument value.
+			Ctx _context.Context
+			// Rule is the rule argument value.
+			Rule RuleType
+		}
+		// DeleteGlobalRuleExecute holds details about calls to the DeleteGlobalRuleExecute method.
+		DeleteGlobalRuleExecute []struct {
+			// R is the r argument value.
+			R ApiDeleteGlobalRuleRequest
+		}
 		// DeleteRoleMapping holds details about calls to the DeleteRoleMapping method.
 		DeleteRoleMapping []struct {
 			// Ctx is the ctx argument value.
@@ -306,6 +342,16 @@ type AdminApiMock struct {
 		ImportDataExecute []struct {
 			// R is the r argument value.
 			R ApiImportDataRequest
+		}
+		// ListGlobalRules holds details about calls to the ListGlobalRules method.
+		ListGlobalRules []struct {
+			// Ctx is the ctx argument value.
+			Ctx _context.Context
+		}
+		// ListGlobalRulesExecute holds details about calls to the ListGlobalRulesExecute method.
+		ListGlobalRulesExecute []struct {
+			// R is the r argument value.
+			R ApiListGlobalRulesRequest
 		}
 		// ListLogConfigurations holds details about calls to the ListLogConfigurations method.
 		ListLogConfigurations []struct {
@@ -382,6 +428,8 @@ type AdminApiMock struct {
 	lockCreateRoleMappingExecute      sync.RWMutex
 	lockDeleteAllGlobalRules          sync.RWMutex
 	lockDeleteAllGlobalRulesExecute   sync.RWMutex
+	lockDeleteGlobalRule              sync.RWMutex
+	lockDeleteGlobalRuleExecute       sync.RWMutex
 	lockDeleteRoleMapping             sync.RWMutex
 	lockDeleteRoleMappingExecute      sync.RWMutex
 	lockExportData                    sync.RWMutex
@@ -394,6 +442,8 @@ type AdminApiMock struct {
 	lockGetRoleMappingExecute         sync.RWMutex
 	lockImportData                    sync.RWMutex
 	lockImportDataExecute             sync.RWMutex
+	lockListGlobalRules               sync.RWMutex
+	lockListGlobalRulesExecute        sync.RWMutex
 	lockListLogConfigurations         sync.RWMutex
 	lockListLogConfigurationsExecute  sync.RWMutex
 	lockListRoleMappings              sync.RWMutex
@@ -591,6 +641,72 @@ func (mock *AdminApiMock) DeleteAllGlobalRulesExecuteCalls() []struct {
 	mock.lockDeleteAllGlobalRulesExecute.RLock()
 	calls = mock.calls.DeleteAllGlobalRulesExecute
 	mock.lockDeleteAllGlobalRulesExecute.RUnlock()
+	return calls
+}
+
+// DeleteGlobalRule calls DeleteGlobalRuleFunc.
+func (mock *AdminApiMock) DeleteGlobalRule(ctx _context.Context, rule RuleType) ApiDeleteGlobalRuleRequest {
+	if mock.DeleteGlobalRuleFunc == nil {
+		panic("AdminApiMock.DeleteGlobalRuleFunc: method is nil but AdminApi.DeleteGlobalRule was just called")
+	}
+	callInfo := struct {
+		Ctx  _context.Context
+		Rule RuleType
+	}{
+		Ctx:  ctx,
+		Rule: rule,
+	}
+	mock.lockDeleteGlobalRule.Lock()
+	mock.calls.DeleteGlobalRule = append(mock.calls.DeleteGlobalRule, callInfo)
+	mock.lockDeleteGlobalRule.Unlock()
+	return mock.DeleteGlobalRuleFunc(ctx, rule)
+}
+
+// DeleteGlobalRuleCalls gets all the calls that were made to DeleteGlobalRule.
+// Check the length with:
+//     len(mockedAdminApi.DeleteGlobalRuleCalls())
+func (mock *AdminApiMock) DeleteGlobalRuleCalls() []struct {
+	Ctx  _context.Context
+	Rule RuleType
+} {
+	var calls []struct {
+		Ctx  _context.Context
+		Rule RuleType
+	}
+	mock.lockDeleteGlobalRule.RLock()
+	calls = mock.calls.DeleteGlobalRule
+	mock.lockDeleteGlobalRule.RUnlock()
+	return calls
+}
+
+// DeleteGlobalRuleExecute calls DeleteGlobalRuleExecuteFunc.
+func (mock *AdminApiMock) DeleteGlobalRuleExecute(r ApiDeleteGlobalRuleRequest) (*_nethttp.Response, error) {
+	if mock.DeleteGlobalRuleExecuteFunc == nil {
+		panic("AdminApiMock.DeleteGlobalRuleExecuteFunc: method is nil but AdminApi.DeleteGlobalRuleExecute was just called")
+	}
+	callInfo := struct {
+		R ApiDeleteGlobalRuleRequest
+	}{
+		R: r,
+	}
+	mock.lockDeleteGlobalRuleExecute.Lock()
+	mock.calls.DeleteGlobalRuleExecute = append(mock.calls.DeleteGlobalRuleExecute, callInfo)
+	mock.lockDeleteGlobalRuleExecute.Unlock()
+	return mock.DeleteGlobalRuleExecuteFunc(r)
+}
+
+// DeleteGlobalRuleExecuteCalls gets all the calls that were made to DeleteGlobalRuleExecute.
+// Check the length with:
+//     len(mockedAdminApi.DeleteGlobalRuleExecuteCalls())
+func (mock *AdminApiMock) DeleteGlobalRuleExecuteCalls() []struct {
+	R ApiDeleteGlobalRuleRequest
+} {
+	var calls []struct {
+		R ApiDeleteGlobalRuleRequest
+	}
+	mock.lockDeleteGlobalRuleExecute.RLock()
+	calls = mock.calls.DeleteGlobalRuleExecute
+	mock.lockDeleteGlobalRuleExecute.RUnlock()
 	return calls
 }
 
@@ -979,6 +1095,68 @@ func (mock *AdminApiMock) ImportDataExecuteCalls() []struct {
 	mock.lockImportDataExecute.RLock()
 	calls = mock.calls.ImportDataExecute
 	mock.lockImportDataExecute.RUnlock()
+	return calls
+}
+
+// ListGlobalRules calls ListGlobalRulesFunc.
+func (mock *AdminApiMock) ListGlobalRules(ctx _context.Context) ApiListGlobalRulesRequest {
+	if mock.ListGlobalRulesFunc == nil {
+		panic("AdminApiMock.ListGlobalRulesFunc: method is nil but AdminApi.ListGlobalRules was just called")
+	}
+	callInfo := struct {
+		Ctx _context.Context
+	}{
+		Ctx: ctx,
+	}
+	mock.lockListGlobalRules.Lock()
+	mock.calls.ListGlobalRules = append(mock.calls.ListGlobalRules, callInfo)
+	mock.lockListGlobalRules.Unlock()
+	return mock.ListGlobalRulesFunc(ctx)
+}
+
+// ListGlobalRulesCalls gets all the calls that were made to ListGlobalRules.
+// Check the length with:
+//     len(mockedAdminApi.ListGlobalRulesCalls())
+func (mock *AdminApiMock) ListGlobalRulesCalls() []struct {
+	Ctx _context.Context
+} {
+	var calls []struct {
+		Ctx _context.Context
+	}
+	mock.lockListGlobalRules.RLock()
+	calls = mock.calls.ListGlobalRules
+	mock.lockListGlobalRules.RUnlock()
+	return calls
+}
+
+// ListGlobalRulesExecute calls ListGlobalRulesExecuteFunc.
+func (mock *AdminApiMock) ListGlobalRulesExecute(r ApiListGlobalRulesRequest) ([]RuleType, *_nethttp.Response, error) {
+	if mock.ListGlobalRulesExecuteFunc == nil {
+		panic("AdminApiMock.ListGlobalRulesExecuteFunc: method is nil but AdminApi.ListGlobalRulesExecute was just called")
+	}
+	callInfo := struct {
+		R ApiListGlobalRulesRequest
+	}{
+		R: r,
+	}
+	mock.lockListGlobalRulesExecute.Lock()
+	mock.calls.ListGlobalRulesExecute = append(mock.calls.ListGlobalRulesExecute, callInfo)
+	mock.lockListGlobalRulesExecute.Unlock()
+	return mock.ListGlobalRulesExecuteFunc(r)
+}
+
+// ListGlobalRulesExecuteCalls gets all the calls that were made to ListGlobalRulesExecute.
+// Check the length with:
+//     len(mockedAdminApi.ListGlobalRulesExecuteCalls())
+func (mock *AdminApiMock) ListGlobalRulesExecuteCalls() []struct {
+	R ApiListGlobalRulesRequest
+} {
+	var calls []struct {
+		R ApiListGlobalRulesRequest
+	}
+	mock.lockListGlobalRulesExecute.RLock()
+	calls = mock.calls.ListGlobalRulesExecute
+	mock.lockListGlobalRulesExecute.RUnlock()
 	return calls
 }
 
