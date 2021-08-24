@@ -29,7 +29,7 @@ type ConnectorType struct {
 	// Version of the connector type.
 	Version string `json:"version"`
 
-	// Version of the connector type.
+	// Channels of the connector type.
 	Channels *[]string `json:"channels,omitempty"`
 
 	// A description of the connector.
@@ -38,7 +38,7 @@ type ConnectorType struct {
 	// URL to an icon of the connector.
 	IconHref *string `json:"icon_href,omitempty"`
 
-	// labels used to categorize the connector
+	// Labels used to categorize the connector
 	Labels *[]string `json:"labels,omitempty"`
 
 	// A json schema that can be used to validate a connectors connector_spec field.
