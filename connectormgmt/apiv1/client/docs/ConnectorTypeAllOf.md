@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | Name of the connector type. | [optional] 
 **Version** | Pointer to **string** | Version of the connector type. | [optional] 
-**Channels** | Pointer to **[]string** | Version of the connector type. | [optional] 
+**Channels** | Pointer to **[]string** | Channels of the connector type. | [optional] 
 **Description** | Pointer to **string** | A description of the connector. | [optional] 
 **IconHref** | Pointer to **string** | URL to an icon of the connector. | [optional] 
-**Labels** | Pointer to **[]string** | labels used to categorize the connector | [optional] 
+**Labels** | Pointer to **[]string** | Labels used to categorize the connector | [optional] 
 **JsonSchema** | Pointer to **map[string]interface{}** | A json schema that can be used to validate a connectors connector_spec field. | [optional] 
 
 
