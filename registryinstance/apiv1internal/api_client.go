@@ -15,6 +15,8 @@ type Config struct {
 	Debug bool
 	// BaseURL sets a custom API server base URL
 	BaseURL string
+	// UserAgent sets a custom user-agent
+	UserAgent string
 }
 
 // NewAPIClient returns a new v1 API client
@@ -37,6 +39,7 @@ func NewAPIClient(cfg *Config) *apiv1.APIClient {
 	}
 
 	apiCfg.Debug = cfg.Debug
+	apiCfg.UserAgent = cfg.UserAgent
 
 	client := apiv1.NewAPIClient(apiCfg)
 
