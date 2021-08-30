@@ -1,4 +1,4 @@
-# ObjectReferenceRest
+# ObjectReference
 
 ## Properties
 
@@ -11,98 +11,98 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewObjectReferenceRest
+### NewObjectReference
 
-`func NewObjectReferenceRest() *ObjectReferenceRest`
+`func NewObjectReference() *ObjectReference`
 
-NewObjectReferenceRest instantiates a new ObjectReferenceRest object
+NewObjectReference instantiates a new ObjectReference object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewObjectReferenceRestWithDefaults
+### NewObjectReferenceWithDefaults
 
-`func NewObjectReferenceRestWithDefaults() *ObjectReferenceRest`
+`func NewObjectReferenceWithDefaults() *ObjectReference`
 
-NewObjectReferenceRestWithDefaults instantiates a new ObjectReferenceRest object
+NewObjectReferenceWithDefaults instantiates a new ObjectReference object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 
 ### GetId
 
-`func (o *ObjectReferenceRest) GetId() string`
+`func (o *ObjectReference) GetId() string`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *ObjectReferenceRest) GetIdOk() (*string, bool)`
+`func (o *ObjectReference) GetIdOk() (*string, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *ObjectReferenceRest) SetId(v string)`
+`func (o *ObjectReference) SetId(v string)`
 
 SetId sets Id field to given value.
 
 ### HasId
 
-`func (o *ObjectReferenceRest) HasId() bool`
+`func (o *ObjectReference) HasId() bool`
 
 HasId returns a boolean if a field has been set.
 
 
 ### GetKind
 
-`func (o *ObjectReferenceRest) GetKind() string`
+`func (o *ObjectReference) GetKind() string`
 
 GetKind returns the Kind field if non-nil, zero value otherwise.
 
 ### GetKindOk
 
-`func (o *ObjectReferenceRest) GetKindOk() (*string, bool)`
+`func (o *ObjectReference) GetKindOk() (*string, bool)`
 
 GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKind
 
-`func (o *ObjectReferenceRest) SetKind(v string)`
+`func (o *ObjectReference) SetKind(v string)`
 
 SetKind sets Kind field to given value.
 
 ### HasKind
 
-`func (o *ObjectReferenceRest) HasKind() bool`
+`func (o *ObjectReference) HasKind() bool`
 
 HasKind returns a boolean if a field has been set.
 
 
 ### GetHref
 
-`func (o *ObjectReferenceRest) GetHref() string`
+`func (o *ObjectReference) GetHref() string`
 
 GetHref returns the Href field if non-nil, zero value otherwise.
 
 ### GetHrefOk
 
-`func (o *ObjectReferenceRest) GetHrefOk() (*string, bool)`
+`func (o *ObjectReference) GetHrefOk() (*string, bool)`
 
 GetHrefOk returns a tuple with the Href field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHref
 
-`func (o *ObjectReferenceRest) SetHref(v string)`
+`func (o *ObjectReference) SetHref(v string)`
 
 SetHref sets Href field to given value.
 
 ### HasHref
 
-`func (o *ObjectReferenceRest) HasHref() bool`
+`func (o *ObjectReference) HasHref() bool`
 
 HasHref returns a boolean if a field has been set.
 

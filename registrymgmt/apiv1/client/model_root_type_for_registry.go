@@ -3,7 +3,7 @@
  *
  * Managed Service Registry cloud.redhat.com API Management API that lets you create new registry instances. Registry is a datastore for standard event schemas and API designs. Service Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Registry is an Managed version of upstream project called Apicurio Registry. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.
  *
- * API version: 0.0.5
+ * API version: 0.0.6
  * Contact: rhosak-eval-support@redhat.com
  */
 
@@ -21,7 +21,7 @@ type RootTypeForRegistry struct {
 
 	Id string `json:"id"`
 
-	Status RegistryStatusValueRest `json:"status"`
+	Status RegistryStatusValue `json:"status"`
 
 	RegistryUrl *string `json:"registryUrl,omitempty"`
 
@@ -49,7 +49,7 @@ type RootTypeForRegistry struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRootTypeForRegistry(id string, status RegistryStatusValueRest, createdAt time.Time, updatedAt time.Time) *RootTypeForRegistry {
+func NewRootTypeForRegistry(id string, status RegistryStatusValue, createdAt time.Time, updatedAt time.Time) *RootTypeForRegistry {
 	this := RootTypeForRegistry{}
 	this.Id = id
 	this.Status = status
@@ -103,9 +103,9 @@ func (o *RootTypeForRegistry) SetId(v string) {
 
 
 // GetStatus returns the Status field value
-func (o *RootTypeForRegistry) GetStatus() RegistryStatusValueRest {
+func (o *RootTypeForRegistry) GetStatus() RegistryStatusValue {
 	if o == nil {
-		var ret RegistryStatusValueRest
+		var ret RegistryStatusValue
 		return ret
 	}
 
@@ -114,7 +114,7 @@ func (o *RootTypeForRegistry) GetStatus() RegistryStatusValueRest {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *RootTypeForRegistry) GetStatusOk() (*RegistryStatusValueRest, bool) {
+func (o *RootTypeForRegistry) GetStatusOk() (*RegistryStatusValue, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -122,7 +122,7 @@ func (o *RootTypeForRegistry) GetStatusOk() (*RegistryStatusValueRest, bool) {
 }
 
 // SetStatus sets field value
-func (o *RootTypeForRegistry) SetStatus(v RegistryStatusValueRest) {
+func (o *RootTypeForRegistry) SetStatus(v RegistryStatusValue) {
 	o.Status = v
 }
 

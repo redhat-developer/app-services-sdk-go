@@ -1,4 +1,4 @@
-# RegistryRest
+# Registry
 
 ## Properties
 
@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Kind** | Pointer to **string** |  | [optional] 
 **Href** | Pointer to **string** |  | [optional] 
-**Status** | [**RegistryStatusValueRest**](RegistryStatusValueRest.md) |  | 
+**Status** | [**RegistryStatusValue**](RegistryStatusValue.md) |  | 
 **RegistryUrl** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** | User-defined Registry name. Does not have to be unique. | [optional] 
 **RegistryDeploymentId** | Pointer to **int32** | Identifier of a multi-tenant deployment, where this Service Registry instance resides. | [optional] 
@@ -19,40 +19,40 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewRegistryRest
+### NewRegistry
 
-`func NewRegistryRest(id string, status RegistryStatusValueRest, createdAt time.Time, updatedAt time.Time, ) *RegistryRest`
+`func NewRegistry(id string, status RegistryStatusValue, createdAt time.Time, updatedAt time.Time, ) *Registry`
 
-NewRegistryRest instantiates a new RegistryRest object
+NewRegistry instantiates a new Registry object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewRegistryRestWithDefaults
+### NewRegistryWithDefaults
 
-`func NewRegistryRestWithDefaults() *RegistryRest`
+`func NewRegistryWithDefaults() *Registry`
 
-NewRegistryRestWithDefaults instantiates a new RegistryRest object
+NewRegistryWithDefaults instantiates a new Registry object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 
 ### GetId
 
-`func (o *RegistryRest) GetId() string`
+`func (o *Registry) GetId() string`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *RegistryRest) GetIdOk() (*string, bool)`
+`func (o *Registry) GetIdOk() (*string, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *RegistryRest) SetId(v string)`
+`func (o *Registry) SetId(v string)`
 
 SetId sets Id field to given value.
 
@@ -60,72 +60,72 @@ SetId sets Id field to given value.
 
 ### GetKind
 
-`func (o *RegistryRest) GetKind() string`
+`func (o *Registry) GetKind() string`
 
 GetKind returns the Kind field if non-nil, zero value otherwise.
 
 ### GetKindOk
 
-`func (o *RegistryRest) GetKindOk() (*string, bool)`
+`func (o *Registry) GetKindOk() (*string, bool)`
 
 GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKind
 
-`func (o *RegistryRest) SetKind(v string)`
+`func (o *Registry) SetKind(v string)`
 
 SetKind sets Kind field to given value.
 
 ### HasKind
 
-`func (o *RegistryRest) HasKind() bool`
+`func (o *Registry) HasKind() bool`
 
 HasKind returns a boolean if a field has been set.
 
 
 ### GetHref
 
-`func (o *RegistryRest) GetHref() string`
+`func (o *Registry) GetHref() string`
 
 GetHref returns the Href field if non-nil, zero value otherwise.
 
 ### GetHrefOk
 
-`func (o *RegistryRest) GetHrefOk() (*string, bool)`
+`func (o *Registry) GetHrefOk() (*string, bool)`
 
 GetHrefOk returns a tuple with the Href field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHref
 
-`func (o *RegistryRest) SetHref(v string)`
+`func (o *Registry) SetHref(v string)`
 
 SetHref sets Href field to given value.
 
 ### HasHref
 
-`func (o *RegistryRest) HasHref() bool`
+`func (o *Registry) HasHref() bool`
 
 HasHref returns a boolean if a field has been set.
 
 
 ### GetStatus
 
-`func (o *RegistryRest) GetStatus() RegistryStatusValueRest`
+`func (o *Registry) GetStatus() RegistryStatusValue`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *RegistryRest) GetStatusOk() (*RegistryStatusValueRest, bool)`
+`func (o *Registry) GetStatusOk() (*RegistryStatusValue, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *RegistryRest) SetStatus(v RegistryStatusValueRest)`
+`func (o *Registry) SetStatus(v RegistryStatusValue)`
 
 SetStatus sets Status field to given value.
 
@@ -133,150 +133,150 @@ SetStatus sets Status field to given value.
 
 ### GetRegistryUrl
 
-`func (o *RegistryRest) GetRegistryUrl() string`
+`func (o *Registry) GetRegistryUrl() string`
 
 GetRegistryUrl returns the RegistryUrl field if non-nil, zero value otherwise.
 
 ### GetRegistryUrlOk
 
-`func (o *RegistryRest) GetRegistryUrlOk() (*string, bool)`
+`func (o *Registry) GetRegistryUrlOk() (*string, bool)`
 
 GetRegistryUrlOk returns a tuple with the RegistryUrl field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRegistryUrl
 
-`func (o *RegistryRest) SetRegistryUrl(v string)`
+`func (o *Registry) SetRegistryUrl(v string)`
 
 SetRegistryUrl sets RegistryUrl field to given value.
 
 ### HasRegistryUrl
 
-`func (o *RegistryRest) HasRegistryUrl() bool`
+`func (o *Registry) HasRegistryUrl() bool`
 
 HasRegistryUrl returns a boolean if a field has been set.
 
 
 ### GetName
 
-`func (o *RegistryRest) GetName() string`
+`func (o *Registry) GetName() string`
 
 GetName returns the Name field if non-nil, zero value otherwise.
 
 ### GetNameOk
 
-`func (o *RegistryRest) GetNameOk() (*string, bool)`
+`func (o *Registry) GetNameOk() (*string, bool)`
 
 GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetName
 
-`func (o *RegistryRest) SetName(v string)`
+`func (o *Registry) SetName(v string)`
 
 SetName sets Name field to given value.
 
 ### HasName
 
-`func (o *RegistryRest) HasName() bool`
+`func (o *Registry) HasName() bool`
 
 HasName returns a boolean if a field has been set.
 
 
 ### GetRegistryDeploymentId
 
-`func (o *RegistryRest) GetRegistryDeploymentId() int32`
+`func (o *Registry) GetRegistryDeploymentId() int32`
 
 GetRegistryDeploymentId returns the RegistryDeploymentId field if non-nil, zero value otherwise.
 
 ### GetRegistryDeploymentIdOk
 
-`func (o *RegistryRest) GetRegistryDeploymentIdOk() (*int32, bool)`
+`func (o *Registry) GetRegistryDeploymentIdOk() (*int32, bool)`
 
 GetRegistryDeploymentIdOk returns a tuple with the RegistryDeploymentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRegistryDeploymentId
 
-`func (o *RegistryRest) SetRegistryDeploymentId(v int32)`
+`func (o *Registry) SetRegistryDeploymentId(v int32)`
 
 SetRegistryDeploymentId sets RegistryDeploymentId field to given value.
 
 ### HasRegistryDeploymentId
 
-`func (o *RegistryRest) HasRegistryDeploymentId() bool`
+`func (o *Registry) HasRegistryDeploymentId() bool`
 
 HasRegistryDeploymentId returns a boolean if a field has been set.
 
 
 ### GetOwner
 
-`func (o *RegistryRest) GetOwner() string`
+`func (o *Registry) GetOwner() string`
 
 GetOwner returns the Owner field if non-nil, zero value otherwise.
 
 ### GetOwnerOk
 
-`func (o *RegistryRest) GetOwnerOk() (*string, bool)`
+`func (o *Registry) GetOwnerOk() (*string, bool)`
 
 GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOwner
 
-`func (o *RegistryRest) SetOwner(v string)`
+`func (o *Registry) SetOwner(v string)`
 
 SetOwner sets Owner field to given value.
 
 ### HasOwner
 
-`func (o *RegistryRest) HasOwner() bool`
+`func (o *Registry) HasOwner() bool`
 
 HasOwner returns a boolean if a field has been set.
 
 
 ### GetDescription
 
-`func (o *RegistryRest) GetDescription() string`
+`func (o *Registry) GetDescription() string`
 
 GetDescription returns the Description field if non-nil, zero value otherwise.
 
 ### GetDescriptionOk
 
-`func (o *RegistryRest) GetDescriptionOk() (*string, bool)`
+`func (o *Registry) GetDescriptionOk() (*string, bool)`
 
 GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDescription
 
-`func (o *RegistryRest) SetDescription(v string)`
+`func (o *Registry) SetDescription(v string)`
 
 SetDescription sets Description field to given value.
 
 ### HasDescription
 
-`func (o *RegistryRest) HasDescription() bool`
+`func (o *Registry) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
 
 
 ### GetCreatedAt
 
-`func (o *RegistryRest) GetCreatedAt() time.Time`
+`func (o *Registry) GetCreatedAt() time.Time`
 
 GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
 
 ### GetCreatedAtOk
 
-`func (o *RegistryRest) GetCreatedAtOk() (*time.Time, bool)`
+`func (o *Registry) GetCreatedAtOk() (*time.Time, bool)`
 
 GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedAt
 
-`func (o *RegistryRest) SetCreatedAt(v time.Time)`
+`func (o *Registry) SetCreatedAt(v time.Time)`
 
 SetCreatedAt sets CreatedAt field to given value.
 
@@ -284,20 +284,20 @@ SetCreatedAt sets CreatedAt field to given value.
 
 ### GetUpdatedAt
 
-`func (o *RegistryRest) GetUpdatedAt() time.Time`
+`func (o *Registry) GetUpdatedAt() time.Time`
 
 GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.
 
 ### GetUpdatedAtOk
 
-`func (o *RegistryRest) GetUpdatedAtOk() (*time.Time, bool)`
+`func (o *Registry) GetUpdatedAtOk() (*time.Time, bool)`
 
 GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUpdatedAt
 
-`func (o *RegistryRest) SetUpdatedAt(v time.Time)`
+`func (o *Registry) SetUpdatedAt(v time.Time)`
 
 SetUpdatedAt sets UpdatedAt field to given value.
 

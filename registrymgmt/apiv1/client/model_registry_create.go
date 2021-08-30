@@ -3,7 +3,7 @@
  *
  * Managed Service Registry cloud.redhat.com API Management API that lets you create new registry instances. Registry is a datastore for standard event schemas and API designs. Service Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Registry is an Managed version of upstream project called Apicurio Registry. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.
  *
- * API version: 0.0.5
+ * API version: 0.0.6
  * Contact: rhosak-eval-support@redhat.com
  */
 
@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// RegistryCreateRest Information used to create a new Service Registry instance within a multi-tenant deployment.
-type RegistryCreateRest struct {
+// RegistryCreate Information used to create a new Service Registry instance within a multi-tenant deployment.
+type RegistryCreate struct {
 
 	// User-defined Registry name. Required. Does not have to be unique.
 	Name *string `json:"name,omitempty"`
@@ -26,20 +26,20 @@ type RegistryCreateRest struct {
 
 }
 
-// NewRegistryCreateRest instantiates a new RegistryCreateRest object
+// NewRegistryCreate instantiates a new RegistryCreate object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRegistryCreateRest() *RegistryCreateRest {
-	this := RegistryCreateRest{}
+func NewRegistryCreate() *RegistryCreate {
+	this := RegistryCreate{}
 	return &this
 }
 
-// NewRegistryCreateRestWithDefaults instantiates a new RegistryCreateRest object
+// NewRegistryCreateWithDefaults instantiates a new RegistryCreate object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewRegistryCreateRestWithDefaults() *RegistryCreateRest {
-	this := RegistryCreateRest{}
+func NewRegistryCreateWithDefaults() *RegistryCreate {
+	this := RegistryCreate{}
 
 
 
@@ -48,7 +48,7 @@ func NewRegistryCreateRestWithDefaults() *RegistryCreateRest {
 
 
 // GetName returns the Name field value if set, zero value otherwise.
-func (o *RegistryCreateRest) GetName() string {
+func (o *RegistryCreate) GetName() string {
 	if o == nil || o.Name == nil {
 		var ret string
 		return ret
@@ -58,7 +58,7 @@ func (o *RegistryCreateRest) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RegistryCreateRest) GetNameOk() (*string, bool) {
+func (o *RegistryCreate) GetNameOk() (*string, bool) {
 	if o == nil || o.Name == nil {
 		return nil, false
 	}
@@ -66,7 +66,7 @@ func (o *RegistryCreateRest) GetNameOk() (*string, bool) {
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *RegistryCreateRest) HasName() bool {
+func (o *RegistryCreate) HasName() bool {
 	if o != nil && o.Name != nil {
 		return true
 	}
@@ -75,13 +75,13 @@ func (o *RegistryCreateRest) HasName() bool {
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
-func (o *RegistryCreateRest) SetName(v string) {
+func (o *RegistryCreate) SetName(v string) {
 	o.Name = &v
 }
 
 
 // GetDescription returns the Description field value if set, zero value otherwise.
-func (o *RegistryCreateRest) GetDescription() string {
+func (o *RegistryCreate) GetDescription() string {
 	if o == nil || o.Description == nil {
 		var ret string
 		return ret
@@ -91,7 +91,7 @@ func (o *RegistryCreateRest) GetDescription() string {
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RegistryCreateRest) GetDescriptionOk() (*string, bool) {
+func (o *RegistryCreate) GetDescriptionOk() (*string, bool) {
 	if o == nil || o.Description == nil {
 		return nil, false
 	}
@@ -99,7 +99,7 @@ func (o *RegistryCreateRest) GetDescriptionOk() (*string, bool) {
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *RegistryCreateRest) HasDescription() bool {
+func (o *RegistryCreate) HasDescription() bool {
 	if o != nil && o.Description != nil {
 		return true
 	}
@@ -108,12 +108,12 @@ func (o *RegistryCreateRest) HasDescription() bool {
 }
 
 // SetDescription gets a reference to the given string and assigns it to the Description field.
-func (o *RegistryCreateRest) SetDescription(v string) {
+func (o *RegistryCreate) SetDescription(v string) {
 	o.Description = &v
 }
 
 
-func (o RegistryCreateRest) MarshalJSON() ([]byte, error) {
+func (o RegistryCreate) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if o.Name != nil {
@@ -127,38 +127,38 @@ func (o RegistryCreateRest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableRegistryCreateRest struct {
-	value *RegistryCreateRest
+type NullableRegistryCreate struct {
+	value *RegistryCreate
 	isSet bool
 }
 
-func (v NullableRegistryCreateRest) Get() *RegistryCreateRest {
+func (v NullableRegistryCreate) Get() *RegistryCreate {
 	return v.value
 }
 
-func (v *NullableRegistryCreateRest) Set(val *RegistryCreateRest) {
+func (v *NullableRegistryCreate) Set(val *RegistryCreate) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableRegistryCreateRest) IsSet() bool {
+func (v NullableRegistryCreate) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableRegistryCreateRest) Unset() {
+func (v *NullableRegistryCreate) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableRegistryCreateRest(val *RegistryCreateRest) *NullableRegistryCreateRest {
-	return &NullableRegistryCreateRest{value: val, isSet: true}
+func NewNullableRegistryCreate(val *RegistryCreate) *NullableRegistryCreate {
+	return &NullableRegistryCreate{value: val, isSet: true}
 }
 
-func (v NullableRegistryCreateRest) MarshalJSON() ([]byte, error) {
+func (v NullableRegistryCreate) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableRegistryCreateRest) UnmarshalJSON(src []byte) error {
+func (v *NullableRegistryCreate) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

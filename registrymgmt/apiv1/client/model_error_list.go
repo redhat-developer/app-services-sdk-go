@@ -3,7 +3,7 @@
  *
  * Managed Service Registry cloud.redhat.com API Management API that lets you create new registry instances. Registry is a datastore for standard event schemas and API designs. Service Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Registry is an Managed version of upstream project called Apicurio Registry. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.
  *
- * API version: 0.0.5
+ * API version: 0.0.6
  * Contact: rhosak-eval-support@redhat.com
  */
 
@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// RegistryListRest struct for RegistryListRest
-type RegistryListRest struct {
+// ErrorList struct for ErrorList
+type ErrorList struct {
 
 	Kind string `json:"kind"`
 
@@ -26,16 +26,16 @@ type RegistryListRest struct {
 
 	Total int32 `json:"total"`
 
-	Items []RegistryRest `json:"items"`
+	Items []Error `json:"items"`
 
 }
 
-// NewRegistryListRest instantiates a new RegistryListRest object
+// NewErrorList instantiates a new ErrorList object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRegistryListRest(kind string, page int32, size int32, total int32, items []RegistryRest) *RegistryListRest {
-	this := RegistryListRest{}
+func NewErrorList(kind string, page int32, size int32, total int32, items []Error) *ErrorList {
+	this := ErrorList{}
 	this.Kind = kind
 	this.Page = page
 	this.Size = size
@@ -44,11 +44,11 @@ func NewRegistryListRest(kind string, page int32, size int32, total int32, items
 	return &this
 }
 
-// NewRegistryListRestWithDefaults instantiates a new RegistryListRest object
+// NewErrorListWithDefaults instantiates a new ErrorList object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewRegistryListRestWithDefaults() *RegistryListRest {
-	this := RegistryListRest{}
+func NewErrorListWithDefaults() *ErrorList {
+	this := ErrorList{}
 
 
 
@@ -60,7 +60,7 @@ func NewRegistryListRestWithDefaults() *RegistryListRest {
 
 
 // GetKind returns the Kind field value
-func (o *RegistryListRest) GetKind() string {
+func (o *ErrorList) GetKind() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -71,7 +71,7 @@ func (o *RegistryListRest) GetKind() string {
 
 // GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
-func (o *RegistryListRest) GetKindOk() (*string, bool) {
+func (o *ErrorList) GetKindOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -79,13 +79,13 @@ func (o *RegistryListRest) GetKindOk() (*string, bool) {
 }
 
 // SetKind sets field value
-func (o *RegistryListRest) SetKind(v string) {
+func (o *ErrorList) SetKind(v string) {
 	o.Kind = v
 }
 
 
 // GetPage returns the Page field value
-func (o *RegistryListRest) GetPage() int32 {
+func (o *ErrorList) GetPage() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -96,7 +96,7 @@ func (o *RegistryListRest) GetPage() int32 {
 
 // GetPageOk returns a tuple with the Page field value
 // and a boolean to check if the value has been set.
-func (o *RegistryListRest) GetPageOk() (*int32, bool) {
+func (o *ErrorList) GetPageOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -104,13 +104,13 @@ func (o *RegistryListRest) GetPageOk() (*int32, bool) {
 }
 
 // SetPage sets field value
-func (o *RegistryListRest) SetPage(v int32) {
+func (o *ErrorList) SetPage(v int32) {
 	o.Page = v
 }
 
 
 // GetSize returns the Size field value
-func (o *RegistryListRest) GetSize() int32 {
+func (o *ErrorList) GetSize() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -121,7 +121,7 @@ func (o *RegistryListRest) GetSize() int32 {
 
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
-func (o *RegistryListRest) GetSizeOk() (*int32, bool) {
+func (o *ErrorList) GetSizeOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -129,13 +129,13 @@ func (o *RegistryListRest) GetSizeOk() (*int32, bool) {
 }
 
 // SetSize sets field value
-func (o *RegistryListRest) SetSize(v int32) {
+func (o *ErrorList) SetSize(v int32) {
 	o.Size = v
 }
 
 
 // GetTotal returns the Total field value
-func (o *RegistryListRest) GetTotal() int32 {
+func (o *ErrorList) GetTotal() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -146,7 +146,7 @@ func (o *RegistryListRest) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
-func (o *RegistryListRest) GetTotalOk() (*int32, bool) {
+func (o *ErrorList) GetTotalOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -154,15 +154,15 @@ func (o *RegistryListRest) GetTotalOk() (*int32, bool) {
 }
 
 // SetTotal sets field value
-func (o *RegistryListRest) SetTotal(v int32) {
+func (o *ErrorList) SetTotal(v int32) {
 	o.Total = v
 }
 
 
 // GetItems returns the Items field value
-func (o *RegistryListRest) GetItems() []RegistryRest {
+func (o *ErrorList) GetItems() []Error {
 	if o == nil {
-		var ret []RegistryRest
+		var ret []Error
 		return ret
 	}
 
@@ -171,7 +171,7 @@ func (o *RegistryListRest) GetItems() []RegistryRest {
 
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-func (o *RegistryListRest) GetItemsOk() (*[]RegistryRest, bool) {
+func (o *ErrorList) GetItemsOk() (*[]Error, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -179,12 +179,12 @@ func (o *RegistryListRest) GetItemsOk() (*[]RegistryRest, bool) {
 }
 
 // SetItems sets field value
-func (o *RegistryListRest) SetItems(v []RegistryRest) {
+func (o *ErrorList) SetItems(v []Error) {
 	o.Items = v
 }
 
 
-func (o RegistryListRest) MarshalJSON() ([]byte, error) {
+func (o ErrorList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if true {
@@ -210,38 +210,38 @@ func (o RegistryListRest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableRegistryListRest struct {
-	value *RegistryListRest
+type NullableErrorList struct {
+	value *ErrorList
 	isSet bool
 }
 
-func (v NullableRegistryListRest) Get() *RegistryListRest {
+func (v NullableErrorList) Get() *ErrorList {
 	return v.value
 }
 
-func (v *NullableRegistryListRest) Set(val *RegistryListRest) {
+func (v *NullableErrorList) Set(val *ErrorList) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableRegistryListRest) IsSet() bool {
+func (v NullableErrorList) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableRegistryListRest) Unset() {
+func (v *NullableErrorList) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableRegistryListRest(val *RegistryListRest) *NullableRegistryListRest {
-	return &NullableRegistryListRest{value: val, isSet: true}
+func NewNullableErrorList(val *ErrorList) *NullableErrorList {
+	return &NullableErrorList{value: val, isSet: true}
 }
 
-func (v NullableRegistryListRest) MarshalJSON() ([]byte, error) {
+func (v NullableErrorList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableRegistryListRest) UnmarshalJSON(src []byte) error {
+func (v *NullableErrorList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

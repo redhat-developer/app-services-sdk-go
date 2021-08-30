@@ -3,7 +3,7 @@
  *
  * Managed Service Registry cloud.redhat.com API Management API that lets you create new registry instances. Registry is a datastore for standard event schemas and API designs. Service Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Registry is an Managed version of upstream project called Apicurio Registry. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.
  *
- * API version: 0.0.5
+ * API version: 0.0.6
  * Contact: rhosak-eval-support@redhat.com
  */
 
@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// ObjectReferenceRest struct for ObjectReferenceRest
-type ObjectReferenceRest struct {
+// ObjectReference struct for ObjectReference
+type ObjectReference struct {
 
 	Id *string `json:"id,omitempty"`
 
@@ -26,20 +26,20 @@ type ObjectReferenceRest struct {
 
 }
 
-// NewObjectReferenceRest instantiates a new ObjectReferenceRest object
+// NewObjectReference instantiates a new ObjectReference object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewObjectReferenceRest() *ObjectReferenceRest {
-	this := ObjectReferenceRest{}
+func NewObjectReference() *ObjectReference {
+	this := ObjectReference{}
 	return &this
 }
 
-// NewObjectReferenceRestWithDefaults instantiates a new ObjectReferenceRest object
+// NewObjectReferenceWithDefaults instantiates a new ObjectReference object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewObjectReferenceRestWithDefaults() *ObjectReferenceRest {
-	this := ObjectReferenceRest{}
+func NewObjectReferenceWithDefaults() *ObjectReference {
+	this := ObjectReference{}
 
 
 
@@ -49,7 +49,7 @@ func NewObjectReferenceRestWithDefaults() *ObjectReferenceRest {
 
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *ObjectReferenceRest) GetId() string {
+func (o *ObjectReference) GetId() string {
 	if o == nil || o.Id == nil {
 		var ret string
 		return ret
@@ -59,7 +59,7 @@ func (o *ObjectReferenceRest) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ObjectReferenceRest) GetIdOk() (*string, bool) {
+func (o *ObjectReference) GetIdOk() (*string, bool) {
 	if o == nil || o.Id == nil {
 		return nil, false
 	}
@@ -67,7 +67,7 @@ func (o *ObjectReferenceRest) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ObjectReferenceRest) HasId() bool {
+func (o *ObjectReference) HasId() bool {
 	if o != nil && o.Id != nil {
 		return true
 	}
@@ -76,13 +76,13 @@ func (o *ObjectReferenceRest) HasId() bool {
 }
 
 // SetId gets a reference to the given string and assigns it to the Id field.
-func (o *ObjectReferenceRest) SetId(v string) {
+func (o *ObjectReference) SetId(v string) {
 	o.Id = &v
 }
 
 
 // GetKind returns the Kind field value if set, zero value otherwise.
-func (o *ObjectReferenceRest) GetKind() string {
+func (o *ObjectReference) GetKind() string {
 	if o == nil || o.Kind == nil {
 		var ret string
 		return ret
@@ -92,7 +92,7 @@ func (o *ObjectReferenceRest) GetKind() string {
 
 // GetKindOk returns a tuple with the Kind field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ObjectReferenceRest) GetKindOk() (*string, bool) {
+func (o *ObjectReference) GetKindOk() (*string, bool) {
 	if o == nil || o.Kind == nil {
 		return nil, false
 	}
@@ -100,7 +100,7 @@ func (o *ObjectReferenceRest) GetKindOk() (*string, bool) {
 }
 
 // HasKind returns a boolean if a field has been set.
-func (o *ObjectReferenceRest) HasKind() bool {
+func (o *ObjectReference) HasKind() bool {
 	if o != nil && o.Kind != nil {
 		return true
 	}
@@ -109,13 +109,13 @@ func (o *ObjectReferenceRest) HasKind() bool {
 }
 
 // SetKind gets a reference to the given string and assigns it to the Kind field.
-func (o *ObjectReferenceRest) SetKind(v string) {
+func (o *ObjectReference) SetKind(v string) {
 	o.Kind = &v
 }
 
 
 // GetHref returns the Href field value if set, zero value otherwise.
-func (o *ObjectReferenceRest) GetHref() string {
+func (o *ObjectReference) GetHref() string {
 	if o == nil || o.Href == nil {
 		var ret string
 		return ret
@@ -125,7 +125,7 @@ func (o *ObjectReferenceRest) GetHref() string {
 
 // GetHrefOk returns a tuple with the Href field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ObjectReferenceRest) GetHrefOk() (*string, bool) {
+func (o *ObjectReference) GetHrefOk() (*string, bool) {
 	if o == nil || o.Href == nil {
 		return nil, false
 	}
@@ -133,7 +133,7 @@ func (o *ObjectReferenceRest) GetHrefOk() (*string, bool) {
 }
 
 // HasHref returns a boolean if a field has been set.
-func (o *ObjectReferenceRest) HasHref() bool {
+func (o *ObjectReference) HasHref() bool {
 	if o != nil && o.Href != nil {
 		return true
 	}
@@ -142,12 +142,12 @@ func (o *ObjectReferenceRest) HasHref() bool {
 }
 
 // SetHref gets a reference to the given string and assigns it to the Href field.
-func (o *ObjectReferenceRest) SetHref(v string) {
+func (o *ObjectReference) SetHref(v string) {
 	o.Href = &v
 }
 
 
-func (o ObjectReferenceRest) MarshalJSON() ([]byte, error) {
+func (o ObjectReference) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if o.Id != nil {
@@ -165,38 +165,38 @@ func (o ObjectReferenceRest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableObjectReferenceRest struct {
-	value *ObjectReferenceRest
+type NullableObjectReference struct {
+	value *ObjectReference
 	isSet bool
 }
 
-func (v NullableObjectReferenceRest) Get() *ObjectReferenceRest {
+func (v NullableObjectReference) Get() *ObjectReference {
 	return v.value
 }
 
-func (v *NullableObjectReferenceRest) Set(val *ObjectReferenceRest) {
+func (v *NullableObjectReference) Set(val *ObjectReference) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableObjectReferenceRest) IsSet() bool {
+func (v NullableObjectReference) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableObjectReferenceRest) Unset() {
+func (v *NullableObjectReference) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableObjectReferenceRest(val *ObjectReferenceRest) *NullableObjectReferenceRest {
-	return &NullableObjectReferenceRest{value: val, isSet: true}
+func NewNullableObjectReference(val *ObjectReference) *NullableObjectReference {
+	return &NullableObjectReference{value: val, isSet: true}
 }
 
-func (v NullableObjectReferenceRest) MarshalJSON() ([]byte, error) {
+func (v NullableObjectReference) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableObjectReferenceRest) UnmarshalJSON(src []byte) error {
+func (v *NullableObjectReference) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

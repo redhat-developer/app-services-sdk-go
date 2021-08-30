@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## CreateRegistry
 
-> RegistryRest CreateRegistry(ctx).RegistryCreateRest(registryCreateRest).Execute()
+> Registry CreateRegistry(ctx).RegistryCreate(registryCreate).Execute()
 
 Create a new Registry instance
 
@@ -30,16 +30,16 @@ import (
 )
 
 func main() {
-    registryCreateRest := *openapiclient.NewRegistryCreateRest() // RegistryCreateRest | A new `Registry` to be created.
+    registryCreate := *openapiclient.NewRegistryCreate() // RegistryCreate | A new `Registry` to be created.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.RegistriesApi.CreateRegistry(context.Background()).RegistryCreateRest(registryCreateRest).Execute()
+    resp, r, err := api_client.RegistriesApi.CreateRegistry(context.Background()).RegistryCreate(registryCreate).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistriesApi.CreateRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateRegistry`: RegistryRest
+    // response from `CreateRegistry`: Registry
     fmt.Fprintf(os.Stdout, "Response from `RegistriesApi.CreateRegistry`: %v\n", resp)
 }
 ```
@@ -55,11 +55,11 @@ Other parameters are passed through a pointer to a apiCreateRegistryRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **registryCreateRest** | [**RegistryCreateRest**](RegistryCreateRest.md) | A new &#x60;Registry&#x60; to be created. | 
+ **registryCreate** | [**RegistryCreate**](RegistryCreate.md) | A new &#x60;Registry&#x60; to be created. | 
 
 ### Return type
 
-[**RegistryRest**](RegistryRest.md)
+[**Registry**](Registry.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ## GetRegistries
 
-> RegistryListRest GetRegistries(ctx).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
+> RegistryList GetRegistries(ctx).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
 
 Get the list of all registries.
 
@@ -174,7 +174,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistriesApi.GetRegistries``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetRegistries`: RegistryListRest
+    // response from `GetRegistries`: RegistryList
     fmt.Fprintf(os.Stdout, "Response from `RegistriesApi.GetRegistries`: %v\n", resp)
 }
 ```
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RegistryListRest**](RegistryListRest.md)
+[**RegistryList**](RegistryList.md)
 
 ### Authorization
 
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ## GetRegistry
 
-> RegistryRest GetRegistry(ctx, id).Execute()
+> Registry GetRegistry(ctx, id).Execute()
 
 Get a Registry
 
@@ -243,7 +243,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `RegistriesApi.GetRegistry``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetRegistry`: RegistryRest
+    // response from `GetRegistry`: Registry
     fmt.Fprintf(os.Stdout, "Response from `RegistriesApi.GetRegistry`: %v\n", resp)
 }
 ```
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RegistryRest**](RegistryRest.md)
+[**Registry**](Registry.md)
 
 ### Authorization
 

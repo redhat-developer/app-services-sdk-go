@@ -1,51 +1,56 @@
-# RegistryListRestAllOf
+# ErrorListAllOf
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]RegistryRest**](RegistryRest.md) |  | 
+**Items** | Pointer to [**[]Error**](Error.md) |  | [optional] 
 
 
 ## Methods
 
-### NewRegistryListRestAllOf
+### NewErrorListAllOf
 
-`func NewRegistryListRestAllOf(items []RegistryRest, ) *RegistryListRestAllOf`
+`func NewErrorListAllOf() *ErrorListAllOf`
 
-NewRegistryListRestAllOf instantiates a new RegistryListRestAllOf object
+NewErrorListAllOf instantiates a new ErrorListAllOf object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewRegistryListRestAllOfWithDefaults
+### NewErrorListAllOfWithDefaults
 
-`func NewRegistryListRestAllOfWithDefaults() *RegistryListRestAllOf`
+`func NewErrorListAllOfWithDefaults() *ErrorListAllOf`
 
-NewRegistryListRestAllOfWithDefaults instantiates a new RegistryListRestAllOf object
+NewErrorListAllOfWithDefaults instantiates a new ErrorListAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 
 ### GetItems
 
-`func (o *RegistryListRestAllOf) GetItems() []RegistryRest`
+`func (o *ErrorListAllOf) GetItems() []Error`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *RegistryListRestAllOf) GetItemsOk() (*[]RegistryRest, bool)`
+`func (o *ErrorListAllOf) GetItemsOk() (*[]Error, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *RegistryListRestAllOf) SetItems(v []RegistryRest)`
+`func (o *ErrorListAllOf) SetItems(v []Error)`
 
 SetItems sets Items field to given value.
 
+### HasItems
+
+`func (o *ErrorListAllOf) HasItems() bool`
+
+HasItems returns a boolean if a field has been set.
 
 
 
