@@ -3,7 +3,7 @@
  *
  * Managed Service Registry cloud.redhat.com API Management API that lets you create new registry instances. Registry is a datastore for standard event schemas and API designs. Service Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Registry is an Managed version of upstream project called Apicurio Registry. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.
  *
- * API version: 0.0.5
+ * API version: 0.0.6
  * Contact: rhosak-eval-support@redhat.com
  */
 
@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// ErrorRestAllOf struct for ErrorRestAllOf
-type ErrorRestAllOf struct {
+// ErrorAllOf struct for ErrorAllOf
+type ErrorAllOf struct {
 
 	Code *string `json:"code,omitempty"`
 
@@ -26,20 +26,20 @@ type ErrorRestAllOf struct {
 
 }
 
-// NewErrorRestAllOf instantiates a new ErrorRestAllOf object
+// NewErrorAllOf instantiates a new ErrorAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewErrorRestAllOf() *ErrorRestAllOf {
-	this := ErrorRestAllOf{}
+func NewErrorAllOf() *ErrorAllOf {
+	this := ErrorAllOf{}
 	return &this
 }
 
-// NewErrorRestAllOfWithDefaults instantiates a new ErrorRestAllOf object
+// NewErrorAllOfWithDefaults instantiates a new ErrorAllOf object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewErrorRestAllOfWithDefaults() *ErrorRestAllOf {
-	this := ErrorRestAllOf{}
+func NewErrorAllOfWithDefaults() *ErrorAllOf {
+	this := ErrorAllOf{}
 
 
 
@@ -49,7 +49,7 @@ func NewErrorRestAllOfWithDefaults() *ErrorRestAllOf {
 
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *ErrorRestAllOf) GetCode() string {
+func (o *ErrorAllOf) GetCode() string {
 	if o == nil || o.Code == nil {
 		var ret string
 		return ret
@@ -59,7 +59,7 @@ func (o *ErrorRestAllOf) GetCode() string {
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ErrorRestAllOf) GetCodeOk() (*string, bool) {
+func (o *ErrorAllOf) GetCodeOk() (*string, bool) {
 	if o == nil || o.Code == nil {
 		return nil, false
 	}
@@ -67,7 +67,7 @@ func (o *ErrorRestAllOf) GetCodeOk() (*string, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *ErrorRestAllOf) HasCode() bool {
+func (o *ErrorAllOf) HasCode() bool {
 	if o != nil && o.Code != nil {
 		return true
 	}
@@ -76,13 +76,13 @@ func (o *ErrorRestAllOf) HasCode() bool {
 }
 
 // SetCode gets a reference to the given string and assigns it to the Code field.
-func (o *ErrorRestAllOf) SetCode(v string) {
+func (o *ErrorAllOf) SetCode(v string) {
 	o.Code = &v
 }
 
 
 // GetReason returns the Reason field value if set, zero value otherwise.
-func (o *ErrorRestAllOf) GetReason() string {
+func (o *ErrorAllOf) GetReason() string {
 	if o == nil || o.Reason == nil {
 		var ret string
 		return ret
@@ -92,7 +92,7 @@ func (o *ErrorRestAllOf) GetReason() string {
 
 // GetReasonOk returns a tuple with the Reason field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ErrorRestAllOf) GetReasonOk() (*string, bool) {
+func (o *ErrorAllOf) GetReasonOk() (*string, bool) {
 	if o == nil || o.Reason == nil {
 		return nil, false
 	}
@@ -100,7 +100,7 @@ func (o *ErrorRestAllOf) GetReasonOk() (*string, bool) {
 }
 
 // HasReason returns a boolean if a field has been set.
-func (o *ErrorRestAllOf) HasReason() bool {
+func (o *ErrorAllOf) HasReason() bool {
 	if o != nil && o.Reason != nil {
 		return true
 	}
@@ -109,13 +109,13 @@ func (o *ErrorRestAllOf) HasReason() bool {
 }
 
 // SetReason gets a reference to the given string and assigns it to the Reason field.
-func (o *ErrorRestAllOf) SetReason(v string) {
+func (o *ErrorAllOf) SetReason(v string) {
 	o.Reason = &v
 }
 
 
 // GetOperationId returns the OperationId field value if set, zero value otherwise.
-func (o *ErrorRestAllOf) GetOperationId() string {
+func (o *ErrorAllOf) GetOperationId() string {
 	if o == nil || o.OperationId == nil {
 		var ret string
 		return ret
@@ -125,7 +125,7 @@ func (o *ErrorRestAllOf) GetOperationId() string {
 
 // GetOperationIdOk returns a tuple with the OperationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ErrorRestAllOf) GetOperationIdOk() (*string, bool) {
+func (o *ErrorAllOf) GetOperationIdOk() (*string, bool) {
 	if o == nil || o.OperationId == nil {
 		return nil, false
 	}
@@ -133,7 +133,7 @@ func (o *ErrorRestAllOf) GetOperationIdOk() (*string, bool) {
 }
 
 // HasOperationId returns a boolean if a field has been set.
-func (o *ErrorRestAllOf) HasOperationId() bool {
+func (o *ErrorAllOf) HasOperationId() bool {
 	if o != nil && o.OperationId != nil {
 		return true
 	}
@@ -142,12 +142,12 @@ func (o *ErrorRestAllOf) HasOperationId() bool {
 }
 
 // SetOperationId gets a reference to the given string and assigns it to the OperationId field.
-func (o *ErrorRestAllOf) SetOperationId(v string) {
+func (o *ErrorAllOf) SetOperationId(v string) {
 	o.OperationId = &v
 }
 
 
-func (o ErrorRestAllOf) MarshalJSON() ([]byte, error) {
+func (o ErrorAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if o.Code != nil {
@@ -165,38 +165,38 @@ func (o ErrorRestAllOf) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableErrorRestAllOf struct {
-	value *ErrorRestAllOf
+type NullableErrorAllOf struct {
+	value *ErrorAllOf
 	isSet bool
 }
 
-func (v NullableErrorRestAllOf) Get() *ErrorRestAllOf {
+func (v NullableErrorAllOf) Get() *ErrorAllOf {
 	return v.value
 }
 
-func (v *NullableErrorRestAllOf) Set(val *ErrorRestAllOf) {
+func (v *NullableErrorAllOf) Set(val *ErrorAllOf) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableErrorRestAllOf) IsSet() bool {
+func (v NullableErrorAllOf) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableErrorRestAllOf) Unset() {
+func (v *NullableErrorAllOf) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableErrorRestAllOf(val *ErrorRestAllOf) *NullableErrorRestAllOf {
-	return &NullableErrorRestAllOf{value: val, isSet: true}
+func NewNullableErrorAllOf(val *ErrorAllOf) *NullableErrorAllOf {
+	return &NullableErrorAllOf{value: val, isSet: true}
 }
 
-func (v NullableErrorRestAllOf) MarshalJSON() ([]byte, error) {
+func (v NullableErrorAllOf) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableErrorRestAllOf) UnmarshalJSON(src []byte) error {
+func (v *NullableErrorAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

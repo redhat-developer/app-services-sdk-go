@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Status** | [**RegistryStatusValueRest**](RegistryStatusValueRest.md) |  | 
+**Status** | [**RegistryStatusValue**](RegistryStatusValue.md) |  | 
 **RegistryUrl** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** | User-defined Registry name. Does not have to be unique. | [optional] 
 **RegistryDeploymentId** | Pointer to **int32** | Identifier of a multi-tenant deployment, where this Service Registry instance resides. | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewRootTypeForRegistry
 
-`func NewRootTypeForRegistry(id string, status RegistryStatusValueRest, createdAt time.Time, updatedAt time.Time, ) *RootTypeForRegistry`
+`func NewRootTypeForRegistry(id string, status RegistryStatusValue, createdAt time.Time, updatedAt time.Time, ) *RootTypeForRegistry`
 
 NewRootTypeForRegistry instantiates a new RootTypeForRegistry object
 This constructor will assign default values to properties that have it defined,
@@ -58,20 +58,20 @@ SetId sets Id field to given value.
 
 ### GetStatus
 
-`func (o *RootTypeForRegistry) GetStatus() RegistryStatusValueRest`
+`func (o *RootTypeForRegistry) GetStatus() RegistryStatusValue`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *RootTypeForRegistry) GetStatusOk() (*RegistryStatusValueRest, bool)`
+`func (o *RootTypeForRegistry) GetStatusOk() (*RegistryStatusValue, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *RootTypeForRegistry) SetStatus(v RegistryStatusValueRest)`
+`func (o *RootTypeForRegistry) SetStatus(v RegistryStatusValue)`
 
 SetStatus sets Status field to given value.
 

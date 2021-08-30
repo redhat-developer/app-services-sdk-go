@@ -1,4 +1,4 @@
-# RegistryStatusValueRest
+# RegistryStatusValue
 
 ## Enum
 

@@ -1,4 +1,4 @@
-# ErrorListRest
+# ErrorList
 
 ## Properties
 
@@ -8,45 +8,45 @@ Name | Type | Description | Notes
 **Page** | **int32** |  | 
 **Size** | **int32** |  | 
 **Total** | **int32** |  | 
-**Items** | [**[]ErrorRest**](ErrorRest.md) |  | 
+**Items** | [**[]Error**](Error.md) |  | 
 
 
 ## Methods
 
-### NewErrorListRest
+### NewErrorList
 
-`func NewErrorListRest(kind string, page int32, size int32, total int32, items []ErrorRest, ) *ErrorListRest`
+`func NewErrorList(kind string, page int32, size int32, total int32, items []Error, ) *ErrorList`
 
-NewErrorListRest instantiates a new ErrorListRest object
+NewErrorList instantiates a new ErrorList object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewErrorListRestWithDefaults
+### NewErrorListWithDefaults
 
-`func NewErrorListRestWithDefaults() *ErrorListRest`
+`func NewErrorListWithDefaults() *ErrorList`
 
-NewErrorListRestWithDefaults instantiates a new ErrorListRest object
+NewErrorListWithDefaults instantiates a new ErrorList object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 
 ### GetKind
 
-`func (o *ErrorListRest) GetKind() string`
+`func (o *ErrorList) GetKind() string`
 
 GetKind returns the Kind field if non-nil, zero value otherwise.
 
 ### GetKindOk
 
-`func (o *ErrorListRest) GetKindOk() (*string, bool)`
+`func (o *ErrorList) GetKindOk() (*string, bool)`
 
 GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKind
 
-`func (o *ErrorListRest) SetKind(v string)`
+`func (o *ErrorList) SetKind(v string)`
 
 SetKind sets Kind field to given value.
 
@@ -54,20 +54,20 @@ SetKind sets Kind field to given value.
 
 ### GetPage
 
-`func (o *ErrorListRest) GetPage() int32`
+`func (o *ErrorList) GetPage() int32`
 
 GetPage returns the Page field if non-nil, zero value otherwise.
 
 ### GetPageOk
 
-`func (o *ErrorListRest) GetPageOk() (*int32, bool)`
+`func (o *ErrorList) GetPageOk() (*int32, bool)`
 
 GetPageOk returns a tuple with the Page field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPage
 
-`func (o *ErrorListRest) SetPage(v int32)`
+`func (o *ErrorList) SetPage(v int32)`
 
 SetPage sets Page field to given value.
 
@@ -75,20 +75,20 @@ SetPage sets Page field to given value.
 
 ### GetSize
 
-`func (o *ErrorListRest) GetSize() int32`
+`func (o *ErrorList) GetSize() int32`
 
 GetSize returns the Size field if non-nil, zero value otherwise.
 
 ### GetSizeOk
 
-`func (o *ErrorListRest) GetSizeOk() (*int32, bool)`
+`func (o *ErrorList) GetSizeOk() (*int32, bool)`
 
 GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSize
 
-`func (o *ErrorListRest) SetSize(v int32)`
+`func (o *ErrorList) SetSize(v int32)`
 
 SetSize sets Size field to given value.
 
@@ -96,20 +96,20 @@ SetSize sets Size field to given value.
 
 ### GetTotal
 
-`func (o *ErrorListRest) GetTotal() int32`
+`func (o *ErrorList) GetTotal() int32`
 
 GetTotal returns the Total field if non-nil, zero value otherwise.
 
 ### GetTotalOk
 
-`func (o *ErrorListRest) GetTotalOk() (*int32, bool)`
+`func (o *ErrorList) GetTotalOk() (*int32, bool)`
 
 GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTotal
 
-`func (o *ErrorListRest) SetTotal(v int32)`
+`func (o *ErrorList) SetTotal(v int32)`
 
 SetTotal sets Total field to given value.
 
@@ -117,20 +117,20 @@ SetTotal sets Total field to given value.
 
 ### GetItems
 
-`func (o *ErrorListRest) GetItems() []ErrorRest`
+`func (o *ErrorList) GetItems() []Error`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *ErrorListRest) GetItemsOk() (*[]ErrorRest, bool)`
+`func (o *ErrorList) GetItemsOk() (*[]Error, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *ErrorListRest) SetItems(v []ErrorRest)`
+`func (o *ErrorList) SetItems(v []Error)`
 
 SetItems sets Items field to given value.
 

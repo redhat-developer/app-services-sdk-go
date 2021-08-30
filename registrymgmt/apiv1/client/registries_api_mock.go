@@ -22,7 +22,7 @@ var _ RegistriesApi = &RegistriesApiMock{}
 // 			CreateRegistryFunc: func(ctx _context.Context) ApiCreateRegistryRequest {
 // 				panic("mock out the CreateRegistry method")
 // 			},
-// 			CreateRegistryExecuteFunc: func(r ApiCreateRegistryRequest) (RegistryRest, *_nethttp.Response, error) {
+// 			CreateRegistryExecuteFunc: func(r ApiCreateRegistryRequest) (Registry, *_nethttp.Response, error) {
 // 				panic("mock out the CreateRegistryExecute method")
 // 			},
 // 			DeleteRegistryFunc: func(ctx _context.Context, id string) ApiDeleteRegistryRequest {
@@ -34,13 +34,13 @@ var _ RegistriesApi = &RegistriesApiMock{}
 // 			GetRegistriesFunc: func(ctx _context.Context) ApiGetRegistriesRequest {
 // 				panic("mock out the GetRegistries method")
 // 			},
-// 			GetRegistriesExecuteFunc: func(r ApiGetRegistriesRequest) (RegistryListRest, *_nethttp.Response, error) {
+// 			GetRegistriesExecuteFunc: func(r ApiGetRegistriesRequest) (RegistryList, *_nethttp.Response, error) {
 // 				panic("mock out the GetRegistriesExecute method")
 // 			},
 // 			GetRegistryFunc: func(ctx _context.Context, id string) ApiGetRegistryRequest {
 // 				panic("mock out the GetRegistry method")
 // 			},
-// 			GetRegistryExecuteFunc: func(r ApiGetRegistryRequest) (RegistryRest, *_nethttp.Response, error) {
+// 			GetRegistryExecuteFunc: func(r ApiGetRegistryRequest) (Registry, *_nethttp.Response, error) {
 // 				panic("mock out the GetRegistryExecute method")
 // 			},
 // 		}
@@ -54,7 +54,7 @@ type RegistriesApiMock struct {
 	CreateRegistryFunc func(ctx _context.Context) ApiCreateRegistryRequest
 
 	// CreateRegistryExecuteFunc mocks the CreateRegistryExecute method.
-	CreateRegistryExecuteFunc func(r ApiCreateRegistryRequest) (RegistryRest, *_nethttp.Response, error)
+	CreateRegistryExecuteFunc func(r ApiCreateRegistryRequest) (Registry, *_nethttp.Response, error)
 
 	// DeleteRegistryFunc mocks the DeleteRegistry method.
 	DeleteRegistryFunc func(ctx _context.Context, id string) ApiDeleteRegistryRequest
@@ -66,13 +66,13 @@ type RegistriesApiMock struct {
 	GetRegistriesFunc func(ctx _context.Context) ApiGetRegistriesRequest
 
 	// GetRegistriesExecuteFunc mocks the GetRegistriesExecute method.
-	GetRegistriesExecuteFunc func(r ApiGetRegistriesRequest) (RegistryListRest, *_nethttp.Response, error)
+	GetRegistriesExecuteFunc func(r ApiGetRegistriesRequest) (RegistryList, *_nethttp.Response, error)
 
 	// GetRegistryFunc mocks the GetRegistry method.
 	GetRegistryFunc func(ctx _context.Context, id string) ApiGetRegistryRequest
 
 	// GetRegistryExecuteFunc mocks the GetRegistryExecute method.
-	GetRegistryExecuteFunc func(r ApiGetRegistryRequest) (RegistryRest, *_nethttp.Response, error)
+	GetRegistryExecuteFunc func(r ApiGetRegistryRequest) (Registry, *_nethttp.Response, error)
 
 	// calls tracks calls to the methods.
 	calls struct {
@@ -163,7 +163,7 @@ func (mock *RegistriesApiMock) CreateRegistryCalls() []struct {
 }
 
 // CreateRegistryExecute calls CreateRegistryExecuteFunc.
-func (mock *RegistriesApiMock) CreateRegistryExecute(r ApiCreateRegistryRequest) (RegistryRest, *_nethttp.Response, error) {
+func (mock *RegistriesApiMock) CreateRegistryExecute(r ApiCreateRegistryRequest) (Registry, *_nethttp.Response, error) {
 	if mock.CreateRegistryExecuteFunc == nil {
 		panic("RegistriesApiMock.CreateRegistryExecuteFunc: method is nil but RegistriesApi.CreateRegistryExecute was just called")
 	}
@@ -291,7 +291,7 @@ func (mock *RegistriesApiMock) GetRegistriesCalls() []struct {
 }
 
 // GetRegistriesExecute calls GetRegistriesExecuteFunc.
-func (mock *RegistriesApiMock) GetRegistriesExecute(r ApiGetRegistriesRequest) (RegistryListRest, *_nethttp.Response, error) {
+func (mock *RegistriesApiMock) GetRegistriesExecute(r ApiGetRegistriesRequest) (RegistryList, *_nethttp.Response, error) {
 	if mock.GetRegistriesExecuteFunc == nil {
 		panic("RegistriesApiMock.GetRegistriesExecuteFunc: method is nil but RegistriesApi.GetRegistriesExecute was just called")
 	}
@@ -357,7 +357,7 @@ func (mock *RegistriesApiMock) GetRegistryCalls() []struct {
 }
 
 // GetRegistryExecute calls GetRegistryExecuteFunc.
-func (mock *RegistriesApiMock) GetRegistryExecute(r ApiGetRegistryRequest) (RegistryRest, *_nethttp.Response, error) {
+func (mock *RegistriesApiMock) GetRegistryExecute(r ApiGetRegistryRequest) (Registry, *_nethttp.Response, error) {
 	if mock.GetRegistryExecuteFunc == nil {
 		panic("RegistriesApiMock.GetRegistryExecuteFunc: method is nil but RegistriesApi.GetRegistryExecute was just called")
 	}

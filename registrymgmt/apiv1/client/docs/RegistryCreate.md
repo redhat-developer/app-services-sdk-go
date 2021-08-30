@@ -1,4 +1,4 @@
-# RegistryCreateRest
+# RegistryCreate
 
 ## Properties
 
@@ -10,72 +10,72 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewRegistryCreateRest
+### NewRegistryCreate
 
-`func NewRegistryCreateRest() *RegistryCreateRest`
+`func NewRegistryCreate() *RegistryCreate`
 
-NewRegistryCreateRest instantiates a new RegistryCreateRest object
+NewRegistryCreate instantiates a new RegistryCreate object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewRegistryCreateRestWithDefaults
+### NewRegistryCreateWithDefaults
 
-`func NewRegistryCreateRestWithDefaults() *RegistryCreateRest`
+`func NewRegistryCreateWithDefaults() *RegistryCreate`
 
-NewRegistryCreateRestWithDefaults instantiates a new RegistryCreateRest object
+NewRegistryCreateWithDefaults instantiates a new RegistryCreate object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 
 ### GetName
 
-`func (o *RegistryCreateRest) GetName() string`
+`func (o *RegistryCreate) GetName() string`
 
 GetName returns the Name field if non-nil, zero value otherwise.
 
 ### GetNameOk
 
-`func (o *RegistryCreateRest) GetNameOk() (*string, bool)`
+`func (o *RegistryCreate) GetNameOk() (*string, bool)`
 
 GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetName
 
-`func (o *RegistryCreateRest) SetName(v string)`
+`func (o *RegistryCreate) SetName(v string)`
 
 SetName sets Name field to given value.
 
 ### HasName
 
-`func (o *RegistryCreateRest) HasName() bool`
+`func (o *RegistryCreate) HasName() bool`
 
 HasName returns a boolean if a field has been set.
 
 
 ### GetDescription
 
-`func (o *RegistryCreateRest) GetDescription() string`
+`func (o *RegistryCreate) GetDescription() string`
 
 GetDescription returns the Description field if non-nil, zero value otherwise.
 
 ### GetDescriptionOk
 
-`func (o *RegistryCreateRest) GetDescriptionOk() (*string, bool)`
+`func (o *RegistryCreate) GetDescriptionOk() (*string, bool)`
 
 GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDescription
 
-`func (o *RegistryCreateRest) SetDescription(v string)`
+`func (o *RegistryCreate) SetDescription(v string)`
 
 SetDescription sets Description field to given value.
 
 ### HasDescription
 
-`func (o *RegistryCreateRest) HasDescription() bool`
+`func (o *RegistryCreate) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
 

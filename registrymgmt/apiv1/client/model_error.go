@@ -3,7 +3,7 @@
  *
  * Managed Service Registry cloud.redhat.com API Management API that lets you create new registry instances. Registry is a datastore for standard event schemas and API designs. Service Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Registry is an Managed version of upstream project called Apicurio Registry. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.
  *
- * API version: 0.0.5
+ * API version: 0.0.6
  * Contact: rhosak-eval-support@redhat.com
  */
 
@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// ErrorRest struct for ErrorRest
-type ErrorRest struct {
+// Error struct for Error
+type Error struct {
 
 	Id *string `json:"id,omitempty"`
 
@@ -32,20 +32,20 @@ type ErrorRest struct {
 
 }
 
-// NewErrorRest instantiates a new ErrorRest object
+// NewError instantiates a new Error object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewErrorRest() *ErrorRest {
-	this := ErrorRest{}
+func NewError() *Error {
+	this := Error{}
 	return &this
 }
 
-// NewErrorRestWithDefaults instantiates a new ErrorRest object
+// NewErrorWithDefaults instantiates a new Error object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewErrorRestWithDefaults() *ErrorRest {
-	this := ErrorRest{}
+func NewErrorWithDefaults() *Error {
+	this := Error{}
 
 
 
@@ -58,7 +58,7 @@ func NewErrorRestWithDefaults() *ErrorRest {
 
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *ErrorRest) GetId() string {
+func (o *Error) GetId() string {
 	if o == nil || o.Id == nil {
 		var ret string
 		return ret
@@ -68,7 +68,7 @@ func (o *ErrorRest) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ErrorRest) GetIdOk() (*string, bool) {
+func (o *Error) GetIdOk() (*string, bool) {
 	if o == nil || o.Id == nil {
 		return nil, false
 	}
@@ -76,7 +76,7 @@ func (o *ErrorRest) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ErrorRest) HasId() bool {
+func (o *Error) HasId() bool {
 	if o != nil && o.Id != nil {
 		return true
 	}
@@ -85,13 +85,13 @@ func (o *ErrorRest) HasId() bool {
 }
 
 // SetId gets a reference to the given string and assigns it to the Id field.
-func (o *ErrorRest) SetId(v string) {
+func (o *Error) SetId(v string) {
 	o.Id = &v
 }
 
 
 // GetKind returns the Kind field value if set, zero value otherwise.
-func (o *ErrorRest) GetKind() string {
+func (o *Error) GetKind() string {
 	if o == nil || o.Kind == nil {
 		var ret string
 		return ret
@@ -101,7 +101,7 @@ func (o *ErrorRest) GetKind() string {
 
 // GetKindOk returns a tuple with the Kind field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ErrorRest) GetKindOk() (*string, bool) {
+func (o *Error) GetKindOk() (*string, bool) {
 	if o == nil || o.Kind == nil {
 		return nil, false
 	}
@@ -109,7 +109,7 @@ func (o *ErrorRest) GetKindOk() (*string, bool) {
 }
 
 // HasKind returns a boolean if a field has been set.
-func (o *ErrorRest) HasKind() bool {
+func (o *Error) HasKind() bool {
 	if o != nil && o.Kind != nil {
 		return true
 	}
@@ -118,13 +118,13 @@ func (o *ErrorRest) HasKind() bool {
 }
 
 // SetKind gets a reference to the given string and assigns it to the Kind field.
-func (o *ErrorRest) SetKind(v string) {
+func (o *Error) SetKind(v string) {
 	o.Kind = &v
 }
 
 
 // GetHref returns the Href field value if set, zero value otherwise.
-func (o *ErrorRest) GetHref() string {
+func (o *Error) GetHref() string {
 	if o == nil || o.Href == nil {
 		var ret string
 		return ret
@@ -134,7 +134,7 @@ func (o *ErrorRest) GetHref() string {
 
 // GetHrefOk returns a tuple with the Href field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ErrorRest) GetHrefOk() (*string, bool) {
+func (o *Error) GetHrefOk() (*string, bool) {
 	if o == nil || o.Href == nil {
 		return nil, false
 	}
@@ -142,7 +142,7 @@ func (o *ErrorRest) GetHrefOk() (*string, bool) {
 }
 
 // HasHref returns a boolean if a field has been set.
-func (o *ErrorRest) HasHref() bool {
+func (o *Error) HasHref() bool {
 	if o != nil && o.Href != nil {
 		return true
 	}
@@ -151,13 +151,13 @@ func (o *ErrorRest) HasHref() bool {
 }
 
 // SetHref gets a reference to the given string and assigns it to the Href field.
-func (o *ErrorRest) SetHref(v string) {
+func (o *Error) SetHref(v string) {
 	o.Href = &v
 }
 
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *ErrorRest) GetCode() string {
+func (o *Error) GetCode() string {
 	if o == nil || o.Code == nil {
 		var ret string
 		return ret
@@ -167,7 +167,7 @@ func (o *ErrorRest) GetCode() string {
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ErrorRest) GetCodeOk() (*string, bool) {
+func (o *Error) GetCodeOk() (*string, bool) {
 	if o == nil || o.Code == nil {
 		return nil, false
 	}
@@ -175,7 +175,7 @@ func (o *ErrorRest) GetCodeOk() (*string, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *ErrorRest) HasCode() bool {
+func (o *Error) HasCode() bool {
 	if o != nil && o.Code != nil {
 		return true
 	}
@@ -184,13 +184,13 @@ func (o *ErrorRest) HasCode() bool {
 }
 
 // SetCode gets a reference to the given string and assigns it to the Code field.
-func (o *ErrorRest) SetCode(v string) {
+func (o *Error) SetCode(v string) {
 	o.Code = &v
 }
 
 
 // GetReason returns the Reason field value if set, zero value otherwise.
-func (o *ErrorRest) GetReason() string {
+func (o *Error) GetReason() string {
 	if o == nil || o.Reason == nil {
 		var ret string
 		return ret
@@ -200,7 +200,7 @@ func (o *ErrorRest) GetReason() string {
 
 // GetReasonOk returns a tuple with the Reason field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ErrorRest) GetReasonOk() (*string, bool) {
+func (o *Error) GetReasonOk() (*string, bool) {
 	if o == nil || o.Reason == nil {
 		return nil, false
 	}
@@ -208,7 +208,7 @@ func (o *ErrorRest) GetReasonOk() (*string, bool) {
 }
 
 // HasReason returns a boolean if a field has been set.
-func (o *ErrorRest) HasReason() bool {
+func (o *Error) HasReason() bool {
 	if o != nil && o.Reason != nil {
 		return true
 	}
@@ -217,13 +217,13 @@ func (o *ErrorRest) HasReason() bool {
 }
 
 // SetReason gets a reference to the given string and assigns it to the Reason field.
-func (o *ErrorRest) SetReason(v string) {
+func (o *Error) SetReason(v string) {
 	o.Reason = &v
 }
 
 
 // GetOperationId returns the OperationId field value if set, zero value otherwise.
-func (o *ErrorRest) GetOperationId() string {
+func (o *Error) GetOperationId() string {
 	if o == nil || o.OperationId == nil {
 		var ret string
 		return ret
@@ -233,7 +233,7 @@ func (o *ErrorRest) GetOperationId() string {
 
 // GetOperationIdOk returns a tuple with the OperationId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ErrorRest) GetOperationIdOk() (*string, bool) {
+func (o *Error) GetOperationIdOk() (*string, bool) {
 	if o == nil || o.OperationId == nil {
 		return nil, false
 	}
@@ -241,7 +241,7 @@ func (o *ErrorRest) GetOperationIdOk() (*string, bool) {
 }
 
 // HasOperationId returns a boolean if a field has been set.
-func (o *ErrorRest) HasOperationId() bool {
+func (o *Error) HasOperationId() bool {
 	if o != nil && o.OperationId != nil {
 		return true
 	}
@@ -250,12 +250,12 @@ func (o *ErrorRest) HasOperationId() bool {
 }
 
 // SetOperationId gets a reference to the given string and assigns it to the OperationId field.
-func (o *ErrorRest) SetOperationId(v string) {
+func (o *Error) SetOperationId(v string) {
 	o.OperationId = &v
 }
 
 
-func (o ErrorRest) MarshalJSON() ([]byte, error) {
+func (o Error) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if o.Id != nil {
@@ -285,38 +285,38 @@ func (o ErrorRest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableErrorRest struct {
-	value *ErrorRest
+type NullableError struct {
+	value *Error
 	isSet bool
 }
 
-func (v NullableErrorRest) Get() *ErrorRest {
+func (v NullableError) Get() *Error {
 	return v.value
 }
 
-func (v *NullableErrorRest) Set(val *ErrorRest) {
+func (v *NullableError) Set(val *Error) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableErrorRest) IsSet() bool {
+func (v NullableError) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableErrorRest) Unset() {
+func (v *NullableError) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableErrorRest(val *ErrorRest) *NullableErrorRest {
-	return &NullableErrorRest{value: val, isSet: true}
+func NewNullableError(val *Error) *NullableError {
+	return &NullableError{value: val, isSet: true}
 }
 
-func (v NullableErrorRest) MarshalJSON() ([]byte, error) {
+func (v NullableError) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableErrorRest) UnmarshalJSON(src []byte) error {
+func (v *NullableError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

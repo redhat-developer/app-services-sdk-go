@@ -3,7 +3,7 @@
  *
  * Managed Service Registry cloud.redhat.com API Management API that lets you create new registry instances. Registry is a datastore for standard event schemas and API designs. Service Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Registry is an Managed version of upstream project called Apicurio Registry. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.
  *
- * API version: 0.0.5
+ * API version: 0.0.6
  * Contact: rhosak-eval-support@redhat.com
  */
 
@@ -15,28 +15,28 @@ import (
 	"encoding/json"
 )
 
-// RegistryListRestAllOf struct for RegistryListRestAllOf
-type RegistryListRestAllOf struct {
+// RegistryListAllOf struct for RegistryListAllOf
+type RegistryListAllOf struct {
 
-	Items []RegistryRest `json:"items"`
+	Items []Registry `json:"items"`
 
 }
 
-// NewRegistryListRestAllOf instantiates a new RegistryListRestAllOf object
+// NewRegistryListAllOf instantiates a new RegistryListAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRegistryListRestAllOf(items []RegistryRest) *RegistryListRestAllOf {
-	this := RegistryListRestAllOf{}
+func NewRegistryListAllOf(items []Registry) *RegistryListAllOf {
+	this := RegistryListAllOf{}
 	this.Items = items
 	return &this
 }
 
-// NewRegistryListRestAllOfWithDefaults instantiates a new RegistryListRestAllOf object
+// NewRegistryListAllOfWithDefaults instantiates a new RegistryListAllOf object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewRegistryListRestAllOfWithDefaults() *RegistryListRestAllOf {
-	this := RegistryListRestAllOf{}
+func NewRegistryListAllOfWithDefaults() *RegistryListAllOf {
+	this := RegistryListAllOf{}
 
 
 	return &this
@@ -44,9 +44,9 @@ func NewRegistryListRestAllOfWithDefaults() *RegistryListRestAllOf {
 
 
 // GetItems returns the Items field value
-func (o *RegistryListRestAllOf) GetItems() []RegistryRest {
+func (o *RegistryListAllOf) GetItems() []Registry {
 	if o == nil {
-		var ret []RegistryRest
+		var ret []Registry
 		return ret
 	}
 
@@ -55,7 +55,7 @@ func (o *RegistryListRestAllOf) GetItems() []RegistryRest {
 
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-func (o *RegistryListRestAllOf) GetItemsOk() (*[]RegistryRest, bool) {
+func (o *RegistryListAllOf) GetItemsOk() (*[]Registry, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -63,12 +63,12 @@ func (o *RegistryListRestAllOf) GetItemsOk() (*[]RegistryRest, bool) {
 }
 
 // SetItems sets field value
-func (o *RegistryListRestAllOf) SetItems(v []RegistryRest) {
+func (o *RegistryListAllOf) SetItems(v []Registry) {
 	o.Items = v
 }
 
 
-func (o RegistryListRestAllOf) MarshalJSON() ([]byte, error) {
+func (o RegistryListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if true {
@@ -78,38 +78,38 @@ func (o RegistryListRestAllOf) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableRegistryListRestAllOf struct {
-	value *RegistryListRestAllOf
+type NullableRegistryListAllOf struct {
+	value *RegistryListAllOf
 	isSet bool
 }
 
-func (v NullableRegistryListRestAllOf) Get() *RegistryListRestAllOf {
+func (v NullableRegistryListAllOf) Get() *RegistryListAllOf {
 	return v.value
 }
 
-func (v *NullableRegistryListRestAllOf) Set(val *RegistryListRestAllOf) {
+func (v *NullableRegistryListAllOf) Set(val *RegistryListAllOf) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableRegistryListRestAllOf) IsSet() bool {
+func (v NullableRegistryListAllOf) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableRegistryListRestAllOf) Unset() {
+func (v *NullableRegistryListAllOf) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableRegistryListRestAllOf(val *RegistryListRestAllOf) *NullableRegistryListRestAllOf {
-	return &NullableRegistryListRestAllOf{value: val, isSet: true}
+func NewNullableRegistryListAllOf(val *RegistryListAllOf) *NullableRegistryListAllOf {
+	return &NullableRegistryListAllOf{value: val, isSet: true}
 }
 
-func (v NullableRegistryListRestAllOf) MarshalJSON() ([]byte, error) {
+func (v NullableRegistryListAllOf) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableRegistryListRestAllOf) UnmarshalJSON(src []byte) error {
+func (v *NullableRegistryListAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
