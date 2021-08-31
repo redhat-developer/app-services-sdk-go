@@ -1,7 +1,7 @@
 package registrymgmt
 
 import (
-	"github.com/redhat-developer/app-services-sdk-go/internal"
+	"github.com/redhat-developer/app-services-sdk-go/core"
 	"net/http"
 
 	apiv1 "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/client"
@@ -9,7 +9,7 @@ import (
 
 // Config defines the available configuration options
 // to customise the API client settings
-type Config = internal.APIConfig
+type Config = core.APIConfig
 
 // NewAPIClient returns a new v1 API client
 // using a custom config
