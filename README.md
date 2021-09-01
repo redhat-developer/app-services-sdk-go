@@ -18,8 +18,8 @@ $ go get github.com/redhat-developer/app-services-sdk-go
 
 Import:
 
-```
-go import "github.com/redhat-developer/app-services-sdk-go"
+```go
+import "github.com/redhat-developer/app-services-sdk-go"
 ```
 
 ## Management SDKs
