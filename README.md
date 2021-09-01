@@ -6,7 +6,7 @@ Go packages and API clients for RHOAS.
 
 ## Prequisites
 
-- [Go 1.13](https://golang.org/doc/go1.13) or above
+- [Go 1.15](https://golang.org/doc/go1.15) or above
 
 ## Installation
 

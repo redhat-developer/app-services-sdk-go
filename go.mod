@@ -1,6 +1,6 @@
 module github.com/redhat-developer/app-services-sdk-go
 
-go 1.13
+go 1.15
 
 require (
 	github.com/google/go-cmp v0.5.6 // indirect

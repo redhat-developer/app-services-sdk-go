@@ -1,6 +1,6 @@
 module github.com/redhat-developer/app-services-sdk-go/internal/examples
 
-go 1.13
+go 1.15
 
 replace github.com/redhat-developer/app-services-sdk-go/kafkamgmt => ../../kafkamgmt
 

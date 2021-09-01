@@ -8,7 +8,7 @@ import (
 	"log"
 	"os/exec"
 
-	"github.com/google/go-github/v35/github"
+	"github.com/google/go-github/v38/github"
 	"github.com/redhat-developer/app-services-sdk-go/internal/apigen/metadata"
 	"golang.org/x/oauth2"
 )
