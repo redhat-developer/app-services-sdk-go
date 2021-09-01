@@ -1,6 +1,6 @@
 module github.com/redhat-developer/app-services-sdk-go/kafkainstance
 
-go 1.13
+go 1.15
 
 require (
 	github.com/redhat-developer/app-services-sdk-go v0.9.8
