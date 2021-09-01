@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.10.0](https://github.com/redhat-developer/app-services-sdk-go/compare/v0.9.8...v0.10.0) (2021-09-01)
+
+### Features
+
+- added a custom user-agent to the API client configuration ([#259](https://github.com/redhat-developer/app-services-sdk-go/issues/259))
+- define a single APIConfig type in the root module and referenced it from individual SDKs ([#262](https://github.com/redhat-developer/app-services-sdk-go/issues/262))
+
+
 ## [v0.9.8](https://github.com/redhat-developer/app-services-sdk-go/compare/v0.9.7...v0.9.8) (2021-08-20)
 
 ### Fixes
