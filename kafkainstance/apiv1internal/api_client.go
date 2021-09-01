@@ -1,6 +1,7 @@
 package kafkainstance
 
 import (
+	"github.com/redhat-developer/app-services-sdk-go/core"
 	"net/http"
 
 	apiv1 "github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal/client"
@@ -8,16 +9,7 @@ import (
 
 // APIConfig defines the available configuration options
 // to customise the API client settings
-type Config struct {
-	// HTTPClient is a custom HTTP client
-	HTTPClient *http.Client
-	// Debug enables debug-level logging
-	Debug bool
-	// BaseURL sets a custom API server base URL
-	BaseURL string
-	// UserAgent sets a custom user-agent
-	UserAgent string
-}
+type Config = core.APIConfig
 
 // NewAPIClient returns a new KafkaManagement v1 API client
 // using a custom config
