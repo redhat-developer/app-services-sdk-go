@@ -56,7 +56,7 @@ type GroupsApi interface {
 
 	/*
 	 * GetConsumerGroups List of consumer groups in the Kafka instance.
-	 * Returns a list of all consumer groups for a particular Kafka instance.
+	 * Returns a list of all consumer groups for a particular Kafka instance. The consumer groups returned are limited to those records the requestor is authorized to view.
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @return ApiGetConsumerGroupsRequest
 	 */
@@ -479,7 +479,7 @@ func (r ApiGetConsumerGroupsRequest) Execute() (ConsumerGroupList, *_nethttp.Res
 
 /*
  * GetConsumerGroups List of consumer groups in the Kafka instance.
- * Returns a list of all consumer groups for a particular Kafka instance.
+ * Returns a list of all consumer groups for a particular Kafka instance. The consumer groups returned are limited to those records the requestor is authorized to view.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiGetConsumerGroupsRequest
  */
@@ -589,16 +589,6 @@ func (a *GroupsApiService) GetConsumerGroupsExecute(r ApiGetConsumerGroupsReques
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

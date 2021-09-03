@@ -71,7 +71,7 @@ type TopicsApi interface {
 
 	/*
 	 * GetTopics List of topics
-	 * Returns a list of all of the available topics, or the list of topics that meet the users URL Query Parameters.
+	 * Returns a list of all of the available topics, or the list of topics that meet the request query parameters. The topics returned are limited to those records the requestor is authorized to view.
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @return ApiGetTopicsRequest
 	 */
@@ -589,7 +589,7 @@ func (r ApiGetTopicsRequest) Execute() (TopicsList, *_nethttp.Response, error) {
 
 /*
  * GetTopics List of topics
- * Returns a list of all of the available topics, or the list of topics that meet the users URL Query Parameters.
+ * Returns a list of all of the available topics, or the list of topics that meet the request query parameters. The topics returned are limited to those records the requestor is authorized to view.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiGetTopicsRequest
  */
