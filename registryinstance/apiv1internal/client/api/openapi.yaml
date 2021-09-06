@@ -947,18 +947,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/FileContent'
           description: Response when the export is successful.
-        "500":
-          content:
-            application/json:
-              examples:
-                ErrorExample:
-                  value:
-                    error_code: 500
-                    message: Lost connection to the database.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can fail with an unexpected
-            server error.
       summary: Export registry data
       tags:
       - Admin

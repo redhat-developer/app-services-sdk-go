@@ -659,9 +659,6 @@
               }
             },
             "description": "Response when the export is successful."
-          },
-          "500": {
-            "$ref": "#/components/responses/ServerError"
           }
         },
         "operationId": "exportData",
