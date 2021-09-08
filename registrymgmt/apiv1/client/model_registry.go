@@ -47,18 +47,21 @@ type Registry struct {
 	// ISO 8601 UTC timestamp.
 	UpdatedAt time.Time `json:"updated_at"`
 
+	InstanceType RegistryInstanceTypeValue `json:"instance_type"`
+
 }
 
 // NewRegistry instantiates a new Registry object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRegistry(id string, status RegistryStatusValue, createdAt time.Time, updatedAt time.Time) *Registry {
+func NewRegistry(id string, status RegistryStatusValue, createdAt time.Time, updatedAt time.Time, instanceType RegistryInstanceTypeValue) *Registry {
 	this := Registry{}
 	this.Id = id
 	this.Status = status
 	this.CreatedAt = createdAt
 	this.UpdatedAt = updatedAt
+	this.InstanceType = instanceType
 	return &this
 }
 
@@ -67,6 +70,7 @@ func NewRegistry(id string, status RegistryStatusValue, createdAt time.Time, upd
 // but it doesn't guarantee that properties required by API are set
 func NewRegistryWithDefaults() *Registry {
 	this := Registry{}
+
 
 
 
@@ -414,6 +418,31 @@ func (o *Registry) SetUpdatedAt(v time.Time) {
 }
 
 
+// GetInstanceType returns the InstanceType field value
+func (o *Registry) GetInstanceType() RegistryInstanceTypeValue {
+	if o == nil {
+		var ret RegistryInstanceTypeValue
+		return ret
+	}
+
+	return o.InstanceType
+}
+
+// GetInstanceTypeOk returns a tuple with the InstanceType field value
+// and a boolean to check if the value has been set.
+func (o *Registry) GetInstanceTypeOk() (*RegistryInstanceTypeValue, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.InstanceType, true
+}
+
+// SetInstanceType sets field value
+func (o *Registry) SetInstanceType(v RegistryInstanceTypeValue) {
+	o.InstanceType = v
+}
+
+
 func (o Registry) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
@@ -459,6 +488,10 @@ func (o Registry) MarshalJSON() ([]byte, error) {
     
 	if true {
 		toSerialize["updated_at"] = o.UpdatedAt
+	}
+    
+	if true {
+		toSerialize["instance_type"] = o.InstanceType
 	}
     
 	return json.Marshal(toSerialize)

@@ -13,13 +13,14 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** | Description of the Registry instance. | [optional] 
 **CreatedAt** | **time.Time** | ISO 8601 UTC timestamp. | 
 **UpdatedAt** | **time.Time** | ISO 8601 UTC timestamp. | 
+**InstanceType** | [**RegistryInstanceTypeValue**](RegistryInstanceTypeValue.md) |  | 
 
 
 ## Methods
 
 ### NewRootTypeForRegistry
 
-`func NewRootTypeForRegistry(id string, status RegistryStatusValue, createdAt time.Time, updatedAt time.Time, ) *RootTypeForRegistry`
+`func NewRootTypeForRegistry(id string, status RegistryStatusValue, createdAt time.Time, updatedAt time.Time, instanceType RegistryInstanceTypeValue, ) *RootTypeForRegistry`
 
 NewRootTypeForRegistry instantiates a new RootTypeForRegistry object
 This constructor will assign default values to properties that have it defined,
@@ -246,6 +247,27 @@ and a boolean to check if the value has been set.
 `func (o *RootTypeForRegistry) SetUpdatedAt(v time.Time)`
 
 SetUpdatedAt sets UpdatedAt field to given value.
+
+
+
+### GetInstanceType
+
+`func (o *RootTypeForRegistry) GetInstanceType() RegistryInstanceTypeValue`
+
+GetInstanceType returns the InstanceType field if non-nil, zero value otherwise.
+
+### GetInstanceTypeOk
+
+`func (o *RootTypeForRegistry) GetInstanceTypeOk() (*RegistryInstanceTypeValue, bool)`
+
+GetInstanceTypeOk returns a tuple with the InstanceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstanceType
+
+`func (o *RootTypeForRegistry) SetInstanceType(v RegistryInstanceTypeValue)`
+
+SetInstanceType sets InstanceType field to given value.
 
 
 

@@ -180,8 +180,8 @@ func main() {
     limit := int32(56) // int32 | Maximum number of consumer groups to return (optional)
     size := int32(56) // int32 | Maximum number of consumer groups to return on single page (optional)
     page := int32(56) // int32 | The page when returning the list of consumer groups (optional)
-    topic := "topic_example" // string | Return consumer groups for this topic (optional)
-    groupIdFilter := "groupIdFilter_example" // string | Return the consumer groups where the ID begins with this value (optional)
+    topic := "topic_example" // string | Return consumer groups where the topic name contains with this value (optional)
+    groupIdFilter := "groupIdFilter_example" // string | Return the consumer groups where the ID contains with this value (optional)
     order := "order_example" // string | Order of the consumer groups sorting. Ascending order is used as default. (optional)
     orderKey := "orderKey_example" // string | Order key to sort the items by. Only the value 'name' is currently applicable. (optional)
 
@@ -212,8 +212,8 @@ Name | Type | Description  | Notes
  **limit** | **int32** | Maximum number of consumer groups to return | 
  **size** | **int32** | Maximum number of consumer groups to return on single page | 
  **page** | **int32** | The page when returning the list of consumer groups | 
- **topic** | **string** | Return consumer groups for this topic | 
- **groupIdFilter** | **string** | Return the consumer groups where the ID begins with this value | 
+ **topic** | **string** | Return consumer groups where the topic name contains with this value | 
+ **groupIdFilter** | **string** | Return the consumer groups where the ID contains with this value | 
  **order** | **string** | Order of the consumer groups sorting. Ascending order is used as default. | 
  **orderKey** | **string** | Order key to sort the items by. Only the value &#39;name&#39; is currently applicable. | 
 

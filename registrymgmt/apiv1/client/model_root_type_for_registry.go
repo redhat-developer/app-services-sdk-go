@@ -43,18 +43,21 @@ type RootTypeForRegistry struct {
 	// ISO 8601 UTC timestamp.
 	UpdatedAt time.Time `json:"updated_at"`
 
+	InstanceType RegistryInstanceTypeValue `json:"instance_type"`
+
 }
 
 // NewRootTypeForRegistry instantiates a new RootTypeForRegistry object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRootTypeForRegistry(id string, status RegistryStatusValue, createdAt time.Time, updatedAt time.Time) *RootTypeForRegistry {
+func NewRootTypeForRegistry(id string, status RegistryStatusValue, createdAt time.Time, updatedAt time.Time, instanceType RegistryInstanceTypeValue) *RootTypeForRegistry {
 	this := RootTypeForRegistry{}
 	this.Id = id
 	this.Status = status
 	this.CreatedAt = createdAt
 	this.UpdatedAt = updatedAt
+	this.InstanceType = instanceType
 	return &this
 }
 
@@ -63,6 +66,7 @@ func NewRootTypeForRegistry(id string, status RegistryStatusValue, createdAt tim
 // but it doesn't guarantee that properties required by API are set
 func NewRootTypeForRegistryWithDefaults() *RootTypeForRegistry {
 	this := RootTypeForRegistry{}
+
 
 
 
@@ -342,6 +346,31 @@ func (o *RootTypeForRegistry) SetUpdatedAt(v time.Time) {
 }
 
 
+// GetInstanceType returns the InstanceType field value
+func (o *RootTypeForRegistry) GetInstanceType() RegistryInstanceTypeValue {
+	if o == nil {
+		var ret RegistryInstanceTypeValue
+		return ret
+	}
+
+	return o.InstanceType
+}
+
+// GetInstanceTypeOk returns a tuple with the InstanceType field value
+// and a boolean to check if the value has been set.
+func (o *RootTypeForRegistry) GetInstanceTypeOk() (*RegistryInstanceTypeValue, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.InstanceType, true
+}
+
+// SetInstanceType sets field value
+func (o *RootTypeForRegistry) SetInstanceType(v RegistryInstanceTypeValue) {
+	o.InstanceType = v
+}
+
+
 func (o RootTypeForRegistry) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
@@ -379,6 +408,10 @@ func (o RootTypeForRegistry) MarshalJSON() ([]byte, error) {
     
 	if true {
 		toSerialize["updated_at"] = o.UpdatedAt
+	}
+    
+	if true {
+		toSerialize["instance_type"] = o.InstanceType
 	}
     
 	return json.Marshal(toSerialize)
