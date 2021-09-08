@@ -26,7 +26,8 @@ paths:
         those records the requestor is authorized to view.
       operationId: getTopics
       parameters:
-      - description: The page offset
+      - deprecated: true
+        description: The page offset
         explode: true
         in: query
         name: offset
@@ -34,7 +35,8 @@ paths:
         schema:
           type: integer
         style: form
-      - description: Maximum number of topics to return
+      - deprecated: true
+        description: Maximum number of topics to return
         explode: true
         in: query
         name: limit
@@ -515,7 +517,8 @@ paths:
         authorized to view.
       operationId: getConsumerGroups
       parameters:
-      - description: The page offset
+      - deprecated: true
+        description: The page offset
         explode: true
         in: query
         name: offset
@@ -523,7 +526,8 @@ paths:
         schema:
           type: integer
         style: form
-      - description: Maximum number of consumer groups to return
+      - deprecated: true
+        description: Maximum number of consumer groups to return
         explode: true
         in: query
         name: limit
