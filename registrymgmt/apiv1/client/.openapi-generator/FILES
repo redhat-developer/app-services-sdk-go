@@ -15,6 +15,7 @@ docs/ObjectReference.md
 docs/RegistriesApi.md
 docs/Registry.md
 docs/RegistryCreate.md
+docs/RegistryInstanceTypeValue.md
 docs/RegistryList.md
 docs/RegistryListAllOf.md
 docs/RegistryStatusValue.md
@@ -27,6 +28,7 @@ model_list.go
 model_object_reference.go
 model_registry.go
 model_registry_create.go
+model_registry_instance_type_value.go
 model_registry_list.go
 model_registry_list_all_of.go
 model_registry_status_value.go

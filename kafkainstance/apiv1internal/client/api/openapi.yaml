@@ -26,7 +26,8 @@ paths:
         those records the requestor is authorized to view.
       operationId: getTopics
       parameters:
-      - description: The page offset
+      - deprecated: true
+        description: The page offset
         explode: true
         in: query
         name: offset
@@ -34,7 +35,8 @@ paths:
         schema:
           type: integer
         style: form
-      - description: Maximum number of topics to return
+      - deprecated: true
+        description: Maximum number of topics to return
         explode: true
         in: query
         name: limit
@@ -515,7 +517,8 @@ paths:
         authorized to view.
       operationId: getConsumerGroups
       parameters:
-      - description: The page offset
+      - deprecated: true
+        description: The page offset
         explode: true
         in: query
         name: offset
@@ -523,7 +526,8 @@ paths:
         schema:
           type: integer
         style: form
-      - description: Maximum number of consumer groups to return
+      - deprecated: true
+        description: Maximum number of consumer groups to return
         explode: true
         in: query
         name: limit
@@ -547,7 +551,8 @@ paths:
         schema:
           type: integer
         style: form
-      - description: Return consumer groups for this topic
+      - description: Return consumer groups where the topic name contains with this
+          value
         explode: true
         in: query
         name: topic
@@ -555,7 +560,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: Return the consumer groups where the ID begins with this value
+      - description: Return the consumer groups where the ID contains with this value
         explode: true
         in: query
         name: group-id-filter
