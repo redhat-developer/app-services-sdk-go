@@ -28,5 +28,11 @@
     "apiVersion": "v1internal",
     "release_level": "internal",
     "openapi_file": ".openapi/registry-instance.json"
+  },
+  "petstore-mgmt/v1": {
+    "apiGroup": "petstoremgmt",
+    "apiVersion": "v1",
+    "release_level": "internal",
+    "openapi_file": ".openapi/petstore.yaml"
   }
 }
