@@ -1,0 +1,13 @@
+.gitignore
+README.md
+api/openapi.yaml
+api_pets.go
+client.go
+configuration.go
+docs/Error.md
+docs/Pet.md
+docs/PetsApi.md
+model_error.go
+model_pet.go
+response.go
+utils.go
