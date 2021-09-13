@@ -1,10 +1,12 @@
 .gitignore
 README.md
 api/openapi.yaml
+api_default.go
 api_errors.go
 api_registries.go
 client.go
 configuration.go
+docs/DefaultApi.md
 docs/Error.md
 docs/ErrorAllOf.md
 docs/ErrorList.md
@@ -20,6 +22,7 @@ docs/RegistryList.md
 docs/RegistryListAllOf.md
 docs/RegistryStatusValue.md
 docs/RootTypeForRegistry.md
+docs/ServiceStatus.md
 model_error.go
 model_error_all_of.go
 model_error_list.go
@@ -33,5 +36,6 @@ model_registry_list.go
 model_registry_list_all_of.go
 model_registry_status_value.go
 model_root_type_for_registry.go
+model_service_status.go
 response.go
 utils.go
