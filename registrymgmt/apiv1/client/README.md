@@ -79,6 +79,7 @@ All URIs are relative to *https://api.openshift.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**GetServiceStatus**](docs/DefaultApi.md#getservicestatus) | **Get** /api/serviceregistry_mgmt/v1/status | 
 *ErrorsApi* | [**GetError**](docs/ErrorsApi.md#geterror) | **Get** /api/serviceregistry_mgmt/v1/errors/{id} | Get information about a specific error type.
 *ErrorsApi* | [**GetErrors**](docs/ErrorsApi.md#geterrors) | **Get** /api/serviceregistry_mgmt/v1/errors | Get the list of all errors.
 *RegistriesApi* | [**CreateRegistry**](docs/RegistriesApi.md#createregistry) | **Post** /api/serviceregistry_mgmt/v1/registries | Create a new Registry instance
@@ -102,6 +103,7 @@ Class | Method | HTTP request | Description
  - [RegistryListAllOf](docs/RegistryListAllOf.md)
  - [RegistryStatusValue](docs/RegistryStatusValue.md)
  - [RootTypeForRegistry](docs/RootTypeForRegistry.md)
+ - [ServiceStatus](docs/ServiceStatus.md)
 
 
 ## Documentation For Authorization
