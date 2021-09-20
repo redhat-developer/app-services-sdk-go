@@ -18,8 +18,8 @@ import (
 // ServiceStatus Schema for the service status response body
 type ServiceStatus struct {
 
-	// Boolean property indicating if the maximum number of Trial instances have been reached, therefore creation of more eval instances should not be allowed.
-	MaxEvalInstancesReached *bool `json:"max_eval_instances_reached,omitempty"`
+	// Boolean property indicating if the maximum number of total instances have been reached, therefore creation of more instances should not be allowed.
+	MaxInstancesReached *bool `json:"max_instances_reached,omitempty"`
 
 }
 
@@ -43,44 +43,44 @@ func NewServiceStatusWithDefaults() *ServiceStatus {
 }
 
 
-// GetMaxEvalInstancesReached returns the MaxEvalInstancesReached field value if set, zero value otherwise.
-func (o *ServiceStatus) GetMaxEvalInstancesReached() bool {
-	if o == nil || o.MaxEvalInstancesReached == nil {
+// GetMaxInstancesReached returns the MaxInstancesReached field value if set, zero value otherwise.
+func (o *ServiceStatus) GetMaxInstancesReached() bool {
+	if o == nil || o.MaxInstancesReached == nil {
 		var ret bool
 		return ret
 	}
-	return *o.MaxEvalInstancesReached
+	return *o.MaxInstancesReached
 }
 
-// GetMaxEvalInstancesReachedOk returns a tuple with the MaxEvalInstancesReached field value if set, nil otherwise
+// GetMaxInstancesReachedOk returns a tuple with the MaxInstancesReached field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ServiceStatus) GetMaxEvalInstancesReachedOk() (*bool, bool) {
-	if o == nil || o.MaxEvalInstancesReached == nil {
+func (o *ServiceStatus) GetMaxInstancesReachedOk() (*bool, bool) {
+	if o == nil || o.MaxInstancesReached == nil {
 		return nil, false
 	}
-	return o.MaxEvalInstancesReached, true
+	return o.MaxInstancesReached, true
 }
 
-// HasMaxEvalInstancesReached returns a boolean if a field has been set.
-func (o *ServiceStatus) HasMaxEvalInstancesReached() bool {
-	if o != nil && o.MaxEvalInstancesReached != nil {
+// HasMaxInstancesReached returns a boolean if a field has been set.
+func (o *ServiceStatus) HasMaxInstancesReached() bool {
+	if o != nil && o.MaxInstancesReached != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxEvalInstancesReached gets a reference to the given bool and assigns it to the MaxEvalInstancesReached field.
-func (o *ServiceStatus) SetMaxEvalInstancesReached(v bool) {
-	o.MaxEvalInstancesReached = &v
+// SetMaxInstancesReached gets a reference to the given bool and assigns it to the MaxInstancesReached field.
+func (o *ServiceStatus) SetMaxInstancesReached(v bool) {
+	o.MaxInstancesReached = &v
 }
 
 
 func (o ServiceStatus) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
-	if o.MaxEvalInstancesReached != nil {
-		toSerialize["max_eval_instances_reached"] = o.MaxEvalInstancesReached
+	if o.MaxInstancesReached != nil {
+		toSerialize["max_instances_reached"] = o.MaxInstancesReached
 	}
     
 	return json.Marshal(toSerialize)
