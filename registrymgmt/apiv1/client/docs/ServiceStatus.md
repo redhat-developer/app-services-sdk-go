@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MaxEvalInstancesReached** | Pointer to **bool** | Boolean property indicating if the maximum number of Trial instances have been reached, therefore creation of more eval instances should not be allowed. | [optional] 
+**MaxInstancesReached** | Pointer to **bool** | Boolean property indicating if the maximum number of total instances have been reached, therefore creation of more instances should not be allowed. | [optional] 
 
 
 ## Methods
@@ -27,30 +27,30 @@ This constructor will only assign default values to properties that have it defi
 but it doesn't guarantee that properties required by API are set
 
 
-### GetMaxEvalInstancesReached
+### GetMaxInstancesReached
 
-`func (o *ServiceStatus) GetMaxEvalInstancesReached() bool`
+`func (o *ServiceStatus) GetMaxInstancesReached() bool`
 
-GetMaxEvalInstancesReached returns the MaxEvalInstancesReached field if non-nil, zero value otherwise.
+GetMaxInstancesReached returns the MaxInstancesReached field if non-nil, zero value otherwise.
 
-### GetMaxEvalInstancesReachedOk
+### GetMaxInstancesReachedOk
 
-`func (o *ServiceStatus) GetMaxEvalInstancesReachedOk() (*bool, bool)`
+`func (o *ServiceStatus) GetMaxInstancesReachedOk() (*bool, bool)`
 
-GetMaxEvalInstancesReachedOk returns a tuple with the MaxEvalInstancesReached field if it's non-nil, zero value otherwise
+GetMaxInstancesReachedOk returns a tuple with the MaxInstancesReached field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMaxEvalInstancesReached
+### SetMaxInstancesReached
 
-`func (o *ServiceStatus) SetMaxEvalInstancesReached(v bool)`
+`func (o *ServiceStatus) SetMaxInstancesReached(v bool)`
 
-SetMaxEvalInstancesReached sets MaxEvalInstancesReached field to given value.
+SetMaxInstancesReached sets MaxInstancesReached field to given value.
 
-### HasMaxEvalInstancesReached
+### HasMaxInstancesReached
 
-`func (o *ServiceStatus) HasMaxEvalInstancesReached() bool`
+`func (o *ServiceStatus) HasMaxInstancesReached() bool`
 
-HasMaxEvalInstancesReached returns a boolean if a field has been set.
+HasMaxInstancesReached returns a boolean if a field has been set.
 
 
 
