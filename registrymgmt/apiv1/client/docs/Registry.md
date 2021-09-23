@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Href** | Pointer to **string** |  | [optional] 
 **Status** | [**RegistryStatusValue**](RegistryStatusValue.md) |  | 
 **RegistryUrl** | Pointer to **string** |  | [optional] 
+**BrowserUrl** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** | User-defined Registry name. Does not have to be unique. | [optional] 
 **RegistryDeploymentId** | Pointer to **int32** | Identifier of a multi-tenant deployment, where this Service Registry instance resides. | [optional] 
 **Owner** | Pointer to **string** | Registry instance owner | [optional] 
@@ -156,6 +157,32 @@ SetRegistryUrl sets RegistryUrl field to given value.
 `func (o *Registry) HasRegistryUrl() bool`
 
 HasRegistryUrl returns a boolean if a field has been set.
+
+
+### GetBrowserUrl
+
+`func (o *Registry) GetBrowserUrl() string`
+
+GetBrowserUrl returns the BrowserUrl field if non-nil, zero value otherwise.
+
+### GetBrowserUrlOk
+
+`func (o *Registry) GetBrowserUrlOk() (*string, bool)`
+
+GetBrowserUrlOk returns a tuple with the BrowserUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBrowserUrl
+
+`func (o *Registry) SetBrowserUrl(v string)`
+
+SetBrowserUrl sets BrowserUrl field to given value.
+
+### HasBrowserUrl
+
+`func (o *Registry) HasBrowserUrl() bool`
+
+HasBrowserUrl returns a boolean if a field has been set.
 
 
 ### GetName
