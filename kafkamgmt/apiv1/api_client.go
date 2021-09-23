@@ -2,7 +2,6 @@ package kafkamgmt
 
 import (
 	"github.com/redhat-developer/app-services-sdk-go/core"
-	"net/http"
 
 	apiv1 "github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1/client"
 )

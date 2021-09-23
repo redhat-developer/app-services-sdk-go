@@ -2,7 +2,6 @@ package kafkainstance
 
 import (
 	"github.com/redhat-developer/app-services-sdk-go/core"
-	"net/http"
 
 	apiv1 "github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal/client"
 )
