@@ -25,6 +25,8 @@ type RootTypeForRegistry struct {
 
 	RegistryUrl *string `json:"registryUrl,omitempty"`
 
+	BrowserUrl *string `json:"browserUrl,omitempty"`
+
 	// User-defined Registry name. Does not have to be unique.
 	Name *string `json:"name,omitempty"`
 
@@ -66,6 +68,7 @@ func NewRootTypeForRegistry(id string, status RegistryStatusValue, createdAt tim
 // but it doesn't guarantee that properties required by API are set
 func NewRootTypeForRegistryWithDefaults() *RootTypeForRegistry {
 	this := RootTypeForRegistry{}
+
 
 
 
@@ -161,6 +164,39 @@ func (o *RootTypeForRegistry) HasRegistryUrl() bool {
 // SetRegistryUrl gets a reference to the given string and assigns it to the RegistryUrl field.
 func (o *RootTypeForRegistry) SetRegistryUrl(v string) {
 	o.RegistryUrl = &v
+}
+
+
+// GetBrowserUrl returns the BrowserUrl field value if set, zero value otherwise.
+func (o *RootTypeForRegistry) GetBrowserUrl() string {
+	if o == nil || o.BrowserUrl == nil {
+		var ret string
+		return ret
+	}
+	return *o.BrowserUrl
+}
+
+// GetBrowserUrlOk returns a tuple with the BrowserUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RootTypeForRegistry) GetBrowserUrlOk() (*string, bool) {
+	if o == nil || o.BrowserUrl == nil {
+		return nil, false
+	}
+	return o.BrowserUrl, true
+}
+
+// HasBrowserUrl returns a boolean if a field has been set.
+func (o *RootTypeForRegistry) HasBrowserUrl() bool {
+	if o != nil && o.BrowserUrl != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBrowserUrl gets a reference to the given string and assigns it to the BrowserUrl field.
+func (o *RootTypeForRegistry) SetBrowserUrl(v string) {
+	o.BrowserUrl = &v
 }
 
 
@@ -384,6 +420,10 @@ func (o RootTypeForRegistry) MarshalJSON() ([]byte, error) {
     
 	if o.RegistryUrl != nil {
 		toSerialize["registryUrl"] = o.RegistryUrl
+	}
+    
+	if o.BrowserUrl != nil {
+		toSerialize["browserUrl"] = o.BrowserUrl
 	}
     
 	if o.Name != nil {

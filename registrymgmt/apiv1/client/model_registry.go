@@ -29,6 +29,8 @@ type Registry struct {
 
 	RegistryUrl *string `json:"registryUrl,omitempty"`
 
+	BrowserUrl *string `json:"browserUrl,omitempty"`
+
 	// User-defined Registry name. Does not have to be unique.
 	Name *string `json:"name,omitempty"`
 
@@ -70,6 +72,7 @@ func NewRegistry(id string, status RegistryStatusValue, createdAt time.Time, upd
 // but it doesn't guarantee that properties required by API are set
 func NewRegistryWithDefaults() *Registry {
 	this := Registry{}
+
 
 
 
@@ -233,6 +236,39 @@ func (o *Registry) HasRegistryUrl() bool {
 // SetRegistryUrl gets a reference to the given string and assigns it to the RegistryUrl field.
 func (o *Registry) SetRegistryUrl(v string) {
 	o.RegistryUrl = &v
+}
+
+
+// GetBrowserUrl returns the BrowserUrl field value if set, zero value otherwise.
+func (o *Registry) GetBrowserUrl() string {
+	if o == nil || o.BrowserUrl == nil {
+		var ret string
+		return ret
+	}
+	return *o.BrowserUrl
+}
+
+// GetBrowserUrlOk returns a tuple with the BrowserUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Registry) GetBrowserUrlOk() (*string, bool) {
+	if o == nil || o.BrowserUrl == nil {
+		return nil, false
+	}
+	return o.BrowserUrl, true
+}
+
+// HasBrowserUrl returns a boolean if a field has been set.
+func (o *Registry) HasBrowserUrl() bool {
+	if o != nil && o.BrowserUrl != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBrowserUrl gets a reference to the given string and assigns it to the BrowserUrl field.
+func (o *Registry) SetBrowserUrl(v string) {
+	o.BrowserUrl = &v
 }
 
 
@@ -464,6 +500,10 @@ func (o Registry) MarshalJSON() ([]byte, error) {
     
 	if o.RegistryUrl != nil {
 		toSerialize["registryUrl"] = o.RegistryUrl
+	}
+    
+	if o.BrowserUrl != nil {
+		toSerialize["browserUrl"] = o.BrowserUrl
 	}
     
 	if o.Name != nil {
