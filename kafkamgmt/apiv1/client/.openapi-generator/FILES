@@ -2,6 +2,7 @@
 README.md
 api/openapi.yaml
 api_default.go
+api_errors.go
 api_security.go
 client.go
 configuration.go
@@ -16,6 +17,7 @@ docs/Error.md
 docs/ErrorAllOf.md
 docs/ErrorList.md
 docs/ErrorListAllOf.md
+docs/ErrorsApi.md
 docs/InstantQuery.md
 docs/KafkaRequest.md
 docs/KafkaRequestAllOf.md
