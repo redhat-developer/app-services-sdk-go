@@ -39,9 +39,9 @@ linters-settings:
   gofmt:
     # simplify code: gofmt with `-s` option, true by default
     simplify: true
-  golint:
+  revive:
     # minimal confidence for issues, default is 0.8
-    min-confidence: 0.8
+    confidence: 0.8
   govet:
     # report about shadowed variables
     check-shadowing: true
@@ -59,7 +59,9 @@ linters:
     - gofmt
     - gocritic
     - misspell
-    - golint
+    - revive
+  disable:
+    - scopelint
   presets:
     - bugs
     - unused
