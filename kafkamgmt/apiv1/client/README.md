@@ -80,6 +80,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**CreateKafka**](docs/DefaultApi.md#createkafka) | **Post** /api/kafkas_mgmt/v1/kafkas | Creates a Kafka request
 *DefaultApi* | [**DeleteKafkaById**](docs/DefaultApi.md#deletekafkabyid) | **Delete** /api/kafkas_mgmt/v1/kafkas/{id} | Deletes a Kafka request by ID
+*DefaultApi* | [**FederateMetrics**](docs/DefaultApi.md#federatemetrics) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/federate | Returns all metrics in scrapeable format for a given kafka id
 *DefaultApi* | [**GetCloudProviderRegions**](docs/DefaultApi.md#getcloudproviderregions) | **Get** /api/kafkas_mgmt/v1/cloud_providers/{id}/regions | Returns the list of supported regions of the supported cloud provider
 *DefaultApi* | [**GetCloudProviders**](docs/DefaultApi.md#getcloudproviders) | **Get** /api/kafkas_mgmt/v1/cloud_providers | Returns the list of supported cloud providers
 *DefaultApi* | [**GetKafkaById**](docs/DefaultApi.md#getkafkabyid) | **Get** /api/kafkas_mgmt/v1/kafkas/{id} | Returns a Kafka request by ID
