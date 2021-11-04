@@ -1360,7 +1360,7 @@ components:
             to specify all users with value `User:*`.
           example: User:user-123-abc
           nullable: false
-          pattern: ^User:(\*|[a-zA-Z0-9_-]+)$
+          pattern: ^User:(\*|[a-zA-Z0-9_@.-]+)$
           title: ACL Principal
           type: string
         operation:
@@ -1476,7 +1476,7 @@ components:
         all users with value `User:*`.
       example: User:user-123-abc
       nullable: false
-      pattern: ^User:(\*|[a-zA-Z0-9_-]+)$
+      pattern: ^User:(\*|[a-zA-Z0-9_@.-]+)$
       title: ACL Principal
       type: string
     Topic:
