@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** | Uniquie id for the partition | 
+**Partition** | **int32** | The partition id, unique among partitions of the same topic | 
 **Replicas** | Pointer to **[]map[string]interface{}** | List of replicas for the partition | [optional] 
-**Isr** | Pointer to **[]map[string]interface{}** | List isync-replicas for this partition. | [optional] 
+**Isr** | Pointer to **[]map[string]interface{}** | List in-sync replicas for this partition. | [optional] 
 **Leader** | Pointer to **map[string]interface{}** | Kafka server / broker. | [optional] 
 
 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewPartition
 
-`func NewPartition(id int32, ) *Partition`
+`func NewPartition(partition int32, ) *Partition`
 
 NewPartition instantiates a new Partition object
 This constructor will assign default values to properties that have it defined,
@@ -30,24 +30,24 @@ This constructor will only assign default values to properties that have it defi
 but it doesn't guarantee that properties required by API are set
 
 
-### GetId
+### GetPartition
 
-`func (o *Partition) GetId() int32`
+`func (o *Partition) GetPartition() int32`
 
-GetId returns the Id field if non-nil, zero value otherwise.
+GetPartition returns the Partition field if non-nil, zero value otherwise.
 
-### GetIdOk
+### GetPartitionOk
 
-`func (o *Partition) GetIdOk() (*int32, bool)`
+`func (o *Partition) GetPartitionOk() (*int32, bool)`
 
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+GetPartitionOk returns a tuple with the Partition field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetId
+### SetPartition
 
-`func (o *Partition) SetId(v int32)`
+`func (o *Partition) SetPartition(v int32)`
 
-SetId sets Id field to given value.
+SetPartition sets Partition field to given value.
 
 
 
