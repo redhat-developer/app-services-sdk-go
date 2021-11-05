@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **MultiAz** | Pointer to **bool** | Set this to true to configure the Kafka cluster to be multiAZ | [optional] 
 **Name** | **string** | The name of the Kafka cluster. It must consist of lower-case alphanumeric characters or &#39;-&#39;, start with an alphabetic character, and end with an alphanumeric character, and can not be longer than 32 characters. | 
 **Region** | Pointer to **string** | The region where the Kafka cluster will be created in | [optional] 
+**ReauthenticationEnabled** | Pointer to **NullableBool** | Whether connection reauthentication is enabled or not. If set to true, connection reauthentication on the Kafka instance will be required every 5 minutes. The default value is true | [optional] 
 
 
 ## Methods
@@ -128,6 +129,42 @@ SetRegion sets Region field to given value.
 
 HasRegion returns a boolean if a field has been set.
 
+
+### GetReauthenticationEnabled
+
+`func (o *KafkaRequestPayload) GetReauthenticationEnabled() bool`
+
+GetReauthenticationEnabled returns the ReauthenticationEnabled field if non-nil, zero value otherwise.
+
+### GetReauthenticationEnabledOk
+
+`func (o *KafkaRequestPayload) GetReauthenticationEnabledOk() (*bool, bool)`
+
+GetReauthenticationEnabledOk returns a tuple with the ReauthenticationEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReauthenticationEnabled
+
+`func (o *KafkaRequestPayload) SetReauthenticationEnabled(v bool)`
+
+SetReauthenticationEnabled sets ReauthenticationEnabled field to given value.
+
+### HasReauthenticationEnabled
+
+`func (o *KafkaRequestPayload) HasReauthenticationEnabled() bool`
+
+HasReauthenticationEnabled returns a boolean if a field has been set.
+
+### SetReauthenticationEnabledNil
+
+`func (o *KafkaRequestPayload) SetReauthenticationEnabledNil(b bool)`
+
+ SetReauthenticationEnabledNil sets the value for ReauthenticationEnabled to be an explicit nil
+
+### UnsetReauthenticationEnabled
+`func (o *KafkaRequestPayload) UnsetReauthenticationEnabled()`
+
+UnsetReauthenticationEnabled ensures that no value is present for ReauthenticationEnabled, not even an explicit nil
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

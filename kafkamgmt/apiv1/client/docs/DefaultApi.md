@@ -781,7 +781,7 @@ import (
 
 func main() {
     id := "id_example" // string | The ID of record
-    kafkaUpdateRequest := *openapiclient.NewKafkaUpdateRequest("Owner_example") // KafkaUpdateRequest | Update owner of kafka
+    kafkaUpdateRequest := *openapiclient.NewKafkaUpdateRequest() // KafkaUpdateRequest | Update owner of kafka
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
