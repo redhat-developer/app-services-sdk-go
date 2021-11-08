@@ -17,13 +17,13 @@ import (
 // Partition Kafka topic partition
 type Partition struct {
 
-	// Uniquie id for the partition
-	Id int32 `json:"id"`
+	// The partition id, unique among partitions of the same topic
+	Partition int32 `json:"partition"`
 
 	// List of replicas for the partition
 	Replicas *[]map[string]interface{} `json:"replicas,omitempty"`
 
-	// List isync-replicas for this partition.
+	// List in-sync replicas for this partition.
 	Isr *[]map[string]interface{} `json:"isr,omitempty"`
 
 	// Kafka server / broker.
@@ -35,9 +35,9 @@ type Partition struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPartition(id int32) *Partition {
+func NewPartition(partition int32) *Partition {
 	this := Partition{}
-	this.Id = id
+	this.Partition = partition
 	return &this
 }
 
@@ -55,28 +55,28 @@ func NewPartitionWithDefaults() *Partition {
 }
 
 
-// GetId returns the Id field value
-func (o *Partition) GetId() int32 {
+// GetPartition returns the Partition field value
+func (o *Partition) GetPartition() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.Id
+	return o.Partition
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetPartitionOk returns a tuple with the Partition field value
 // and a boolean to check if the value has been set.
-func (o *Partition) GetIdOk() (*int32, bool) {
+func (o *Partition) GetPartitionOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Id, true
+	return &o.Partition, true
 }
 
-// SetId sets field value
-func (o *Partition) SetId(v int32) {
-	o.Id = v
+// SetPartition sets field value
+func (o *Partition) SetPartition(v int32) {
+	o.Partition = v
 }
 
 
@@ -183,7 +183,7 @@ func (o Partition) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if true {
-		toSerialize["id"] = o.Id
+		toSerialize["partition"] = o.Partition
 	}
     
 	if o.Replicas != nil {
