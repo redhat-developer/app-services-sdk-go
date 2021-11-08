@@ -3,7 +3,7 @@ package core
 import "net/http"
 
 // APIConfig defines the available configuration options
-// to customise the API client settings
+// to customize the API client settings
 type APIConfig struct {
 	// HTTPClient is a custom HTTP client
 	HTTPClient *http.Client
