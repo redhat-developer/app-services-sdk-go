@@ -45,7 +45,7 @@ jobs:
         if: steps.filter.outputs.go == 'true'
         uses: golangci/golangci-lint-action@v2
         with:
-          version: v1.29
+          version: v1.43
           args: --timeout 2m0s
       - name: Validate clients
         if: steps.filter.outputs.openapi == 'true'
