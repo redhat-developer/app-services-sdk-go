@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Status** | Pointer to **string** | Values: [accepted, preparing, provisioning, ready, failed, deprovision, deleting]  | [optional] 
 **CloudProvider** | Pointer to **string** | Name of Cloud used to deploy. For example AWS | [optional] 
-**MultiAz** | Pointer to **bool** |  | [optional] 
+**MultiAz** | **bool** |  | 
 **Region** | Pointer to **string** | Values will be regions of specific cloud provider. For example: us-east-1 for AWS | [optional] 
 **Owner** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
@@ -16,13 +16,14 @@ Name | Type | Description | Notes
 **FailedReason** | Pointer to **string** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
 **InstanceType** | Pointer to **string** |  | [optional] 
+**ReauthenticationEnabled** | **bool** |  | 
 
 
 ## Methods
 
 ### NewKafkaRequestAllOf
 
-`func NewKafkaRequestAllOf() *KafkaRequestAllOf`
+`func NewKafkaRequestAllOf(multiAz bool, reauthenticationEnabled bool, ) *KafkaRequestAllOf`
 
 NewKafkaRequestAllOf instantiates a new KafkaRequestAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -109,11 +110,6 @@ and a boolean to check if the value has been set.
 
 SetMultiAz sets MultiAz field to given value.
 
-### HasMultiAz
-
-`func (o *KafkaRequestAllOf) HasMultiAz() bool`
-
-HasMultiAz returns a boolean if a field has been set.
 
 
 ### GetRegion
@@ -348,6 +344,27 @@ SetInstanceType sets InstanceType field to given value.
 `func (o *KafkaRequestAllOf) HasInstanceType() bool`
 
 HasInstanceType returns a boolean if a field has been set.
+
+
+### GetReauthenticationEnabled
+
+`func (o *KafkaRequestAllOf) GetReauthenticationEnabled() bool`
+
+GetReauthenticationEnabled returns the ReauthenticationEnabled field if non-nil, zero value otherwise.
+
+### GetReauthenticationEnabledOk
+
+`func (o *KafkaRequestAllOf) GetReauthenticationEnabledOk() (*bool, bool)`
+
+GetReauthenticationEnabledOk returns a tuple with the ReauthenticationEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReauthenticationEnabled
+
+`func (o *KafkaRequestAllOf) SetReauthenticationEnabled(v bool)`
+
+SetReauthenticationEnabled sets ReauthenticationEnabled field to given value.
+
 
 
 
