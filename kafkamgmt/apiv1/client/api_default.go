@@ -686,6 +686,7 @@ type ApiGetCloudProviderRegionsRequest struct {
 	id string
 	page *string
 	size *string
+	instanceType *string
 }
 
 func (r ApiGetCloudProviderRegionsRequest) Page(page string) ApiGetCloudProviderRegionsRequest {
@@ -694,6 +695,10 @@ func (r ApiGetCloudProviderRegionsRequest) Page(page string) ApiGetCloudProvider
 }
 func (r ApiGetCloudProviderRegionsRequest) Size(size string) ApiGetCloudProviderRegionsRequest {
 	r.size = &size
+	return r
+}
+func (r ApiGetCloudProviderRegionsRequest) InstanceType(instanceType string) ApiGetCloudProviderRegionsRequest {
+	r.instanceType = &instanceType
 	return r
 }
 
@@ -746,6 +751,9 @@ func (a *DefaultApiService) GetCloudProviderRegionsExecute(r ApiGetCloudProvider
 	}
 	if r.size != nil {
 		localVarQueryParams.Add("size", parameterToString(*r.size, ""))
+	}
+	if r.instanceType != nil {
+		localVarQueryParams.Add("instance_type", parameterToString(*r.instanceType, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
