@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ## GetCloudProviderRegions
 
-> CloudRegionList GetCloudProviderRegions(ctx, id).Page(page).Size(size).Execute()
+> CloudRegionList GetCloudProviderRegions(ctx, id).Page(page).Size(size).InstanceType(instanceType).Execute()
 
 Returns the list of supported regions of the supported cloud provider
 
@@ -245,10 +245,11 @@ func main() {
     id := "id_example" // string | The ID of record
     page := "1" // string | Page index (optional)
     size := "100" // string | Number of items in each page (optional)
+    instanceType := "eval" // string | The Kafka instance type to filter the results by (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.GetCloudProviderRegions(context.Background(), id).Page(page).Size(size).Execute()
+    resp, r, err := api_client.DefaultApi.GetCloudProviderRegions(context.Background(), id).Page(page).Size(size).InstanceType(instanceType).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetCloudProviderRegions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -276,6 +277,7 @@ Name | Type | Description  | Notes
 
  **page** | **string** | Page index | 
  **size** | **string** | Number of items in each page | 
+ **instanceType** | **string** | The Kafka instance type to filter the results by | 
 
 ### Return type
 
