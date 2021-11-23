@@ -29,15 +29,19 @@ type CloudRegion struct {
 	// Whether the region is enabled for deploying an OSD cluster.
 	Enabled bool `json:"enabled"`
 
+	// The Kafka instance types supported by this region.
+	SupportedInstanceTypes []string `json:"supported_instance_types"`
+
 }
 
 // NewCloudRegion instantiates a new CloudRegion object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCloudRegion(enabled bool) *CloudRegion {
+func NewCloudRegion(enabled bool, supportedInstanceTypes []string) *CloudRegion {
 	this := CloudRegion{}
 	this.Enabled = enabled
+	this.SupportedInstanceTypes = supportedInstanceTypes
 	return &this
 }
 
@@ -52,6 +56,7 @@ func NewCloudRegionWithDefaults() *CloudRegion {
 
 	var enabled bool = false
 	this.Enabled = enabled
+
 
 	return &this
 }
@@ -181,6 +186,31 @@ func (o *CloudRegion) SetEnabled(v bool) {
 }
 
 
+// GetSupportedInstanceTypes returns the SupportedInstanceTypes field value
+func (o *CloudRegion) GetSupportedInstanceTypes() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.SupportedInstanceTypes
+}
+
+// GetSupportedInstanceTypesOk returns a tuple with the SupportedInstanceTypes field value
+// and a boolean to check if the value has been set.
+func (o *CloudRegion) GetSupportedInstanceTypesOk() (*[]string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.SupportedInstanceTypes, true
+}
+
+// SetSupportedInstanceTypes sets field value
+func (o *CloudRegion) SetSupportedInstanceTypes(v []string) {
+	o.SupportedInstanceTypes = v
+}
+
+
 func (o CloudRegion) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
@@ -198,6 +228,10 @@ func (o CloudRegion) MarshalJSON() ([]byte, error) {
     
 	if true {
 		toSerialize["enabled"] = o.Enabled
+	}
+    
+	if true {
+		toSerialize["supported_instance_types"] = o.SupportedInstanceTypes
 	}
     
 	return json.Marshal(toSerialize)

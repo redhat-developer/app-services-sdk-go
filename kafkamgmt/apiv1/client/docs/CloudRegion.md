@@ -8,13 +8,14 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** | Unique identifier of the object. | [optional] 
 **DisplayName** | Pointer to **string** | Name of the region for display purposes, for example &#x60;N. Virginia&#x60;. | [optional] 
 **Enabled** | **bool** | Whether the region is enabled for deploying an OSD cluster. | [default to false]
+**SupportedInstanceTypes** | **[]string** | The Kafka instance types supported by this region. | 
 
 
 ## Methods
 
 ### NewCloudRegion
 
-`func NewCloudRegion(enabled bool, ) *CloudRegion`
+`func NewCloudRegion(enabled bool, supportedInstanceTypes []string, ) *CloudRegion`
 
 NewCloudRegion instantiates a new CloudRegion object
 This constructor will assign default values to properties that have it defined,
@@ -126,6 +127,27 @@ and a boolean to check if the value has been set.
 `func (o *CloudRegion) SetEnabled(v bool)`
 
 SetEnabled sets Enabled field to given value.
+
+
+
+### GetSupportedInstanceTypes
+
+`func (o *CloudRegion) GetSupportedInstanceTypes() []string`
+
+GetSupportedInstanceTypes returns the SupportedInstanceTypes field if non-nil, zero value otherwise.
+
+### GetSupportedInstanceTypesOk
+
+`func (o *CloudRegion) GetSupportedInstanceTypesOk() (*[]string, bool)`
+
+GetSupportedInstanceTypesOk returns a tuple with the SupportedInstanceTypes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportedInstanceTypes
+
+`func (o *CloudRegion) SetSupportedInstanceTypes(v []string)`
+
+SetSupportedInstanceTypes sets SupportedInstanceTypes field to given value.
 
 
 
