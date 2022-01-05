@@ -1,4 +1,4 @@
-# Go API client for accountmgmt
+# Go API client for accountmgmtclient
 
 Manage user subscriptions and clusters
 
@@ -22,7 +22,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```golang
-import sw "./accountmgmt"
+import sw "./accountmgmtclient"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:

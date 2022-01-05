@@ -22,13 +22,13 @@
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
 
-go.mod
-go.sum
-git_push.sh
-.travis.yml
-api
-.openapi-generator
-.openapi-generator-ignore
-docs/*.md
-.openapi-generator
-api/
+**/go.mod
+**/go.sum
+**/git_push.sh
+**/.travis.yml
+**/api
+**/.openapi-generator
+**/.openapi-generator-ignore
+**/docs/*.md
+**/.openapi-generator
+**/api/
