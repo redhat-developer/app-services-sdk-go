@@ -31,4 +31,4 @@ api
 .openapi-generator-ignore
 docs/*.md
 .openapi-generator
-api/.
+api/
