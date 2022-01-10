@@ -7,20 +7,21 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Kind** | Pointer to **string** |  | [optional] 
 **Href** | Pointer to **string** |  | [optional] 
-**Name** | **string** | Name of the connector type. | 
-**Version** | **string** | Version of the connector type. | 
+**Name** | Pointer to **string** | Name of the connector type. | [optional] 
+**Version** | Pointer to **string** | Version of the connector type. | [optional] 
 **Channels** | Pointer to **[]string** | Channels of the connector type. | [optional] 
 **Description** | Pointer to **string** | A description of the connector. | [optional] 
 **IconHref** | Pointer to **string** | URL to an icon of the connector. | [optional] 
 **Labels** | Pointer to **[]string** | Labels used to categorize the connector | [optional] 
-**JsonSchema** | **map[string]interface{}** | A json schema that can be used to validate a connectors connector_spec field. | 
+**Schema** | Pointer to **map[string]interface{}** | A json schema that can be used to validate a connectors connector_spec field. | [optional] 
+**JsonSchema** | Pointer to **map[string]interface{}** | A json schema that can be used to validate a connectors connector_spec field. | [optional] 
 
 
 ## Methods
 
 ### NewConnectorType
 
-`func NewConnectorType(name string, version string, jsonSchema map[string]interface{}, ) *ConnectorType`
+`func NewConnectorType() *ConnectorType`
 
 NewConnectorType instantiates a new ConnectorType object
 This constructor will assign default values to properties that have it defined,
@@ -133,6 +134,11 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
+
+`func (o *ConnectorType) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 
 ### GetVersion
@@ -154,6 +160,11 @@ and a boolean to check if the value has been set.
 
 SetVersion sets Version field to given value.
 
+### HasVersion
+
+`func (o *ConnectorType) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
 
 
 ### GetChannels
@@ -260,6 +271,32 @@ SetLabels sets Labels field to given value.
 HasLabels returns a boolean if a field has been set.
 
 
+### GetSchema
+
+`func (o *ConnectorType) GetSchema() map[string]interface{}`
+
+GetSchema returns the Schema field if non-nil, zero value otherwise.
+
+### GetSchemaOk
+
+`func (o *ConnectorType) GetSchemaOk() (*map[string]interface{}, bool)`
+
+GetSchemaOk returns a tuple with the Schema field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSchema
+
+`func (o *ConnectorType) SetSchema(v map[string]interface{})`
+
+SetSchema sets Schema field to given value.
+
+### HasSchema
+
+`func (o *ConnectorType) HasSchema() bool`
+
+HasSchema returns a boolean if a field has been set.
+
+
 ### GetJsonSchema
 
 `func (o *ConnectorType) GetJsonSchema() map[string]interface{}`
@@ -279,6 +316,11 @@ and a boolean to check if the value has been set.
 
 SetJsonSchema sets JsonSchema field to given value.
 
+### HasJsonSchema
+
+`func (o *ConnectorType) HasJsonSchema() bool`
+
+HasJsonSchema returns a boolean if a field has been set.
 
 
 

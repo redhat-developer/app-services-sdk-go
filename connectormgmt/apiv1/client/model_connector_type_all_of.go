@@ -36,6 +36,9 @@ type ConnectorTypeAllOf struct {
 	Labels *[]string `json:"labels,omitempty"`
 
 	// A json schema that can be used to validate a connectors connector_spec field.
+	Schema *map[string]interface{} `json:"schema,omitempty"`
+
+	// A json schema that can be used to validate a connectors connector_spec field.
 	JsonSchema *map[string]interface{} `json:"json_schema,omitempty"`
 
 }
@@ -54,6 +57,7 @@ func NewConnectorTypeAllOf() *ConnectorTypeAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorTypeAllOfWithDefaults() *ConnectorTypeAllOf {
 	this := ConnectorTypeAllOf{}
+
 
 
 
@@ -264,6 +268,39 @@ func (o *ConnectorTypeAllOf) SetLabels(v []string) {
 }
 
 
+// GetSchema returns the Schema field value if set, zero value otherwise.
+func (o *ConnectorTypeAllOf) GetSchema() map[string]interface{} {
+	if o == nil || o.Schema == nil {
+		var ret map[string]interface{}
+		return ret
+	}
+	return *o.Schema
+}
+
+// GetSchemaOk returns a tuple with the Schema field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConnectorTypeAllOf) GetSchemaOk() (*map[string]interface{}, bool) {
+	if o == nil || o.Schema == nil {
+		return nil, false
+	}
+	return o.Schema, true
+}
+
+// HasSchema returns a boolean if a field has been set.
+func (o *ConnectorTypeAllOf) HasSchema() bool {
+	if o != nil && o.Schema != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSchema gets a reference to the given map[string]interface{} and assigns it to the Schema field.
+func (o *ConnectorTypeAllOf) SetSchema(v map[string]interface{}) {
+	o.Schema = &v
+}
+
+
 // GetJsonSchema returns the JsonSchema field value if set, zero value otherwise.
 func (o *ConnectorTypeAllOf) GetJsonSchema() map[string]interface{} {
 	if o == nil || o.JsonSchema == nil {
@@ -322,6 +359,10 @@ func (o ConnectorTypeAllOf) MarshalJSON() ([]byte, error) {
     
 	if o.Labels != nil {
 		toSerialize["labels"] = o.Labels
+	}
+    
+	if o.Schema != nil {
+		toSerialize["schema"] = o.Schema
 	}
     
 	if o.JsonSchema != nil {

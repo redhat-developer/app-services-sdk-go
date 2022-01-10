@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** | A description of the connector. | [optional] 
 **IconHref** | Pointer to **string** | URL to an icon of the connector. | [optional] 
 **Labels** | Pointer to **[]string** | Labels used to categorize the connector | [optional] 
+**Schema** | Pointer to **map[string]interface{}** | A json schema that can be used to validate a connectors connector_spec field. | [optional] 
 **JsonSchema** | Pointer to **map[string]interface{}** | A json schema that can be used to validate a connectors connector_spec field. | [optional] 
 
 
@@ -187,6 +188,32 @@ SetLabels sets Labels field to given value.
 `func (o *ConnectorTypeAllOf) HasLabels() bool`
 
 HasLabels returns a boolean if a field has been set.
+
+
+### GetSchema
+
+`func (o *ConnectorTypeAllOf) GetSchema() map[string]interface{}`
+
+GetSchema returns the Schema field if non-nil, zero value otherwise.
+
+### GetSchemaOk
+
+`func (o *ConnectorTypeAllOf) GetSchemaOk() (*map[string]interface{}, bool)`
+
+GetSchemaOk returns a tuple with the Schema field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSchema
+
+`func (o *ConnectorTypeAllOf) SetSchema(v map[string]interface{})`
+
+SetSchema sets Schema field to given value.
+
+### HasSchema
+
+`func (o *ConnectorTypeAllOf) HasSchema() bool`
+
+HasSchema returns a boolean if a field has been set.
 
 
 ### GetJsonSchema
