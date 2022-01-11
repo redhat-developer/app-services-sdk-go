@@ -74,23 +74,23 @@ ctx = context.WithValue(context.Background(), sw.ContextOperationServerVariables
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost/rest*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AclsApi* | [**CreateAcl**](docs/AclsApi.md#createacl) | **Post** /acls | Create ACL binding
-*AclsApi* | [**DeleteAcls**](docs/AclsApi.md#deleteacls) | **Delete** /acls | Delete ACL bindings
-*AclsApi* | [**GetAclResourceOperations**](docs/AclsApi.md#getaclresourceoperations) | **Get** /acls/resource-operations | Retrieve allowed ACL resources and operations
-*AclsApi* | [**GetAcls**](docs/AclsApi.md#getacls) | **Get** /acls | List ACL bindings
-*GroupsApi* | [**DeleteConsumerGroupById**](docs/GroupsApi.md#deleteconsumergroupbyid) | **Delete** /consumer-groups/{consumerGroupId} | Delete a consumer group.
-*GroupsApi* | [**GetConsumerGroupById**](docs/GroupsApi.md#getconsumergroupbyid) | **Get** /consumer-groups/{consumerGroupId} | Get a single consumer group by its unique ID.
-*GroupsApi* | [**GetConsumerGroups**](docs/GroupsApi.md#getconsumergroups) | **Get** /consumer-groups | List of consumer groups in the Kafka instance.
-*GroupsApi* | [**ResetConsumerGroupOffset**](docs/GroupsApi.md#resetconsumergroupoffset) | **Post** /consumer-groups/{consumerGroupId}/reset-offset | Reset the offset for a consumer group.
-*TopicsApi* | [**CreateTopic**](docs/TopicsApi.md#createtopic) | **Post** /topics | Creates a new topic
-*TopicsApi* | [**DeleteTopic**](docs/TopicsApi.md#deletetopic) | **Delete** /topics/{topicName} | Deletes a  topic
-*TopicsApi* | [**GetTopic**](docs/TopicsApi.md#gettopic) | **Get** /topics/{topicName} | Retrieves the topic with the specified name.
-*TopicsApi* | [**GetTopics**](docs/TopicsApi.md#gettopics) | **Get** /topics | List of topics
-*TopicsApi* | [**UpdateTopic**](docs/TopicsApi.md#updatetopic) | **Patch** /topics/{topicName} | Updates the topic with the specified name.
+*AclsApi* | [**CreateAcl**](docs/AclsApi.md#createacl) | **Post** /rest/acls | Create ACL binding
+*AclsApi* | [**DeleteAcls**](docs/AclsApi.md#deleteacls) | **Delete** /rest/acls | Delete ACL bindings
+*AclsApi* | [**GetAclResourceOperations**](docs/AclsApi.md#getaclresourceoperations) | **Get** /rest/acls/resource-operations | Retrieve allowed ACL resources and operations
+*AclsApi* | [**GetAcls**](docs/AclsApi.md#getacls) | **Get** /rest/acls | List ACL bindings
+*GroupsApi* | [**DeleteConsumerGroupById**](docs/GroupsApi.md#deleteconsumergroupbyid) | **Delete** /rest/consumer-groups/{consumerGroupId} | Delete a consumer group.
+*GroupsApi* | [**GetConsumerGroupById**](docs/GroupsApi.md#getconsumergroupbyid) | **Get** /rest/consumer-groups/{consumerGroupId} | Get a single consumer group by its unique ID.
+*GroupsApi* | [**GetConsumerGroups**](docs/GroupsApi.md#getconsumergroups) | **Get** /rest/consumer-groups | List of consumer groups in the Kafka instance.
+*GroupsApi* | [**ResetConsumerGroupOffset**](docs/GroupsApi.md#resetconsumergroupoffset) | **Post** /rest/consumer-groups/{consumerGroupId}/reset-offset | Reset the offset for a consumer group.
+*TopicsApi* | [**CreateTopic**](docs/TopicsApi.md#createtopic) | **Post** /rest/topics | Creates a new topic
+*TopicsApi* | [**DeleteTopic**](docs/TopicsApi.md#deletetopic) | **Delete** /rest/topics/{topicName} | Deletes a  topic
+*TopicsApi* | [**GetTopic**](docs/TopicsApi.md#gettopic) | **Get** /rest/topics/{topicName} | Retrieves the topic with the specified name.
+*TopicsApi* | [**GetTopics**](docs/TopicsApi.md#gettopics) | **Get** /rest/topics | List of topics
+*TopicsApi* | [**UpdateTopic**](docs/TopicsApi.md#updatetopic) | **Patch** /rest/topics/{topicName} | Updates the topic with the specified name.
 
 
 ## Documentation For Models

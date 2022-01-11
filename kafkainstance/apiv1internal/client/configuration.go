@@ -105,8 +105,8 @@ func NewConfiguration() *Configuration {
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
-				URL: "/rest",
-				Description: "Kafka Admin REST API",
+				URL: "",
+				Description: "No description provided",
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{

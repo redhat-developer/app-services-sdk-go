@@ -6,9 +6,6 @@ info:
   license:
     name: Apache 2.0
     url: 'https://www.apache.org/licenses/LICENSE-2.0'
-servers:
-  - url: '/rest'
-    description: Kafka Admin REST API
 security:
   - Bearer: []
 tags:
@@ -19,7 +16,7 @@ tags:
   - name: acls
     description: Access Control Management (ACLs)
 paths:
-  /topics:
+  /rest/topics:
     get:
       tags: [ topics ]
       parameters:
@@ -144,7 +141,7 @@ paths:
       operationId: createTopic
       summary: Creates a new topic
       description: Creates a new topic for Kafka.
-  '/topics/{topicName}':
+  '/rest/topics/{topicName}':
     get:
       tags: [ topics ]
       parameters:
@@ -249,7 +246,7 @@ paths:
           type: string
         in: path
         required: true
-  '/consumer-groups/{consumerGroupId}':
+  '/rest/consumer-groups/{consumerGroupId}':
     get:
       tags: [ groups ]
       parameters:
@@ -393,7 +390,7 @@ paths:
           type: string
         in: path
         required: true
-  /consumer-groups:
+  /rest/consumer-groups:
     summary: API endpoints for consumer groups under a Kafka topic
     get:
       tags: [ groups ]
@@ -509,7 +506,7 @@ paths:
         Returns a list of all consumer groups for a particular Kafka instance.
         The consumer groups returned are limited to those records the requestor
         is authorized to view.
-  '/consumer-groups/{consumerGroupId}/reset-offset':
+  '/rest/consumer-groups/{consumerGroupId}/reset-offset':
     post:
       tags: [ groups ]
       requestBody:
@@ -565,7 +562,7 @@ paths:
       operationId: resetConsumerGroupOffset
       summary: Reset the offset for a consumer group.
       description: Reset the offset for a particular consumer group.
-  /acls:
+  /rest/acls:
     get:
       tags: [ acls ]
       parameters:
@@ -680,7 +677,7 @@ paths:
       summary: Delete ACL bindings
       description: >-
         Deletes ACL bindings that match the query parameters.
-  /acls/resource-operations:
+  /rest/acls/resource-operations:
     get:
       tags: [ acls ]
       operationId: getAclResourceOperations

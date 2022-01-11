@@ -1,14 +1,14 @@
 # \TopicsApi
 
-All URIs are relative to *http://localhost/rest*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateTopic**](TopicsApi.md#CreateTopic) | **Post** /topics | Creates a new topic
-[**DeleteTopic**](TopicsApi.md#DeleteTopic) | **Delete** /topics/{topicName} | Deletes a  topic
-[**GetTopic**](TopicsApi.md#GetTopic) | **Get** /topics/{topicName} | Retrieves the topic with the specified name.
-[**GetTopics**](TopicsApi.md#GetTopics) | **Get** /topics | List of topics
-[**UpdateTopic**](TopicsApi.md#UpdateTopic) | **Patch** /topics/{topicName} | Updates the topic with the specified name.
+[**CreateTopic**](TopicsApi.md#CreateTopic) | **Post** /rest/topics | Creates a new topic
+[**DeleteTopic**](TopicsApi.md#DeleteTopic) | **Delete** /rest/topics/{topicName} | Deletes a  topic
+[**GetTopic**](TopicsApi.md#GetTopic) | **Get** /rest/topics/{topicName} | Retrieves the topic with the specified name.
+[**GetTopics**](TopicsApi.md#GetTopics) | **Get** /rest/topics | List of topics
+[**UpdateTopic**](TopicsApi.md#UpdateTopic) | **Patch** /rest/topics/{topicName} | Updates the topic with the specified name.
 
 
 

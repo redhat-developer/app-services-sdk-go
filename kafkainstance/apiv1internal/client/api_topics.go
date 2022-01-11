@@ -149,7 +149,7 @@ func (a *TopicsApiService) CreateTopicExecute(r ApiCreateTopicRequest) (Topic, *
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/topics"
+	localVarPath := localBasePath + "/rest/topics"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -306,7 +306,7 @@ func (a *TopicsApiService) DeleteTopicExecute(r ApiDeleteTopicRequest) (*_nethtt
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/topics/{topicName}"
+	localVarPath := localBasePath + "/rest/topics/{topicName}"
 	localVarPath = strings.Replace(localVarPath, "{"+"topicName"+"}", _neturl.PathEscape(parameterToString(r.topicName, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -442,7 +442,7 @@ func (a *TopicsApiService) GetTopicExecute(r ApiGetTopicRequest) (Topic, *_netht
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/topics/{topicName}"
+	localVarPath := localBasePath + "/rest/topics/{topicName}"
 	localVarPath = strings.Replace(localVarPath, "{"+"topicName"+"}", _neturl.PathEscape(parameterToString(r.topicName, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -619,7 +619,7 @@ func (a *TopicsApiService) GetTopicsExecute(r ApiGetTopicsRequest) (TopicsList, 
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/topics"
+	localVarPath := localBasePath + "/rest/topics"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -789,7 +789,7 @@ func (a *TopicsApiService) UpdateTopicExecute(r ApiUpdateTopicRequest) (Topic, *
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/topics/{topicName}"
+	localVarPath := localBasePath + "/rest/topics/{topicName}"
 	localVarPath = strings.Replace(localVarPath, "{"+"topicName"+"}", _neturl.PathEscape(parameterToString(r.topicName, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)

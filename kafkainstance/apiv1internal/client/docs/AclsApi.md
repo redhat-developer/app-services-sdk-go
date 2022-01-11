@@ -1,13 +1,13 @@
 # \AclsApi
 
-All URIs are relative to *http://localhost/rest*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAcl**](AclsApi.md#CreateAcl) | **Post** /acls | Create ACL binding
-[**DeleteAcls**](AclsApi.md#DeleteAcls) | **Delete** /acls | Delete ACL bindings
-[**GetAclResourceOperations**](AclsApi.md#GetAclResourceOperations) | **Get** /acls/resource-operations | Retrieve allowed ACL resources and operations
-[**GetAcls**](AclsApi.md#GetAcls) | **Get** /acls | List ACL bindings
+[**CreateAcl**](AclsApi.md#CreateAcl) | **Post** /rest/acls | Create ACL binding
+[**DeleteAcls**](AclsApi.md#DeleteAcls) | **Delete** /rest/acls | Delete ACL bindings
+[**GetAclResourceOperations**](AclsApi.md#GetAclResourceOperations) | **Get** /rest/acls/resource-operations | Retrieve allowed ACL resources and operations
+[**GetAcls**](AclsApi.md#GetAcls) | **Get** /rest/acls | List ACL bindings
 
 
 

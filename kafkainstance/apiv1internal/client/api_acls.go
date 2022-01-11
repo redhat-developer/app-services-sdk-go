@@ -129,7 +129,7 @@ func (a *AclsApiService) CreateAclExecute(r ApiCreateAclRequest) (*_nethttp.Resp
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/acls"
+	localVarPath := localBasePath + "/rest/acls"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -306,7 +306,7 @@ func (a *AclsApiService) DeleteAclsExecute(r ApiDeleteAclsRequest) (AclBindingLi
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/acls"
+	localVarPath := localBasePath + "/rest/acls"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -475,7 +475,7 @@ func (a *AclsApiService) GetAclResourceOperationsExecute(r ApiGetAclResourceOper
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/acls/resource-operations"
+	localVarPath := localBasePath + "/rest/acls/resource-operations"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -656,7 +656,7 @@ func (a *AclsApiService) GetAclsExecute(r ApiGetAclsRequest) (AclBindingListPage
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/acls"
+	localVarPath := localBasePath + "/rest/acls"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

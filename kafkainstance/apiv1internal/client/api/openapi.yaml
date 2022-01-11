@@ -7,8 +7,7 @@ info:
   title: Kafka Admin REST API
   version: 0.3.0
 servers:
-- description: Kafka Admin REST API
-  url: /rest
+- url: /
 security:
 - Bearer: []
 tags:
@@ -19,7 +18,7 @@ tags:
 - description: Access Control Management (ACLs)
   name: acls
 paths:
-  /topics:
+  /rest/topics:
     get:
       description: Returns a list of all of the available topics, or the list of topics
         that meet the request query parameters. The topics returned are limited to
@@ -191,7 +190,7 @@ paths:
       summary: Creates a new topic
       tags:
       - topics
-  /topics/{topicName}:
+  /rest/topics/{topicName}:
     delete:
       description: Deletes the topic with the specified name.
       operationId: deleteTopic
@@ -338,7 +337,7 @@ paths:
       summary: Updates the topic with the specified name.
       tags:
       - topics
-  /consumer-groups/{consumerGroupId}:
+  /rest/consumer-groups/{consumerGroupId}:
     delete:
       description: Delete a consumer group, along with its consumers.
       operationId: deleteConsumerGroupById
@@ -510,7 +509,7 @@ paths:
       summary: Get a single consumer group by its unique ID.
       tags:
       - groups
-  /consumer-groups:
+  /rest/consumer-groups:
     get:
       description: Returns a list of all consumer groups for a particular Kafka instance.
         The consumer groups returned are limited to those records the requestor is
@@ -659,7 +658,7 @@ paths:
       tags:
       - groups
     summary: API endpoints for consumer groups under a Kafka topic
-  /consumer-groups/{consumerGroupId}/reset-offset:
+  /rest/consumer-groups/{consumerGroupId}/reset-offset:
     post:
       description: Reset the offset for a particular consumer group.
       operationId: resetConsumerGroupOffset
@@ -729,7 +728,7 @@ paths:
       summary: Reset the offset for a consumer group.
       tags:
       - groups
-  /acls:
+  /rest/acls:
     delete:
       description: Deletes ACL bindings that match the query parameters.
       operationId: deleteAcls
@@ -1117,7 +1116,7 @@ paths:
       summary: Create ACL binding
       tags:
       - acls
-  /acls/resource-operations:
+  /rest/acls/resource-operations:
     get:
       description: Retrieve the resources and associated operations that may have
         ACLs configured.

@@ -130,7 +130,7 @@ func (a *GroupsApiService) DeleteConsumerGroupByIdExecute(r ApiDeleteConsumerGro
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/consumer-groups/{consumerGroupId}"
+	localVarPath := localBasePath + "/rest/consumer-groups/{consumerGroupId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"consumerGroupId"+"}", _neturl.PathEscape(parameterToString(r.consumerGroupId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -305,7 +305,7 @@ func (a *GroupsApiService) GetConsumerGroupByIdExecute(r ApiGetConsumerGroupById
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/consumer-groups/{consumerGroupId}"
+	localVarPath := localBasePath + "/rest/consumer-groups/{consumerGroupId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"consumerGroupId"+"}", _neturl.PathEscape(parameterToString(r.consumerGroupId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -509,7 +509,7 @@ func (a *GroupsApiService) GetConsumerGroupsExecute(r ApiGetConsumerGroupsReques
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/consumer-groups"
+	localVarPath := localBasePath + "/rest/consumer-groups"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -682,7 +682,7 @@ func (a *GroupsApiService) ResetConsumerGroupOffsetExecute(r ApiResetConsumerGro
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/consumer-groups/{consumerGroupId}/reset-offset"
+	localVarPath := localBasePath + "/rest/consumer-groups/{consumerGroupId}/reset-offset"
 	localVarPath = strings.Replace(localVarPath, "{"+"consumerGroupId"+"}", _neturl.PathEscape(parameterToString(r.consumerGroupId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
