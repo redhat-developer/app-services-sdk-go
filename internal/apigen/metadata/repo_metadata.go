@@ -16,6 +16,8 @@ type SdkEntry struct {
 	ModuleName   string `json:"package_name"`
 	OpenApiFile  string `json:"openapi_file"`
 	Disabled     bool   `json:"disabled,omitempty"`
+	ErrorsSource string `json:"errors_source,omitempty"`
+	ErrorsTarget string `json:"errors_target,omitempty"`
 }
 
 func (s *SdkEntry) OutputPath() string {

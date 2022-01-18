@@ -1,1 +1,0 @@
-node ./scripts/errors/generate-errors.js

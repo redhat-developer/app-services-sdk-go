@@ -3,7 +3,9 @@
     "apiGroup": "kafkamgmt",
     "apiVersion": "v1",
     "release_level": "beta",
-    "openapi_file": ".openapi/kas-fleet-manager.yaml"
+    "openapi_file": ".openapi/kas-fleet-manager.yaml",
+    "errors_source": "errors_kafka_mgmt.json",
+    "errors_target": "kafkamgmt/apiv1/errors.go"
   },
   "kafka-admin/v1": {
     "apiGroup": "kafkainstance",
@@ -15,13 +17,17 @@
     "apiGroup": "registrymgmt",
     "apiVersion": "v1",
     "release_level": "alpha",
-    "openapi_file": ".openapi/srs-fleet-manager.json"
+    "openapi_file": ".openapi/srs-fleet-manager.json",
+    "errors_source": "errors_srs_mgmt.json",
+    "errors_target": "registrymgmt/apiv1/errors.go"
   },
   "cos-mgmt/v1": {
     "apiGroup": "connectormgmt",
     "apiVersion": "v1",
     "release_level": "alpha",
-    "openapi_file": ".openapi/connector_mgmt.yaml"
+    "openapi_file": ".openapi/connector_mgmt.yaml",
+    "errors_source": "errors_connector_mgmt.json",
+    "errors_target": "connectormgmt/apiv1/errors.go"
   },
   "registry-instance/v1": {
     "apiGroup": "registryinstance",
