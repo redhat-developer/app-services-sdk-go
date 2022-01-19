@@ -17,15 +17,16 @@ for (api in apis) {
   stringBuffer=`
 package ${api}
 
-// KafkaManagementErrorCode represents error code returned by Kafka Management API
-type ServiceErrorCode string
+// ${api} error codes 
+type ErrorCode string
   
 const (
-  `
+
+`
   
   apiJson.items.forEach(function(errorType) {
     stringBuffer += `  // ${errorType.reason}\n`
-    stringBuffer += `  ERROR_${errorType.id} ServiceErrorCode = "${errorType.code}"`
+    stringBuffer += `  ERROR_${errorType.id} ErrorCode = "${errorType.code}"`
     stringBuffer += `\n\n`
   })
   
