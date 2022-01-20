@@ -1,7 +1,7 @@
 
 package kafkamgmt
 
-// kafkamgmt error codes
+// kafkamgmt error codes 
 type ErrorCode string
   
 const (

@@ -1,7 +1,7 @@
 
 package connectormgmt
 
-// connectormgmt error codes
+// connectormgmt error codes 
 type ErrorCode string
   
 const (

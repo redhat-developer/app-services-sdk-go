@@ -1,7 +1,7 @@
 
 package registrymgmt
 
-// registrymgmt error codes
+// registrymgmt error codes 
 type ErrorCode string
   
 const (
