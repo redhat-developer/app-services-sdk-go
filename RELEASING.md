@@ -9,7 +9,7 @@ To see all modules:
 ```bash
 $ cat `find . -name go.mod` | grep module
 module github.com/redhat-developer/app-services-sdk-go/internal/apigen
-module github.com/redhat-developer/app-services-sdk-go/internal/examples
+module github.com/redhat-developer/app-services-sdk-go/examples
 module github.com/redhat-developer/app-services-sdk-go/kafkainstance
 module github.com/redhat-developer/app-services-sdk-go/kafkamgmt
 module github.com/redhat-developer/app-services-sdk-go/registrymgmt
