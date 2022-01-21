@@ -48,7 +48,7 @@ import "github.com/redhat-developer/app-services-sdk-go"
 
 ## Examples
 
-[Examples](./internal/examples)
+[Examples](./examples)
 
 ## Contributing
 
