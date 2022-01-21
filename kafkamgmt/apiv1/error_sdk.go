@@ -34,8 +34,8 @@ func GetAPIError(err error) *kafkamgmtclient.Error {
 	return nil
 }
 
-// IsErr returns true if the error contains the errCode
-func IsErr(err error, code ServiceErrorCode) bool {
+// IsAPIError returns true if the error contains the errCode
+func IsAPIError(err error, code ServiceErrorCode) bool {
 	mappedErr := GetAPIError(err)
 	if mappedErr == nil {
 		return false
