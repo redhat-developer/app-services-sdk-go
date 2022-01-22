@@ -7,21 +7,27 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Kind** | Pointer to **string** |  | [optional] 
 **Href** | Pointer to **string** |  | [optional] 
-**Metadata** | Pointer to [**ConnectorAllOfMetadata**](ConnectorAllOfMetadata.md) |  | [optional] 
-**DeploymentLocation** | Pointer to [**ClusterTarget**](ClusterTarget.md) |  | [optional] 
-**Kafka** | Pointer to [**KafkaConnectionSettings**](KafkaConnectionSettings.md) |  | [optional] 
-**ConnectorTypeId** | Pointer to **string** |  | [optional] 
-**ConnectorSpec** | Pointer to **map[string]interface{}** |  | [optional] 
-**Channel** | Pointer to **string** |  | [optional] 
-**DesiredState** | Pointer to **string** |  | [optional] 
-**Status** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to **string** |  | [optional] 
+**CreatedAt** | Pointer to **time.Time** |  | [optional] 
+**ModifiedAt** | Pointer to **time.Time** |  | [optional] 
+**Name** | **string** |  | 
+**ConnectorTypeId** | **string** |  | 
+**Channel** | Pointer to [**Channel**](Channel.md) |  | [optional] [default to CHANNEL_STABLE]
+**DeploymentLocation** | [**DeploymentLocation**](DeploymentLocation.md) |  | 
+**DesiredState** | [**ConnectorDesiredState**](ConnectorDesiredState.md) |  | 
+**ResourceVersion** | Pointer to **int64** |  | [optional] 
+**Kafka** | [**KafkaConnectionSettings**](KafkaConnectionSettings.md) |  | 
+**ServiceAccount** | [**ServiceAccount**](ServiceAccount.md) |  | 
+**SchemaRegistry** | Pointer to [**SchemaRegistryConnectionSettings**](SchemaRegistryConnectionSettings.md) |  | [optional] 
+**Connector** | **map[string]interface{}** |  | 
+**Status** | Pointer to [**ConnectorStatusStatus**](ConnectorStatusStatus.md) |  | [optional] 
 
 
 ## Methods
 
 ### NewConnector
 
-`func NewConnector() *Connector`
+`func NewConnector(name string, connectorTypeId string, deploymentLocation DeploymentLocation, desiredState ConnectorDesiredState, kafka KafkaConnectionSettings, serviceAccount ServiceAccount, connector map[string]interface{}, ) *Connector`
 
 NewConnector instantiates a new Connector object
 This constructor will assign default values to properties that have it defined,
@@ -115,82 +121,103 @@ SetHref sets Href field to given value.
 HasHref returns a boolean if a field has been set.
 
 
-### GetMetadata
+### GetOwner
 
-`func (o *Connector) GetMetadata() ConnectorAllOfMetadata`
+`func (o *Connector) GetOwner() string`
 
-GetMetadata returns the Metadata field if non-nil, zero value otherwise.
+GetOwner returns the Owner field if non-nil, zero value otherwise.
 
-### GetMetadataOk
+### GetOwnerOk
 
-`func (o *Connector) GetMetadataOk() (*ConnectorAllOfMetadata, bool)`
+`func (o *Connector) GetOwnerOk() (*string, bool)`
 
-GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMetadata
+### SetOwner
 
-`func (o *Connector) SetMetadata(v ConnectorAllOfMetadata)`
+`func (o *Connector) SetOwner(v string)`
 
-SetMetadata sets Metadata field to given value.
+SetOwner sets Owner field to given value.
 
-### HasMetadata
+### HasOwner
 
-`func (o *Connector) HasMetadata() bool`
+`func (o *Connector) HasOwner() bool`
 
-HasMetadata returns a boolean if a field has been set.
+HasOwner returns a boolean if a field has been set.
 
 
-### GetDeploymentLocation
+### GetCreatedAt
 
-`func (o *Connector) GetDeploymentLocation() ClusterTarget`
+`func (o *Connector) GetCreatedAt() time.Time`
 
-GetDeploymentLocation returns the DeploymentLocation field if non-nil, zero value otherwise.
+GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
 
-### GetDeploymentLocationOk
+### GetCreatedAtOk
 
-`func (o *Connector) GetDeploymentLocationOk() (*ClusterTarget, bool)`
+`func (o *Connector) GetCreatedAtOk() (*time.Time, bool)`
 
-GetDeploymentLocationOk returns a tuple with the DeploymentLocation field if it's non-nil, zero value otherwise
+GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDeploymentLocation
+### SetCreatedAt
 
-`func (o *Connector) SetDeploymentLocation(v ClusterTarget)`
+`func (o *Connector) SetCreatedAt(v time.Time)`
 
-SetDeploymentLocation sets DeploymentLocation field to given value.
+SetCreatedAt sets CreatedAt field to given value.
 
-### HasDeploymentLocation
+### HasCreatedAt
 
-`func (o *Connector) HasDeploymentLocation() bool`
+`func (o *Connector) HasCreatedAt() bool`
 
-HasDeploymentLocation returns a boolean if a field has been set.
+HasCreatedAt returns a boolean if a field has been set.
 
 
-### GetKafka
+### GetModifiedAt
 
-`func (o *Connector) GetKafka() KafkaConnectionSettings`
+`func (o *Connector) GetModifiedAt() time.Time`
 
-GetKafka returns the Kafka field if non-nil, zero value otherwise.
+GetModifiedAt returns the ModifiedAt field if non-nil, zero value otherwise.
 
-### GetKafkaOk
+### GetModifiedAtOk
 
-`func (o *Connector) GetKafkaOk() (*KafkaConnectionSettings, bool)`
+`func (o *Connector) GetModifiedAtOk() (*time.Time, bool)`
 
-GetKafkaOk returns a tuple with the Kafka field if it's non-nil, zero value otherwise
+GetModifiedAtOk returns a tuple with the ModifiedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetKafka
+### SetModifiedAt
 
-`func (o *Connector) SetKafka(v KafkaConnectionSettings)`
+`func (o *Connector) SetModifiedAt(v time.Time)`
 
-SetKafka sets Kafka field to given value.
+SetModifiedAt sets ModifiedAt field to given value.
 
-### HasKafka
+### HasModifiedAt
 
-`func (o *Connector) HasKafka() bool`
+`func (o *Connector) HasModifiedAt() bool`
 
-HasKafka returns a boolean if a field has been set.
+HasModifiedAt returns a boolean if a field has been set.
+
+
+### GetName
+
+`func (o *Connector) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *Connector) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *Connector) SetName(v string)`
+
+SetName sets Name field to given value.
+
 
 
 ### GetConnectorTypeId
@@ -212,55 +239,24 @@ and a boolean to check if the value has been set.
 
 SetConnectorTypeId sets ConnectorTypeId field to given value.
 
-### HasConnectorTypeId
-
-`func (o *Connector) HasConnectorTypeId() bool`
-
-HasConnectorTypeId returns a boolean if a field has been set.
-
-
-### GetConnectorSpec
-
-`func (o *Connector) GetConnectorSpec() map[string]interface{}`
-
-GetConnectorSpec returns the ConnectorSpec field if non-nil, zero value otherwise.
-
-### GetConnectorSpecOk
-
-`func (o *Connector) GetConnectorSpecOk() (*map[string]interface{}, bool)`
-
-GetConnectorSpecOk returns a tuple with the ConnectorSpec field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetConnectorSpec
-
-`func (o *Connector) SetConnectorSpec(v map[string]interface{})`
-
-SetConnectorSpec sets ConnectorSpec field to given value.
-
-### HasConnectorSpec
-
-`func (o *Connector) HasConnectorSpec() bool`
-
-HasConnectorSpec returns a boolean if a field has been set.
 
 
 ### GetChannel
 
-`func (o *Connector) GetChannel() string`
+`func (o *Connector) GetChannel() Channel`
 
 GetChannel returns the Channel field if non-nil, zero value otherwise.
 
 ### GetChannelOk
 
-`func (o *Connector) GetChannelOk() (*string, bool)`
+`func (o *Connector) GetChannelOk() (*Channel, bool)`
 
 GetChannelOk returns a tuple with the Channel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannel
 
-`func (o *Connector) SetChannel(v string)`
+`func (o *Connector) SetChannel(v Channel)`
 
 SetChannel sets Channel field to given value.
 
@@ -271,48 +267,179 @@ SetChannel sets Channel field to given value.
 HasChannel returns a boolean if a field has been set.
 
 
+### GetDeploymentLocation
+
+`func (o *Connector) GetDeploymentLocation() DeploymentLocation`
+
+GetDeploymentLocation returns the DeploymentLocation field if non-nil, zero value otherwise.
+
+### GetDeploymentLocationOk
+
+`func (o *Connector) GetDeploymentLocationOk() (*DeploymentLocation, bool)`
+
+GetDeploymentLocationOk returns a tuple with the DeploymentLocation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeploymentLocation
+
+`func (o *Connector) SetDeploymentLocation(v DeploymentLocation)`
+
+SetDeploymentLocation sets DeploymentLocation field to given value.
+
+
+
 ### GetDesiredState
 
-`func (o *Connector) GetDesiredState() string`
+`func (o *Connector) GetDesiredState() ConnectorDesiredState`
 
 GetDesiredState returns the DesiredState field if non-nil, zero value otherwise.
 
 ### GetDesiredStateOk
 
-`func (o *Connector) GetDesiredStateOk() (*string, bool)`
+`func (o *Connector) GetDesiredStateOk() (*ConnectorDesiredState, bool)`
 
 GetDesiredStateOk returns a tuple with the DesiredState field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDesiredState
 
-`func (o *Connector) SetDesiredState(v string)`
+`func (o *Connector) SetDesiredState(v ConnectorDesiredState)`
 
 SetDesiredState sets DesiredState field to given value.
 
-### HasDesiredState
 
-`func (o *Connector) HasDesiredState() bool`
 
-HasDesiredState returns a boolean if a field has been set.
+### GetResourceVersion
+
+`func (o *Connector) GetResourceVersion() int64`
+
+GetResourceVersion returns the ResourceVersion field if non-nil, zero value otherwise.
+
+### GetResourceVersionOk
+
+`func (o *Connector) GetResourceVersionOk() (*int64, bool)`
+
+GetResourceVersionOk returns a tuple with the ResourceVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceVersion
+
+`func (o *Connector) SetResourceVersion(v int64)`
+
+SetResourceVersion sets ResourceVersion field to given value.
+
+### HasResourceVersion
+
+`func (o *Connector) HasResourceVersion() bool`
+
+HasResourceVersion returns a boolean if a field has been set.
+
+
+### GetKafka
+
+`func (o *Connector) GetKafka() KafkaConnectionSettings`
+
+GetKafka returns the Kafka field if non-nil, zero value otherwise.
+
+### GetKafkaOk
+
+`func (o *Connector) GetKafkaOk() (*KafkaConnectionSettings, bool)`
+
+GetKafkaOk returns a tuple with the Kafka field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKafka
+
+`func (o *Connector) SetKafka(v KafkaConnectionSettings)`
+
+SetKafka sets Kafka field to given value.
+
+
+
+### GetServiceAccount
+
+`func (o *Connector) GetServiceAccount() ServiceAccount`
+
+GetServiceAccount returns the ServiceAccount field if non-nil, zero value otherwise.
+
+### GetServiceAccountOk
+
+`func (o *Connector) GetServiceAccountOk() (*ServiceAccount, bool)`
+
+GetServiceAccountOk returns a tuple with the ServiceAccount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceAccount
+
+`func (o *Connector) SetServiceAccount(v ServiceAccount)`
+
+SetServiceAccount sets ServiceAccount field to given value.
+
+
+
+### GetSchemaRegistry
+
+`func (o *Connector) GetSchemaRegistry() SchemaRegistryConnectionSettings`
+
+GetSchemaRegistry returns the SchemaRegistry field if non-nil, zero value otherwise.
+
+### GetSchemaRegistryOk
+
+`func (o *Connector) GetSchemaRegistryOk() (*SchemaRegistryConnectionSettings, bool)`
+
+GetSchemaRegistryOk returns a tuple with the SchemaRegistry field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSchemaRegistry
+
+`func (o *Connector) SetSchemaRegistry(v SchemaRegistryConnectionSettings)`
+
+SetSchemaRegistry sets SchemaRegistry field to given value.
+
+### HasSchemaRegistry
+
+`func (o *Connector) HasSchemaRegistry() bool`
+
+HasSchemaRegistry returns a boolean if a field has been set.
+
+
+### GetConnector
+
+`func (o *Connector) GetConnector() map[string]interface{}`
+
+GetConnector returns the Connector field if non-nil, zero value otherwise.
+
+### GetConnectorOk
+
+`func (o *Connector) GetConnectorOk() (*map[string]interface{}, bool)`
+
+GetConnectorOk returns a tuple with the Connector field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConnector
+
+`func (o *Connector) SetConnector(v map[string]interface{})`
+
+SetConnector sets Connector field to given value.
+
 
 
 ### GetStatus
 
-`func (o *Connector) GetStatus() string`
+`func (o *Connector) GetStatus() ConnectorStatusStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *Connector) GetStatusOk() (*string, bool)`
+`func (o *Connector) GetStatusOk() (*ConnectorStatusStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *Connector) SetStatus(v string)`
+`func (o *Connector) SetStatus(v ConnectorStatusStatus)`
 
 SetStatus sets Status field to given value.
 

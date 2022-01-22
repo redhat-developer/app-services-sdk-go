@@ -4,16 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BootstrapServer** | Pointer to **string** |  | [optional] 
-**ClientId** | Pointer to **string** |  | [optional] 
-**ClientSecret** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
+**Url** | **string** |  | 
 
 
 ## Methods
 
 ### NewKafkaConnectionSettings
 
-`func NewKafkaConnectionSettings() *KafkaConnectionSettings`
+`func NewKafkaConnectionSettings(id string, url string, ) *KafkaConnectionSettings`
 
 NewKafkaConnectionSettings instantiates a new KafkaConnectionSettings object
 This constructor will assign default values to properties that have it defined,
@@ -29,82 +28,46 @@ This constructor will only assign default values to properties that have it defi
 but it doesn't guarantee that properties required by API are set
 
 
-### GetBootstrapServer
+### GetId
 
-`func (o *KafkaConnectionSettings) GetBootstrapServer() string`
+`func (o *KafkaConnectionSettings) GetId() string`
 
-GetBootstrapServer returns the BootstrapServer field if non-nil, zero value otherwise.
+GetId returns the Id field if non-nil, zero value otherwise.
 
-### GetBootstrapServerOk
+### GetIdOk
 
-`func (o *KafkaConnectionSettings) GetBootstrapServerOk() (*string, bool)`
+`func (o *KafkaConnectionSettings) GetIdOk() (*string, bool)`
 
-GetBootstrapServerOk returns a tuple with the BootstrapServer field if it's non-nil, zero value otherwise
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBootstrapServer
+### SetId
 
-`func (o *KafkaConnectionSettings) SetBootstrapServer(v string)`
+`func (o *KafkaConnectionSettings) SetId(v string)`
 
-SetBootstrapServer sets BootstrapServer field to given value.
-
-### HasBootstrapServer
-
-`func (o *KafkaConnectionSettings) HasBootstrapServer() bool`
-
-HasBootstrapServer returns a boolean if a field has been set.
+SetId sets Id field to given value.
 
 
-### GetClientId
 
-`func (o *KafkaConnectionSettings) GetClientId() string`
+### GetUrl
 
-GetClientId returns the ClientId field if non-nil, zero value otherwise.
+`func (o *KafkaConnectionSettings) GetUrl() string`
 
-### GetClientIdOk
+GetUrl returns the Url field if non-nil, zero value otherwise.
 
-`func (o *KafkaConnectionSettings) GetClientIdOk() (*string, bool)`
+### GetUrlOk
 
-GetClientIdOk returns a tuple with the ClientId field if it's non-nil, zero value otherwise
+`func (o *KafkaConnectionSettings) GetUrlOk() (*string, bool)`
+
+GetUrlOk returns a tuple with the Url field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetClientId
+### SetUrl
 
-`func (o *KafkaConnectionSettings) SetClientId(v string)`
+`func (o *KafkaConnectionSettings) SetUrl(v string)`
 
-SetClientId sets ClientId field to given value.
+SetUrl sets Url field to given value.
 
-### HasClientId
-
-`func (o *KafkaConnectionSettings) HasClientId() bool`
-
-HasClientId returns a boolean if a field has been set.
-
-
-### GetClientSecret
-
-`func (o *KafkaConnectionSettings) GetClientSecret() string`
-
-GetClientSecret returns the ClientSecret field if non-nil, zero value otherwise.
-
-### GetClientSecretOk
-
-`func (o *KafkaConnectionSettings) GetClientSecretOk() (*string, bool)`
-
-GetClientSecretOk returns a tuple with the ClientSecret field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetClientSecret
-
-`func (o *KafkaConnectionSettings) SetClientSecret(v string)`
-
-SetClientSecret sets ClientSecret field to given value.
-
-### HasClientSecret
-
-`func (o *KafkaConnectionSettings) HasClientSecret() bool`
-
-HasClientSecret returns a boolean if a field has been set.
 
 
 

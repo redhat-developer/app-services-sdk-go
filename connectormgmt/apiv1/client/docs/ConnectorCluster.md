@@ -7,8 +7,11 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Kind** | Pointer to **string** |  | [optional] 
 **Href** | Pointer to **string** |  | [optional] 
-**Metadata** | Pointer to [**ConnectorClusterAllOfMetadata**](ConnectorClusterAllOfMetadata.md) |  | [optional] 
-**Status** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to **string** |  | [optional] 
+**CreatedAt** | Pointer to **time.Time** |  | [optional] 
+**ModifiedAt** | Pointer to **time.Time** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Status** | Pointer to [**ConnectorClusterStatusStatus**](ConnectorClusterStatusStatus.md) |  | [optional] 
 
 
 ## Methods
@@ -109,48 +112,126 @@ SetHref sets Href field to given value.
 HasHref returns a boolean if a field has been set.
 
 
-### GetMetadata
+### GetOwner
 
-`func (o *ConnectorCluster) GetMetadata() ConnectorClusterAllOfMetadata`
+`func (o *ConnectorCluster) GetOwner() string`
 
-GetMetadata returns the Metadata field if non-nil, zero value otherwise.
+GetOwner returns the Owner field if non-nil, zero value otherwise.
 
-### GetMetadataOk
+### GetOwnerOk
 
-`func (o *ConnectorCluster) GetMetadataOk() (*ConnectorClusterAllOfMetadata, bool)`
+`func (o *ConnectorCluster) GetOwnerOk() (*string, bool)`
 
-GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMetadata
+### SetOwner
 
-`func (o *ConnectorCluster) SetMetadata(v ConnectorClusterAllOfMetadata)`
+`func (o *ConnectorCluster) SetOwner(v string)`
 
-SetMetadata sets Metadata field to given value.
+SetOwner sets Owner field to given value.
 
-### HasMetadata
+### HasOwner
 
-`func (o *ConnectorCluster) HasMetadata() bool`
+`func (o *ConnectorCluster) HasOwner() bool`
 
-HasMetadata returns a boolean if a field has been set.
+HasOwner returns a boolean if a field has been set.
+
+
+### GetCreatedAt
+
+`func (o *ConnectorCluster) GetCreatedAt() time.Time`
+
+GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
+
+### GetCreatedAtOk
+
+`func (o *ConnectorCluster) GetCreatedAtOk() (*time.Time, bool)`
+
+GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedAt
+
+`func (o *ConnectorCluster) SetCreatedAt(v time.Time)`
+
+SetCreatedAt sets CreatedAt field to given value.
+
+### HasCreatedAt
+
+`func (o *ConnectorCluster) HasCreatedAt() bool`
+
+HasCreatedAt returns a boolean if a field has been set.
+
+
+### GetModifiedAt
+
+`func (o *ConnectorCluster) GetModifiedAt() time.Time`
+
+GetModifiedAt returns the ModifiedAt field if non-nil, zero value otherwise.
+
+### GetModifiedAtOk
+
+`func (o *ConnectorCluster) GetModifiedAtOk() (*time.Time, bool)`
+
+GetModifiedAtOk returns a tuple with the ModifiedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModifiedAt
+
+`func (o *ConnectorCluster) SetModifiedAt(v time.Time)`
+
+SetModifiedAt sets ModifiedAt field to given value.
+
+### HasModifiedAt
+
+`func (o *ConnectorCluster) HasModifiedAt() bool`
+
+HasModifiedAt returns a boolean if a field has been set.
+
+
+### GetName
+
+`func (o *ConnectorCluster) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *ConnectorCluster) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *ConnectorCluster) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *ConnectorCluster) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 
 ### GetStatus
 
-`func (o *ConnectorCluster) GetStatus() string`
+`func (o *ConnectorCluster) GetStatus() ConnectorClusterStatusStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *ConnectorCluster) GetStatusOk() (*string, bool)`
+`func (o *ConnectorCluster) GetStatusOk() (*ConnectorClusterStatusStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *ConnectorCluster) SetStatus(v string)`
+`func (o *ConnectorCluster) SetStatus(v ConnectorClusterStatusStatus)`
 
 SetStatus sets Status field to given value.
 

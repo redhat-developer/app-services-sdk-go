@@ -9,12 +9,13 @@ Name | Type | Description | Notes
 **Href** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** | Name of the connector type. | [optional] 
 **Version** | Pointer to **string** | Version of the connector type. | [optional] 
-**Channels** | Pointer to **[]string** | Channels of the connector type. | [optional] 
+**Channels** | Pointer to [**[]Channel**](Channel.md) | Channels of the connector type. | [optional] 
 **Description** | Pointer to **string** | A description of the connector. | [optional] 
 **IconHref** | Pointer to **string** | URL to an icon of the connector. | [optional] 
 **Labels** | Pointer to **[]string** | Labels used to categorize the connector | [optional] 
-**Schema** | Pointer to **map[string]interface{}** | A json schema that can be used to validate a connectors connector_spec field. | [optional] 
-**JsonSchema** | Pointer to **map[string]interface{}** | A json schema that can be used to validate a connectors connector_spec field. | [optional] 
+**Capabilities** | Pointer to **[]string** | The capabilities supported by the conenctor | [optional] 
+**Schema** | Pointer to **map[string]interface{}** | A json schema that can be used to validate a ConnectorRequest connector field. | [optional] 
+**JsonSchema** | Pointer to **map[string]interface{}** | A json schema that can be used to validate a ConnectorRequest connector field. | [optional] 
 
 
 ## Methods
@@ -169,20 +170,20 @@ HasVersion returns a boolean if a field has been set.
 
 ### GetChannels
 
-`func (o *ConnectorType) GetChannels() []string`
+`func (o *ConnectorType) GetChannels() []Channel`
 
 GetChannels returns the Channels field if non-nil, zero value otherwise.
 
 ### GetChannelsOk
 
-`func (o *ConnectorType) GetChannelsOk() (*[]string, bool)`
+`func (o *ConnectorType) GetChannelsOk() (*[]Channel, bool)`
 
 GetChannelsOk returns a tuple with the Channels field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannels
 
-`func (o *ConnectorType) SetChannels(v []string)`
+`func (o *ConnectorType) SetChannels(v []Channel)`
 
 SetChannels sets Channels field to given value.
 
@@ -269,6 +270,32 @@ SetLabels sets Labels field to given value.
 `func (o *ConnectorType) HasLabels() bool`
 
 HasLabels returns a boolean if a field has been set.
+
+
+### GetCapabilities
+
+`func (o *ConnectorType) GetCapabilities() []string`
+
+GetCapabilities returns the Capabilities field if non-nil, zero value otherwise.
+
+### GetCapabilitiesOk
+
+`func (o *ConnectorType) GetCapabilitiesOk() (*[]string, bool)`
+
+GetCapabilitiesOk returns a tuple with the Capabilities field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCapabilities
+
+`func (o *ConnectorType) SetCapabilities(v []string)`
+
+SetCapabilities sets Capabilities field to given value.
+
+### HasCapabilities
+
+`func (o *ConnectorType) HasCapabilities() bool`
+
+HasCapabilities returns a boolean if a field has been set.
 
 
 ### GetSchema
