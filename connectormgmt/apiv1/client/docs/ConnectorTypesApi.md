@@ -5,7 +5,7 @@ All URIs are relative to *https://api.openshift.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetConnectorTypeByID**](ConnectorTypesApi.md#GetConnectorTypeByID) | **Get** /api/connector_mgmt/v1/kafka_connector_types/{connector_type_id} | Get a connector type by id
-[**ListConnectorTypes**](ConnectorTypesApi.md#ListConnectorTypes) | **Get** /api/connector_mgmt/v1/kafka_connector_types | Returns a list of connector types
+[**GetConnectorTypes**](ConnectorTypesApi.md#GetConnectorTypes) | **Get** /api/connector_mgmt/v1/kafka_connector_types | Returns a list of connector types
 
 
 
@@ -14,6 +14,8 @@ Method | HTTP request | Description
 > ConnectorType GetConnectorTypeByID(ctx, connectorTypeId).Execute()
 
 Get a connector type by id
+
+
 
 ### Example
 
@@ -77,11 +79,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListConnectorTypes
+## GetConnectorTypes
 
-> ConnectorTypeList ListConnectorTypes(ctx).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
+> ConnectorTypeList GetConnectorTypes(ctx).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
 
 Returns a list of connector types
+
+
 
 ### Example
 
@@ -103,13 +107,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ConnectorTypesApi.ListConnectorTypes(context.Background()).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
+    resp, r, err := api_client.ConnectorTypesApi.GetConnectorTypes(context.Background()).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConnectorTypesApi.ListConnectorTypes``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ConnectorTypesApi.GetConnectorTypes``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListConnectorTypes`: ConnectorTypeList
-    fmt.Fprintf(os.Stdout, "Response from `ConnectorTypesApi.ListConnectorTypes`: %v\n", resp)
+    // response from `GetConnectorTypes`: ConnectorTypeList
+    fmt.Fprintf(os.Stdout, "Response from `ConnectorTypesApi.GetConnectorTypes`: %v\n", resp)
 }
 ```
 
@@ -119,7 +123,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListConnectorTypesRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetConnectorTypesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

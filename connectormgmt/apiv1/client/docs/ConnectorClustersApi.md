@@ -15,9 +15,11 @@ Method | HTTP request | Description
 
 ## CreateConnectorCluster
 
-> ConnectorCluster CreateConnectorCluster(ctx).Async(async).ConnectorCluster(connectorCluster).Execute()
+> ConnectorCluster CreateConnectorCluster(ctx).Async(async).ConnectorClusterRequest(connectorClusterRequest).Execute()
 
 Create a new connector cluster
+
+
 
 ### Example
 
@@ -33,11 +35,11 @@ import (
 
 func main() {
     async := true // bool | Perform the action in an asynchronous manner
-    connectorCluster := *openapiclient.NewConnectorCluster() // ConnectorCluster | Connector cluster data
+    connectorClusterRequest := *openapiclient.NewConnectorClusterRequest() // ConnectorClusterRequest | Connector cluster data
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ConnectorClustersApi.CreateConnectorCluster(context.Background()).Async(async).ConnectorCluster(connectorCluster).Execute()
+    resp, r, err := api_client.ConnectorClustersApi.CreateConnectorCluster(context.Background()).Async(async).ConnectorClusterRequest(connectorClusterRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorClustersApi.CreateConnectorCluster``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -59,7 +61,7 @@ Other parameters are passed through a pointer to a apiCreateConnectorClusterRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **async** | **bool** | Perform the action in an asynchronous manner | 
- **connectorCluster** | [**ConnectorCluster**](ConnectorCluster.md) | Connector cluster data | 
+ **connectorClusterRequest** | [**ConnectorClusterRequest**](ConnectorClusterRequest.md) | Connector cluster data | 
 
 ### Return type
 
@@ -84,6 +86,8 @@ Name | Type | Description  | Notes
 > Error DeleteConnectorCluster(ctx, connectorClusterId).Execute()
 
 Delete a connector cluster
+
+
 
 ### Example
 
@@ -153,6 +157,8 @@ Name | Type | Description  | Notes
 
 Get a connector cluster
 
+
+
 ### Example
 
 ```go
@@ -220,6 +226,8 @@ Name | Type | Description  | Notes
 > []AddonParameter GetConnectorClusterAddonParameters(ctx, connectorClusterId).Execute()
 
 Get a connector cluster's addon parameters
+
+
 
 ### Example
 
@@ -289,6 +297,8 @@ Name | Type | Description  | Notes
 
 Returns a list of connector clusters
 
+
+
 ### Example
 
 ```go
@@ -351,9 +361,11 @@ Name | Type | Description  | Notes
 
 ## UpdateConnectorClusterById
 
-> UpdateConnectorClusterById(ctx, connectorClusterId).ConnectorCluster(connectorCluster).Execute()
+> UpdateConnectorClusterById(ctx, connectorClusterId).ConnectorClusterRequest(connectorClusterRequest).Execute()
 
 udpate a connector cluster
+
+
 
 ### Example
 
@@ -369,11 +381,11 @@ import (
 
 func main() {
     connectorClusterId := "connectorClusterId_example" // string | The id of the connector cluster
-    connectorCluster := *openapiclient.NewConnectorCluster() // ConnectorCluster | Data to updated connector with
+    connectorClusterRequest := *openapiclient.NewConnectorClusterRequest() // ConnectorClusterRequest | Data to updated connector with
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ConnectorClustersApi.UpdateConnectorClusterById(context.Background(), connectorClusterId).ConnectorCluster(connectorCluster).Execute()
+    resp, r, err := api_client.ConnectorClustersApi.UpdateConnectorClusterById(context.Background(), connectorClusterId).ConnectorClusterRequest(connectorClusterRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorClustersApi.UpdateConnectorClusterById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -397,7 +409,7 @@ Other parameters are passed through a pointer to a apiUpdateConnectorClusterById
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **connectorCluster** | [**ConnectorCluster**](ConnectorCluster.md) | Data to updated connector with | 
+ **connectorClusterRequest** | [**ConnectorClusterRequest**](ConnectorClusterRequest.md) | Data to updated connector with | 
 
 ### Return type
 

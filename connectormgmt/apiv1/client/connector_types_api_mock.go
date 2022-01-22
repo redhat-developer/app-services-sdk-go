@@ -25,11 +25,11 @@ var _ ConnectorTypesApi = &ConnectorTypesApiMock{}
 // 			GetConnectorTypeByIDExecuteFunc: func(r ApiGetConnectorTypeByIDRequest) (ConnectorType, *_nethttp.Response, error) {
 // 				panic("mock out the GetConnectorTypeByIDExecute method")
 // 			},
-// 			ListConnectorTypesFunc: func(ctx _context.Context) ApiListConnectorTypesRequest {
-// 				panic("mock out the ListConnectorTypes method")
+// 			GetConnectorTypesFunc: func(ctx _context.Context) ApiGetConnectorTypesRequest {
+// 				panic("mock out the GetConnectorTypes method")
 // 			},
-// 			ListConnectorTypesExecuteFunc: func(r ApiListConnectorTypesRequest) (ConnectorTypeList, *_nethttp.Response, error) {
-// 				panic("mock out the ListConnectorTypesExecute method")
+// 			GetConnectorTypesExecuteFunc: func(r ApiGetConnectorTypesRequest) (ConnectorTypeList, *_nethttp.Response, error) {
+// 				panic("mock out the GetConnectorTypesExecute method")
 // 			},
 // 		}
 //
@@ -44,11 +44,11 @@ type ConnectorTypesApiMock struct {
 	// GetConnectorTypeByIDExecuteFunc mocks the GetConnectorTypeByIDExecute method.
 	GetConnectorTypeByIDExecuteFunc func(r ApiGetConnectorTypeByIDRequest) (ConnectorType, *_nethttp.Response, error)
 
-	// ListConnectorTypesFunc mocks the ListConnectorTypes method.
-	ListConnectorTypesFunc func(ctx _context.Context) ApiListConnectorTypesRequest
+	// GetConnectorTypesFunc mocks the GetConnectorTypes method.
+	GetConnectorTypesFunc func(ctx _context.Context) ApiGetConnectorTypesRequest
 
-	// ListConnectorTypesExecuteFunc mocks the ListConnectorTypesExecute method.
-	ListConnectorTypesExecuteFunc func(r ApiListConnectorTypesRequest) (ConnectorTypeList, *_nethttp.Response, error)
+	// GetConnectorTypesExecuteFunc mocks the GetConnectorTypesExecute method.
+	GetConnectorTypesExecuteFunc func(r ApiGetConnectorTypesRequest) (ConnectorTypeList, *_nethttp.Response, error)
 
 	// calls tracks calls to the methods.
 	calls struct {
@@ -64,21 +64,21 @@ type ConnectorTypesApiMock struct {
 			// R is the r argument value.
 			R ApiGetConnectorTypeByIDRequest
 		}
-		// ListConnectorTypes holds details about calls to the ListConnectorTypes method.
-		ListConnectorTypes []struct {
+		// GetConnectorTypes holds details about calls to the GetConnectorTypes method.
+		GetConnectorTypes []struct {
 			// Ctx is the ctx argument value.
 			Ctx _context.Context
 		}
-		// ListConnectorTypesExecute holds details about calls to the ListConnectorTypesExecute method.
-		ListConnectorTypesExecute []struct {
+		// GetConnectorTypesExecute holds details about calls to the GetConnectorTypesExecute method.
+		GetConnectorTypesExecute []struct {
 			// R is the r argument value.
-			R ApiListConnectorTypesRequest
+			R ApiGetConnectorTypesRequest
 		}
 	}
 	lockGetConnectorTypeByID        sync.RWMutex
 	lockGetConnectorTypeByIDExecute sync.RWMutex
-	lockListConnectorTypes          sync.RWMutex
-	lockListConnectorTypesExecute   sync.RWMutex
+	lockGetConnectorTypes           sync.RWMutex
+	lockGetConnectorTypesExecute    sync.RWMutex
 }
 
 // GetConnectorTypeByID calls GetConnectorTypeByIDFunc.
@@ -147,64 +147,64 @@ func (mock *ConnectorTypesApiMock) GetConnectorTypeByIDExecuteCalls() []struct {
 	return calls
 }
 
-// ListConnectorTypes calls ListConnectorTypesFunc.
-func (mock *ConnectorTypesApiMock) ListConnectorTypes(ctx _context.Context) ApiListConnectorTypesRequest {
-	if mock.ListConnectorTypesFunc == nil {
-		panic("ConnectorTypesApiMock.ListConnectorTypesFunc: method is nil but ConnectorTypesApi.ListConnectorTypes was just called")
+// GetConnectorTypes calls GetConnectorTypesFunc.
+func (mock *ConnectorTypesApiMock) GetConnectorTypes(ctx _context.Context) ApiGetConnectorTypesRequest {
+	if mock.GetConnectorTypesFunc == nil {
+		panic("ConnectorTypesApiMock.GetConnectorTypesFunc: method is nil but ConnectorTypesApi.GetConnectorTypes was just called")
 	}
 	callInfo := struct {
 		Ctx _context.Context
 	}{
 		Ctx: ctx,
 	}
-	mock.lockListConnectorTypes.Lock()
-	mock.calls.ListConnectorTypes = append(mock.calls.ListConnectorTypes, callInfo)
-	mock.lockListConnectorTypes.Unlock()
-	return mock.ListConnectorTypesFunc(ctx)
+	mock.lockGetConnectorTypes.Lock()
+	mock.calls.GetConnectorTypes = append(mock.calls.GetConnectorTypes, callInfo)
+	mock.lockGetConnectorTypes.Unlock()
+	return mock.GetConnectorTypesFunc(ctx)
 }
 
-// ListConnectorTypesCalls gets all the calls that were made to ListConnectorTypes.
+// GetConnectorTypesCalls gets all the calls that were made to GetConnectorTypes.
 // Check the length with:
-//     len(mockedConnectorTypesApi.ListConnectorTypesCalls())
-func (mock *ConnectorTypesApiMock) ListConnectorTypesCalls() []struct {
+//     len(mockedConnectorTypesApi.GetConnectorTypesCalls())
+func (mock *ConnectorTypesApiMock) GetConnectorTypesCalls() []struct {
 	Ctx _context.Context
 } {
 	var calls []struct {
 		Ctx _context.Context
 	}
-	mock.lockListConnectorTypes.RLock()
-	calls = mock.calls.ListConnectorTypes
-	mock.lockListConnectorTypes.RUnlock()
+	mock.lockGetConnectorTypes.RLock()
+	calls = mock.calls.GetConnectorTypes
+	mock.lockGetConnectorTypes.RUnlock()
 	return calls
 }
 
-// ListConnectorTypesExecute calls ListConnectorTypesExecuteFunc.
-func (mock *ConnectorTypesApiMock) ListConnectorTypesExecute(r ApiListConnectorTypesRequest) (ConnectorTypeList, *_nethttp.Response, error) {
-	if mock.ListConnectorTypesExecuteFunc == nil {
-		panic("ConnectorTypesApiMock.ListConnectorTypesExecuteFunc: method is nil but ConnectorTypesApi.ListConnectorTypesExecute was just called")
+// GetConnectorTypesExecute calls GetConnectorTypesExecuteFunc.
+func (mock *ConnectorTypesApiMock) GetConnectorTypesExecute(r ApiGetConnectorTypesRequest) (ConnectorTypeList, *_nethttp.Response, error) {
+	if mock.GetConnectorTypesExecuteFunc == nil {
+		panic("ConnectorTypesApiMock.GetConnectorTypesExecuteFunc: method is nil but ConnectorTypesApi.GetConnectorTypesExecute was just called")
 	}
 	callInfo := struct {
-		R ApiListConnectorTypesRequest
+		R ApiGetConnectorTypesRequest
 	}{
 		R: r,
 	}
-	mock.lockListConnectorTypesExecute.Lock()
-	mock.calls.ListConnectorTypesExecute = append(mock.calls.ListConnectorTypesExecute, callInfo)
-	mock.lockListConnectorTypesExecute.Unlock()
-	return mock.ListConnectorTypesExecuteFunc(r)
+	mock.lockGetConnectorTypesExecute.Lock()
+	mock.calls.GetConnectorTypesExecute = append(mock.calls.GetConnectorTypesExecute, callInfo)
+	mock.lockGetConnectorTypesExecute.Unlock()
+	return mock.GetConnectorTypesExecuteFunc(r)
 }
 
-// ListConnectorTypesExecuteCalls gets all the calls that were made to ListConnectorTypesExecute.
+// GetConnectorTypesExecuteCalls gets all the calls that were made to GetConnectorTypesExecute.
 // Check the length with:
-//     len(mockedConnectorTypesApi.ListConnectorTypesExecuteCalls())
-func (mock *ConnectorTypesApiMock) ListConnectorTypesExecuteCalls() []struct {
-	R ApiListConnectorTypesRequest
+//     len(mockedConnectorTypesApi.GetConnectorTypesExecuteCalls())
+func (mock *ConnectorTypesApiMock) GetConnectorTypesExecuteCalls() []struct {
+	R ApiGetConnectorTypesRequest
 } {
 	var calls []struct {
-		R ApiListConnectorTypesRequest
+		R ApiGetConnectorTypesRequest
 	}
-	mock.lockListConnectorTypesExecute.RLock()
-	calls = mock.calls.ListConnectorTypesExecute
-	mock.lockListConnectorTypesExecute.RUnlock()
+	mock.lockGetConnectorTypesExecute.RLock()
+	calls = mock.calls.GetConnectorTypesExecute
+	mock.lockGetConnectorTypesExecute.RUnlock()
 	return calls
 }
