@@ -69,6 +69,23 @@ client := registrymgmt.NewAPIClient(&registrymgmt.Config{
 registries, _, err := client.RegistriesApi.GetRegistries(ctx).Execute()
 ```
 
+## Error handling
+
+Checking specific error codes
+
+```go
+if registrymgmt.IsAPIError(err, registrymgmt.ERROR_4){
+ // Do something
+}
+```
+
+Obtaining API error 
+
+```go
+apiError := registrymgmt.GetAPIError(err)
+fmt.Println(apiError.Code)
+```
+
 ## Endpoints
 
 For a full list of the available endpoints, see [Documentation for API Endpoints](./client/README.md#documentation-for-api-endpoints).
