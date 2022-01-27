@@ -32,6 +32,7 @@ docs/MetricsRangeQueryList.md
 docs/MetricsRangeQueryListAllOf.md
 docs/ObjectReference.md
 docs/RangeQuery.md
+docs/RegionCapacityListItem.md
 docs/SecurityApi.md
 docs/ServiceAccount.md
 docs/ServiceAccountAllOf.md
@@ -69,6 +70,7 @@ model_metrics_range_query_list.go
 model_metrics_range_query_list_all_of.go
 model_object_reference.go
 model_range_query.go
+model_region_capacity_list_item.go
 model_service_account.go
 model_service_account_all_of.go
 model_service_account_list.go

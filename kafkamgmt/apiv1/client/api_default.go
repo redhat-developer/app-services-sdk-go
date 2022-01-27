@@ -152,6 +152,7 @@ type DefaultApi interface {
 
 	/*
 	 * GetServiceStatus Returns the status of resources, such as whether maximum service capacity has been reached
+	 * [DEPRECATED] The service capacity status is now reported per cloud provider region and Kafka instance type in the /api/kafkas_mgmt/v1/cloud_providers/{id}/regions endpoint. Please use this endpoint instead.
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @return ApiGetServiceStatusRequest
 	 */
@@ -1602,6 +1603,7 @@ func (r ApiGetServiceStatusRequest) Execute() (ServiceStatus, *_nethttp.Response
 
 /*
  * GetServiceStatus Returns the status of resources, such as whether maximum service capacity has been reached
+ * [DEPRECATED] The service capacity status is now reported per cloud provider region and Kafka instance type in the /api/kafkas_mgmt/v1/cloud_providers/{id}/regions endpoint. Please use this endpoint instead.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiGetServiceStatusRequest
  */

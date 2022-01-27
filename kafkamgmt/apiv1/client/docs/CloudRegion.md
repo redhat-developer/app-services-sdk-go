@@ -9,13 +9,14 @@ Name | Type | Description | Notes
 **DisplayName** | Pointer to **string** | Name of the region for display purposes, for example &#x60;N. Virginia&#x60;. | [optional] 
 **Enabled** | **bool** | Whether the region is enabled for deploying an OSD cluster. | [default to false]
 **SupportedInstanceTypes** | **[]string** | The Kafka instance types supported by this region. | 
+**Capacity** | [**[]RegionCapacityListItem**](RegionCapacityListItem.md) | Indicates whether there is capacity left per instance type | 
 
 
 ## Methods
 
 ### NewCloudRegion
 
-`func NewCloudRegion(enabled bool, supportedInstanceTypes []string, ) *CloudRegion`
+`func NewCloudRegion(enabled bool, supportedInstanceTypes []string, capacity []RegionCapacityListItem, ) *CloudRegion`
 
 NewCloudRegion instantiates a new CloudRegion object
 This constructor will assign default values to properties that have it defined,
@@ -148,6 +149,27 @@ and a boolean to check if the value has been set.
 `func (o *CloudRegion) SetSupportedInstanceTypes(v []string)`
 
 SetSupportedInstanceTypes sets SupportedInstanceTypes field to given value.
+
+
+
+### GetCapacity
+
+`func (o *CloudRegion) GetCapacity() []RegionCapacityListItem`
+
+GetCapacity returns the Capacity field if non-nil, zero value otherwise.
+
+### GetCapacityOk
+
+`func (o *CloudRegion) GetCapacityOk() (*[]RegionCapacityListItem, bool)`
+
+GetCapacityOk returns a tuple with the Capacity field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCapacity
+
+`func (o *CloudRegion) SetCapacity(v []RegionCapacityListItem)`
+
+SetCapacity sets Capacity field to given value.
 
 
 
