@@ -32,16 +32,20 @@ type CloudRegion struct {
 	// The Kafka instance types supported by this region.
 	SupportedInstanceTypes []string `json:"supported_instance_types"`
 
+	// Indicates whether there is capacity left per instance type
+	Capacity []RegionCapacityListItem `json:"capacity"`
+
 }
 
 // NewCloudRegion instantiates a new CloudRegion object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCloudRegion(enabled bool, supportedInstanceTypes []string) *CloudRegion {
+func NewCloudRegion(enabled bool, supportedInstanceTypes []string, capacity []RegionCapacityListItem) *CloudRegion {
 	this := CloudRegion{}
 	this.Enabled = enabled
 	this.SupportedInstanceTypes = supportedInstanceTypes
+	this.Capacity = capacity
 	return &this
 }
 
@@ -56,6 +60,7 @@ func NewCloudRegionWithDefaults() *CloudRegion {
 
 	var enabled bool = false
 	this.Enabled = enabled
+
 
 
 	return &this
@@ -211,6 +216,31 @@ func (o *CloudRegion) SetSupportedInstanceTypes(v []string) {
 }
 
 
+// GetCapacity returns the Capacity field value
+func (o *CloudRegion) GetCapacity() []RegionCapacityListItem {
+	if o == nil {
+		var ret []RegionCapacityListItem
+		return ret
+	}
+
+	return o.Capacity
+}
+
+// GetCapacityOk returns a tuple with the Capacity field value
+// and a boolean to check if the value has been set.
+func (o *CloudRegion) GetCapacityOk() (*[]RegionCapacityListItem, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Capacity, true
+}
+
+// SetCapacity sets field value
+func (o *CloudRegion) SetCapacity(v []RegionCapacityListItem) {
+	o.Capacity = v
+}
+
+
 func (o CloudRegion) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
@@ -232,6 +262,10 @@ func (o CloudRegion) MarshalJSON() ([]byte, error) {
     
 	if true {
 		toSerialize["supported_instance_types"] = o.SupportedInstanceTypes
+	}
+    
+	if true {
+		toSerialize["capacity"] = o.Capacity
 	}
     
 	return json.Marshal(toSerialize)

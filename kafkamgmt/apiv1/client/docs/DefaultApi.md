@@ -651,6 +651,8 @@ Name | Type | Description  | Notes
 
 Returns the status of resources, such as whether maximum service capacity has been reached
 
+
+
 ### Example
 
 ```go
