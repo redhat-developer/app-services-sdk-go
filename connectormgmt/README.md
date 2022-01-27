@@ -69,6 +69,23 @@ client := connectormgmt.NewAPIClient(&connectormgmt.Config{
 connectors, _, err := client.DefaultApi.GetConnectors(ctx).Execute()
 ```
 
+## Error handling
+
+Checking specific error codes
+
+```go
+if connectormgmt.IsAPIError(err, connectormgmt.ERROR_4){
+ // Do something
+}
+```
+
+Obtaining API error 
+
+```go
+apiError := connectormgmt.GetAPIError(err)
+fmt.Println(apiError.Code)
+```
+
 ## Endpoints
 
 For a full list of the available endpoints, see [Documentation for API Endpoints](./client/README.md#documentation-for-api-endpoints).
