@@ -1,13 +1,10 @@
-package connectormgmt
+package errors
 
 import (
 	"errors"
 
 	connectormgmtclient "github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1/client"
 )
-
-// Code supplied by the API
-type ServiceErrorCode string
 
 // GetAPIError gets a strongly typed error from an error
 func GetAPIError(err error) *connectormgmtclient.Error {
@@ -27,7 +24,8 @@ func GetAPIError(err error) *connectormgmtclient.Error {
 }
 
 // IsAPIError returns true if the error contains the errCode
-func IsAPIError(err error, code ServiceErrorCode) bool {
+// Error code is an code that is returned by the API
+func IsAPIError(err error, code string) bool {
 	mappedErr := GetAPIError(err)
 	if mappedErr == nil {
 		return false
