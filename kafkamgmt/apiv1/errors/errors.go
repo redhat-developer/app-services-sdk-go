@@ -1,5 +1,5 @@
 
-package kafkamgmt
+package errors
 
 // kafkamgmt error codes 
 type ErrorCode string

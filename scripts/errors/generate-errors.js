@@ -15,7 +15,7 @@ for (api in apis) {
   }
 
   stringBuffer=`
-package ${api}
+package errors
 
 // ${api} error codes 
 type ErrorCode string

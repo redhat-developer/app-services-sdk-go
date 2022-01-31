@@ -74,7 +74,9 @@ registries, _, err := client.RegistriesApi.GetRegistries(ctx).Execute()
 Checking specific error codes
 
 ```go
-if registrymgmt.IsAPIError(err, registrymgmt.ERROR_4){
+import "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/errors"
+
+if errors.IsAPIError(err, registrymgmt.ERROR_4){
  // Do something
 }
 ```
@@ -82,7 +84,9 @@ if registrymgmt.IsAPIError(err, registrymgmt.ERROR_4){
 Obtaining API error 
 
 ```go
-apiError := registrymgmt.GetAPIError(err)
+import "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/errors"
+
+apiError := errors.GetAPIError(err)
 fmt.Println(apiError.Code)
 ```
 
