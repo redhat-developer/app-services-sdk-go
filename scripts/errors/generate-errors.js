@@ -18,7 +18,6 @@ for (api in apis) {
 package error
 
 // ${api} error codes 
-type ErrorCode string
   
 const (
 
@@ -26,7 +25,7 @@ const (
   
   apiJson.items.forEach(function(errorType) {
     stringBuffer += `  // ${errorType.reason}\n`
-    stringBuffer += `  ERROR_${errorType.id} ErrorCode = "${errorType.code}"`
+    stringBuffer += `  ERROR_${errorType.id} string = "${errorType.code}"`
     stringBuffer += `\n\n`
   })
   
