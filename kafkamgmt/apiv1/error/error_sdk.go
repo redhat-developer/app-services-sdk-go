@@ -1,23 +1,23 @@
-package errors
+package error
 
 import (
 	"errors"
 
-	registrymgmtclient "github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1/client"
+	kafkamgmtclient "github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1/client"
 )
 
 // GetAPIError gets a strongly typed error from an error
-func GetAPIError(err error) *registrymgmtclient.Error {
-	var openapiError registrymgmtclient.GenericOpenAPIError
+func GetAPIError(err error) *kafkamgmtclient.Error {
+	var openapiError kafkamgmtclient.GenericOpenAPIError
 
 	if ok := errors.As(err, &openapiError); ok {
 		errModel := openapiError.Model()
 
-		transformedError, ok := errModel.(registrymgmtclient.Error)
+		kafkaMgmtError, ok := errModel.(kafkamgmtclient.Error)
 		if !ok {
 			return nil
 		}
-		return &transformedError
+		return &kafkaMgmtError
 	}
 
 	return nil

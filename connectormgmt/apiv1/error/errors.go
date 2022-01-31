@@ -1,5 +1,5 @@
 
-package errors
+package error
 
 // connectormgmt error codes 
 type ErrorCode string

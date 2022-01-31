@@ -74,7 +74,7 @@ connectors, _, err := client.DefaultApi.GetConnectors(ctx).Execute()
 Checking specific error codes
 
 ```go
-import "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/errors"
+import "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/error"
 
 
 if errors.IsAPIError(err, connectormgmt.ERROR_4){
@@ -85,7 +85,7 @@ if errors.IsAPIError(err, connectormgmt.ERROR_4){
 Obtaining API error 
 
 ```go
-import "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/errors"
+import "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/error"
 
 apiError := errors.GetAPIError(err)
 fmt.Println(apiError.Code)

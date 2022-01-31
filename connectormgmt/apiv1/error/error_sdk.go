@@ -1,29 +1,30 @@
-package kafkamgmt
+package error
 
 import (
 	"errors"
 
-	kafkamgmtclient "github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1/client"
+	connectormgmtclient "github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1/client"
 )
 
 // GetAPIError gets a strongly typed error from an error
-func GetAPIError(err error) *kafkamgmtclient.Error {
-	var openapiError kafkamgmtclient.GenericOpenAPIError
+func GetAPIError(err error) *connectormgmtclient.Error {
+	var openapiError connectormgmtclient.GenericOpenAPIError
 
 	if ok := errors.As(err, &openapiError); ok {
 		errModel := openapiError.Model()
 
-		kafkaMgmtError, ok := errModel.(kafkamgmtclient.Error)
+		transformedError, ok := errModel.(connectormgmtclient.Error)
 		if !ok {
 			return nil
 		}
-		return &kafkaMgmtError
+		return &transformedError
 	}
 
 	return nil
 }
 
 // IsAPIError returns true if the error contains the errCode
+// Error code is an code that is returned by the API
 func IsAPIError(err error, code string) bool {
 	mappedErr := GetAPIError(err)
 	if mappedErr == nil {

@@ -1,5 +1,5 @@
 
-package errors
+package error
 
 // registrymgmt error codes 
 type ErrorCode string
