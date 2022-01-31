@@ -74,7 +74,9 @@ kafkas, _, err := client.DefaultApi.GetKafkas(ctx).Execute()
 Checking specific error codes
 
 ```go
-if kafkamgmt.IsAPIError(err, kafkamgmt.ERROR_4){
+import "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/error"
+
+if errors.IsAPIError(err, kafkamgmt.ERROR_4){
  // Do something
 }
 ```
@@ -82,7 +84,9 @@ if kafkamgmt.IsAPIError(err, kafkamgmt.ERROR_4){
 Obtaining API error 
 
 ```go
-apiError := kafkamgmt.GetAPIError(err)
+import "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1/error"
+
+apiError := errors.GetAPIError(err)
 fmt.Println(apiError.Code)
 ```
 
