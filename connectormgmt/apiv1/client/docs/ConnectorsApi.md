@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ## DeleteConnector
 
-> Error DeleteConnector(ctx, id).KafkaId(kafkaId).Execute()
+> Error DeleteConnector(ctx, id).Execute()
 
 Delete a connector
 
@@ -102,11 +102,10 @@ import (
 
 func main() {
     id := "id_example" // string | The ID of record
-    kafkaId := "kafkaId_example" // string | The kafka cluster id (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ConnectorsApi.DeleteConnector(context.Background(), id).KafkaId(kafkaId).Execute()
+    resp, r, err := api_client.ConnectorsApi.DeleteConnector(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsApi.DeleteConnector``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -132,7 +131,6 @@ Other parameters are passed through a pointer to a apiDeleteConnectorRequest str
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **kafkaId** | **string** | The kafka cluster id | 
 
 ### Return type
 
@@ -154,7 +152,7 @@ Name | Type | Description  | Notes
 
 ## GetConnector
 
-> Connector GetConnector(ctx, id).KafkaId(kafkaId).Execute()
+> Connector GetConnector(ctx, id).Execute()
 
 Get a connector
 
@@ -174,11 +172,10 @@ import (
 
 func main() {
     id := "id_example" // string | The ID of record
-    kafkaId := "kafkaId_example" // string | The kafka cluster id (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ConnectorsApi.GetConnector(context.Background(), id).KafkaId(kafkaId).Execute()
+    resp, r, err := api_client.ConnectorsApi.GetConnector(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsApi.GetConnector``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -204,7 +201,6 @@ Other parameters are passed through a pointer to a apiGetConnectorRequest struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **kafkaId** | **string** | The kafka cluster id | 
 
 ### Return type
 
@@ -226,7 +222,7 @@ Name | Type | Description  | Notes
 
 ## ListConnectors
 
-> ConnectorList ListConnectors(ctx).Page(page).Size(size).KafkaId(kafkaId).Execute()
+> ConnectorList ListConnectors(ctx).Page(page).Size(size).Execute()
 
 Returns a list of connector types
 
@@ -247,11 +243,10 @@ import (
 func main() {
     page := "1" // string | Page index (optional)
     size := "100" // string | Number of items in each page (optional)
-    kafkaId := "kafkaId_example" // string | The kafka cluster id (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ConnectorsApi.ListConnectors(context.Background()).Page(page).Size(size).KafkaId(kafkaId).Execute()
+    resp, r, err := api_client.ConnectorsApi.ListConnectors(context.Background()).Page(page).Size(size).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsApi.ListConnectors``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -274,7 +269,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **string** | Page index | 
  **size** | **string** | Number of items in each page | 
- **kafkaId** | **string** | The kafka cluster id | 
 
 ### Return type
 
@@ -296,7 +290,7 @@ Name | Type | Description  | Notes
 
 ## PatchConnector
 
-> Connector PatchConnector(ctx, id).ConnectorRequest(connectorRequest).KafkaId(kafkaId).Execute()
+> Connector PatchConnector(ctx, id).UNKNOWNBASETYPE(uNKNOWNBASETYPE).Execute()
 
 Patch a connector
 
@@ -316,12 +310,11 @@ import (
 
 func main() {
     id := "id_example" // string | The ID of record
-    connectorRequest := *openapiclient.NewConnectorRequest("Name_example", "ConnectorTypeId_example", openapiclient.DeploymentLocation{ConnectorClusterTarget: openapiclient.NewConnectorClusterTarget("Kind_example")}, openapiclient.ConnectorDesiredState("ready"), *openapiclient.NewKafkaConnectionSettings("Id_example", "Url_example"), *openapiclient.NewServiceAccount("ClientId_example", "ClientSecret_example"), map[string]interface{}(123)) // ConnectorRequest | Data to patch the connector with
-    kafkaId := "kafkaId_example" // string | The kafka cluster id (optional)
+    uNKNOWNBASETYPE := TODO // UNKNOWN_BASE_TYPE | Data to patch the connector with
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ConnectorsApi.PatchConnector(context.Background(), id).ConnectorRequest(connectorRequest).KafkaId(kafkaId).Execute()
+    resp, r, err := api_client.ConnectorsApi.PatchConnector(context.Background(), id).UNKNOWNBASETYPE(uNKNOWNBASETYPE).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsApi.PatchConnector``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -347,8 +340,7 @@ Other parameters are passed through a pointer to a apiPatchConnectorRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **connectorRequest** | [**ConnectorRequest**](ConnectorRequest.md) | Data to patch the connector with | 
- **kafkaId** | **string** | The kafka cluster id | 
+ **uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md) | Data to patch the connector with | 
 
 ### Return type
 

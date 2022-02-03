@@ -267,13 +267,8 @@ type ApiDeleteConnectorRequest struct {
 	ctx _context.Context
 	ApiService ConnectorsApi
 	id string
-	kafkaId *string
 }
 
-func (r ApiDeleteConnectorRequest) KafkaId(kafkaId string) ApiDeleteConnectorRequest {
-	r.kafkaId = &kafkaId
-	return r
-}
 
 func (r ApiDeleteConnectorRequest) Execute() (Error, *_nethttp.Response, error) {
 	return r.ApiService.DeleteConnectorExecute(r)
@@ -320,9 +315,6 @@ func (a *ConnectorsApiService) DeleteConnectorExecute(r ApiDeleteConnectorReques
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if r.kafkaId != nil {
-		localVarQueryParams.Add("kafka_id", parameterToString(*r.kafkaId, ""))
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -410,13 +402,8 @@ type ApiGetConnectorRequest struct {
 	ctx _context.Context
 	ApiService ConnectorsApi
 	id string
-	kafkaId *string
 }
 
-func (r ApiGetConnectorRequest) KafkaId(kafkaId string) ApiGetConnectorRequest {
-	r.kafkaId = &kafkaId
-	return r
-}
 
 func (r ApiGetConnectorRequest) Execute() (Connector, *_nethttp.Response, error) {
 	return r.ApiService.GetConnectorExecute(r)
@@ -463,9 +450,6 @@ func (a *ConnectorsApiService) GetConnectorExecute(r ApiGetConnectorRequest) (Co
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if r.kafkaId != nil {
-		localVarQueryParams.Add("kafka_id", parameterToString(*r.kafkaId, ""))
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -554,7 +538,6 @@ type ApiListConnectorsRequest struct {
 	ApiService ConnectorsApi
 	page *string
 	size *string
-	kafkaId *string
 }
 
 func (r ApiListConnectorsRequest) Page(page string) ApiListConnectorsRequest {
@@ -563,10 +546,6 @@ func (r ApiListConnectorsRequest) Page(page string) ApiListConnectorsRequest {
 }
 func (r ApiListConnectorsRequest) Size(size string) ApiListConnectorsRequest {
 	r.size = &size
-	return r
-}
-func (r ApiListConnectorsRequest) KafkaId(kafkaId string) ApiListConnectorsRequest {
-	r.kafkaId = &kafkaId
 	return r
 }
 
@@ -617,9 +596,6 @@ func (a *ConnectorsApiService) ListConnectorsExecute(r ApiListConnectorsRequest)
 	}
 	if r.size != nil {
 		localVarQueryParams.Add("size", parameterToString(*r.size, ""))
-	}
-	if r.kafkaId != nil {
-		localVarQueryParams.Add("kafka_id", parameterToString(*r.kafkaId, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -698,16 +674,11 @@ type ApiPatchConnectorRequest struct {
 	ctx _context.Context
 	ApiService ConnectorsApi
 	id string
-	connectorRequest *ConnectorRequest
-	kafkaId *string
+	uNKNOWNBASETYPE *UNKNOWN_BASE_TYPE
 }
 
-func (r ApiPatchConnectorRequest) ConnectorRequest(connectorRequest ConnectorRequest) ApiPatchConnectorRequest {
-	r.connectorRequest = &connectorRequest
-	return r
-}
-func (r ApiPatchConnectorRequest) KafkaId(kafkaId string) ApiPatchConnectorRequest {
-	r.kafkaId = &kafkaId
+func (r ApiPatchConnectorRequest) UNKNOWNBASETYPE(uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) ApiPatchConnectorRequest {
+	r.uNKNOWNBASETYPE = &uNKNOWNBASETYPE
 	return r
 }
 
@@ -755,13 +726,10 @@ func (a *ConnectorsApiService) PatchConnectorExecute(r ApiPatchConnectorRequest)
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
-	if r.connectorRequest == nil {
-		return localVarReturnValue, nil, reportError("connectorRequest is required and must be specified")
+	if r.uNKNOWNBASETYPE == nil {
+		return localVarReturnValue, nil, reportError("uNKNOWNBASETYPE is required and must be specified")
 	}
 
-	if r.kafkaId != nil {
-		localVarQueryParams.Add("kafka_id", parameterToString(*r.kafkaId, ""))
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json", "application/merge-patch+json", "application/json-patch+json"}
 
@@ -780,7 +748,7 @@ func (a *ConnectorsApiService) PatchConnectorExecute(r ApiPatchConnectorRequest)
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.connectorRequest
+	localVarPostBody = r.uNKNOWNBASETYPE
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err

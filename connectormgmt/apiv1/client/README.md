@@ -134,7 +134,6 @@ Class | Method | HTTP request | Description
  - [SchemaRegistryConnectionSettings](docs/SchemaRegistryConnectionSettings.md)
  - [ServiceAccount](docs/ServiceAccount.md)
  - [ServiceConnectionSettings](docs/ServiceConnectionSettings.md)
- - [ServiceStatus](docs/ServiceStatus.md)
  - [VersionMetadata](docs/VersionMetadata.md)
  - [VersionMetadataAllOf](docs/VersionMetadataAllOf.md)
 
