@@ -49,7 +49,6 @@ docs/ObjectReference.md
 docs/SchemaRegistryConnectionSettings.md
 docs/ServiceAccount.md
 docs/ServiceConnectionSettings.md
-docs/ServiceStatus.md
 docs/VersionMetadata.md
 docs/VersionMetadataAllOf.md
 model_addon_parameter.go
@@ -90,7 +89,6 @@ model_object_reference.go
 model_schema_registry_connection_settings.go
 model_service_account.go
 model_service_connection_settings.go
-model_service_status.go
 model_version_metadata.go
 model_version_metadata_all_of.go
 response.go
