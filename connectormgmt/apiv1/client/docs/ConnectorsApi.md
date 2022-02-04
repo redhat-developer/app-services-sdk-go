@@ -290,7 +290,7 @@ Name | Type | Description  | Notes
 
 ## PatchConnector
 
-> Connector PatchConnector(ctx, id).UNKNOWNBASETYPE(uNKNOWNBASETYPE).Execute()
+> Connector PatchConnector(ctx, id).Body(body).Execute()
 
 Patch a connector
 
@@ -310,11 +310,11 @@ import (
 
 func main() {
     id := "id_example" // string | The ID of record
-    uNKNOWNBASETYPE := TODO // UNKNOWN_BASE_TYPE | Data to patch the connector with
+    body := map[string]interface{}(Object) // map[string]interface{} | Data to patch the connector with
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ConnectorsApi.PatchConnector(context.Background(), id).UNKNOWNBASETYPE(uNKNOWNBASETYPE).Execute()
+    resp, r, err := api_client.ConnectorsApi.PatchConnector(context.Background(), id).Body(body).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsApi.PatchConnector``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -340,7 +340,7 @@ Other parameters are passed through a pointer to a apiPatchConnectorRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md) | Data to patch the connector with | 
+ **body** | **map[string]interface{}** | Data to patch the connector with | 
 
 ### Return type
 
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/merge-patch+json, application/json-patch+json
+- **Content-Type**: application/merge-patch+json, application/json-patch+json, application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

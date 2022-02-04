@@ -674,11 +674,11 @@ type ApiPatchConnectorRequest struct {
 	ctx _context.Context
 	ApiService ConnectorsApi
 	id string
-	uNKNOWNBASETYPE *UNKNOWN_BASE_TYPE
+	body *map[string]interface{}
 }
 
-func (r ApiPatchConnectorRequest) UNKNOWNBASETYPE(uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) ApiPatchConnectorRequest {
-	r.uNKNOWNBASETYPE = &uNKNOWNBASETYPE
+func (r ApiPatchConnectorRequest) Body(body map[string]interface{}) ApiPatchConnectorRequest {
+	r.body = &body
 	return r
 }
 
@@ -726,12 +726,12 @@ func (a *ConnectorsApiService) PatchConnectorExecute(r ApiPatchConnectorRequest)
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
-	if r.uNKNOWNBASETYPE == nil {
-		return localVarReturnValue, nil, reportError("uNKNOWNBASETYPE is required and must be specified")
+	if r.body == nil {
+		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "application/merge-patch+json", "application/json-patch+json"}
+	localVarHTTPContentTypes := []string{"application/merge-patch+json", "application/json-patch+json", "application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -748,7 +748,7 @@ func (a *ConnectorsApiService) PatchConnectorExecute(r ApiPatchConnectorRequest)
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.uNKNOWNBASETYPE
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
