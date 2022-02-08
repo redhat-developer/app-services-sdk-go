@@ -3,6 +3,8 @@
 ## Enum
 
 
+* `ASSIGNING` (value: `"assigning"`)
+
 * `READY` (value: `"ready"`)
 
 * `STOPPED` (value: `"stopped"`)
