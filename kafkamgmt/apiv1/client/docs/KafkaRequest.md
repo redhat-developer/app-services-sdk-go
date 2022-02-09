@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **Version** | Pointer to **string** |  | [optional] 
 **InstanceType** | Pointer to **string** |  | [optional] 
 **ReauthenticationEnabled** | **bool** |  | 
+**KafkaStorageSize** | Pointer to **string** |  | [optional] 
 
 
 ## Methods
@@ -446,6 +447,32 @@ and a boolean to check if the value has been set.
 
 SetReauthenticationEnabled sets ReauthenticationEnabled field to given value.
 
+
+
+### GetKafkaStorageSize
+
+`func (o *KafkaRequest) GetKafkaStorageSize() string`
+
+GetKafkaStorageSize returns the KafkaStorageSize field if non-nil, zero value otherwise.
+
+### GetKafkaStorageSizeOk
+
+`func (o *KafkaRequest) GetKafkaStorageSizeOk() (*string, bool)`
+
+GetKafkaStorageSizeOk returns a tuple with the KafkaStorageSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKafkaStorageSize
+
+`func (o *KafkaRequest) SetKafkaStorageSize(v string)`
+
+SetKafkaStorageSize sets KafkaStorageSize field to given value.
+
+### HasKafkaStorageSize
+
+`func (o *KafkaRequest) HasKafkaStorageSize() bool`
+
+HasKafkaStorageSize returns a boolean if a field has been set.
 
 
 
