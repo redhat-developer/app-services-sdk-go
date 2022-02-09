@@ -47,6 +47,8 @@ type KafkaRequestAllOf struct {
 
 	ReauthenticationEnabled bool `json:"reauthentication_enabled"`
 
+	KafkaStorageSize *string `json:"kafka_storage_size,omitempty"`
+
 }
 
 // NewKafkaRequestAllOf instantiates a new KafkaRequestAllOf object
@@ -65,6 +67,7 @@ func NewKafkaRequestAllOf(multiAz bool, reauthenticationEnabled bool) *KafkaRequ
 // but it doesn't guarantee that properties required by API are set
 func NewKafkaRequestAllOfWithDefaults() *KafkaRequestAllOf {
 	this := KafkaRequestAllOf{}
+
 
 
 
@@ -496,6 +499,39 @@ func (o *KafkaRequestAllOf) SetReauthenticationEnabled(v bool) {
 }
 
 
+// GetKafkaStorageSize returns the KafkaStorageSize field value if set, zero value otherwise.
+func (o *KafkaRequestAllOf) GetKafkaStorageSize() string {
+	if o == nil || o.KafkaStorageSize == nil {
+		var ret string
+		return ret
+	}
+	return *o.KafkaStorageSize
+}
+
+// GetKafkaStorageSizeOk returns a tuple with the KafkaStorageSize field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *KafkaRequestAllOf) GetKafkaStorageSizeOk() (*string, bool) {
+	if o == nil || o.KafkaStorageSize == nil {
+		return nil, false
+	}
+	return o.KafkaStorageSize, true
+}
+
+// HasKafkaStorageSize returns a boolean if a field has been set.
+func (o *KafkaRequestAllOf) HasKafkaStorageSize() bool {
+	if o != nil && o.KafkaStorageSize != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetKafkaStorageSize gets a reference to the given string and assigns it to the KafkaStorageSize field.
+func (o *KafkaRequestAllOf) SetKafkaStorageSize(v string) {
+	o.KafkaStorageSize = &v
+}
+
+
 func (o KafkaRequestAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
@@ -549,6 +585,10 @@ func (o KafkaRequestAllOf) MarshalJSON() ([]byte, error) {
     
 	if true {
 		toSerialize["reauthentication_enabled"] = o.ReauthenticationEnabled
+	}
+    
+	if o.KafkaStorageSize != nil {
+		toSerialize["kafka_storage_size"] = o.KafkaStorageSize
 	}
     
 	return json.Marshal(toSerialize)
