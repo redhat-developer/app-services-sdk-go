@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** | server generated unique id of the service account | [optional] 
 **ClientId** | Pointer to **string** | client id of the service account | [optional] 
 **Name** | Pointer to **string** | name of the service account | [optional] 
-**Owner** | Pointer to **string** | owner of the service account | [optional] 
+**CreatedBy** | Pointer to **string** | service account created by the user | [optional] 
 **CreatedAt** | Pointer to **time.Time** | service account creation timestamp | [optional] 
 **Description** | Pointer to **string** | description of the service account | [optional] 
 
@@ -110,30 +110,30 @@ SetName sets Name field to given value.
 HasName returns a boolean if a field has been set.
 
 
-### GetOwner
+### GetCreatedBy
 
-`func (o *ServiceAccountListItemAllOf) GetOwner() string`
+`func (o *ServiceAccountListItemAllOf) GetCreatedBy() string`
 
-GetOwner returns the Owner field if non-nil, zero value otherwise.
+GetCreatedBy returns the CreatedBy field if non-nil, zero value otherwise.
 
-### GetOwnerOk
+### GetCreatedByOk
 
-`func (o *ServiceAccountListItemAllOf) GetOwnerOk() (*string, bool)`
+`func (o *ServiceAccountListItemAllOf) GetCreatedByOk() (*string, bool)`
 
-GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+GetCreatedByOk returns a tuple with the CreatedBy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOwner
+### SetCreatedBy
 
-`func (o *ServiceAccountListItemAllOf) SetOwner(v string)`
+`func (o *ServiceAccountListItemAllOf) SetCreatedBy(v string)`
 
-SetOwner sets Owner field to given value.
+SetCreatedBy sets CreatedBy field to given value.
 
-### HasOwner
+### HasCreatedBy
 
-`func (o *ServiceAccountListItemAllOf) HasOwner() bool`
+`func (o *ServiceAccountListItemAllOf) HasCreatedBy() bool`
 
-HasOwner returns a boolean if a field has been set.
+HasCreatedBy returns a boolean if a field has been set.
 
 
 ### GetCreatedAt

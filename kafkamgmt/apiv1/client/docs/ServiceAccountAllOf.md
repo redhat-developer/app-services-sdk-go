@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **ClientId** | Pointer to **string** |  | [optional] 
 **ClientSecret** | Pointer to **string** |  | [optional] 
-**Owner** | Pointer to **string** |  | [optional] 
+**CreatedBy** | Pointer to **string** |  | [optional] 
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
 
 
@@ -163,30 +163,30 @@ SetClientSecret sets ClientSecret field to given value.
 HasClientSecret returns a boolean if a field has been set.
 
 
-### GetOwner
+### GetCreatedBy
 
-`func (o *ServiceAccountAllOf) GetOwner() string`
+`func (o *ServiceAccountAllOf) GetCreatedBy() string`
 
-GetOwner returns the Owner field if non-nil, zero value otherwise.
+GetCreatedBy returns the CreatedBy field if non-nil, zero value otherwise.
 
-### GetOwnerOk
+### GetCreatedByOk
 
-`func (o *ServiceAccountAllOf) GetOwnerOk() (*string, bool)`
+`func (o *ServiceAccountAllOf) GetCreatedByOk() (*string, bool)`
 
-GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+GetCreatedByOk returns a tuple with the CreatedBy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOwner
+### SetCreatedBy
 
-`func (o *ServiceAccountAllOf) SetOwner(v string)`
+`func (o *ServiceAccountAllOf) SetCreatedBy(v string)`
 
-SetOwner sets Owner field to given value.
+SetCreatedBy sets CreatedBy field to given value.
 
-### HasOwner
+### HasCreatedBy
 
-`func (o *ServiceAccountAllOf) HasOwner() bool`
+`func (o *ServiceAccountAllOf) HasCreatedBy() bool`
 
-HasOwner returns a boolean if a field has been set.
+HasCreatedBy returns a boolean if a field has been set.
 
 
 ### GetCreatedAt
