@@ -33,6 +33,6 @@
     "apiGroup": "serviceaccounts",
     "apiVersion": "v1internal",
     "release_level": "internal",
-    "openapi_file": ".openapi/registry-instance.json"
+    "openapi_file": ".openapi/service-accounts.yaml"
   }
 }
