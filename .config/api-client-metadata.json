@@ -29,7 +29,7 @@
     "release_level": "internal",
     "openapi_file": ".openapi/registry-instance.json"
   },
-  "service-accounts/v1": {
+  "service-accounts/v1internal": {
     "apiGroup": "serviceaccounts",
     "apiVersion": "v1internal",
     "release_level": "internal",
