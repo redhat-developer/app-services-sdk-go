@@ -480,8 +480,13 @@ func (a *SecurityApiService) GetServiceAccountByIdExecute(r ApiGetServiceAccount
 type ApiGetServiceAccountsRequest struct {
 	ctx _context.Context
 	ApiService SecurityApi
+	clientId *string
 }
 
+func (r ApiGetServiceAccountsRequest) ClientId(clientId string) ApiGetServiceAccountsRequest {
+	r.clientId = &clientId
+	return r
+}
 
 func (r ApiGetServiceAccountsRequest) Execute() (ServiceAccountList, *_nethttp.Response, error) {
 	return r.ApiService.GetServiceAccountsExecute(r)
@@ -524,6 +529,9 @@ func (a *SecurityApiService) GetServiceAccountsExecute(r ApiGetServiceAccountsRe
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.clientId != nil {
+		localVarQueryParams.Add("client_id", parameterToString(*r.clientId, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

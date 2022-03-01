@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ## GetServiceAccounts
 
-> ServiceAccountList GetServiceAccounts(ctx).Execute()
+> ServiceAccountList GetServiceAccounts(ctx).ClientId(clientId).Execute()
 
 Returns a list of service accounts
 
@@ -231,10 +231,11 @@ import (
 )
 
 func main() {
+    clientId := "clientId_example" // string | client_id of the service account to be retrieved (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.SecurityApi.GetServiceAccounts(context.Background()).Execute()
+    resp, r, err := api_client.SecurityApi.GetServiceAccounts(context.Background()).ClientId(clientId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SecurityApi.GetServiceAccounts``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -246,12 +247,16 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGetServiceAccountsRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientId** | **string** | client_id of the service account to be retrieved | 
 
 ### Return type
 
