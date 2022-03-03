@@ -14,13 +14,13 @@ go get github.com/redhat-developer/app-services-sdk-go/serviceaccounts
 
 ### Importing the package
 
-Import the `github.com/redhat-developer/app-services-sdk-go/serviceaccounts/v1internal` package into your code:
+Import the `github.com/redhat-developer/app-services-sdk-go/serviceaccounts/apiv1internal` package into your code:
 
 ```go
 package main
 
 import (
-    "github.com/redhat-developer/app-services-sdk-go/serviceaccounts/v1internal"
+    "github.com/redhat-developer/app-services-sdk-go/serviceaccounts/apiv1internal"
 )
 ```
 
