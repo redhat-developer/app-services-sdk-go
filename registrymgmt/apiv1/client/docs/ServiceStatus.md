@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MaxInstancesReached** | Pointer to **bool** | Boolean property indicating if the maximum number of total instances have been reached, therefore creation of more instances should not be allowed. | [optional] 
+**MaxInstancesReached** | Pointer to **bool** | Boolean property indicating if the maximum number of total Registry instances have been reached, therefore creation of more instances should not be allowed. | [optional] 
 
 
 ## Methods

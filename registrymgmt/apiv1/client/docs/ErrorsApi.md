@@ -4,8 +4,8 @@ All URIs are relative to *https://api.openshift.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetError**](ErrorsApi.md#GetError) | **Get** /api/serviceregistry_mgmt/v1/errors/{id} | Get information about a specific error type.
-[**GetErrors**](ErrorsApi.md#GetErrors) | **Get** /api/serviceregistry_mgmt/v1/errors | Get the list of all errors.
+[**GetError**](ErrorsApi.md#GetError) | **Get** /api/serviceregistry_mgmt/v1/errors/{id} | Get information about a specific error type
+[**GetErrors**](ErrorsApi.md#GetErrors) | **Get** /api/serviceregistry_mgmt/v1/errors | Get the list of all errors
 
 
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 > Error GetError(ctx, id).Execute()
 
-Get information about a specific error type.
+Get information about a specific error type
 
 ### Example
 
@@ -81,7 +81,7 @@ No authorization required
 
 > ErrorList GetErrors(ctx).Page(page).Size(size).Execute()
 
-Get the list of all errors.
+Get the list of all errors
 
 ### Example
 
@@ -96,8 +96,8 @@ import (
 )
 
 func main() {
-    page := int32(0) // int32 | Page index (optional)
-    size := int32(100) // int32 | Number of items in each page (optional)
+    page := int32(0) // int32 | Page index. (optional)
+    size := int32(100) // int32 | Number of items in each page. (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -122,8 +122,8 @@ Other parameters are passed through a pointer to a apiGetErrorsRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int32** | Page index | 
- **size** | **int32** | Number of items in each page | 
+ **page** | **int32** | Page index. | 
+ **size** | **int32** | Number of items in each page. | 
 
 ### Return type
 

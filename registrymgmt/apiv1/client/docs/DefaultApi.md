@@ -4,7 +4,7 @@ All URIs are relative to *https://api.openshift.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetServiceStatus**](DefaultApi.md#GetServiceStatus) | **Get** /api/serviceregistry_mgmt/v1/status | 
+[**GetServiceStatus**](DefaultApi.md#GetServiceStatus) | **Get** /api/serviceregistry_mgmt/v1/status | Get the service status
 
 
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 > ServiceStatus GetServiceStatus(ctx).Execute()
 
-
+Get the service status
 
 ### Example
 
