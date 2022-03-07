@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | User-defined Registry name. Required. Does not have to be unique. | [optional] 
-**Description** | Pointer to **string** | User-provided description of the new Registry instance. Not required. | [optional] 
+**Name** | Pointer to **string** | User-defined Registry instance name. Required. Does not have to be unique. | [optional] 
+**Description** | Pointer to **string** | User-provided description of the new Service Registry instance. Not required. | [optional] 
 
 
 ## Methods

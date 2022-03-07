@@ -1,7 +1,7 @@
 /*
  * Service Registry Fleet Manager
  *
- * Managed Service Registry cloud.redhat.com API Management API that lets you create new registry instances. Registry is a datastore for standard event schemas and API designs. Service Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Registry is an Managed version of upstream project called Apicurio Registry. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.
+ * Service Registry Fleet Manager is a REST API for managing Service Registry instances. Service Registry is a datastore for event schemas and API designs, which is based on the open source Apicurio Registry project.
  *
  * API version: 0.0.6
  * Contact: rhosak-eval-support@redhat.com
@@ -16,7 +16,7 @@ import (
 	"time"
 )
 
-// RootTypeForRegistry Service Registry instance within a multi-tenant deployment.
+// RootTypeForRegistry Service Registry instance in a multi-tenant deployment.
 type RootTypeForRegistry struct {
 
 	Id string `json:"id"`
@@ -27,13 +27,13 @@ type RootTypeForRegistry struct {
 
 	BrowserUrl *string `json:"browserUrl,omitempty"`
 
-	// User-defined Registry name. Does not have to be unique.
+	// User-defined Registry instance name. Does not have to be unique.
 	Name *string `json:"name,omitempty"`
 
 	// Identifier of a multi-tenant deployment, where this Service Registry instance resides.
 	RegistryDeploymentId *int32 `json:"registryDeploymentId,omitempty"`
 
-	// Registry instance owner
+	// Registry instance owner.
 	Owner *string `json:"owner,omitempty"`
 
 	// Description of the Registry instance.

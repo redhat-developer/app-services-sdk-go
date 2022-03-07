@@ -1,7 +1,7 @@
 /*
  * Service Registry Fleet Manager
  *
- * Managed Service Registry cloud.redhat.com API Management API that lets you create new registry instances. Registry is a datastore for standard event schemas and API designs. Service Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Registry is an Managed version of upstream project called Apicurio Registry. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.
+ * Service Registry Fleet Manager is a REST API for managing Service Registry instances. Service Registry is a datastore for event schemas and API designs, which is based on the open source Apicurio Registry project.
  *
  * API version: 0.0.6
  * Contact: rhosak-eval-support@redhat.com
@@ -18,7 +18,7 @@ import (
 // ServiceStatus Schema for the service status response body
 type ServiceStatus struct {
 
-	// Boolean property indicating if the maximum number of total instances have been reached, therefore creation of more instances should not be allowed.
+	// Boolean property indicating if the maximum number of total Registry instances have been reached, therefore creation of more instances should not be allowed.
 	MaxInstancesReached *bool `json:"max_instances_reached,omitempty"`
 
 }

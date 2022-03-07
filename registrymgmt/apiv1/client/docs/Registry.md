@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **Status** | [**RegistryStatusValue**](RegistryStatusValue.md) |  | 
 **RegistryUrl** | Pointer to **string** |  | [optional] 
 **BrowserUrl** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **string** | User-defined Registry name. Does not have to be unique. | [optional] 
+**Name** | Pointer to **string** | User-defined Registry instance name. Does not have to be unique. | [optional] 
 **RegistryDeploymentId** | Pointer to **int32** | Identifier of a multi-tenant deployment, where this Service Registry instance resides. | [optional] 
-**Owner** | Pointer to **string** | Registry instance owner | [optional] 
+**Owner** | Pointer to **string** | Registry instance owner. | [optional] 
 **Description** | Pointer to **string** | Description of the Registry instance. | [optional] 
 **CreatedAt** | **time.Time** | ISO 8601 UTC timestamp. | 
 **UpdatedAt** | **time.Time** | ISO 8601 UTC timestamp. | 

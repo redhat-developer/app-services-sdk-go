@@ -1,7 +1,7 @@
 /*
  * Service Registry Fleet Manager
  *
- * Managed Service Registry cloud.redhat.com API Management API that lets you create new registry instances. Registry is a datastore for standard event schemas and API designs. Service Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Registry is an Managed version of upstream project called Apicurio Registry. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.
+ * Service Registry Fleet Manager is a REST API for managing Service Registry instances. Service Registry is a datastore for event schemas and API designs, which is based on the open source Apicurio Registry project.
  *
  * API version: 0.0.6
  * Contact: rhosak-eval-support@redhat.com
@@ -41,10 +41,10 @@ type RegistriesApi interface {
 	CreateRegistryExecute(r ApiCreateRegistryRequest) (Registry, *_nethttp.Response, error)
 
 	/*
-	 * DeleteRegistry Delete a Registry
-	 * Deletes an existing `Registry`.
+	 * DeleteRegistry Delete a Registry instance
+	 * Deletes an existing `Registry` instance and all of the data that it stores. Important: Users should export the registry data before deleting the instance, e.g., using the Service Registry web console, core REST API, or `rhoas` CLI.
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @param id A unique identifier for a `Registry`.
+	 * @param id A unique identifier for a `Registry` instance.
 	 * @return ApiDeleteRegistryRequest
 	 */
 	DeleteRegistry(ctx _context.Context, id string) ApiDeleteRegistryRequest
@@ -55,7 +55,7 @@ type RegistriesApi interface {
 	DeleteRegistryExecute(r ApiDeleteRegistryRequest) (*_nethttp.Response, error)
 
 	/*
-	 * GetRegistries Get the list of all registries.
+	 * GetRegistries Get the list of all Registry instances
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @return ApiGetRegistriesRequest
 	 */
@@ -68,10 +68,10 @@ type RegistriesApi interface {
 	GetRegistriesExecute(r ApiGetRegistriesRequest) (RegistryList, *_nethttp.Response, error)
 
 	/*
-	 * GetRegistry Get a Registry
+	 * GetRegistry Get a Registry instance
 	 * Gets the details of a single instance of a `Registry`.
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @param id A unique identifier for a `Registry`.
+	 * @param id A unique identifier for a `Registry` instance.
 	 * @return ApiGetRegistryRequest
 	 */
 	GetRegistry(ctx _context.Context, id string) ApiGetRegistryRequest
@@ -238,10 +238,10 @@ func (r ApiDeleteRegistryRequest) Execute() (*_nethttp.Response, error) {
 }
 
 /*
- * DeleteRegistry Delete a Registry
- * Deletes an existing `Registry`.
+ * DeleteRegistry Delete a Registry instance
+ * Deletes an existing `Registry` instance and all of the data that it stores. Important: Users should export the registry data before deleting the instance, e.g., using the Service Registry web console, core REST API, or `rhoas` CLI.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id A unique identifier for a `Registry`.
+ * @param id A unique identifier for a `Registry` instance.
  * @return ApiDeleteRegistryRequest
  */
 func (a *RegistriesApiService) DeleteRegistry(ctx _context.Context, id string) ApiDeleteRegistryRequest {
@@ -381,7 +381,7 @@ func (r ApiGetRegistriesRequest) Execute() (RegistryList, *_nethttp.Response, er
 }
 
 /*
- * GetRegistries Get the list of all registries.
+ * GetRegistries Get the list of all Registry instances
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiGetRegistriesRequest
  */
@@ -524,10 +524,10 @@ func (r ApiGetRegistryRequest) Execute() (Registry, *_nethttp.Response, error) {
 }
 
 /*
- * GetRegistry Get a Registry
+ * GetRegistry Get a Registry instance
  * Gets the details of a single instance of a `Registry`.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id A unique identifier for a `Registry`.
+ * @param id A unique identifier for a `Registry` instance.
  * @return ApiGetRegistryRequest
  */
 func (a *RegistriesApiService) GetRegistry(ctx _context.Context, id string) ApiGetRegistryRequest {
