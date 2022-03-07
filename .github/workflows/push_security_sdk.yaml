@@ -4,7 +4,7 @@ on:
     branches: 
       - main
     paths:
-      - "openapi/service-accounts.yaml"
+      - ".openapi/service-accounts.yaml"
 
 jobs:
   dispatch:
