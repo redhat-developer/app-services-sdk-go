@@ -1,0 +1,28 @@
+name: Update other SDKS for security SDK
+on:
+  push:
+    branches: 
+      - main
+    paths:
+      - "openapi/service-accounts.yaml"
+
+jobs:
+  dispatch:
+    env:
+      APP_SERVICES_CI_TOKEN: ${{ secrets.CI_USER_TOKEN }}
+    strategy:
+      matrix:
+        repo:
+          - "redhat-developer/app-services-sdk-js"
+          - "redhat-developer/app-services-sdk-java"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+     
+      - name: KAS Fleet Manager OpenAPI changed
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ env.APP_SERVICES_CI_TOKEN }}
+          repository: ${{ matrix.repo }}
+          event-type: openapi-spec-change
+          client-payload: '{ "id": "serviceaccounts/v1", "download_url":"https://raw.githubusercontent.com/redhat-developer/app-services-sdk-go/20ce56f13c947cc170c89d359c309a300b3645e4/.openapi/service-accounts.yaml"}'
