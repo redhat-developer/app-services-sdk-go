@@ -1,7 +1,6 @@
 .gitignore
 README.md
 api/openapi.yaml
-api_service_accounts.go
 api_serviceaccounts.go
 client.go
 configuration.go
@@ -21,7 +20,6 @@ docs/InlineResponse401.md
 docs/ServiceAccountCreateRequestData.md
 docs/ServiceAccountData.md
 docs/ServiceAccountRequestData.md
-docs/ServiceAccountsApi.md
 docs/ServiceaccountsApi.md
 model_error.go
 model_inline_response_400.go

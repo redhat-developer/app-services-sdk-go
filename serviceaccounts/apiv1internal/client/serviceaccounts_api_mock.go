@@ -19,17 +19,41 @@ var _ ServiceaccountsApi = &ServiceaccountsApiMock{}
 //
 // 		// make and configure a mocked ServiceaccountsApi
 // 		mockedServiceaccountsApi := &ServiceaccountsApiMock{
+// 			CreateServiceAccountFunc: func(ctx _context.Context) ApiCreateServiceAccountRequest {
+// 				panic("mock out the CreateServiceAccount method")
+// 			},
+// 			CreateServiceAccountExecuteFunc: func(r ApiCreateServiceAccountRequest) (ServiceAccountData, *_nethttp.Response, error) {
+// 				panic("mock out the CreateServiceAccountExecute method")
+// 			},
+// 			DeleteServiceAccountFunc: func(ctx _context.Context, id string) ApiDeleteServiceAccountRequest {
+// 				panic("mock out the DeleteServiceAccount method")
+// 			},
+// 			DeleteServiceAccountExecuteFunc: func(r ApiDeleteServiceAccountRequest) (*_nethttp.Response, error) {
+// 				panic("mock out the DeleteServiceAccountExecute method")
+// 			},
 // 			GetServiceAccountFunc: func(ctx _context.Context, id string) ApiGetServiceAccountRequest {
 // 				panic("mock out the GetServiceAccount method")
 // 			},
 // 			GetServiceAccountExecuteFunc: func(r ApiGetServiceAccountRequest) (ServiceAccountData, *_nethttp.Response, error) {
 // 				panic("mock out the GetServiceAccountExecute method")
 // 			},
+// 			GetServiceAccountsFunc: func(ctx _context.Context) ApiGetServiceAccountsRequest {
+// 				panic("mock out the GetServiceAccounts method")
+// 			},
+// 			GetServiceAccountsExecuteFunc: func(r ApiGetServiceAccountsRequest) ([]ServiceAccountData, *_nethttp.Response, error) {
+// 				panic("mock out the GetServiceAccountsExecute method")
+// 			},
 // 			ResetServiceAccountSecretFunc: func(ctx _context.Context, id string) ApiResetServiceAccountSecretRequest {
 // 				panic("mock out the ResetServiceAccountSecret method")
 // 			},
 // 			ResetServiceAccountSecretExecuteFunc: func(r ApiResetServiceAccountSecretRequest) (ServiceAccountData, *_nethttp.Response, error) {
 // 				panic("mock out the ResetServiceAccountSecretExecute method")
+// 			},
+// 			UpdateServiceAccountFunc: func(ctx _context.Context, id string) ApiUpdateServiceAccountRequest {
+// 				panic("mock out the UpdateServiceAccount method")
+// 			},
+// 			UpdateServiceAccountExecuteFunc: func(r ApiUpdateServiceAccountRequest) (ServiceAccountData, *_nethttp.Response, error) {
+// 				panic("mock out the UpdateServiceAccountExecute method")
 // 			},
 // 		}
 //
@@ -38,11 +62,29 @@ var _ ServiceaccountsApi = &ServiceaccountsApiMock{}
 //
 // 	}
 type ServiceaccountsApiMock struct {
+	// CreateServiceAccountFunc mocks the CreateServiceAccount method.
+	CreateServiceAccountFunc func(ctx _context.Context) ApiCreateServiceAccountRequest
+
+	// CreateServiceAccountExecuteFunc mocks the CreateServiceAccountExecute method.
+	CreateServiceAccountExecuteFunc func(r ApiCreateServiceAccountRequest) (ServiceAccountData, *_nethttp.Response, error)
+
+	// DeleteServiceAccountFunc mocks the DeleteServiceAccount method.
+	DeleteServiceAccountFunc func(ctx _context.Context, id string) ApiDeleteServiceAccountRequest
+
+	// DeleteServiceAccountExecuteFunc mocks the DeleteServiceAccountExecute method.
+	DeleteServiceAccountExecuteFunc func(r ApiDeleteServiceAccountRequest) (*_nethttp.Response, error)
+
 	// GetServiceAccountFunc mocks the GetServiceAccount method.
 	GetServiceAccountFunc func(ctx _context.Context, id string) ApiGetServiceAccountRequest
 
 	// GetServiceAccountExecuteFunc mocks the GetServiceAccountExecute method.
 	GetServiceAccountExecuteFunc func(r ApiGetServiceAccountRequest) (ServiceAccountData, *_nethttp.Response, error)
+
+	// GetServiceAccountsFunc mocks the GetServiceAccounts method.
+	GetServiceAccountsFunc func(ctx _context.Context) ApiGetServiceAccountsRequest
+
+	// GetServiceAccountsExecuteFunc mocks the GetServiceAccountsExecute method.
+	GetServiceAccountsExecuteFunc func(r ApiGetServiceAccountsRequest) ([]ServiceAccountData, *_nethttp.Response, error)
 
 	// ResetServiceAccountSecretFunc mocks the ResetServiceAccountSecret method.
 	ResetServiceAccountSecretFunc func(ctx _context.Context, id string) ApiResetServiceAccountSecretRequest
@@ -50,8 +92,36 @@ type ServiceaccountsApiMock struct {
 	// ResetServiceAccountSecretExecuteFunc mocks the ResetServiceAccountSecretExecute method.
 	ResetServiceAccountSecretExecuteFunc func(r ApiResetServiceAccountSecretRequest) (ServiceAccountData, *_nethttp.Response, error)
 
+	// UpdateServiceAccountFunc mocks the UpdateServiceAccount method.
+	UpdateServiceAccountFunc func(ctx _context.Context, id string) ApiUpdateServiceAccountRequest
+
+	// UpdateServiceAccountExecuteFunc mocks the UpdateServiceAccountExecute method.
+	UpdateServiceAccountExecuteFunc func(r ApiUpdateServiceAccountRequest) (ServiceAccountData, *_nethttp.Response, error)
+
 	// calls tracks calls to the methods.
 	calls struct {
+		// CreateServiceAccount holds details about calls to the CreateServiceAccount method.
+		CreateServiceAccount []struct {
+			// Ctx is the ctx argument value.
+			Ctx _context.Context
+		}
+		// CreateServiceAccountExecute holds details about calls to the CreateServiceAccountExecute method.
+		CreateServiceAccountExecute []struct {
+			// R is the r argument value.
+			R ApiCreateServiceAccountRequest
+		}
+		// DeleteServiceAccount holds details about calls to the DeleteServiceAccount method.
+		DeleteServiceAccount []struct {
+			// Ctx is the ctx argument value.
+			Ctx _context.Context
+			// ID is the id argument value.
+			ID string
+		}
+		// DeleteServiceAccountExecute holds details about calls to the DeleteServiceAccountExecute method.
+		DeleteServiceAccountExecute []struct {
+			// R is the r argument value.
+			R ApiDeleteServiceAccountRequest
+		}
 		// GetServiceAccount holds details about calls to the GetServiceAccount method.
 		GetServiceAccount []struct {
 			// Ctx is the ctx argument value.
@@ -63,6 +133,16 @@ type ServiceaccountsApiMock struct {
 		GetServiceAccountExecute []struct {
 			// R is the r argument value.
 			R ApiGetServiceAccountRequest
+		}
+		// GetServiceAccounts holds details about calls to the GetServiceAccounts method.
+		GetServiceAccounts []struct {
+			// Ctx is the ctx argument value.
+			Ctx _context.Context
+		}
+		// GetServiceAccountsExecute holds details about calls to the GetServiceAccountsExecute method.
+		GetServiceAccountsExecute []struct {
+			// R is the r argument value.
+			R ApiGetServiceAccountsRequest
 		}
 		// ResetServiceAccountSecret holds details about calls to the ResetServiceAccountSecret method.
 		ResetServiceAccountSecret []struct {
@@ -76,11 +156,159 @@ type ServiceaccountsApiMock struct {
 			// R is the r argument value.
 			R ApiResetServiceAccountSecretRequest
 		}
+		// UpdateServiceAccount holds details about calls to the UpdateServiceAccount method.
+		UpdateServiceAccount []struct {
+			// Ctx is the ctx argument value.
+			Ctx _context.Context
+			// ID is the id argument value.
+			ID string
+		}
+		// UpdateServiceAccountExecute holds details about calls to the UpdateServiceAccountExecute method.
+		UpdateServiceAccountExecute []struct {
+			// R is the r argument value.
+			R ApiUpdateServiceAccountRequest
+		}
 	}
+	lockCreateServiceAccount             sync.RWMutex
+	lockCreateServiceAccountExecute      sync.RWMutex
+	lockDeleteServiceAccount             sync.RWMutex
+	lockDeleteServiceAccountExecute      sync.RWMutex
 	lockGetServiceAccount                sync.RWMutex
 	lockGetServiceAccountExecute         sync.RWMutex
+	lockGetServiceAccounts               sync.RWMutex
+	lockGetServiceAccountsExecute        sync.RWMutex
 	lockResetServiceAccountSecret        sync.RWMutex
 	lockResetServiceAccountSecretExecute sync.RWMutex
+	lockUpdateServiceAccount             sync.RWMutex
+	lockUpdateServiceAccountExecute      sync.RWMutex
+}
+
+// CreateServiceAccount calls CreateServiceAccountFunc.
+func (mock *ServiceaccountsApiMock) CreateServiceAccount(ctx _context.Context) ApiCreateServiceAccountRequest {
+	if mock.CreateServiceAccountFunc == nil {
+		panic("ServiceaccountsApiMock.CreateServiceAccountFunc: method is nil but ServiceaccountsApi.CreateServiceAccount was just called")
+	}
+	callInfo := struct {
+		Ctx _context.Context
+	}{
+		Ctx: ctx,
+	}
+	mock.lockCreateServiceAccount.Lock()
+	mock.calls.CreateServiceAccount = append(mock.calls.CreateServiceAccount, callInfo)
+	mock.lockCreateServiceAccount.Unlock()
+	return mock.CreateServiceAccountFunc(ctx)
+}
+
+// CreateServiceAccountCalls gets all the calls that were made to CreateServiceAccount.
+// Check the length with:
+//     len(mockedServiceaccountsApi.CreateServiceAccountCalls())
+func (mock *ServiceaccountsApiMock) CreateServiceAccountCalls() []struct {
+	Ctx _context.Context
+} {
+	var calls []struct {
+		Ctx _context.Context
+	}
+	mock.lockCreateServiceAccount.RLock()
+	calls = mock.calls.CreateServiceAccount
+	mock.lockCreateServiceAccount.RUnlock()
+	return calls
+}
+
+// CreateServiceAccountExecute calls CreateServiceAccountExecuteFunc.
+func (mock *ServiceaccountsApiMock) CreateServiceAccountExecute(r ApiCreateServiceAccountRequest) (ServiceAccountData, *_nethttp.Response, error) {
+	if mock.CreateServiceAccountExecuteFunc == nil {
+		panic("ServiceaccountsApiMock.CreateServiceAccountExecuteFunc: method is nil but ServiceaccountsApi.CreateServiceAccountExecute was just called")
+	}
+	callInfo := struct {
+		R ApiCreateServiceAccountRequest
+	}{
+		R: r,
+	}
+	mock.lockCreateServiceAccountExecute.Lock()
+	mock.calls.CreateServiceAccountExecute = append(mock.calls.CreateServiceAccountExecute, callInfo)
+	mock.lockCreateServiceAccountExecute.Unlock()
+	return mock.CreateServiceAccountExecuteFunc(r)
+}
+
+// CreateServiceAccountExecuteCalls gets all the calls that were made to CreateServiceAccountExecute.
+// Check the length with:
+//     len(mockedServiceaccountsApi.CreateServiceAccountExecuteCalls())
+func (mock *ServiceaccountsApiMock) CreateServiceAccountExecuteCalls() []struct {
+	R ApiCreateServiceAccountRequest
+} {
+	var calls []struct {
+		R ApiCreateServiceAccountRequest
+	}
+	mock.lockCreateServiceAccountExecute.RLock()
+	calls = mock.calls.CreateServiceAccountExecute
+	mock.lockCreateServiceAccountExecute.RUnlock()
+	return calls
+}
+
+// DeleteServiceAccount calls DeleteServiceAccountFunc.
+func (mock *ServiceaccountsApiMock) DeleteServiceAccount(ctx _context.Context, id string) ApiDeleteServiceAccountRequest {
+	if mock.DeleteServiceAccountFunc == nil {
+		panic("ServiceaccountsApiMock.DeleteServiceAccountFunc: method is nil but ServiceaccountsApi.DeleteServiceAccount was just called")
+	}
+	callInfo := struct {
+		Ctx _context.Context
+		ID  string
+	}{
+		Ctx: ctx,
+		ID:  id,
+	}
+	mock.lockDeleteServiceAccount.Lock()
+	mock.calls.DeleteServiceAccount = append(mock.calls.DeleteServiceAccount, callInfo)
+	mock.lockDeleteServiceAccount.Unlock()
+	return mock.DeleteServiceAccountFunc(ctx, id)
+}
+
+// DeleteServiceAccountCalls gets all the calls that were made to DeleteServiceAccount.
+// Check the length with:
+//     len(mockedServiceaccountsApi.DeleteServiceAccountCalls())
+func (mock *ServiceaccountsApiMock) DeleteServiceAccountCalls() []struct {
+	Ctx _context.Context
+	ID  string
+} {
+	var calls []struct {
+		Ctx _context.Context
+		ID  string
+	}
+	mock.lockDeleteServiceAccount.RLock()
+	calls = mock.calls.DeleteServiceAccount
+	mock.lockDeleteServiceAccount.RUnlock()
+	return calls
+}
+
+// DeleteServiceAccountExecute calls DeleteServiceAccountExecuteFunc.
+func (mock *ServiceaccountsApiMock) DeleteServiceAccountExecute(r ApiDeleteServiceAccountRequest) (*_nethttp.Response, error) {
+	if mock.DeleteServiceAccountExecuteFunc == nil {
+		panic("ServiceaccountsApiMock.DeleteServiceAccountExecuteFunc: method is nil but ServiceaccountsApi.DeleteServiceAccountExecute was just called")
+	}
+	callInfo := struct {
+		R ApiDeleteServiceAccountRequest
+	}{
+		R: r,
+	}
+	mock.lockDeleteServiceAccountExecute.Lock()
+	mock.calls.DeleteServiceAccountExecute = append(mock.calls.DeleteServiceAccountExecute, callInfo)
+	mock.lockDeleteServiceAccountExecute.Unlock()
+	return mock.DeleteServiceAccountExecuteFunc(r)
+}
+
+// DeleteServiceAccountExecuteCalls gets all the calls that were made to DeleteServiceAccountExecute.
+// Check the length with:
+//     len(mockedServiceaccountsApi.DeleteServiceAccountExecuteCalls())
+func (mock *ServiceaccountsApiMock) DeleteServiceAccountExecuteCalls() []struct {
+	R ApiDeleteServiceAccountRequest
+} {
+	var calls []struct {
+		R ApiDeleteServiceAccountRequest
+	}
+	mock.lockDeleteServiceAccountExecute.RLock()
+	calls = mock.calls.DeleteServiceAccountExecute
+	mock.lockDeleteServiceAccountExecute.RUnlock()
+	return calls
 }
 
 // GetServiceAccount calls GetServiceAccountFunc.
@@ -149,6 +377,68 @@ func (mock *ServiceaccountsApiMock) GetServiceAccountExecuteCalls() []struct {
 	return calls
 }
 
+// GetServiceAccounts calls GetServiceAccountsFunc.
+func (mock *ServiceaccountsApiMock) GetServiceAccounts(ctx _context.Context) ApiGetServiceAccountsRequest {
+	if mock.GetServiceAccountsFunc == nil {
+		panic("ServiceaccountsApiMock.GetServiceAccountsFunc: method is nil but ServiceaccountsApi.GetServiceAccounts was just called")
+	}
+	callInfo := struct {
+		Ctx _context.Context
+	}{
+		Ctx: ctx,
+	}
+	mock.lockGetServiceAccounts.Lock()
+	mock.calls.GetServiceAccounts = append(mock.calls.GetServiceAccounts, callInfo)
+	mock.lockGetServiceAccounts.Unlock()
+	return mock.GetServiceAccountsFunc(ctx)
+}
+
+// GetServiceAccountsCalls gets all the calls that were made to GetServiceAccounts.
+// Check the length with:
+//     len(mockedServiceaccountsApi.GetServiceAccountsCalls())
+func (mock *ServiceaccountsApiMock) GetServiceAccountsCalls() []struct {
+	Ctx _context.Context
+} {
+	var calls []struct {
+		Ctx _context.Context
+	}
+	mock.lockGetServiceAccounts.RLock()
+	calls = mock.calls.GetServiceAccounts
+	mock.lockGetServiceAccounts.RUnlock()
+	return calls
+}
+
+// GetServiceAccountsExecute calls GetServiceAccountsExecuteFunc.
+func (mock *ServiceaccountsApiMock) GetServiceAccountsExecute(r ApiGetServiceAccountsRequest) ([]ServiceAccountData, *_nethttp.Response, error) {
+	if mock.GetServiceAccountsExecuteFunc == nil {
+		panic("ServiceaccountsApiMock.GetServiceAccountsExecuteFunc: method is nil but ServiceaccountsApi.GetServiceAccountsExecute was just called")
+	}
+	callInfo := struct {
+		R ApiGetServiceAccountsRequest
+	}{
+		R: r,
+	}
+	mock.lockGetServiceAccountsExecute.Lock()
+	mock.calls.GetServiceAccountsExecute = append(mock.calls.GetServiceAccountsExecute, callInfo)
+	mock.lockGetServiceAccountsExecute.Unlock()
+	return mock.GetServiceAccountsExecuteFunc(r)
+}
+
+// GetServiceAccountsExecuteCalls gets all the calls that were made to GetServiceAccountsExecute.
+// Check the length with:
+//     len(mockedServiceaccountsApi.GetServiceAccountsExecuteCalls())
+func (mock *ServiceaccountsApiMock) GetServiceAccountsExecuteCalls() []struct {
+	R ApiGetServiceAccountsRequest
+} {
+	var calls []struct {
+		R ApiGetServiceAccountsRequest
+	}
+	mock.lockGetServiceAccountsExecute.RLock()
+	calls = mock.calls.GetServiceAccountsExecute
+	mock.lockGetServiceAccountsExecute.RUnlock()
+	return calls
+}
+
 // ResetServiceAccountSecret calls ResetServiceAccountSecretFunc.
 func (mock *ServiceaccountsApiMock) ResetServiceAccountSecret(ctx _context.Context, id string) ApiResetServiceAccountSecretRequest {
 	if mock.ResetServiceAccountSecretFunc == nil {
@@ -212,5 +502,71 @@ func (mock *ServiceaccountsApiMock) ResetServiceAccountSecretExecuteCalls() []st
 	mock.lockResetServiceAccountSecretExecute.RLock()
 	calls = mock.calls.ResetServiceAccountSecretExecute
 	mock.lockResetServiceAccountSecretExecute.RUnlock()
+	return calls
+}
+
+// UpdateServiceAccount calls UpdateServiceAccountFunc.
+func (mock *ServiceaccountsApiMock) UpdateServiceAccount(ctx _context.Context, id string) ApiUpdateServiceAccountRequest {
+	if mock.UpdateServiceAccountFunc == nil {
+		panic("ServiceaccountsApiMock.UpdateServiceAccountFunc: method is nil but ServiceaccountsApi.UpdateServiceAccount was just called")
+	}
+	callInfo := struct {
+		Ctx _context.Context
+		ID  string
+	}{
+		Ctx: ctx,
+		ID:  id,
+	}
+	mock.lockUpdateServiceAccount.Lock()
+	mock.calls.UpdateServiceAccount = append(mock.calls.UpdateServiceAccount, callInfo)
+	mock.lockUpdateServiceAccount.Unlock()
+	return mock.UpdateServiceAccountFunc(ctx, id)
+}
+
+// UpdateServiceAccountCalls gets all the calls that were made to UpdateServiceAccount.
+// Check the length with:
+//     len(mockedServiceaccountsApi.UpdateServiceAccountCalls())
+func (mock *ServiceaccountsApiMock) UpdateServiceAccountCalls() []struct {
+	Ctx _context.Context
+	ID  string
+} {
+	var calls []struct {
+		Ctx _context.Context
+		ID  string
+	}
+	mock.lockUpdateServiceAccount.RLock()
+	calls = mock.calls.UpdateServiceAccount
+	mock.lockUpdateServiceAccount.RUnlock()
+	return calls
+}
+
+// UpdateServiceAccountExecute calls UpdateServiceAccountExecuteFunc.
+func (mock *ServiceaccountsApiMock) UpdateServiceAccountExecute(r ApiUpdateServiceAccountRequest) (ServiceAccountData, *_nethttp.Response, error) {
+	if mock.UpdateServiceAccountExecuteFunc == nil {
+		panic("ServiceaccountsApiMock.UpdateServiceAccountExecuteFunc: method is nil but ServiceaccountsApi.UpdateServiceAccountExecute was just called")
+	}
+	callInfo := struct {
+		R ApiUpdateServiceAccountRequest
+	}{
+		R: r,
+	}
+	mock.lockUpdateServiceAccountExecute.Lock()
+	mock.calls.UpdateServiceAccountExecute = append(mock.calls.UpdateServiceAccountExecute, callInfo)
+	mock.lockUpdateServiceAccountExecute.Unlock()
+	return mock.UpdateServiceAccountExecuteFunc(r)
+}
+
+// UpdateServiceAccountExecuteCalls gets all the calls that were made to UpdateServiceAccountExecute.
+// Check the length with:
+//     len(mockedServiceaccountsApi.UpdateServiceAccountExecuteCalls())
+func (mock *ServiceaccountsApiMock) UpdateServiceAccountExecuteCalls() []struct {
+	R ApiUpdateServiceAccountRequest
+} {
+	var calls []struct {
+		R ApiUpdateServiceAccountRequest
+	}
+	mock.lockUpdateServiceAccountExecute.RLock()
+	calls = mock.calls.UpdateServiceAccountExecute
+	mock.lockUpdateServiceAccountExecute.RUnlock()
 	return calls
 }
