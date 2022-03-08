@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Topic** | Pointer to **string** |  | [optional] 
 **Partition** | Pointer to **int32** |  | [optional] 
-**Offset** | Pointer to **int32** |  | [optional] 
+**Offset** | Pointer to **int64** |  | [optional] 
 
 
 ## Methods
@@ -83,20 +83,20 @@ HasPartition returns a boolean if a field has been set.
 
 ### GetOffset
 
-`func (o *ConsumerGroupResetOffsetResultItem) GetOffset() int32`
+`func (o *ConsumerGroupResetOffsetResultItem) GetOffset() int64`
 
 GetOffset returns the Offset field if non-nil, zero value otherwise.
 
 ### GetOffsetOk
 
-`func (o *ConsumerGroupResetOffsetResultItem) GetOffsetOk() (*int32, bool)`
+`func (o *ConsumerGroupResetOffsetResultItem) GetOffsetOk() (*int64, bool)`
 
 GetOffsetOk returns a tuple with the Offset field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOffset
 
-`func (o *ConsumerGroupResetOffsetResultItem) SetOffset(v int32)`
+`func (o *ConsumerGroupResetOffsetResultItem) SetOffset(v int64)`
 
 SetOffset sets Offset field to given value.
 

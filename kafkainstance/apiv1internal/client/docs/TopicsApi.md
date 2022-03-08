@@ -1,14 +1,14 @@
 # \TopicsApi
 
-All URIs are relative to *http://localhost/rest*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateTopic**](TopicsApi.md#CreateTopic) | **Post** /topics | Creates a new topic
-[**DeleteTopic**](TopicsApi.md#DeleteTopic) | **Delete** /topics/{topicName} | Deletes a  topic
-[**GetTopic**](TopicsApi.md#GetTopic) | **Get** /topics/{topicName} | Retrieves the topic with the specified name.
-[**GetTopics**](TopicsApi.md#GetTopics) | **Get** /topics | List of topics
-[**UpdateTopic**](TopicsApi.md#UpdateTopic) | **Patch** /topics/{topicName} | Updates the topic with the specified name.
+[**CreateTopic**](TopicsApi.md#CreateTopic) | **Post** /rest/topics | Creates a new topic
+[**DeleteTopic**](TopicsApi.md#DeleteTopic) | **Delete** /rest/topics/{topicName} | Deletes a topic
+[**GetTopic**](TopicsApi.md#GetTopic) | **Get** /rest/topics/{topicName} | Retrieves a single topic
+[**GetTopics**](TopicsApi.md#GetTopics) | **Get** /rest/topics | Retrieves a list of topics
+[**UpdateTopic**](TopicsApi.md#UpdateTopic) | **Patch** /rest/topics/{topicName} | Updates a single topic
 
 
 
@@ -33,7 +33,7 @@ import (
 )
 
 func main() {
-    newTopicInput := *openapiclient.NewNewTopicInput("Name_example", *openapiclient.NewTopicSettings(int32(123))) // NewTopicInput | Topic to create.
+    newTopicInput := *openapiclient.NewNewTopicInput("Name_example", *openapiclient.NewTopicSettings()) // NewTopicInput | Topic to create.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 > DeleteTopic(ctx, topicName).Execute()
 
-Deletes a  topic
+Deletes a topic
 
 
 
@@ -99,7 +99,7 @@ import (
 )
 
 func main() {
-    topicName := "topicName_example" // string | The topic name to delete.
+    topicName := "topicName_example" // string | Name of the topic to delete
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -117,7 +117,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**topicName** | **string** | The topic name to delete. | 
+**topicName** | **string** | Name of the topic to delete | 
 
 ### Other Parameters
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 > Topic GetTopic(ctx, topicName).Execute()
 
-Retrieves the topic with the specified name.
+Retrieves a single topic
 
 
 
@@ -167,7 +167,7 @@ import (
 )
 
 func main() {
-    topicName := "topicName_example" // string | The topic name to retrieve.
+    topicName := "topicName_example" // string | Name of the topic to describe
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -187,7 +187,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**topicName** | **string** | The topic name to retrieve. | 
+**topicName** | **string** | Name of the topic to describe | 
 
 ### Other Parameters
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 > TopicsList GetTopics(ctx).Offset(offset).Limit(limit).Size(size).Filter(filter).Page(page).Order(order).OrderKey(orderKey).Execute()
 
-List of topics
+Retrieves a list of topics
 
 
 
@@ -237,13 +237,13 @@ import (
 )
 
 func main() {
-    offset := int32(56) // int32 | The page offset (optional)
-    limit := int32(56) // int32 | Maximum number of topics to return (optional)
-    size := int32(56) // int32 | Maximum number of topics to return on single page (optional)
+    offset := int32(56) // int32 | Offset of the first record to return, zero-based (optional)
+    limit := int32(56) // int32 | Maximum number of records to return (optional)
+    size := int32(56) // int32 | Number of records per page (optional)
     filter := "filter_example" // string | Filter to apply when returning the list of topics (optional)
-    page := int32(56) // int32 | The page when returning the limit of requested topics. (optional)
-    order := "order_example" // string | Order of the items sorting. Ascending order is used as default. (optional)
-    orderKey := "orderKey_example" // string | Order key to sort the topics by. (optional)
+    page := int32(56) // int32 | Page number (optional)
+    order := openapiclient.SortDirection("asc") // SortDirection | Order items are sorted (optional)
+    orderKey := openapiclient.TopicOrderKey("name") // TopicOrderKey | Order key to sort the topics by. (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -268,13 +268,13 @@ Other parameters are passed through a pointer to a apiGetTopicsRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **offset** | **int32** | The page offset | 
- **limit** | **int32** | Maximum number of topics to return | 
- **size** | **int32** | Maximum number of topics to return on single page | 
+ **offset** | **int32** | Offset of the first record to return, zero-based | 
+ **limit** | **int32** | Maximum number of records to return | 
+ **size** | **int32** | Number of records per page | 
  **filter** | **string** | Filter to apply when returning the list of topics | 
- **page** | **int32** | The page when returning the limit of requested topics. | 
- **order** | **string** | Order of the items sorting. Ascending order is used as default. | 
- **orderKey** | **string** | Order key to sort the topics by. | 
+ **page** | **int32** | Page number | 
+ **order** | [**SortDirection**](SortDirection.md) | Order items are sorted | 
+ **orderKey** | [**TopicOrderKey**](TopicOrderKey.md) | Order key to sort the topics by. | 
 
 ### Return type
 
@@ -296,9 +296,9 @@ Name | Type | Description  | Notes
 
 ## UpdateTopic
 
-> Topic UpdateTopic(ctx, topicName).UpdateTopicInput(updateTopicInput).Execute()
+> Topic UpdateTopic(ctx, topicName).TopicSettings(topicSettings).Execute()
 
-Updates the topic with the specified name.
+Updates a single topic
 
 
 
@@ -315,12 +315,12 @@ import (
 )
 
 func main() {
-    topicName := "topicName_example" // string | The topic name which is its unique id.
-    updateTopicInput := *openapiclient.NewUpdateTopicInput() // UpdateTopicInput | 
+    topicName := "topicName_example" // string | Name of the topic to update
+    topicSettings := *openapiclient.NewTopicSettings() // TopicSettings | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TopicsApi.UpdateTopic(context.Background(), topicName).UpdateTopicInput(updateTopicInput).Execute()
+    resp, r, err := api_client.TopicsApi.UpdateTopic(context.Background(), topicName).TopicSettings(topicSettings).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TopicsApi.UpdateTopic``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -336,7 +336,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**topicName** | **string** | The topic name which is its unique id. | 
+**topicName** | **string** | Name of the topic to update | 
 
 ### Other Parameters
 
@@ -346,7 +346,7 @@ Other parameters are passed through a pointer to a apiUpdateTopicRequest struct 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateTopicInput** | [**UpdateTopicInput**](UpdateTopicInput.md) |  | 
+ **topicSettings** | [**TopicSettings**](TopicSettings.md) |  | 
 
 ### Return type
 

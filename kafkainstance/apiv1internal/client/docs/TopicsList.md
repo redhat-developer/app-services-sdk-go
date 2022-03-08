@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Page** | Pointer to **int32** | The page | [optional] 
-**Size** | Pointer to **int32** | number of entries per page | [optional] 
-**Total** | Pointer to **int32** | Total number of topics | [optional] 
-**Items** | Pointer to [**[]Topic**](Topic.md) | List of topics | [optional] 
+**Items** | [**[]Topic**](Topic.md) |  | 
+**Total** | **int32** | Total number of entries in the full result set | 
+**Size** | Pointer to **int32** | Number of entries per page (returned for fetch requests) | [optional] 
+**Page** | Pointer to **int32** | Current page number (returned for fetch requests) | [optional] 
 
 
 ## Methods
 
 ### NewTopicsList
 
-`func NewTopicsList() *TopicsList`
+`func NewTopicsList(items []Topic, total int32, ) *TopicsList`
 
 NewTopicsList instantiates a new TopicsList object
 This constructor will assign default values to properties that have it defined,
@@ -30,30 +30,46 @@ This constructor will only assign default values to properties that have it defi
 but it doesn't guarantee that properties required by API are set
 
 
-### GetPage
+### GetItems
 
-`func (o *TopicsList) GetPage() int32`
+`func (o *TopicsList) GetItems() []Topic`
 
-GetPage returns the Page field if non-nil, zero value otherwise.
+GetItems returns the Items field if non-nil, zero value otherwise.
 
-### GetPageOk
+### GetItemsOk
 
-`func (o *TopicsList) GetPageOk() (*int32, bool)`
+`func (o *TopicsList) GetItemsOk() (*[]Topic, bool)`
 
-GetPageOk returns a tuple with the Page field if it's non-nil, zero value otherwise
+GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPage
+### SetItems
 
-`func (o *TopicsList) SetPage(v int32)`
+`func (o *TopicsList) SetItems(v []Topic)`
 
-SetPage sets Page field to given value.
+SetItems sets Items field to given value.
 
-### HasPage
 
-`func (o *TopicsList) HasPage() bool`
 
-HasPage returns a boolean if a field has been set.
+### GetTotal
+
+`func (o *TopicsList) GetTotal() int32`
+
+GetTotal returns the Total field if non-nil, zero value otherwise.
+
+### GetTotalOk
+
+`func (o *TopicsList) GetTotalOk() (*int32, bool)`
+
+GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotal
+
+`func (o *TopicsList) SetTotal(v int32)`
+
+SetTotal sets Total field to given value.
+
 
 
 ### GetSize
@@ -82,56 +98,30 @@ SetSize sets Size field to given value.
 HasSize returns a boolean if a field has been set.
 
 
-### GetTotal
+### GetPage
 
-`func (o *TopicsList) GetTotal() int32`
+`func (o *TopicsList) GetPage() int32`
 
-GetTotal returns the Total field if non-nil, zero value otherwise.
+GetPage returns the Page field if non-nil, zero value otherwise.
 
-### GetTotalOk
+### GetPageOk
 
-`func (o *TopicsList) GetTotalOk() (*int32, bool)`
+`func (o *TopicsList) GetPageOk() (*int32, bool)`
 
-GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
+GetPageOk returns a tuple with the Page field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTotal
+### SetPage
 
-`func (o *TopicsList) SetTotal(v int32)`
+`func (o *TopicsList) SetPage(v int32)`
 
-SetTotal sets Total field to given value.
+SetPage sets Page field to given value.
 
-### HasTotal
+### HasPage
 
-`func (o *TopicsList) HasTotal() bool`
+`func (o *TopicsList) HasPage() bool`
 
-HasTotal returns a boolean if a field has been set.
-
-
-### GetItems
-
-`func (o *TopicsList) GetItems() []Topic`
-
-GetItems returns the Items field if non-nil, zero value otherwise.
-
-### GetItemsOk
-
-`func (o *TopicsList) GetItemsOk() (*[]Topic, bool)`
-
-GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetItems
-
-`func (o *TopicsList) SetItems(v []Topic)`
-
-SetItems sets Items field to given value.
-
-### HasItems
-
-`func (o *TopicsList) HasItems() bool`
-
-HasItems returns a boolean if a field has been set.
+HasPage returns a boolean if a field has been set.
 
 
 

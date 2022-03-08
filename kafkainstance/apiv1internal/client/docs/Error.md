@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Code** | Pointer to **int32** |  | [optional] 
 **ErrorMessage** | Pointer to **string** |  | [optional] 
-**Class** | Pointer to **string** |  | [optional] 
 
 
 ## Methods
@@ -79,32 +78,6 @@ SetErrorMessage sets ErrorMessage field to given value.
 `func (o *Error) HasErrorMessage() bool`
 
 HasErrorMessage returns a boolean if a field has been set.
-
-
-### GetClass
-
-`func (o *Error) GetClass() string`
-
-GetClass returns the Class field if non-nil, zero value otherwise.
-
-### GetClassOk
-
-`func (o *Error) GetClassOk() (*string, bool)`
-
-GetClassOk returns a tuple with the Class field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetClass
-
-`func (o *Error) SetClass(v string)`
-
-SetClass sets Class field to given value.
-
-### HasClass
-
-`func (o *Error) HasClass() bool`
-
-HasClass returns a boolean if a field has been set.
 
 
 

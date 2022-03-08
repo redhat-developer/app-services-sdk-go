@@ -1,13 +1,13 @@
 # \AclsApi
 
-All URIs are relative to *http://localhost/rest*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAcl**](AclsApi.md#CreateAcl) | **Post** /acls | Create ACL binding
-[**DeleteAcls**](AclsApi.md#DeleteAcls) | **Delete** /acls | Delete ACL bindings
-[**GetAclResourceOperations**](AclsApi.md#GetAclResourceOperations) | **Get** /acls/resource-operations | Retrieve allowed ACL resources and operations
-[**GetAcls**](AclsApi.md#GetAcls) | **Get** /acls | List ACL bindings
+[**CreateAcl**](AclsApi.md#CreateAcl) | **Post** /rest/acls | Create ACL binding
+[**DeleteAcls**](AclsApi.md#DeleteAcls) | **Delete** /rest/acls | Delete ACL bindings
+[**GetAclResourceOperations**](AclsApi.md#GetAclResourceOperations) | **Get** /rest/acls/resource-operations | Retrieve allowed ACL resources and operations
+[**GetAcls**](AclsApi.md#GetAcls) | **Get** /rest/acls | List ACL bindings
 
 
 
@@ -96,12 +96,12 @@ import (
 )
 
 func main() {
-    resourceType := openapiclient.AclResourceTypeFilter("ANY") // AclResourceTypeFilter | ACL Resource Type Filter (optional) (default to "ANY")
+    resourceType := openapiclient.AclResourceTypeFilter("ANY") // AclResourceTypeFilter | ACL Resource Type Filter (optional)
     resourceName := "resourceName_example" // string | ACL Resource Name Filter (optional)
-    patternType := openapiclient.AclPatternTypeFilter("LITERAL") // AclPatternTypeFilter | ACL Pattern Type Filter (optional) (default to "ANY")
-    principal := "User:*" // string | ACL Principal Filter. Either a specific user or the wildcard user `User:*` may be provided. - When fetching by a specific user, the results will also include ACL bindings that apply to all users. - When deleting, ACL bindings to be delete must match the provided `principal` exactly. (optional)
-    operation := openapiclient.AclOperationFilter("ALL") // AclOperationFilter | ACL Operation Filter. The ACL binding operation provided should be valid for the resource type in the request, if not `ANY`. (optional) (default to "ANY")
-    permission := openapiclient.AclPermissionTypeFilter("ALLOW") // AclPermissionTypeFilter | ACL Permission Type Filter (optional) (default to "ANY")
+    patternType := openapiclient.AclPatternTypeFilter("LITERAL") // AclPatternTypeFilter | ACL Pattern Type Filter (optional)
+    principal := "User:*" // string | ACL Principal Filter. Either a specific user or the wildcard user `User:*` may be provided. - When fetching by a specific user, the results will also include ACL bindings that apply to all users. - When deleting, ACL bindings to be delete must match the provided `principal` exactly. (optional) (default to "")
+    operation := openapiclient.AclOperationFilter("ALL") // AclOperationFilter | ACL Operation Filter. The ACL binding operation provided should be valid for the resource type in the request, if not `ANY`. (optional)
+    permission := openapiclient.AclPermissionTypeFilter("ALLOW") // AclPermissionTypeFilter | ACL Permission Type Filter (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -126,12 +126,12 @@ Other parameters are passed through a pointer to a apiDeleteAclsRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceType** | [**AclResourceTypeFilter**](AclResourceTypeFilter.md) | ACL Resource Type Filter | [default to &quot;ANY&quot;]
+ **resourceType** | [**AclResourceTypeFilter**](AclResourceTypeFilter.md) | ACL Resource Type Filter | 
  **resourceName** | **string** | ACL Resource Name Filter | 
- **patternType** | [**AclPatternTypeFilter**](AclPatternTypeFilter.md) | ACL Pattern Type Filter | [default to &quot;ANY&quot;]
- **principal** | **string** | ACL Principal Filter. Either a specific user or the wildcard user &#x60;User:*&#x60; may be provided. - When fetching by a specific user, the results will also include ACL bindings that apply to all users. - When deleting, ACL bindings to be delete must match the provided &#x60;principal&#x60; exactly. | 
- **operation** | [**AclOperationFilter**](AclOperationFilter.md) | ACL Operation Filter. The ACL binding operation provided should be valid for the resource type in the request, if not &#x60;ANY&#x60;. | [default to &quot;ANY&quot;]
- **permission** | [**AclPermissionTypeFilter**](AclPermissionTypeFilter.md) | ACL Permission Type Filter | [default to &quot;ANY&quot;]
+ **patternType** | [**AclPatternTypeFilter**](AclPatternTypeFilter.md) | ACL Pattern Type Filter | 
+ **principal** | **string** | ACL Principal Filter. Either a specific user or the wildcard user &#x60;User:*&#x60; may be provided. - When fetching by a specific user, the results will also include ACL bindings that apply to all users. - When deleting, ACL bindings to be delete must match the provided &#x60;principal&#x60; exactly. | [default to &quot;&quot;]
+ **operation** | [**AclOperationFilter**](AclOperationFilter.md) | ACL Operation Filter. The ACL binding operation provided should be valid for the resource type in the request, if not &#x60;ANY&#x60;. | 
+ **permission** | [**AclPermissionTypeFilter**](AclPermissionTypeFilter.md) | ACL Permission Type Filter | 
 
 ### Return type
 
@@ -233,16 +233,16 @@ import (
 )
 
 func main() {
-    resourceType := openapiclient.AclResourceTypeFilter("ANY") // AclResourceTypeFilter | ACL Resource Type Filter (optional) (default to "ANY")
+    resourceType := openapiclient.AclResourceTypeFilter("ANY") // AclResourceTypeFilter | ACL Resource Type Filter (optional)
     resourceName := "resourceName_example" // string | ACL Resource Name Filter (optional)
-    patternType := openapiclient.AclPatternTypeFilter("LITERAL") // AclPatternTypeFilter | ACL Pattern Type Filter (optional) (default to "ANY")
-    principal := "User:*" // string | ACL Principal Filter. Either a specific user or the wildcard user `User:*` may be provided. - When fetching by a specific user, the results will also include ACL bindings that apply to all users. - When deleting, ACL bindings to be delete must match the provided `principal` exactly. (optional)
-    operation := openapiclient.AclOperationFilter("ALL") // AclOperationFilter | ACL Operation Filter. The ACL binding operation provided should be valid for the resource type in the request, if not `ANY`. (optional) (default to "ANY")
-    permission := openapiclient.AclPermissionTypeFilter("ALLOW") // AclPermissionTypeFilter | ACL Permission Type Filter (optional) (default to "ANY")
-    page := float32(8.14) // float32 | Page number for result lists (optional) (default to 1)
-    size := float32(8.14) // float32 | Page size for result lists (optional) (default to 10)
-    order := "order_example" // string | Order of the ACL binding sorting. (optional) (default to "desc")
-    orderKey := "orderKey_example" // string | Order key to sort the items by. (optional) (default to "permission")
+    patternType := openapiclient.AclPatternTypeFilter("LITERAL") // AclPatternTypeFilter | ACL Pattern Type Filter (optional)
+    principal := "User:*" // string | ACL Principal Filter. Either a specific user or the wildcard user `User:*` may be provided. - When fetching by a specific user, the results will also include ACL bindings that apply to all users. - When deleting, ACL bindings to be delete must match the provided `principal` exactly. (optional) (default to "")
+    operation := openapiclient.AclOperationFilter("ALL") // AclOperationFilter | ACL Operation Filter. The ACL binding operation provided should be valid for the resource type in the request, if not `ANY`. (optional)
+    permission := openapiclient.AclPermissionTypeFilter("ALLOW") // AclPermissionTypeFilter | ACL Permission Type Filter (optional)
+    page := int32(56) // int32 | Page number (optional)
+    size := int32(56) // int32 | Number of records per page (optional)
+    order := openapiclient.SortDirection("asc") // SortDirection | Order items are sorted (optional)
+    orderKey := openapiclient.AclBindingOrderKey("resourceType") // AclBindingOrderKey |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -267,16 +267,16 @@ Other parameters are passed through a pointer to a apiGetAclsRequest struct via 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceType** | [**AclResourceTypeFilter**](AclResourceTypeFilter.md) | ACL Resource Type Filter | [default to &quot;ANY&quot;]
+ **resourceType** | [**AclResourceTypeFilter**](AclResourceTypeFilter.md) | ACL Resource Type Filter | 
  **resourceName** | **string** | ACL Resource Name Filter | 
- **patternType** | [**AclPatternTypeFilter**](AclPatternTypeFilter.md) | ACL Pattern Type Filter | [default to &quot;ANY&quot;]
- **principal** | **string** | ACL Principal Filter. Either a specific user or the wildcard user &#x60;User:*&#x60; may be provided. - When fetching by a specific user, the results will also include ACL bindings that apply to all users. - When deleting, ACL bindings to be delete must match the provided &#x60;principal&#x60; exactly. | 
- **operation** | [**AclOperationFilter**](AclOperationFilter.md) | ACL Operation Filter. The ACL binding operation provided should be valid for the resource type in the request, if not &#x60;ANY&#x60;. | [default to &quot;ANY&quot;]
- **permission** | [**AclPermissionTypeFilter**](AclPermissionTypeFilter.md) | ACL Permission Type Filter | [default to &quot;ANY&quot;]
- **page** | **float32** | Page number for result lists | [default to 1]
- **size** | **float32** | Page size for result lists | [default to 10]
- **order** | **string** | Order of the ACL binding sorting. | [default to &quot;desc&quot;]
- **orderKey** | **string** | Order key to sort the items by. | [default to &quot;permission&quot;]
+ **patternType** | [**AclPatternTypeFilter**](AclPatternTypeFilter.md) | ACL Pattern Type Filter | 
+ **principal** | **string** | ACL Principal Filter. Either a specific user or the wildcard user &#x60;User:*&#x60; may be provided. - When fetching by a specific user, the results will also include ACL bindings that apply to all users. - When deleting, ACL bindings to be delete must match the provided &#x60;principal&#x60; exactly. | [default to &quot;&quot;]
+ **operation** | [**AclOperationFilter**](AclOperationFilter.md) | ACL Operation Filter. The ACL binding operation provided should be valid for the resource type in the request, if not &#x60;ANY&#x60;. | 
+ **permission** | [**AclPermissionTypeFilter**](AclPermissionTypeFilter.md) | ACL Permission Type Filter | 
+ **page** | **int32** | Page number | 
+ **size** | **int32** | Number of records per page | 
+ **order** | [**SortDirection**](SortDirection.md) | Order items are sorted | 
+ **orderKey** | [**AclBindingOrderKey**](AclBindingOrderKey.md) |  | 
 
 ### Return type
 

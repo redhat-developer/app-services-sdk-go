@@ -5,8 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **GroupId** | **string** | Unique identifier for the consumer group | 
-**State** | Pointer to **string** |  | [optional] 
+**State** | Pointer to [**ConsumerGroupState**](ConsumerGroupState.md) |  | [optional] 
 **Consumers** | [**[]Consumer**](Consumer.md) | The list of consumers associated with this consumer group | 
+**Metrics** | Pointer to [**ConsumerGroupMetrics**](ConsumerGroupMetrics.md) |  | [optional] 
 
 
 ## Methods
@@ -52,20 +53,20 @@ SetGroupId sets GroupId field to given value.
 
 ### GetState
 
-`func (o *ConsumerGroup) GetState() string`
+`func (o *ConsumerGroup) GetState() ConsumerGroupState`
 
 GetState returns the State field if non-nil, zero value otherwise.
 
 ### GetStateOk
 
-`func (o *ConsumerGroup) GetStateOk() (*string, bool)`
+`func (o *ConsumerGroup) GetStateOk() (*ConsumerGroupState, bool)`
 
 GetStateOk returns a tuple with the State field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetState
 
-`func (o *ConsumerGroup) SetState(v string)`
+`func (o *ConsumerGroup) SetState(v ConsumerGroupState)`
 
 SetState sets State field to given value.
 
@@ -95,6 +96,32 @@ and a boolean to check if the value has been set.
 
 SetConsumers sets Consumers field to given value.
 
+
+
+### GetMetrics
+
+`func (o *ConsumerGroup) GetMetrics() ConsumerGroupMetrics`
+
+GetMetrics returns the Metrics field if non-nil, zero value otherwise.
+
+### GetMetricsOk
+
+`func (o *ConsumerGroup) GetMetricsOk() (*ConsumerGroupMetrics, bool)`
+
+GetMetricsOk returns a tuple with the Metrics field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetrics
+
+`func (o *ConsumerGroup) SetMetrics(v ConsumerGroupMetrics)`
+
+SetMetrics sets Metrics field to given value.
+
+### HasMetrics
+
+`func (o *ConsumerGroup) HasMetrics() bool`
+
+HasMetrics returns a boolean if a field has been set.
 
 
 

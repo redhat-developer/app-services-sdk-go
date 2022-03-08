@@ -1,13 +1,13 @@
 # \GroupsApi
 
-All URIs are relative to *http://localhost/rest*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteConsumerGroupById**](GroupsApi.md#DeleteConsumerGroupById) | **Delete** /consumer-groups/{consumerGroupId} | Delete a consumer group.
-[**GetConsumerGroupById**](GroupsApi.md#GetConsumerGroupById) | **Get** /consumer-groups/{consumerGroupId} | Get a single consumer group by its unique ID.
-[**GetConsumerGroups**](GroupsApi.md#GetConsumerGroups) | **Get** /consumer-groups | List of consumer groups in the Kafka instance.
-[**ResetConsumerGroupOffset**](GroupsApi.md#ResetConsumerGroupOffset) | **Post** /consumer-groups/{consumerGroupId}/reset-offset | Reset the offset for a consumer group.
+[**DeleteConsumerGroupById**](GroupsApi.md#DeleteConsumerGroupById) | **Delete** /rest/consumer-groups/{consumerGroupId} | Delete a consumer group.
+[**GetConsumerGroupById**](GroupsApi.md#GetConsumerGroupById) | **Get** /rest/consumer-groups/{consumerGroupId} | Get a single consumer group by its unique ID.
+[**GetConsumerGroups**](GroupsApi.md#GetConsumerGroups) | **Get** /rest/consumer-groups | List of consumer groups in the Kafka instance.
+[**ResetConsumerGroupOffset**](GroupsApi.md#ResetConsumerGroupOffset) | **Post** /rest/consumer-groups/{consumerGroupId}/reset-offset | Reset the offset for a consumer group.
 
 
 
@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-    consumerGroupId := "consumerGroupId_example" // string | The unique ID of the cobsumer group.
+    consumerGroupId := "consumerGroupId_example" // string | Consumer group identifier
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -50,7 +50,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**consumerGroupId** | **string** | The unique ID of the cobsumer group. | 
+**consumerGroupId** | **string** | Consumer group identifier | 
 
 ### Other Parameters
 
@@ -98,11 +98,11 @@ import (
 )
 
 func main() {
-    consumerGroupId := "consumerGroupId_example" // string | The unique ID of the consumer group
-    order := "order_example" // string | Order of the items sorting. Ascending order is used as default. (optional)
-    orderKey := "orderKey_example" // string | Order key to sort the topics by. (optional)
+    consumerGroupId := "consumerGroupId_example" // string | Consumer group identifier
+    order := openapiclient.SortDirection("asc") // SortDirection | Order items are sorted (optional)
+    orderKey := openapiclient.ConsumerGroupDescriptionOrderKey("offset") // ConsumerGroupDescriptionOrderKey |  (optional)
     partitionFilter := int32(56) // int32 | Value of partition to include. Value -1 means filter is not active. (optional)
-    topic := "{"groupId":"consumer_group_1","consumers":[{"groupId":"consumer_group_1","topic":"topic-1","partition":0,"memberId":"consumer_group_member1","offset":5,"lag":0,"logEndOffset":5},{"groupId":"consumer_group_1","topic":"topic-1","partition":1,"memberId":"consumer_group_member2","offset":3,"lag":0,"logEndOffset":3},{"groupId":"consumer_group_1","topic":"topic-1","partition":2,"memberId":"consumer_group_member3","offset":6,"lag":1,"logEndOffset":5}]}" // string | Filter consumer groups for a specific topic (optional)
+    topic := "topic_example" // string | Filter consumer groups for a specific topic (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -122,7 +122,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**consumerGroupId** | **string** | The unique ID of the consumer group | 
+**consumerGroupId** | **string** | Consumer group identifier | 
 
 ### Other Parameters
 
@@ -132,8 +132,8 @@ Other parameters are passed through a pointer to a apiGetConsumerGroupByIdReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **order** | **string** | Order of the items sorting. Ascending order is used as default. | 
- **orderKey** | **string** | Order key to sort the topics by. | 
+ **order** | [**SortDirection**](SortDirection.md) | Order items are sorted | 
+ **orderKey** | [**ConsumerGroupDescriptionOrderKey**](ConsumerGroupDescriptionOrderKey.md) |  | 
  **partitionFilter** | **int32** | Value of partition to include. Value -1 means filter is not active. | 
  **topic** | **string** | Filter consumer groups for a specific topic | 
 
@@ -176,14 +176,14 @@ import (
 )
 
 func main() {
-    offset := int32(56) // int32 | The page offset (optional)
-    limit := int32(56) // int32 | Maximum number of consumer groups to return (optional)
-    size := int32(56) // int32 | Maximum number of consumer groups to return on single page (optional)
-    page := int32(56) // int32 | The page when returning the list of consumer groups (optional)
-    topic := "topic_example" // string | Return consumer groups where the topic name contains with this value (optional)
-    groupIdFilter := "groupIdFilter_example" // string | Return the consumer groups where the ID contains with this value (optional)
-    order := "order_example" // string | Order of the consumer groups sorting. Ascending order is used as default. (optional)
-    orderKey := "orderKey_example" // string | Order key to sort the items by. Only the value 'name' is currently applicable. (optional)
+    offset := int32(56) // int32 | Offset of the first record to return, zero-based (optional)
+    limit := int32(56) // int32 | Maximum number of records to return (optional)
+    size := int32(56) // int32 | Number of records per page (optional)
+    page := int32(56) // int32 | Page number (optional)
+    topic := "topic_example" // string | Return consumer groups where the topic name contains this value (optional)
+    groupIdFilter := "groupIdFilter_example" // string | Return the consumer groups where the ID contains this value (optional)
+    order := openapiclient.SortDirection("asc") // SortDirection | Order items are sorted (optional)
+    orderKey := openapiclient.ConsumerGroupOrderKey("name") // ConsumerGroupOrderKey |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -208,14 +208,14 @@ Other parameters are passed through a pointer to a apiGetConsumerGroupsRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **offset** | **int32** | The page offset | 
- **limit** | **int32** | Maximum number of consumer groups to return | 
- **size** | **int32** | Maximum number of consumer groups to return on single page | 
- **page** | **int32** | The page when returning the list of consumer groups | 
- **topic** | **string** | Return consumer groups where the topic name contains with this value | 
- **groupIdFilter** | **string** | Return the consumer groups where the ID contains with this value | 
- **order** | **string** | Order of the consumer groups sorting. Ascending order is used as default. | 
- **orderKey** | **string** | Order key to sort the items by. Only the value &#39;name&#39; is currently applicable. | 
+ **offset** | **int32** | Offset of the first record to return, zero-based | 
+ **limit** | **int32** | Maximum number of records to return | 
+ **size** | **int32** | Number of records per page | 
+ **page** | **int32** | Page number | 
+ **topic** | **string** | Return consumer groups where the topic name contains this value | 
+ **groupIdFilter** | **string** | Return the consumer groups where the ID contains this value | 
+ **order** | [**SortDirection**](SortDirection.md) | Order items are sorted | 
+ **orderKey** | [**ConsumerGroupOrderKey**](ConsumerGroupOrderKey.md) |  | 
 
 ### Return type
 
@@ -256,8 +256,8 @@ import (
 )
 
 func main() {
-    consumerGroupId := "consumerGroupId_example" // string | The ID of the consumer group.
-    consumerGroupResetOffsetParameters := *openapiclient.NewConsumerGroupResetOffsetParameters("Offset_example") // ConsumerGroupResetOffsetParameters | 
+    consumerGroupId := "consumerGroupId_example" // string | Consumer group identifier
+    consumerGroupResetOffsetParameters := *openapiclient.NewConsumerGroupResetOffsetParameters(openapiclient.OffsetType("timestamp")) // ConsumerGroupResetOffsetParameters | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -277,7 +277,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**consumerGroupId** | **string** | The ID of the consumer group. | 
+**consumerGroupId** | **string** | Consumer group identifier | 
 
 ### Other Parameters
 
