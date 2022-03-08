@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]AclBinding**](AclBinding.md) |  | [optional] 
-**Total** | **float32** | Total number of entries in the full result set | 
+**Items** | [**[]AclBinding**](AclBinding.md) |  | 
+**Total** | **int32** | Total number of entries in the full result set | 
+**Size** | Pointer to **int32** | Number of entries per page (returned for fetch requests) | [optional] 
 **Page** | Pointer to **int32** | Current page number (returned for fetch requests) | [optional] 
-**Size** | Pointer to **float32** | Number of entries per page (returned for fetch requests) | [optional] 
 
 
 ## Methods
 
 ### NewAclBindingListPage
 
-`func NewAclBindingListPage(total float32, ) *AclBindingListPage`
+`func NewAclBindingListPage(items []AclBinding, total int32, ) *AclBindingListPage`
 
 NewAclBindingListPage instantiates a new AclBindingListPage object
 This constructor will assign default values to properties that have it defined,
@@ -49,32 +49,53 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
-### HasItems
-
-`func (o *AclBindingListPage) HasItems() bool`
-
-HasItems returns a boolean if a field has been set.
 
 
 ### GetTotal
 
-`func (o *AclBindingListPage) GetTotal() float32`
+`func (o *AclBindingListPage) GetTotal() int32`
 
 GetTotal returns the Total field if non-nil, zero value otherwise.
 
 ### GetTotalOk
 
-`func (o *AclBindingListPage) GetTotalOk() (*float32, bool)`
+`func (o *AclBindingListPage) GetTotalOk() (*int32, bool)`
 
 GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTotal
 
-`func (o *AclBindingListPage) SetTotal(v float32)`
+`func (o *AclBindingListPage) SetTotal(v int32)`
 
 SetTotal sets Total field to given value.
 
+
+
+### GetSize
+
+`func (o *AclBindingListPage) GetSize() int32`
+
+GetSize returns the Size field if non-nil, zero value otherwise.
+
+### GetSizeOk
+
+`func (o *AclBindingListPage) GetSizeOk() (*int32, bool)`
+
+GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSize
+
+`func (o *AclBindingListPage) SetSize(v int32)`
+
+SetSize sets Size field to given value.
+
+### HasSize
+
+`func (o *AclBindingListPage) HasSize() bool`
+
+HasSize returns a boolean if a field has been set.
 
 
 ### GetPage
@@ -101,32 +122,6 @@ SetPage sets Page field to given value.
 `func (o *AclBindingListPage) HasPage() bool`
 
 HasPage returns a boolean if a field has been set.
-
-
-### GetSize
-
-`func (o *AclBindingListPage) GetSize() float32`
-
-GetSize returns the Size field if non-nil, zero value otherwise.
-
-### GetSizeOk
-
-`func (o *AclBindingListPage) GetSizeOk() (*float32, bool)`
-
-GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSize
-
-`func (o *AclBindingListPage) SetSize(v float32)`
-
-SetSize sets Size field to given value.
-
-### HasSize
-
-`func (o *AclBindingListPage) HasSize() bool`
-
-HasSize returns a boolean if a field has been set.
 
 
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to **string** |  | [optional] 
-**Offset** | **string** |  | 
+**Offset** | [**OffsetType**](OffsetType.md) |  | 
+**Value** | Pointer to **string** | Value associated with the given &#x60;offset&#x60;. Not used for &#x60;offset&#x60; values &#x60;earliest&#x60; and &#x60;latest&#x60;. When &#x60;offset&#x60; is &#x60;timestamp&#x60; then &#x60;value&#x60; must be a valid timestamp representing the point in time to reset the consumer group. When &#x60;offset&#x60; is &#x60;absolute&#x60; then &#x60;value&#x60; must be the integer offset to which the consumer group will be reset. | [optional] 
 **Topics** | Pointer to [**[]TopicsToResetOffset**](TopicsToResetOffset.md) |  | [optional] 
 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewConsumerGroupResetOffsetParameters
 
-`func NewConsumerGroupResetOffsetParameters(offset string, ) *ConsumerGroupResetOffsetParameters`
+`func NewConsumerGroupResetOffsetParameters(offset OffsetType, ) *ConsumerGroupResetOffsetParameters`
 
 NewConsumerGroupResetOffsetParameters instantiates a new ConsumerGroupResetOffsetParameters object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +27,27 @@ will change when the set of required properties is changed
 NewConsumerGroupResetOffsetParametersWithDefaults instantiates a new ConsumerGroupResetOffsetParameters object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+
+### GetOffset
+
+`func (o *ConsumerGroupResetOffsetParameters) GetOffset() OffsetType`
+
+GetOffset returns the Offset field if non-nil, zero value otherwise.
+
+### GetOffsetOk
+
+`func (o *ConsumerGroupResetOffsetParameters) GetOffsetOk() (*OffsetType, bool)`
+
+GetOffsetOk returns a tuple with the Offset field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOffset
+
+`func (o *ConsumerGroupResetOffsetParameters) SetOffset(v OffsetType)`
+
+SetOffset sets Offset field to given value.
+
 
 
 ### GetValue
@@ -53,27 +74,6 @@ SetValue sets Value field to given value.
 `func (o *ConsumerGroupResetOffsetParameters) HasValue() bool`
 
 HasValue returns a boolean if a field has been set.
-
-
-### GetOffset
-
-`func (o *ConsumerGroupResetOffsetParameters) GetOffset() string`
-
-GetOffset returns the Offset field if non-nil, zero value otherwise.
-
-### GetOffsetOk
-
-`func (o *ConsumerGroupResetOffsetParameters) GetOffsetOk() (*string, bool)`
-
-GetOffsetOk returns a tuple with the Offset field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOffset
-
-`func (o *ConsumerGroupResetOffsetParameters) SetOffset(v string)`
-
-SetOffset sets Offset field to given value.
-
 
 
 ### GetTopics

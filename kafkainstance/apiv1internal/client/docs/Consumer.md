@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **GroupId** | **string** | Unique identifier for the consumer group to which this consumer belongs. | 
 **Topic** | **string** | The unique topic name to which this consumer belongs | 
 **Partition** | **int32** | The partition number to which this consumer group is assigned to. | 
-**Offset** | **float32** | Offset denotes the position of the consumer in a partition. | 
-**LogEndOffset** | Pointer to **float32** | The log end offset is the offset of the last message written to a log. | [optional] 
-**Lag** | **int32** | Offset Lag is the delta between the last produced message and the last consumer&#39;s committed offset. | 
+**Offset** | **int64** | Offset denotes the position of the consumer in a partition. | 
+**LogEndOffset** | Pointer to **int64** | The log end offset is the offset of the last message written to a log. | [optional] 
+**Lag** | **int64** | Offset Lag is the delta between the last produced message and the last consumer&#39;s committed offset. | 
 **MemberId** | Pointer to **string** | The member ID is a unique identifier given to a consumer by the coordinator upon initially joining the group. | [optional] 
 
 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewConsumer
 
-`func NewConsumer(groupId string, topic string, partition int32, offset float32, lag int32, ) *Consumer`
+`func NewConsumer(groupId string, topic string, partition int32, offset int64, lag int64, ) *Consumer`
 
 NewConsumer instantiates a new Consumer object
 This constructor will assign default values to properties that have it defined,
@@ -98,20 +98,20 @@ SetPartition sets Partition field to given value.
 
 ### GetOffset
 
-`func (o *Consumer) GetOffset() float32`
+`func (o *Consumer) GetOffset() int64`
 
 GetOffset returns the Offset field if non-nil, zero value otherwise.
 
 ### GetOffsetOk
 
-`func (o *Consumer) GetOffsetOk() (*float32, bool)`
+`func (o *Consumer) GetOffsetOk() (*int64, bool)`
 
 GetOffsetOk returns a tuple with the Offset field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOffset
 
-`func (o *Consumer) SetOffset(v float32)`
+`func (o *Consumer) SetOffset(v int64)`
 
 SetOffset sets Offset field to given value.
 
@@ -119,20 +119,20 @@ SetOffset sets Offset field to given value.
 
 ### GetLogEndOffset
 
-`func (o *Consumer) GetLogEndOffset() float32`
+`func (o *Consumer) GetLogEndOffset() int64`
 
 GetLogEndOffset returns the LogEndOffset field if non-nil, zero value otherwise.
 
 ### GetLogEndOffsetOk
 
-`func (o *Consumer) GetLogEndOffsetOk() (*float32, bool)`
+`func (o *Consumer) GetLogEndOffsetOk() (*int64, bool)`
 
 GetLogEndOffsetOk returns a tuple with the LogEndOffset field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLogEndOffset
 
-`func (o *Consumer) SetLogEndOffset(v float32)`
+`func (o *Consumer) SetLogEndOffset(v int64)`
 
 SetLogEndOffset sets LogEndOffset field to given value.
 
@@ -145,20 +145,20 @@ HasLogEndOffset returns a boolean if a field has been set.
 
 ### GetLag
 
-`func (o *Consumer) GetLag() int32`
+`func (o *Consumer) GetLag() int64`
 
 GetLag returns the Lag field if non-nil, zero value otherwise.
 
 ### GetLagOk
 
-`func (o *Consumer) GetLagOk() (*int32, bool)`
+`func (o *Consumer) GetLagOk() (*int64, bool)`
 
 GetLagOk returns a tuple with the Lag field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLag
 
-`func (o *Consumer) SetLag(v int32)`
+`func (o *Consumer) SetLag(v int64)`
 
 SetLag sets Lag field to given value.
 

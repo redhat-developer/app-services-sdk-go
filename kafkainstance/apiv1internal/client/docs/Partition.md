@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Partition** | **int32** | The partition id, unique among partitions of the same topic | 
-**Replicas** | Pointer to **[]map[string]interface{}** | List of replicas for the partition | [optional] 
-**Isr** | Pointer to **[]map[string]interface{}** | List in-sync replicas for this partition. | [optional] 
-**Leader** | Pointer to **map[string]interface{}** | Kafka server / broker. | [optional] 
+**Replicas** | Pointer to [**[]Node**](Node.md) | List of replicas for the partition | [optional] 
+**Isr** | Pointer to [**[]Node**](Node.md) | List in-sync replicas for this partition. | [optional] 
+**Leader** | Pointer to [**Node**](Node.md) |  | [optional] 
 
 
 ## Methods
@@ -53,20 +53,20 @@ SetPartition sets Partition field to given value.
 
 ### GetReplicas
 
-`func (o *Partition) GetReplicas() []map[string]interface{}`
+`func (o *Partition) GetReplicas() []Node`
 
 GetReplicas returns the Replicas field if non-nil, zero value otherwise.
 
 ### GetReplicasOk
 
-`func (o *Partition) GetReplicasOk() (*[]map[string]interface{}, bool)`
+`func (o *Partition) GetReplicasOk() (*[]Node, bool)`
 
 GetReplicasOk returns a tuple with the Replicas field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReplicas
 
-`func (o *Partition) SetReplicas(v []map[string]interface{})`
+`func (o *Partition) SetReplicas(v []Node)`
 
 SetReplicas sets Replicas field to given value.
 
@@ -79,20 +79,20 @@ HasReplicas returns a boolean if a field has been set.
 
 ### GetIsr
 
-`func (o *Partition) GetIsr() []map[string]interface{}`
+`func (o *Partition) GetIsr() []Node`
 
 GetIsr returns the Isr field if non-nil, zero value otherwise.
 
 ### GetIsrOk
 
-`func (o *Partition) GetIsrOk() (*[]map[string]interface{}, bool)`
+`func (o *Partition) GetIsrOk() (*[]Node, bool)`
 
 GetIsrOk returns a tuple with the Isr field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsr
 
-`func (o *Partition) SetIsr(v []map[string]interface{})`
+`func (o *Partition) SetIsr(v []Node)`
 
 SetIsr sets Isr field to given value.
 
@@ -105,20 +105,20 @@ HasIsr returns a boolean if a field has been set.
 
 ### GetLeader
 
-`func (o *Partition) GetLeader() map[string]interface{}`
+`func (o *Partition) GetLeader() Node`
 
 GetLeader returns the Leader field if non-nil, zero value otherwise.
 
 ### GetLeaderOk
 
-`func (o *Partition) GetLeaderOk() (*map[string]interface{}, bool)`
+`func (o *Partition) GetLeaderOk() (*Node, bool)`
 
 GetLeaderOk returns a tuple with the Leader field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLeader
 
-`func (o *Partition) SetLeader(v map[string]interface{})`
+`func (o *Partition) SetLeader(v Node)`
 
 SetLeader sets Leader field to given value.
 

@@ -5,8 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | The name of the topic. | [optional] 
-**Config** | Pointer to [**[]ConfigEntry**](ConfigEntry.md) | Topic configuration entry. | [optional] 
+**IsInternal** | Pointer to **bool** |  | [optional] 
 **Partitions** | Pointer to [**[]Partition**](Partition.md) | Partitions for this topic. | [optional] 
+**Config** | Pointer to [**[]ConfigEntry**](ConfigEntry.md) | Topic configuration entry. | [optional] 
 
 
 ## Methods
@@ -55,30 +56,30 @@ SetName sets Name field to given value.
 HasName returns a boolean if a field has been set.
 
 
-### GetConfig
+### GetIsInternal
 
-`func (o *Topic) GetConfig() []ConfigEntry`
+`func (o *Topic) GetIsInternal() bool`
 
-GetConfig returns the Config field if non-nil, zero value otherwise.
+GetIsInternal returns the IsInternal field if non-nil, zero value otherwise.
 
-### GetConfigOk
+### GetIsInternalOk
 
-`func (o *Topic) GetConfigOk() (*[]ConfigEntry, bool)`
+`func (o *Topic) GetIsInternalOk() (*bool, bool)`
 
-GetConfigOk returns a tuple with the Config field if it's non-nil, zero value otherwise
+GetIsInternalOk returns a tuple with the IsInternal field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetConfig
+### SetIsInternal
 
-`func (o *Topic) SetConfig(v []ConfigEntry)`
+`func (o *Topic) SetIsInternal(v bool)`
 
-SetConfig sets Config field to given value.
+SetIsInternal sets IsInternal field to given value.
 
-### HasConfig
+### HasIsInternal
 
-`func (o *Topic) HasConfig() bool`
+`func (o *Topic) HasIsInternal() bool`
 
-HasConfig returns a boolean if a field has been set.
+HasIsInternal returns a boolean if a field has been set.
 
 
 ### GetPartitions
@@ -105,6 +106,32 @@ SetPartitions sets Partitions field to given value.
 `func (o *Topic) HasPartitions() bool`
 
 HasPartitions returns a boolean if a field has been set.
+
+
+### GetConfig
+
+`func (o *Topic) GetConfig() []ConfigEntry`
+
+GetConfig returns the Config field if non-nil, zero value otherwise.
+
+### GetConfigOk
+
+`func (o *Topic) GetConfigOk() (*[]ConfigEntry, bool)`
+
+GetConfigOk returns a tuple with the Config field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConfig
+
+`func (o *Topic) SetConfig(v []ConfigEntry)`
+
+SetConfig sets Config field to given value.
+
+### HasConfig
+
+`func (o *Topic) HasConfig() bool`
+
+HasConfig returns a boolean if a field has been set.
 
 
 

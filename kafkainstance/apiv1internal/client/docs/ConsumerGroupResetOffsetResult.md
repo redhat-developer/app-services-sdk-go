@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]ConsumerGroupResetOffsetResultItem**](ConsumerGroupResetOffsetResultItem.md) |  | [optional] 
-**Total** | **float32** | Total number of entries in the full result set | 
+**Items** | [**[]ConsumerGroupResetOffsetResultItem**](ConsumerGroupResetOffsetResultItem.md) |  | 
+**Total** | **int32** | Total number of entries in the full result set | 
+**Size** | Pointer to **int32** | Number of entries per page (returned for fetch requests) | [optional] 
 **Page** | Pointer to **int32** | Current page number (returned for fetch requests) | [optional] 
-**Size** | Pointer to **float32** | Number of entries per page (returned for fetch requests) | [optional] 
 
 
 ## Methods
 
 ### NewConsumerGroupResetOffsetResult
 
-`func NewConsumerGroupResetOffsetResult(total float32, ) *ConsumerGroupResetOffsetResult`
+`func NewConsumerGroupResetOffsetResult(items []ConsumerGroupResetOffsetResultItem, total int32, ) *ConsumerGroupResetOffsetResult`
 
 NewConsumerGroupResetOffsetResult instantiates a new ConsumerGroupResetOffsetResult object
 This constructor will assign default values to properties that have it defined,
@@ -49,32 +49,53 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
-### HasItems
-
-`func (o *ConsumerGroupResetOffsetResult) HasItems() bool`
-
-HasItems returns a boolean if a field has been set.
 
 
 ### GetTotal
 
-`func (o *ConsumerGroupResetOffsetResult) GetTotal() float32`
+`func (o *ConsumerGroupResetOffsetResult) GetTotal() int32`
 
 GetTotal returns the Total field if non-nil, zero value otherwise.
 
 ### GetTotalOk
 
-`func (o *ConsumerGroupResetOffsetResult) GetTotalOk() (*float32, bool)`
+`func (o *ConsumerGroupResetOffsetResult) GetTotalOk() (*int32, bool)`
 
 GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTotal
 
-`func (o *ConsumerGroupResetOffsetResult) SetTotal(v float32)`
+`func (o *ConsumerGroupResetOffsetResult) SetTotal(v int32)`
 
 SetTotal sets Total field to given value.
 
+
+
+### GetSize
+
+`func (o *ConsumerGroupResetOffsetResult) GetSize() int32`
+
+GetSize returns the Size field if non-nil, zero value otherwise.
+
+### GetSizeOk
+
+`func (o *ConsumerGroupResetOffsetResult) GetSizeOk() (*int32, bool)`
+
+GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSize
+
+`func (o *ConsumerGroupResetOffsetResult) SetSize(v int32)`
+
+SetSize sets Size field to given value.
+
+### HasSize
+
+`func (o *ConsumerGroupResetOffsetResult) HasSize() bool`
+
+HasSize returns a boolean if a field has been set.
 
 
 ### GetPage
@@ -101,32 +122,6 @@ SetPage sets Page field to given value.
 `func (o *ConsumerGroupResetOffsetResult) HasPage() bool`
 
 HasPage returns a boolean if a field has been set.
-
-
-### GetSize
-
-`func (o *ConsumerGroupResetOffsetResult) GetSize() float32`
-
-GetSize returns the Size field if non-nil, zero value otherwise.
-
-### GetSizeOk
-
-`func (o *ConsumerGroupResetOffsetResult) GetSizeOk() (*float32, bool)`
-
-GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSize
-
-`func (o *ConsumerGroupResetOffsetResult) SetSize(v float32)`
-
-SetSize sets Size field to given value.
-
-### HasSize
-
-`func (o *ConsumerGroupResetOffsetResult) HasSize() bool`
-
-HasSize returns a boolean if a field has been set.
 
 
 
