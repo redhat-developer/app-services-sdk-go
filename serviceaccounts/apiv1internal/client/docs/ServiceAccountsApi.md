@@ -1,15 +1,15 @@
-# \ServiceaccountsApi
+# \ServiceAccountsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateServiceAccount**](ServiceaccountsApi.md#CreateServiceAccount) | **Post** /apis/service_accounts/v1 | Create service account
-[**DeleteServiceAccount**](ServiceaccountsApi.md#DeleteServiceAccount) | **Delete** /apis/service_accounts/v1/{id} | Delete service account by id
-[**GetServiceAccount**](ServiceaccountsApi.md#GetServiceAccount) | **Get** /apis/service_accounts/v1/{id} | Get service account by id
-[**GetServiceAccounts**](ServiceaccountsApi.md#GetServiceAccounts) | **Get** /apis/service_accounts/v1 | List all service accounts
-[**ResetServiceAccountSecret**](ServiceaccountsApi.md#ResetServiceAccountSecret) | **Post** /apis/service_accounts/v1/{id}/resetSecret | Reset service account secret by id
-[**UpdateServiceAccount**](ServiceaccountsApi.md#UpdateServiceAccount) | **Patch** /apis/service_accounts/v1/{id} | Update service account
+[**CreateServiceAccount**](ServiceAccountsApi.md#CreateServiceAccount) | **Post** /apis/service_accounts/v1 | Create service account
+[**DeleteServiceAccount**](ServiceAccountsApi.md#DeleteServiceAccount) | **Delete** /apis/service_accounts/v1/{id} | Delete service account by id
+[**GetServiceAccount**](ServiceAccountsApi.md#GetServiceAccount) | **Get** /apis/service_accounts/v1/{id} | Get service account by id
+[**GetServiceAccounts**](ServiceAccountsApi.md#GetServiceAccounts) | **Get** /apis/service_accounts/v1 | List all service accounts
+[**ResetServiceAccountSecret**](ServiceAccountsApi.md#ResetServiceAccountSecret) | **Post** /apis/service_accounts/v1/{id}/resetSecret | Reset service account secret by id
+[**UpdateServiceAccount**](ServiceAccountsApi.md#UpdateServiceAccount) | **Patch** /apis/service_accounts/v1/{id} | Update service account
 
 
 
@@ -38,13 +38,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ServiceaccountsApi.CreateServiceAccount(context.Background()).ServiceAccountCreateRequestData(serviceAccountCreateRequestData).Execute()
+    resp, r, err := api_client.ServiceAccountsApi.CreateServiceAccount(context.Background()).ServiceAccountCreateRequestData(serviceAccountCreateRequestData).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ServiceaccountsApi.CreateServiceAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ServiceAccountsApi.CreateServiceAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateServiceAccount`: ServiceAccountData
-    fmt.Fprintf(os.Stdout, "Response from `ServiceaccountsApi.CreateServiceAccount`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ServiceAccountsApi.CreateServiceAccount`: %v\n", resp)
 }
 ```
 
@@ -104,9 +104,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ServiceaccountsApi.DeleteServiceAccount(context.Background(), id).Execute()
+    resp, r, err := api_client.ServiceAccountsApi.DeleteServiceAccount(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ServiceaccountsApi.DeleteServiceAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ServiceAccountsApi.DeleteServiceAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -172,13 +172,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ServiceaccountsApi.GetServiceAccount(context.Background(), id).Execute()
+    resp, r, err := api_client.ServiceAccountsApi.GetServiceAccount(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ServiceaccountsApi.GetServiceAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ServiceAccountsApi.GetServiceAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetServiceAccount`: ServiceAccountData
-    fmt.Fprintf(os.Stdout, "Response from `ServiceaccountsApi.GetServiceAccount`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ServiceAccountsApi.GetServiceAccount`: %v\n", resp)
 }
 ```
 
@@ -243,13 +243,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ServiceaccountsApi.GetServiceAccounts(context.Background()).First(first).Max(max).Execute()
+    resp, r, err := api_client.ServiceAccountsApi.GetServiceAccounts(context.Background()).First(first).Max(max).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ServiceaccountsApi.GetServiceAccounts``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ServiceAccountsApi.GetServiceAccounts``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetServiceAccounts`: []ServiceAccountData
-    fmt.Fprintf(os.Stdout, "Response from `ServiceaccountsApi.GetServiceAccounts`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ServiceAccountsApi.GetServiceAccounts`: %v\n", resp)
 }
 ```
 
@@ -310,13 +310,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ServiceaccountsApi.ResetServiceAccountSecret(context.Background(), id).Execute()
+    resp, r, err := api_client.ServiceAccountsApi.ResetServiceAccountSecret(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ServiceaccountsApi.ResetServiceAccountSecret``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ServiceAccountsApi.ResetServiceAccountSecret``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ResetServiceAccountSecret`: ServiceAccountData
-    fmt.Fprintf(os.Stdout, "Response from `ServiceaccountsApi.ResetServiceAccountSecret`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ServiceAccountsApi.ResetServiceAccountSecret`: %v\n", resp)
 }
 ```
 
@@ -381,13 +381,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ServiceaccountsApi.UpdateServiceAccount(context.Background(), id).ServiceAccountRequestData(serviceAccountRequestData).Execute()
+    resp, r, err := api_client.ServiceAccountsApi.UpdateServiceAccount(context.Background(), id).ServiceAccountRequestData(serviceAccountRequestData).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ServiceaccountsApi.UpdateServiceAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ServiceAccountsApi.UpdateServiceAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UpdateServiceAccount`: ServiceAccountData
-    fmt.Fprintf(os.Stdout, "Response from `ServiceaccountsApi.UpdateServiceAccount`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ServiceAccountsApi.UpdateServiceAccount`: %v\n", resp)
 }
 ```
 

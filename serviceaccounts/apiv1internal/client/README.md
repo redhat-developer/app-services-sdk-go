@@ -78,12 +78,12 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ServiceaccountsApi* | [**CreateServiceAccount**](docs/ServiceaccountsApi.md#createserviceaccount) | **Post** /apis/service_accounts/v1 | Create service account
-*ServiceaccountsApi* | [**DeleteServiceAccount**](docs/ServiceaccountsApi.md#deleteserviceaccount) | **Delete** /apis/service_accounts/v1/{id} | Delete service account by id
-*ServiceaccountsApi* | [**GetServiceAccount**](docs/ServiceaccountsApi.md#getserviceaccount) | **Get** /apis/service_accounts/v1/{id} | Get service account by id
-*ServiceaccountsApi* | [**GetServiceAccounts**](docs/ServiceaccountsApi.md#getserviceaccounts) | **Get** /apis/service_accounts/v1 | List all service accounts
-*ServiceaccountsApi* | [**ResetServiceAccountSecret**](docs/ServiceaccountsApi.md#resetserviceaccountsecret) | **Post** /apis/service_accounts/v1/{id}/resetSecret | Reset service account secret by id
-*ServiceaccountsApi* | [**UpdateServiceAccount**](docs/ServiceaccountsApi.md#updateserviceaccount) | **Patch** /apis/service_accounts/v1/{id} | Update service account
+*ServiceAccountsApi* | [**CreateServiceAccount**](docs/ServiceAccountsApi.md#createserviceaccount) | **Post** /apis/service_accounts/v1 | Create service account
+*ServiceAccountsApi* | [**DeleteServiceAccount**](docs/ServiceAccountsApi.md#deleteserviceaccount) | **Delete** /apis/service_accounts/v1/{id} | Delete service account by id
+*ServiceAccountsApi* | [**GetServiceAccount**](docs/ServiceAccountsApi.md#getserviceaccount) | **Get** /apis/service_accounts/v1/{id} | Get service account by id
+*ServiceAccountsApi* | [**GetServiceAccounts**](docs/ServiceAccountsApi.md#getserviceaccounts) | **Get** /apis/service_accounts/v1 | List all service accounts
+*ServiceAccountsApi* | [**ResetServiceAccountSecret**](docs/ServiceAccountsApi.md#resetserviceaccountsecret) | **Post** /apis/service_accounts/v1/{id}/resetSecret | Reset service account secret by id
+*ServiceAccountsApi* | [**UpdateServiceAccount**](docs/ServiceAccountsApi.md#updateserviceaccount) | **Patch** /apis/service_accounts/v1/{id} | Update service account
 
 
 ## Documentation For Models
