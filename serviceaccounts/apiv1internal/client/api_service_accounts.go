@@ -24,7 +24,7 @@ var (
 	_ _context.Context
 )
 
-type ServiceaccountsApi interface {
+type ServiceAccountsApi interface {
 
 	/*
 	 * CreateServiceAccount Create service account
@@ -114,12 +114,12 @@ type ServiceaccountsApi interface {
 	UpdateServiceAccountExecute(r ApiUpdateServiceAccountRequest) (ServiceAccountData, *_nethttp.Response, error)
 }
 
-// ServiceaccountsApiService ServiceaccountsApi service
-type ServiceaccountsApiService service
+// ServiceAccountsApiService ServiceAccountsApi service
+type ServiceAccountsApiService service
 
 type ApiCreateServiceAccountRequest struct {
 	ctx _context.Context
-	ApiService ServiceaccountsApi
+	ApiService ServiceAccountsApi
 	serviceAccountCreateRequestData *ServiceAccountCreateRequestData
 }
 
@@ -138,7 +138,7 @@ func (r ApiCreateServiceAccountRequest) Execute() (ServiceAccountData, *_nethttp
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiCreateServiceAccountRequest
  */
-func (a *ServiceaccountsApiService) CreateServiceAccount(ctx _context.Context) ApiCreateServiceAccountRequest {
+func (a *ServiceAccountsApiService) CreateServiceAccount(ctx _context.Context) ApiCreateServiceAccountRequest {
 	return ApiCreateServiceAccountRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -149,7 +149,7 @@ func (a *ServiceaccountsApiService) CreateServiceAccount(ctx _context.Context) A
  * Execute executes the request
  * @return ServiceAccountData
  */
-func (a *ServiceaccountsApiService) CreateServiceAccountExecute(r ApiCreateServiceAccountRequest) (ServiceAccountData, *_nethttp.Response, error) {
+func (a *ServiceAccountsApiService) CreateServiceAccountExecute(r ApiCreateServiceAccountRequest) (ServiceAccountData, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -159,7 +159,7 @@ func (a *ServiceaccountsApiService) CreateServiceAccountExecute(r ApiCreateServi
 		localVarReturnValue  ServiceAccountData
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceaccountsApiService.CreateServiceAccount")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceAccountsApiService.CreateServiceAccount")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -250,7 +250,7 @@ func (a *ServiceaccountsApiService) CreateServiceAccountExecute(r ApiCreateServi
 
 type ApiDeleteServiceAccountRequest struct {
 	ctx _context.Context
-	ApiService ServiceaccountsApi
+	ApiService ServiceAccountsApi
 	id string
 }
 
@@ -266,7 +266,7 @@ func (r ApiDeleteServiceAccountRequest) Execute() (*_nethttp.Response, error) {
  * @param id
  * @return ApiDeleteServiceAccountRequest
  */
-func (a *ServiceaccountsApiService) DeleteServiceAccount(ctx _context.Context, id string) ApiDeleteServiceAccountRequest {
+func (a *ServiceAccountsApiService) DeleteServiceAccount(ctx _context.Context, id string) ApiDeleteServiceAccountRequest {
 	return ApiDeleteServiceAccountRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -277,7 +277,7 @@ func (a *ServiceaccountsApiService) DeleteServiceAccount(ctx _context.Context, i
 /*
  * Execute executes the request
  */
-func (a *ServiceaccountsApiService) DeleteServiceAccountExecute(r ApiDeleteServiceAccountRequest) (*_nethttp.Response, error) {
+func (a *ServiceAccountsApiService) DeleteServiceAccountExecute(r ApiDeleteServiceAccountRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -286,7 +286,7 @@ func (a *ServiceaccountsApiService) DeleteServiceAccountExecute(r ApiDeleteServi
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceaccountsApiService.DeleteServiceAccount")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceAccountsApiService.DeleteServiceAccount")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -364,7 +364,7 @@ func (a *ServiceaccountsApiService) DeleteServiceAccountExecute(r ApiDeleteServi
 
 type ApiGetServiceAccountRequest struct {
 	ctx _context.Context
-	ApiService ServiceaccountsApi
+	ApiService ServiceAccountsApi
 	id string
 }
 
@@ -380,7 +380,7 @@ func (r ApiGetServiceAccountRequest) Execute() (ServiceAccountData, *_nethttp.Re
  * @param id
  * @return ApiGetServiceAccountRequest
  */
-func (a *ServiceaccountsApiService) GetServiceAccount(ctx _context.Context, id string) ApiGetServiceAccountRequest {
+func (a *ServiceAccountsApiService) GetServiceAccount(ctx _context.Context, id string) ApiGetServiceAccountRequest {
 	return ApiGetServiceAccountRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -392,7 +392,7 @@ func (a *ServiceaccountsApiService) GetServiceAccount(ctx _context.Context, id s
  * Execute executes the request
  * @return ServiceAccountData
  */
-func (a *ServiceaccountsApiService) GetServiceAccountExecute(r ApiGetServiceAccountRequest) (ServiceAccountData, *_nethttp.Response, error) {
+func (a *ServiceAccountsApiService) GetServiceAccountExecute(r ApiGetServiceAccountRequest) (ServiceAccountData, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -402,7 +402,7 @@ func (a *ServiceaccountsApiService) GetServiceAccountExecute(r ApiGetServiceAcco
 		localVarReturnValue  ServiceAccountData
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceaccountsApiService.GetServiceAccount")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceAccountsApiService.GetServiceAccount")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -489,7 +489,7 @@ func (a *ServiceaccountsApiService) GetServiceAccountExecute(r ApiGetServiceAcco
 
 type ApiGetServiceAccountsRequest struct {
 	ctx _context.Context
-	ApiService ServiceaccountsApi
+	ApiService ServiceAccountsApi
 	first *int32
 	max *int32
 }
@@ -513,7 +513,7 @@ func (r ApiGetServiceAccountsRequest) Execute() ([]ServiceAccountData, *_nethttp
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiGetServiceAccountsRequest
  */
-func (a *ServiceaccountsApiService) GetServiceAccounts(ctx _context.Context) ApiGetServiceAccountsRequest {
+func (a *ServiceAccountsApiService) GetServiceAccounts(ctx _context.Context) ApiGetServiceAccountsRequest {
 	return ApiGetServiceAccountsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -524,7 +524,7 @@ func (a *ServiceaccountsApiService) GetServiceAccounts(ctx _context.Context) Api
  * Execute executes the request
  * @return []ServiceAccountData
  */
-func (a *ServiceaccountsApiService) GetServiceAccountsExecute(r ApiGetServiceAccountsRequest) ([]ServiceAccountData, *_nethttp.Response, error) {
+func (a *ServiceAccountsApiService) GetServiceAccountsExecute(r ApiGetServiceAccountsRequest) ([]ServiceAccountData, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -534,7 +534,7 @@ func (a *ServiceaccountsApiService) GetServiceAccountsExecute(r ApiGetServiceAcc
 		localVarReturnValue  []ServiceAccountData
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceaccountsApiService.GetServiceAccounts")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceAccountsApiService.GetServiceAccounts")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -626,7 +626,7 @@ func (a *ServiceaccountsApiService) GetServiceAccountsExecute(r ApiGetServiceAcc
 
 type ApiResetServiceAccountSecretRequest struct {
 	ctx _context.Context
-	ApiService ServiceaccountsApi
+	ApiService ServiceAccountsApi
 	id string
 }
 
@@ -642,7 +642,7 @@ func (r ApiResetServiceAccountSecretRequest) Execute() (ServiceAccountData, *_ne
  * @param id
  * @return ApiResetServiceAccountSecretRequest
  */
-func (a *ServiceaccountsApiService) ResetServiceAccountSecret(ctx _context.Context, id string) ApiResetServiceAccountSecretRequest {
+func (a *ServiceAccountsApiService) ResetServiceAccountSecret(ctx _context.Context, id string) ApiResetServiceAccountSecretRequest {
 	return ApiResetServiceAccountSecretRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -654,7 +654,7 @@ func (a *ServiceaccountsApiService) ResetServiceAccountSecret(ctx _context.Conte
  * Execute executes the request
  * @return ServiceAccountData
  */
-func (a *ServiceaccountsApiService) ResetServiceAccountSecretExecute(r ApiResetServiceAccountSecretRequest) (ServiceAccountData, *_nethttp.Response, error) {
+func (a *ServiceAccountsApiService) ResetServiceAccountSecretExecute(r ApiResetServiceAccountSecretRequest) (ServiceAccountData, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -664,7 +664,7 @@ func (a *ServiceaccountsApiService) ResetServiceAccountSecretExecute(r ApiResetS
 		localVarReturnValue  ServiceAccountData
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceaccountsApiService.ResetServiceAccountSecret")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceAccountsApiService.ResetServiceAccountSecret")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -751,7 +751,7 @@ func (a *ServiceaccountsApiService) ResetServiceAccountSecretExecute(r ApiResetS
 
 type ApiUpdateServiceAccountRequest struct {
 	ctx _context.Context
-	ApiService ServiceaccountsApi
+	ApiService ServiceAccountsApi
 	id string
 	serviceAccountRequestData *ServiceAccountRequestData
 }
@@ -772,7 +772,7 @@ func (r ApiUpdateServiceAccountRequest) Execute() (ServiceAccountData, *_nethttp
  * @param id
  * @return ApiUpdateServiceAccountRequest
  */
-func (a *ServiceaccountsApiService) UpdateServiceAccount(ctx _context.Context, id string) ApiUpdateServiceAccountRequest {
+func (a *ServiceAccountsApiService) UpdateServiceAccount(ctx _context.Context, id string) ApiUpdateServiceAccountRequest {
 	return ApiUpdateServiceAccountRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -784,7 +784,7 @@ func (a *ServiceaccountsApiService) UpdateServiceAccount(ctx _context.Context, i
  * Execute executes the request
  * @return ServiceAccountData
  */
-func (a *ServiceaccountsApiService) UpdateServiceAccountExecute(r ApiUpdateServiceAccountRequest) (ServiceAccountData, *_nethttp.Response, error) {
+func (a *ServiceAccountsApiService) UpdateServiceAccountExecute(r ApiUpdateServiceAccountRequest) (ServiceAccountData, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -794,7 +794,7 @@ func (a *ServiceaccountsApiService) UpdateServiceAccountExecute(r ApiUpdateServi
 		localVarReturnValue  ServiceAccountData
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceaccountsApiService.UpdateServiceAccount")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ServiceAccountsApiService.UpdateServiceAccount")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
