@@ -3,6 +3,7 @@ README.md
 api/openapi.yaml
 api_acls.go
 api_groups.go
+api_records.go
 api_topics.go
 client.go
 configuration.go
@@ -35,6 +36,10 @@ docs/NewTopicInput.md
 docs/Node.md
 docs/OffsetType.md
 docs/Partition.md
+docs/Record.md
+docs/RecordIncludedProperty.md
+docs/RecordList.md
+docs/RecordsApi.md
 docs/SortDirection.md
 docs/Topic.md
 docs/TopicOrderKey.md
@@ -69,6 +74,9 @@ model_new_topic_input.go
 model_node.go
 model_offset_type.go
 model_partition.go
+model_record.go
+model_record_included_property.go
+model_record_list.go
 model_sort_direction.go
 model_topic.go
 model_topic_order_key.go

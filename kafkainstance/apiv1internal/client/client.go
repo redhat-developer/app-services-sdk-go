@@ -53,6 +53,8 @@ type APIClient struct {
 
 	GroupsApi GroupsApi
 
+	RecordsApi RecordsApi
+
 	TopicsApi TopicsApi
 }
 
@@ -74,6 +76,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.AclsApi = (*AclsApiService)(&c.common)
 	c.GroupsApi = (*GroupsApiService)(&c.common)
+	c.RecordsApi = (*RecordsApiService)(&c.common)
 	c.TopicsApi = (*TopicsApiService)(&c.common)
 
 	return c
