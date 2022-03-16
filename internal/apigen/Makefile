@@ -6,3 +6,6 @@ install:
 
 .PHONY: install
  
+generate:
+	api-generate-all --repo-metadata=../../.config/api-client-metadata.json --generator go 
+.PHONY: install
