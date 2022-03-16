@@ -49,6 +49,8 @@ type KafkaRequestAllOf struct {
 
 	KafkaStorageSize *string `json:"kafka_storage_size,omitempty"`
 
+	SizeId *string `json:"size_id,omitempty"`
+
 }
 
 // NewKafkaRequestAllOf instantiates a new KafkaRequestAllOf object
@@ -67,6 +69,7 @@ func NewKafkaRequestAllOf(multiAz bool, reauthenticationEnabled bool) *KafkaRequ
 // but it doesn't guarantee that properties required by API are set
 func NewKafkaRequestAllOfWithDefaults() *KafkaRequestAllOf {
 	this := KafkaRequestAllOf{}
+
 
 
 
@@ -532,6 +535,39 @@ func (o *KafkaRequestAllOf) SetKafkaStorageSize(v string) {
 }
 
 
+// GetSizeId returns the SizeId field value if set, zero value otherwise.
+func (o *KafkaRequestAllOf) GetSizeId() string {
+	if o == nil || o.SizeId == nil {
+		var ret string
+		return ret
+	}
+	return *o.SizeId
+}
+
+// GetSizeIdOk returns a tuple with the SizeId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *KafkaRequestAllOf) GetSizeIdOk() (*string, bool) {
+	if o == nil || o.SizeId == nil {
+		return nil, false
+	}
+	return o.SizeId, true
+}
+
+// HasSizeId returns a boolean if a field has been set.
+func (o *KafkaRequestAllOf) HasSizeId() bool {
+	if o != nil && o.SizeId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSizeId gets a reference to the given string and assigns it to the SizeId field.
+func (o *KafkaRequestAllOf) SetSizeId(v string) {
+	o.SizeId = &v
+}
+
+
 func (o KafkaRequestAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
@@ -589,6 +625,10 @@ func (o KafkaRequestAllOf) MarshalJSON() ([]byte, error) {
     
 	if o.KafkaStorageSize != nil {
 		toSerialize["kafka_storage_size"] = o.KafkaStorageSize
+	}
+    
+	if o.SizeId != nil {
+		toSerialize["size_id"] = o.SizeId
 	}
     
 	return json.Marshal(toSerialize)

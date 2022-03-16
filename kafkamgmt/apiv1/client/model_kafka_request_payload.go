@@ -32,6 +32,9 @@ type KafkaRequestPayload struct {
 	// Whether connection reauthentication is enabled or not. If set to true, connection reauthentication on the Kafka instance will be required every 5 minutes. The default value is true
 	ReauthenticationEnabled NullableBool `json:"reauthentication_enabled,omitempty"`
 
+	// kafka plan in a format of <instance_type>.<size_id>
+	Plan *string `json:"plan,omitempty"`
+
 }
 
 // NewKafkaRequestPayload instantiates a new KafkaRequestPayload object
@@ -49,6 +52,7 @@ func NewKafkaRequestPayload(name string) *KafkaRequestPayload {
 // but it doesn't guarantee that properties required by API are set
 func NewKafkaRequestPayloadWithDefaults() *KafkaRequestPayload {
 	this := KafkaRequestPayload{}
+
 
 
 
@@ -226,6 +230,39 @@ func (o *KafkaRequestPayload) UnsetReauthenticationEnabled() {
 }
 
 
+// GetPlan returns the Plan field value if set, zero value otherwise.
+func (o *KafkaRequestPayload) GetPlan() string {
+	if o == nil || o.Plan == nil {
+		var ret string
+		return ret
+	}
+	return *o.Plan
+}
+
+// GetPlanOk returns a tuple with the Plan field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *KafkaRequestPayload) GetPlanOk() (*string, bool) {
+	if o == nil || o.Plan == nil {
+		return nil, false
+	}
+	return o.Plan, true
+}
+
+// HasPlan returns a boolean if a field has been set.
+func (o *KafkaRequestPayload) HasPlan() bool {
+	if o != nil && o.Plan != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPlan gets a reference to the given string and assigns it to the Plan field.
+func (o *KafkaRequestPayload) SetPlan(v string) {
+	o.Plan = &v
+}
+
+
 func (o KafkaRequestPayload) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
@@ -247,6 +284,10 @@ func (o KafkaRequestPayload) MarshalJSON() ([]byte, error) {
     
 	if o.ReauthenticationEnabled.IsSet() {
 		toSerialize["reauthentication_enabled"] = o.ReauthenticationEnabled.Get()
+	}
+    
+	if o.Plan != nil {
+		toSerialize["plan"] = o.Plan
 	}
     
 	return json.Marshal(toSerialize)

@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **InstanceType** | Pointer to **string** |  | [optional] 
 **ReauthenticationEnabled** | **bool** |  | 
 **KafkaStorageSize** | Pointer to **string** |  | [optional] 
+**SizeId** | Pointer to **string** |  | [optional] 
 
 
 ## Methods
@@ -392,6 +393,32 @@ SetKafkaStorageSize sets KafkaStorageSize field to given value.
 `func (o *KafkaRequestAllOf) HasKafkaStorageSize() bool`
 
 HasKafkaStorageSize returns a boolean if a field has been set.
+
+
+### GetSizeId
+
+`func (o *KafkaRequestAllOf) GetSizeId() string`
+
+GetSizeId returns the SizeId field if non-nil, zero value otherwise.
+
+### GetSizeIdOk
+
+`func (o *KafkaRequestAllOf) GetSizeIdOk() (*string, bool)`
+
+GetSizeIdOk returns a tuple with the SizeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSizeId
+
+`func (o *KafkaRequestAllOf) SetSizeId(v string)`
+
+SetSizeId sets SizeId field to given value.
+
+### HasSizeId
+
+`func (o *KafkaRequestAllOf) HasSizeId() bool`
+
+HasSizeId returns a boolean if a field has been set.
 
 
 

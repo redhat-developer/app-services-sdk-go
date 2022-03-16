@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InstanceType** | Pointer to **string** | kafka instance type | [optional] 
-**MaxCapacityReached** | **bool** | flag indicating whether the capacity for the instance type in the region is reached | 
+**InstanceType** | **string** | kafka instance type | 
+**AvailableSizes** | **[]string** | list of available Kafka instance sizes that can be created in this region when taking account current capacity and regional limits | 
 
 
 ## Methods
 
 ### NewRegionCapacityListItem
 
-`func NewRegionCapacityListItem(maxCapacityReached bool, ) *RegionCapacityListItem`
+`func NewRegionCapacityListItem(instanceType string, maxCapacityReached bool, availableSizes []string, ) *RegionCapacityListItem`
 
 NewRegionCapacityListItem instantiates a new RegionCapacityListItem object
 This constructor will assign default values to properties that have it defined,
@@ -47,31 +47,26 @@ and a boolean to check if the value has been set.
 
 SetInstanceType sets InstanceType field to given value.
 
-### HasInstanceType
-
-`func (o *RegionCapacityListItem) HasInstanceType() bool`
-
-HasInstanceType returns a boolean if a field has been set.
 
 
-### GetMaxCapacityReached
+### GetAvailableSizes
 
-`func (o *RegionCapacityListItem) GetMaxCapacityReached() bool`
+`func (o *RegionCapacityListItem) GetAvailableSizes() []string`
 
-GetMaxCapacityReached returns the MaxCapacityReached field if non-nil, zero value otherwise.
+GetAvailableSizes returns the AvailableSizes field if non-nil, zero value otherwise.
 
-### GetMaxCapacityReachedOk
+### GetAvailableSizesOk
 
-`func (o *RegionCapacityListItem) GetMaxCapacityReachedOk() (*bool, bool)`
+`func (o *RegionCapacityListItem) GetAvailableSizesOk() (*[]string, bool)`
 
-GetMaxCapacityReachedOk returns a tuple with the MaxCapacityReached field if it's non-nil, zero value otherwise
+GetAvailableSizesOk returns a tuple with the AvailableSizes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMaxCapacityReached
+### SetAvailableSizes
 
-`func (o *RegionCapacityListItem) SetMaxCapacityReached(v bool)`
+`func (o *RegionCapacityListItem) SetAvailableSizes(v []string)`
 
-SetMaxCapacityReached sets MaxCapacityReached field to given value.
+SetAvailableSizes sets AvailableSizes field to given value.
 
 
 

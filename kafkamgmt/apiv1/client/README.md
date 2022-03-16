@@ -83,6 +83,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**FederateMetrics**](docs/DefaultApi.md#federatemetrics) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/federate | Returns all metrics in scrapeable format for a given kafka id
 *DefaultApi* | [**GetCloudProviderRegions**](docs/DefaultApi.md#getcloudproviderregions) | **Get** /api/kafkas_mgmt/v1/cloud_providers/{id}/regions | Returns the list of supported regions of the supported cloud provider
 *DefaultApi* | [**GetCloudProviders**](docs/DefaultApi.md#getcloudproviders) | **Get** /api/kafkas_mgmt/v1/cloud_providers | Returns the list of supported cloud providers
+*DefaultApi* | [**GetInstanceTypesByCloudProviderAndRegion**](docs/DefaultApi.md#getinstancetypesbycloudproviderandregion) | **Get** /api/kafkas_mgmt/v1/instance_types/{cloud_id}/{cloud_region} | Returns the list of supported Kafka instance types and sizes filtered by cloud provider and region
 *DefaultApi* | [**GetKafkaById**](docs/DefaultApi.md#getkafkabyid) | **Get** /api/kafkas_mgmt/v1/kafkas/{id} | Returns a Kafka request by ID
 *DefaultApi* | [**GetKafkas**](docs/DefaultApi.md#getkafkas) | **Get** /api/kafkas_mgmt/v1/kafkas | Returns a list of Kafka requests
 *DefaultApi* | [**GetMetricsByInstantQuery**](docs/DefaultApi.md#getmetricsbyinstantquery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query | Returns metrics with instant query by Kafka ID
@@ -132,6 +133,10 @@ Class | Method | HTTP request | Description
  - [ServiceAccountListItem](docs/ServiceAccountListItem.md)
  - [ServiceAccountListItemAllOf](docs/ServiceAccountListItemAllOf.md)
  - [ServiceAccountRequest](docs/ServiceAccountRequest.md)
+ - [SupportedKafkaInstanceType](docs/SupportedKafkaInstanceType.md)
+ - [SupportedKafkaInstanceTypesList](docs/SupportedKafkaInstanceTypesList.md)
+ - [SupportedKafkaInstanceTypesListAllOf](docs/SupportedKafkaInstanceTypesListAllOf.md)
+ - [SupportedKafkaSize](docs/SupportedKafkaSize.md)
  - [Values](docs/Values.md)
  - [VersionMetadata](docs/VersionMetadata.md)
  - [VersionMetadataAllOf](docs/VersionMetadataAllOf.md)

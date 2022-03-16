@@ -41,6 +41,10 @@ docs/ServiceAccountListAllOf.md
 docs/ServiceAccountListItem.md
 docs/ServiceAccountListItemAllOf.md
 docs/ServiceAccountRequest.md
+docs/SupportedKafkaInstanceType.md
+docs/SupportedKafkaInstanceTypesList.md
+docs/SupportedKafkaInstanceTypesListAllOf.md
+docs/SupportedKafkaSize.md
 docs/Values.md
 docs/VersionMetadata.md
 docs/VersionMetadataAllOf.md
@@ -76,6 +80,10 @@ model_service_account_list_all_of.go
 model_service_account_list_item.go
 model_service_account_list_item_all_of.go
 model_service_account_request.go
+model_supported_kafka_instance_type.go
+model_supported_kafka_instance_types_list.go
+model_supported_kafka_instance_types_list_all_of.go
+model_supported_kafka_size.go
 model_values.go
 model_version_metadata.go
 model_version_metadata_all_of.go
