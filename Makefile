@@ -10,3 +10,7 @@ generate-mocks:
 	moq -out registrymgmt/apiv1/client/registries_api_mock.go registrymgmt/apiv1/client RegistriesApi	
 	moq -out kafkainstance/apiv1internal/client/topics_api_mock.go kafkainstance/apiv1internal/client TopicsApi
 	moq -out kafkainstance/apiv1internal/client/groups_api_mock.go kafkainstance/apiv1internal/client GroupsApi
+
+generate:
+	api-generate-all --repo-metadata=.config/api-client-metadata.json --generator go --templates-dir=./scripts/templates
+.PHONY: install
