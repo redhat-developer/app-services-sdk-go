@@ -4,8 +4,8 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ConsumeRecords**](RecordsApi.md#ConsumeRecords) | **Get** /rest/topics/{topicName}/records | Consume records from a topic
-[**ProduceRecord**](RecordsApi.md#ProduceRecord) | **Post** /rest/topics/{topicName}/records | Send a record to a topic
+[**ConsumeRecords**](RecordsApi.md#ConsumeRecords) | **Get** /api/v1/topics/{topicName}/records | Consume records from a topic
+[**ProduceRecord**](RecordsApi.md#ProduceRecord) | **Post** /api/v1/topics/{topicName}/records | Send a record to a topic
 
 
 
