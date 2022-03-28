@@ -113,6 +113,9 @@ const (
   // Failed to find service account
   ERROR_113 string = "KAFKAS-MGMT-113"
 
+  // Max limit for the service account creation has reached
+  ERROR_115 string = "KAFKAS-MGMT-115"
+
   // Insufficient quota
   ERROR_120 string = "KAFKAS-MGMT-120"
 
