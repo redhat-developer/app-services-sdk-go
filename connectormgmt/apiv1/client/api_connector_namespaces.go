@@ -24,142 +24,121 @@ var (
 	_ _context.Context
 )
 
-type ConnectorClustersApi interface {
+type ConnectorNamespacesApi interface {
 
 	/*
-	 * CreateConnectorCluster Create a new connector cluster
-	 * Create a new connector cluster
+	 * CreateConnectorNamespace Create a new connector namespace
+	 * Create a new connector namespace
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @return ApiCreateConnectorClusterRequest
+	 * @return ApiCreateConnectorNamespaceRequest
 	 */
-	CreateConnectorCluster(ctx _context.Context) ApiCreateConnectorClusterRequest
+	CreateConnectorNamespace(ctx _context.Context) ApiCreateConnectorNamespaceRequest
 
 	/*
-	 * CreateConnectorClusterExecute executes the request
-	 * @return ConnectorCluster
+	 * CreateConnectorNamespaceExecute executes the request
+	 * @return ConnectorNamespace
 	 */
-	CreateConnectorClusterExecute(r ApiCreateConnectorClusterRequest) (ConnectorCluster, *_nethttp.Response, error)
+	CreateConnectorNamespaceExecute(r ApiCreateConnectorNamespaceRequest) (ConnectorNamespace, *_nethttp.Response, error)
 
 	/*
-	 * DeleteConnectorCluster Delete a connector cluster
-	 * Delete a connector cluster
+	 * CreateEvaluationNamespace Create a new short lived evaluation connector namespace
+	 * Create a new evaluation connector namespace
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @param connectorClusterId The id of the connector cluster
-	 * @return ApiDeleteConnectorClusterRequest
+	 * @return ApiCreateEvaluationNamespaceRequest
 	 */
-	DeleteConnectorCluster(ctx _context.Context, connectorClusterId string) ApiDeleteConnectorClusterRequest
+	CreateEvaluationNamespace(ctx _context.Context) ApiCreateEvaluationNamespaceRequest
 
 	/*
-	 * DeleteConnectorClusterExecute executes the request
+	 * CreateEvaluationNamespaceExecute executes the request
+	 * @return ConnectorNamespace
+	 */
+	CreateEvaluationNamespaceExecute(r ApiCreateEvaluationNamespaceRequest) (ConnectorNamespace, *_nethttp.Response, error)
+
+	/*
+	 * DeleteConnectorNamespace Delete a connector namespace
+	 * Delete a connector namespace
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param connectorNamespaceId The id of the connector namespace
+	 * @return ApiDeleteConnectorNamespaceRequest
+	 */
+	DeleteConnectorNamespace(ctx _context.Context, connectorNamespaceId string) ApiDeleteConnectorNamespaceRequest
+
+	/*
+	 * DeleteConnectorNamespaceExecute executes the request
 	 * @return Error
 	 */
-	DeleteConnectorClusterExecute(r ApiDeleteConnectorClusterRequest) (Error, *_nethttp.Response, error)
+	DeleteConnectorNamespaceExecute(r ApiDeleteConnectorNamespaceRequest) (Error, *_nethttp.Response, error)
 
 	/*
-	 * GetConnectorCluster Get a connector cluster
-	 * Get a connector cluster
+	 * GetConnectorNamespace Get a connector namespace
+	 * Get a connector namespace
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @param connectorClusterId The id of the connector cluster
-	 * @return ApiGetConnectorClusterRequest
+	 * @param connectorNamespaceId The id of the connector namespace
+	 * @return ApiGetConnectorNamespaceRequest
 	 */
-	GetConnectorCluster(ctx _context.Context, connectorClusterId string) ApiGetConnectorClusterRequest
+	GetConnectorNamespace(ctx _context.Context, connectorNamespaceId string) ApiGetConnectorNamespaceRequest
 
 	/*
-	 * GetConnectorClusterExecute executes the request
-	 * @return ConnectorCluster
+	 * GetConnectorNamespaceExecute executes the request
+	 * @return ConnectorNamespace
 	 */
-	GetConnectorClusterExecute(r ApiGetConnectorClusterRequest) (ConnectorCluster, *_nethttp.Response, error)
+	GetConnectorNamespaceExecute(r ApiGetConnectorNamespaceRequest) (ConnectorNamespace, *_nethttp.Response, error)
 
 	/*
-	 * GetConnectorClusterAddonParameters Get a connector cluster's addon parameters
-	 * Get a connector cluster's addon parameters
+	 * ListConnectorNamespaces Returns a list of connector namespaces
+	 * Returns a list of connector namespaces
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @param connectorClusterId The id of the connector cluster
-	 * @return ApiGetConnectorClusterAddonParametersRequest
+	 * @return ApiListConnectorNamespacesRequest
 	 */
-	GetConnectorClusterAddonParameters(ctx _context.Context, connectorClusterId string) ApiGetConnectorClusterAddonParametersRequest
+	ListConnectorNamespaces(ctx _context.Context) ApiListConnectorNamespacesRequest
 
 	/*
-	 * GetConnectorClusterAddonParametersExecute executes the request
-	 * @return []AddonParameter
-	 */
-	GetConnectorClusterAddonParametersExecute(r ApiGetConnectorClusterAddonParametersRequest) ([]AddonParameter, *_nethttp.Response, error)
-
-	/*
-	 * GetConnectorClusterNamespaces Get a connector cluster's namespaces
-	 * Get a connector cluster's namespaces
-	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @param connectorClusterId The id of the connector cluster
-	 * @return ApiGetConnectorClusterNamespacesRequest
-	 */
-	GetConnectorClusterNamespaces(ctx _context.Context, connectorClusterId string) ApiGetConnectorClusterNamespacesRequest
-
-	/*
-	 * GetConnectorClusterNamespacesExecute executes the request
+	 * ListConnectorNamespacesExecute executes the request
 	 * @return ConnectorNamespaceList
 	 */
-	GetConnectorClusterNamespacesExecute(r ApiGetConnectorClusterNamespacesRequest) (ConnectorNamespaceList, *_nethttp.Response, error)
+	ListConnectorNamespacesExecute(r ApiListConnectorNamespacesRequest) (ConnectorNamespaceList, *_nethttp.Response, error)
 
 	/*
-	 * ListConnectorClusters Returns a list of connector clusters
-	 * Returns a list of connector clusters
+	 * UpdateConnectorNamespaceById udpate a connector namespace
+	 * udpate a connector namespace
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @return ApiListConnectorClustersRequest
+	 * @param connectorNamespaceId The id of the connector namespace
+	 * @return ApiUpdateConnectorNamespaceByIdRequest
 	 */
-	ListConnectorClusters(ctx _context.Context) ApiListConnectorClustersRequest
+	UpdateConnectorNamespaceById(ctx _context.Context, connectorNamespaceId string) ApiUpdateConnectorNamespaceByIdRequest
 
 	/*
-	 * ListConnectorClustersExecute executes the request
-	 * @return ConnectorClusterList
+	 * UpdateConnectorNamespaceByIdExecute executes the request
 	 */
-	ListConnectorClustersExecute(r ApiListConnectorClustersRequest) (ConnectorClusterList, *_nethttp.Response, error)
-
-	/*
-	 * UpdateConnectorClusterById udpate a connector cluster
-	 * udpate a connector cluster
-	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @param connectorClusterId The id of the connector cluster
-	 * @return ApiUpdateConnectorClusterByIdRequest
-	 */
-	UpdateConnectorClusterById(ctx _context.Context, connectorClusterId string) ApiUpdateConnectorClusterByIdRequest
-
-	/*
-	 * UpdateConnectorClusterByIdExecute executes the request
-	 */
-	UpdateConnectorClusterByIdExecute(r ApiUpdateConnectorClusterByIdRequest) (*_nethttp.Response, error)
+	UpdateConnectorNamespaceByIdExecute(r ApiUpdateConnectorNamespaceByIdRequest) (*_nethttp.Response, error)
 }
 
-// ConnectorClustersApiService ConnectorClustersApi service
-type ConnectorClustersApiService service
+// ConnectorNamespacesApiService ConnectorNamespacesApi service
+type ConnectorNamespacesApiService service
 
-type ApiCreateConnectorClusterRequest struct {
+type ApiCreateConnectorNamespaceRequest struct {
 	ctx _context.Context
-	ApiService ConnectorClustersApi
-	async *bool
-	connectorClusterRequest *ConnectorClusterRequest
+	ApiService ConnectorNamespacesApi
+	connectorNamespaceRequest *ConnectorNamespaceRequest
 }
 
-func (r ApiCreateConnectorClusterRequest) Async(async bool) ApiCreateConnectorClusterRequest {
-	r.async = &async
-	return r
-}
-func (r ApiCreateConnectorClusterRequest) ConnectorClusterRequest(connectorClusterRequest ConnectorClusterRequest) ApiCreateConnectorClusterRequest {
-	r.connectorClusterRequest = &connectorClusterRequest
+func (r ApiCreateConnectorNamespaceRequest) ConnectorNamespaceRequest(connectorNamespaceRequest ConnectorNamespaceRequest) ApiCreateConnectorNamespaceRequest {
+	r.connectorNamespaceRequest = &connectorNamespaceRequest
 	return r
 }
 
-func (r ApiCreateConnectorClusterRequest) Execute() (ConnectorCluster, *_nethttp.Response, error) {
-	return r.ApiService.CreateConnectorClusterExecute(r)
+func (r ApiCreateConnectorNamespaceRequest) Execute() (ConnectorNamespace, *_nethttp.Response, error) {
+	return r.ApiService.CreateConnectorNamespaceExecute(r)
 }
 
 /*
- * CreateConnectorCluster Create a new connector cluster
- * Create a new connector cluster
+ * CreateConnectorNamespace Create a new connector namespace
+ * Create a new connector namespace
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiCreateConnectorClusterRequest
+ * @return ApiCreateConnectorNamespaceRequest
  */
-func (a *ConnectorClustersApiService) CreateConnectorCluster(ctx _context.Context) ApiCreateConnectorClusterRequest {
-	return ApiCreateConnectorClusterRequest{
+func (a *ConnectorNamespacesApiService) CreateConnectorNamespace(ctx _context.Context) ApiCreateConnectorNamespaceRequest {
+	return ApiCreateConnectorNamespaceRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -167,36 +146,32 @@ func (a *ConnectorClustersApiService) CreateConnectorCluster(ctx _context.Contex
 
 /*
  * Execute executes the request
- * @return ConnectorCluster
+ * @return ConnectorNamespace
  */
-func (a *ConnectorClustersApiService) CreateConnectorClusterExecute(r ApiCreateConnectorClusterRequest) (ConnectorCluster, *_nethttp.Response, error) {
+func (a *ConnectorNamespacesApiService) CreateConnectorNamespaceExecute(r ApiCreateConnectorNamespaceRequest) (ConnectorNamespace, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ConnectorCluster
+		localVarReturnValue  ConnectorNamespace
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectorClustersApiService.CreateConnectorCluster")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectorNamespacesApiService.CreateConnectorNamespace")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafka_connector_clusters"
+	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafka_connector_namespaces"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
-	if r.async == nil {
-		return localVarReturnValue, nil, reportError("async is required and must be specified")
-	}
-	if r.connectorClusterRequest == nil {
-		return localVarReturnValue, nil, reportError("connectorClusterRequest is required and must be specified")
+	if r.connectorNamespaceRequest == nil {
+		return localVarReturnValue, nil, reportError("connectorNamespaceRequest is required and must be specified")
 	}
 
-	localVarQueryParams.Add("async", parameterToString(*r.async, ""))
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
@@ -215,7 +190,7 @@ func (a *ConnectorClustersApiService) CreateConnectorClusterExecute(r ApiCreateC
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.connectorClusterRequest
+	localVarPostBody = r.connectorNamespaceRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -292,29 +267,180 @@ func (a *ConnectorClustersApiService) CreateConnectorClusterExecute(r ApiCreateC
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteConnectorClusterRequest struct {
+type ApiCreateEvaluationNamespaceRequest struct {
 	ctx _context.Context
-	ApiService ConnectorClustersApi
-	connectorClusterId string
+	ApiService ConnectorNamespacesApi
+	connectorNamespaceEvalRequest *ConnectorNamespaceEvalRequest
 }
 
+func (r ApiCreateEvaluationNamespaceRequest) ConnectorNamespaceEvalRequest(connectorNamespaceEvalRequest ConnectorNamespaceEvalRequest) ApiCreateEvaluationNamespaceRequest {
+	r.connectorNamespaceEvalRequest = &connectorNamespaceEvalRequest
+	return r
+}
 
-func (r ApiDeleteConnectorClusterRequest) Execute() (Error, *_nethttp.Response, error) {
-	return r.ApiService.DeleteConnectorClusterExecute(r)
+func (r ApiCreateEvaluationNamespaceRequest) Execute() (ConnectorNamespace, *_nethttp.Response, error) {
+	return r.ApiService.CreateEvaluationNamespaceExecute(r)
 }
 
 /*
- * DeleteConnectorCluster Delete a connector cluster
- * Delete a connector cluster
+ * CreateEvaluationNamespace Create a new short lived evaluation connector namespace
+ * Create a new evaluation connector namespace
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param connectorClusterId The id of the connector cluster
- * @return ApiDeleteConnectorClusterRequest
+ * @return ApiCreateEvaluationNamespaceRequest
  */
-func (a *ConnectorClustersApiService) DeleteConnectorCluster(ctx _context.Context, connectorClusterId string) ApiDeleteConnectorClusterRequest {
-	return ApiDeleteConnectorClusterRequest{
+func (a *ConnectorNamespacesApiService) CreateEvaluationNamespace(ctx _context.Context) ApiCreateEvaluationNamespaceRequest {
+	return ApiCreateEvaluationNamespaceRequest{
 		ApiService: a,
 		ctx: ctx,
-		connectorClusterId: connectorClusterId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return ConnectorNamespace
+ */
+func (a *ConnectorNamespacesApiService) CreateEvaluationNamespaceExecute(r ApiCreateEvaluationNamespaceRequest) (ConnectorNamespace, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ConnectorNamespace
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectorNamespacesApiService.CreateEvaluationNamespace")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafka_connector_namespaces/eval"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+	if r.connectorNamespaceEvalRequest == nil {
+		return localVarReturnValue, nil, reportError("connectorNamespaceEvalRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.connectorNamespaceEvalRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeleteConnectorNamespaceRequest struct {
+	ctx _context.Context
+	ApiService ConnectorNamespacesApi
+	connectorNamespaceId string
+}
+
+
+func (r ApiDeleteConnectorNamespaceRequest) Execute() (Error, *_nethttp.Response, error) {
+	return r.ApiService.DeleteConnectorNamespaceExecute(r)
+}
+
+/*
+ * DeleteConnectorNamespace Delete a connector namespace
+ * Delete a connector namespace
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param connectorNamespaceId The id of the connector namespace
+ * @return ApiDeleteConnectorNamespaceRequest
+ */
+func (a *ConnectorNamespacesApiService) DeleteConnectorNamespace(ctx _context.Context, connectorNamespaceId string) ApiDeleteConnectorNamespaceRequest {
+	return ApiDeleteConnectorNamespaceRequest{
+		ApiService: a,
+		ctx: ctx,
+		connectorNamespaceId: connectorNamespaceId,
 	}
 }
 
@@ -322,7 +448,7 @@ func (a *ConnectorClustersApiService) DeleteConnectorCluster(ctx _context.Contex
  * Execute executes the request
  * @return Error
  */
-func (a *ConnectorClustersApiService) DeleteConnectorClusterExecute(r ApiDeleteConnectorClusterRequest) (Error, *_nethttp.Response, error) {
+func (a *ConnectorNamespacesApiService) DeleteConnectorNamespaceExecute(r ApiDeleteConnectorNamespaceRequest) (Error, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -332,13 +458,13 @@ func (a *ConnectorClustersApiService) DeleteConnectorClusterExecute(r ApiDeleteC
 		localVarReturnValue  Error
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectorClustersApiService.DeleteConnectorCluster")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectorNamespacesApiService.DeleteConnectorNamespace")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafka_connector_clusters/{connector_cluster_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"connector_cluster_id"+"}", _neturl.PathEscape(parameterToString(r.connectorClusterId, "")), -1)
+	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafka_connector_namespaces/{connector_namespace_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"connector_namespace_id"+"}", _neturl.PathEscape(parameterToString(r.connectorNamespaceId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -427,53 +553,53 @@ func (a *ConnectorClustersApiService) DeleteConnectorClusterExecute(r ApiDeleteC
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetConnectorClusterRequest struct {
+type ApiGetConnectorNamespaceRequest struct {
 	ctx _context.Context
-	ApiService ConnectorClustersApi
-	connectorClusterId string
+	ApiService ConnectorNamespacesApi
+	connectorNamespaceId string
 }
 
 
-func (r ApiGetConnectorClusterRequest) Execute() (ConnectorCluster, *_nethttp.Response, error) {
-	return r.ApiService.GetConnectorClusterExecute(r)
+func (r ApiGetConnectorNamespaceRequest) Execute() (ConnectorNamespace, *_nethttp.Response, error) {
+	return r.ApiService.GetConnectorNamespaceExecute(r)
 }
 
 /*
- * GetConnectorCluster Get a connector cluster
- * Get a connector cluster
+ * GetConnectorNamespace Get a connector namespace
+ * Get a connector namespace
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param connectorClusterId The id of the connector cluster
- * @return ApiGetConnectorClusterRequest
+ * @param connectorNamespaceId The id of the connector namespace
+ * @return ApiGetConnectorNamespaceRequest
  */
-func (a *ConnectorClustersApiService) GetConnectorCluster(ctx _context.Context, connectorClusterId string) ApiGetConnectorClusterRequest {
-	return ApiGetConnectorClusterRequest{
+func (a *ConnectorNamespacesApiService) GetConnectorNamespace(ctx _context.Context, connectorNamespaceId string) ApiGetConnectorNamespaceRequest {
+	return ApiGetConnectorNamespaceRequest{
 		ApiService: a,
 		ctx: ctx,
-		connectorClusterId: connectorClusterId,
+		connectorNamespaceId: connectorNamespaceId,
 	}
 }
 
 /*
  * Execute executes the request
- * @return ConnectorCluster
+ * @return ConnectorNamespace
  */
-func (a *ConnectorClustersApiService) GetConnectorClusterExecute(r ApiGetConnectorClusterRequest) (ConnectorCluster, *_nethttp.Response, error) {
+func (a *ConnectorNamespacesApiService) GetConnectorNamespaceExecute(r ApiGetConnectorNamespaceRequest) (ConnectorNamespace, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ConnectorCluster
+		localVarReturnValue  ConnectorNamespace
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectorClustersApiService.GetConnectorCluster")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectorNamespacesApiService.GetConnectorNamespace")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafka_connector_clusters/{connector_cluster_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"connector_cluster_id"+"}", _neturl.PathEscape(parameterToString(r.connectorClusterId, "")), -1)
+	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafka_connector_namespaces/{connector_namespace_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"connector_namespace_id"+"}", _neturl.PathEscape(parameterToString(r.connectorNamespaceId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -562,184 +688,46 @@ func (a *ConnectorClustersApiService) GetConnectorClusterExecute(r ApiGetConnect
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetConnectorClusterAddonParametersRequest struct {
+type ApiListConnectorNamespacesRequest struct {
 	ctx _context.Context
-	ApiService ConnectorClustersApi
-	connectorClusterId string
-}
-
-
-func (r ApiGetConnectorClusterAddonParametersRequest) Execute() ([]AddonParameter, *_nethttp.Response, error) {
-	return r.ApiService.GetConnectorClusterAddonParametersExecute(r)
-}
-
-/*
- * GetConnectorClusterAddonParameters Get a connector cluster's addon parameters
- * Get a connector cluster's addon parameters
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param connectorClusterId The id of the connector cluster
- * @return ApiGetConnectorClusterAddonParametersRequest
- */
-func (a *ConnectorClustersApiService) GetConnectorClusterAddonParameters(ctx _context.Context, connectorClusterId string) ApiGetConnectorClusterAddonParametersRequest {
-	return ApiGetConnectorClusterAddonParametersRequest{
-		ApiService: a,
-		ctx: ctx,
-		connectorClusterId: connectorClusterId,
-	}
-}
-
-/*
- * Execute executes the request
- * @return []AddonParameter
- */
-func (a *ConnectorClustersApiService) GetConnectorClusterAddonParametersExecute(r ApiGetConnectorClusterAddonParametersRequest) ([]AddonParameter, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []AddonParameter
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectorClustersApiService.GetConnectorClusterAddonParameters")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafka_connector_clusters/{connector_cluster_id}/addon_parameters"
-	localVarPath = strings.Replace(localVarPath, "{"+"connector_cluster_id"+"}", _neturl.PathEscape(parameterToString(r.connectorClusterId, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGetConnectorClusterNamespacesRequest struct {
-	ctx _context.Context
-	ApiService ConnectorClustersApi
-	connectorClusterId string
+	ApiService ConnectorNamespacesApi
 	page *string
 	size *string
 	orderBy *string
 	search *string
 }
 
-func (r ApiGetConnectorClusterNamespacesRequest) Page(page string) ApiGetConnectorClusterNamespacesRequest {
+func (r ApiListConnectorNamespacesRequest) Page(page string) ApiListConnectorNamespacesRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGetConnectorClusterNamespacesRequest) Size(size string) ApiGetConnectorClusterNamespacesRequest {
+func (r ApiListConnectorNamespacesRequest) Size(size string) ApiListConnectorNamespacesRequest {
 	r.size = &size
 	return r
 }
-func (r ApiGetConnectorClusterNamespacesRequest) OrderBy(orderBy string) ApiGetConnectorClusterNamespacesRequest {
+func (r ApiListConnectorNamespacesRequest) OrderBy(orderBy string) ApiListConnectorNamespacesRequest {
 	r.orderBy = &orderBy
 	return r
 }
-func (r ApiGetConnectorClusterNamespacesRequest) Search(search string) ApiGetConnectorClusterNamespacesRequest {
+func (r ApiListConnectorNamespacesRequest) Search(search string) ApiListConnectorNamespacesRequest {
 	r.search = &search
 	return r
 }
 
-func (r ApiGetConnectorClusterNamespacesRequest) Execute() (ConnectorNamespaceList, *_nethttp.Response, error) {
-	return r.ApiService.GetConnectorClusterNamespacesExecute(r)
+func (r ApiListConnectorNamespacesRequest) Execute() (ConnectorNamespaceList, *_nethttp.Response, error) {
+	return r.ApiService.ListConnectorNamespacesExecute(r)
 }
 
 /*
- * GetConnectorClusterNamespaces Get a connector cluster's namespaces
- * Get a connector cluster's namespaces
+ * ListConnectorNamespaces Returns a list of connector namespaces
+ * Returns a list of connector namespaces
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param connectorClusterId The id of the connector cluster
- * @return ApiGetConnectorClusterNamespacesRequest
+ * @return ApiListConnectorNamespacesRequest
  */
-func (a *ConnectorClustersApiService) GetConnectorClusterNamespaces(ctx _context.Context, connectorClusterId string) ApiGetConnectorClusterNamespacesRequest {
-	return ApiGetConnectorClusterNamespacesRequest{
+func (a *ConnectorNamespacesApiService) ListConnectorNamespaces(ctx _context.Context) ApiListConnectorNamespacesRequest {
+	return ApiListConnectorNamespacesRequest{
 		ApiService: a,
 		ctx: ctx,
-		connectorClusterId: connectorClusterId,
 	}
 }
 
@@ -747,7 +735,7 @@ func (a *ConnectorClustersApiService) GetConnectorClusterNamespaces(ctx _context
  * Execute executes the request
  * @return ConnectorNamespaceList
  */
-func (a *ConnectorClustersApiService) GetConnectorClusterNamespacesExecute(r ApiGetConnectorClusterNamespacesRequest) (ConnectorNamespaceList, *_nethttp.Response, error) {
+func (a *ConnectorNamespacesApiService) ListConnectorNamespacesExecute(r ApiListConnectorNamespacesRequest) (ConnectorNamespaceList, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -757,13 +745,12 @@ func (a *ConnectorClustersApiService) GetConnectorClusterNamespacesExecute(r Api
 		localVarReturnValue  ConnectorNamespaceList
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectorClustersApiService.GetConnectorClusterNamespaces")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectorNamespacesApiService.ListConnectorNamespaces")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafka_connector_clusters/{connector_cluster_id}/namespaces"
-	localVarPath = strings.Replace(localVarPath, "{"+"connector_cluster_id"+"}", _neturl.PathEscape(parameterToString(r.connectorClusterId, "")), -1)
+	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafka_connector_namespaces"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -830,16 +817,6 @@ func (a *ConnectorClustersApiService) GetConnectorClusterNamespacesExecute(r Api
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -864,199 +841,62 @@ func (a *ConnectorClustersApiService) GetConnectorClusterNamespacesExecute(r Api
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListConnectorClustersRequest struct {
+type ApiUpdateConnectorNamespaceByIdRequest struct {
 	ctx _context.Context
-	ApiService ConnectorClustersApi
-	page *string
-	size *string
+	ApiService ConnectorNamespacesApi
+	connectorNamespaceId string
+	connectorNamespacePatchRequest *ConnectorNamespacePatchRequest
 }
 
-func (r ApiListConnectorClustersRequest) Page(page string) ApiListConnectorClustersRequest {
-	r.page = &page
-	return r
-}
-func (r ApiListConnectorClustersRequest) Size(size string) ApiListConnectorClustersRequest {
-	r.size = &size
+func (r ApiUpdateConnectorNamespaceByIdRequest) ConnectorNamespacePatchRequest(connectorNamespacePatchRequest ConnectorNamespacePatchRequest) ApiUpdateConnectorNamespaceByIdRequest {
+	r.connectorNamespacePatchRequest = &connectorNamespacePatchRequest
 	return r
 }
 
-func (r ApiListConnectorClustersRequest) Execute() (ConnectorClusterList, *_nethttp.Response, error) {
-	return r.ApiService.ListConnectorClustersExecute(r)
+func (r ApiUpdateConnectorNamespaceByIdRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.UpdateConnectorNamespaceByIdExecute(r)
 }
 
 /*
- * ListConnectorClusters Returns a list of connector clusters
- * Returns a list of connector clusters
+ * UpdateConnectorNamespaceById udpate a connector namespace
+ * udpate a connector namespace
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiListConnectorClustersRequest
+ * @param connectorNamespaceId The id of the connector namespace
+ * @return ApiUpdateConnectorNamespaceByIdRequest
  */
-func (a *ConnectorClustersApiService) ListConnectorClusters(ctx _context.Context) ApiListConnectorClustersRequest {
-	return ApiListConnectorClustersRequest{
+func (a *ConnectorNamespacesApiService) UpdateConnectorNamespaceById(ctx _context.Context, connectorNamespaceId string) ApiUpdateConnectorNamespaceByIdRequest {
+	return ApiUpdateConnectorNamespaceByIdRequest{
 		ApiService: a,
 		ctx: ctx,
-	}
-}
-
-/*
- * Execute executes the request
- * @return ConnectorClusterList
- */
-func (a *ConnectorClustersApiService) ListConnectorClustersExecute(r ApiListConnectorClustersRequest) (ConnectorClusterList, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  ConnectorClusterList
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectorClustersApiService.ListConnectorClusters")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafka_connector_clusters"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
-	}
-	if r.size != nil {
-		localVarQueryParams.Add("size", parameterToString(*r.size, ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiUpdateConnectorClusterByIdRequest struct {
-	ctx _context.Context
-	ApiService ConnectorClustersApi
-	connectorClusterId string
-	connectorClusterRequest *ConnectorClusterRequest
-}
-
-func (r ApiUpdateConnectorClusterByIdRequest) ConnectorClusterRequest(connectorClusterRequest ConnectorClusterRequest) ApiUpdateConnectorClusterByIdRequest {
-	r.connectorClusterRequest = &connectorClusterRequest
-	return r
-}
-
-func (r ApiUpdateConnectorClusterByIdRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.UpdateConnectorClusterByIdExecute(r)
-}
-
-/*
- * UpdateConnectorClusterById udpate a connector cluster
- * udpate a connector cluster
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param connectorClusterId The id of the connector cluster
- * @return ApiUpdateConnectorClusterByIdRequest
- */
-func (a *ConnectorClustersApiService) UpdateConnectorClusterById(ctx _context.Context, connectorClusterId string) ApiUpdateConnectorClusterByIdRequest {
-	return ApiUpdateConnectorClusterByIdRequest{
-		ApiService: a,
-		ctx: ctx,
-		connectorClusterId: connectorClusterId,
+		connectorNamespaceId: connectorNamespaceId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *ConnectorClustersApiService) UpdateConnectorClusterByIdExecute(r ApiUpdateConnectorClusterByIdRequest) (*_nethttp.Response, error) {
+func (a *ConnectorNamespacesApiService) UpdateConnectorNamespaceByIdExecute(r ApiUpdateConnectorNamespaceByIdRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPut
+		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectorClustersApiService.UpdateConnectorClusterById")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectorNamespacesApiService.UpdateConnectorNamespaceById")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafka_connector_clusters/{connector_cluster_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"connector_cluster_id"+"}", _neturl.PathEscape(parameterToString(r.connectorClusterId, "")), -1)
+	localVarPath := localBasePath + "/api/connector_mgmt/v1/kafka_connector_namespaces/{connector_namespace_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"connector_namespace_id"+"}", _neturl.PathEscape(parameterToString(r.connectorNamespaceId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
-	if r.connectorClusterRequest == nil {
-		return nil, reportError("connectorClusterRequest is required and must be specified")
+	if r.connectorNamespacePatchRequest == nil {
+		return nil, reportError("connectorNamespacePatchRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1077,7 +917,7 @@ func (a *ConnectorClustersApiService) UpdateConnectorClusterByIdExecute(r ApiUpd
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.connectorClusterRequest
+	localVarPostBody = r.connectorNamespacePatchRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err

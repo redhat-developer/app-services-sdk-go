@@ -82,8 +82,15 @@ Class | Method | HTTP request | Description
 *ConnectorClustersApi* | [**DeleteConnectorCluster**](docs/ConnectorClustersApi.md#deleteconnectorcluster) | **Delete** /api/connector_mgmt/v1/kafka_connector_clusters/{connector_cluster_id} | Delete a connector cluster
 *ConnectorClustersApi* | [**GetConnectorCluster**](docs/ConnectorClustersApi.md#getconnectorcluster) | **Get** /api/connector_mgmt/v1/kafka_connector_clusters/{connector_cluster_id} | Get a connector cluster
 *ConnectorClustersApi* | [**GetConnectorClusterAddonParameters**](docs/ConnectorClustersApi.md#getconnectorclusteraddonparameters) | **Get** /api/connector_mgmt/v1/kafka_connector_clusters/{connector_cluster_id}/addon_parameters | Get a connector cluster&#39;s addon parameters
+*ConnectorClustersApi* | [**GetConnectorClusterNamespaces**](docs/ConnectorClustersApi.md#getconnectorclusternamespaces) | **Get** /api/connector_mgmt/v1/kafka_connector_clusters/{connector_cluster_id}/namespaces | Get a connector cluster&#39;s namespaces
 *ConnectorClustersApi* | [**ListConnectorClusters**](docs/ConnectorClustersApi.md#listconnectorclusters) | **Get** /api/connector_mgmt/v1/kafka_connector_clusters | Returns a list of connector clusters
 *ConnectorClustersApi* | [**UpdateConnectorClusterById**](docs/ConnectorClustersApi.md#updateconnectorclusterbyid) | **Put** /api/connector_mgmt/v1/kafka_connector_clusters/{connector_cluster_id} | udpate a connector cluster
+*ConnectorNamespacesApi* | [**CreateConnectorNamespace**](docs/ConnectorNamespacesApi.md#createconnectornamespace) | **Post** /api/connector_mgmt/v1/kafka_connector_namespaces | Create a new connector namespace
+*ConnectorNamespacesApi* | [**CreateEvaluationNamespace**](docs/ConnectorNamespacesApi.md#createevaluationnamespace) | **Post** /api/connector_mgmt/v1/kafka_connector_namespaces/eval | Create a new short lived evaluation connector namespace
+*ConnectorNamespacesApi* | [**DeleteConnectorNamespace**](docs/ConnectorNamespacesApi.md#deleteconnectornamespace) | **Delete** /api/connector_mgmt/v1/kafka_connector_namespaces/{connector_namespace_id} | Delete a connector namespace
+*ConnectorNamespacesApi* | [**GetConnectorNamespace**](docs/ConnectorNamespacesApi.md#getconnectornamespace) | **Get** /api/connector_mgmt/v1/kafka_connector_namespaces/{connector_namespace_id} | Get a connector namespace
+*ConnectorNamespacesApi* | [**ListConnectorNamespaces**](docs/ConnectorNamespacesApi.md#listconnectornamespaces) | **Get** /api/connector_mgmt/v1/kafka_connector_namespaces | Returns a list of connector namespaces
+*ConnectorNamespacesApi* | [**UpdateConnectorNamespaceById**](docs/ConnectorNamespacesApi.md#updateconnectornamespacebyid) | **Patch** /api/connector_mgmt/v1/kafka_connector_namespaces/{connector_namespace_id} | udpate a connector namespace
 *ConnectorServiceApi* | [**GetVersionMetadata**](docs/ConnectorServiceApi.md#getversionmetadata) | **Get** /api/connector_mgmt/v1 | Returns the version metadata
 *ConnectorTypesApi* | [**GetConnectorTypeByID**](docs/ConnectorTypesApi.md#getconnectortypebyid) | **Get** /api/connector_mgmt/v1/kafka_connector_types/{connector_type_id} | Get a connector type by id
 *ConnectorTypesApi* | [**GetConnectorTypes**](docs/ConnectorTypesApi.md#getconnectortypes) | **Get** /api/connector_mgmt/v1/kafka_connector_types | Returns a list of connector types
@@ -108,13 +115,29 @@ Class | Method | HTTP request | Description
  - [ConnectorClusterState](docs/ConnectorClusterState.md)
  - [ConnectorClusterStatus](docs/ConnectorClusterStatus.md)
  - [ConnectorClusterStatusStatus](docs/ConnectorClusterStatusStatus.md)
- - [ConnectorClusterTarget](docs/ConnectorClusterTarget.md)
  - [ConnectorConfiguration](docs/ConnectorConfiguration.md)
  - [ConnectorDesiredState](docs/ConnectorDesiredState.md)
  - [ConnectorList](docs/ConnectorList.md)
  - [ConnectorListAllOf](docs/ConnectorListAllOf.md)
  - [ConnectorMeta](docs/ConnectorMeta.md)
  - [ConnectorMetaAllOf](docs/ConnectorMetaAllOf.md)
+ - [ConnectorNamespace](docs/ConnectorNamespace.md)
+ - [ConnectorNamespaceAllOf](docs/ConnectorNamespaceAllOf.md)
+ - [ConnectorNamespaceEvalRequest](docs/ConnectorNamespaceEvalRequest.md)
+ - [ConnectorNamespaceList](docs/ConnectorNamespaceList.md)
+ - [ConnectorNamespaceListAllOf](docs/ConnectorNamespaceListAllOf.md)
+ - [ConnectorNamespaceMeta](docs/ConnectorNamespaceMeta.md)
+ - [ConnectorNamespaceMetaAllOf](docs/ConnectorNamespaceMetaAllOf.md)
+ - [ConnectorNamespacePatchRequest](docs/ConnectorNamespacePatchRequest.md)
+ - [ConnectorNamespaceQuota](docs/ConnectorNamespaceQuota.md)
+ - [ConnectorNamespaceRequest](docs/ConnectorNamespaceRequest.md)
+ - [ConnectorNamespaceRequestAllOf](docs/ConnectorNamespaceRequestAllOf.md)
+ - [ConnectorNamespaceRequestMeta](docs/ConnectorNamespaceRequestMeta.md)
+ - [ConnectorNamespaceRequestMetaAnnotations](docs/ConnectorNamespaceRequestMetaAnnotations.md)
+ - [ConnectorNamespaceState](docs/ConnectorNamespaceState.md)
+ - [ConnectorNamespaceStatus](docs/ConnectorNamespaceStatus.md)
+ - [ConnectorNamespaceTenant](docs/ConnectorNamespaceTenant.md)
+ - [ConnectorNamespaceTenantKind](docs/ConnectorNamespaceTenantKind.md)
  - [ConnectorRequest](docs/ConnectorRequest.md)
  - [ConnectorRequestMeta](docs/ConnectorRequestMeta.md)
  - [ConnectorState](docs/ConnectorState.md)
@@ -124,7 +147,6 @@ Class | Method | HTTP request | Description
  - [ConnectorTypeAllOf](docs/ConnectorTypeAllOf.md)
  - [ConnectorTypeList](docs/ConnectorTypeList.md)
  - [ConnectorTypeListAllOf](docs/ConnectorTypeListAllOf.md)
- - [DeploymentLocation](docs/DeploymentLocation.md)
  - [Error](docs/Error.md)
  - [ErrorAllOf](docs/ErrorAllOf.md)
  - [KafkaConnectionSettings](docs/KafkaConnectionSettings.md)

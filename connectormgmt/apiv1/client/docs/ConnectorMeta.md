@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **ModifiedAt** | Pointer to **time.Time** |  | [optional] 
 **Name** | **string** |  | 
 **ConnectorTypeId** | **string** |  | 
+**NamespaceId** | Pointer to **string** |  | [optional] 
 **Channel** | Pointer to [**Channel**](Channel.md) |  | [optional] [default to CHANNEL_STABLE]
-**DeploymentLocation** | [**DeploymentLocation**](DeploymentLocation.md) |  | 
 **DesiredState** | [**ConnectorDesiredState**](ConnectorDesiredState.md) |  | 
 **ResourceVersion** | Pointer to **int64** |  | [optional] 
 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewConnectorMeta
 
-`func NewConnectorMeta(name string, connectorTypeId string, deploymentLocation DeploymentLocation, desiredState ConnectorDesiredState, ) *ConnectorMeta`
+`func NewConnectorMeta(name string, connectorTypeId string, desiredState ConnectorDesiredState, ) *ConnectorMeta`
 
 NewConnectorMeta instantiates a new ConnectorMeta object
 This constructor will assign default values to properties that have it defined,
@@ -155,6 +155,32 @@ SetConnectorTypeId sets ConnectorTypeId field to given value.
 
 
 
+### GetNamespaceId
+
+`func (o *ConnectorMeta) GetNamespaceId() string`
+
+GetNamespaceId returns the NamespaceId field if non-nil, zero value otherwise.
+
+### GetNamespaceIdOk
+
+`func (o *ConnectorMeta) GetNamespaceIdOk() (*string, bool)`
+
+GetNamespaceIdOk returns a tuple with the NamespaceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNamespaceId
+
+`func (o *ConnectorMeta) SetNamespaceId(v string)`
+
+SetNamespaceId sets NamespaceId field to given value.
+
+### HasNamespaceId
+
+`func (o *ConnectorMeta) HasNamespaceId() bool`
+
+HasNamespaceId returns a boolean if a field has been set.
+
+
 ### GetChannel
 
 `func (o *ConnectorMeta) GetChannel() Channel`
@@ -179,27 +205,6 @@ SetChannel sets Channel field to given value.
 `func (o *ConnectorMeta) HasChannel() bool`
 
 HasChannel returns a boolean if a field has been set.
-
-
-### GetDeploymentLocation
-
-`func (o *ConnectorMeta) GetDeploymentLocation() DeploymentLocation`
-
-GetDeploymentLocation returns the DeploymentLocation field if non-nil, zero value otherwise.
-
-### GetDeploymentLocationOk
-
-`func (o *ConnectorMeta) GetDeploymentLocationOk() (*DeploymentLocation, bool)`
-
-GetDeploymentLocationOk returns a tuple with the DeploymentLocation field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDeploymentLocation
-
-`func (o *ConnectorMeta) SetDeploymentLocation(v DeploymentLocation)`
-
-SetDeploymentLocation sets DeploymentLocation field to given value.
-
 
 
 ### GetDesiredState

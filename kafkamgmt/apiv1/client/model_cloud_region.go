@@ -29,9 +29,6 @@ type CloudRegion struct {
 	// Whether the region is enabled for deploying an OSD cluster.
 	Enabled bool `json:"enabled"`
 
-	// The Kafka instance types supported by this region.
-	SupportedInstanceTypes []string `json:"supported_instance_types"`
-
 	// Indicates whether there is capacity left per instance type
 	Capacity []RegionCapacityListItem `json:"capacity"`
 
@@ -60,7 +57,6 @@ func NewCloudRegionWithDefaults() *CloudRegion {
 
 	var enabled bool = false
 	this.Enabled = enabled
-
 
 
 	return &this
@@ -191,31 +187,6 @@ func (o *CloudRegion) SetEnabled(v bool) {
 }
 
 
-// GetSupportedInstanceTypes returns the SupportedInstanceTypes field value
-func (o *CloudRegion) GetSupportedInstanceTypes() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-
-	return o.SupportedInstanceTypes
-}
-
-// GetSupportedInstanceTypesOk returns a tuple with the SupportedInstanceTypes field value
-// and a boolean to check if the value has been set.
-func (o *CloudRegion) GetSupportedInstanceTypesOk() (*[]string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.SupportedInstanceTypes, true
-}
-
-// SetSupportedInstanceTypes sets field value
-func (o *CloudRegion) SetSupportedInstanceTypes(v []string) {
-	o.SupportedInstanceTypes = v
-}
-
-
 // GetCapacity returns the Capacity field value
 func (o *CloudRegion) GetCapacity() []RegionCapacityListItem {
 	if o == nil {
@@ -258,10 +229,6 @@ func (o CloudRegion) MarshalJSON() ([]byte, error) {
     
 	if true {
 		toSerialize["enabled"] = o.Enabled
-	}
-    
-	if true {
-		toSerialize["supported_instance_types"] = o.SupportedInstanceTypes
 	}
     
 	if true {

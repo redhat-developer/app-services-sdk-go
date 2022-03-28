@@ -51,6 +51,8 @@ type APIClient struct {
 
 	ConnectorClustersApi ConnectorClustersApi
 
+	ConnectorNamespacesApi ConnectorNamespacesApi
+
 	ConnectorServiceApi ConnectorServiceApi
 
 	ConnectorTypesApi ConnectorTypesApi
@@ -75,6 +77,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// API Services
 	c.ConnectorClustersApi = (*ConnectorClustersApiService)(&c.common)
+	c.ConnectorNamespacesApi = (*ConnectorNamespacesApiService)(&c.common)
 	c.ConnectorServiceApi = (*ConnectorServiceApiService)(&c.common)
 	c.ConnectorTypesApi = (*ConnectorTypesApiService)(&c.common)
 	c.ConnectorsApi = (*ConnectorsApiService)(&c.common)
