@@ -1,22 +1,23 @@
-# \ConnectorsApi
+# \ConnectorNamespacesApi
 
 All URIs are relative to *https://api.openshift.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateConnector**](ConnectorsApi.md#CreateConnector) | **Post** /api/connector_mgmt/v1/kafka_connectors | Create a new connector
-[**DeleteConnector**](ConnectorsApi.md#DeleteConnector) | **Delete** /api/connector_mgmt/v1/kafka_connectors/{id} | Delete a connector
-[**GetConnector**](ConnectorsApi.md#GetConnector) | **Get** /api/connector_mgmt/v1/kafka_connectors/{id} | Get a connector
-[**ListConnectors**](ConnectorsApi.md#ListConnectors) | **Get** /api/connector_mgmt/v1/kafka_connectors | Returns a list of connector types
-[**PatchConnector**](ConnectorsApi.md#PatchConnector) | **Patch** /api/connector_mgmt/v1/kafka_connectors/{id} | Patch a connector
+[**CreateConnectorNamespace**](ConnectorNamespacesApi.md#CreateConnectorNamespace) | **Post** /api/connector_mgmt/v1/kafka_connector_namespaces | Create a new connector namespace
+[**CreateEvaluationNamespace**](ConnectorNamespacesApi.md#CreateEvaluationNamespace) | **Post** /api/connector_mgmt/v1/kafka_connector_namespaces/eval | Create a new short lived evaluation connector namespace
+[**DeleteConnectorNamespace**](ConnectorNamespacesApi.md#DeleteConnectorNamespace) | **Delete** /api/connector_mgmt/v1/kafka_connector_namespaces/{connector_namespace_id} | Delete a connector namespace
+[**GetConnectorNamespace**](ConnectorNamespacesApi.md#GetConnectorNamespace) | **Get** /api/connector_mgmt/v1/kafka_connector_namespaces/{connector_namespace_id} | Get a connector namespace
+[**ListConnectorNamespaces**](ConnectorNamespacesApi.md#ListConnectorNamespaces) | **Get** /api/connector_mgmt/v1/kafka_connector_namespaces | Returns a list of connector namespaces
+[**UpdateConnectorNamespaceById**](ConnectorNamespacesApi.md#UpdateConnectorNamespaceById) | **Patch** /api/connector_mgmt/v1/kafka_connector_namespaces/{connector_namespace_id} | udpate a connector namespace
 
 
 
-## CreateConnector
+## CreateConnectorNamespace
 
-> Connector CreateConnector(ctx).Async(async).ConnectorRequest(connectorRequest).Execute()
+> ConnectorNamespace CreateConnectorNamespace(ctx).ConnectorNamespaceRequest(connectorNamespaceRequest).Execute()
 
-Create a new connector
+Create a new connector namespace
 
 
 
@@ -33,18 +34,17 @@ import (
 )
 
 func main() {
-    async := true // bool | Perform the action in an asynchronous manner
-    connectorRequest := *openapiclient.NewConnectorRequest("Name_example", "ConnectorTypeId_example", openapiclient.ConnectorDesiredState("unassigned"), *openapiclient.NewKafkaConnectionSettings("Id_example", "Url_example"), *openapiclient.NewServiceAccount("ClientId_example", "ClientSecret_example"), map[string]interface{}(123)) // ConnectorRequest | Connector data
+    connectorNamespaceRequest := *openapiclient.NewConnectorNamespaceRequest("Name_example", "ClusterId_example", openapiclient.ConnectorNamespaceTenantKind("user")) // ConnectorNamespaceRequest | Connector namespace data
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ConnectorsApi.CreateConnector(context.Background()).Async(async).ConnectorRequest(connectorRequest).Execute()
+    resp, r, err := api_client.ConnectorNamespacesApi.CreateConnectorNamespace(context.Background()).ConnectorNamespaceRequest(connectorNamespaceRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsApi.CreateConnector``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ConnectorNamespacesApi.CreateConnectorNamespace``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateConnector`: Connector
-    fmt.Fprintf(os.Stdout, "Response from `ConnectorsApi.CreateConnector`: %v\n", resp)
+    // response from `CreateConnectorNamespace`: ConnectorNamespace
+    fmt.Fprintf(os.Stdout, "Response from `ConnectorNamespacesApi.CreateConnectorNamespace`: %v\n", resp)
 }
 ```
 
@@ -54,17 +54,16 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateConnectorRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateConnectorNamespaceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **async** | **bool** | Perform the action in an asynchronous manner | 
- **connectorRequest** | [**ConnectorRequest**](ConnectorRequest.md) | Connector data | 
+ **connectorNamespaceRequest** | [**ConnectorNamespaceRequest**](ConnectorNamespaceRequest.md) | Connector namespace data | 
 
 ### Return type
 
-[**Connector**](Connector.md)
+[**ConnectorNamespace**](ConnectorNamespace.md)
 
 ### Authorization
 
@@ -80,11 +79,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DeleteConnector
+## CreateEvaluationNamespace
 
-> Error DeleteConnector(ctx, id).Execute()
+> ConnectorNamespace CreateEvaluationNamespace(ctx).ConnectorNamespaceEvalRequest(connectorNamespaceEvalRequest).Execute()
 
-Delete a connector
+Create a new short lived evaluation connector namespace
 
 
 
@@ -101,17 +100,83 @@ import (
 )
 
 func main() {
-    id := "id_example" // string | The ID of record
+    connectorNamespaceEvalRequest := *openapiclient.NewConnectorNamespaceEvalRequest("Name_example") // ConnectorNamespaceEvalRequest | Connector namespace data
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ConnectorsApi.DeleteConnector(context.Background(), id).Execute()
+    resp, r, err := api_client.ConnectorNamespacesApi.CreateEvaluationNamespace(context.Background()).ConnectorNamespaceEvalRequest(connectorNamespaceEvalRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsApi.DeleteConnector``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ConnectorNamespacesApi.CreateEvaluationNamespace``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DeleteConnector`: Error
-    fmt.Fprintf(os.Stdout, "Response from `ConnectorsApi.DeleteConnector`: %v\n", resp)
+    // response from `CreateEvaluationNamespace`: ConnectorNamespace
+    fmt.Fprintf(os.Stdout, "Response from `ConnectorNamespacesApi.CreateEvaluationNamespace`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateEvaluationNamespaceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **connectorNamespaceEvalRequest** | [**ConnectorNamespaceEvalRequest**](ConnectorNamespaceEvalRequest.md) | Connector namespace data | 
+
+### Return type
+
+[**ConnectorNamespace**](ConnectorNamespace.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteConnectorNamespace
+
+> Error DeleteConnectorNamespace(ctx, connectorNamespaceId).Execute()
+
+Delete a connector namespace
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    connectorNamespaceId := "connectorNamespaceId_example" // string | The id of the connector namespace
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ConnectorNamespacesApi.DeleteConnectorNamespace(context.Background(), connectorNamespaceId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConnectorNamespacesApi.DeleteConnectorNamespace``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteConnectorNamespace`: Error
+    fmt.Fprintf(os.Stdout, "Response from `ConnectorNamespacesApi.DeleteConnectorNamespace`: %v\n", resp)
 }
 ```
 
@@ -121,11 +186,11 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The ID of record | 
+**connectorNamespaceId** | **string** | The id of the connector namespace | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteConnectorRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteConnectorNamespaceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -150,11 +215,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetConnector
+## GetConnectorNamespace
 
-> Connector GetConnector(ctx, id).Execute()
+> ConnectorNamespace GetConnectorNamespace(ctx, connectorNamespaceId).Execute()
 
-Get a connector
+Get a connector namespace
 
 
 
@@ -171,17 +236,17 @@ import (
 )
 
 func main() {
-    id := "id_example" // string | The ID of record
+    connectorNamespaceId := "connectorNamespaceId_example" // string | The id of the connector namespace
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ConnectorsApi.GetConnector(context.Background(), id).Execute()
+    resp, r, err := api_client.ConnectorNamespacesApi.GetConnectorNamespace(context.Background(), connectorNamespaceId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsApi.GetConnector``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ConnectorNamespacesApi.GetConnectorNamespace``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetConnector`: Connector
-    fmt.Fprintf(os.Stdout, "Response from `ConnectorsApi.GetConnector`: %v\n", resp)
+    // response from `GetConnectorNamespace`: ConnectorNamespace
+    fmt.Fprintf(os.Stdout, "Response from `ConnectorNamespacesApi.GetConnectorNamespace`: %v\n", resp)
 }
 ```
 
@@ -191,11 +256,11 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The ID of record | 
+**connectorNamespaceId** | **string** | The id of the connector namespace | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetConnectorRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetConnectorNamespaceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -204,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Connector**](Connector.md)
+[**ConnectorNamespace**](ConnectorNamespace.md)
 
 ### Authorization
 
@@ -220,11 +285,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListConnectors
+## ListConnectorNamespaces
 
-> ConnectorList ListConnectors(ctx).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
+> ConnectorNamespaceList ListConnectorNamespaces(ctx).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
 
-Returns a list of connector types
+Returns a list of connector namespaces
 
 
 
@@ -248,13 +313,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ConnectorsApi.ListConnectors(context.Background()).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
+    resp, r, err := api_client.ConnectorNamespacesApi.ListConnectorNamespaces(context.Background()).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsApi.ListConnectors``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ConnectorNamespacesApi.ListConnectorNamespaces``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListConnectors`: ConnectorList
-    fmt.Fprintf(os.Stdout, "Response from `ConnectorsApi.ListConnectors`: %v\n", resp)
+    // response from `ListConnectorNamespaces`: ConnectorNamespaceList
+    fmt.Fprintf(os.Stdout, "Response from `ConnectorNamespacesApi.ListConnectorNamespaces`: %v\n", resp)
 }
 ```
 
@@ -264,7 +329,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListConnectorsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListConnectorNamespacesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -276,7 +341,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConnectorList**](ConnectorList.md)
+[**ConnectorNamespaceList**](ConnectorNamespaceList.md)
 
 ### Authorization
 
@@ -292,11 +357,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## PatchConnector
+## UpdateConnectorNamespaceById
 
-> Connector PatchConnector(ctx, id).Body(body).Execute()
+> UpdateConnectorNamespaceById(ctx, connectorNamespaceId).ConnectorNamespacePatchRequest(connectorNamespacePatchRequest).Execute()
 
-Patch a connector
+udpate a connector namespace
 
 
 
@@ -313,18 +378,16 @@ import (
 )
 
 func main() {
-    id := "id_example" // string | The ID of record
-    body := map[string]interface{}(Object) // map[string]interface{} | Data to patch the connector with
+    connectorNamespaceId := "connectorNamespaceId_example" // string | The id of the connector namespace
+    connectorNamespacePatchRequest := *openapiclient.NewConnectorNamespacePatchRequest() // ConnectorNamespacePatchRequest | Data to update namespace with
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ConnectorsApi.PatchConnector(context.Background(), id).Body(body).Execute()
+    resp, r, err := api_client.ConnectorNamespacesApi.UpdateConnectorNamespaceById(context.Background(), connectorNamespaceId).ConnectorNamespacePatchRequest(connectorNamespacePatchRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsApi.PatchConnector``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ConnectorNamespacesApi.UpdateConnectorNamespaceById``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PatchConnector`: Connector
-    fmt.Fprintf(os.Stdout, "Response from `ConnectorsApi.PatchConnector`: %v\n", resp)
 }
 ```
 
@@ -334,21 +397,21 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The ID of record | 
+**connectorNamespaceId** | **string** | The id of the connector namespace | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPatchConnectorRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateConnectorNamespaceByIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | **map[string]interface{}** | Data to patch the connector with | 
+ **connectorNamespacePatchRequest** | [**ConnectorNamespacePatchRequest**](ConnectorNamespacePatchRequest.md) | Data to update namespace with | 
 
 ### Return type
 
-[**Connector**](Connector.md)
+ (empty response body)
 
 ### Authorization
 
@@ -356,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/merge-patch+json, application/json-patch+json, application/json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **ModifiedAt** | Pointer to **time.Time** |  | [optional] 
 **Name** | **string** |  | 
 **ConnectorTypeId** | **string** |  | 
+**NamespaceId** | Pointer to **string** |  | [optional] 
 **Channel** | Pointer to [**Channel**](Channel.md) |  | [optional] [default to CHANNEL_STABLE]
-**DeploymentLocation** | [**DeploymentLocation**](DeploymentLocation.md) |  | 
 **DesiredState** | [**ConnectorDesiredState**](ConnectorDesiredState.md) |  | 
 **ResourceVersion** | Pointer to **int64** |  | [optional] 
 **Kafka** | [**KafkaConnectionSettings**](KafkaConnectionSettings.md) |  | 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 ### NewConnector
 
-`func NewConnector(name string, connectorTypeId string, deploymentLocation DeploymentLocation, desiredState ConnectorDesiredState, kafka KafkaConnectionSettings, serviceAccount ServiceAccount, connector map[string]interface{}, ) *Connector`
+`func NewConnector(name string, connectorTypeId string, desiredState ConnectorDesiredState, kafka KafkaConnectionSettings, serviceAccount ServiceAccount, connector map[string]interface{}, ) *Connector`
 
 NewConnector instantiates a new Connector object
 This constructor will assign default values to properties that have it defined,
@@ -241,6 +241,32 @@ SetConnectorTypeId sets ConnectorTypeId field to given value.
 
 
 
+### GetNamespaceId
+
+`func (o *Connector) GetNamespaceId() string`
+
+GetNamespaceId returns the NamespaceId field if non-nil, zero value otherwise.
+
+### GetNamespaceIdOk
+
+`func (o *Connector) GetNamespaceIdOk() (*string, bool)`
+
+GetNamespaceIdOk returns a tuple with the NamespaceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNamespaceId
+
+`func (o *Connector) SetNamespaceId(v string)`
+
+SetNamespaceId sets NamespaceId field to given value.
+
+### HasNamespaceId
+
+`func (o *Connector) HasNamespaceId() bool`
+
+HasNamespaceId returns a boolean if a field has been set.
+
+
 ### GetChannel
 
 `func (o *Connector) GetChannel() Channel`
@@ -265,27 +291,6 @@ SetChannel sets Channel field to given value.
 `func (o *Connector) HasChannel() bool`
 
 HasChannel returns a boolean if a field has been set.
-
-
-### GetDeploymentLocation
-
-`func (o *Connector) GetDeploymentLocation() DeploymentLocation`
-
-GetDeploymentLocation returns the DeploymentLocation field if non-nil, zero value otherwise.
-
-### GetDeploymentLocationOk
-
-`func (o *Connector) GetDeploymentLocationOk() (*DeploymentLocation, bool)`
-
-GetDeploymentLocationOk returns a tuple with the DeploymentLocation field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDeploymentLocation
-
-`func (o *Connector) SetDeploymentLocation(v DeploymentLocation)`
-
-SetDeploymentLocation sets DeploymentLocation field to given value.
-
 
 
 ### GetDesiredState

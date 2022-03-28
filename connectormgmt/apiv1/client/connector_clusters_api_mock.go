@@ -43,6 +43,12 @@ var _ ConnectorClustersApi = &ConnectorClustersApiMock{}
 // 			GetConnectorClusterExecuteFunc: func(r ApiGetConnectorClusterRequest) (ConnectorCluster, *_nethttp.Response, error) {
 // 				panic("mock out the GetConnectorClusterExecute method")
 // 			},
+// 			GetConnectorClusterNamespacesFunc: func(ctx _context.Context, connectorClusterId string) ApiGetConnectorClusterNamespacesRequest {
+// 				panic("mock out the GetConnectorClusterNamespaces method")
+// 			},
+// 			GetConnectorClusterNamespacesExecuteFunc: func(r ApiGetConnectorClusterNamespacesRequest) (ConnectorNamespaceList, *_nethttp.Response, error) {
+// 				panic("mock out the GetConnectorClusterNamespacesExecute method")
+// 			},
 // 			ListConnectorClustersFunc: func(ctx _context.Context) ApiListConnectorClustersRequest {
 // 				panic("mock out the ListConnectorClusters method")
 // 			},
@@ -85,6 +91,12 @@ type ConnectorClustersApiMock struct {
 
 	// GetConnectorClusterExecuteFunc mocks the GetConnectorClusterExecute method.
 	GetConnectorClusterExecuteFunc func(r ApiGetConnectorClusterRequest) (ConnectorCluster, *_nethttp.Response, error)
+
+	// GetConnectorClusterNamespacesFunc mocks the GetConnectorClusterNamespaces method.
+	GetConnectorClusterNamespacesFunc func(ctx _context.Context, connectorClusterId string) ApiGetConnectorClusterNamespacesRequest
+
+	// GetConnectorClusterNamespacesExecuteFunc mocks the GetConnectorClusterNamespacesExecute method.
+	GetConnectorClusterNamespacesExecuteFunc func(r ApiGetConnectorClusterNamespacesRequest) (ConnectorNamespaceList, *_nethttp.Response, error)
 
 	// ListConnectorClustersFunc mocks the ListConnectorClusters method.
 	ListConnectorClustersFunc func(ctx _context.Context) ApiListConnectorClustersRequest
@@ -146,6 +158,18 @@ type ConnectorClustersApiMock struct {
 			// R is the r argument value.
 			R ApiGetConnectorClusterRequest
 		}
+		// GetConnectorClusterNamespaces holds details about calls to the GetConnectorClusterNamespaces method.
+		GetConnectorClusterNamespaces []struct {
+			// Ctx is the ctx argument value.
+			Ctx _context.Context
+			// ConnectorClusterId is the connectorClusterId argument value.
+			ConnectorClusterId string
+		}
+		// GetConnectorClusterNamespacesExecute holds details about calls to the GetConnectorClusterNamespacesExecute method.
+		GetConnectorClusterNamespacesExecute []struct {
+			// R is the r argument value.
+			R ApiGetConnectorClusterNamespacesRequest
+		}
 		// ListConnectorClusters holds details about calls to the ListConnectorClusters method.
 		ListConnectorClusters []struct {
 			// Ctx is the ctx argument value.
@@ -177,6 +201,8 @@ type ConnectorClustersApiMock struct {
 	lockGetConnectorClusterAddonParameters        sync.RWMutex
 	lockGetConnectorClusterAddonParametersExecute sync.RWMutex
 	lockGetConnectorClusterExecute                sync.RWMutex
+	lockGetConnectorClusterNamespaces             sync.RWMutex
+	lockGetConnectorClusterNamespacesExecute      sync.RWMutex
 	lockListConnectorClusters                     sync.RWMutex
 	lockListConnectorClustersExecute              sync.RWMutex
 	lockUpdateConnectorClusterById                sync.RWMutex
@@ -440,6 +466,72 @@ func (mock *ConnectorClustersApiMock) GetConnectorClusterExecuteCalls() []struct
 	mock.lockGetConnectorClusterExecute.RLock()
 	calls = mock.calls.GetConnectorClusterExecute
 	mock.lockGetConnectorClusterExecute.RUnlock()
+	return calls
+}
+
+// GetConnectorClusterNamespaces calls GetConnectorClusterNamespacesFunc.
+func (mock *ConnectorClustersApiMock) GetConnectorClusterNamespaces(ctx _context.Context, connectorClusterId string) ApiGetConnectorClusterNamespacesRequest {
+	if mock.GetConnectorClusterNamespacesFunc == nil {
+		panic("ConnectorClustersApiMock.GetConnectorClusterNamespacesFunc: method is nil but ConnectorClustersApi.GetConnectorClusterNamespaces was just called")
+	}
+	callInfo := struct {
+		Ctx                _context.Context
+		ConnectorClusterId string
+	}{
+		Ctx:                ctx,
+		ConnectorClusterId: connectorClusterId,
+	}
+	mock.lockGetConnectorClusterNamespaces.Lock()
+	mock.calls.GetConnectorClusterNamespaces = append(mock.calls.GetConnectorClusterNamespaces, callInfo)
+	mock.lockGetConnectorClusterNamespaces.Unlock()
+	return mock.GetConnectorClusterNamespacesFunc(ctx, connectorClusterId)
+}
+
+// GetConnectorClusterNamespacesCalls gets all the calls that were made to GetConnectorClusterNamespaces.
+// Check the length with:
+//     len(mockedConnectorClustersApi.GetConnectorClusterNamespacesCalls())
+func (mock *ConnectorClustersApiMock) GetConnectorClusterNamespacesCalls() []struct {
+	Ctx                _context.Context
+	ConnectorClusterId string
+} {
+	var calls []struct {
+		Ctx                _context.Context
+		ConnectorClusterId string
+	}
+	mock.lockGetConnectorClusterNamespaces.RLock()
+	calls = mock.calls.GetConnectorClusterNamespaces
+	mock.lockGetConnectorClusterNamespaces.RUnlock()
+	return calls
+}
+
+// GetConnectorClusterNamespacesExecute calls GetConnectorClusterNamespacesExecuteFunc.
+func (mock *ConnectorClustersApiMock) GetConnectorClusterNamespacesExecute(r ApiGetConnectorClusterNamespacesRequest) (ConnectorNamespaceList, *_nethttp.Response, error) {
+	if mock.GetConnectorClusterNamespacesExecuteFunc == nil {
+		panic("ConnectorClustersApiMock.GetConnectorClusterNamespacesExecuteFunc: method is nil but ConnectorClustersApi.GetConnectorClusterNamespacesExecute was just called")
+	}
+	callInfo := struct {
+		R ApiGetConnectorClusterNamespacesRequest
+	}{
+		R: r,
+	}
+	mock.lockGetConnectorClusterNamespacesExecute.Lock()
+	mock.calls.GetConnectorClusterNamespacesExecute = append(mock.calls.GetConnectorClusterNamespacesExecute, callInfo)
+	mock.lockGetConnectorClusterNamespacesExecute.Unlock()
+	return mock.GetConnectorClusterNamespacesExecuteFunc(r)
+}
+
+// GetConnectorClusterNamespacesExecuteCalls gets all the calls that were made to GetConnectorClusterNamespacesExecute.
+// Check the length with:
+//     len(mockedConnectorClustersApi.GetConnectorClusterNamespacesExecuteCalls())
+func (mock *ConnectorClustersApiMock) GetConnectorClusterNamespacesExecuteCalls() []struct {
+	R ApiGetConnectorClusterNamespacesRequest
+} {
+	var calls []struct {
+		R ApiGetConnectorClusterNamespacesRequest
+	}
+	mock.lockGetConnectorClusterNamespacesExecute.RLock()
+	calls = mock.calls.GetConnectorClusterNamespacesExecute
+	mock.lockGetConnectorClusterNamespacesExecute.RUnlock()
 	return calls
 }
 

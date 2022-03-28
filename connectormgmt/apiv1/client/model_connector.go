@@ -34,9 +34,9 @@ type Connector struct {
 
 	ConnectorTypeId string `json:"connector_type_id"`
 
-	Channel *Channel `json:"channel,omitempty"`
+	NamespaceId *string `json:"namespace_id,omitempty"`
 
-	DeploymentLocation DeploymentLocation `json:"deployment_location"`
+	Channel *Channel `json:"channel,omitempty"`
 
 	DesiredState ConnectorDesiredState `json:"desired_state"`
 
@@ -58,13 +58,12 @@ type Connector struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConnector(name string, connectorTypeId string, deploymentLocation DeploymentLocation, desiredState ConnectorDesiredState, kafka KafkaConnectionSettings, serviceAccount ServiceAccount, connector map[string]interface{}) *Connector {
+func NewConnector(name string, connectorTypeId string, desiredState ConnectorDesiredState, kafka KafkaConnectionSettings, serviceAccount ServiceAccount, connector map[string]interface{}) *Connector {
 	this := Connector{}
 	this.Name = name
 	this.ConnectorTypeId = connectorTypeId
 	var channel Channel = CHANNEL_STABLE
 	this.Channel = &channel
-	this.DeploymentLocation = deploymentLocation
 	this.DesiredState = desiredState
 	this.Kafka = kafka
 	this.ServiceAccount = serviceAccount
@@ -86,9 +85,9 @@ func NewConnectorWithDefaults() *Connector {
 
 
 
+
 	var channel Channel = CHANNEL_STABLE
 	this.Channel = &channel
-
 
 
 
@@ -349,6 +348,39 @@ func (o *Connector) SetConnectorTypeId(v string) {
 }
 
 
+// GetNamespaceId returns the NamespaceId field value if set, zero value otherwise.
+func (o *Connector) GetNamespaceId() string {
+	if o == nil || o.NamespaceId == nil {
+		var ret string
+		return ret
+	}
+	return *o.NamespaceId
+}
+
+// GetNamespaceIdOk returns a tuple with the NamespaceId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Connector) GetNamespaceIdOk() (*string, bool) {
+	if o == nil || o.NamespaceId == nil {
+		return nil, false
+	}
+	return o.NamespaceId, true
+}
+
+// HasNamespaceId returns a boolean if a field has been set.
+func (o *Connector) HasNamespaceId() bool {
+	if o != nil && o.NamespaceId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNamespaceId gets a reference to the given string and assigns it to the NamespaceId field.
+func (o *Connector) SetNamespaceId(v string) {
+	o.NamespaceId = &v
+}
+
+
 // GetChannel returns the Channel field value if set, zero value otherwise.
 func (o *Connector) GetChannel() Channel {
 	if o == nil || o.Channel == nil {
@@ -379,31 +411,6 @@ func (o *Connector) HasChannel() bool {
 // SetChannel gets a reference to the given Channel and assigns it to the Channel field.
 func (o *Connector) SetChannel(v Channel) {
 	o.Channel = &v
-}
-
-
-// GetDeploymentLocation returns the DeploymentLocation field value
-func (o *Connector) GetDeploymentLocation() DeploymentLocation {
-	if o == nil {
-		var ret DeploymentLocation
-		return ret
-	}
-
-	return o.DeploymentLocation
-}
-
-// GetDeploymentLocationOk returns a tuple with the DeploymentLocation field value
-// and a boolean to check if the value has been set.
-func (o *Connector) GetDeploymentLocationOk() (*DeploymentLocation, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.DeploymentLocation, true
-}
-
-// SetDeploymentLocation sets field value
-func (o *Connector) SetDeploymentLocation(v DeploymentLocation) {
-	o.DeploymentLocation = v
 }
 
 
@@ -641,12 +648,12 @@ func (o Connector) MarshalJSON() ([]byte, error) {
 		toSerialize["connector_type_id"] = o.ConnectorTypeId
 	}
     
-	if o.Channel != nil {
-		toSerialize["channel"] = o.Channel
+	if o.NamespaceId != nil {
+		toSerialize["namespace_id"] = o.NamespaceId
 	}
     
-	if true {
-		toSerialize["deployment_location"] = o.DeploymentLocation
+	if o.Channel != nil {
+		toSerialize["channel"] = o.Channel
 	}
     
 	if true {
