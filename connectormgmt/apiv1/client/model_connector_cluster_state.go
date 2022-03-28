@@ -22,11 +22,13 @@ type ConnectorClusterState string
 const (
 	CONNECTORCLUSTERSTATE_DISCONNECTED ConnectorClusterState = "disconnected"
 	CONNECTORCLUSTERSTATE_READY ConnectorClusterState = "ready"
+	CONNECTORCLUSTERSTATE_DELETING ConnectorClusterState = "deleting"
 )
 
 var allowedConnectorClusterStateEnumValues = []ConnectorClusterState{
 	"disconnected",
 	"ready",
+	"deleting",
 }
 
 func (v *ConnectorClusterState) UnmarshalJSON(src []byte) error {

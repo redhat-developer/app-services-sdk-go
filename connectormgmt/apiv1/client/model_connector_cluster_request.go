@@ -14,7 +14,7 @@ import (
 	"encoding/json"
 )
 
-// ConnectorClusterRequest Schema for the request to update a data plane cluster's status
+// ConnectorClusterRequest Schema for the request to update a data plane cluster's name
 type ConnectorClusterRequest struct {
 
 	Name *string `json:"name,omitempty"`

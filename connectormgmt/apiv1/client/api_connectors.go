@@ -538,6 +538,8 @@ type ApiListConnectorsRequest struct {
 	ApiService ConnectorsApi
 	page *string
 	size *string
+	orderBy *string
+	search *string
 }
 
 func (r ApiListConnectorsRequest) Page(page string) ApiListConnectorsRequest {
@@ -546,6 +548,14 @@ func (r ApiListConnectorsRequest) Page(page string) ApiListConnectorsRequest {
 }
 func (r ApiListConnectorsRequest) Size(size string) ApiListConnectorsRequest {
 	r.size = &size
+	return r
+}
+func (r ApiListConnectorsRequest) OrderBy(orderBy string) ApiListConnectorsRequest {
+	r.orderBy = &orderBy
+	return r
+}
+func (r ApiListConnectorsRequest) Search(search string) ApiListConnectorsRequest {
+	r.search = &search
 	return r
 }
 
@@ -596,6 +606,12 @@ func (a *ConnectorsApiService) ListConnectorsExecute(r ApiListConnectorsRequest)
 	}
 	if r.size != nil {
 		localVarQueryParams.Add("size", parameterToString(*r.size, ""))
+	}
+	if r.orderBy != nil {
+		localVarQueryParams.Add("orderBy", parameterToString(*r.orderBy, ""))
+	}
+	if r.search != nil {
+		localVarQueryParams.Add("search", parameterToString(*r.search, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
