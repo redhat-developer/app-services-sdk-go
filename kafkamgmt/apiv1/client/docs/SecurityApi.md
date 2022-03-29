@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**DeleteServiceAccountById**](SecurityApi.md#DeleteServiceAccountById) | **Delete** /api/kafkas_mgmt/v1/service_accounts/{id} | Deletes a service account by ID
 [**GetServiceAccountById**](SecurityApi.md#GetServiceAccountById) | **Get** /api/kafkas_mgmt/v1/service_accounts/{id} | Returned service account by ID
 [**GetServiceAccounts**](SecurityApi.md#GetServiceAccounts) | **Get** /api/kafkas_mgmt/v1/service_accounts | Returns a list of service accounts
+[**GetSsoProviders**](SecurityApi.md#GetSsoProviders) | **Get** /api/kafkas_mgmt/v1/sso_providers | Return sso provider info
 [**ResetServiceAccountCreds**](SecurityApi.md#ResetServiceAccountCreds) | **Post** /api/kafkas_mgmt/v1/service_accounts/{id}/reset_credentials | Resets the credentials for a service account by ID
 
 
@@ -261,6 +262,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ServiceAccountList**](ServiceAccountList.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetSsoProviders
+
+> SsoProvider GetSsoProviders(ctx).Execute()
+
+Return sso provider info
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.SecurityApi.GetSsoProviders(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SecurityApi.GetSsoProviders``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSsoProviders`: SsoProvider
+    fmt.Fprintf(os.Stdout, "Response from `SecurityApi.GetSsoProviders`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetSsoProvidersRequest struct via the builder pattern
+
+
+### Return type
+
+[**SsoProvider**](SsoProvider.md)
 
 ### Authorization
 
