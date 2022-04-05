@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **ResourceVersion** | **int64** |  | 
 **Quota** | Pointer to [**ConnectorNamespaceQuota**](ConnectorNamespaceQuota.md) |  | [optional] 
 **ClusterId** | **string** |  | 
-**Expiration** | Pointer to **string** |  | [optional] 
+**Expiration** | Pointer to **string** | Namespace expiration timestamp in RFC 3339 format | [optional] 
 **Tenant** | [**ConnectorNamespaceTenant**](ConnectorNamespaceTenant.md) |  | 
 **Status** | [**ConnectorNamespaceStatus**](ConnectorNamespaceStatus.md) |  | 
 
