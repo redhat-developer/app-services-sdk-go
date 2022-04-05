@@ -17,7 +17,7 @@ import (
 // ConnectorNamespaceEvalRequest An evaluation connector namespace create request
 type ConnectorNamespaceEvalRequest struct {
 
-	Name string `json:"name"`
+	Name *string `json:"name,omitempty"`
 
 	Annotations *[]ConnectorNamespaceRequestMetaAnnotations `json:"annotations,omitempty"`
 
@@ -27,9 +27,8 @@ type ConnectorNamespaceEvalRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConnectorNamespaceEvalRequest(name string) *ConnectorNamespaceEvalRequest {
+func NewConnectorNamespaceEvalRequest() *ConnectorNamespaceEvalRequest {
 	this := ConnectorNamespaceEvalRequest{}
-	this.Name = name
 	return &this
 }
 
@@ -45,28 +44,36 @@ func NewConnectorNamespaceEvalRequestWithDefaults() *ConnectorNamespaceEvalReque
 }
 
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *ConnectorNamespaceEvalRequest) GetName() string {
-	if o == nil {
+	if o == nil || o.Name == nil {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ConnectorNamespaceEvalRequest) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil || o.Name == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *ConnectorNamespaceEvalRequest) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *ConnectorNamespaceEvalRequest) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
 
@@ -106,7 +113,7 @@ func (o *ConnectorNamespaceEvalRequest) SetAnnotations(v []ConnectorNamespaceReq
 func (o ConnectorNamespaceEvalRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
-	if true {
+	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
     

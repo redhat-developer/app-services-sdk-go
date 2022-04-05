@@ -40,6 +40,7 @@ type ConnectorNamespace struct {
 
 	ClusterId string `json:"cluster_id"`
 
+	// Namespace expiration timestamp in RFC 3339 format
 	Expiration *string `json:"expiration,omitempty"`
 
 	Tenant ConnectorNamespaceTenant `json:"tenant"`

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **ClusterId** | **string** |  | 
-**Expiration** | Pointer to **string** |  | [optional] 
+**Expiration** | Pointer to **string** | Namespace expiration timestamp in RFC 3339 format | [optional] 
 **Tenant** | [**ConnectorNamespaceTenant**](ConnectorNamespaceTenant.md) |  | 
 **Status** | [**ConnectorNamespaceStatus**](ConnectorNamespaceStatus.md) |  | 
 

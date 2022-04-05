@@ -100,7 +100,7 @@ import (
 )
 
 func main() {
-    connectorNamespaceEvalRequest := *openapiclient.NewConnectorNamespaceEvalRequest("Name_example") // ConnectorNamespaceEvalRequest | Connector namespace data
+    connectorNamespaceEvalRequest := *openapiclient.NewConnectorNamespaceEvalRequest() // ConnectorNamespaceEvalRequest | Connector namespace data
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
