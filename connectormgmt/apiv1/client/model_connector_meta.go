@@ -28,7 +28,7 @@ type ConnectorMeta struct {
 
 	ConnectorTypeId string `json:"connector_type_id"`
 
-	NamespaceId *string `json:"namespace_id,omitempty"`
+	NamespaceId string `json:"namespace_id"`
 
 	Channel *Channel `json:"channel,omitempty"`
 
@@ -42,10 +42,11 @@ type ConnectorMeta struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConnectorMeta(name string, connectorTypeId string, desiredState ConnectorDesiredState) *ConnectorMeta {
+func NewConnectorMeta(name string, connectorTypeId string, namespaceId string, desiredState ConnectorDesiredState) *ConnectorMeta {
 	this := ConnectorMeta{}
 	this.Name = name
 	this.ConnectorTypeId = connectorTypeId
+	this.NamespaceId = namespaceId
 	var channel Channel = CHANNEL_STABLE
 	this.Channel = &channel
 	this.DesiredState = desiredState
@@ -222,36 +223,28 @@ func (o *ConnectorMeta) SetConnectorTypeId(v string) {
 }
 
 
-// GetNamespaceId returns the NamespaceId field value if set, zero value otherwise.
+// GetNamespaceId returns the NamespaceId field value
 func (o *ConnectorMeta) GetNamespaceId() string {
-	if o == nil || o.NamespaceId == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.NamespaceId
+
+	return o.NamespaceId
 }
 
-// GetNamespaceIdOk returns a tuple with the NamespaceId field value if set, nil otherwise
+// GetNamespaceIdOk returns a tuple with the NamespaceId field value
 // and a boolean to check if the value has been set.
 func (o *ConnectorMeta) GetNamespaceIdOk() (*string, bool) {
-	if o == nil || o.NamespaceId == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.NamespaceId, true
+	return &o.NamespaceId, true
 }
 
-// HasNamespaceId returns a boolean if a field has been set.
-func (o *ConnectorMeta) HasNamespaceId() bool {
-	if o != nil && o.NamespaceId != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetNamespaceId gets a reference to the given string and assigns it to the NamespaceId field.
+// SetNamespaceId sets field value
 func (o *ConnectorMeta) SetNamespaceId(v string) {
-	o.NamespaceId = &v
+	o.NamespaceId = v
 }
 
 
@@ -369,7 +362,7 @@ func (o ConnectorMeta) MarshalJSON() ([]byte, error) {
 		toSerialize["connector_type_id"] = o.ConnectorTypeId
 	}
     
-	if o.NamespaceId != nil {
+	if true {
 		toSerialize["namespace_id"] = o.NamespaceId
 	}
     

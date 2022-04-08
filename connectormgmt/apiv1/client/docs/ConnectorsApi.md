@@ -34,7 +34,7 @@ import (
 
 func main() {
     async := true // bool | Perform the action in an asynchronous manner
-    connectorRequest := *openapiclient.NewConnectorRequest("Name_example", "ConnectorTypeId_example", openapiclient.ConnectorDesiredState("unassigned"), *openapiclient.NewKafkaConnectionSettings("Id_example", "Url_example"), *openapiclient.NewServiceAccount("ClientId_example", "ClientSecret_example"), map[string]interface{}(123)) // ConnectorRequest | Connector data
+    connectorRequest := *openapiclient.NewConnectorRequest("Name_example", "ConnectorTypeId_example", "NamespaceId_example", openapiclient.ConnectorDesiredState("unassigned"), *openapiclient.NewKafkaConnectionSettings("Id_example", "Url_example"), *openapiclient.NewServiceAccount("ClientId_example", "ClientSecret_example"), map[string]interface{}(123)) // ConnectorRequest | Connector data
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)

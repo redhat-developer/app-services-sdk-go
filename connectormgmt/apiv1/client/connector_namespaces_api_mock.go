@@ -19,23 +19,11 @@ var _ ConnectorNamespacesApi = &ConnectorNamespacesApiMock{}
 //
 // 		// make and configure a mocked ConnectorNamespacesApi
 // 		mockedConnectorNamespacesApi := &ConnectorNamespacesApiMock{
-// 			CreateConnectorNamespaceFunc: func(ctx _context.Context) ApiCreateConnectorNamespaceRequest {
-// 				panic("mock out the CreateConnectorNamespace method")
-// 			},
-// 			CreateConnectorNamespaceExecuteFunc: func(r ApiCreateConnectorNamespaceRequest) (ConnectorNamespace, *_nethttp.Response, error) {
-// 				panic("mock out the CreateConnectorNamespaceExecute method")
-// 			},
 // 			CreateEvaluationNamespaceFunc: func(ctx _context.Context) ApiCreateEvaluationNamespaceRequest {
 // 				panic("mock out the CreateEvaluationNamespace method")
 // 			},
 // 			CreateEvaluationNamespaceExecuteFunc: func(r ApiCreateEvaluationNamespaceRequest) (ConnectorNamespace, *_nethttp.Response, error) {
 // 				panic("mock out the CreateEvaluationNamespaceExecute method")
-// 			},
-// 			DeleteConnectorNamespaceFunc: func(ctx _context.Context, connectorNamespaceId string) ApiDeleteConnectorNamespaceRequest {
-// 				panic("mock out the DeleteConnectorNamespace method")
-// 			},
-// 			DeleteConnectorNamespaceExecuteFunc: func(r ApiDeleteConnectorNamespaceRequest) (Error, *_nethttp.Response, error) {
-// 				panic("mock out the DeleteConnectorNamespaceExecute method")
 // 			},
 // 			GetConnectorNamespaceFunc: func(ctx _context.Context, connectorNamespaceId string) ApiGetConnectorNamespaceRequest {
 // 				panic("mock out the GetConnectorNamespace method")
@@ -49,12 +37,6 @@ var _ ConnectorNamespacesApi = &ConnectorNamespacesApiMock{}
 // 			ListConnectorNamespacesExecuteFunc: func(r ApiListConnectorNamespacesRequest) (ConnectorNamespaceList, *_nethttp.Response, error) {
 // 				panic("mock out the ListConnectorNamespacesExecute method")
 // 			},
-// 			UpdateConnectorNamespaceByIdFunc: func(ctx _context.Context, connectorNamespaceId string) ApiUpdateConnectorNamespaceByIdRequest {
-// 				panic("mock out the UpdateConnectorNamespaceById method")
-// 			},
-// 			UpdateConnectorNamespaceByIdExecuteFunc: func(r ApiUpdateConnectorNamespaceByIdRequest) (*_nethttp.Response, error) {
-// 				panic("mock out the UpdateConnectorNamespaceByIdExecute method")
-// 			},
 // 		}
 //
 // 		// use mockedConnectorNamespacesApi in code that requires ConnectorNamespacesApi
@@ -62,23 +44,11 @@ var _ ConnectorNamespacesApi = &ConnectorNamespacesApiMock{}
 //
 // 	}
 type ConnectorNamespacesApiMock struct {
-	// CreateConnectorNamespaceFunc mocks the CreateConnectorNamespace method.
-	CreateConnectorNamespaceFunc func(ctx _context.Context) ApiCreateConnectorNamespaceRequest
-
-	// CreateConnectorNamespaceExecuteFunc mocks the CreateConnectorNamespaceExecute method.
-	CreateConnectorNamespaceExecuteFunc func(r ApiCreateConnectorNamespaceRequest) (ConnectorNamespace, *_nethttp.Response, error)
-
 	// CreateEvaluationNamespaceFunc mocks the CreateEvaluationNamespace method.
 	CreateEvaluationNamespaceFunc func(ctx _context.Context) ApiCreateEvaluationNamespaceRequest
 
 	// CreateEvaluationNamespaceExecuteFunc mocks the CreateEvaluationNamespaceExecute method.
 	CreateEvaluationNamespaceExecuteFunc func(r ApiCreateEvaluationNamespaceRequest) (ConnectorNamespace, *_nethttp.Response, error)
-
-	// DeleteConnectorNamespaceFunc mocks the DeleteConnectorNamespace method.
-	DeleteConnectorNamespaceFunc func(ctx _context.Context, connectorNamespaceId string) ApiDeleteConnectorNamespaceRequest
-
-	// DeleteConnectorNamespaceExecuteFunc mocks the DeleteConnectorNamespaceExecute method.
-	DeleteConnectorNamespaceExecuteFunc func(r ApiDeleteConnectorNamespaceRequest) (Error, *_nethttp.Response, error)
 
 	// GetConnectorNamespaceFunc mocks the GetConnectorNamespace method.
 	GetConnectorNamespaceFunc func(ctx _context.Context, connectorNamespaceId string) ApiGetConnectorNamespaceRequest
@@ -92,24 +62,8 @@ type ConnectorNamespacesApiMock struct {
 	// ListConnectorNamespacesExecuteFunc mocks the ListConnectorNamespacesExecute method.
 	ListConnectorNamespacesExecuteFunc func(r ApiListConnectorNamespacesRequest) (ConnectorNamespaceList, *_nethttp.Response, error)
 
-	// UpdateConnectorNamespaceByIdFunc mocks the UpdateConnectorNamespaceById method.
-	UpdateConnectorNamespaceByIdFunc func(ctx _context.Context, connectorNamespaceId string) ApiUpdateConnectorNamespaceByIdRequest
-
-	// UpdateConnectorNamespaceByIdExecuteFunc mocks the UpdateConnectorNamespaceByIdExecute method.
-	UpdateConnectorNamespaceByIdExecuteFunc func(r ApiUpdateConnectorNamespaceByIdRequest) (*_nethttp.Response, error)
-
 	// calls tracks calls to the methods.
 	calls struct {
-		// CreateConnectorNamespace holds details about calls to the CreateConnectorNamespace method.
-		CreateConnectorNamespace []struct {
-			// Ctx is the ctx argument value.
-			Ctx _context.Context
-		}
-		// CreateConnectorNamespaceExecute holds details about calls to the CreateConnectorNamespaceExecute method.
-		CreateConnectorNamespaceExecute []struct {
-			// R is the r argument value.
-			R ApiCreateConnectorNamespaceRequest
-		}
 		// CreateEvaluationNamespace holds details about calls to the CreateEvaluationNamespace method.
 		CreateEvaluationNamespace []struct {
 			// Ctx is the ctx argument value.
@@ -119,18 +73,6 @@ type ConnectorNamespacesApiMock struct {
 		CreateEvaluationNamespaceExecute []struct {
 			// R is the r argument value.
 			R ApiCreateEvaluationNamespaceRequest
-		}
-		// DeleteConnectorNamespace holds details about calls to the DeleteConnectorNamespace method.
-		DeleteConnectorNamespace []struct {
-			// Ctx is the ctx argument value.
-			Ctx _context.Context
-			// ConnectorNamespaceId is the connectorNamespaceId argument value.
-			ConnectorNamespaceId string
-		}
-		// DeleteConnectorNamespaceExecute holds details about calls to the DeleteConnectorNamespaceExecute method.
-		DeleteConnectorNamespaceExecute []struct {
-			// R is the r argument value.
-			R ApiDeleteConnectorNamespaceRequest
 		}
 		// GetConnectorNamespace holds details about calls to the GetConnectorNamespace method.
 		GetConnectorNamespace []struct {
@@ -154,93 +96,13 @@ type ConnectorNamespacesApiMock struct {
 			// R is the r argument value.
 			R ApiListConnectorNamespacesRequest
 		}
-		// UpdateConnectorNamespaceById holds details about calls to the UpdateConnectorNamespaceById method.
-		UpdateConnectorNamespaceById []struct {
-			// Ctx is the ctx argument value.
-			Ctx _context.Context
-			// ConnectorNamespaceId is the connectorNamespaceId argument value.
-			ConnectorNamespaceId string
-		}
-		// UpdateConnectorNamespaceByIdExecute holds details about calls to the UpdateConnectorNamespaceByIdExecute method.
-		UpdateConnectorNamespaceByIdExecute []struct {
-			// R is the r argument value.
-			R ApiUpdateConnectorNamespaceByIdRequest
-		}
 	}
-	lockCreateConnectorNamespace            sync.RWMutex
-	lockCreateConnectorNamespaceExecute     sync.RWMutex
-	lockCreateEvaluationNamespace           sync.RWMutex
-	lockCreateEvaluationNamespaceExecute    sync.RWMutex
-	lockDeleteConnectorNamespace            sync.RWMutex
-	lockDeleteConnectorNamespaceExecute     sync.RWMutex
-	lockGetConnectorNamespace               sync.RWMutex
-	lockGetConnectorNamespaceExecute        sync.RWMutex
-	lockListConnectorNamespaces             sync.RWMutex
-	lockListConnectorNamespacesExecute      sync.RWMutex
-	lockUpdateConnectorNamespaceById        sync.RWMutex
-	lockUpdateConnectorNamespaceByIdExecute sync.RWMutex
-}
-
-// CreateConnectorNamespace calls CreateConnectorNamespaceFunc.
-func (mock *ConnectorNamespacesApiMock) CreateConnectorNamespace(ctx _context.Context) ApiCreateConnectorNamespaceRequest {
-	if mock.CreateConnectorNamespaceFunc == nil {
-		panic("ConnectorNamespacesApiMock.CreateConnectorNamespaceFunc: method is nil but ConnectorNamespacesApi.CreateConnectorNamespace was just called")
-	}
-	callInfo := struct {
-		Ctx _context.Context
-	}{
-		Ctx: ctx,
-	}
-	mock.lockCreateConnectorNamespace.Lock()
-	mock.calls.CreateConnectorNamespace = append(mock.calls.CreateConnectorNamespace, callInfo)
-	mock.lockCreateConnectorNamespace.Unlock()
-	return mock.CreateConnectorNamespaceFunc(ctx)
-}
-
-// CreateConnectorNamespaceCalls gets all the calls that were made to CreateConnectorNamespace.
-// Check the length with:
-//     len(mockedConnectorNamespacesApi.CreateConnectorNamespaceCalls())
-func (mock *ConnectorNamespacesApiMock) CreateConnectorNamespaceCalls() []struct {
-	Ctx _context.Context
-} {
-	var calls []struct {
-		Ctx _context.Context
-	}
-	mock.lockCreateConnectorNamespace.RLock()
-	calls = mock.calls.CreateConnectorNamespace
-	mock.lockCreateConnectorNamespace.RUnlock()
-	return calls
-}
-
-// CreateConnectorNamespaceExecute calls CreateConnectorNamespaceExecuteFunc.
-func (mock *ConnectorNamespacesApiMock) CreateConnectorNamespaceExecute(r ApiCreateConnectorNamespaceRequest) (ConnectorNamespace, *_nethttp.Response, error) {
-	if mock.CreateConnectorNamespaceExecuteFunc == nil {
-		panic("ConnectorNamespacesApiMock.CreateConnectorNamespaceExecuteFunc: method is nil but ConnectorNamespacesApi.CreateConnectorNamespaceExecute was just called")
-	}
-	callInfo := struct {
-		R ApiCreateConnectorNamespaceRequest
-	}{
-		R: r,
-	}
-	mock.lockCreateConnectorNamespaceExecute.Lock()
-	mock.calls.CreateConnectorNamespaceExecute = append(mock.calls.CreateConnectorNamespaceExecute, callInfo)
-	mock.lockCreateConnectorNamespaceExecute.Unlock()
-	return mock.CreateConnectorNamespaceExecuteFunc(r)
-}
-
-// CreateConnectorNamespaceExecuteCalls gets all the calls that were made to CreateConnectorNamespaceExecute.
-// Check the length with:
-//     len(mockedConnectorNamespacesApi.CreateConnectorNamespaceExecuteCalls())
-func (mock *ConnectorNamespacesApiMock) CreateConnectorNamespaceExecuteCalls() []struct {
-	R ApiCreateConnectorNamespaceRequest
-} {
-	var calls []struct {
-		R ApiCreateConnectorNamespaceRequest
-	}
-	mock.lockCreateConnectorNamespaceExecute.RLock()
-	calls = mock.calls.CreateConnectorNamespaceExecute
-	mock.lockCreateConnectorNamespaceExecute.RUnlock()
-	return calls
+	lockCreateEvaluationNamespace        sync.RWMutex
+	lockCreateEvaluationNamespaceExecute sync.RWMutex
+	lockGetConnectorNamespace            sync.RWMutex
+	lockGetConnectorNamespaceExecute     sync.RWMutex
+	lockListConnectorNamespaces          sync.RWMutex
+	lockListConnectorNamespacesExecute   sync.RWMutex
 }
 
 // CreateEvaluationNamespace calls CreateEvaluationNamespaceFunc.
@@ -302,72 +164,6 @@ func (mock *ConnectorNamespacesApiMock) CreateEvaluationNamespaceExecuteCalls() 
 	mock.lockCreateEvaluationNamespaceExecute.RLock()
 	calls = mock.calls.CreateEvaluationNamespaceExecute
 	mock.lockCreateEvaluationNamespaceExecute.RUnlock()
-	return calls
-}
-
-// DeleteConnectorNamespace calls DeleteConnectorNamespaceFunc.
-func (mock *ConnectorNamespacesApiMock) DeleteConnectorNamespace(ctx _context.Context, connectorNamespaceId string) ApiDeleteConnectorNamespaceRequest {
-	if mock.DeleteConnectorNamespaceFunc == nil {
-		panic("ConnectorNamespacesApiMock.DeleteConnectorNamespaceFunc: method is nil but ConnectorNamespacesApi.DeleteConnectorNamespace was just called")
-	}
-	callInfo := struct {
-		Ctx                  _context.Context
-		ConnectorNamespaceId string
-	}{
-		Ctx:                  ctx,
-		ConnectorNamespaceId: connectorNamespaceId,
-	}
-	mock.lockDeleteConnectorNamespace.Lock()
-	mock.calls.DeleteConnectorNamespace = append(mock.calls.DeleteConnectorNamespace, callInfo)
-	mock.lockDeleteConnectorNamespace.Unlock()
-	return mock.DeleteConnectorNamespaceFunc(ctx, connectorNamespaceId)
-}
-
-// DeleteConnectorNamespaceCalls gets all the calls that were made to DeleteConnectorNamespace.
-// Check the length with:
-//     len(mockedConnectorNamespacesApi.DeleteConnectorNamespaceCalls())
-func (mock *ConnectorNamespacesApiMock) DeleteConnectorNamespaceCalls() []struct {
-	Ctx                  _context.Context
-	ConnectorNamespaceId string
-} {
-	var calls []struct {
-		Ctx                  _context.Context
-		ConnectorNamespaceId string
-	}
-	mock.lockDeleteConnectorNamespace.RLock()
-	calls = mock.calls.DeleteConnectorNamespace
-	mock.lockDeleteConnectorNamespace.RUnlock()
-	return calls
-}
-
-// DeleteConnectorNamespaceExecute calls DeleteConnectorNamespaceExecuteFunc.
-func (mock *ConnectorNamespacesApiMock) DeleteConnectorNamespaceExecute(r ApiDeleteConnectorNamespaceRequest) (Error, *_nethttp.Response, error) {
-	if mock.DeleteConnectorNamespaceExecuteFunc == nil {
-		panic("ConnectorNamespacesApiMock.DeleteConnectorNamespaceExecuteFunc: method is nil but ConnectorNamespacesApi.DeleteConnectorNamespaceExecute was just called")
-	}
-	callInfo := struct {
-		R ApiDeleteConnectorNamespaceRequest
-	}{
-		R: r,
-	}
-	mock.lockDeleteConnectorNamespaceExecute.Lock()
-	mock.calls.DeleteConnectorNamespaceExecute = append(mock.calls.DeleteConnectorNamespaceExecute, callInfo)
-	mock.lockDeleteConnectorNamespaceExecute.Unlock()
-	return mock.DeleteConnectorNamespaceExecuteFunc(r)
-}
-
-// DeleteConnectorNamespaceExecuteCalls gets all the calls that were made to DeleteConnectorNamespaceExecute.
-// Check the length with:
-//     len(mockedConnectorNamespacesApi.DeleteConnectorNamespaceExecuteCalls())
-func (mock *ConnectorNamespacesApiMock) DeleteConnectorNamespaceExecuteCalls() []struct {
-	R ApiDeleteConnectorNamespaceRequest
-} {
-	var calls []struct {
-		R ApiDeleteConnectorNamespaceRequest
-	}
-	mock.lockDeleteConnectorNamespaceExecute.RLock()
-	calls = mock.calls.DeleteConnectorNamespaceExecute
-	mock.lockDeleteConnectorNamespaceExecute.RUnlock()
 	return calls
 }
 
@@ -496,71 +292,5 @@ func (mock *ConnectorNamespacesApiMock) ListConnectorNamespacesExecuteCalls() []
 	mock.lockListConnectorNamespacesExecute.RLock()
 	calls = mock.calls.ListConnectorNamespacesExecute
 	mock.lockListConnectorNamespacesExecute.RUnlock()
-	return calls
-}
-
-// UpdateConnectorNamespaceById calls UpdateConnectorNamespaceByIdFunc.
-func (mock *ConnectorNamespacesApiMock) UpdateConnectorNamespaceById(ctx _context.Context, connectorNamespaceId string) ApiUpdateConnectorNamespaceByIdRequest {
-	if mock.UpdateConnectorNamespaceByIdFunc == nil {
-		panic("ConnectorNamespacesApiMock.UpdateConnectorNamespaceByIdFunc: method is nil but ConnectorNamespacesApi.UpdateConnectorNamespaceById was just called")
-	}
-	callInfo := struct {
-		Ctx                  _context.Context
-		ConnectorNamespaceId string
-	}{
-		Ctx:                  ctx,
-		ConnectorNamespaceId: connectorNamespaceId,
-	}
-	mock.lockUpdateConnectorNamespaceById.Lock()
-	mock.calls.UpdateConnectorNamespaceById = append(mock.calls.UpdateConnectorNamespaceById, callInfo)
-	mock.lockUpdateConnectorNamespaceById.Unlock()
-	return mock.UpdateConnectorNamespaceByIdFunc(ctx, connectorNamespaceId)
-}
-
-// UpdateConnectorNamespaceByIdCalls gets all the calls that were made to UpdateConnectorNamespaceById.
-// Check the length with:
-//     len(mockedConnectorNamespacesApi.UpdateConnectorNamespaceByIdCalls())
-func (mock *ConnectorNamespacesApiMock) UpdateConnectorNamespaceByIdCalls() []struct {
-	Ctx                  _context.Context
-	ConnectorNamespaceId string
-} {
-	var calls []struct {
-		Ctx                  _context.Context
-		ConnectorNamespaceId string
-	}
-	mock.lockUpdateConnectorNamespaceById.RLock()
-	calls = mock.calls.UpdateConnectorNamespaceById
-	mock.lockUpdateConnectorNamespaceById.RUnlock()
-	return calls
-}
-
-// UpdateConnectorNamespaceByIdExecute calls UpdateConnectorNamespaceByIdExecuteFunc.
-func (mock *ConnectorNamespacesApiMock) UpdateConnectorNamespaceByIdExecute(r ApiUpdateConnectorNamespaceByIdRequest) (*_nethttp.Response, error) {
-	if mock.UpdateConnectorNamespaceByIdExecuteFunc == nil {
-		panic("ConnectorNamespacesApiMock.UpdateConnectorNamespaceByIdExecuteFunc: method is nil but ConnectorNamespacesApi.UpdateConnectorNamespaceByIdExecute was just called")
-	}
-	callInfo := struct {
-		R ApiUpdateConnectorNamespaceByIdRequest
-	}{
-		R: r,
-	}
-	mock.lockUpdateConnectorNamespaceByIdExecute.Lock()
-	mock.calls.UpdateConnectorNamespaceByIdExecute = append(mock.calls.UpdateConnectorNamespaceByIdExecute, callInfo)
-	mock.lockUpdateConnectorNamespaceByIdExecute.Unlock()
-	return mock.UpdateConnectorNamespaceByIdExecuteFunc(r)
-}
-
-// UpdateConnectorNamespaceByIdExecuteCalls gets all the calls that were made to UpdateConnectorNamespaceByIdExecute.
-// Check the length with:
-//     len(mockedConnectorNamespacesApi.UpdateConnectorNamespaceByIdExecuteCalls())
-func (mock *ConnectorNamespacesApiMock) UpdateConnectorNamespaceByIdExecuteCalls() []struct {
-	R ApiUpdateConnectorNamespaceByIdRequest
-} {
-	var calls []struct {
-		R ApiUpdateConnectorNamespaceByIdRequest
-	}
-	mock.lockUpdateConnectorNamespaceByIdExecute.RLock()
-	calls = mock.calls.UpdateConnectorNamespaceByIdExecute
-	mock.lockUpdateConnectorNamespaceByIdExecute.RUnlock()
 	return calls
 }

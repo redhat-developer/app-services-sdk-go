@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **ConnectorTypeId** | **string** |  | 
-**NamespaceId** | Pointer to **string** |  | [optional] 
+**NamespaceId** | **string** |  | 
 **Channel** | Pointer to [**Channel**](Channel.md) |  | [optional] [default to CHANNEL_STABLE]
 **DesiredState** | [**ConnectorDesiredState**](ConnectorDesiredState.md) |  | 
 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewConnectorRequestMeta
 
-`func NewConnectorRequestMeta(name string, connectorTypeId string, desiredState ConnectorDesiredState, ) *ConnectorRequestMeta`
+`func NewConnectorRequestMeta(name string, connectorTypeId string, namespaceId string, desiredState ConnectorDesiredState, ) *ConnectorRequestMeta`
 
 NewConnectorRequestMeta instantiates a new ConnectorRequestMeta object
 This constructor will assign default values to properties that have it defined,
@@ -92,11 +92,6 @@ and a boolean to check if the value has been set.
 
 SetNamespaceId sets NamespaceId field to given value.
 
-### HasNamespaceId
-
-`func (o *ConnectorRequestMeta) HasNamespaceId() bool`
-
-HasNamespaceId returns a boolean if a field has been set.
 
 
 ### GetChannel
