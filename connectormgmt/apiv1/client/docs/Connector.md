@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **ModifiedAt** | Pointer to **time.Time** |  | [optional] 
 **Name** | **string** |  | 
 **ConnectorTypeId** | **string** |  | 
-**NamespaceId** | Pointer to **string** |  | [optional] 
+**NamespaceId** | **string** |  | 
 **Channel** | Pointer to [**Channel**](Channel.md) |  | [optional] [default to CHANNEL_STABLE]
 **DesiredState** | [**ConnectorDesiredState**](ConnectorDesiredState.md) |  | 
 **ResourceVersion** | Pointer to **int64** |  | [optional] 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 ### NewConnector
 
-`func NewConnector(name string, connectorTypeId string, desiredState ConnectorDesiredState, kafka KafkaConnectionSettings, serviceAccount ServiceAccount, connector map[string]interface{}, ) *Connector`
+`func NewConnector(name string, connectorTypeId string, namespaceId string, desiredState ConnectorDesiredState, kafka KafkaConnectionSettings, serviceAccount ServiceAccount, connector map[string]interface{}, ) *Connector`
 
 NewConnector instantiates a new Connector object
 This constructor will assign default values to properties that have it defined,
@@ -260,11 +260,6 @@ and a boolean to check if the value has been set.
 
 SetNamespaceId sets NamespaceId field to given value.
 
-### HasNamespaceId
-
-`func (o *Connector) HasNamespaceId() bool`
-
-HasNamespaceId returns a boolean if a field has been set.
 
 
 ### GetChannel

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **ConnectorTypeId** | **string** |  | 
-**NamespaceId** | Pointer to **string** |  | [optional] 
+**NamespaceId** | **string** |  | 
 **Channel** | Pointer to [**Channel**](Channel.md) |  | [optional] [default to CHANNEL_STABLE]
 **DesiredState** | [**ConnectorDesiredState**](ConnectorDesiredState.md) |  | 
 **Kafka** | [**KafkaConnectionSettings**](KafkaConnectionSettings.md) |  | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewConnectorRequest
 
-`func NewConnectorRequest(name string, connectorTypeId string, desiredState ConnectorDesiredState, kafka KafkaConnectionSettings, serviceAccount ServiceAccount, connector map[string]interface{}, ) *ConnectorRequest`
+`func NewConnectorRequest(name string, connectorTypeId string, namespaceId string, desiredState ConnectorDesiredState, kafka KafkaConnectionSettings, serviceAccount ServiceAccount, connector map[string]interface{}, ) *ConnectorRequest`
 
 NewConnectorRequest instantiates a new ConnectorRequest object
 This constructor will assign default values to properties that have it defined,
@@ -96,11 +96,6 @@ and a boolean to check if the value has been set.
 
 SetNamespaceId sets NamespaceId field to given value.
 
-### HasNamespaceId
-
-`func (o *ConnectorRequest) HasNamespaceId() bool`
-
-HasNamespaceId returns a boolean if a field has been set.
 
 
 ### GetChannel
