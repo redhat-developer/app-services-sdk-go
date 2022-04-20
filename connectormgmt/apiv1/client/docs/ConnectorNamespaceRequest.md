@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**Name** | **string** | Namespace name must match pattern &#x60;^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$&#x60;, or it may be empty to be auto-generated. | 
 **Annotations** | Pointer to [**[]ConnectorNamespaceRequestMetaAnnotations**](ConnectorNamespaceRequestMetaAnnotations.md) |  | [optional] 
 **ClusterId** | **string** |  | 
 **Kind** | [**ConnectorNamespaceTenantKind**](ConnectorNamespaceTenantKind.md) |  | 

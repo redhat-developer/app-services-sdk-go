@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Owner** | Pointer to **string** |  | [optional] 
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
 **ModifiedAt** | Pointer to **time.Time** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
+**Name** | Pointer to **string** | Namespace name must match pattern &#x60;^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$&#x60;, or it may be empty to be auto-generated. | [optional] 
 **Annotations** | Pointer to [**[]ConnectorNamespaceRequestMetaAnnotations**](ConnectorNamespaceRequestMetaAnnotations.md) |  | [optional] 
 **ResourceVersion** | Pointer to **int64** |  | [optional] 
 **Quota** | Pointer to [**ConnectorNamespaceQuota**](ConnectorNamespaceQuota.md) |  | [optional] 

@@ -23,12 +23,14 @@ const (
 	CONNECTORNAMESPACESTATE_DISCONNECTED ConnectorNamespaceState = "disconnected"
 	CONNECTORNAMESPACESTATE_READY ConnectorNamespaceState = "ready"
 	CONNECTORNAMESPACESTATE_DELETING ConnectorNamespaceState = "deleting"
+	CONNECTORNAMESPACESTATE_DELETED ConnectorNamespaceState = "deleted"
 )
 
 var allowedConnectorNamespaceStateEnumValues = []ConnectorNamespaceState{
 	"disconnected",
 	"ready",
 	"deleting",
+	"deleted",
 }
 
 func (v *ConnectorNamespaceState) UnmarshalJSON(src []byte) error {
