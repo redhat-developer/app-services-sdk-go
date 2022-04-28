@@ -42,19 +42,7 @@ jobs:
           api-fetch --download-url=${{ env.DOWNLOAD_URL }} --download-location=".openapi" --token=${{ secrets.BF2_TOKEN }}
           go mod tidy
 
-      - name: Generate OpenAPI diff
-        id: generate_openapi_diff
-        run: |
-          if test -f ".openapi/tmp-oas"; then
-            go install github.com/tufin/oasdiff@latest
 
-            changes=$(oasdiff -base .openapi/tmp-oas -revision ${{ steps.set_filepath.outputs.openapi_file }} -format text )
-            echo $changes
-            # output the diff to a var
-            echo "::set-output name=changelog::$changelog"
-
-            rm -rf .openapi/tmp-oas
-          fi
       
       - uses: peter-evans/create-pull-request@v3
         with:
@@ -63,7 +51,6 @@ jobs:
           commit-message: >
             chore(openapi): update ${{ env.CLIENT_ID }} OpenAPI document
 
-            ${{ steps.generate_openapi_diff.outputs.changelog }}
           author: "app-services-ci <app-services-ci@users.noreply.github.com>"
           branch: chore/add-${{ env.CLIENT_ID }}-openapi
           branch-suffix: timestamp
