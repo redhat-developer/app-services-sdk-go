@@ -65,9 +65,6 @@ const (
   // Maximum field length has been depassed
   ERROR_34 string = "KAFKAS-MGMT-34"
 
-  // Only multiAZ Kafkas are supported, use multi_az=true
-  ERROR_35 string = "KAFKAS-MGMT-35"
-
   // Kafka cluster name is already used
   ERROR_36 string = "KAFKAS-MGMT-36"
 
@@ -85,6 +82,9 @@ const (
 
   // Instance Type not supported
   ERROR_41 string = "KAFKAS-MGMT-41"
+
+  // Instance plan not supported
+  ERROR_42 string = "KAFKAS-MGMT-42"
 
   // Synchronous action is not supported, use async=true parameter
   ERROR_103 string = "KAFKAS-MGMT-103"
