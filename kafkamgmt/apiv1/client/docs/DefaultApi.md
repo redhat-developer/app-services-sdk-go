@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**FederateMetrics**](DefaultApi.md#FederateMetrics) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/federate | Returns all metrics in scrapeable format for a given kafka id
 [**GetCloudProviderRegions**](DefaultApi.md#GetCloudProviderRegions) | **Get** /api/kafkas_mgmt/v1/cloud_providers/{id}/regions | Returns the list of supported regions of the supported cloud provider
 [**GetCloudProviders**](DefaultApi.md#GetCloudProviders) | **Get** /api/kafkas_mgmt/v1/cloud_providers | Returns the list of supported cloud providers
+[**GetInstanceTypesByCloudProviderAndRegion**](DefaultApi.md#GetInstanceTypesByCloudProviderAndRegion) | **Get** /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region} | Returns the list of supported Kafka instance types and sizes filtered by cloud provider and region
 [**GetKafkaById**](DefaultApi.md#GetKafkaById) | **Get** /api/kafkas_mgmt/v1/kafkas/{id} | Returns a Kafka request by ID
 [**GetKafkas**](DefaultApi.md#GetKafkas) | **Get** /api/kafkas_mgmt/v1/kafkas | Returns a list of Kafka requests
 [**GetMetricsByInstantQuery**](DefaultApi.md#GetMetricsByInstantQuery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query | Returns metrics with instant query by Kafka ID
@@ -347,6 +348,77 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CloudProviderList**](CloudProviderList.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetInstanceTypesByCloudProviderAndRegion
+
+> SupportedKafkaInstanceTypesList GetInstanceTypesByCloudProviderAndRegion(ctx, cloudProvider, cloudRegion).Execute()
+
+Returns the list of supported Kafka instance types and sizes filtered by cloud provider and region
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    cloudProvider := "cloudProvider_example" // string | ID of the supported cloud provider
+    cloudRegion := "cloudRegion_example" // string | Name of the supported cloud provider region
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.GetInstanceTypesByCloudProviderAndRegion(context.Background(), cloudProvider, cloudRegion).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GetInstanceTypesByCloudProviderAndRegion``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetInstanceTypesByCloudProviderAndRegion`: SupportedKafkaInstanceTypesList
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GetInstanceTypesByCloudProviderAndRegion`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cloudProvider** | **string** | ID of the supported cloud provider | 
+**cloudRegion** | **string** | Name of the supported cloud provider region | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetInstanceTypesByCloudProviderAndRegionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**SupportedKafkaInstanceTypesList**](SupportedKafkaInstanceTypesList.md)
 
 ### Authorization
 

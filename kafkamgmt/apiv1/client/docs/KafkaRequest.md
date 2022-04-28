@@ -19,8 +19,17 @@ Name | Type | Description | Notes
 **FailedReason** | Pointer to **string** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
 **InstanceType** | Pointer to **string** |  | [optional] 
+**InstanceTypeName** | Pointer to **string** |  | [optional] 
 **ReauthenticationEnabled** | **bool** |  | 
 **KafkaStorageSize** | Pointer to **string** |  | [optional] 
+**BrowserUrl** | Pointer to **string** |  | [optional] 
+**SizeId** | Pointer to **string** |  | [optional] 
+**IngressThroughputPerSec** | Pointer to **string** |  | [optional] 
+**EgressThroughputPerSec** | Pointer to **string** |  | [optional] 
+**TotalMaxConnections** | Pointer to **int32** |  | [optional] 
+**MaxPartitions** | Pointer to **int32** |  | [optional] 
+**MaxDataRetentionPeriod** | Pointer to **string** |  | [optional] 
+**MaxConnectionAttemptsPerSec** | Pointer to **int32** |  | [optional] 
 
 
 ## Methods
@@ -428,6 +437,32 @@ SetInstanceType sets InstanceType field to given value.
 HasInstanceType returns a boolean if a field has been set.
 
 
+### GetInstanceTypeName
+
+`func (o *KafkaRequest) GetInstanceTypeName() string`
+
+GetInstanceTypeName returns the InstanceTypeName field if non-nil, zero value otherwise.
+
+### GetInstanceTypeNameOk
+
+`func (o *KafkaRequest) GetInstanceTypeNameOk() (*string, bool)`
+
+GetInstanceTypeNameOk returns a tuple with the InstanceTypeName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstanceTypeName
+
+`func (o *KafkaRequest) SetInstanceTypeName(v string)`
+
+SetInstanceTypeName sets InstanceTypeName field to given value.
+
+### HasInstanceTypeName
+
+`func (o *KafkaRequest) HasInstanceTypeName() bool`
+
+HasInstanceTypeName returns a boolean if a field has been set.
+
+
 ### GetReauthenticationEnabled
 
 `func (o *KafkaRequest) GetReauthenticationEnabled() bool`
@@ -473,6 +508,214 @@ SetKafkaStorageSize sets KafkaStorageSize field to given value.
 `func (o *KafkaRequest) HasKafkaStorageSize() bool`
 
 HasKafkaStorageSize returns a boolean if a field has been set.
+
+
+### GetBrowserUrl
+
+`func (o *KafkaRequest) GetBrowserUrl() string`
+
+GetBrowserUrl returns the BrowserUrl field if non-nil, zero value otherwise.
+
+### GetBrowserUrlOk
+
+`func (o *KafkaRequest) GetBrowserUrlOk() (*string, bool)`
+
+GetBrowserUrlOk returns a tuple with the BrowserUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBrowserUrl
+
+`func (o *KafkaRequest) SetBrowserUrl(v string)`
+
+SetBrowserUrl sets BrowserUrl field to given value.
+
+### HasBrowserUrl
+
+`func (o *KafkaRequest) HasBrowserUrl() bool`
+
+HasBrowserUrl returns a boolean if a field has been set.
+
+
+### GetSizeId
+
+`func (o *KafkaRequest) GetSizeId() string`
+
+GetSizeId returns the SizeId field if non-nil, zero value otherwise.
+
+### GetSizeIdOk
+
+`func (o *KafkaRequest) GetSizeIdOk() (*string, bool)`
+
+GetSizeIdOk returns a tuple with the SizeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSizeId
+
+`func (o *KafkaRequest) SetSizeId(v string)`
+
+SetSizeId sets SizeId field to given value.
+
+### HasSizeId
+
+`func (o *KafkaRequest) HasSizeId() bool`
+
+HasSizeId returns a boolean if a field has been set.
+
+
+### GetIngressThroughputPerSec
+
+`func (o *KafkaRequest) GetIngressThroughputPerSec() string`
+
+GetIngressThroughputPerSec returns the IngressThroughputPerSec field if non-nil, zero value otherwise.
+
+### GetIngressThroughputPerSecOk
+
+`func (o *KafkaRequest) GetIngressThroughputPerSecOk() (*string, bool)`
+
+GetIngressThroughputPerSecOk returns a tuple with the IngressThroughputPerSec field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIngressThroughputPerSec
+
+`func (o *KafkaRequest) SetIngressThroughputPerSec(v string)`
+
+SetIngressThroughputPerSec sets IngressThroughputPerSec field to given value.
+
+### HasIngressThroughputPerSec
+
+`func (o *KafkaRequest) HasIngressThroughputPerSec() bool`
+
+HasIngressThroughputPerSec returns a boolean if a field has been set.
+
+
+### GetEgressThroughputPerSec
+
+`func (o *KafkaRequest) GetEgressThroughputPerSec() string`
+
+GetEgressThroughputPerSec returns the EgressThroughputPerSec field if non-nil, zero value otherwise.
+
+### GetEgressThroughputPerSecOk
+
+`func (o *KafkaRequest) GetEgressThroughputPerSecOk() (*string, bool)`
+
+GetEgressThroughputPerSecOk returns a tuple with the EgressThroughputPerSec field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEgressThroughputPerSec
+
+`func (o *KafkaRequest) SetEgressThroughputPerSec(v string)`
+
+SetEgressThroughputPerSec sets EgressThroughputPerSec field to given value.
+
+### HasEgressThroughputPerSec
+
+`func (o *KafkaRequest) HasEgressThroughputPerSec() bool`
+
+HasEgressThroughputPerSec returns a boolean if a field has been set.
+
+
+### GetTotalMaxConnections
+
+`func (o *KafkaRequest) GetTotalMaxConnections() int32`
+
+GetTotalMaxConnections returns the TotalMaxConnections field if non-nil, zero value otherwise.
+
+### GetTotalMaxConnectionsOk
+
+`func (o *KafkaRequest) GetTotalMaxConnectionsOk() (*int32, bool)`
+
+GetTotalMaxConnectionsOk returns a tuple with the TotalMaxConnections field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalMaxConnections
+
+`func (o *KafkaRequest) SetTotalMaxConnections(v int32)`
+
+SetTotalMaxConnections sets TotalMaxConnections field to given value.
+
+### HasTotalMaxConnections
+
+`func (o *KafkaRequest) HasTotalMaxConnections() bool`
+
+HasTotalMaxConnections returns a boolean if a field has been set.
+
+
+### GetMaxPartitions
+
+`func (o *KafkaRequest) GetMaxPartitions() int32`
+
+GetMaxPartitions returns the MaxPartitions field if non-nil, zero value otherwise.
+
+### GetMaxPartitionsOk
+
+`func (o *KafkaRequest) GetMaxPartitionsOk() (*int32, bool)`
+
+GetMaxPartitionsOk returns a tuple with the MaxPartitions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxPartitions
+
+`func (o *KafkaRequest) SetMaxPartitions(v int32)`
+
+SetMaxPartitions sets MaxPartitions field to given value.
+
+### HasMaxPartitions
+
+`func (o *KafkaRequest) HasMaxPartitions() bool`
+
+HasMaxPartitions returns a boolean if a field has been set.
+
+
+### GetMaxDataRetentionPeriod
+
+`func (o *KafkaRequest) GetMaxDataRetentionPeriod() string`
+
+GetMaxDataRetentionPeriod returns the MaxDataRetentionPeriod field if non-nil, zero value otherwise.
+
+### GetMaxDataRetentionPeriodOk
+
+`func (o *KafkaRequest) GetMaxDataRetentionPeriodOk() (*string, bool)`
+
+GetMaxDataRetentionPeriodOk returns a tuple with the MaxDataRetentionPeriod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxDataRetentionPeriod
+
+`func (o *KafkaRequest) SetMaxDataRetentionPeriod(v string)`
+
+SetMaxDataRetentionPeriod sets MaxDataRetentionPeriod field to given value.
+
+### HasMaxDataRetentionPeriod
+
+`func (o *KafkaRequest) HasMaxDataRetentionPeriod() bool`
+
+HasMaxDataRetentionPeriod returns a boolean if a field has been set.
+
+
+### GetMaxConnectionAttemptsPerSec
+
+`func (o *KafkaRequest) GetMaxConnectionAttemptsPerSec() int32`
+
+GetMaxConnectionAttemptsPerSec returns the MaxConnectionAttemptsPerSec field if non-nil, zero value otherwise.
+
+### GetMaxConnectionAttemptsPerSecOk
+
+`func (o *KafkaRequest) GetMaxConnectionAttemptsPerSecOk() (*int32, bool)`
+
+GetMaxConnectionAttemptsPerSecOk returns a tuple with the MaxConnectionAttemptsPerSec field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxConnectionAttemptsPerSec
+
+`func (o *KafkaRequest) SetMaxConnectionAttemptsPerSec(v int32)`
+
+SetMaxConnectionAttemptsPerSec sets MaxConnectionAttemptsPerSec field to given value.
+
+### HasMaxConnectionAttemptsPerSec
+
+`func (o *KafkaRequest) HasMaxConnectionAttemptsPerSec() bool`
+
+HasMaxConnectionAttemptsPerSec returns a boolean if a field has been set.
 
 
 
