@@ -576,8 +576,13 @@ type ApiGetConnectorClusterAddonParametersRequest struct {
 	ctx _context.Context
 	ApiService ConnectorClustersApi
 	connectorClusterId string
+	resetCredentials *bool
 }
 
+func (r ApiGetConnectorClusterAddonParametersRequest) ResetCredentials(resetCredentials bool) ApiGetConnectorClusterAddonParametersRequest {
+	r.resetCredentials = &resetCredentials
+	return r
+}
 
 func (r ApiGetConnectorClusterAddonParametersRequest) Execute() ([]AddonParameter, *_nethttp.Response, error) {
 	return r.ApiService.GetConnectorClusterAddonParametersExecute(r)
@@ -624,6 +629,9 @@ func (a *ConnectorClustersApiService) GetConnectorClusterAddonParametersExecute(
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.resetCredentials != nil {
+		localVarQueryParams.Add("reset_credentials", parameterToString(*r.resetCredentials, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

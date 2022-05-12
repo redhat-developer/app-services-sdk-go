@@ -130,7 +130,6 @@ Class | Method | HTTP request | Description
  - [ConnectorNamespaceRequest](docs/ConnectorNamespaceRequest.md)
  - [ConnectorNamespaceRequestAllOf](docs/ConnectorNamespaceRequestAllOf.md)
  - [ConnectorNamespaceRequestMeta](docs/ConnectorNamespaceRequestMeta.md)
- - [ConnectorNamespaceRequestMetaAnnotations](docs/ConnectorNamespaceRequestMetaAnnotations.md)
  - [ConnectorNamespaceState](docs/ConnectorNamespaceState.md)
  - [ConnectorNamespaceStatus](docs/ConnectorNamespaceStatus.md)
  - [ConnectorNamespaceTenant](docs/ConnectorNamespaceTenant.md)

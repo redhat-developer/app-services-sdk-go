@@ -27,7 +27,7 @@ type ConnectorNamespaceMeta struct {
 	// Namespace name must match pattern `^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$`, or it may be empty to be auto-generated.
 	Name *string `json:"name,omitempty"`
 
-	Annotations *[]ConnectorNamespaceRequestMetaAnnotations `json:"annotations,omitempty"`
+	Annotations *map[string]string `json:"annotations,omitempty"`
 
 	ResourceVersion *int64 `json:"resource_version,omitempty"`
 
@@ -194,9 +194,9 @@ func (o *ConnectorNamespaceMeta) SetName(v string) {
 
 
 // GetAnnotations returns the Annotations field value if set, zero value otherwise.
-func (o *ConnectorNamespaceMeta) GetAnnotations() []ConnectorNamespaceRequestMetaAnnotations {
+func (o *ConnectorNamespaceMeta) GetAnnotations() map[string]string {
 	if o == nil || o.Annotations == nil {
-		var ret []ConnectorNamespaceRequestMetaAnnotations
+		var ret map[string]string
 		return ret
 	}
 	return *o.Annotations
@@ -204,7 +204,7 @@ func (o *ConnectorNamespaceMeta) GetAnnotations() []ConnectorNamespaceRequestMet
 
 // GetAnnotationsOk returns a tuple with the Annotations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConnectorNamespaceMeta) GetAnnotationsOk() (*[]ConnectorNamespaceRequestMetaAnnotations, bool) {
+func (o *ConnectorNamespaceMeta) GetAnnotationsOk() (*map[string]string, bool) {
 	if o == nil || o.Annotations == nil {
 		return nil, false
 	}
@@ -220,8 +220,8 @@ func (o *ConnectorNamespaceMeta) HasAnnotations() bool {
 	return false
 }
 
-// SetAnnotations gets a reference to the given []ConnectorNamespaceRequestMetaAnnotations and assigns it to the Annotations field.
-func (o *ConnectorNamespaceMeta) SetAnnotations(v []ConnectorNamespaceRequestMetaAnnotations) {
+// SetAnnotations gets a reference to the given map[string]string and assigns it to the Annotations field.
+func (o *ConnectorNamespaceMeta) SetAnnotations(v map[string]string) {
 	o.Annotations = &v
 }
 

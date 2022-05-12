@@ -617,8 +617,8 @@ paths:
 
           DEPRECATION NOTICE - instance_type will be deprecated
         examples:
-          eval_instance_type:
-            value: eval
+          developer_instance_type:
+            value: developer
           standard_instance_type:
             value: standard
         explode: true
@@ -1852,6 +1852,7 @@ components:
       required:
       - capacity
       - enabled
+      - supported_instance_types
     ServiceAccount:
       allOf:
       - $ref: '#/components/schemas/ObjectReference'
