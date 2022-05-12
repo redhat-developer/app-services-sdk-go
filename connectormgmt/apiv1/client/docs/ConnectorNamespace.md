@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
 **ModifiedAt** | Pointer to **time.Time** |  | [optional] 
 **Name** | **string** |  | 
-**Annotations** | Pointer to [**[]ConnectorNamespaceRequestMetaAnnotations**](ConnectorNamespaceRequestMetaAnnotations.md) |  | [optional] 
+**Annotations** | Pointer to **map[string]string** |  | [optional] 
 **ResourceVersion** | **int64** |  | 
 **Quota** | Pointer to [**ConnectorNamespaceQuota**](ConnectorNamespaceQuota.md) |  | [optional] 
 **ClusterId** | **string** |  | 
@@ -214,20 +214,20 @@ SetName sets Name field to given value.
 
 ### GetAnnotations
 
-`func (o *ConnectorNamespace) GetAnnotations() []ConnectorNamespaceRequestMetaAnnotations`
+`func (o *ConnectorNamespace) GetAnnotations() map[string]string`
 
 GetAnnotations returns the Annotations field if non-nil, zero value otherwise.
 
 ### GetAnnotationsOk
 
-`func (o *ConnectorNamespace) GetAnnotationsOk() (*[]ConnectorNamespaceRequestMetaAnnotations, bool)`
+`func (o *ConnectorNamespace) GetAnnotationsOk() (*map[string]string, bool)`
 
 GetAnnotationsOk returns a tuple with the Annotations field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAnnotations
 
-`func (o *ConnectorNamespace) SetAnnotations(v []ConnectorNamespaceRequestMetaAnnotations)`
+`func (o *ConnectorNamespace) SetAnnotations(v map[string]string)`
 
 SetAnnotations sets Annotations field to given value.
 

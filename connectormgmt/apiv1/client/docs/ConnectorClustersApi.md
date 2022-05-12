@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 ## GetConnectorClusterAddonParameters
 
-> []AddonParameter GetConnectorClusterAddonParameters(ctx, connectorClusterId).Execute()
+> []AddonParameter GetConnectorClusterAddonParameters(ctx, connectorClusterId).ResetCredentials(resetCredentials).Execute()
 
 Get a connector cluster's addon parameters
 
@@ -244,10 +244,11 @@ import (
 
 func main() {
     connectorClusterId := "connectorClusterId_example" // string | The id of the connector cluster
+    resetCredentials := true // bool | Resets cluster service account credentials when true (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ConnectorClustersApi.GetConnectorClusterAddonParameters(context.Background(), connectorClusterId).Execute()
+    resp, r, err := api_client.ConnectorClustersApi.GetConnectorClusterAddonParameters(context.Background(), connectorClusterId).ResetCredentials(resetCredentials).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorClustersApi.GetConnectorClusterAddonParameters``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -273,6 +274,7 @@ Other parameters are passed through a pointer to a apiGetConnectorClusterAddonPa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **resetCredentials** | **bool** | Resets cluster service account credentials when true | 
 
 ### Return type
 

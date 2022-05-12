@@ -39,7 +39,6 @@ docs/ConnectorNamespaceQuota.md
 docs/ConnectorNamespaceRequest.md
 docs/ConnectorNamespaceRequestAllOf.md
 docs/ConnectorNamespaceRequestMeta.md
-docs/ConnectorNamespaceRequestMetaAnnotations.md
 docs/ConnectorNamespaceState.md
 docs/ConnectorNamespaceStatus.md
 docs/ConnectorNamespaceTenant.md
@@ -98,7 +97,6 @@ model_connector_namespace_quota.go
 model_connector_namespace_request.go
 model_connector_namespace_request_all_of.go
 model_connector_namespace_request_meta.go
-model_connector_namespace_request_meta_annotations.go
 model_connector_namespace_state.go
 model_connector_namespace_status.go
 model_connector_namespace_tenant.go
