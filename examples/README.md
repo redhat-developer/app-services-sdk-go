@@ -4,7 +4,7 @@ To run examples execute go run.
 For example:
 
 ```shell
-ACCESS_TOKEN="" go run ./kafkamgmt/kafka_mgmt.go
+ACCESS_TOKEN=`rhoas authtoken` go run ./kafkamgmt/kafka_mgmt.go
 ```
 
 ## Setting up urls for instance SDK examples
