@@ -245,7 +245,7 @@ func main() {
     id := "id_example" // string | The ID of record
     page := "1" // string | Page index (optional)
     size := "100" // string | Number of items in each page (optional)
-    instanceType := "eval" // string | The Kafka instance type to filter the results by  DEPRECATION NOTICE - instance_type will be deprecated (optional)
+    instanceType := "developer" // string | The Kafka instance type to filter the results by  DEPRECATION NOTICE - instance_type will be deprecated (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)

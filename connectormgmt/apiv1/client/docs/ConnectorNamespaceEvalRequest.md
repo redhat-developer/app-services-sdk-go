@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | Namespace name must match pattern &#x60;^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$&#x60;, or it may be empty to be auto-generated. | [optional] 
-**Annotations** | Pointer to [**[]ConnectorNamespaceRequestMetaAnnotations**](ConnectorNamespaceRequestMetaAnnotations.md) |  | [optional] 
+**Annotations** | Pointer to **map[string]string** |  | [optional] 
 
 
 ## Methods
@@ -56,20 +56,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetAnnotations
 
-`func (o *ConnectorNamespaceEvalRequest) GetAnnotations() []ConnectorNamespaceRequestMetaAnnotations`
+`func (o *ConnectorNamespaceEvalRequest) GetAnnotations() map[string]string`
 
 GetAnnotations returns the Annotations field if non-nil, zero value otherwise.
 
 ### GetAnnotationsOk
 
-`func (o *ConnectorNamespaceEvalRequest) GetAnnotationsOk() (*[]ConnectorNamespaceRequestMetaAnnotations, bool)`
+`func (o *ConnectorNamespaceEvalRequest) GetAnnotationsOk() (*map[string]string, bool)`
 
 GetAnnotationsOk returns a tuple with the Annotations field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAnnotations
 
-`func (o *ConnectorNamespaceEvalRequest) SetAnnotations(v []ConnectorNamespaceRequestMetaAnnotations)`
+`func (o *ConnectorNamespaceEvalRequest) SetAnnotations(v map[string]string)`
 
 SetAnnotations sets Annotations field to given value.
 
