@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Unique identifier of this Kafka instance size. | [optional] 
+**DisplayName** | Pointer to **string** | Display name of this Kafka instance size. | [optional] 
 **IngressThroughputPerSec** | Pointer to [**SupportedKafkaSizeBytesValueItem**](SupportedKafkaSizeBytesValueItem.md) |  | [optional] 
 **EgressThroughputPerSec** | Pointer to [**SupportedKafkaSizeBytesValueItem**](SupportedKafkaSizeBytesValueItem.md) |  | [optional] 
 **TotalMaxConnections** | Pointer to **int32** | Maximum amount of total connections available to this Kafka instance size. | [optional] 
@@ -12,6 +13,11 @@ Name | Type | Description | Notes
 **MaxPartitions** | Pointer to **int32** | Maximum amount of total partitions available to this Kafka instance size. | [optional] 
 **MaxDataRetentionPeriod** | Pointer to **string** | Maximum data retention period available to this Kafka instance size. | [optional] 
 **MaxConnectionAttemptsPerSec** | Pointer to **int32** | Maximium connection attempts per second available to this Kafka instance size. | [optional] 
+**MaxMessageSize** | Pointer to [**SupportedKafkaSizeBytesValueItem**](SupportedKafkaSizeBytesValueItem.md) |  | [optional] 
+**MinInSyncReplicas** | Pointer to **int32** | Minimum number of in-sync replicas. | [optional] 
+**ReplicationFactor** | Pointer to **int32** | Replication factor available to this Kafka instance size. | [optional] 
+**SupportedAzModes** | Pointer to **[]string** | List of Availability Zone modes that this Kafka instance size supports. The possible values are \&quot;single\&quot;, \&quot;multi\&quot;. | [optional] 
+**LifespanSeconds** | Pointer to **NullableInt32** | The limit lifespan of the kafka instance in seconds. If not specified then the instance never expires. | [optional] 
 **QuotaConsumed** | Pointer to **int32** | Quota consumed by this Kafka instance size. | [optional] 
 **QuotaType** | Pointer to **string** | Quota type used by this Kafka instance size. | [optional] 
 **CapacityConsumed** | Pointer to **int32** | Data plane cluster capacity consumed by this Kafka instance size. | [optional] 
@@ -61,6 +67,32 @@ SetId sets Id field to given value.
 `func (o *SupportedKafkaSize) HasId() bool`
 
 HasId returns a boolean if a field has been set.
+
+
+### GetDisplayName
+
+`func (o *SupportedKafkaSize) GetDisplayName() string`
+
+GetDisplayName returns the DisplayName field if non-nil, zero value otherwise.
+
+### GetDisplayNameOk
+
+`func (o *SupportedKafkaSize) GetDisplayNameOk() (*string, bool)`
+
+GetDisplayNameOk returns a tuple with the DisplayName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayName
+
+`func (o *SupportedKafkaSize) SetDisplayName(v string)`
+
+SetDisplayName sets DisplayName field to given value.
+
+### HasDisplayName
+
+`func (o *SupportedKafkaSize) HasDisplayName() bool`
+
+HasDisplayName returns a boolean if a field has been set.
 
 
 ### GetIngressThroughputPerSec
@@ -244,6 +276,146 @@ SetMaxConnectionAttemptsPerSec sets MaxConnectionAttemptsPerSec field to given v
 
 HasMaxConnectionAttemptsPerSec returns a boolean if a field has been set.
 
+
+### GetMaxMessageSize
+
+`func (o *SupportedKafkaSize) GetMaxMessageSize() SupportedKafkaSizeBytesValueItem`
+
+GetMaxMessageSize returns the MaxMessageSize field if non-nil, zero value otherwise.
+
+### GetMaxMessageSizeOk
+
+`func (o *SupportedKafkaSize) GetMaxMessageSizeOk() (*SupportedKafkaSizeBytesValueItem, bool)`
+
+GetMaxMessageSizeOk returns a tuple with the MaxMessageSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxMessageSize
+
+`func (o *SupportedKafkaSize) SetMaxMessageSize(v SupportedKafkaSizeBytesValueItem)`
+
+SetMaxMessageSize sets MaxMessageSize field to given value.
+
+### HasMaxMessageSize
+
+`func (o *SupportedKafkaSize) HasMaxMessageSize() bool`
+
+HasMaxMessageSize returns a boolean if a field has been set.
+
+
+### GetMinInSyncReplicas
+
+`func (o *SupportedKafkaSize) GetMinInSyncReplicas() int32`
+
+GetMinInSyncReplicas returns the MinInSyncReplicas field if non-nil, zero value otherwise.
+
+### GetMinInSyncReplicasOk
+
+`func (o *SupportedKafkaSize) GetMinInSyncReplicasOk() (*int32, bool)`
+
+GetMinInSyncReplicasOk returns a tuple with the MinInSyncReplicas field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMinInSyncReplicas
+
+`func (o *SupportedKafkaSize) SetMinInSyncReplicas(v int32)`
+
+SetMinInSyncReplicas sets MinInSyncReplicas field to given value.
+
+### HasMinInSyncReplicas
+
+`func (o *SupportedKafkaSize) HasMinInSyncReplicas() bool`
+
+HasMinInSyncReplicas returns a boolean if a field has been set.
+
+
+### GetReplicationFactor
+
+`func (o *SupportedKafkaSize) GetReplicationFactor() int32`
+
+GetReplicationFactor returns the ReplicationFactor field if non-nil, zero value otherwise.
+
+### GetReplicationFactorOk
+
+`func (o *SupportedKafkaSize) GetReplicationFactorOk() (*int32, bool)`
+
+GetReplicationFactorOk returns a tuple with the ReplicationFactor field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReplicationFactor
+
+`func (o *SupportedKafkaSize) SetReplicationFactor(v int32)`
+
+SetReplicationFactor sets ReplicationFactor field to given value.
+
+### HasReplicationFactor
+
+`func (o *SupportedKafkaSize) HasReplicationFactor() bool`
+
+HasReplicationFactor returns a boolean if a field has been set.
+
+
+### GetSupportedAzModes
+
+`func (o *SupportedKafkaSize) GetSupportedAzModes() []string`
+
+GetSupportedAzModes returns the SupportedAzModes field if non-nil, zero value otherwise.
+
+### GetSupportedAzModesOk
+
+`func (o *SupportedKafkaSize) GetSupportedAzModesOk() (*[]string, bool)`
+
+GetSupportedAzModesOk returns a tuple with the SupportedAzModes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportedAzModes
+
+`func (o *SupportedKafkaSize) SetSupportedAzModes(v []string)`
+
+SetSupportedAzModes sets SupportedAzModes field to given value.
+
+### HasSupportedAzModes
+
+`func (o *SupportedKafkaSize) HasSupportedAzModes() bool`
+
+HasSupportedAzModes returns a boolean if a field has been set.
+
+
+### GetLifespanSeconds
+
+`func (o *SupportedKafkaSize) GetLifespanSeconds() int32`
+
+GetLifespanSeconds returns the LifespanSeconds field if non-nil, zero value otherwise.
+
+### GetLifespanSecondsOk
+
+`func (o *SupportedKafkaSize) GetLifespanSecondsOk() (*int32, bool)`
+
+GetLifespanSecondsOk returns a tuple with the LifespanSeconds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLifespanSeconds
+
+`func (o *SupportedKafkaSize) SetLifespanSeconds(v int32)`
+
+SetLifespanSeconds sets LifespanSeconds field to given value.
+
+### HasLifespanSeconds
+
+`func (o *SupportedKafkaSize) HasLifespanSeconds() bool`
+
+HasLifespanSeconds returns a boolean if a field has been set.
+
+### SetLifespanSecondsNil
+
+`func (o *SupportedKafkaSize) SetLifespanSecondsNil(b bool)`
+
+ SetLifespanSecondsNil sets the value for LifespanSeconds to be an explicit nil
+
+### UnsetLifespanSeconds
+`func (o *SupportedKafkaSize) UnsetLifespanSeconds()`
+
+UnsetLifespanSeconds ensures that no value is present for LifespanSeconds, not even an explicit nil
 
 ### GetQuotaConsumed
 
