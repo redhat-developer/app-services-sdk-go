@@ -12,11 +12,11 @@ jobs:
       GOPATH: /home/runner/work/app-services-sdk-go/go
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-go@v2
+      - uses: actions/setup-go@v3
         with:
           go-version: 1.16
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Generate API clients
         run: |
           export PATH=${PATH}:`go env GOPATH`/bin
@@ -25,7 +25,7 @@ jobs:
           api-generate-all --repo-metadata=.config/api-client-metadata.json --generator go --templates-dir=./scripts/templates
           go mod tidy
 
-      - uses: peter-evans/create-pull-request@v3
+      - uses: peter-evans/create-pull-request@v4
         with:
           title: "chore(all): re-generate OpenAPI client(s)"
           token: "${{ secrets.CI_USER_TOKEN }}"
