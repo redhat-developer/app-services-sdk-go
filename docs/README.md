@@ -2,14 +2,14 @@
 
 ### Management SDKs documentation
 
-- [Kafka Management](github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1)
-- [Service Registry Management](github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1)
-- [Service Accounts Management](github.com/redhat-developer/app-services-sdk-go/connectorgmt/apiv1)
+- [Kafka Management](https://github.com/redhat-developer/app-services-sdk-go/tree/main/kafkamgmt/apiv1)
+- [Service Registry Management](https://github.com/redhat-developer/app-services-sdk-go/tree/main/registrymgmt/apiv1)
+- [Service Accounts Management](https://github.com/redhat-developer/app-services-sdk-go/tree/main/connectorgmt/apiv1)
 
 ###  Service SDKs
 
-- [Kafka Instance Admin](github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1)
-- **In progress** Service Registry Instance
+- [Kafka Instance Admin](https://github.com/redhat-developer/app-services-sdk-go/tree/main/kafkainstance/apiv1)
+- [Service Registry Instance](https://github.com/redhat-developer/app-services-sdk-go/tree/main/registryinstance/apiv1internal)
 
 ### Additional topics
 
