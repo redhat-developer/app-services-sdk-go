@@ -15,7 +15,7 @@ For example:
 ```shell
 ACCESS_TOKEN=`rhoas authtoken` go run ./examples/kafkamgmt/kafka_mgmt.go
 ```
-
+Access token generation uses "rhoas cli" for example purposes. For the real usage you would need to use gocloak library
 ## Setting up urls for instance SDK examples
 
 Instance SDKS like registryinstance and kafkainstance requre extra `API_URL` environment variable that is used to point to the root of the API.
