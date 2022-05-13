@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Bytes** | Pointer to **float32** |  | [optional] 
+**Bytes** | Pointer to **int64** |  | [optional] 
 
 
 ## Methods
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetBytes
 
-`func (o *SupportedKafkaSizeBytesValueItem) GetBytes() float32`
+`func (o *SupportedKafkaSizeBytesValueItem) GetBytes() int64`
 
 GetBytes returns the Bytes field if non-nil, zero value otherwise.
 
 ### GetBytesOk
 
-`func (o *SupportedKafkaSizeBytesValueItem) GetBytesOk() (*float32, bool)`
+`func (o *SupportedKafkaSizeBytesValueItem) GetBytesOk() (*int64, bool)`
 
 GetBytesOk returns a tuple with the Bytes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBytes
 
-`func (o *SupportedKafkaSizeBytesValueItem) SetBytes(v float32)`
+`func (o *SupportedKafkaSizeBytesValueItem) SetBytes(v int64)`
 
 SetBytes sets Bytes field to given value.
 
