@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewCloudRegion
 
-`func NewCloudRegion(enabled bool, supportedInstanceTypes []string, capacity []RegionCapacityListItem, ) *CloudRegion`
+`func NewCloudRegion(enabled bool, capacity []RegionCapacityListItem, ) *CloudRegion`
 
 NewCloudRegion instantiates a new CloudRegion object
 This constructor will assign default values to properties that have it defined,
