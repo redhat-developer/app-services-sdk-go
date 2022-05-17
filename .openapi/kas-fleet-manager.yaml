@@ -1256,8 +1256,7 @@ components:
           description: 'Indicates whether there is capacity left per instance type'
           type: array
           items:
-            allOf:
-              - $ref: "#/components/schemas/RegionCapacityListItem"
+            $ref: "#/components/schemas/RegionCapacityListItem"
       required:
         - enabled
         - supported_instance_types
