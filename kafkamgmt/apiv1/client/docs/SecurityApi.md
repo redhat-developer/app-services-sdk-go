@@ -324,7 +324,7 @@ Other parameters are passed through a pointer to a apiGetSsoProvidersRequest str
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+No authorization required
 
 ### HTTP request headers
 

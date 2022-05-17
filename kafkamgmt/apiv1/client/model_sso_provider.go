@@ -23,6 +23,9 @@ type SsoProvider struct {
 
 	Href *string `json:"href,omitempty"`
 
+	// name of the sso provider
+	Name *string `json:"name,omitempty"`
+
 	// base url
 	BaseUrl *string `json:"base_url,omitempty"`
 
@@ -48,6 +51,7 @@ func NewSsoProvider() *SsoProvider {
 // but it doesn't guarantee that properties required by API are set
 func NewSsoProviderWithDefaults() *SsoProvider {
 	this := SsoProvider{}
+
 
 
 
@@ -156,6 +160,39 @@ func (o *SsoProvider) HasHref() bool {
 // SetHref gets a reference to the given string and assigns it to the Href field.
 func (o *SsoProvider) SetHref(v string) {
 	o.Href = &v
+}
+
+
+// GetName returns the Name field value if set, zero value otherwise.
+func (o *SsoProvider) GetName() string {
+	if o == nil || o.Name == nil {
+		var ret string
+		return ret
+	}
+	return *o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SsoProvider) GetNameOk() (*string, bool) {
+	if o == nil || o.Name == nil {
+		return nil, false
+	}
+	return o.Name, true
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *SsoProvider) HasName() bool {
+	if o != nil && o.Name != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
+func (o *SsoProvider) SetName(v string) {
+	o.Name = &v
 }
 
 
@@ -304,6 +341,10 @@ func (o SsoProvider) MarshalJSON() ([]byte, error) {
     
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
+	}
+    
+	if o.Name != nil {
+		toSerialize["name"] = o.Name
 	}
     
 	if o.BaseUrl != nil {
