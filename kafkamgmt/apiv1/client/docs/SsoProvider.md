@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Kind** | Pointer to **string** |  | [optional] 
 **Href** | Pointer to **string** |  | [optional] 
+**Name** | Pointer to **string** | name of the sso provider | [optional] 
 **BaseUrl** | Pointer to **string** | base url | [optional] 
 **TokenUrl** | Pointer to **string** |  | [optional] 
 **Jwks** | Pointer to **string** |  | [optional] 
@@ -109,6 +110,32 @@ SetHref sets Href field to given value.
 `func (o *SsoProvider) HasHref() bool`
 
 HasHref returns a boolean if a field has been set.
+
+
+### GetName
+
+`func (o *SsoProvider) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *SsoProvider) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *SsoProvider) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *SsoProvider) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 
 ### GetBaseUrl
