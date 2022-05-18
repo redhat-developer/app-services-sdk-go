@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Secret** | Pointer to **string** | Provided during creation and resetting of service account credentials. | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**OwnerId** | Pointer to **string** |  | [optional] 
+**CreatedBy** | Pointer to **string** |  | [optional] 
 **CreatedAt** | Pointer to **int64** |  | [optional] 
 
 
@@ -163,30 +163,30 @@ SetDescription sets Description field to given value.
 HasDescription returns a boolean if a field has been set.
 
 
-### GetOwnerId
+### GetCreatedBy
 
-`func (o *ServiceAccountData) GetOwnerId() string`
+`func (o *ServiceAccountData) GetCreatedBy() string`
 
-GetOwnerId returns the OwnerId field if non-nil, zero value otherwise.
+GetCreatedBy returns the CreatedBy field if non-nil, zero value otherwise.
 
-### GetOwnerIdOk
+### GetCreatedByOk
 
-`func (o *ServiceAccountData) GetOwnerIdOk() (*string, bool)`
+`func (o *ServiceAccountData) GetCreatedByOk() (*string, bool)`
 
-GetOwnerIdOk returns a tuple with the OwnerId field if it's non-nil, zero value otherwise
+GetCreatedByOk returns a tuple with the CreatedBy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOwnerId
+### SetCreatedBy
 
-`func (o *ServiceAccountData) SetOwnerId(v string)`
+`func (o *ServiceAccountData) SetCreatedBy(v string)`
 
-SetOwnerId sets OwnerId field to given value.
+SetCreatedBy sets CreatedBy field to given value.
 
-### HasOwnerId
+### HasCreatedBy
 
-`func (o *ServiceAccountData) HasOwnerId() bool`
+`func (o *ServiceAccountData) HasCreatedBy() bool`
 
-HasOwnerId returns a boolean if a field has been set.
+HasCreatedBy returns a boolean if a field has been set.
 
 
 ### GetCreatedAt

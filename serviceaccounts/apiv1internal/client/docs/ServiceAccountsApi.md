@@ -1,6 +1,6 @@
 # \ServiceAccountsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://sso.redhat.com/auth/realms/redhat-external*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ## GetServiceAccounts
 
-> []ServiceAccountData GetServiceAccounts(ctx).First(first).Max(max).Execute()
+> []ServiceAccountData GetServiceAccounts(ctx).First(first).Max(max).ClientId(clientId).Execute()
 
 List all service accounts
 
@@ -240,10 +240,11 @@ import (
 func main() {
     first := int32(56) // int32 |  (optional) (default to 0)
     max := int32(56) // int32 |  (optional) (default to 20)
+    clientId := []string{"Inner_example"} // []string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ServiceAccountsApi.GetServiceAccounts(context.Background()).First(first).Max(max).Execute()
+    resp, r, err := api_client.ServiceAccountsApi.GetServiceAccounts(context.Background()).First(first).Max(max).ClientId(clientId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ServiceAccountsApi.GetServiceAccounts``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -266,6 +267,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **first** | **int32** |  | [default to 0]
  **max** | **int32** |  | [default to 20]
+ **clientId** | **[]string** |  | 
 
 ### Return type
 
