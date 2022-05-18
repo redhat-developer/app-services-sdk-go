@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **QuotaConsumed** | Pointer to **int32** | Quota consumed by this Kafka instance size. | [optional] 
 **QuotaType** | Pointer to **string** | Quota type used by this Kafka instance size. | [optional] 
 **CapacityConsumed** | Pointer to **int32** | Data plane cluster capacity consumed by this Kafka instance size. | [optional] 
+**MaturityStatus** | Pointer to **string** | Maturity level of the size. Can be stable or tech preview. | [optional] 
 
 
 ## Methods
@@ -493,6 +494,32 @@ SetCapacityConsumed sets CapacityConsumed field to given value.
 `func (o *SupportedKafkaSize) HasCapacityConsumed() bool`
 
 HasCapacityConsumed returns a boolean if a field has been set.
+
+
+### GetMaturityStatus
+
+`func (o *SupportedKafkaSize) GetMaturityStatus() string`
+
+GetMaturityStatus returns the MaturityStatus field if non-nil, zero value otherwise.
+
+### GetMaturityStatusOk
+
+`func (o *SupportedKafkaSize) GetMaturityStatusOk() (*string, bool)`
+
+GetMaturityStatusOk returns a tuple with the MaturityStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaturityStatus
+
+`func (o *SupportedKafkaSize) SetMaturityStatus(v string)`
+
+SetMaturityStatus sets MaturityStatus field to given value.
+
+### HasMaturityStatus
+
+`func (o *SupportedKafkaSize) HasMaturityStatus() bool`
+
+HasMaturityStatus returns a boolean if a field has been set.
 
 
 
