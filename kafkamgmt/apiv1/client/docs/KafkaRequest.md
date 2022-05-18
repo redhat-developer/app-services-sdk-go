@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** |  | [optional] 
 **BootstrapServerHost** | Pointer to **string** |  | [optional] 
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
+**ExpiresAt** | Pointer to **NullableTime** |  | [optional] 
 **UpdatedAt** | Pointer to **time.Time** |  | [optional] 
 **FailedReason** | Pointer to **string** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
@@ -332,6 +333,42 @@ SetCreatedAt sets CreatedAt field to given value.
 
 HasCreatedAt returns a boolean if a field has been set.
 
+
+### GetExpiresAt
+
+`func (o *KafkaRequest) GetExpiresAt() time.Time`
+
+GetExpiresAt returns the ExpiresAt field if non-nil, zero value otherwise.
+
+### GetExpiresAtOk
+
+`func (o *KafkaRequest) GetExpiresAtOk() (*time.Time, bool)`
+
+GetExpiresAtOk returns a tuple with the ExpiresAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExpiresAt
+
+`func (o *KafkaRequest) SetExpiresAt(v time.Time)`
+
+SetExpiresAt sets ExpiresAt field to given value.
+
+### HasExpiresAt
+
+`func (o *KafkaRequest) HasExpiresAt() bool`
+
+HasExpiresAt returns a boolean if a field has been set.
+
+### SetExpiresAtNil
+
+`func (o *KafkaRequest) SetExpiresAtNil(b bool)`
+
+ SetExpiresAtNil sets the value for ExpiresAt to be an explicit nil
+
+### UnsetExpiresAt
+`func (o *KafkaRequest) UnsetExpiresAt()`
+
+UnsetExpiresAt ensures that no value is present for ExpiresAt, not even an explicit nil
 
 ### GetUpdatedAt
 
