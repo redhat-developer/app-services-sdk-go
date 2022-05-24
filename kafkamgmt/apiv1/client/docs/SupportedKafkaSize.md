@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **QuotaConsumed** | Pointer to **int32** | Quota consumed by this Kafka instance size. | [optional] 
 **QuotaType** | Pointer to **string** | Quota type used by this Kafka instance size. | [optional] 
 **CapacityConsumed** | Pointer to **int32** | Data plane cluster capacity consumed by this Kafka instance size. | [optional] 
-**MaturityStatus** | Pointer to **string** | Maturity level of the size. Can be stable or tech preview. | [optional] 
+**MaturityStatus** | Pointer to **string** | Maturity level of the size. Can be \&quot;stable\&quot; or \&quot;preview\&quot;. | [optional] 
 
 
 ## Methods
