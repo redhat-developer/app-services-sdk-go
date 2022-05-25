@@ -38,9 +38,10 @@ type CloudRegion struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCloudRegion(enabled bool, capacity []RegionCapacityListItem) *CloudRegion {
+func NewCloudRegion(enabled bool, supportedInstanceTypes []string, capacity []RegionCapacityListItem) *CloudRegion {
 	this := CloudRegion{}
 	this.Enabled = enabled
+	this.SupportedInstanceTypes = supportedInstanceTypes
 	this.Capacity = capacity
 	return &this
 }

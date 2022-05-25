@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Owner** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **BootstrapServerHost** | Pointer to **string** |  | [optional] 
+**AdminApiServerUrl** | Pointer to **string** | The kafka admin server url to perform kafka admin operations e.g acl management etc. The value will be available when the Kafka has been fully provisioned i.e it reaches a &#39;ready&#39; state | [optional] 
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
 **ExpiresAt** | Pointer to **NullableTime** |  | [optional] 
 **UpdatedAt** | Pointer to **time.Time** |  | [optional] 
@@ -306,6 +307,32 @@ SetBootstrapServerHost sets BootstrapServerHost field to given value.
 `func (o *KafkaRequest) HasBootstrapServerHost() bool`
 
 HasBootstrapServerHost returns a boolean if a field has been set.
+
+
+### GetAdminApiServerUrl
+
+`func (o *KafkaRequest) GetAdminApiServerUrl() string`
+
+GetAdminApiServerUrl returns the AdminApiServerUrl field if non-nil, zero value otherwise.
+
+### GetAdminApiServerUrlOk
+
+`func (o *KafkaRequest) GetAdminApiServerUrlOk() (*string, bool)`
+
+GetAdminApiServerUrlOk returns a tuple with the AdminApiServerUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdminApiServerUrl
+
+`func (o *KafkaRequest) SetAdminApiServerUrl(v string)`
+
+SetAdminApiServerUrl sets AdminApiServerUrl field to given value.
+
+### HasAdminApiServerUrl
+
+`func (o *KafkaRequest) HasAdminApiServerUrl() bool`
+
+HasAdminApiServerUrl returns a boolean if a field has been set.
 
 
 ### GetCreatedAt
