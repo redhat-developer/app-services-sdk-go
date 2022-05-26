@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]ConsumerGroupResetOffsetResultItem**](ConsumerGroupResetOffsetResultItem.md) |  | 
+**Items** | Pointer to [**[]ConsumerGroupResetOffsetResultItem**](ConsumerGroupResetOffsetResultItem.md) |  | [optional] 
+**Kind** | Pointer to **string** |  | [optional] 
 **Total** | **int32** | Total number of entries in the full result set | 
 **Size** | Pointer to **int32** | Number of entries per page (returned for fetch requests) | [optional] 
 **Page** | Pointer to **int32** | Current page number (returned for fetch requests) | [optional] 
@@ -14,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewConsumerGroupResetOffsetResult
 
-`func NewConsumerGroupResetOffsetResult(items []ConsumerGroupResetOffsetResultItem, total int32, ) *ConsumerGroupResetOffsetResult`
+`func NewConsumerGroupResetOffsetResult(total int32, ) *ConsumerGroupResetOffsetResult`
 
 NewConsumerGroupResetOffsetResult instantiates a new ConsumerGroupResetOffsetResult object
 This constructor will assign default values to properties that have it defined,
@@ -49,6 +50,37 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
+### HasItems
+
+`func (o *ConsumerGroupResetOffsetResult) HasItems() bool`
+
+HasItems returns a boolean if a field has been set.
+
+
+### GetKind
+
+`func (o *ConsumerGroupResetOffsetResult) GetKind() string`
+
+GetKind returns the Kind field if non-nil, zero value otherwise.
+
+### GetKindOk
+
+`func (o *ConsumerGroupResetOffsetResult) GetKindOk() (*string, bool)`
+
+GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKind
+
+`func (o *ConsumerGroupResetOffsetResult) SetKind(v string)`
+
+SetKind sets Kind field to given value.
+
+### HasKind
+
+`func (o *ConsumerGroupResetOffsetResult) HasKind() bool`
+
+HasKind returns a boolean if a field has been set.
 
 
 ### GetTotal

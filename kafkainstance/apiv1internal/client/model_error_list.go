@@ -14,15 +14,15 @@ import (
 	"encoding/json"
 )
 
-// AclBindingListPage A page of ACL binding entries
-type AclBindingListPage struct {
+// ErrorList List of errors
+type ErrorList struct {
 
-	Items *[]AclBinding `json:"items,omitempty"`
+	Items *[]Error `json:"items,omitempty"`
+
+	// Total number of errors returned in this request
+	Total interface{} `json:"total,omitempty"`
 
 	Kind *string `json:"kind,omitempty"`
-
-	// Total number of entries in the full result set
-	Total int32 `json:"total"`
 
 	// Number of entries per page (returned for fetch requests)
 	Size *int32 `json:"size,omitempty"`
@@ -32,22 +32,22 @@ type AclBindingListPage struct {
 
 }
 
-// NewAclBindingListPage instantiates a new AclBindingListPage object
+// NewErrorList instantiates a new ErrorList object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAclBindingListPage(items []map[string]interface{}, total int32) *AclBindingListPage {
-	this := AclBindingListPage{}
+func NewErrorList(items []map[string]interface{}, total int32) *ErrorList {
+	this := ErrorList{}
 	this.Items = items
 	this.Total = total
 	return &this
 }
 
-// NewAclBindingListPageWithDefaults instantiates a new AclBindingListPage object
+// NewErrorListWithDefaults instantiates a new ErrorList object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewAclBindingListPageWithDefaults() *AclBindingListPage {
-	this := AclBindingListPage{}
+func NewErrorListWithDefaults() *ErrorList {
+	this := ErrorList{}
 
 
 
@@ -59,9 +59,9 @@ func NewAclBindingListPageWithDefaults() *AclBindingListPage {
 
 
 // GetItems returns the Items field value if set, zero value otherwise.
-func (o *AclBindingListPage) GetItems() []AclBinding {
+func (o *ErrorList) GetItems() []Error {
 	if o == nil || o.Items == nil {
-		var ret []AclBinding
+		var ret []Error
 		return ret
 	}
 	return *o.Items
@@ -69,7 +69,7 @@ func (o *AclBindingListPage) GetItems() []AclBinding {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AclBindingListPage) GetItemsOk() (*[]AclBinding, bool) {
+func (o *ErrorList) GetItemsOk() (*[]Error, bool) {
 	if o == nil || o.Items == nil {
 		return nil, false
 	}
@@ -77,7 +77,7 @@ func (o *AclBindingListPage) GetItemsOk() (*[]AclBinding, bool) {
 }
 
 // HasItems returns a boolean if a field has been set.
-func (o *AclBindingListPage) HasItems() bool {
+func (o *ErrorList) HasItems() bool {
 	if o != nil && o.Items != nil {
 		return true
 	}
@@ -85,14 +85,48 @@ func (o *AclBindingListPage) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []AclBinding and assigns it to the Items field.
-func (o *AclBindingListPage) SetItems(v []AclBinding) {
+// SetItems gets a reference to the given []Error and assigns it to the Items field.
+func (o *ErrorList) SetItems(v []Error) {
 	o.Items = &v
 }
 
 
+// GetTotal returns the Total field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ErrorList) GetTotal() interface{} {
+	if o == nil  {
+		var ret interface{}
+		return ret
+	}
+	return o.Total
+}
+
+// GetTotalOk returns a tuple with the Total field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ErrorList) GetTotalOk() (*interface{}, bool) {
+	if o == nil || o.Total == nil {
+		return nil, false
+	}
+	return &o.Total, true
+}
+
+// HasTotal returns a boolean if a field has been set.
+func (o *ErrorList) HasTotal() bool {
+	if o != nil && o.Total != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTotal gets a reference to the given interface{} and assigns it to the Total field.
+func (o *ErrorList) SetTotal(v interface{}) {
+	o.Total = v
+}
+
+
 // GetKind returns the Kind field value if set, zero value otherwise.
-func (o *AclBindingListPage) GetKind() string {
+func (o *ErrorList) GetKind() string {
 	if o == nil || o.Kind == nil {
 		var ret string
 		return ret
@@ -102,7 +136,7 @@ func (o *AclBindingListPage) GetKind() string {
 
 // GetKindOk returns a tuple with the Kind field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AclBindingListPage) GetKindOk() (*string, bool) {
+func (o *ErrorList) GetKindOk() (*string, bool) {
 	if o == nil || o.Kind == nil {
 		return nil, false
 	}
@@ -110,7 +144,7 @@ func (o *AclBindingListPage) GetKindOk() (*string, bool) {
 }
 
 // HasKind returns a boolean if a field has been set.
-func (o *AclBindingListPage) HasKind() bool {
+func (o *ErrorList) HasKind() bool {
 	if o != nil && o.Kind != nil {
 		return true
 	}
@@ -119,38 +153,13 @@ func (o *AclBindingListPage) HasKind() bool {
 }
 
 // SetKind gets a reference to the given string and assigns it to the Kind field.
-func (o *AclBindingListPage) SetKind(v string) {
+func (o *ErrorList) SetKind(v string) {
 	o.Kind = &v
 }
 
 
-// GetTotal returns the Total field value
-func (o *AclBindingListPage) GetTotal() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.Total
-}
-
-// GetTotalOk returns a tuple with the Total field value
-// and a boolean to check if the value has been set.
-func (o *AclBindingListPage) GetTotalOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Total, true
-}
-
-// SetTotal sets field value
-func (o *AclBindingListPage) SetTotal(v int32) {
-	o.Total = v
-}
-
-
 // GetSize returns the Size field value if set, zero value otherwise.
-func (o *AclBindingListPage) GetSize() int32 {
+func (o *ErrorList) GetSize() int32 {
 	if o == nil || o.Size == nil {
 		var ret int32
 		return ret
@@ -160,7 +169,7 @@ func (o *AclBindingListPage) GetSize() int32 {
 
 // GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AclBindingListPage) GetSizeOk() (*int32, bool) {
+func (o *ErrorList) GetSizeOk() (*int32, bool) {
 	if o == nil || o.Size == nil {
 		return nil, false
 	}
@@ -168,7 +177,7 @@ func (o *AclBindingListPage) GetSizeOk() (*int32, bool) {
 }
 
 // HasSize returns a boolean if a field has been set.
-func (o *AclBindingListPage) HasSize() bool {
+func (o *ErrorList) HasSize() bool {
 	if o != nil && o.Size != nil {
 		return true
 	}
@@ -177,13 +186,13 @@ func (o *AclBindingListPage) HasSize() bool {
 }
 
 // SetSize gets a reference to the given int32 and assigns it to the Size field.
-func (o *AclBindingListPage) SetSize(v int32) {
+func (o *ErrorList) SetSize(v int32) {
 	o.Size = &v
 }
 
 
 // GetPage returns the Page field value if set, zero value otherwise.
-func (o *AclBindingListPage) GetPage() int32 {
+func (o *ErrorList) GetPage() int32 {
 	if o == nil || o.Page == nil {
 		var ret int32
 		return ret
@@ -193,7 +202,7 @@ func (o *AclBindingListPage) GetPage() int32 {
 
 // GetPageOk returns a tuple with the Page field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AclBindingListPage) GetPageOk() (*int32, bool) {
+func (o *ErrorList) GetPageOk() (*int32, bool) {
 	if o == nil || o.Page == nil {
 		return nil, false
 	}
@@ -201,7 +210,7 @@ func (o *AclBindingListPage) GetPageOk() (*int32, bool) {
 }
 
 // HasPage returns a boolean if a field has been set.
-func (o *AclBindingListPage) HasPage() bool {
+func (o *ErrorList) HasPage() bool {
 	if o != nil && o.Page != nil {
 		return true
 	}
@@ -210,24 +219,24 @@ func (o *AclBindingListPage) HasPage() bool {
 }
 
 // SetPage gets a reference to the given int32 and assigns it to the Page field.
-func (o *AclBindingListPage) SetPage(v int32) {
+func (o *ErrorList) SetPage(v int32) {
 	o.Page = &v
 }
 
 
-func (o AclBindingListPage) MarshalJSON() ([]byte, error) {
+func (o ErrorList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
     
-	if o.Kind != nil {
-		toSerialize["kind"] = o.Kind
+	if o.Total != nil {
+		toSerialize["total"] = o.Total
 	}
     
-	if true {
-		toSerialize["total"] = o.Total
+	if o.Kind != nil {
+		toSerialize["kind"] = o.Kind
 	}
     
 	if o.Size != nil {
@@ -241,38 +250,38 @@ func (o AclBindingListPage) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableAclBindingListPage struct {
-	value *AclBindingListPage
+type NullableErrorList struct {
+	value *ErrorList
 	isSet bool
 }
 
-func (v NullableAclBindingListPage) Get() *AclBindingListPage {
+func (v NullableErrorList) Get() *ErrorList {
 	return v.value
 }
 
-func (v *NullableAclBindingListPage) Set(val *AclBindingListPage) {
+func (v *NullableErrorList) Set(val *ErrorList) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableAclBindingListPage) IsSet() bool {
+func (v NullableErrorList) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableAclBindingListPage) Unset() {
+func (v *NullableErrorList) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableAclBindingListPage(val *AclBindingListPage) *NullableAclBindingListPage {
-	return &NullableAclBindingListPage{value: val, isSet: true}
+func NewNullableErrorList(val *ErrorList) *NullableErrorList {
+	return &NullableErrorList{value: val, isSet: true}
 }
 
-func (v NullableAclBindingListPage) MarshalJSON() ([]byte, error) {
+func (v NullableErrorList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableAclBindingListPage) UnmarshalJSON(src []byte) error {
+func (v *NullableErrorList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

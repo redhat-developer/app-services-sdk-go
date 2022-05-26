@@ -8,13 +8,16 @@ Name | Type | Description | Notes
 **State** | Pointer to [**ConsumerGroupState**](ConsumerGroupState.md) |  | [optional] 
 **Consumers** | [**[]Consumer**](Consumer.md) | The list of consumers associated with this consumer group | 
 **Metrics** | Pointer to [**ConsumerGroupMetrics**](ConsumerGroupMetrics.md) |  | [optional] 
+**Id** | Pointer to **string** | Unique identifier for the object. Not supported for all object kinds. | [optional] 
+**Kind** | **string** |  | [readonly] 
+**Href** | Pointer to **string** | Link path to request the object. Not supported for all object kinds. | [optional] 
 
 
 ## Methods
 
 ### NewConsumerGroup
 
-`func NewConsumerGroup(groupId string, consumers []Consumer, ) *ConsumerGroup`
+`func NewConsumerGroup(groupId string, consumers []Consumer, kind string, ) *ConsumerGroup`
 
 NewConsumerGroup instantiates a new ConsumerGroup object
 This constructor will assign default values to properties that have it defined,
@@ -122,6 +125,79 @@ SetMetrics sets Metrics field to given value.
 `func (o *ConsumerGroup) HasMetrics() bool`
 
 HasMetrics returns a boolean if a field has been set.
+
+
+### GetId
+
+`func (o *ConsumerGroup) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *ConsumerGroup) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *ConsumerGroup) SetId(v string)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *ConsumerGroup) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+
+### GetKind
+
+`func (o *ConsumerGroup) GetKind() string`
+
+GetKind returns the Kind field if non-nil, zero value otherwise.
+
+### GetKindOk
+
+`func (o *ConsumerGroup) GetKindOk() (*string, bool)`
+
+GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKind
+
+`func (o *ConsumerGroup) SetKind(v string)`
+
+SetKind sets Kind field to given value.
+
+
+
+### GetHref
+
+`func (o *ConsumerGroup) GetHref() string`
+
+GetHref returns the Href field if non-nil, zero value otherwise.
+
+### GetHrefOk
+
+`func (o *ConsumerGroup) GetHrefOk() (*string, bool)`
+
+GetHrefOk returns a tuple with the Href field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHref
+
+`func (o *ConsumerGroup) SetHref(v string)`
+
+SetHref sets Href field to given value.
+
+### HasHref
+
+`func (o *ConsumerGroup) HasHref() bool`
+
+HasHref returns a boolean if a field has been set.
 
 
 
