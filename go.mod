@@ -8,7 +8,4 @@ require (
 	golang.org/x/xerrors v0.0.0-20220517211312-f3a8303e98df // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
-	github.com/redhat-developer/app-services-sdk-go/kafkainstance v0.6.0
-	github.com/redhat-developer/app-services-sdk-go/kafkamgmt v0.11.2
-	github.com/redhat-developer/app-services-sdk-go/registryinstance v0.3.1
 )
