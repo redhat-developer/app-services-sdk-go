@@ -1,6 +1,8 @@
 ## Prerequisites:
 
-Run the following command(s) to ensure proper functionality of the program. 
+- RHOAS CLI installed - it will be used for obtaining tokens for authentication.
+For more information about authentication please refer to SDK docs.
+- Repository is properly initiatilized: 
 
 ```shell
 go mod tidy
