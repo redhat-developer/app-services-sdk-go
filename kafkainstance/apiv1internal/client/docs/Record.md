@@ -11,13 +11,16 @@ Name | Type | Description | Notes
 **Headers** | Pointer to **map[string]string** | Record headers, key/value pairs | [optional] 
 **Key** | Pointer to **string** | Record key | [optional] 
 **Value** | **string** | Record value | 
+**Id** | Pointer to **string** | Unique identifier for the object. Not supported for all object kinds. | [optional] 
+**Kind** | **string** |  | [readonly] 
+**Href** | Pointer to **string** | Link path to request the object. Not supported for all object kinds. | [optional] 
 
 
 ## Methods
 
 ### NewRecord
 
-`func NewRecord(value string, ) *Record`
+`func NewRecord(value string, kind string, ) *Record`
 
 NewRecord instantiates a new Record object
 This constructor will assign default values to properties that have it defined,
@@ -208,6 +211,79 @@ and a boolean to check if the value has been set.
 
 SetValue sets Value field to given value.
 
+
+
+### GetId
+
+`func (o *Record) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *Record) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *Record) SetId(v string)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *Record) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+
+### GetKind
+
+`func (o *Record) GetKind() string`
+
+GetKind returns the Kind field if non-nil, zero value otherwise.
+
+### GetKindOk
+
+`func (o *Record) GetKindOk() (*string, bool)`
+
+GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKind
+
+`func (o *Record) SetKind(v string)`
+
+SetKind sets Kind field to given value.
+
+
+
+### GetHref
+
+`func (o *Record) GetHref() string`
+
+GetHref returns the Href field if non-nil, zero value otherwise.
+
+### GetHrefOk
+
+`func (o *Record) GetHrefOk() (*string, bool)`
+
+GetHrefOk returns a tuple with the Href field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHref
+
+`func (o *Record) SetHref(v string)`
+
+SetHref sets Href field to given value.
+
+### HasHref
+
+`func (o *Record) HasHref() bool`
+
+HasHref returns a boolean if a field has been set.
 
 
 

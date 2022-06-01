@@ -22,6 +22,7 @@ func main() {
 	})
 
 	_, _, err := client.ConnectorsApi.GetConnector(ctx, "id").Execute()
+  
 	if err != nil {
 		panic(err)
 	}

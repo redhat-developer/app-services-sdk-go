@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Kind** | Pointer to **string** |  | [optional] 
 **Items** | [**[]ConsumerGroup**](ConsumerGroup.md) |  | 
 **Total** | **int32** | Total number of entries in the full result set | 
 **Size** | Pointer to **int32** | Number of entries per page (returned for fetch requests) | [optional] 
@@ -28,6 +29,32 @@ will change when the set of required properties is changed
 NewConsumerGroupListWithDefaults instantiates a new ConsumerGroupList object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+
+### GetKind
+
+`func (o *ConsumerGroupList) GetKind() string`
+
+GetKind returns the Kind field if non-nil, zero value otherwise.
+
+### GetKindOk
+
+`func (o *ConsumerGroupList) GetKindOk() (*string, bool)`
+
+GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKind
+
+`func (o *ConsumerGroupList) SetKind(v string)`
+
+SetKind sets Kind field to given value.
+
+### HasKind
+
+`func (o *ConsumerGroupList) HasKind() bool`
+
+HasKind returns a boolean if a field has been set.
 
 
 ### GetItems

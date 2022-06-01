@@ -10,13 +10,16 @@ Name | Type | Description | Notes
 **Principal** | **string** | Identifies the user or service account to which an ACL entry is bound. The literal prefix value of &#x60;User:&#x60; is required. May be used to specify all users with value &#x60;User:*&#x60;. | 
 **Operation** | [**AclOperation**](AclOperation.md) |  | 
 **Permission** | [**AclPermissionType**](AclPermissionType.md) |  | 
+**Id** | Pointer to **string** | Unique identifier for the object. Not supported for all object kinds. | [optional] 
+**Kind** | **string** |  | [readonly] 
+**Href** | Pointer to **string** | Link path to request the object. Not supported for all object kinds. | [optional] 
 
 
 ## Methods
 
 ### NewAclBinding
 
-`func NewAclBinding(resourceType AclResourceType, resourceName string, patternType AclPatternType, principal string, operation AclOperation, permission AclPermissionType, ) *AclBinding`
+`func NewAclBinding(resourceType AclResourceType, resourceName string, patternType AclPatternType, principal string, operation AclOperation, permission AclPermissionType, kind string, ) *AclBinding`
 
 NewAclBinding instantiates a new AclBinding object
 This constructor will assign default values to properties that have it defined,
@@ -156,6 +159,79 @@ and a boolean to check if the value has been set.
 
 SetPermission sets Permission field to given value.
 
+
+
+### GetId
+
+`func (o *AclBinding) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *AclBinding) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *AclBinding) SetId(v string)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *AclBinding) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+
+### GetKind
+
+`func (o *AclBinding) GetKind() string`
+
+GetKind returns the Kind field if non-nil, zero value otherwise.
+
+### GetKindOk
+
+`func (o *AclBinding) GetKindOk() (*string, bool)`
+
+GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKind
+
+`func (o *AclBinding) SetKind(v string)`
+
+SetKind sets Kind field to given value.
+
+
+
+### GetHref
+
+`func (o *AclBinding) GetHref() string`
+
+GetHref returns the Href field if non-nil, zero value otherwise.
+
+### GetHrefOk
+
+`func (o *AclBinding) GetHrefOk() (*string, bool)`
+
+GetHrefOk returns a tuple with the Href field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHref
+
+`func (o *AclBinding) SetHref(v string)`
+
+SetHref sets Href field to given value.
+
+### HasHref
+
+`func (o *AclBinding) HasHref() bool`
+
+HasHref returns a boolean if a field has been set.
 
 
 

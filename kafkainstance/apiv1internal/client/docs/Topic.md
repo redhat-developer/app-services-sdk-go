@@ -8,13 +8,16 @@ Name | Type | Description | Notes
 **IsInternal** | Pointer to **bool** |  | [optional] 
 **Partitions** | Pointer to [**[]Partition**](Partition.md) | Partitions for this topic. | [optional] 
 **Config** | Pointer to [**[]ConfigEntry**](ConfigEntry.md) | Topic configuration entry. | [optional] 
+**Id** | Pointer to **string** | Unique identifier for the object. Not supported for all object kinds. | [optional] 
+**Kind** | **string** |  | [readonly] 
+**Href** | Pointer to **string** | Link path to request the object. Not supported for all object kinds. | [optional] 
 
 
 ## Methods
 
 ### NewTopic
 
-`func NewTopic() *Topic`
+`func NewTopic(kind string, ) *Topic`
 
 NewTopic instantiates a new Topic object
 This constructor will assign default values to properties that have it defined,
@@ -132,6 +135,79 @@ SetConfig sets Config field to given value.
 `func (o *Topic) HasConfig() bool`
 
 HasConfig returns a boolean if a field has been set.
+
+
+### GetId
+
+`func (o *Topic) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *Topic) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *Topic) SetId(v string)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *Topic) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+
+### GetKind
+
+`func (o *Topic) GetKind() string`
+
+GetKind returns the Kind field if non-nil, zero value otherwise.
+
+### GetKindOk
+
+`func (o *Topic) GetKindOk() (*string, bool)`
+
+GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKind
+
+`func (o *Topic) SetKind(v string)`
+
+SetKind sets Kind field to given value.
+
+
+
+### GetHref
+
+`func (o *Topic) GetHref() string`
+
+GetHref returns the Href field if non-nil, zero value otherwise.
+
+### GetHrefOk
+
+`func (o *Topic) GetHrefOk() (*string, bool)`
+
+GetHrefOk returns a tuple with the Href field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHref
+
+`func (o *Topic) SetHref(v string)`
+
+SetHref sets Href field to given value.
+
+### HasHref
+
+`func (o *Topic) HasHref() bool`
+
+HasHref returns a boolean if a field has been set.
 
 
 

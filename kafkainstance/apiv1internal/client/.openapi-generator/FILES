@@ -2,6 +2,7 @@
 README.md
 api/openapi.yaml
 api_acls.go
+api_errors.go
 api_groups.go
 api_records.go
 api_topics.go
@@ -31,9 +32,13 @@ docs/ConsumerGroupResetOffsetResult.md
 docs/ConsumerGroupResetOffsetResultItem.md
 docs/ConsumerGroupState.md
 docs/Error.md
+docs/ErrorList.md
+docs/ErrorsApi.md
 docs/GroupsApi.md
+docs/List.md
 docs/NewTopicInput.md
 docs/Node.md
+docs/ObjectReference.md
 docs/OffsetType.md
 docs/Partition.md
 docs/Record.md
@@ -70,8 +75,11 @@ model_consumer_group_reset_offset_result.go
 model_consumer_group_reset_offset_result_item.go
 model_consumer_group_state.go
 model_error.go
+model_error_list.go
+model_list.go
 model_new_topic_input.go
 model_node.go
+model_object_reference.go
 model_offset_type.go
 model_partition.go
 model_record.go
