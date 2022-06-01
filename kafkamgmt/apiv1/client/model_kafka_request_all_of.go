@@ -35,6 +35,9 @@ type KafkaRequestAllOf struct {
 
 	BootstrapServerHost *string `json:"bootstrap_server_host,omitempty"`
 
+	// The kafka admin server url to perform kafka admin operations e.g acl management etc. The value will be available when the Kafka has been fully provisioned i.e it reaches a 'ready' state
+	AdminApiServerUrl *string `json:"admin_api_server_url,omitempty"`
+
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 
 	ExpiresAt NullableTime `json:"expires_at,omitempty"`
@@ -87,6 +90,7 @@ func NewKafkaRequestAllOf(multiAz bool, reauthenticationEnabled bool) *KafkaRequ
 // but it doesn't guarantee that properties required by API are set
 func NewKafkaRequestAllOfWithDefaults() *KafkaRequestAllOf {
 	this := KafkaRequestAllOf{}
+
 
 
 
@@ -336,6 +340,39 @@ func (o *KafkaRequestAllOf) HasBootstrapServerHost() bool {
 // SetBootstrapServerHost gets a reference to the given string and assigns it to the BootstrapServerHost field.
 func (o *KafkaRequestAllOf) SetBootstrapServerHost(v string) {
 	o.BootstrapServerHost = &v
+}
+
+
+// GetAdminApiServerUrl returns the AdminApiServerUrl field value if set, zero value otherwise.
+func (o *KafkaRequestAllOf) GetAdminApiServerUrl() string {
+	if o == nil || o.AdminApiServerUrl == nil {
+		var ret string
+		return ret
+	}
+	return *o.AdminApiServerUrl
+}
+
+// GetAdminApiServerUrlOk returns a tuple with the AdminApiServerUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *KafkaRequestAllOf) GetAdminApiServerUrlOk() (*string, bool) {
+	if o == nil || o.AdminApiServerUrl == nil {
+		return nil, false
+	}
+	return o.AdminApiServerUrl, true
+}
+
+// HasAdminApiServerUrl returns a boolean if a field has been set.
+func (o *KafkaRequestAllOf) HasAdminApiServerUrl() bool {
+	if o != nil && o.AdminApiServerUrl != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAdminApiServerUrl gets a reference to the given string and assigns it to the AdminApiServerUrl field.
+func (o *KafkaRequestAllOf) SetAdminApiServerUrl(v string) {
+	o.AdminApiServerUrl = &v
 }
 
 
@@ -931,6 +968,10 @@ func (o KafkaRequestAllOf) MarshalJSON() ([]byte, error) {
     
 	if o.BootstrapServerHost != nil {
 		toSerialize["bootstrap_server_host"] = o.BootstrapServerHost
+	}
+    
+	if o.AdminApiServerUrl != nil {
+		toSerialize["admin_api_server_url"] = o.AdminApiServerUrl
 	}
     
 	if o.CreatedAt != nil {

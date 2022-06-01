@@ -21,7 +21,8 @@ func main() {
 		BaseURL:    baseURL,
 	})
 
-	_, _, err := client.ConnectorsApi.GetConnector(ctx, "id").id("kafka-id").Execute()
+	_, _, err := client.ConnectorsApi.GetConnector(ctx, "id").Execute()
+  
 	if err != nil {
 		panic(err)
 	}
