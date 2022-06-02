@@ -101,6 +101,7 @@ Class | Method | HTTP request | Description
 
  - [AclBinding](docs/AclBinding.md)
  - [AclBindingListPage](docs/AclBindingListPage.md)
+ - [AclBindingListPageAllOf](docs/AclBindingListPageAllOf.md)
  - [AclBindingOrderKey](docs/AclBindingOrderKey.md)
  - [AclOperation](docs/AclOperation.md)
  - [AclOperationFilter](docs/AclOperationFilter.md)
@@ -119,6 +120,7 @@ Class | Method | HTTP request | Description
  - [ConsumerGroupOrderKey](docs/ConsumerGroupOrderKey.md)
  - [ConsumerGroupResetOffsetParameters](docs/ConsumerGroupResetOffsetParameters.md)
  - [ConsumerGroupResetOffsetResult](docs/ConsumerGroupResetOffsetResult.md)
+ - [ConsumerGroupResetOffsetResultAllOf](docs/ConsumerGroupResetOffsetResultAllOf.md)
  - [ConsumerGroupResetOffsetResultItem](docs/ConsumerGroupResetOffsetResultItem.md)
  - [ConsumerGroupState](docs/ConsumerGroupState.md)
  - [Error](docs/Error.md)
@@ -132,6 +134,7 @@ Class | Method | HTTP request | Description
  - [Record](docs/Record.md)
  - [RecordIncludedProperty](docs/RecordIncludedProperty.md)
  - [RecordList](docs/RecordList.md)
+ - [RecordListAllOf](docs/RecordListAllOf.md)
  - [SortDirection](docs/SortDirection.md)
  - [Topic](docs/Topic.md)
  - [TopicOrderKey](docs/TopicOrderKey.md)

@@ -10,6 +10,7 @@ client.go
 configuration.go
 docs/AclBinding.md
 docs/AclBindingListPage.md
+docs/AclBindingListPageAllOf.md
 docs/AclBindingOrderKey.md
 docs/AclOperation.md
 docs/AclOperationFilter.md
@@ -29,6 +30,7 @@ docs/ConsumerGroupMetrics.md
 docs/ConsumerGroupOrderKey.md
 docs/ConsumerGroupResetOffsetParameters.md
 docs/ConsumerGroupResetOffsetResult.md
+docs/ConsumerGroupResetOffsetResultAllOf.md
 docs/ConsumerGroupResetOffsetResultItem.md
 docs/ConsumerGroupState.md
 docs/Error.md
@@ -44,6 +46,7 @@ docs/Partition.md
 docs/Record.md
 docs/RecordIncludedProperty.md
 docs/RecordList.md
+docs/RecordListAllOf.md
 docs/RecordsApi.md
 docs/SortDirection.md
 docs/Topic.md
@@ -54,6 +57,7 @@ docs/TopicsList.md
 docs/TopicsToResetOffset.md
 model_acl_binding.go
 model_acl_binding_list_page.go
+model_acl_binding_list_page_all_of.go
 model_acl_binding_order_key.go
 model_acl_operation.go
 model_acl_operation_filter.go
@@ -72,6 +76,7 @@ model_consumer_group_metrics.go
 model_consumer_group_order_key.go
 model_consumer_group_reset_offset_parameters.go
 model_consumer_group_reset_offset_result.go
+model_consumer_group_reset_offset_result_all_of.go
 model_consumer_group_reset_offset_result_item.go
 model_consumer_group_state.go
 model_error.go
@@ -85,6 +90,7 @@ model_partition.go
 model_record.go
 model_record_included_property.go
 model_record_list.go
+model_record_list_all_of.go
 model_sort_direction.go
 model_topic.go
 model_topic_order_key.go

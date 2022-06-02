@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]AclBinding**](AclBinding.md) |  | [optional] 
 **Kind** | Pointer to **string** |  | [optional] 
+**Items** | [**[]AclBinding**](AclBinding.md) |  | 
 **Total** | **int32** | Total number of entries in the full result set | 
 **Size** | Pointer to **int32** | Number of entries per page (returned for fetch requests) | [optional] 
 **Page** | Pointer to **int32** | Current page number (returned for fetch requests) | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewAclBindingListPage
 
-`func NewAclBindingListPage(total int32, ) *AclBindingListPage`
+`func NewAclBindingListPage(items []AclBinding, total int32, ) *AclBindingListPage`
 
 NewAclBindingListPage instantiates a new AclBindingListPage object
 This constructor will assign default values to properties that have it defined,
@@ -29,32 +29,6 @@ will change when the set of required properties is changed
 NewAclBindingListPageWithDefaults instantiates a new AclBindingListPage object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-
-### GetItems
-
-`func (o *AclBindingListPage) GetItems() []AclBinding`
-
-GetItems returns the Items field if non-nil, zero value otherwise.
-
-### GetItemsOk
-
-`func (o *AclBindingListPage) GetItemsOk() (*[]AclBinding, bool)`
-
-GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetItems
-
-`func (o *AclBindingListPage) SetItems(v []AclBinding)`
-
-SetItems sets Items field to given value.
-
-### HasItems
-
-`func (o *AclBindingListPage) HasItems() bool`
-
-HasItems returns a boolean if a field has been set.
 
 
 ### GetKind
@@ -81,6 +55,27 @@ SetKind sets Kind field to given value.
 `func (o *AclBindingListPage) HasKind() bool`
 
 HasKind returns a boolean if a field has been set.
+
+
+### GetItems
+
+`func (o *AclBindingListPage) GetItems() []AclBinding`
+
+GetItems returns the Items field if non-nil, zero value otherwise.
+
+### GetItemsOk
+
+`func (o *AclBindingListPage) GetItemsOk() (*[]AclBinding, bool)`
+
+GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItems
+
+`func (o *AclBindingListPage) SetItems(v []AclBinding)`
+
+SetItems sets Items field to given value.
+
 
 
 ### GetTotal

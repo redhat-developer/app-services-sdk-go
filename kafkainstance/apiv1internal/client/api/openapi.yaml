@@ -1632,28 +1632,8 @@ components:
     AclBindingListPage:
       allOf:
       - $ref: '#/components/schemas/List'
+      - $ref: '#/components/schemas/AclBindingListPage_allOf'
       description: A page of ACL binding entries
-      example:
-        items:
-        - kind: AclBinding
-          resourceType: TOPIC
-          resourceName: '*'
-          patternType: LITERAL
-          principal: User:user123
-          operation: READ
-          permission: ALLOW
-        - kind: AclBinding
-          resourceType: TOPIC
-          resourceName: '*'
-          patternType: LITERAL
-          principal: User:user123
-          operation: READ
-          permission: ALLOW
-      properties:
-        items:
-          items:
-            $ref: '#/components/schemas/AclBinding'
-          type: array
       title: ACL Binding List
       type: object
     AclBindingOrderKey:
@@ -1999,6 +1979,7 @@ components:
     ConsumerGroupResetOffsetResult:
       allOf:
       - $ref: '#/components/schemas/List'
+      - $ref: '#/components/schemas/ConsumerGroupResetOffsetResult_allOf'
       example:
         total: 2
         page: 1
@@ -2010,11 +1991,6 @@ components:
         - topic: my-topic
           partition: 0
           offset: 0
-      properties:
-        items:
-          items:
-            $ref: '#/components/schemas/ConsumerGroupResetOffsetResultItem'
-          type: array
       title: Root Type for ConsumerGroupResetOffsetResult
       type: object
     ConsumerGroupResetOffsetResultItem:
@@ -2301,40 +2277,8 @@ components:
     RecordList:
       allOf:
       - $ref: '#/components/schemas/List'
+      - $ref: '#/components/schemas/RecordList_allOf'
       description: A page of records consumed from a topic
-      example:
-        total: ""
-        size: ""
-        page: ""
-        items:
-        - headers:
-            key: headers
-          partition: 0
-          offset: 6
-          timestampType: timestampType
-          value: value
-          key: key
-          timestamp: 2000-01-23T04:56:07.000+00:00
-        - headers:
-            key: headers
-          partition: 0
-          offset: 6
-          timestampType: timestampType
-          value: value
-          key: key
-          timestamp: 2000-01-23T04:56:07.000+00:00
-      properties:
-        items:
-          items:
-            $ref: '#/components/schemas/Record'
-          type: array
-        total:
-          description: Total number of records returned in this request. This value
-            does not indicate the total number of records in the topic.
-        size:
-          description: Not used
-        page:
-          description: Not used
       title: Record List
       type: object
     SortDirection:
@@ -2522,6 +2466,31 @@ components:
       - topic
       title: Root Type for TopicsToResetOffset
       type: object
+    AclBindingListPage_allOf:
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/AclBinding'
+          type: array
+    ConsumerGroupResetOffsetResult_allOf:
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/ConsumerGroupResetOffsetResultItem'
+          type: array
+    RecordList_allOf:
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/Record'
+          type: array
+        total:
+          description: Total number of records returned in this request. This value
+            does not indicate the total number of records in the topic.
+        size:
+          description: Not used
+        page:
+          description: Not used
   securitySchemes:
     Bearer:
       description: Access token used with OAuth 2.0

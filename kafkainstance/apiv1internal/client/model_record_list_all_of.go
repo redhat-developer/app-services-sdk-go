@@ -14,15 +14,13 @@ import (
 	"encoding/json"
 )
 
-// RecordList A page of records consumed from a topic
-type RecordList struct {
+// RecordListAllOf struct for RecordListAllOf
+type RecordListAllOf struct {
 
-	Kind *string `json:"kind,omitempty"`
-
-	Items []Record `json:"items"`
+	Items *[]Record `json:"items,omitempty"`
 
 	// Total number of records returned in this request. This value does not indicate the total number of records in the topic.
-	Total interface{} `json:"total"`
+	Total interface{} `json:"total,omitempty"`
 
 	// Not used
 	Size interface{} `json:"size,omitempty"`
@@ -32,23 +30,20 @@ type RecordList struct {
 
 }
 
-// NewRecordList instantiates a new RecordList object
+// NewRecordListAllOf instantiates a new RecordListAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRecordList(items []Record, total interface{}) *RecordList {
-	this := RecordList{}
-	this.Items = items
-	this.Total = total
+func NewRecordListAllOf() *RecordListAllOf {
+	this := RecordListAllOf{}
 	return &this
 }
 
-// NewRecordListWithDefaults instantiates a new RecordList object
+// NewRecordListAllOfWithDefaults instantiates a new RecordListAllOf object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewRecordListWithDefaults() *RecordList {
-	this := RecordList{}
-
+func NewRecordListAllOfWithDefaults() *RecordListAllOf {
+	this := RecordListAllOf{}
 
 
 
@@ -58,93 +53,75 @@ func NewRecordListWithDefaults() *RecordList {
 }
 
 
-// GetKind returns the Kind field value if set, zero value otherwise.
-func (o *RecordList) GetKind() string {
-	if o == nil || o.Kind == nil {
-		var ret string
+// GetItems returns the Items field value if set, zero value otherwise.
+func (o *RecordListAllOf) GetItems() []Record {
+	if o == nil || o.Items == nil {
+		var ret []Record
 		return ret
 	}
-	return *o.Kind
+	return *o.Items
 }
 
-// GetKindOk returns a tuple with the Kind field value if set, nil otherwise
+// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RecordList) GetKindOk() (*string, bool) {
-	if o == nil || o.Kind == nil {
+func (o *RecordListAllOf) GetItemsOk() (*[]Record, bool) {
+	if o == nil || o.Items == nil {
 		return nil, false
 	}
-	return o.Kind, true
+	return o.Items, true
 }
 
-// HasKind returns a boolean if a field has been set.
-func (o *RecordList) HasKind() bool {
-	if o != nil && o.Kind != nil {
+// HasItems returns a boolean if a field has been set.
+func (o *RecordListAllOf) HasItems() bool {
+	if o != nil && o.Items != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetKind gets a reference to the given string and assigns it to the Kind field.
-func (o *RecordList) SetKind(v string) {
-	o.Kind = &v
+// SetItems gets a reference to the given []Record and assigns it to the Items field.
+func (o *RecordListAllOf) SetItems(v []Record) {
+	o.Items = &v
 }
 
 
-// GetItems returns the Items field value
-func (o *RecordList) GetItems() []Record {
-	if o == nil {
-		var ret []Record
-		return ret
-	}
-
-	return o.Items
-}
-
-// GetItemsOk returns a tuple with the Items field value
-// and a boolean to check if the value has been set.
-func (o *RecordList) GetItemsOk() (*[]Record, bool) {
+// GetTotal returns the Total field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RecordListAllOf) GetTotal() interface{} {
 	if o == nil  {
-		return nil, false
-	}
-	return &o.Items, true
-}
-
-// SetItems sets field value
-func (o *RecordList) SetItems(v []Record) {
-	o.Items = v
-}
-
-
-// GetTotal returns the Total field value
-// If the value is explicit nil, the zero value for interface{} will be returned
-func (o *RecordList) GetTotal() interface{} {
-	if o == nil {
 		var ret interface{}
 		return ret
 	}
-
 	return o.Total
 }
 
-// GetTotalOk returns a tuple with the Total field value
+// GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RecordList) GetTotalOk() (*interface{}, bool) {
+func (o *RecordListAllOf) GetTotalOk() (*interface{}, bool) {
 	if o == nil || o.Total == nil {
 		return nil, false
 	}
 	return &o.Total, true
 }
 
-// SetTotal sets field value
-func (o *RecordList) SetTotal(v interface{}) {
+// HasTotal returns a boolean if a field has been set.
+func (o *RecordListAllOf) HasTotal() bool {
+	if o != nil && o.Total != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTotal gets a reference to the given interface{} and assigns it to the Total field.
+func (o *RecordListAllOf) SetTotal(v interface{}) {
 	o.Total = v
 }
 
 
 // GetSize returns the Size field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RecordList) GetSize() interface{} {
+func (o *RecordListAllOf) GetSize() interface{} {
 	if o == nil  {
 		var ret interface{}
 		return ret
@@ -155,7 +132,7 @@ func (o *RecordList) GetSize() interface{} {
 // GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RecordList) GetSizeOk() (*interface{}, bool) {
+func (o *RecordListAllOf) GetSizeOk() (*interface{}, bool) {
 	if o == nil || o.Size == nil {
 		return nil, false
 	}
@@ -163,7 +140,7 @@ func (o *RecordList) GetSizeOk() (*interface{}, bool) {
 }
 
 // HasSize returns a boolean if a field has been set.
-func (o *RecordList) HasSize() bool {
+func (o *RecordListAllOf) HasSize() bool {
 	if o != nil && o.Size != nil {
 		return true
 	}
@@ -172,13 +149,13 @@ func (o *RecordList) HasSize() bool {
 }
 
 // SetSize gets a reference to the given interface{} and assigns it to the Size field.
-func (o *RecordList) SetSize(v interface{}) {
+func (o *RecordListAllOf) SetSize(v interface{}) {
 	o.Size = v
 }
 
 
 // GetPage returns the Page field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RecordList) GetPage() interface{} {
+func (o *RecordListAllOf) GetPage() interface{} {
 	if o == nil  {
 		var ret interface{}
 		return ret
@@ -189,7 +166,7 @@ func (o *RecordList) GetPage() interface{} {
 // GetPageOk returns a tuple with the Page field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RecordList) GetPageOk() (*interface{}, bool) {
+func (o *RecordListAllOf) GetPageOk() (*interface{}, bool) {
 	if o == nil || o.Page == nil {
 		return nil, false
 	}
@@ -197,7 +174,7 @@ func (o *RecordList) GetPageOk() (*interface{}, bool) {
 }
 
 // HasPage returns a boolean if a field has been set.
-func (o *RecordList) HasPage() bool {
+func (o *RecordListAllOf) HasPage() bool {
 	if o != nil && o.Page != nil {
 		return true
 	}
@@ -206,19 +183,15 @@ func (o *RecordList) HasPage() bool {
 }
 
 // SetPage gets a reference to the given interface{} and assigns it to the Page field.
-func (o *RecordList) SetPage(v interface{}) {
+func (o *RecordListAllOf) SetPage(v interface{}) {
 	o.Page = v
 }
 
 
-func (o RecordList) MarshalJSON() ([]byte, error) {
+func (o RecordListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
-	if o.Kind != nil {
-		toSerialize["kind"] = o.Kind
-	}
-    
-	if true {
+	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
     
@@ -237,38 +210,38 @@ func (o RecordList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableRecordList struct {
-	value *RecordList
+type NullableRecordListAllOf struct {
+	value *RecordListAllOf
 	isSet bool
 }
 
-func (v NullableRecordList) Get() *RecordList {
+func (v NullableRecordListAllOf) Get() *RecordListAllOf {
 	return v.value
 }
 
-func (v *NullableRecordList) Set(val *RecordList) {
+func (v *NullableRecordListAllOf) Set(val *RecordListAllOf) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableRecordList) IsSet() bool {
+func (v NullableRecordListAllOf) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableRecordList) Unset() {
+func (v *NullableRecordListAllOf) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableRecordList(val *RecordList) *NullableRecordList {
-	return &NullableRecordList{value: val, isSet: true}
+func NewNullableRecordListAllOf(val *RecordListAllOf) *NullableRecordListAllOf {
+	return &NullableRecordListAllOf{value: val, isSet: true}
 }
 
-func (v NullableRecordList) MarshalJSON() ([]byte, error) {
+func (v NullableRecordListAllOf) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableRecordList) UnmarshalJSON(src []byte) error {
+func (v *NullableRecordListAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
