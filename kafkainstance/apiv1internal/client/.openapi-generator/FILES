@@ -35,6 +35,7 @@ docs/ConsumerGroupResetOffsetResultItem.md
 docs/ConsumerGroupState.md
 docs/Error.md
 docs/ErrorList.md
+docs/ErrorListAllOf.md
 docs/ErrorsApi.md
 docs/GroupsApi.md
 docs/List.md
@@ -81,6 +82,7 @@ model_consumer_group_reset_offset_result_item.go
 model_consumer_group_state.go
 model_error.go
 model_error_list.go
+model_error_list_all_of.go
 model_list.go
 model_new_topic_input.go
 model_node.go

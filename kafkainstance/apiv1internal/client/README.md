@@ -125,6 +125,7 @@ Class | Method | HTTP request | Description
  - [ConsumerGroupState](docs/ConsumerGroupState.md)
  - [Error](docs/Error.md)
  - [ErrorList](docs/ErrorList.md)
+ - [ErrorListAllOf](docs/ErrorListAllOf.md)
  - [List](docs/List.md)
  - [NewTopicInput](docs/NewTopicInput.md)
  - [Node](docs/Node.md)

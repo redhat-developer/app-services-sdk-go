@@ -2064,33 +2064,8 @@ components:
     ErrorList:
       allOf:
       - $ref: '#/components/schemas/List'
+      - $ref: '#/components/schemas/ErrorList_allOf'
       description: List of errors
-      example:
-        total: ""
-        items:
-        - error_message: error_message
-          reason: reason
-          code: 0
-          kind: kind
-          id: id
-          href: href
-          detail: detail
-          class: class
-        - error_message: error_message
-          reason: reason
-          code: 0
-          kind: kind
-          id: id
-          href: href
-          detail: detail
-          class: class
-      properties:
-        items:
-          items:
-            $ref: '#/components/schemas/Error'
-          type: array
-        total:
-          description: Total number of errors returned in this request
       title: Error List
       type: object
     List:
@@ -2478,6 +2453,14 @@ components:
           items:
             $ref: '#/components/schemas/ConsumerGroupResetOffsetResultItem'
           type: array
+    ErrorList_allOf:
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/Error'
+          type: array
+        total:
+          description: Total number of errors returned in this request
     RecordList_allOf:
       properties:
         items:
