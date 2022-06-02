@@ -74,7 +74,7 @@ ctx = context.WithValue(context.Background(), sw.ContextOperationServerVariables
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.openshift.com*
+All URIs are relative to *http://localhost:14321*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -91,12 +91,28 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ApiAccountsMgmtV1AccountsIdLabelsPost**](docs/DefaultApi.md#apiaccountsmgmtv1accountsidlabelspost) | **Post** /api/accounts_mgmt/v1/accounts/{id}/labels | Create a new label or update an existing label
 *DefaultApi* | [**ApiAccountsMgmtV1AccountsIdPatch**](docs/DefaultApi.md#apiaccountsmgmtv1accountsidpatch) | **Patch** /api/accounts_mgmt/v1/accounts/{id} | Update an account
 *DefaultApi* | [**ApiAccountsMgmtV1AccountsPost**](docs/DefaultApi.md#apiaccountsmgmtv1accountspost) | **Post** /api/accounts_mgmt/v1/accounts | Create a new account
+*DefaultApi* | [**ApiAccountsMgmtV1CertificatesPost**](docs/DefaultApi.md#apiaccountsmgmtv1certificatespost) | **Post** /api/accounts_mgmt/v1/certificates | Fetch certificates of a particular type
+*DefaultApi* | [**ApiAccountsMgmtV1CloudResourcesGet**](docs/DefaultApi.md#apiaccountsmgmtv1cloudresourcesget) | **Get** /api/accounts_mgmt/v1/cloud_resources | Returns a list of cloud resources
+*DefaultApi* | [**ApiAccountsMgmtV1CloudResourcesIdDelete**](docs/DefaultApi.md#apiaccountsmgmtv1cloudresourcesiddelete) | **Delete** /api/accounts_mgmt/v1/cloud_resources/{id} | Delete a cloud resource
+*DefaultApi* | [**ApiAccountsMgmtV1CloudResourcesIdGet**](docs/DefaultApi.md#apiaccountsmgmtv1cloudresourcesidget) | **Get** /api/accounts_mgmt/v1/cloud_resources/{id} | Get a cloud resource
+*DefaultApi* | [**ApiAccountsMgmtV1CloudResourcesIdPatch**](docs/DefaultApi.md#apiaccountsmgmtv1cloudresourcesidpatch) | **Patch** /api/accounts_mgmt/v1/cloud_resources/{id} | Update a cloud resource
+*DefaultApi* | [**ApiAccountsMgmtV1CloudResourcesPost**](docs/DefaultApi.md#apiaccountsmgmtv1cloudresourcespost) | **Post** /api/accounts_mgmt/v1/cloud_resources | Create a new cloud resource
 *DefaultApi* | [**ApiAccountsMgmtV1ClusterAuthorizationsPost**](docs/DefaultApi.md#apiaccountsmgmtv1clusterauthorizationspost) | **Post** /api/accounts_mgmt/v1/cluster_authorizations | Authorizes new cluster creation against an exsiting RH Subscription.
 *DefaultApi* | [**ApiAccountsMgmtV1ClusterRegistrationsPost**](docs/DefaultApi.md#apiaccountsmgmtv1clusterregistrationspost) | **Post** /api/accounts_mgmt/v1/cluster_registrations | Finds or creates a cluster registration with a registy credential token and cluster ID
+*DefaultApi* | [**ApiAccountsMgmtV1ClusterTransfersGet**](docs/DefaultApi.md#apiaccountsmgmtv1clustertransfersget) | **Get** /api/accounts_mgmt/v1/cluster_transfers | List cluster transfers - returns either an empty result set or a valid ClusterTransfer instance that is within a valid transfer window.
+*DefaultApi* | [**ApiAccountsMgmtV1ClusterTransfersIdPatch**](docs/DefaultApi.md#apiaccountsmgmtv1clustertransfersidpatch) | **Patch** /api/accounts_mgmt/v1/cluster_transfers/{id} | Update specific cluster transfer
+*DefaultApi* | [**ApiAccountsMgmtV1ClusterTransfersPost**](docs/DefaultApi.md#apiaccountsmgmtv1clustertransferspost) | **Post** /api/accounts_mgmt/v1/cluster_transfers | Initiate cluster transfer.
+*DefaultApi* | [**ApiAccountsMgmtV1ConfigSkusGet**](docs/DefaultApi.md#apiaccountsmgmtv1configskusget) | **Get** /api/accounts_mgmt/v1/config/skus | Returns a list of skus
+*DefaultApi* | [**ApiAccountsMgmtV1ConfigSkusIdDelete**](docs/DefaultApi.md#apiaccountsmgmtv1configskusiddelete) | **Delete** /api/accounts_mgmt/v1/config/skus/{id} | Delete a sku
+*DefaultApi* | [**ApiAccountsMgmtV1ConfigSkusIdGet**](docs/DefaultApi.md#apiaccountsmgmtv1configskusidget) | **Get** /api/accounts_mgmt/v1/config/skus/{id} | Get a sku
+*DefaultApi* | [**ApiAccountsMgmtV1ConfigSkusIdPatch**](docs/DefaultApi.md#apiaccountsmgmtv1configskusidpatch) | **Patch** /api/accounts_mgmt/v1/config/skus/{id} | Update a Sku
+*DefaultApi* | [**ApiAccountsMgmtV1ConfigSkusPost**](docs/DefaultApi.md#apiaccountsmgmtv1configskuspost) | **Post** /api/accounts_mgmt/v1/config/skus | Create a new sku
+*DefaultApi* | [**ApiAccountsMgmtV1DeletedSubscriptionsGet**](docs/DefaultApi.md#apiaccountsmgmtv1deletedsubscriptionsget) | **Get** /api/accounts_mgmt/v1/deleted_subscriptions | Returns a list of deleted subscriptions
 *DefaultApi* | [**ApiAccountsMgmtV1ErrorsGet**](docs/DefaultApi.md#apiaccountsmgmtv1errorsget) | **Get** /api/accounts_mgmt/v1/errors | Returns a list of errors
 *DefaultApi* | [**ApiAccountsMgmtV1ErrorsIdGet**](docs/DefaultApi.md#apiaccountsmgmtv1errorsidget) | **Get** /api/accounts_mgmt/v1/errors/{id} | Get an error by id
 *DefaultApi* | [**ApiAccountsMgmtV1FeatureTogglesIdQueryPost**](docs/DefaultApi.md#apiaccountsmgmtv1featuretogglesidquerypost) | **Post** /api/accounts_mgmt/v1/feature_toggles/{id}/query | Query a feature toggle by id
 *DefaultApi* | [**ApiAccountsMgmtV1LabelsGet**](docs/DefaultApi.md#apiaccountsmgmtv1labelsget) | **Get** /api/accounts_mgmt/v1/labels | Returns a list of labels
+*DefaultApi* | [**ApiAccountsMgmtV1LandingPageSelfServiceGet**](docs/DefaultApi.md#apiaccountsmgmtv1landingpageselfserviceget) | **Get** /api/accounts_mgmt/v1/landing_page/self_service | Get a console.redhat.com landing page content JSON schema
 *DefaultApi* | [**ApiAccountsMgmtV1MetricsGet**](docs/DefaultApi.md#apiaccountsmgmtv1metricsget) | **Get** /api/accounts_mgmt/v1/metrics | Returns a list of metrics
 *DefaultApi* | [**ApiAccountsMgmtV1NotifyPost**](docs/DefaultApi.md#apiaccountsmgmtv1notifypost) | **Post** /api/accounts_mgmt/v1/notify | Notify the owner of cluster/subscription
 *DefaultApi* | [**ApiAccountsMgmtV1OrganizationsGet**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsget) | **Get** /api/accounts_mgmt/v1/organizations | Returns a list of organizations
@@ -108,7 +124,16 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ApiAccountsMgmtV1OrganizationsIdLabelsPost**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsidlabelspost) | **Post** /api/accounts_mgmt/v1/organizations/{id}/labels | Create a new label or update an existing label
 *DefaultApi* | [**ApiAccountsMgmtV1OrganizationsIdPatch**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsidpatch) | **Patch** /api/accounts_mgmt/v1/organizations/{id} | Update an organization
 *DefaultApi* | [**ApiAccountsMgmtV1OrganizationsIdSummaryDashboardGet**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsidsummarydashboardget) | **Get** /api/accounts_mgmt/v1/organizations/{id}/summary_dashboard | Returns a summary of organizations clusters based on metrics
-*DefaultApi* | [**ApiAccountsMgmtV1OrganizationsOrgIdQuotaSummaryGet**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsorgidquotasummaryget) | **Get** /api/accounts_mgmt/v1/organizations/{orgId}/quota_summary | Returns a summary of resource quota
+*DefaultApi* | [**ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupAssignmentsAcctGrpAsgnIdDelete**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsorgidaccountgroupassignmentsacctgrpasgniddelete) | **Delete** /api/accounts_mgmt/v1/organizations/{orgId}/account_group_assignments/{acctGrpAsgnId} | Delete an account group assignment
+*DefaultApi* | [**ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupAssignmentsAcctGrpAsgnIdGet**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsorgidaccountgroupassignmentsacctgrpasgnidget) | **Get** /api/accounts_mgmt/v1/organizations/{orgId}/account_group_assignments/{acctGrpAsgnId} | Get account group assignment by id
+*DefaultApi* | [**ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupAssignmentsGet**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsorgidaccountgroupassignmentsget) | **Get** /api/accounts_mgmt/v1/organizations/{orgId}/account_group_assignments | Returns a list of account group assignments for the given org
+*DefaultApi* | [**ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupAssignmentsPost**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsorgidaccountgroupassignmentspost) | **Post** /api/accounts_mgmt/v1/organizations/{orgId}/account_group_assignments | Create a new AccountGroupAssignment
+*DefaultApi* | [**ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsAcctGrpIdDelete**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsorgidaccountgroupsacctgrpiddelete) | **Delete** /api/accounts_mgmt/v1/organizations/{orgId}/account_groups/{acctGrpId} | Delete an account group
+*DefaultApi* | [**ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsAcctGrpIdGet**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsorgidaccountgroupsacctgrpidget) | **Get** /api/accounts_mgmt/v1/organizations/{orgId}/account_groups/{acctGrpId} | Get account group by id
+*DefaultApi* | [**ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsAcctGrpIdPatch**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsorgidaccountgroupsacctgrpidpatch) | **Patch** /api/accounts_mgmt/v1/organizations/{orgId}/account_groups/{acctGrpId} | Update an account group
+*DefaultApi* | [**ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsGet**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsorgidaccountgroupsget) | **Get** /api/accounts_mgmt/v1/organizations/{orgId}/account_groups | Returns a list of account groups for the given org
+*DefaultApi* | [**ApiAccountsMgmtV1OrganizationsOrgIdAccountGroupsPost**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsorgidaccountgroupspost) | **Post** /api/accounts_mgmt/v1/organizations/{orgId}/account_groups | Create a new AccountGroup
+*DefaultApi* | [**ApiAccountsMgmtV1OrganizationsOrgIdConsumedQuotaGet**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsorgidconsumedquotaget) | **Get** /api/accounts_mgmt/v1/organizations/{orgId}/consumed_quota | Returns a list of consumed quota for an organization
 *DefaultApi* | [**ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaGet**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsorgidresourcequotaget) | **Get** /api/accounts_mgmt/v1/organizations/{orgId}/resource_quota | Returns a list of resource quota objects
 *DefaultApi* | [**ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaPost**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsorgidresourcequotapost) | **Post** /api/accounts_mgmt/v1/organizations/{orgId}/resource_quota | Create a new resource quota
 *DefaultApi* | [**ApiAccountsMgmtV1OrganizationsOrgIdResourceQuotaQuotaIdDelete**](docs/DefaultApi.md#apiaccountsmgmtv1organizationsorgidresourcequotaquotaiddelete) | **Delete** /api/accounts_mgmt/v1/organizations/{orgId}/resource_quota/{quotaId} | Delete a resource quota
@@ -119,6 +144,13 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ApiAccountsMgmtV1PlansIdGet**](docs/DefaultApi.md#apiaccountsmgmtv1plansidget) | **Get** /api/accounts_mgmt/v1/plans/{id} | Get a plan by id
 *DefaultApi* | [**ApiAccountsMgmtV1PullSecretsExternalResourceIdDelete**](docs/DefaultApi.md#apiaccountsmgmtv1pullsecretsexternalresourceiddelete) | **Delete** /api/accounts_mgmt/v1/pull_secrets/{externalResourceId} | Delete a pull secret
 *DefaultApi* | [**ApiAccountsMgmtV1PullSecretsPost**](docs/DefaultApi.md#apiaccountsmgmtv1pullsecretspost) | **Post** /api/accounts_mgmt/v1/pull_secrets | Return access token generated from registries in docker format
+*DefaultApi* | [**ApiAccountsMgmtV1QuotaCostGet**](docs/DefaultApi.md#apiaccountsmgmtv1quotacostget) | **Get** /api/accounts_mgmt/v1/quota_cost | Returns a summary of quota cost for the authenticated user
+*DefaultApi* | [**ApiAccountsMgmtV1QuotaRulesGet**](docs/DefaultApi.md#apiaccountsmgmtv1quotarulesget) | **Get** /api/accounts_mgmt/v1/quota_rules | Returns a list of UHC product Quota Rules
+*DefaultApi* | [**ApiAccountsMgmtV1QuotasGet**](docs/DefaultApi.md#apiaccountsmgmtv1quotasget) | **Get** /api/accounts_mgmt/v1/quotas | Returns a list of quotas
+*DefaultApi* | [**ApiAccountsMgmtV1QuotasIdDelete**](docs/DefaultApi.md#apiaccountsmgmtv1quotasiddelete) | **Delete** /api/accounts_mgmt/v1/quotas/{id} | Delete a quota
+*DefaultApi* | [**ApiAccountsMgmtV1QuotasIdGet**](docs/DefaultApi.md#apiaccountsmgmtv1quotasidget) | **Get** /api/accounts_mgmt/v1/quotas/{id} | Get a quota
+*DefaultApi* | [**ApiAccountsMgmtV1QuotasIdPatch**](docs/DefaultApi.md#apiaccountsmgmtv1quotasidpatch) | **Patch** /api/accounts_mgmt/v1/quotas/{id} | Update a quota
+*DefaultApi* | [**ApiAccountsMgmtV1QuotasPost**](docs/DefaultApi.md#apiaccountsmgmtv1quotaspost) | **Post** /api/accounts_mgmt/v1/quotas | Create a new quota
 *DefaultApi* | [**ApiAccountsMgmtV1RegistriesGet**](docs/DefaultApi.md#apiaccountsmgmtv1registriesget) | **Get** /api/accounts_mgmt/v1/registries | Returns a list of registries
 *DefaultApi* | [**ApiAccountsMgmtV1RegistriesIdGet**](docs/DefaultApi.md#apiaccountsmgmtv1registriesidget) | **Get** /api/accounts_mgmt/v1/registries/{id} | Get an registry by id
 *DefaultApi* | [**ApiAccountsMgmtV1RegistryCredentialsGet**](docs/DefaultApi.md#apiaccountsmgmtv1registrycredentialsget) | **Get** /api/accounts_mgmt/v1/registry_credentials | 
@@ -135,8 +167,12 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ApiAccountsMgmtV1RoleBindingsPost**](docs/DefaultApi.md#apiaccountsmgmtv1rolebindingspost) | **Post** /api/accounts_mgmt/v1/role_bindings | Create a new role binding
 *DefaultApi* | [**ApiAccountsMgmtV1RolesGet**](docs/DefaultApi.md#apiaccountsmgmtv1rolesget) | **Get** /api/accounts_mgmt/v1/roles | Returns a list of roles
 *DefaultApi* | [**ApiAccountsMgmtV1RolesIdGet**](docs/DefaultApi.md#apiaccountsmgmtv1rolesidget) | **Get** /api/accounts_mgmt/v1/roles/{id} | Get a role by id
+*DefaultApi* | [**ApiAccountsMgmtV1SelfEntitlementProductPost**](docs/DefaultApi.md#apiaccountsmgmtv1selfentitlementproductpost) | **Post** /api/accounts_mgmt/v1/self_entitlement/{product} | Create or renew the entitlement to support a product for the user&#39;s organization.
 *DefaultApi* | [**ApiAccountsMgmtV1SkuRulesGet**](docs/DefaultApi.md#apiaccountsmgmtv1skurulesget) | **Get** /api/accounts_mgmt/v1/sku_rules | Returns a list of UHC product SKU Rules
+*DefaultApi* | [**ApiAccountsMgmtV1SkuRulesIdDelete**](docs/DefaultApi.md#apiaccountsmgmtv1skurulesiddelete) | **Delete** /api/accounts_mgmt/v1/sku_rules/{id} | Delete a sku rule
 *DefaultApi* | [**ApiAccountsMgmtV1SkuRulesIdGet**](docs/DefaultApi.md#apiaccountsmgmtv1skurulesidget) | **Get** /api/accounts_mgmt/v1/sku_rules/{id} | Get a sku rules by id
+*DefaultApi* | [**ApiAccountsMgmtV1SkuRulesIdPatch**](docs/DefaultApi.md#apiaccountsmgmtv1skurulesidpatch) | **Patch** /api/accounts_mgmt/v1/sku_rules/{id} | Update a sku rule
+*DefaultApi* | [**ApiAccountsMgmtV1SkuRulesPost**](docs/DefaultApi.md#apiaccountsmgmtv1skurulespost) | **Post** /api/accounts_mgmt/v1/sku_rules | Create a new sku rule
 *DefaultApi* | [**ApiAccountsMgmtV1SkusGet**](docs/DefaultApi.md#apiaccountsmgmtv1skusget) | **Get** /api/accounts_mgmt/v1/skus | Returns a list of UHC product SKUs
 *DefaultApi* | [**ApiAccountsMgmtV1SkusIdGet**](docs/DefaultApi.md#apiaccountsmgmtv1skusidget) | **Get** /api/accounts_mgmt/v1/skus/{id} | Get a sku by id
 *DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsGet**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionsget) | **Get** /api/accounts_mgmt/v1/subscriptions | Returns a list of subscriptions
@@ -147,6 +183,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsIdLabelsKeyGet**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionsidlabelskeyget) | **Get** /api/accounts_mgmt/v1/subscriptions/{id}/labels/{key} | Get subscription labels by label key
 *DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsIdLabelsKeyPatch**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionsidlabelskeypatch) | **Patch** /api/accounts_mgmt/v1/subscriptions/{id}/labels/{key} | Create a new label or update an existing label
 *DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsIdLabelsPost**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionsidlabelspost) | **Post** /api/accounts_mgmt/v1/subscriptions/{id}/labels | Create a new label or update an existing label
+*DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsIdMetricsMetricNameGet**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionsidmetricsmetricnameget) | **Get** /api/accounts_mgmt/v1/subscriptions/{id}/metrics/{metric_name} | Get subscription&#39;s metrics by metric name
 *DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsIdNotifyPost**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionsidnotifypost) | **Post** /api/accounts_mgmt/v1/subscriptions/{id}/notify | Notify the owner of a subscription
 *DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsIdPatch**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionsidpatch) | **Patch** /api/accounts_mgmt/v1/subscriptions/{id} | Update a subscription
 *DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsIdReservedResourcesGet**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionsidreservedresourcesget) | **Get** /api/accounts_mgmt/v1/subscriptions/{id}/reserved_resources | Returns a list of reserved resources
@@ -155,7 +192,13 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsSubIdNotificationContactsAccountIdDelete**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionssubidnotificationcontactsaccountiddelete) | **Delete** /api/accounts_mgmt/v1/subscriptions/{subId}/notification_contacts/{accountId} | Deletes a notification contact by subscription and account id
 *DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsSubIdNotificationContactsGet**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionssubidnotificationcontactsget) | **Get** /api/accounts_mgmt/v1/subscriptions/{subId}/notification_contacts | Returns a list of notification contacts for the given subscription
 *DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsSubIdNotificationContactsPost**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionssubidnotificationcontactspost) | **Post** /api/accounts_mgmt/v1/subscriptions/{subId}/notification_contacts | Add an account as a notification contact to this subscription
+*DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsSubIdReservedResourcesReservedResourceIdDelete**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionssubidreservedresourcesreservedresourceiddelete) | **Delete** /api/accounts_mgmt/v1/subscriptions/{subId}/reserved_resources/{reservedResourceId} | Delete reserved resources by id
 *DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsSubIdReservedResourcesReservedResourceIdGet**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionssubidreservedresourcesreservedresourceidget) | **Get** /api/accounts_mgmt/v1/subscriptions/{subId}/reserved_resources/{reservedResourceId} | Get reserved resources by id
+*DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsSubIdReservedResourcesReservedResourceIdPatch**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionssubidreservedresourcesreservedresourceidpatch) | **Patch** /api/accounts_mgmt/v1/subscriptions/{subId}/reserved_resources/{reservedResourceId} | Update a reserved resource
+*DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsSubIdRoleBindingsGet**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionssubidrolebindingsget) | **Get** /api/accounts_mgmt/v1/subscriptions/{subId}/role_bindings | Get subscription role bindings
+*DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsSubIdRoleBindingsIdDelete**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionssubidrolebindingsiddelete) | **Delete** /api/accounts_mgmt/v1/subscriptions/{subId}/role_bindings/{id} | Delete a subscription role binding
+*DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsSubIdRoleBindingsIdGet**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionssubidrolebindingsidget) | **Get** /api/accounts_mgmt/v1/subscriptions/{subId}/role_bindings/{id} | Get a Subscription Role Binding by id
+*DefaultApi* | [**ApiAccountsMgmtV1SubscriptionsSubIdRoleBindingsPost**](docs/DefaultApi.md#apiaccountsmgmtv1subscriptionssubidrolebindingspost) | **Post** /api/accounts_mgmt/v1/subscriptions/{subId}/role_bindings | Create a new subscription role binding
 *DefaultApi* | [**ApiAccountsMgmtV1SupportCasesCaseIdDelete**](docs/DefaultApi.md#apiaccountsmgmtv1supportcasescaseiddelete) | **Delete** /api/accounts_mgmt/v1/support_cases/{caseId} | Delete a support case
 *DefaultApi* | [**ApiAccountsMgmtV1SupportCasesPost**](docs/DefaultApi.md#apiaccountsmgmtv1supportcasespost) | **Post** /api/accounts_mgmt/v1/support_cases | create a support case for the subscription
 *DefaultApi* | [**ApiAccountsMgmtV1TokenAuthorizationPost**](docs/DefaultApi.md#apiaccountsmgmtv1tokenauthorizationpost) | **Post** /api/accounts_mgmt/v1/token_authorization | Finds the account owner of the provided token
@@ -177,6 +220,16 @@ Class | Method | HTTP request | Description
  - [AccessTokenCfg](docs/AccessTokenCfg.md)
  - [Account](docs/Account.md)
  - [AccountAllOf](docs/AccountAllOf.md)
+ - [AccountGroup](docs/AccountGroup.md)
+ - [AccountGroupAllOf](docs/AccountGroupAllOf.md)
+ - [AccountGroupAssignment](docs/AccountGroupAssignment.md)
+ - [AccountGroupAssignmentAllOf](docs/AccountGroupAssignmentAllOf.md)
+ - [AccountGroupAssignmentList](docs/AccountGroupAssignmentList.md)
+ - [AccountGroupAssignmentListAllOf](docs/AccountGroupAssignmentListAllOf.md)
+ - [AccountGroupList](docs/AccountGroupList.md)
+ - [AccountGroupListAllOf](docs/AccountGroupListAllOf.md)
+ - [AccountGroupRequest](docs/AccountGroupRequest.md)
+ - [AccountGroupRequestAllOf](docs/AccountGroupRequestAllOf.md)
  - [AccountList](docs/AccountList.md)
  - [AccountListAllOf](docs/AccountListAllOf.md)
  - [AccountPatchRequest](docs/AccountPatchRequest.md)
@@ -186,6 +239,14 @@ Class | Method | HTTP request | Description
  - [CapabilityAllOf](docs/CapabilityAllOf.md)
  - [CapabilityReview](docs/CapabilityReview.md)
  - [CapabilityReviewRequest](docs/CapabilityReviewRequest.md)
+ - [Certificate](docs/Certificate.md)
+ - [CertificateSerial](docs/CertificateSerial.md)
+ - [CertificatesRequest](docs/CertificatesRequest.md)
+ - [CloudAccount](docs/CloudAccount.md)
+ - [CloudResource](docs/CloudResource.md)
+ - [CloudResourceAllOf](docs/CloudResourceAllOf.md)
+ - [CloudResourceList](docs/CloudResourceList.md)
+ - [CloudResourceListAllOf](docs/CloudResourceListAllOf.md)
  - [ClusterAuthorizationRequest](docs/ClusterAuthorizationRequest.md)
  - [ClusterAuthorizationResponse](docs/ClusterAuthorizationResponse.md)
  - [ClusterMetricsNodes](docs/ClusterMetricsNodes.md)
@@ -193,7 +254,21 @@ Class | Method | HTTP request | Description
  - [ClusterRegistrationResponse](docs/ClusterRegistrationResponse.md)
  - [ClusterResource](docs/ClusterResource.md)
  - [ClusterResourceTotal](docs/ClusterResourceTotal.md)
+ - [ClusterTransfer](docs/ClusterTransfer.md)
+ - [ClusterTransferAllOf](docs/ClusterTransferAllOf.md)
+ - [ClusterTransferList](docs/ClusterTransferList.md)
+ - [ClusterTransferListAllOf](docs/ClusterTransferListAllOf.md)
+ - [ClusterTransferPatchRequest](docs/ClusterTransferPatchRequest.md)
+ - [ClusterTransferRequest](docs/ClusterTransferRequest.md)
  - [ClusterUpgrade](docs/ClusterUpgrade.md)
+ - [ConsumedQuota](docs/ConsumedQuota.md)
+ - [ConsumedQuotaAllOf](docs/ConsumedQuotaAllOf.md)
+ - [ConsumedQuotaList](docs/ConsumedQuotaList.md)
+ - [ConsumedQuotaListAllOf](docs/ConsumedQuotaListAllOf.md)
+ - [DeletedSubscription](docs/DeletedSubscription.md)
+ - [DeletedSubscriptionAllOf](docs/DeletedSubscriptionAllOf.md)
+ - [DeletedSubscriptionList](docs/DeletedSubscriptionList.md)
+ - [DeletedSubscriptionListAllOf](docs/DeletedSubscriptionListAllOf.md)
  - [EphemeralResourceQuota](docs/EphemeralResourceQuota.md)
  - [Error](docs/Error.md)
  - [ErrorAllOf](docs/ErrorAllOf.md)
@@ -213,6 +288,10 @@ Class | Method | HTTP request | Description
  - [LabelAllOf](docs/LabelAllOf.md)
  - [LabelList](docs/LabelList.md)
  - [LabelListAllOf](docs/LabelListAllOf.md)
+ - [LandingPageCTLItem](docs/LandingPageCTLItem.md)
+ - [LandingPageCTLItemShape](docs/LandingPageCTLItemShape.md)
+ - [LandingPageEstateItem](docs/LandingPageEstateItem.md)
+ - [LandingPageLinkShape](docs/LandingPageLinkShape.md)
  - [List](docs/List.md)
  - [Metric](docs/Metric.md)
  - [MetricAllOf](docs/MetricAllOf.md)
@@ -236,14 +315,18 @@ Class | Method | HTTP request | Description
  - [PlanList](docs/PlanList.md)
  - [PlanListAllOf](docs/PlanListAllOf.md)
  - [PullSecretRequest](docs/PullSecretRequest.md)
+ - [Quota](docs/Quota.md)
+ - [QuotaAllOf](docs/QuotaAllOf.md)
  - [QuotaCost](docs/QuotaCost.md)
  - [QuotaCostAllOf](docs/QuotaCostAllOf.md)
  - [QuotaCostList](docs/QuotaCostList.md)
  - [QuotaCostListAllOf](docs/QuotaCostListAllOf.md)
- - [QuotaSummary](docs/QuotaSummary.md)
- - [QuotaSummaryAllOf](docs/QuotaSummaryAllOf.md)
- - [QuotaSummaryList](docs/QuotaSummaryList.md)
- - [QuotaSummaryListAllOf](docs/QuotaSummaryListAllOf.md)
+ - [QuotaList](docs/QuotaList.md)
+ - [QuotaListAllOf](docs/QuotaListAllOf.md)
+ - [QuotaRules](docs/QuotaRules.md)
+ - [QuotaRulesAllOf](docs/QuotaRulesAllOf.md)
+ - [QuotaRulesList](docs/QuotaRulesList.md)
+ - [QuotaRulesListAllOf](docs/QuotaRulesListAllOf.md)
  - [Registry](docs/Registry.md)
  - [RegistryAllOf](docs/RegistryAllOf.md)
  - [RegistryCreateRequest](docs/RegistryCreateRequest.md)
@@ -261,6 +344,7 @@ Class | Method | HTTP request | Description
  - [ReservedResourceAllOf](docs/ReservedResourceAllOf.md)
  - [ReservedResourceList](docs/ReservedResourceList.md)
  - [ReservedResourceListAllOf](docs/ReservedResourceListAllOf.md)
+ - [ReservedResourcePatchRequest](docs/ReservedResourcePatchRequest.md)
  - [ResourceQuota](docs/ResourceQuota.md)
  - [ResourceQuotaAllOf](docs/ResourceQuotaAllOf.md)
  - [ResourceQuotaList](docs/ResourceQuotaList.md)
@@ -281,9 +365,13 @@ Class | Method | HTTP request | Description
  - [SKU](docs/SKU.md)
  - [SKUAllOf](docs/SKUAllOf.md)
  - [SelfAccessReview](docs/SelfAccessReview.md)
+ - [SelfEntitlementStatus](docs/SelfEntitlementStatus.md)
  - [SelfFeatureReview](docs/SelfFeatureReview.md)
  - [SelfResourceReview](docs/SelfResourceReview.md)
  - [SelfResourceReviewRequest](docs/SelfResourceReviewRequest.md)
+ - [SelfServiceLandingPageSchema](docs/SelfServiceLandingPageSchema.md)
+ - [SelfServiceLandingPageSchemaConfigTryLearn](docs/SelfServiceLandingPageSchemaConfigTryLearn.md)
+ - [SelfServiceLandingPageSchemaEstate](docs/SelfServiceLandingPageSchemaEstate.md)
  - [SelfTermsReview](docs/SelfTermsReview.md)
  - [SkuList](docs/SkuList.md)
  - [SkuListAllOf](docs/SkuListAllOf.md)
@@ -293,10 +381,21 @@ Class | Method | HTTP request | Description
  - [SkuRulesListAllOf](docs/SkuRulesListAllOf.md)
  - [Subscription](docs/Subscription.md)
  - [SubscriptionAllOf](docs/SubscriptionAllOf.md)
+ - [SubscriptionCommonFields](docs/SubscriptionCommonFields.md)
+ - [SubscriptionCommonFieldsAllOf](docs/SubscriptionCommonFieldsAllOf.md)
  - [SubscriptionCreateRequest](docs/SubscriptionCreateRequest.md)
  - [SubscriptionList](docs/SubscriptionList.md)
  - [SubscriptionListAllOf](docs/SubscriptionListAllOf.md)
+ - [SubscriptionMetric](docs/SubscriptionMetric.md)
+ - [SubscriptionMetricAllOf](docs/SubscriptionMetricAllOf.md)
+ - [SubscriptionMetricList](docs/SubscriptionMetricList.md)
+ - [SubscriptionMetricListAllOf](docs/SubscriptionMetricListAllOf.md)
  - [SubscriptionPatchRequest](docs/SubscriptionPatchRequest.md)
+ - [SubscriptionRoleBinding](docs/SubscriptionRoleBinding.md)
+ - [SubscriptionRoleBindingAllOf](docs/SubscriptionRoleBindingAllOf.md)
+ - [SubscriptionRoleBindingCreateRequest](docs/SubscriptionRoleBindingCreateRequest.md)
+ - [SubscriptionRoleBindingList](docs/SubscriptionRoleBindingList.md)
+ - [SubscriptionRoleBindingListAllOf](docs/SubscriptionRoleBindingListAllOf.md)
  - [Summary](docs/Summary.md)
  - [SummaryAllOf](docs/SummaryAllOf.md)
  - [SummaryMetrics](docs/SummaryMetrics.md)
@@ -314,6 +413,15 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
+
+
+### AccessToken
+
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
+
+Note, each API key must be added to a map of `map[string]APIKey` where the key is: Authorization and passed in as the auth context for each request.
 
 
 ### Bearer

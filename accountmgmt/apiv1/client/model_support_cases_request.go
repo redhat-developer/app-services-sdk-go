@@ -42,7 +42,7 @@ func NewSupportCasesRequest(description string, severity string, summary string)
 	this.Product = &product
 	this.Severity = severity
 	this.Summary = summary
-	var version string = "4.4"
+	var version string = "4.10"
 	this.Version = &version
 	return &this
 }
@@ -54,7 +54,7 @@ func NewSupportCasesRequestWithDefaults() *SupportCasesRequest {
 	this := SupportCasesRequest{}
 	var product string = "OpenShift Container Platform"
 	this.Product = &product
-	var version string = "4.4"
+	var version string = "4.10"
 	this.Version = &version
 	return &this
 }

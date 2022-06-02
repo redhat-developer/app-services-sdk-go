@@ -20,6 +20,7 @@ type NotificationRequest struct {
 	ClusterId *string `json:"cluster_id,omitempty"`
 	ClusterUuid *string `json:"cluster_uuid,omitempty"`
 	IncludeRedHatAssociates *bool `json:"include_red_hat_associates,omitempty"`
+	InternalOnly *bool `json:"internal_only,omitempty"`
 	Subject *string `json:"subject,omitempty"`
 	SubscriptionId *string `json:"subscription_id,omitempty"`
 	TemplateName string `json:"template_name"`
@@ -172,6 +173,38 @@ func (o *NotificationRequest) SetIncludeRedHatAssociates(v bool) {
 	o.IncludeRedHatAssociates = &v
 }
 
+// GetInternalOnly returns the InternalOnly field value if set, zero value otherwise.
+func (o *NotificationRequest) GetInternalOnly() bool {
+	if o == nil || o.InternalOnly == nil {
+		var ret bool
+		return ret
+	}
+	return *o.InternalOnly
+}
+
+// GetInternalOnlyOk returns a tuple with the InternalOnly field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NotificationRequest) GetInternalOnlyOk() (*bool, bool) {
+	if o == nil || o.InternalOnly == nil {
+		return nil, false
+	}
+	return o.InternalOnly, true
+}
+
+// HasInternalOnly returns a boolean if a field has been set.
+func (o *NotificationRequest) HasInternalOnly() bool {
+	if o != nil && o.InternalOnly != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInternalOnly gets a reference to the given bool and assigns it to the InternalOnly field.
+func (o *NotificationRequest) SetInternalOnly(v bool) {
+	o.InternalOnly = &v
+}
+
 // GetSubject returns the Subject field value if set, zero value otherwise.
 func (o *NotificationRequest) GetSubject() string {
 	if o == nil || o.Subject == nil {
@@ -305,6 +338,9 @@ func (o NotificationRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.IncludeRedHatAssociates != nil {
 		toSerialize["include_red_hat_associates"] = o.IncludeRedHatAssociates
+	}
+	if o.InternalOnly != nil {
+		toSerialize["internal_only"] = o.InternalOnly
 	}
 	if o.Subject != nil {
 		toSerialize["subject"] = o.Subject

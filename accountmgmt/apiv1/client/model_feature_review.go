@@ -16,17 +16,17 @@ import (
 
 // FeatureReview struct for FeatureReview
 type FeatureReview struct {
-	AccountUsername string `json:"account_username"`
+	AccountUsername *string `json:"account_username,omitempty"`
 	Feature string `json:"feature"`
+	OrganizationId *string `json:"organization_id,omitempty"`
 }
 
 // NewFeatureReview instantiates a new FeatureReview object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFeatureReview(accountUsername string, feature string) *FeatureReview {
+func NewFeatureReview(feature string) *FeatureReview {
 	this := FeatureReview{}
-	this.AccountUsername = accountUsername
 	this.Feature = feature
 	return &this
 }
@@ -39,28 +39,36 @@ func NewFeatureReviewWithDefaults() *FeatureReview {
 	return &this
 }
 
-// GetAccountUsername returns the AccountUsername field value
+// GetAccountUsername returns the AccountUsername field value if set, zero value otherwise.
 func (o *FeatureReview) GetAccountUsername() string {
-	if o == nil {
+	if o == nil || o.AccountUsername == nil {
 		var ret string
 		return ret
 	}
-
-	return o.AccountUsername
+	return *o.AccountUsername
 }
 
-// GetAccountUsernameOk returns a tuple with the AccountUsername field value
+// GetAccountUsernameOk returns a tuple with the AccountUsername field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FeatureReview) GetAccountUsernameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil || o.AccountUsername == nil {
 		return nil, false
 	}
-	return &o.AccountUsername, true
+	return o.AccountUsername, true
 }
 
-// SetAccountUsername sets field value
+// HasAccountUsername returns a boolean if a field has been set.
+func (o *FeatureReview) HasAccountUsername() bool {
+	if o != nil && o.AccountUsername != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAccountUsername gets a reference to the given string and assigns it to the AccountUsername field.
 func (o *FeatureReview) SetAccountUsername(v string) {
-	o.AccountUsername = v
+	o.AccountUsername = &v
 }
 
 // GetFeature returns the Feature field value
@@ -87,13 +95,48 @@ func (o *FeatureReview) SetFeature(v string) {
 	o.Feature = v
 }
 
+// GetOrganizationId returns the OrganizationId field value if set, zero value otherwise.
+func (o *FeatureReview) GetOrganizationId() string {
+	if o == nil || o.OrganizationId == nil {
+		var ret string
+		return ret
+	}
+	return *o.OrganizationId
+}
+
+// GetOrganizationIdOk returns a tuple with the OrganizationId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FeatureReview) GetOrganizationIdOk() (*string, bool) {
+	if o == nil || o.OrganizationId == nil {
+		return nil, false
+	}
+	return o.OrganizationId, true
+}
+
+// HasOrganizationId returns a boolean if a field has been set.
+func (o *FeatureReview) HasOrganizationId() bool {
+	if o != nil && o.OrganizationId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOrganizationId gets a reference to the given string and assigns it to the OrganizationId field.
+func (o *FeatureReview) SetOrganizationId(v string) {
+	o.OrganizationId = &v
+}
+
 func (o FeatureReview) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
+	if o.AccountUsername != nil {
 		toSerialize["account_username"] = o.AccountUsername
 	}
 	if true {
 		toSerialize["feature"] = o.Feature
+	}
+	if o.OrganizationId != nil {
+		toSerialize["organization_id"] = o.OrganizationId
 	}
 	return json.Marshal(toSerialize)
 }

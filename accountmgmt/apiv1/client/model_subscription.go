@@ -22,7 +22,7 @@ type Subscription struct {
 	Kind *string `json:"kind,omitempty"`
 	// If set, the date the subscription expires based on the billing model
 	BillingExpirationDate *time.Time `json:"billing_expiration_date,omitempty"`
-	Capabilities *[]Capability `json:"capabilities,omitempty"`
+	BillingMarketplaceAccount *string `json:"billing_marketplace_account,omitempty"`
 	CloudAccountId *string `json:"cloud_account_id,omitempty"`
 	CloudProviderId *string `json:"cloud_provider_id,omitempty"`
 	ClusterBillingModel *string `json:"cluster_billing_model,omitempty"`
@@ -30,11 +30,9 @@ type Subscription struct {
 	ConsoleUrl *string `json:"console_url,omitempty"`
 	ConsumerUuid *string `json:"consumer_uuid,omitempty"`
 	CpuTotal *int32 `json:"cpu_total,omitempty"`
-	CreatedAt *time.Time `json:"created_at,omitempty"`
-	Creator *AccountReference `json:"creator,omitempty"`
+	CreatorId *string `json:"creator_id,omitempty"`
 	DisplayName *string `json:"display_name,omitempty"`
 	ExternalClusterId *string `json:"external_cluster_id,omitempty"`
-	Labels *[]Label `json:"labels,omitempty"`
 	// Last time this subscription were reconciled about cluster usage
 	LastReconcileDate *time.Time `json:"last_reconcile_date,omitempty"`
 	// Last time status was set to Released for this cluster/subscription in Unix time
@@ -42,10 +40,8 @@ type Subscription struct {
 	// Last telemetry authorization request for this cluster/subscription in Unix time
 	LastTelemetryDate *time.Time `json:"last_telemetry_date,omitempty"`
 	Managed bool `json:"managed"`
-	Metrics *[]OneMetric `json:"metrics,omitempty"`
-	NotificationContacts *[]Account `json:"notification_contacts,omitempty"`
 	OrganizationId *string `json:"organization_id,omitempty"`
-	Plan *Plan `json:"plan,omitempty"`
+	PlanId *string `json:"plan_id,omitempty"`
 	ProductBundle *string `json:"product_bundle,omitempty"`
 	Provenance *string `json:"provenance,omitempty"`
 	RegionId *string `json:"region_id,omitempty"`
@@ -57,8 +53,17 @@ type Subscription struct {
 	SystemUnits *string `json:"system_units,omitempty"`
 	// If the subscription is a trial, date the trial ends
 	TrialEndDate *time.Time `json:"trial_end_date,omitempty"`
-	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	Usage *string `json:"usage,omitempty"`
+	Capabilities *[]Capability `json:"capabilities,omitempty"`
+	CreatedAt *time.Time `json:"created_at,omitempty"`
+	Creator *AccountReference `json:"creator,omitempty"`
+	// Calulated as the subscription created date + 60 days
+	EvalExpirationDate *time.Time `json:"eval_expiration_date,omitempty"`
+	Labels *[]Label `json:"labels,omitempty"`
+	Metrics *[]OneMetric `json:"metrics,omitempty"`
+	NotificationContacts *[]Account `json:"notification_contacts,omitempty"`
+	Plan *Plan `json:"plan,omitempty"`
+	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
 
 // NewSubscription instantiates a new Subscription object
@@ -207,36 +212,36 @@ func (o *Subscription) SetBillingExpirationDate(v time.Time) {
 	o.BillingExpirationDate = &v
 }
 
-// GetCapabilities returns the Capabilities field value if set, zero value otherwise.
-func (o *Subscription) GetCapabilities() []Capability {
-	if o == nil || o.Capabilities == nil {
-		var ret []Capability
+// GetBillingMarketplaceAccount returns the BillingMarketplaceAccount field value if set, zero value otherwise.
+func (o *Subscription) GetBillingMarketplaceAccount() string {
+	if o == nil || o.BillingMarketplaceAccount == nil {
+		var ret string
 		return ret
 	}
-	return *o.Capabilities
+	return *o.BillingMarketplaceAccount
 }
 
-// GetCapabilitiesOk returns a tuple with the Capabilities field value if set, nil otherwise
+// GetBillingMarketplaceAccountOk returns a tuple with the BillingMarketplaceAccount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Subscription) GetCapabilitiesOk() (*[]Capability, bool) {
-	if o == nil || o.Capabilities == nil {
+func (o *Subscription) GetBillingMarketplaceAccountOk() (*string, bool) {
+	if o == nil || o.BillingMarketplaceAccount == nil {
 		return nil, false
 	}
-	return o.Capabilities, true
+	return o.BillingMarketplaceAccount, true
 }
 
-// HasCapabilities returns a boolean if a field has been set.
-func (o *Subscription) HasCapabilities() bool {
-	if o != nil && o.Capabilities != nil {
+// HasBillingMarketplaceAccount returns a boolean if a field has been set.
+func (o *Subscription) HasBillingMarketplaceAccount() bool {
+	if o != nil && o.BillingMarketplaceAccount != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetCapabilities gets a reference to the given []Capability and assigns it to the Capabilities field.
-func (o *Subscription) SetCapabilities(v []Capability) {
-	o.Capabilities = &v
+// SetBillingMarketplaceAccount gets a reference to the given string and assigns it to the BillingMarketplaceAccount field.
+func (o *Subscription) SetBillingMarketplaceAccount(v string) {
+	o.BillingMarketplaceAccount = &v
 }
 
 // GetCloudAccountId returns the CloudAccountId field value if set, zero value otherwise.
@@ -463,68 +468,36 @@ func (o *Subscription) SetCpuTotal(v int32) {
 	o.CpuTotal = &v
 }
 
-// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
-func (o *Subscription) GetCreatedAt() time.Time {
-	if o == nil || o.CreatedAt == nil {
-		var ret time.Time
+// GetCreatorId returns the CreatorId field value if set, zero value otherwise.
+func (o *Subscription) GetCreatorId() string {
+	if o == nil || o.CreatorId == nil {
+		var ret string
 		return ret
 	}
-	return *o.CreatedAt
+	return *o.CreatorId
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
+// GetCreatorIdOk returns a tuple with the CreatorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Subscription) GetCreatedAtOk() (*time.Time, bool) {
-	if o == nil || o.CreatedAt == nil {
+func (o *Subscription) GetCreatorIdOk() (*string, bool) {
+	if o == nil || o.CreatorId == nil {
 		return nil, false
 	}
-	return o.CreatedAt, true
+	return o.CreatorId, true
 }
 
-// HasCreatedAt returns a boolean if a field has been set.
-func (o *Subscription) HasCreatedAt() bool {
-	if o != nil && o.CreatedAt != nil {
+// HasCreatorId returns a boolean if a field has been set.
+func (o *Subscription) HasCreatorId() bool {
+	if o != nil && o.CreatorId != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
-func (o *Subscription) SetCreatedAt(v time.Time) {
-	o.CreatedAt = &v
-}
-
-// GetCreator returns the Creator field value if set, zero value otherwise.
-func (o *Subscription) GetCreator() AccountReference {
-	if o == nil || o.Creator == nil {
-		var ret AccountReference
-		return ret
-	}
-	return *o.Creator
-}
-
-// GetCreatorOk returns a tuple with the Creator field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Subscription) GetCreatorOk() (*AccountReference, bool) {
-	if o == nil || o.Creator == nil {
-		return nil, false
-	}
-	return o.Creator, true
-}
-
-// HasCreator returns a boolean if a field has been set.
-func (o *Subscription) HasCreator() bool {
-	if o != nil && o.Creator != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetCreator gets a reference to the given AccountReference and assigns it to the Creator field.
-func (o *Subscription) SetCreator(v AccountReference) {
-	o.Creator = &v
+// SetCreatorId gets a reference to the given string and assigns it to the CreatorId field.
+func (o *Subscription) SetCreatorId(v string) {
+	o.CreatorId = &v
 }
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
@@ -589,38 +562,6 @@ func (o *Subscription) HasExternalClusterId() bool {
 // SetExternalClusterId gets a reference to the given string and assigns it to the ExternalClusterId field.
 func (o *Subscription) SetExternalClusterId(v string) {
 	o.ExternalClusterId = &v
-}
-
-// GetLabels returns the Labels field value if set, zero value otherwise.
-func (o *Subscription) GetLabels() []Label {
-	if o == nil || o.Labels == nil {
-		var ret []Label
-		return ret
-	}
-	return *o.Labels
-}
-
-// GetLabelsOk returns a tuple with the Labels field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Subscription) GetLabelsOk() (*[]Label, bool) {
-	if o == nil || o.Labels == nil {
-		return nil, false
-	}
-	return o.Labels, true
-}
-
-// HasLabels returns a boolean if a field has been set.
-func (o *Subscription) HasLabels() bool {
-	if o != nil && o.Labels != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetLabels gets a reference to the given []Label and assigns it to the Labels field.
-func (o *Subscription) SetLabels(v []Label) {
-	o.Labels = &v
 }
 
 // GetLastReconcileDate returns the LastReconcileDate field value if set, zero value otherwise.
@@ -743,70 +684,6 @@ func (o *Subscription) SetManaged(v bool) {
 	o.Managed = v
 }
 
-// GetMetrics returns the Metrics field value if set, zero value otherwise.
-func (o *Subscription) GetMetrics() []OneMetric {
-	if o == nil || o.Metrics == nil {
-		var ret []OneMetric
-		return ret
-	}
-	return *o.Metrics
-}
-
-// GetMetricsOk returns a tuple with the Metrics field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Subscription) GetMetricsOk() (*[]OneMetric, bool) {
-	if o == nil || o.Metrics == nil {
-		return nil, false
-	}
-	return o.Metrics, true
-}
-
-// HasMetrics returns a boolean if a field has been set.
-func (o *Subscription) HasMetrics() bool {
-	if o != nil && o.Metrics != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetMetrics gets a reference to the given []OneMetric and assigns it to the Metrics field.
-func (o *Subscription) SetMetrics(v []OneMetric) {
-	o.Metrics = &v
-}
-
-// GetNotificationContacts returns the NotificationContacts field value if set, zero value otherwise.
-func (o *Subscription) GetNotificationContacts() []Account {
-	if o == nil || o.NotificationContacts == nil {
-		var ret []Account
-		return ret
-	}
-	return *o.NotificationContacts
-}
-
-// GetNotificationContactsOk returns a tuple with the NotificationContacts field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Subscription) GetNotificationContactsOk() (*[]Account, bool) {
-	if o == nil || o.NotificationContacts == nil {
-		return nil, false
-	}
-	return o.NotificationContacts, true
-}
-
-// HasNotificationContacts returns a boolean if a field has been set.
-func (o *Subscription) HasNotificationContacts() bool {
-	if o != nil && o.NotificationContacts != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetNotificationContacts gets a reference to the given []Account and assigns it to the NotificationContacts field.
-func (o *Subscription) SetNotificationContacts(v []Account) {
-	o.NotificationContacts = &v
-}
-
 // GetOrganizationId returns the OrganizationId field value if set, zero value otherwise.
 func (o *Subscription) GetOrganizationId() string {
 	if o == nil || o.OrganizationId == nil {
@@ -839,36 +716,36 @@ func (o *Subscription) SetOrganizationId(v string) {
 	o.OrganizationId = &v
 }
 
-// GetPlan returns the Plan field value if set, zero value otherwise.
-func (o *Subscription) GetPlan() Plan {
-	if o == nil || o.Plan == nil {
-		var ret Plan
+// GetPlanId returns the PlanId field value if set, zero value otherwise.
+func (o *Subscription) GetPlanId() string {
+	if o == nil || o.PlanId == nil {
+		var ret string
 		return ret
 	}
-	return *o.Plan
+	return *o.PlanId
 }
 
-// GetPlanOk returns a tuple with the Plan field value if set, nil otherwise
+// GetPlanIdOk returns a tuple with the PlanId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Subscription) GetPlanOk() (*Plan, bool) {
-	if o == nil || o.Plan == nil {
+func (o *Subscription) GetPlanIdOk() (*string, bool) {
+	if o == nil || o.PlanId == nil {
 		return nil, false
 	}
-	return o.Plan, true
+	return o.PlanId, true
 }
 
-// HasPlan returns a boolean if a field has been set.
-func (o *Subscription) HasPlan() bool {
-	if o != nil && o.Plan != nil {
+// HasPlanId returns a boolean if a field has been set.
+func (o *Subscription) HasPlanId() bool {
+	if o != nil && o.PlanId != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetPlan gets a reference to the given Plan and assigns it to the Plan field.
-func (o *Subscription) SetPlan(v Plan) {
-	o.Plan = &v
+// SetPlanId gets a reference to the given string and assigns it to the PlanId field.
+func (o *Subscription) SetPlanId(v string) {
+	o.PlanId = &v
 }
 
 // GetProductBundle returns the ProductBundle field value if set, zero value otherwise.
@@ -1191,38 +1068,6 @@ func (o *Subscription) SetTrialEndDate(v time.Time) {
 	o.TrialEndDate = &v
 }
 
-// GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
-func (o *Subscription) GetUpdatedAt() time.Time {
-	if o == nil || o.UpdatedAt == nil {
-		var ret time.Time
-		return ret
-	}
-	return *o.UpdatedAt
-}
-
-// GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Subscription) GetUpdatedAtOk() (*time.Time, bool) {
-	if o == nil || o.UpdatedAt == nil {
-		return nil, false
-	}
-	return o.UpdatedAt, true
-}
-
-// HasUpdatedAt returns a boolean if a field has been set.
-func (o *Subscription) HasUpdatedAt() bool {
-	if o != nil && o.UpdatedAt != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetUpdatedAt gets a reference to the given time.Time and assigns it to the UpdatedAt field.
-func (o *Subscription) SetUpdatedAt(v time.Time) {
-	o.UpdatedAt = &v
-}
-
 // GetUsage returns the Usage field value if set, zero value otherwise.
 func (o *Subscription) GetUsage() string {
 	if o == nil || o.Usage == nil {
@@ -1255,6 +1100,294 @@ func (o *Subscription) SetUsage(v string) {
 	o.Usage = &v
 }
 
+// GetCapabilities returns the Capabilities field value if set, zero value otherwise.
+func (o *Subscription) GetCapabilities() []Capability {
+	if o == nil || o.Capabilities == nil {
+		var ret []Capability
+		return ret
+	}
+	return *o.Capabilities
+}
+
+// GetCapabilitiesOk returns a tuple with the Capabilities field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Subscription) GetCapabilitiesOk() (*[]Capability, bool) {
+	if o == nil || o.Capabilities == nil {
+		return nil, false
+	}
+	return o.Capabilities, true
+}
+
+// HasCapabilities returns a boolean if a field has been set.
+func (o *Subscription) HasCapabilities() bool {
+	if o != nil && o.Capabilities != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCapabilities gets a reference to the given []Capability and assigns it to the Capabilities field.
+func (o *Subscription) SetCapabilities(v []Capability) {
+	o.Capabilities = &v
+}
+
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
+func (o *Subscription) GetCreatedAt() time.Time {
+	if o == nil || o.CreatedAt == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.CreatedAt
+}
+
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Subscription) GetCreatedAtOk() (*time.Time, bool) {
+	if o == nil || o.CreatedAt == nil {
+		return nil, false
+	}
+	return o.CreatedAt, true
+}
+
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *Subscription) HasCreatedAt() bool {
+	if o != nil && o.CreatedAt != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
+func (o *Subscription) SetCreatedAt(v time.Time) {
+	o.CreatedAt = &v
+}
+
+// GetCreator returns the Creator field value if set, zero value otherwise.
+func (o *Subscription) GetCreator() AccountReference {
+	if o == nil || o.Creator == nil {
+		var ret AccountReference
+		return ret
+	}
+	return *o.Creator
+}
+
+// GetCreatorOk returns a tuple with the Creator field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Subscription) GetCreatorOk() (*AccountReference, bool) {
+	if o == nil || o.Creator == nil {
+		return nil, false
+	}
+	return o.Creator, true
+}
+
+// HasCreator returns a boolean if a field has been set.
+func (o *Subscription) HasCreator() bool {
+	if o != nil && o.Creator != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCreator gets a reference to the given AccountReference and assigns it to the Creator field.
+func (o *Subscription) SetCreator(v AccountReference) {
+	o.Creator = &v
+}
+
+// GetEvalExpirationDate returns the EvalExpirationDate field value if set, zero value otherwise.
+func (o *Subscription) GetEvalExpirationDate() time.Time {
+	if o == nil || o.EvalExpirationDate == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.EvalExpirationDate
+}
+
+// GetEvalExpirationDateOk returns a tuple with the EvalExpirationDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Subscription) GetEvalExpirationDateOk() (*time.Time, bool) {
+	if o == nil || o.EvalExpirationDate == nil {
+		return nil, false
+	}
+	return o.EvalExpirationDate, true
+}
+
+// HasEvalExpirationDate returns a boolean if a field has been set.
+func (o *Subscription) HasEvalExpirationDate() bool {
+	if o != nil && o.EvalExpirationDate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEvalExpirationDate gets a reference to the given time.Time and assigns it to the EvalExpirationDate field.
+func (o *Subscription) SetEvalExpirationDate(v time.Time) {
+	o.EvalExpirationDate = &v
+}
+
+// GetLabels returns the Labels field value if set, zero value otherwise.
+func (o *Subscription) GetLabels() []Label {
+	if o == nil || o.Labels == nil {
+		var ret []Label
+		return ret
+	}
+	return *o.Labels
+}
+
+// GetLabelsOk returns a tuple with the Labels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Subscription) GetLabelsOk() (*[]Label, bool) {
+	if o == nil || o.Labels == nil {
+		return nil, false
+	}
+	return o.Labels, true
+}
+
+// HasLabels returns a boolean if a field has been set.
+func (o *Subscription) HasLabels() bool {
+	if o != nil && o.Labels != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLabels gets a reference to the given []Label and assigns it to the Labels field.
+func (o *Subscription) SetLabels(v []Label) {
+	o.Labels = &v
+}
+
+// GetMetrics returns the Metrics field value if set, zero value otherwise.
+func (o *Subscription) GetMetrics() []OneMetric {
+	if o == nil || o.Metrics == nil {
+		var ret []OneMetric
+		return ret
+	}
+	return *o.Metrics
+}
+
+// GetMetricsOk returns a tuple with the Metrics field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Subscription) GetMetricsOk() (*[]OneMetric, bool) {
+	if o == nil || o.Metrics == nil {
+		return nil, false
+	}
+	return o.Metrics, true
+}
+
+// HasMetrics returns a boolean if a field has been set.
+func (o *Subscription) HasMetrics() bool {
+	if o != nil && o.Metrics != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMetrics gets a reference to the given []OneMetric and assigns it to the Metrics field.
+func (o *Subscription) SetMetrics(v []OneMetric) {
+	o.Metrics = &v
+}
+
+// GetNotificationContacts returns the NotificationContacts field value if set, zero value otherwise.
+func (o *Subscription) GetNotificationContacts() []Account {
+	if o == nil || o.NotificationContacts == nil {
+		var ret []Account
+		return ret
+	}
+	return *o.NotificationContacts
+}
+
+// GetNotificationContactsOk returns a tuple with the NotificationContacts field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Subscription) GetNotificationContactsOk() (*[]Account, bool) {
+	if o == nil || o.NotificationContacts == nil {
+		return nil, false
+	}
+	return o.NotificationContacts, true
+}
+
+// HasNotificationContacts returns a boolean if a field has been set.
+func (o *Subscription) HasNotificationContacts() bool {
+	if o != nil && o.NotificationContacts != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNotificationContacts gets a reference to the given []Account and assigns it to the NotificationContacts field.
+func (o *Subscription) SetNotificationContacts(v []Account) {
+	o.NotificationContacts = &v
+}
+
+// GetPlan returns the Plan field value if set, zero value otherwise.
+func (o *Subscription) GetPlan() Plan {
+	if o == nil || o.Plan == nil {
+		var ret Plan
+		return ret
+	}
+	return *o.Plan
+}
+
+// GetPlanOk returns a tuple with the Plan field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Subscription) GetPlanOk() (*Plan, bool) {
+	if o == nil || o.Plan == nil {
+		return nil, false
+	}
+	return o.Plan, true
+}
+
+// HasPlan returns a boolean if a field has been set.
+func (o *Subscription) HasPlan() bool {
+	if o != nil && o.Plan != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPlan gets a reference to the given Plan and assigns it to the Plan field.
+func (o *Subscription) SetPlan(v Plan) {
+	o.Plan = &v
+}
+
+// GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
+func (o *Subscription) GetUpdatedAt() time.Time {
+	if o == nil || o.UpdatedAt == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.UpdatedAt
+}
+
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Subscription) GetUpdatedAtOk() (*time.Time, bool) {
+	if o == nil || o.UpdatedAt == nil {
+		return nil, false
+	}
+	return o.UpdatedAt, true
+}
+
+// HasUpdatedAt returns a boolean if a field has been set.
+func (o *Subscription) HasUpdatedAt() bool {
+	if o != nil && o.UpdatedAt != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedAt gets a reference to the given time.Time and assigns it to the UpdatedAt field.
+func (o *Subscription) SetUpdatedAt(v time.Time) {
+	o.UpdatedAt = &v
+}
+
 func (o Subscription) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Href != nil {
@@ -1269,8 +1402,8 @@ func (o Subscription) MarshalJSON() ([]byte, error) {
 	if o.BillingExpirationDate != nil {
 		toSerialize["billing_expiration_date"] = o.BillingExpirationDate
 	}
-	if o.Capabilities != nil {
-		toSerialize["capabilities"] = o.Capabilities
+	if o.BillingMarketplaceAccount != nil {
+		toSerialize["billing_marketplace_account"] = o.BillingMarketplaceAccount
 	}
 	if o.CloudAccountId != nil {
 		toSerialize["cloud_account_id"] = o.CloudAccountId
@@ -1293,20 +1426,14 @@ func (o Subscription) MarshalJSON() ([]byte, error) {
 	if o.CpuTotal != nil {
 		toSerialize["cpu_total"] = o.CpuTotal
 	}
-	if o.CreatedAt != nil {
-		toSerialize["created_at"] = o.CreatedAt
-	}
-	if o.Creator != nil {
-		toSerialize["creator"] = o.Creator
+	if o.CreatorId != nil {
+		toSerialize["creator_id"] = o.CreatorId
 	}
 	if o.DisplayName != nil {
 		toSerialize["display_name"] = o.DisplayName
 	}
 	if o.ExternalClusterId != nil {
 		toSerialize["external_cluster_id"] = o.ExternalClusterId
-	}
-	if o.Labels != nil {
-		toSerialize["labels"] = o.Labels
 	}
 	if o.LastReconcileDate != nil {
 		toSerialize["last_reconcile_date"] = o.LastReconcileDate
@@ -1320,17 +1447,11 @@ func (o Subscription) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["managed"] = o.Managed
 	}
-	if o.Metrics != nil {
-		toSerialize["metrics"] = o.Metrics
-	}
-	if o.NotificationContacts != nil {
-		toSerialize["notification_contacts"] = o.NotificationContacts
-	}
 	if o.OrganizationId != nil {
 		toSerialize["organization_id"] = o.OrganizationId
 	}
-	if o.Plan != nil {
-		toSerialize["plan"] = o.Plan
+	if o.PlanId != nil {
+		toSerialize["plan_id"] = o.PlanId
 	}
 	if o.ProductBundle != nil {
 		toSerialize["product_bundle"] = o.ProductBundle
@@ -1362,11 +1483,35 @@ func (o Subscription) MarshalJSON() ([]byte, error) {
 	if o.TrialEndDate != nil {
 		toSerialize["trial_end_date"] = o.TrialEndDate
 	}
-	if o.UpdatedAt != nil {
-		toSerialize["updated_at"] = o.UpdatedAt
-	}
 	if o.Usage != nil {
 		toSerialize["usage"] = o.Usage
+	}
+	if o.Capabilities != nil {
+		toSerialize["capabilities"] = o.Capabilities
+	}
+	if o.CreatedAt != nil {
+		toSerialize["created_at"] = o.CreatedAt
+	}
+	if o.Creator != nil {
+		toSerialize["creator"] = o.Creator
+	}
+	if o.EvalExpirationDate != nil {
+		toSerialize["eval_expiration_date"] = o.EvalExpirationDate
+	}
+	if o.Labels != nil {
+		toSerialize["labels"] = o.Labels
+	}
+	if o.Metrics != nil {
+		toSerialize["metrics"] = o.Metrics
+	}
+	if o.NotificationContacts != nil {
+		toSerialize["notification_contacts"] = o.NotificationContacts
+	}
+	if o.Plan != nil {
+		toSerialize["plan"] = o.Plan
+	}
+	if o.UpdatedAt != nil {
+		toSerialize["updated_at"] = o.UpdatedAt
 	}
 	return json.Marshal(toSerialize)
 }

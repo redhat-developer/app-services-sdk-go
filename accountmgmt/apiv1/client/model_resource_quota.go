@@ -20,12 +20,8 @@ type ResourceQuota struct {
 	Href *string `json:"href,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Kind *string `json:"kind,omitempty"`
-	AvailabilityZoneType *string `json:"availability_zone_type,omitempty"`
-	Byoc bool `json:"byoc"`
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	OrganizationId *string `json:"organization_id,omitempty"`
-	ResourceName string `json:"resource_name"`
-	ResourceType string `json:"resource_type"`
 	Sku *string `json:"sku,omitempty"`
 	SkuCount int32 `json:"sku_count"`
 	Type *string `json:"type,omitempty"`
@@ -36,11 +32,8 @@ type ResourceQuota struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewResourceQuota(byoc bool, resourceName string, resourceType string, skuCount int32) *ResourceQuota {
+func NewResourceQuota(skuCount int32) *ResourceQuota {
 	this := ResourceQuota{}
-	this.Byoc = byoc
-	this.ResourceName = resourceName
-	this.ResourceType = resourceType
 	this.SkuCount = skuCount
 	return &this
 }
@@ -149,62 +142,6 @@ func (o *ResourceQuota) SetKind(v string) {
 	o.Kind = &v
 }
 
-// GetAvailabilityZoneType returns the AvailabilityZoneType field value if set, zero value otherwise.
-func (o *ResourceQuota) GetAvailabilityZoneType() string {
-	if o == nil || o.AvailabilityZoneType == nil {
-		var ret string
-		return ret
-	}
-	return *o.AvailabilityZoneType
-}
-
-// GetAvailabilityZoneTypeOk returns a tuple with the AvailabilityZoneType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ResourceQuota) GetAvailabilityZoneTypeOk() (*string, bool) {
-	if o == nil || o.AvailabilityZoneType == nil {
-		return nil, false
-	}
-	return o.AvailabilityZoneType, true
-}
-
-// HasAvailabilityZoneType returns a boolean if a field has been set.
-func (o *ResourceQuota) HasAvailabilityZoneType() bool {
-	if o != nil && o.AvailabilityZoneType != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetAvailabilityZoneType gets a reference to the given string and assigns it to the AvailabilityZoneType field.
-func (o *ResourceQuota) SetAvailabilityZoneType(v string) {
-	o.AvailabilityZoneType = &v
-}
-
-// GetByoc returns the Byoc field value
-func (o *ResourceQuota) GetByoc() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.Byoc
-}
-
-// GetByocOk returns a tuple with the Byoc field value
-// and a boolean to check if the value has been set.
-func (o *ResourceQuota) GetByocOk() (*bool, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Byoc, true
-}
-
-// SetByoc sets field value
-func (o *ResourceQuota) SetByoc(v bool) {
-	o.Byoc = v
-}
-
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *ResourceQuota) GetCreatedAt() time.Time {
 	if o == nil || o.CreatedAt == nil {
@@ -267,54 +204,6 @@ func (o *ResourceQuota) HasOrganizationId() bool {
 // SetOrganizationId gets a reference to the given string and assigns it to the OrganizationId field.
 func (o *ResourceQuota) SetOrganizationId(v string) {
 	o.OrganizationId = &v
-}
-
-// GetResourceName returns the ResourceName field value
-func (o *ResourceQuota) GetResourceName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ResourceName
-}
-
-// GetResourceNameOk returns a tuple with the ResourceName field value
-// and a boolean to check if the value has been set.
-func (o *ResourceQuota) GetResourceNameOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.ResourceName, true
-}
-
-// SetResourceName sets field value
-func (o *ResourceQuota) SetResourceName(v string) {
-	o.ResourceName = v
-}
-
-// GetResourceType returns the ResourceType field value
-func (o *ResourceQuota) GetResourceType() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ResourceType
-}
-
-// GetResourceTypeOk returns a tuple with the ResourceType field value
-// and a boolean to check if the value has been set.
-func (o *ResourceQuota) GetResourceTypeOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.ResourceType, true
-}
-
-// SetResourceType sets field value
-func (o *ResourceQuota) SetResourceType(v string) {
-	o.ResourceType = v
 }
 
 // GetSku returns the Sku field value if set, zero value otherwise.
@@ -448,23 +337,11 @@ func (o ResourceQuota) MarshalJSON() ([]byte, error) {
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-	if o.AvailabilityZoneType != nil {
-		toSerialize["availability_zone_type"] = o.AvailabilityZoneType
-	}
-	if true {
-		toSerialize["byoc"] = o.Byoc
-	}
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt
 	}
 	if o.OrganizationId != nil {
 		toSerialize["organization_id"] = o.OrganizationId
-	}
-	if true {
-		toSerialize["resource_name"] = o.ResourceName
-	}
-	if true {
-		toSerialize["resource_type"] = o.ResourceType
 	}
 	if o.Sku != nil {
 		toSerialize["sku"] = o.Sku

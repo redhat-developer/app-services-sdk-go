@@ -16,6 +16,7 @@ import (
 
 // SelfTermsReview struct for SelfTermsReview
 type SelfTermsReview struct {
+	CheckOptionalTerms *bool `json:"check_optional_terms,omitempty"`
 	EventCode *string `json:"event_code,omitempty"`
 	SiteCode *string `json:"site_code,omitempty"`
 }
@@ -26,6 +27,8 @@ type SelfTermsReview struct {
 // will change when the set of required properties is changed
 func NewSelfTermsReview() *SelfTermsReview {
 	this := SelfTermsReview{}
+	var checkOptionalTerms bool = true
+	this.CheckOptionalTerms = &checkOptionalTerms
 	return &this
 }
 
@@ -34,7 +37,41 @@ func NewSelfTermsReview() *SelfTermsReview {
 // but it doesn't guarantee that properties required by API are set
 func NewSelfTermsReviewWithDefaults() *SelfTermsReview {
 	this := SelfTermsReview{}
+	var checkOptionalTerms bool = true
+	this.CheckOptionalTerms = &checkOptionalTerms
 	return &this
+}
+
+// GetCheckOptionalTerms returns the CheckOptionalTerms field value if set, zero value otherwise.
+func (o *SelfTermsReview) GetCheckOptionalTerms() bool {
+	if o == nil || o.CheckOptionalTerms == nil {
+		var ret bool
+		return ret
+	}
+	return *o.CheckOptionalTerms
+}
+
+// GetCheckOptionalTermsOk returns a tuple with the CheckOptionalTerms field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SelfTermsReview) GetCheckOptionalTermsOk() (*bool, bool) {
+	if o == nil || o.CheckOptionalTerms == nil {
+		return nil, false
+	}
+	return o.CheckOptionalTerms, true
+}
+
+// HasCheckOptionalTerms returns a boolean if a field has been set.
+func (o *SelfTermsReview) HasCheckOptionalTerms() bool {
+	if o != nil && o.CheckOptionalTerms != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCheckOptionalTerms gets a reference to the given bool and assigns it to the CheckOptionalTerms field.
+func (o *SelfTermsReview) SetCheckOptionalTerms(v bool) {
+	o.CheckOptionalTerms = &v
 }
 
 // GetEventCode returns the EventCode field value if set, zero value otherwise.
@@ -103,6 +140,9 @@ func (o *SelfTermsReview) SetSiteCode(v string) {
 
 func (o SelfTermsReview) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.CheckOptionalTerms != nil {
+		toSerialize["check_optional_terms"] = o.CheckOptionalTerms
+	}
 	if o.EventCode != nil {
 		toSerialize["event_code"] = o.EventCode
 	}

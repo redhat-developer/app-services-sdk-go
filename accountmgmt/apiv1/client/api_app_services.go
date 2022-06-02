@@ -305,6 +305,20 @@ func (a *AppServicesApiService) ApiAccountsMgmtV1CurrentAccountGetExecute(r ApiA
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["AccessToken"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -377,6 +391,8 @@ type ApiApiAccountsMgmtV1OrganizationsOrgIdQuotaCostGetRequest struct {
 	orgId string
 	search *string
 	fetchRelatedResources *bool
+	forceRecalc *bool
+	fetchCloudAccounts *bool
 }
 
 func (r ApiApiAccountsMgmtV1OrganizationsOrgIdQuotaCostGetRequest) Search(search string) ApiApiAccountsMgmtV1OrganizationsOrgIdQuotaCostGetRequest {
@@ -385,6 +401,14 @@ func (r ApiApiAccountsMgmtV1OrganizationsOrgIdQuotaCostGetRequest) Search(search
 }
 func (r ApiApiAccountsMgmtV1OrganizationsOrgIdQuotaCostGetRequest) FetchRelatedResources(fetchRelatedResources bool) ApiApiAccountsMgmtV1OrganizationsOrgIdQuotaCostGetRequest {
 	r.fetchRelatedResources = &fetchRelatedResources
+	return r
+}
+func (r ApiApiAccountsMgmtV1OrganizationsOrgIdQuotaCostGetRequest) ForceRecalc(forceRecalc bool) ApiApiAccountsMgmtV1OrganizationsOrgIdQuotaCostGetRequest {
+	r.forceRecalc = &forceRecalc
+	return r
+}
+func (r ApiApiAccountsMgmtV1OrganizationsOrgIdQuotaCostGetRequest) FetchCloudAccounts(fetchCloudAccounts bool) ApiApiAccountsMgmtV1OrganizationsOrgIdQuotaCostGetRequest {
+	r.fetchCloudAccounts = &fetchCloudAccounts
 	return r
 }
 
@@ -437,6 +461,12 @@ func (a *AppServicesApiService) ApiAccountsMgmtV1OrganizationsOrgIdQuotaCostGetE
 	}
 	if r.fetchRelatedResources != nil {
 		localVarQueryParams.Add("fetchRelatedResources", parameterToString(*r.fetchRelatedResources, ""))
+	}
+	if r.forceRecalc != nil {
+		localVarQueryParams.Add("forceRecalc", parameterToString(*r.forceRecalc, ""))
+	}
+	if r.fetchCloudAccounts != nil {
+		localVarQueryParams.Add("fetchCloudAccounts", parameterToString(*r.fetchCloudAccounts, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

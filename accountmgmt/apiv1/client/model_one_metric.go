@@ -17,6 +17,8 @@ import (
 
 // OneMetric struct for OneMetric
 type OneMetric struct {
+	Arch *string `json:"arch,omitempty"`
+	ChannelInfo *string `json:"channel_info,omitempty"`
 	CloudProvider string `json:"cloud_provider"`
 	ClusterType string `json:"cluster_type"`
 	ComputeNodesCpu ClusterResource `json:"compute_nodes_cpu"`
@@ -28,6 +30,7 @@ type OneMetric struct {
 	HealthState *string `json:"health_state,omitempty"`
 	Memory ClusterResource `json:"memory"`
 	Nodes ClusterMetricsNodes `json:"nodes"`
+	NonVirtNodes float64 `json:"non_virt_nodes"`
 	OpenshiftVersion string `json:"openshift_version"`
 	OperatingSystem string `json:"operating_system"`
 	OperatorsConditionFailing float64 `json:"operators_condition_failing"`
@@ -47,7 +50,7 @@ type OneMetric struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOneMetric(cloudProvider string, clusterType string, computeNodesCpu ClusterResource, computeNodesMemory ClusterResource, computeNodesSockets ClusterResource, consoleUrl string, cpu ClusterResource, criticalAlertsFiring float64, memory ClusterResource, nodes ClusterMetricsNodes, openshiftVersion string, operatingSystem string, operatorsConditionFailing float64, region string, sockets ClusterResource, state string, stateDescription string, storage ClusterResource, subscriptionCpuTotal float64, subscriptionObligationExists float64, subscriptionSocketTotal float64, upgrade ClusterUpgrade) *OneMetric {
+func NewOneMetric(cloudProvider string, clusterType string, computeNodesCpu ClusterResource, computeNodesMemory ClusterResource, computeNodesSockets ClusterResource, consoleUrl string, cpu ClusterResource, criticalAlertsFiring float64, memory ClusterResource, nodes ClusterMetricsNodes, nonVirtNodes float64, openshiftVersion string, operatingSystem string, operatorsConditionFailing float64, region string, sockets ClusterResource, state string, stateDescription string, storage ClusterResource, subscriptionCpuTotal float64, subscriptionObligationExists float64, subscriptionSocketTotal float64, upgrade ClusterUpgrade) *OneMetric {
 	this := OneMetric{}
 	this.CloudProvider = cloudProvider
 	this.ClusterType = clusterType
@@ -59,6 +62,7 @@ func NewOneMetric(cloudProvider string, clusterType string, computeNodesCpu Clus
 	this.CriticalAlertsFiring = criticalAlertsFiring
 	this.Memory = memory
 	this.Nodes = nodes
+	this.NonVirtNodes = nonVirtNodes
 	this.OpenshiftVersion = openshiftVersion
 	this.OperatingSystem = operatingSystem
 	this.OperatorsConditionFailing = operatorsConditionFailing
@@ -80,6 +84,70 @@ func NewOneMetric(cloudProvider string, clusterType string, computeNodesCpu Clus
 func NewOneMetricWithDefaults() *OneMetric {
 	this := OneMetric{}
 	return &this
+}
+
+// GetArch returns the Arch field value if set, zero value otherwise.
+func (o *OneMetric) GetArch() string {
+	if o == nil || o.Arch == nil {
+		var ret string
+		return ret
+	}
+	return *o.Arch
+}
+
+// GetArchOk returns a tuple with the Arch field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OneMetric) GetArchOk() (*string, bool) {
+	if o == nil || o.Arch == nil {
+		return nil, false
+	}
+	return o.Arch, true
+}
+
+// HasArch returns a boolean if a field has been set.
+func (o *OneMetric) HasArch() bool {
+	if o != nil && o.Arch != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetArch gets a reference to the given string and assigns it to the Arch field.
+func (o *OneMetric) SetArch(v string) {
+	o.Arch = &v
+}
+
+// GetChannelInfo returns the ChannelInfo field value if set, zero value otherwise.
+func (o *OneMetric) GetChannelInfo() string {
+	if o == nil || o.ChannelInfo == nil {
+		var ret string
+		return ret
+	}
+	return *o.ChannelInfo
+}
+
+// GetChannelInfoOk returns a tuple with the ChannelInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OneMetric) GetChannelInfoOk() (*string, bool) {
+	if o == nil || o.ChannelInfo == nil {
+		return nil, false
+	}
+	return o.ChannelInfo, true
+}
+
+// HasChannelInfo returns a boolean if a field has been set.
+func (o *OneMetric) HasChannelInfo() bool {
+	if o != nil && o.ChannelInfo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetChannelInfo gets a reference to the given string and assigns it to the ChannelInfo field.
+func (o *OneMetric) SetChannelInfo(v string) {
+	o.ChannelInfo = &v
 }
 
 // GetCloudProvider returns the CloudProvider field value
@@ -352,6 +420,30 @@ func (o *OneMetric) GetNodesOk() (*ClusterMetricsNodes, bool) {
 // SetNodes sets field value
 func (o *OneMetric) SetNodes(v ClusterMetricsNodes) {
 	o.Nodes = v
+}
+
+// GetNonVirtNodes returns the NonVirtNodes field value
+func (o *OneMetric) GetNonVirtNodes() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.NonVirtNodes
+}
+
+// GetNonVirtNodesOk returns a tuple with the NonVirtNodes field value
+// and a boolean to check if the value has been set.
+func (o *OneMetric) GetNonVirtNodesOk() (*float64, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.NonVirtNodes, true
+}
+
+// SetNonVirtNodes sets field value
+func (o *OneMetric) SetNonVirtNodes(v float64) {
+	o.NonVirtNodes = v
 }
 
 // GetOpenshiftVersion returns the OpenshiftVersion field value
@@ -676,6 +768,12 @@ func (o *OneMetric) SetUpgrade(v ClusterUpgrade) {
 
 func (o OneMetric) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Arch != nil {
+		toSerialize["arch"] = o.Arch
+	}
+	if o.ChannelInfo != nil {
+		toSerialize["channel_info"] = o.ChannelInfo
+	}
 	if true {
 		toSerialize["cloud_provider"] = o.CloudProvider
 	}
@@ -708,6 +806,9 @@ func (o OneMetric) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["nodes"] = o.Nodes
+	}
+	if true {
+		toSerialize["non_virt_nodes"] = o.NonVirtNodes
 	}
 	if true {
 		toSerialize["openshift_version"] = o.OpenshiftVersion
