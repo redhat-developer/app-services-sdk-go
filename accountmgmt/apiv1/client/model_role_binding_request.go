@@ -16,8 +16,10 @@ import (
 
 // RoleBindingRequest struct for RoleBindingRequest
 type RoleBindingRequest struct {
+	AccountGroupId *string `json:"account_group_id,omitempty"`
 	AccountId *string `json:"account_id,omitempty"`
 	ConfigManaged *bool `json:"config_managed,omitempty"`
+	ManagedBy *string `json:"managed_by,omitempty"`
 	OrganizationId *string `json:"organization_id,omitempty"`
 	RoleId *string `json:"role_id,omitempty"`
 	SubscriptionId *string `json:"subscription_id,omitempty"`
@@ -39,6 +41,38 @@ func NewRoleBindingRequest() *RoleBindingRequest {
 func NewRoleBindingRequestWithDefaults() *RoleBindingRequest {
 	this := RoleBindingRequest{}
 	return &this
+}
+
+// GetAccountGroupId returns the AccountGroupId field value if set, zero value otherwise.
+func (o *RoleBindingRequest) GetAccountGroupId() string {
+	if o == nil || o.AccountGroupId == nil {
+		var ret string
+		return ret
+	}
+	return *o.AccountGroupId
+}
+
+// GetAccountGroupIdOk returns a tuple with the AccountGroupId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RoleBindingRequest) GetAccountGroupIdOk() (*string, bool) {
+	if o == nil || o.AccountGroupId == nil {
+		return nil, false
+	}
+	return o.AccountGroupId, true
+}
+
+// HasAccountGroupId returns a boolean if a field has been set.
+func (o *RoleBindingRequest) HasAccountGroupId() bool {
+	if o != nil && o.AccountGroupId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAccountGroupId gets a reference to the given string and assigns it to the AccountGroupId field.
+func (o *RoleBindingRequest) SetAccountGroupId(v string) {
+	o.AccountGroupId = &v
 }
 
 // GetAccountId returns the AccountId field value if set, zero value otherwise.
@@ -103,6 +137,38 @@ func (o *RoleBindingRequest) HasConfigManaged() bool {
 // SetConfigManaged gets a reference to the given bool and assigns it to the ConfigManaged field.
 func (o *RoleBindingRequest) SetConfigManaged(v bool) {
 	o.ConfigManaged = &v
+}
+
+// GetManagedBy returns the ManagedBy field value if set, zero value otherwise.
+func (o *RoleBindingRequest) GetManagedBy() string {
+	if o == nil || o.ManagedBy == nil {
+		var ret string
+		return ret
+	}
+	return *o.ManagedBy
+}
+
+// GetManagedByOk returns a tuple with the ManagedBy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RoleBindingRequest) GetManagedByOk() (*string, bool) {
+	if o == nil || o.ManagedBy == nil {
+		return nil, false
+	}
+	return o.ManagedBy, true
+}
+
+// HasManagedBy returns a boolean if a field has been set.
+func (o *RoleBindingRequest) HasManagedBy() bool {
+	if o != nil && o.ManagedBy != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetManagedBy gets a reference to the given string and assigns it to the ManagedBy field.
+func (o *RoleBindingRequest) SetManagedBy(v string) {
+	o.ManagedBy = &v
 }
 
 // GetOrganizationId returns the OrganizationId field value if set, zero value otherwise.
@@ -235,11 +301,17 @@ func (o *RoleBindingRequest) SetType(v string) {
 
 func (o RoleBindingRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.AccountGroupId != nil {
+		toSerialize["account_group_id"] = o.AccountGroupId
+	}
 	if o.AccountId != nil {
 		toSerialize["account_id"] = o.AccountId
 	}
 	if o.ConfigManaged != nil {
 		toSerialize["config_managed"] = o.ConfigManaged
+	}
+	if o.ManagedBy != nil {
+		toSerialize["managed_by"] = o.ManagedBy
 	}
 	if o.OrganizationId != nil {
 		toSerialize["organization_id"] = o.OrganizationId

@@ -12,6 +12,7 @@ package accountmgmtclient
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // SKU struct for SKU
@@ -19,20 +20,17 @@ type SKU struct {
 	Href *string `json:"href,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Kind *string `json:"kind,omitempty"`
-	AvailabilityZoneType *string `json:"availability_zone_type,omitempty"`
-	Byoc bool `json:"byoc"`
-	ResourceName *string `json:"resource_name,omitempty"`
-	ResourceType *string `json:"resource_type,omitempty"`
-	Resources *[]EphemeralResourceQuota `json:"resources,omitempty"`
+	CreatedAt *time.Time `json:"created_at,omitempty"`
+	Description *string `json:"description,omitempty"`
+	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
 
 // NewSKU instantiates a new SKU object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSKU(byoc bool) *SKU {
+func NewSKU() *SKU {
 	this := SKU{}
-	this.Byoc = byoc
 	return &this
 }
 
@@ -140,156 +138,100 @@ func (o *SKU) SetKind(v string) {
 	o.Kind = &v
 }
 
-// GetAvailabilityZoneType returns the AvailabilityZoneType field value if set, zero value otherwise.
-func (o *SKU) GetAvailabilityZoneType() string {
-	if o == nil || o.AvailabilityZoneType == nil {
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
+func (o *SKU) GetCreatedAt() time.Time {
+	if o == nil || o.CreatedAt == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.CreatedAt
+}
+
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SKU) GetCreatedAtOk() (*time.Time, bool) {
+	if o == nil || o.CreatedAt == nil {
+		return nil, false
+	}
+	return o.CreatedAt, true
+}
+
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *SKU) HasCreatedAt() bool {
+	if o != nil && o.CreatedAt != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
+func (o *SKU) SetCreatedAt(v time.Time) {
+	o.CreatedAt = &v
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise.
+func (o *SKU) GetDescription() string {
+	if o == nil || o.Description == nil {
 		var ret string
 		return ret
 	}
-	return *o.AvailabilityZoneType
+	return *o.Description
 }
 
-// GetAvailabilityZoneTypeOk returns a tuple with the AvailabilityZoneType field value if set, nil otherwise
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SKU) GetAvailabilityZoneTypeOk() (*string, bool) {
-	if o == nil || o.AvailabilityZoneType == nil {
+func (o *SKU) GetDescriptionOk() (*string, bool) {
+	if o == nil || o.Description == nil {
 		return nil, false
 	}
-	return o.AvailabilityZoneType, true
+	return o.Description, true
 }
 
-// HasAvailabilityZoneType returns a boolean if a field has been set.
-func (o *SKU) HasAvailabilityZoneType() bool {
-	if o != nil && o.AvailabilityZoneType != nil {
+// HasDescription returns a boolean if a field has been set.
+func (o *SKU) HasDescription() bool {
+	if o != nil && o.Description != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetAvailabilityZoneType gets a reference to the given string and assigns it to the AvailabilityZoneType field.
-func (o *SKU) SetAvailabilityZoneType(v string) {
-	o.AvailabilityZoneType = &v
+// SetDescription gets a reference to the given string and assigns it to the Description field.
+func (o *SKU) SetDescription(v string) {
+	o.Description = &v
 }
 
-// GetByoc returns the Byoc field value
-func (o *SKU) GetByoc() bool {
-	if o == nil {
-		var ret bool
+// GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
+func (o *SKU) GetUpdatedAt() time.Time {
+	if o == nil || o.UpdatedAt == nil {
+		var ret time.Time
 		return ret
 	}
-
-	return o.Byoc
+	return *o.UpdatedAt
 }
 
-// GetByocOk returns a tuple with the Byoc field value
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SKU) GetByocOk() (*bool, bool) {
-	if o == nil  {
+func (o *SKU) GetUpdatedAtOk() (*time.Time, bool) {
+	if o == nil || o.UpdatedAt == nil {
 		return nil, false
 	}
-	return &o.Byoc, true
+	return o.UpdatedAt, true
 }
 
-// SetByoc sets field value
-func (o *SKU) SetByoc(v bool) {
-	o.Byoc = v
-}
-
-// GetResourceName returns the ResourceName field value if set, zero value otherwise.
-func (o *SKU) GetResourceName() string {
-	if o == nil || o.ResourceName == nil {
-		var ret string
-		return ret
-	}
-	return *o.ResourceName
-}
-
-// GetResourceNameOk returns a tuple with the ResourceName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *SKU) GetResourceNameOk() (*string, bool) {
-	if o == nil || o.ResourceName == nil {
-		return nil, false
-	}
-	return o.ResourceName, true
-}
-
-// HasResourceName returns a boolean if a field has been set.
-func (o *SKU) HasResourceName() bool {
-	if o != nil && o.ResourceName != nil {
+// HasUpdatedAt returns a boolean if a field has been set.
+func (o *SKU) HasUpdatedAt() bool {
+	if o != nil && o.UpdatedAt != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetResourceName gets a reference to the given string and assigns it to the ResourceName field.
-func (o *SKU) SetResourceName(v string) {
-	o.ResourceName = &v
-}
-
-// GetResourceType returns the ResourceType field value if set, zero value otherwise.
-func (o *SKU) GetResourceType() string {
-	if o == nil || o.ResourceType == nil {
-		var ret string
-		return ret
-	}
-	return *o.ResourceType
-}
-
-// GetResourceTypeOk returns a tuple with the ResourceType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *SKU) GetResourceTypeOk() (*string, bool) {
-	if o == nil || o.ResourceType == nil {
-		return nil, false
-	}
-	return o.ResourceType, true
-}
-
-// HasResourceType returns a boolean if a field has been set.
-func (o *SKU) HasResourceType() bool {
-	if o != nil && o.ResourceType != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetResourceType gets a reference to the given string and assigns it to the ResourceType field.
-func (o *SKU) SetResourceType(v string) {
-	o.ResourceType = &v
-}
-
-// GetResources returns the Resources field value if set, zero value otherwise.
-func (o *SKU) GetResources() []EphemeralResourceQuota {
-	if o == nil || o.Resources == nil {
-		var ret []EphemeralResourceQuota
-		return ret
-	}
-	return *o.Resources
-}
-
-// GetResourcesOk returns a tuple with the Resources field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *SKU) GetResourcesOk() (*[]EphemeralResourceQuota, bool) {
-	if o == nil || o.Resources == nil {
-		return nil, false
-	}
-	return o.Resources, true
-}
-
-// HasResources returns a boolean if a field has been set.
-func (o *SKU) HasResources() bool {
-	if o != nil && o.Resources != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetResources gets a reference to the given []EphemeralResourceQuota and assigns it to the Resources field.
-func (o *SKU) SetResources(v []EphemeralResourceQuota) {
-	o.Resources = &v
+// SetUpdatedAt gets a reference to the given time.Time and assigns it to the UpdatedAt field.
+func (o *SKU) SetUpdatedAt(v time.Time) {
+	o.UpdatedAt = &v
 }
 
 func (o SKU) MarshalJSON() ([]byte, error) {
@@ -303,20 +245,14 @@ func (o SKU) MarshalJSON() ([]byte, error) {
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-	if o.AvailabilityZoneType != nil {
-		toSerialize["availability_zone_type"] = o.AvailabilityZoneType
+	if o.CreatedAt != nil {
+		toSerialize["created_at"] = o.CreatedAt
 	}
-	if true {
-		toSerialize["byoc"] = o.Byoc
+	if o.Description != nil {
+		toSerialize["description"] = o.Description
 	}
-	if o.ResourceName != nil {
-		toSerialize["resource_name"] = o.ResourceName
-	}
-	if o.ResourceType != nil {
-		toSerialize["resource_type"] = o.ResourceType
-	}
-	if o.Resources != nil {
-		toSerialize["resources"] = o.Resources
+	if o.UpdatedAt != nil {
+		toSerialize["updated_at"] = o.UpdatedAt
 	}
 	return json.Marshal(toSerialize)
 }

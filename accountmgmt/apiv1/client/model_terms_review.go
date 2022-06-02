@@ -17,6 +17,7 @@ import (
 // TermsReview struct for TermsReview
 type TermsReview struct {
 	AccountUsername string `json:"account_username"`
+	CheckOptionalTerms *bool `json:"check_optional_terms,omitempty"`
 	EventCode *string `json:"event_code,omitempty"`
 	SiteCode *string `json:"site_code,omitempty"`
 }
@@ -28,6 +29,8 @@ type TermsReview struct {
 func NewTermsReview(accountUsername string) *TermsReview {
 	this := TermsReview{}
 	this.AccountUsername = accountUsername
+	var checkOptionalTerms bool = true
+	this.CheckOptionalTerms = &checkOptionalTerms
 	return &this
 }
 
@@ -36,6 +39,8 @@ func NewTermsReview(accountUsername string) *TermsReview {
 // but it doesn't guarantee that properties required by API are set
 func NewTermsReviewWithDefaults() *TermsReview {
 	this := TermsReview{}
+	var checkOptionalTerms bool = true
+	this.CheckOptionalTerms = &checkOptionalTerms
 	return &this
 }
 
@@ -61,6 +66,38 @@ func (o *TermsReview) GetAccountUsernameOk() (*string, bool) {
 // SetAccountUsername sets field value
 func (o *TermsReview) SetAccountUsername(v string) {
 	o.AccountUsername = v
+}
+
+// GetCheckOptionalTerms returns the CheckOptionalTerms field value if set, zero value otherwise.
+func (o *TermsReview) GetCheckOptionalTerms() bool {
+	if o == nil || o.CheckOptionalTerms == nil {
+		var ret bool
+		return ret
+	}
+	return *o.CheckOptionalTerms
+}
+
+// GetCheckOptionalTermsOk returns a tuple with the CheckOptionalTerms field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TermsReview) GetCheckOptionalTermsOk() (*bool, bool) {
+	if o == nil || o.CheckOptionalTerms == nil {
+		return nil, false
+	}
+	return o.CheckOptionalTerms, true
+}
+
+// HasCheckOptionalTerms returns a boolean if a field has been set.
+func (o *TermsReview) HasCheckOptionalTerms() bool {
+	if o != nil && o.CheckOptionalTerms != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCheckOptionalTerms gets a reference to the given bool and assigns it to the CheckOptionalTerms field.
+func (o *TermsReview) SetCheckOptionalTerms(v bool) {
+	o.CheckOptionalTerms = &v
 }
 
 // GetEventCode returns the EventCode field value if set, zero value otherwise.
@@ -131,6 +168,9 @@ func (o TermsReview) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["account_username"] = o.AccountUsername
+	}
+	if o.CheckOptionalTerms != nil {
+		toSerialize["check_optional_terms"] = o.CheckOptionalTerms
 	}
 	if o.EventCode != nil {
 		toSerialize["event_code"] = o.EventCode

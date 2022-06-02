@@ -28,6 +28,7 @@ type ClusterAuthorizationRequest struct {
 	Managed *bool `json:"managed,omitempty"`
 	ProductCategory *string `json:"product_category,omitempty"`
 	ProductId *string `json:"product_id,omitempty"`
+	QuotaVersion *string `json:"quota_version,omitempty"`
 	Reserve *bool `json:"reserve,omitempty"`
 	Resources *[]ReservedResource `json:"resources,omitempty"`
 }
@@ -423,6 +424,38 @@ func (o *ClusterAuthorizationRequest) SetProductId(v string) {
 	o.ProductId = &v
 }
 
+// GetQuotaVersion returns the QuotaVersion field value if set, zero value otherwise.
+func (o *ClusterAuthorizationRequest) GetQuotaVersion() string {
+	if o == nil || o.QuotaVersion == nil {
+		var ret string
+		return ret
+	}
+	return *o.QuotaVersion
+}
+
+// GetQuotaVersionOk returns a tuple with the QuotaVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ClusterAuthorizationRequest) GetQuotaVersionOk() (*string, bool) {
+	if o == nil || o.QuotaVersion == nil {
+		return nil, false
+	}
+	return o.QuotaVersion, true
+}
+
+// HasQuotaVersion returns a boolean if a field has been set.
+func (o *ClusterAuthorizationRequest) HasQuotaVersion() bool {
+	if o != nil && o.QuotaVersion != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetQuotaVersion gets a reference to the given string and assigns it to the QuotaVersion field.
+func (o *ClusterAuthorizationRequest) SetQuotaVersion(v string) {
+	o.QuotaVersion = &v
+}
+
 // GetReserve returns the Reserve field value if set, zero value otherwise.
 func (o *ClusterAuthorizationRequest) GetReserve() bool {
 	if o == nil || o.Reserve == nil {
@@ -524,6 +557,9 @@ func (o ClusterAuthorizationRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.ProductId != nil {
 		toSerialize["product_id"] = o.ProductId
+	}
+	if o.QuotaVersion != nil {
+		toSerialize["quota_version"] = o.QuotaVersion
 	}
 	if o.Reserve != nil {
 		toSerialize["reserve"] = o.Reserve

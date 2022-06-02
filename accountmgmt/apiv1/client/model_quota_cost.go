@@ -20,10 +20,12 @@ type QuotaCost struct {
 	Id *string `json:"id,omitempty"`
 	Kind *string `json:"kind,omitempty"`
 	Allowed int32 `json:"allowed"`
+	CloudAccounts *[]CloudAccount `json:"cloud_accounts,omitempty"`
 	Consumed int32 `json:"consumed"`
 	OrganizationId *string `json:"organization_id,omitempty"`
 	QuotaId string `json:"quota_id"`
 	RelatedResources *[]RelatedResource `json:"related_resources,omitempty"`
+	Version *string `json:"version,omitempty"`
 }
 
 // NewQuotaCost instantiates a new QuotaCost object
@@ -166,6 +168,38 @@ func (o *QuotaCost) SetAllowed(v int32) {
 	o.Allowed = v
 }
 
+// GetCloudAccounts returns the CloudAccounts field value if set, zero value otherwise.
+func (o *QuotaCost) GetCloudAccounts() []CloudAccount {
+	if o == nil || o.CloudAccounts == nil {
+		var ret []CloudAccount
+		return ret
+	}
+	return *o.CloudAccounts
+}
+
+// GetCloudAccountsOk returns a tuple with the CloudAccounts field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *QuotaCost) GetCloudAccountsOk() (*[]CloudAccount, bool) {
+	if o == nil || o.CloudAccounts == nil {
+		return nil, false
+	}
+	return o.CloudAccounts, true
+}
+
+// HasCloudAccounts returns a boolean if a field has been set.
+func (o *QuotaCost) HasCloudAccounts() bool {
+	if o != nil && o.CloudAccounts != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCloudAccounts gets a reference to the given []CloudAccount and assigns it to the CloudAccounts field.
+func (o *QuotaCost) SetCloudAccounts(v []CloudAccount) {
+	o.CloudAccounts = &v
+}
+
 // GetConsumed returns the Consumed field value
 func (o *QuotaCost) GetConsumed() int32 {
 	if o == nil {
@@ -278,6 +312,38 @@ func (o *QuotaCost) SetRelatedResources(v []RelatedResource) {
 	o.RelatedResources = &v
 }
 
+// GetVersion returns the Version field value if set, zero value otherwise.
+func (o *QuotaCost) GetVersion() string {
+	if o == nil || o.Version == nil {
+		var ret string
+		return ret
+	}
+	return *o.Version
+}
+
+// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *QuotaCost) GetVersionOk() (*string, bool) {
+	if o == nil || o.Version == nil {
+		return nil, false
+	}
+	return o.Version, true
+}
+
+// HasVersion returns a boolean if a field has been set.
+func (o *QuotaCost) HasVersion() bool {
+	if o != nil && o.Version != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVersion gets a reference to the given string and assigns it to the Version field.
+func (o *QuotaCost) SetVersion(v string) {
+	o.Version = &v
+}
+
 func (o QuotaCost) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Href != nil {
@@ -292,6 +358,9 @@ func (o QuotaCost) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["allowed"] = o.Allowed
 	}
+	if o.CloudAccounts != nil {
+		toSerialize["cloud_accounts"] = o.CloudAccounts
+	}
 	if true {
 		toSerialize["consumed"] = o.Consumed
 	}
@@ -303,6 +372,9 @@ func (o QuotaCost) MarshalJSON() ([]byte, error) {
 	}
 	if o.RelatedResources != nil {
 		toSerialize["related_resources"] = o.RelatedResources
+	}
+	if o.Version != nil {
+		toSerialize["version"] = o.Version
 	}
 	return json.Marshal(toSerialize)
 }

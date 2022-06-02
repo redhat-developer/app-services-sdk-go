@@ -21,6 +21,7 @@ type ReservedResource struct {
 	Id *string `json:"id,omitempty"`
 	Kind *string `json:"kind,omitempty"`
 	AvailabilityZoneType *string `json:"availability_zone_type,omitempty"`
+	BillingMarketplaceAccount *string `json:"billing_marketplace_account,omitempty"`
 	BillingModel *string `json:"billing_model,omitempty"`
 	Byoc bool `json:"byoc"`
 	Cluster *bool `json:"cluster,omitempty"`
@@ -176,6 +177,38 @@ func (o *ReservedResource) HasAvailabilityZoneType() bool {
 // SetAvailabilityZoneType gets a reference to the given string and assigns it to the AvailabilityZoneType field.
 func (o *ReservedResource) SetAvailabilityZoneType(v string) {
 	o.AvailabilityZoneType = &v
+}
+
+// GetBillingMarketplaceAccount returns the BillingMarketplaceAccount field value if set, zero value otherwise.
+func (o *ReservedResource) GetBillingMarketplaceAccount() string {
+	if o == nil || o.BillingMarketplaceAccount == nil {
+		var ret string
+		return ret
+	}
+	return *o.BillingMarketplaceAccount
+}
+
+// GetBillingMarketplaceAccountOk returns a tuple with the BillingMarketplaceAccount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ReservedResource) GetBillingMarketplaceAccountOk() (*string, bool) {
+	if o == nil || o.BillingMarketplaceAccount == nil {
+		return nil, false
+	}
+	return o.BillingMarketplaceAccount, true
+}
+
+// HasBillingMarketplaceAccount returns a boolean if a field has been set.
+func (o *ReservedResource) HasBillingMarketplaceAccount() bool {
+	if o != nil && o.BillingMarketplaceAccount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingMarketplaceAccount gets a reference to the given string and assigns it to the BillingMarketplaceAccount field.
+func (o *ReservedResource) SetBillingMarketplaceAccount(v string) {
+	o.BillingMarketplaceAccount = &v
 }
 
 // GetBillingModel returns the BillingModel field value if set, zero value otherwise.
@@ -471,6 +504,9 @@ func (o ReservedResource) MarshalJSON() ([]byte, error) {
 	}
 	if o.AvailabilityZoneType != nil {
 		toSerialize["availability_zone_type"] = o.AvailabilityZoneType
+	}
+	if o.BillingMarketplaceAccount != nil {
+		toSerialize["billing_marketplace_account"] = o.BillingMarketplaceAccount
 	}
 	if o.BillingModel != nil {
 		toSerialize["billing_model"] = o.BillingModel

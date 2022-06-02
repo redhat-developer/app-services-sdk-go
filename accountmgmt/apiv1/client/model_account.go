@@ -31,6 +31,8 @@ type Account struct {
 	LastName *string `json:"last_name,omitempty"`
 	Organization *Organization `json:"organization,omitempty"`
 	OrganizationId *string `json:"organization_id,omitempty"`
+	RhitAccountId *string `json:"rhit_account_id,omitempty"`
+	RhitWebUserId *string `json:"rhit_web_user_id,omitempty"`
 	ServiceAccount *bool `json:"service_account,omitempty"`
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	Username string `json:"username"`
@@ -510,6 +512,70 @@ func (o *Account) SetOrganizationId(v string) {
 	o.OrganizationId = &v
 }
 
+// GetRhitAccountId returns the RhitAccountId field value if set, zero value otherwise.
+func (o *Account) GetRhitAccountId() string {
+	if o == nil || o.RhitAccountId == nil {
+		var ret string
+		return ret
+	}
+	return *o.RhitAccountId
+}
+
+// GetRhitAccountIdOk returns a tuple with the RhitAccountId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Account) GetRhitAccountIdOk() (*string, bool) {
+	if o == nil || o.RhitAccountId == nil {
+		return nil, false
+	}
+	return o.RhitAccountId, true
+}
+
+// HasRhitAccountId returns a boolean if a field has been set.
+func (o *Account) HasRhitAccountId() bool {
+	if o != nil && o.RhitAccountId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRhitAccountId gets a reference to the given string and assigns it to the RhitAccountId field.
+func (o *Account) SetRhitAccountId(v string) {
+	o.RhitAccountId = &v
+}
+
+// GetRhitWebUserId returns the RhitWebUserId field value if set, zero value otherwise.
+func (o *Account) GetRhitWebUserId() string {
+	if o == nil || o.RhitWebUserId == nil {
+		var ret string
+		return ret
+	}
+	return *o.RhitWebUserId
+}
+
+// GetRhitWebUserIdOk returns a tuple with the RhitWebUserId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Account) GetRhitWebUserIdOk() (*string, bool) {
+	if o == nil || o.RhitWebUserId == nil {
+		return nil, false
+	}
+	return o.RhitWebUserId, true
+}
+
+// HasRhitWebUserId returns a boolean if a field has been set.
+func (o *Account) HasRhitWebUserId() bool {
+	if o != nil && o.RhitWebUserId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRhitWebUserId gets a reference to the given string and assigns it to the RhitWebUserId field.
+func (o *Account) SetRhitWebUserId(v string) {
+	o.RhitWebUserId = &v
+}
+
 // GetServiceAccount returns the ServiceAccount field value if set, zero value otherwise.
 func (o *Account) GetServiceAccount() bool {
 	if o == nil || o.ServiceAccount == nil {
@@ -641,6 +707,12 @@ func (o Account) MarshalJSON() ([]byte, error) {
 	}
 	if o.OrganizationId != nil {
 		toSerialize["organization_id"] = o.OrganizationId
+	}
+	if o.RhitAccountId != nil {
+		toSerialize["rhit_account_id"] = o.RhitAccountId
+	}
+	if o.RhitWebUserId != nil {
+		toSerialize["rhit_web_user_id"] = o.RhitWebUserId
 	}
 	if o.ServiceAccount != nil {
 		toSerialize["service_account"] = o.ServiceAccount

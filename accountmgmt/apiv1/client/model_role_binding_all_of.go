@@ -18,8 +18,10 @@ import (
 // RoleBindingAllOf struct for RoleBindingAllOf
 type RoleBindingAllOf struct {
 	Account *ObjectReference `json:"account,omitempty"`
+	AccountGroup *ObjectReference `json:"account_group,omitempty"`
 	ConfigManaged *bool `json:"config_managed,omitempty"`
 	CreatedAt *time.Time `json:"created_at,omitempty"`
+	ManagedBy *string `json:"managed_by,omitempty"`
 	Organization *ObjectReference `json:"organization,omitempty"`
 	Role *ObjectReference `json:"role,omitempty"`
 	Subscription *ObjectReference `json:"subscription,omitempty"`
@@ -74,6 +76,38 @@ func (o *RoleBindingAllOf) HasAccount() bool {
 // SetAccount gets a reference to the given ObjectReference and assigns it to the Account field.
 func (o *RoleBindingAllOf) SetAccount(v ObjectReference) {
 	o.Account = &v
+}
+
+// GetAccountGroup returns the AccountGroup field value if set, zero value otherwise.
+func (o *RoleBindingAllOf) GetAccountGroup() ObjectReference {
+	if o == nil || o.AccountGroup == nil {
+		var ret ObjectReference
+		return ret
+	}
+	return *o.AccountGroup
+}
+
+// GetAccountGroupOk returns a tuple with the AccountGroup field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RoleBindingAllOf) GetAccountGroupOk() (*ObjectReference, bool) {
+	if o == nil || o.AccountGroup == nil {
+		return nil, false
+	}
+	return o.AccountGroup, true
+}
+
+// HasAccountGroup returns a boolean if a field has been set.
+func (o *RoleBindingAllOf) HasAccountGroup() bool {
+	if o != nil && o.AccountGroup != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAccountGroup gets a reference to the given ObjectReference and assigns it to the AccountGroup field.
+func (o *RoleBindingAllOf) SetAccountGroup(v ObjectReference) {
+	o.AccountGroup = &v
 }
 
 // GetConfigManaged returns the ConfigManaged field value if set, zero value otherwise.
@@ -138,6 +172,38 @@ func (o *RoleBindingAllOf) HasCreatedAt() bool {
 // SetCreatedAt gets a reference to the given time.Time and assigns it to the CreatedAt field.
 func (o *RoleBindingAllOf) SetCreatedAt(v time.Time) {
 	o.CreatedAt = &v
+}
+
+// GetManagedBy returns the ManagedBy field value if set, zero value otherwise.
+func (o *RoleBindingAllOf) GetManagedBy() string {
+	if o == nil || o.ManagedBy == nil {
+		var ret string
+		return ret
+	}
+	return *o.ManagedBy
+}
+
+// GetManagedByOk returns a tuple with the ManagedBy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RoleBindingAllOf) GetManagedByOk() (*string, bool) {
+	if o == nil || o.ManagedBy == nil {
+		return nil, false
+	}
+	return o.ManagedBy, true
+}
+
+// HasManagedBy returns a boolean if a field has been set.
+func (o *RoleBindingAllOf) HasManagedBy() bool {
+	if o != nil && o.ManagedBy != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetManagedBy gets a reference to the given string and assigns it to the ManagedBy field.
+func (o *RoleBindingAllOf) SetManagedBy(v string) {
+	o.ManagedBy = &v
 }
 
 // GetOrganization returns the Organization field value if set, zero value otherwise.
@@ -305,11 +371,17 @@ func (o RoleBindingAllOf) MarshalJSON() ([]byte, error) {
 	if o.Account != nil {
 		toSerialize["account"] = o.Account
 	}
+	if o.AccountGroup != nil {
+		toSerialize["account_group"] = o.AccountGroup
+	}
 	if o.ConfigManaged != nil {
 		toSerialize["config_managed"] = o.ConfigManaged
 	}
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt
+	}
+	if o.ManagedBy != nil {
+		toSerialize["managed_by"] = o.ManagedBy
 	}
 	if o.Organization != nil {
 		toSerialize["organization"] = o.Organization

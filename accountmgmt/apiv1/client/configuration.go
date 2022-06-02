@@ -105,16 +105,16 @@ func NewConfiguration() *Configuration {
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
+				URL: "http://localhost:14321",
+				Description: "current domain",
+			},
+			{
 				URL: "https://api.openshift.com",
 				Description: "Main (production) server",
 			},
 			{
 				URL: "https://api.stage.openshift.com",
 				Description: "Staging server",
-			},
-			{
-				URL: "",
-				Description: "current domain",
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{
