@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]Error**](Error.md) |  | [optional] 
-**Total** | Pointer to **interface{}** | Total number of errors returned in this request | [optional] 
 **Kind** | Pointer to **string** |  | [optional] 
+**Items** | [**[]Error**](Error.md) |  | 
+**Total** | **interface{}** | Total number of errors returned in this request | 
 **Size** | Pointer to **int32** | Number of entries per page (returned for fetch requests) | [optional] 
 **Page** | Pointer to **int32** | Current page number (returned for fetch requests) | [optional] 
 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewErrorList
 
-`func NewErrorList() *ErrorList`
+`func NewErrorList(items []Error, total interface{}, ) *ErrorList`
 
 NewErrorList instantiates a new ErrorList object
 This constructor will assign default values to properties that have it defined,
@@ -30,68 +30,6 @@ NewErrorListWithDefaults instantiates a new ErrorList object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
-### GetItems
-
-`func (o *ErrorList) GetItems() []Error`
-
-GetItems returns the Items field if non-nil, zero value otherwise.
-
-### GetItemsOk
-
-`func (o *ErrorList) GetItemsOk() (*[]Error, bool)`
-
-GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetItems
-
-`func (o *ErrorList) SetItems(v []Error)`
-
-SetItems sets Items field to given value.
-
-### HasItems
-
-`func (o *ErrorList) HasItems() bool`
-
-HasItems returns a boolean if a field has been set.
-
-
-### GetTotal
-
-`func (o *ErrorList) GetTotal() interface{}`
-
-GetTotal returns the Total field if non-nil, zero value otherwise.
-
-### GetTotalOk
-
-`func (o *ErrorList) GetTotalOk() (*interface{}, bool)`
-
-GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotal
-
-`func (o *ErrorList) SetTotal(v interface{})`
-
-SetTotal sets Total field to given value.
-
-### HasTotal
-
-`func (o *ErrorList) HasTotal() bool`
-
-HasTotal returns a boolean if a field has been set.
-
-### SetTotalNil
-
-`func (o *ErrorList) SetTotalNil(b bool)`
-
- SetTotalNil sets the value for Total to be an explicit nil
-
-### UnsetTotal
-`func (o *ErrorList) UnsetTotal()`
-
-UnsetTotal ensures that no value is present for Total, not even an explicit nil
 
 ### GetKind
 
@@ -118,6 +56,58 @@ SetKind sets Kind field to given value.
 
 HasKind returns a boolean if a field has been set.
 
+
+### GetItems
+
+`func (o *ErrorList) GetItems() []Error`
+
+GetItems returns the Items field if non-nil, zero value otherwise.
+
+### GetItemsOk
+
+`func (o *ErrorList) GetItemsOk() (*[]Error, bool)`
+
+GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItems
+
+`func (o *ErrorList) SetItems(v []Error)`
+
+SetItems sets Items field to given value.
+
+
+
+### GetTotal
+
+`func (o *ErrorList) GetTotal() interface{}`
+
+GetTotal returns the Total field if non-nil, zero value otherwise.
+
+### GetTotalOk
+
+`func (o *ErrorList) GetTotalOk() (*interface{}, bool)`
+
+GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotal
+
+`func (o *ErrorList) SetTotal(v interface{})`
+
+SetTotal sets Total field to given value.
+
+
+### SetTotalNil
+
+`func (o *ErrorList) SetTotalNil(b bool)`
+
+ SetTotalNil sets the value for Total to be an explicit nil
+
+### UnsetTotal
+`func (o *ErrorList) UnsetTotal()`
+
+UnsetTotal ensures that no value is present for Total, not even an explicit nil
 
 ### GetSize
 

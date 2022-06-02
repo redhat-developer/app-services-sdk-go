@@ -1015,11 +1015,11 @@ components:
       type: object
       allOf:
       - $ref: '#/components/schemas/List'
-      properties:
-        items:
-          type: array
+      - properties:
           items:
-            $ref: '#/components/schemas/AclBinding'
+            type: array
+            items:
+              $ref: '#/components/schemas/AclBinding'
     AclBindingOrderKey:
       title: ACL Binding Order Key
       enum:
@@ -1328,11 +1328,12 @@ components:
       type: object
       allOf:
       - $ref: '#/components/schemas/List'
-      properties:
-        items:
-          type: array
+      - properties:
           items:
-            $ref: '#/components/schemas/ConsumerGroupResetOffsetResultItem'
+            type: array
+            items:
+              $ref: '#/components/schemas/ConsumerGroupResetOffsetResultItem'
+      
       example:
         total: 2
         page: 1
@@ -1409,13 +1410,13 @@ components:
       type: object
       allOf:
       - $ref: '#/components/schemas/List'
-      properties:
-        items:
-          type: array
+      - properties:
           items:
-            $ref: '#/components/schemas/Error'
-        total:
-          description: Total number of errors returned in this request
+            type: array
+            items:
+              $ref: '#/components/schemas/Error'
+          total:
+            description: Total number of errors returned in this request
     List:
       required:
       - items
@@ -1594,18 +1595,19 @@ components:
       type: object
       allOf:
       - $ref: '#/components/schemas/List'
-      properties:
-        items:
-          type: array
+      - properties:
           items:
-            $ref: '#/components/schemas/Record'
-        total:
-          description: Total number of records returned in this request. This value
-            does not indicate the total number of records in the topic.
-        size:
-          description: Not used
-        page:
-          description: Not used
+            type: array
+            items:
+              $ref: '#/components/schemas/Record'
+          total:
+            description: Total number of records returned in this request. This value
+              does not indicate the total number of records in the topic.
+          size:
+            description: Not used
+          page:
+            description: Not used
+
     SortDirection:
       enum:
       - asc

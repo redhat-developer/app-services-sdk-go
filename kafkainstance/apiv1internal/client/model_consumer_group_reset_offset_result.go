@@ -17,9 +17,9 @@ import (
 // ConsumerGroupResetOffsetResult struct for ConsumerGroupResetOffsetResult
 type ConsumerGroupResetOffsetResult struct {
 
-	Items *[]ConsumerGroupResetOffsetResultItem `json:"items,omitempty"`
-
 	Kind *string `json:"kind,omitempty"`
+
+	Items []ConsumerGroupResetOffsetResultItem `json:"items"`
 
 	// Total number of entries in the full result set
 	Total int32 `json:"total"`
@@ -36,7 +36,7 @@ type ConsumerGroupResetOffsetResult struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConsumerGroupResetOffsetResult(items []map[string]interface{}, total int32) *ConsumerGroupResetOffsetResult {
+func NewConsumerGroupResetOffsetResult(items []ConsumerGroupResetOffsetResultItem, total int32) *ConsumerGroupResetOffsetResult {
 	this := ConsumerGroupResetOffsetResult{}
 	this.Items = items
 	this.Total = total
@@ -55,39 +55,6 @@ func NewConsumerGroupResetOffsetResultWithDefaults() *ConsumerGroupResetOffsetRe
 
 
 	return &this
-}
-
-
-// GetItems returns the Items field value if set, zero value otherwise.
-func (o *ConsumerGroupResetOffsetResult) GetItems() []ConsumerGroupResetOffsetResultItem {
-	if o == nil || o.Items == nil {
-		var ret []ConsumerGroupResetOffsetResultItem
-		return ret
-	}
-	return *o.Items
-}
-
-// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ConsumerGroupResetOffsetResult) GetItemsOk() (*[]ConsumerGroupResetOffsetResultItem, bool) {
-	if o == nil || o.Items == nil {
-		return nil, false
-	}
-	return o.Items, true
-}
-
-// HasItems returns a boolean if a field has been set.
-func (o *ConsumerGroupResetOffsetResult) HasItems() bool {
-	if o != nil && o.Items != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetItems gets a reference to the given []ConsumerGroupResetOffsetResultItem and assigns it to the Items field.
-func (o *ConsumerGroupResetOffsetResult) SetItems(v []ConsumerGroupResetOffsetResultItem) {
-	o.Items = &v
 }
 
 
@@ -121,6 +88,31 @@ func (o *ConsumerGroupResetOffsetResult) HasKind() bool {
 // SetKind gets a reference to the given string and assigns it to the Kind field.
 func (o *ConsumerGroupResetOffsetResult) SetKind(v string) {
 	o.Kind = &v
+}
+
+
+// GetItems returns the Items field value
+func (o *ConsumerGroupResetOffsetResult) GetItems() []ConsumerGroupResetOffsetResultItem {
+	if o == nil {
+		var ret []ConsumerGroupResetOffsetResultItem
+		return ret
+	}
+
+	return o.Items
+}
+
+// GetItemsOk returns a tuple with the Items field value
+// and a boolean to check if the value has been set.
+func (o *ConsumerGroupResetOffsetResult) GetItemsOk() (*[]ConsumerGroupResetOffsetResultItem, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Items, true
+}
+
+// SetItems sets field value
+func (o *ConsumerGroupResetOffsetResult) SetItems(v []ConsumerGroupResetOffsetResultItem) {
+	o.Items = v
 }
 
 
@@ -218,12 +210,12 @@ func (o *ConsumerGroupResetOffsetResult) SetPage(v int32) {
 func (o ConsumerGroupResetOffsetResult) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
-	if o.Items != nil {
-		toSerialize["items"] = o.Items
-	}
-    
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
+	}
+    
+	if true {
+		toSerialize["items"] = o.Items
 	}
     
 	if true {

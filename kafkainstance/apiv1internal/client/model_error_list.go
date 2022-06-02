@@ -17,12 +17,12 @@ import (
 // ErrorList List of errors
 type ErrorList struct {
 
-	Items *[]Error `json:"items,omitempty"`
+	Kind *string `json:"kind,omitempty"`
+
+	Items []Error `json:"items"`
 
 	// Total number of errors returned in this request
-	Total interface{} `json:"total,omitempty"`
-
-	Kind *string `json:"kind,omitempty"`
+	Total interface{} `json:"total"`
 
 	// Number of entries per page (returned for fetch requests)
 	Size *int32 `json:"size,omitempty"`
@@ -36,7 +36,7 @@ type ErrorList struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewErrorList(items []map[string]interface{}, total int32) *ErrorList {
+func NewErrorList(items []Error, total interface{}) *ErrorList {
 	this := ErrorList{}
 	this.Items = items
 	this.Total = total
@@ -55,73 +55,6 @@ func NewErrorListWithDefaults() *ErrorList {
 
 
 	return &this
-}
-
-
-// GetItems returns the Items field value if set, zero value otherwise.
-func (o *ErrorList) GetItems() []Error {
-	if o == nil || o.Items == nil {
-		var ret []Error
-		return ret
-	}
-	return *o.Items
-}
-
-// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ErrorList) GetItemsOk() (*[]Error, bool) {
-	if o == nil || o.Items == nil {
-		return nil, false
-	}
-	return o.Items, true
-}
-
-// HasItems returns a boolean if a field has been set.
-func (o *ErrorList) HasItems() bool {
-	if o != nil && o.Items != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetItems gets a reference to the given []Error and assigns it to the Items field.
-func (o *ErrorList) SetItems(v []Error) {
-	o.Items = &v
-}
-
-
-// GetTotal returns the Total field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ErrorList) GetTotal() interface{} {
-	if o == nil  {
-		var ret interface{}
-		return ret
-	}
-	return o.Total
-}
-
-// GetTotalOk returns a tuple with the Total field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ErrorList) GetTotalOk() (*interface{}, bool) {
-	if o == nil || o.Total == nil {
-		return nil, false
-	}
-	return &o.Total, true
-}
-
-// HasTotal returns a boolean if a field has been set.
-func (o *ErrorList) HasTotal() bool {
-	if o != nil && o.Total != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTotal gets a reference to the given interface{} and assigns it to the Total field.
-func (o *ErrorList) SetTotal(v interface{}) {
-	o.Total = v
 }
 
 
@@ -155,6 +88,58 @@ func (o *ErrorList) HasKind() bool {
 // SetKind gets a reference to the given string and assigns it to the Kind field.
 func (o *ErrorList) SetKind(v string) {
 	o.Kind = &v
+}
+
+
+// GetItems returns the Items field value
+func (o *ErrorList) GetItems() []Error {
+	if o == nil {
+		var ret []Error
+		return ret
+	}
+
+	return o.Items
+}
+
+// GetItemsOk returns a tuple with the Items field value
+// and a boolean to check if the value has been set.
+func (o *ErrorList) GetItemsOk() (*[]Error, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Items, true
+}
+
+// SetItems sets field value
+func (o *ErrorList) SetItems(v []Error) {
+	o.Items = v
+}
+
+
+// GetTotal returns the Total field value
+// If the value is explicit nil, the zero value for interface{} will be returned
+func (o *ErrorList) GetTotal() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+
+	return o.Total
+}
+
+// GetTotalOk returns a tuple with the Total field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ErrorList) GetTotalOk() (*interface{}, bool) {
+	if o == nil || o.Total == nil {
+		return nil, false
+	}
+	return &o.Total, true
+}
+
+// SetTotal sets field value
+func (o *ErrorList) SetTotal(v interface{}) {
+	o.Total = v
 }
 
 
@@ -227,16 +212,16 @@ func (o *ErrorList) SetPage(v int32) {
 func (o ErrorList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
-	if o.Items != nil {
+	if o.Kind != nil {
+		toSerialize["kind"] = o.Kind
+	}
+    
+	if true {
 		toSerialize["items"] = o.Items
 	}
     
 	if o.Total != nil {
 		toSerialize["total"] = o.Total
-	}
-    
-	if o.Kind != nil {
-		toSerialize["kind"] = o.Kind
 	}
     
 	if o.Size != nil {
