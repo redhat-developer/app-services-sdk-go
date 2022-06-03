@@ -16,13 +16,9 @@ import (
 
 // MetricsInstantQueryList struct for MetricsInstantQueryList
 type MetricsInstantQueryList struct {
-
 	Kind *string `json:"kind,omitempty"`
-
 	Id *string `json:"id,omitempty"`
-
 	Items *[]InstantQuery `json:"items,omitempty"`
-
 }
 
 // NewMetricsInstantQueryList instantiates a new MetricsInstantQueryList object
@@ -39,13 +35,8 @@ func NewMetricsInstantQueryList() *MetricsInstantQueryList {
 // but it doesn't guarantee that properties required by API are set
 func NewMetricsInstantQueryListWithDefaults() *MetricsInstantQueryList {
 	this := MetricsInstantQueryList{}
-
-
-
-
 	return &this
 }
-
 
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *MetricsInstantQueryList) GetKind() string {
@@ -79,7 +70,6 @@ func (o *MetricsInstantQueryList) SetKind(v string) {
 	o.Kind = &v
 }
 
-
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *MetricsInstantQueryList) GetId() string {
 	if o == nil || o.Id == nil {
@@ -111,7 +101,6 @@ func (o *MetricsInstantQueryList) HasId() bool {
 func (o *MetricsInstantQueryList) SetId(v string) {
 	o.Id = &v
 }
-
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *MetricsInstantQueryList) GetItems() []InstantQuery {
@@ -145,22 +134,17 @@ func (o *MetricsInstantQueryList) SetItems(v []InstantQuery) {
 	o.Items = &v
 }
 
-
 func (o MetricsInstantQueryList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-    
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -199,4 +183,5 @@ func (v *NullableMetricsInstantQueryList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

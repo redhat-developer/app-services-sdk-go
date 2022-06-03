@@ -16,17 +16,11 @@ import (
 
 // ConnectorClusterList struct for ConnectorClusterList
 type ConnectorClusterList struct {
-
 	Kind string `json:"kind"`
-
 	Page int32 `json:"page"`
-
 	Size int32 `json:"size"`
-
 	Total int32 `json:"total"`
-
 	Items []ConnectorCluster `json:"items"`
-
 }
 
 // NewConnectorClusterList instantiates a new ConnectorClusterList object
@@ -48,15 +42,8 @@ func NewConnectorClusterList(kind string, page int32, size int32, total int32, i
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorClusterListWithDefaults() *ConnectorClusterList {
 	this := ConnectorClusterList{}
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetKind returns the Kind field value
 func (o *ConnectorClusterList) GetKind() string {
@@ -82,7 +69,6 @@ func (o *ConnectorClusterList) SetKind(v string) {
 	o.Kind = v
 }
 
-
 // GetPage returns the Page field value
 func (o *ConnectorClusterList) GetPage() int32 {
 	if o == nil {
@@ -106,7 +92,6 @@ func (o *ConnectorClusterList) GetPageOk() (*int32, bool) {
 func (o *ConnectorClusterList) SetPage(v int32) {
 	o.Page = v
 }
-
 
 // GetSize returns the Size field value
 func (o *ConnectorClusterList) GetSize() int32 {
@@ -132,7 +117,6 @@ func (o *ConnectorClusterList) SetSize(v int32) {
 	o.Size = v
 }
 
-
 // GetTotal returns the Total field value
 func (o *ConnectorClusterList) GetTotal() int32 {
 	if o == nil {
@@ -156,7 +140,6 @@ func (o *ConnectorClusterList) GetTotalOk() (*int32, bool) {
 func (o *ConnectorClusterList) SetTotal(v int32) {
 	o.Total = v
 }
-
 
 // GetItems returns the Items field value
 func (o *ConnectorClusterList) GetItems() []ConnectorCluster {
@@ -182,30 +165,23 @@ func (o *ConnectorClusterList) SetItems(v []ConnectorCluster) {
 	o.Items = v
 }
 
-
 func (o ConnectorClusterList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if true {
 		toSerialize["page"] = o.Page
 	}
-    
 	if true {
 		toSerialize["size"] = o.Size
 	}
-    
 	if true {
 		toSerialize["total"] = o.Total
 	}
-    
 	if true {
 		toSerialize["items"] = o.Items
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -244,4 +220,5 @@ func (v *NullableConnectorClusterList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

@@ -16,11 +16,8 @@ import (
 
 // ConnectorNamespaceMetaAllOf struct for ConnectorNamespaceMetaAllOf
 type ConnectorNamespaceMetaAllOf struct {
-
 	ResourceVersion *int64 `json:"resource_version,omitempty"`
-
 	Quota *ConnectorNamespaceQuota `json:"quota,omitempty"`
-
 }
 
 // NewConnectorNamespaceMetaAllOf instantiates a new ConnectorNamespaceMetaAllOf object
@@ -37,12 +34,8 @@ func NewConnectorNamespaceMetaAllOf() *ConnectorNamespaceMetaAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorNamespaceMetaAllOfWithDefaults() *ConnectorNamespaceMetaAllOf {
 	this := ConnectorNamespaceMetaAllOf{}
-
-
-
 	return &this
 }
-
 
 // GetResourceVersion returns the ResourceVersion field value if set, zero value otherwise.
 func (o *ConnectorNamespaceMetaAllOf) GetResourceVersion() int64 {
@@ -76,7 +69,6 @@ func (o *ConnectorNamespaceMetaAllOf) SetResourceVersion(v int64) {
 	o.ResourceVersion = &v
 }
 
-
 // GetQuota returns the Quota field value if set, zero value otherwise.
 func (o *ConnectorNamespaceMetaAllOf) GetQuota() ConnectorNamespaceQuota {
 	if o == nil || o.Quota == nil {
@@ -109,18 +101,14 @@ func (o *ConnectorNamespaceMetaAllOf) SetQuota(v ConnectorNamespaceQuota) {
 	o.Quota = &v
 }
 
-
 func (o ConnectorNamespaceMetaAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.ResourceVersion != nil {
 		toSerialize["resource_version"] = o.ResourceVersion
 	}
-    
 	if o.Quota != nil {
 		toSerialize["quota"] = o.Quota
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -159,4 +147,5 @@ func (v *NullableConnectorNamespaceMetaAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

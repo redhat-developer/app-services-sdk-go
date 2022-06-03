@@ -16,12 +16,9 @@ import (
 
 // NewTopicInput Input object to create a new topic.
 type NewTopicInput struct {
-
 	// The topic name, this value must be unique.
 	Name string `json:"name"`
-
 	Settings TopicSettings `json:"settings"`
-
 }
 
 // NewNewTopicInput instantiates a new NewTopicInput object
@@ -40,12 +37,8 @@ func NewNewTopicInput(name string, settings TopicSettings) *NewTopicInput {
 // but it doesn't guarantee that properties required by API are set
 func NewNewTopicInputWithDefaults() *NewTopicInput {
 	this := NewTopicInput{}
-
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value
 func (o *NewTopicInput) GetName() string {
@@ -71,7 +64,6 @@ func (o *NewTopicInput) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetSettings returns the Settings field value
 func (o *NewTopicInput) GetSettings() TopicSettings {
 	if o == nil {
@@ -96,18 +88,14 @@ func (o *NewTopicInput) SetSettings(v TopicSettings) {
 	o.Settings = v
 }
 
-
 func (o NewTopicInput) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["name"] = o.Name
 	}
-    
 	if true {
 		toSerialize["settings"] = o.Settings
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -146,4 +134,5 @@ func (v *NullableNewTopicInput) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

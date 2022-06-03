@@ -17,11 +17,8 @@ import (
 
 // NamedLogConfiguration struct for NamedLogConfiguration
 type NamedLogConfiguration struct {
-
 	Name string `json:"name"`
-
 	Level LogLevel `json:"level"`
-
 }
 
 // NewNamedLogConfiguration instantiates a new NamedLogConfiguration object
@@ -40,12 +37,8 @@ func NewNamedLogConfiguration(name string, level LogLevel) *NamedLogConfiguratio
 // but it doesn't guarantee that properties required by API are set
 func NewNamedLogConfigurationWithDefaults() *NamedLogConfiguration {
 	this := NamedLogConfiguration{}
-
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value
 func (o *NamedLogConfiguration) GetName() string {
@@ -71,7 +64,6 @@ func (o *NamedLogConfiguration) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetLevel returns the Level field value
 func (o *NamedLogConfiguration) GetLevel() LogLevel {
 	if o == nil {
@@ -96,18 +88,14 @@ func (o *NamedLogConfiguration) SetLevel(v LogLevel) {
 	o.Level = v
 }
 
-
 func (o NamedLogConfiguration) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["name"] = o.Name
 	}
-    
 	if true {
 		toSerialize["level"] = o.Level
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -146,4 +134,5 @@ func (v *NullableNamedLogConfiguration) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

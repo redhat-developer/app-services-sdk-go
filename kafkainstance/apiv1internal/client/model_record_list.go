@@ -16,18 +16,13 @@ import (
 
 // RecordList A page of records consumed from a topic
 type RecordList struct {
-
 	Items *[]Record `json:"items,omitempty"`
-
 	// Total number of records returned in this request. This value does not indicate the total number of records in the topic.
 	Total interface{} `json:"total,omitempty"`
-
 	// Not used
 	Size interface{} `json:"size,omitempty"`
-
 	// Not used
 	Page interface{} `json:"page,omitempty"`
-
 }
 
 // NewRecordList instantiates a new RecordList object
@@ -44,14 +39,8 @@ func NewRecordList() *RecordList {
 // but it doesn't guarantee that properties required by API are set
 func NewRecordListWithDefaults() *RecordList {
 	this := RecordList{}
-
-
-
-
-
 	return &this
 }
-
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *RecordList) GetItems() []Record {
@@ -84,7 +73,6 @@ func (o *RecordList) HasItems() bool {
 func (o *RecordList) SetItems(v []Record) {
 	o.Items = &v
 }
-
 
 // GetTotal returns the Total field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RecordList) GetTotal() interface{} {
@@ -119,7 +107,6 @@ func (o *RecordList) SetTotal(v interface{}) {
 	o.Total = v
 }
 
-
 // GetSize returns the Size field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RecordList) GetSize() interface{} {
 	if o == nil  {
@@ -152,7 +139,6 @@ func (o *RecordList) HasSize() bool {
 func (o *RecordList) SetSize(v interface{}) {
 	o.Size = v
 }
-
 
 // GetPage returns the Page field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RecordList) GetPage() interface{} {
@@ -187,26 +173,20 @@ func (o *RecordList) SetPage(v interface{}) {
 	o.Page = v
 }
 
-
 func (o RecordList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-    
 	if o.Total != nil {
 		toSerialize["total"] = o.Total
 	}
-    
 	if o.Size != nil {
 		toSerialize["size"] = o.Size
 	}
-    
 	if o.Page != nil {
 		toSerialize["page"] = o.Page
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -245,4 +225,5 @@ func (v *NullableRecordList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

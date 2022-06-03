@@ -17,9 +17,7 @@ import (
 
 // NamedLogConfigurationAllOf struct for NamedLogConfigurationAllOf
 type NamedLogConfigurationAllOf struct {
-
 	Name string `json:"name"`
-
 }
 
 // NewNamedLogConfigurationAllOf instantiates a new NamedLogConfigurationAllOf object
@@ -37,11 +35,8 @@ func NewNamedLogConfigurationAllOf(name string) *NamedLogConfigurationAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewNamedLogConfigurationAllOfWithDefaults() *NamedLogConfigurationAllOf {
 	this := NamedLogConfigurationAllOf{}
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value
 func (o *NamedLogConfigurationAllOf) GetName() string {
@@ -67,14 +62,11 @@ func (o *NamedLogConfigurationAllOf) SetName(v string) {
 	o.Name = v
 }
 
-
 func (o NamedLogConfigurationAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["name"] = o.Name
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -113,4 +105,5 @@ func (v *NullableNamedLogConfigurationAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

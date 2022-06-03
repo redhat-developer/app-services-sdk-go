@@ -16,9 +16,7 @@ import (
 
 // ConnectorStatus struct for ConnectorStatus
 type ConnectorStatus struct {
-
 	Status *ConnectorStatusStatus `json:"status,omitempty"`
-
 }
 
 // NewConnectorStatus instantiates a new ConnectorStatus object
@@ -35,11 +33,8 @@ func NewConnectorStatus() *ConnectorStatus {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorStatusWithDefaults() *ConnectorStatus {
 	this := ConnectorStatus{}
-
-
 	return &this
 }
-
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *ConnectorStatus) GetStatus() ConnectorStatusStatus {
@@ -73,14 +68,11 @@ func (o *ConnectorStatus) SetStatus(v ConnectorStatusStatus) {
 	o.Status = &v
 }
 
-
 func (o ConnectorStatus) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Status != nil {
 		toSerialize["status"] = o.Status
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -119,4 +111,5 @@ func (v *NullableConnectorStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

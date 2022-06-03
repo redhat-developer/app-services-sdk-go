@@ -17,13 +17,9 @@ import (
 
 // ObjectMeta struct for ObjectMeta
 type ObjectMeta struct {
-
 	Owner *string `json:"owner,omitempty"`
-
 	CreatedAt *time.Time `json:"created_at,omitempty"`
-
 	ModifiedAt *time.Time `json:"modified_at,omitempty"`
-
 }
 
 // NewObjectMeta instantiates a new ObjectMeta object
@@ -40,13 +36,8 @@ func NewObjectMeta() *ObjectMeta {
 // but it doesn't guarantee that properties required by API are set
 func NewObjectMetaWithDefaults() *ObjectMeta {
 	this := ObjectMeta{}
-
-
-
-
 	return &this
 }
-
 
 // GetOwner returns the Owner field value if set, zero value otherwise.
 func (o *ObjectMeta) GetOwner() string {
@@ -80,7 +71,6 @@ func (o *ObjectMeta) SetOwner(v string) {
 	o.Owner = &v
 }
 
-
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *ObjectMeta) GetCreatedAt() time.Time {
 	if o == nil || o.CreatedAt == nil {
@@ -112,7 +102,6 @@ func (o *ObjectMeta) HasCreatedAt() bool {
 func (o *ObjectMeta) SetCreatedAt(v time.Time) {
 	o.CreatedAt = &v
 }
-
 
 // GetModifiedAt returns the ModifiedAt field value if set, zero value otherwise.
 func (o *ObjectMeta) GetModifiedAt() time.Time {
@@ -146,22 +135,17 @@ func (o *ObjectMeta) SetModifiedAt(v time.Time) {
 	o.ModifiedAt = &v
 }
 
-
 func (o ObjectMeta) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
 	}
-    
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt
 	}
-    
 	if o.ModifiedAt != nil {
 		toSerialize["modified_at"] = o.ModifiedAt
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -200,4 +184,5 @@ func (v *NullableObjectMeta) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

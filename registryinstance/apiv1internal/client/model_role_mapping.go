@@ -17,11 +17,8 @@ import (
 
 // RoleMapping The mapping between a user/principal and their role.
 type RoleMapping struct {
-
 	PrincipalId string `json:"principalId"`
-
 	Role RoleType `json:"role"`
-
 }
 
 // NewRoleMapping instantiates a new RoleMapping object
@@ -40,12 +37,8 @@ func NewRoleMapping(principalId string, role RoleType) *RoleMapping {
 // but it doesn't guarantee that properties required by API are set
 func NewRoleMappingWithDefaults() *RoleMapping {
 	this := RoleMapping{}
-
-
-
 	return &this
 }
-
 
 // GetPrincipalId returns the PrincipalId field value
 func (o *RoleMapping) GetPrincipalId() string {
@@ -71,7 +64,6 @@ func (o *RoleMapping) SetPrincipalId(v string) {
 	o.PrincipalId = v
 }
 
-
 // GetRole returns the Role field value
 func (o *RoleMapping) GetRole() RoleType {
 	if o == nil {
@@ -96,18 +88,14 @@ func (o *RoleMapping) SetRole(v RoleType) {
 	o.Role = v
 }
 
-
 func (o RoleMapping) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["principalId"] = o.PrincipalId
 	}
-    
 	if true {
 		toSerialize["role"] = o.Role
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -146,4 +134,5 @@ func (v *NullableRoleMapping) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

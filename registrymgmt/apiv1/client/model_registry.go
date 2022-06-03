@@ -18,39 +18,25 @@ import (
 
 // Registry struct for Registry
 type Registry struct {
-
 	Id string `json:"id"`
-
 	Kind *string `json:"kind,omitempty"`
-
 	Href *string `json:"href,omitempty"`
-
 	Status RegistryStatusValue `json:"status"`
-
 	RegistryUrl *string `json:"registryUrl,omitempty"`
-
 	BrowserUrl *string `json:"browserUrl,omitempty"`
-
 	// User-defined Registry instance name. Does not have to be unique.
 	Name *string `json:"name,omitempty"`
-
 	// Identifier of a multi-tenant deployment, where this Service Registry instance resides.
 	RegistryDeploymentId *int32 `json:"registryDeploymentId,omitempty"`
-
 	// Registry instance owner.
 	Owner *string `json:"owner,omitempty"`
-
 	// Description of the Registry instance.
 	Description *string `json:"description,omitempty"`
-
 	// ISO 8601 UTC timestamp.
 	CreatedAt time.Time `json:"created_at"`
-
 	// ISO 8601 UTC timestamp.
 	UpdatedAt time.Time `json:"updated_at"`
-
 	InstanceType RegistryInstanceTypeValue `json:"instance_type"`
-
 }
 
 // NewRegistry instantiates a new Registry object
@@ -72,23 +58,8 @@ func NewRegistry(id string, status RegistryStatusValue, createdAt time.Time, upd
 // but it doesn't guarantee that properties required by API are set
 func NewRegistryWithDefaults() *Registry {
 	this := Registry{}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value
 func (o *Registry) GetId() string {
@@ -113,7 +84,6 @@ func (o *Registry) GetIdOk() (*string, bool) {
 func (o *Registry) SetId(v string) {
 	o.Id = v
 }
-
 
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *Registry) GetKind() string {
@@ -147,7 +117,6 @@ func (o *Registry) SetKind(v string) {
 	o.Kind = &v
 }
 
-
 // GetHref returns the Href field value if set, zero value otherwise.
 func (o *Registry) GetHref() string {
 	if o == nil || o.Href == nil {
@@ -180,7 +149,6 @@ func (o *Registry) SetHref(v string) {
 	o.Href = &v
 }
 
-
 // GetStatus returns the Status field value
 func (o *Registry) GetStatus() RegistryStatusValue {
 	if o == nil {
@@ -204,7 +172,6 @@ func (o *Registry) GetStatusOk() (*RegistryStatusValue, bool) {
 func (o *Registry) SetStatus(v RegistryStatusValue) {
 	o.Status = v
 }
-
 
 // GetRegistryUrl returns the RegistryUrl field value if set, zero value otherwise.
 func (o *Registry) GetRegistryUrl() string {
@@ -238,7 +205,6 @@ func (o *Registry) SetRegistryUrl(v string) {
 	o.RegistryUrl = &v
 }
 
-
 // GetBrowserUrl returns the BrowserUrl field value if set, zero value otherwise.
 func (o *Registry) GetBrowserUrl() string {
 	if o == nil || o.BrowserUrl == nil {
@@ -270,7 +236,6 @@ func (o *Registry) HasBrowserUrl() bool {
 func (o *Registry) SetBrowserUrl(v string) {
 	o.BrowserUrl = &v
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Registry) GetName() string {
@@ -304,7 +269,6 @@ func (o *Registry) SetName(v string) {
 	o.Name = &v
 }
 
-
 // GetRegistryDeploymentId returns the RegistryDeploymentId field value if set, zero value otherwise.
 func (o *Registry) GetRegistryDeploymentId() int32 {
 	if o == nil || o.RegistryDeploymentId == nil {
@@ -336,7 +300,6 @@ func (o *Registry) HasRegistryDeploymentId() bool {
 func (o *Registry) SetRegistryDeploymentId(v int32) {
 	o.RegistryDeploymentId = &v
 }
-
 
 // GetOwner returns the Owner field value if set, zero value otherwise.
 func (o *Registry) GetOwner() string {
@@ -370,7 +333,6 @@ func (o *Registry) SetOwner(v string) {
 	o.Owner = &v
 }
 
-
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *Registry) GetDescription() string {
 	if o == nil || o.Description == nil {
@@ -403,7 +365,6 @@ func (o *Registry) SetDescription(v string) {
 	o.Description = &v
 }
 
-
 // GetCreatedAt returns the CreatedAt field value
 func (o *Registry) GetCreatedAt() time.Time {
 	if o == nil {
@@ -427,7 +388,6 @@ func (o *Registry) GetCreatedAtOk() (*time.Time, bool) {
 func (o *Registry) SetCreatedAt(v time.Time) {
 	o.CreatedAt = v
 }
-
 
 // GetUpdatedAt returns the UpdatedAt field value
 func (o *Registry) GetUpdatedAt() time.Time {
@@ -453,7 +413,6 @@ func (o *Registry) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt = v
 }
 
-
 // GetInstanceType returns the InstanceType field value
 func (o *Registry) GetInstanceType() RegistryInstanceTypeValue {
 	if o == nil {
@@ -478,62 +437,47 @@ func (o *Registry) SetInstanceType(v RegistryInstanceTypeValue) {
 	o.InstanceType = v
 }
 
-
 func (o Registry) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["id"] = o.Id
 	}
-    
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
 	}
-    
 	if true {
 		toSerialize["status"] = o.Status
 	}
-    
 	if o.RegistryUrl != nil {
 		toSerialize["registryUrl"] = o.RegistryUrl
 	}
-    
 	if o.BrowserUrl != nil {
 		toSerialize["browserUrl"] = o.BrowserUrl
 	}
-    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.RegistryDeploymentId != nil {
 		toSerialize["registryDeploymentId"] = o.RegistryDeploymentId
 	}
-    
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
 	}
-    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-    
 	if true {
 		toSerialize["created_at"] = o.CreatedAt
 	}
-    
 	if true {
 		toSerialize["updated_at"] = o.UpdatedAt
 	}
-    
 	if true {
 		toSerialize["instance_type"] = o.InstanceType
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -572,4 +516,5 @@ func (v *NullableRegistry) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

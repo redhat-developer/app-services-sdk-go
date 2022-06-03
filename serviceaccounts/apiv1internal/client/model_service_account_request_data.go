@@ -17,11 +17,8 @@ import (
 
 // ServiceAccountRequestData struct for ServiceAccountRequestData
 type ServiceAccountRequestData struct {
-
 	Name *string `json:"name,omitempty"`
-
 	Description *string `json:"description,omitempty"`
-
 }
 
 // NewServiceAccountRequestData instantiates a new ServiceAccountRequestData object
@@ -38,12 +35,8 @@ func NewServiceAccountRequestData() *ServiceAccountRequestData {
 // but it doesn't guarantee that properties required by API are set
 func NewServiceAccountRequestDataWithDefaults() *ServiceAccountRequestData {
 	this := ServiceAccountRequestData{}
-
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ServiceAccountRequestData) GetName() string {
@@ -77,7 +70,6 @@ func (o *ServiceAccountRequestData) SetName(v string) {
 	o.Name = &v
 }
 
-
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ServiceAccountRequestData) GetDescription() string {
 	if o == nil || o.Description == nil {
@@ -110,18 +102,14 @@ func (o *ServiceAccountRequestData) SetDescription(v string) {
 	o.Description = &v
 }
 
-
 func (o ServiceAccountRequestData) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -160,4 +148,5 @@ func (v *NullableServiceAccountRequestData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

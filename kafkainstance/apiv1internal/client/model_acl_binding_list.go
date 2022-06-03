@@ -16,9 +16,7 @@ import (
 
 // ACLBindingList A page of ACL binding entries
 type ACLBindingList struct {
-
 	Items *[]AclBinding `json:"items,omitempty"`
-
 }
 
 // NewACLBindingList instantiates a new ACLBindingList object
@@ -35,11 +33,8 @@ func NewACLBindingList() *ACLBindingList {
 // but it doesn't guarantee that properties required by API are set
 func NewACLBindingListWithDefaults() *ACLBindingList {
 	this := ACLBindingList{}
-
-
 	return &this
 }
-
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *ACLBindingList) GetItems() []AclBinding {
@@ -73,14 +68,11 @@ func (o *ACLBindingList) SetItems(v []AclBinding) {
 	o.Items = &v
 }
 
-
 func (o ACLBindingList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -119,4 +111,5 @@ func (v *NullableACLBindingList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

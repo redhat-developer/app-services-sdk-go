@@ -16,11 +16,8 @@ import (
 
 // ConnectorNamespaceRequestAllOf struct for ConnectorNamespaceRequestAllOf
 type ConnectorNamespaceRequestAllOf struct {
-
 	ClusterId *string `json:"cluster_id,omitempty"`
-
 	Kind *ConnectorNamespaceTenantKind `json:"kind,omitempty"`
-
 }
 
 // NewConnectorNamespaceRequestAllOf instantiates a new ConnectorNamespaceRequestAllOf object
@@ -37,12 +34,8 @@ func NewConnectorNamespaceRequestAllOf() *ConnectorNamespaceRequestAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorNamespaceRequestAllOfWithDefaults() *ConnectorNamespaceRequestAllOf {
 	this := ConnectorNamespaceRequestAllOf{}
-
-
-
 	return &this
 }
-
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *ConnectorNamespaceRequestAllOf) GetClusterId() string {
@@ -76,7 +69,6 @@ func (o *ConnectorNamespaceRequestAllOf) SetClusterId(v string) {
 	o.ClusterId = &v
 }
 
-
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *ConnectorNamespaceRequestAllOf) GetKind() ConnectorNamespaceTenantKind {
 	if o == nil || o.Kind == nil {
@@ -109,18 +101,14 @@ func (o *ConnectorNamespaceRequestAllOf) SetKind(v ConnectorNamespaceTenantKind)
 	o.Kind = &v
 }
 
-
 func (o ConnectorNamespaceRequestAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.ClusterId != nil {
 		toSerialize["cluster_id"] = o.ClusterId
 	}
-    
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -159,4 +147,5 @@ func (v *NullableConnectorNamespaceRequestAllOf) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

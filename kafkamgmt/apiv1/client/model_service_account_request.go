@@ -16,13 +16,10 @@ import (
 
 // ServiceAccountRequest Schema for the request to create a service account
 type ServiceAccountRequest struct {
-
 	// The name of the service account
 	Name string `json:"name"`
-
 	// A description for the service account
 	Description *string `json:"description,omitempty"`
-
 }
 
 // NewServiceAccountRequest instantiates a new ServiceAccountRequest object
@@ -40,12 +37,8 @@ func NewServiceAccountRequest(name string) *ServiceAccountRequest {
 // but it doesn't guarantee that properties required by API are set
 func NewServiceAccountRequestWithDefaults() *ServiceAccountRequest {
 	this := ServiceAccountRequest{}
-
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value
 func (o *ServiceAccountRequest) GetName() string {
@@ -70,7 +63,6 @@ func (o *ServiceAccountRequest) GetNameOk() (*string, bool) {
 func (o *ServiceAccountRequest) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ServiceAccountRequest) GetDescription() string {
@@ -104,18 +96,14 @@ func (o *ServiceAccountRequest) SetDescription(v string) {
 	o.Description = &v
 }
 
-
 func (o ServiceAccountRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -154,4 +142,5 @@ func (v *NullableServiceAccountRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

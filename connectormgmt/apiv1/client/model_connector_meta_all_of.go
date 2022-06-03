@@ -16,9 +16,7 @@ import (
 
 // ConnectorMetaAllOf struct for ConnectorMetaAllOf
 type ConnectorMetaAllOf struct {
-
 	ResourceVersion *int64 `json:"resource_version,omitempty"`
-
 }
 
 // NewConnectorMetaAllOf instantiates a new ConnectorMetaAllOf object
@@ -35,11 +33,8 @@ func NewConnectorMetaAllOf() *ConnectorMetaAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorMetaAllOfWithDefaults() *ConnectorMetaAllOf {
 	this := ConnectorMetaAllOf{}
-
-
 	return &this
 }
-
 
 // GetResourceVersion returns the ResourceVersion field value if set, zero value otherwise.
 func (o *ConnectorMetaAllOf) GetResourceVersion() int64 {
@@ -73,14 +68,11 @@ func (o *ConnectorMetaAllOf) SetResourceVersion(v int64) {
 	o.ResourceVersion = &v
 }
 
-
 func (o ConnectorMetaAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.ResourceVersion != nil {
 		toSerialize["resource_version"] = o.ResourceVersion
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -119,4 +111,5 @@ func (v *NullableConnectorMetaAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

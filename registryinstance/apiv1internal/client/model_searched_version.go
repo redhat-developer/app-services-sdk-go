@@ -17,30 +17,18 @@ import (
 
 // SearchedVersion Models a single artifact from the result set returned when searching for artifacts.
 type SearchedVersion struct {
-
 	Name *string `json:"name,omitempty"`
-
 	Description *string `json:"description,omitempty"`
-
 	CreatedOn string `json:"createdOn"`
-
 	CreatedBy string `json:"createdBy"`
-
 	Type ArtifactType `json:"type"`
-
 	Labels *[]string `json:"labels,omitempty"`
-
 	State ArtifactState `json:"state"`
-
 	GlobalId int64 `json:"globalId"`
-
 	Version string `json:"version"`
-
 	// User-defined name-value pairs. Name and value must be strings.
 	Properties *map[string]string `json:"properties,omitempty"`
-
 	ContentId int64 `json:"contentId"`
-
 }
 
 // NewSearchedVersion instantiates a new SearchedVersion object
@@ -64,21 +52,8 @@ func NewSearchedVersion(createdOn string, createdBy string, type_ ArtifactType, 
 // but it doesn't guarantee that properties required by API are set
 func NewSearchedVersionWithDefaults() *SearchedVersion {
 	this := SearchedVersion{}
-
-
-
-
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *SearchedVersion) GetName() string {
@@ -112,7 +87,6 @@ func (o *SearchedVersion) SetName(v string) {
 	o.Name = &v
 }
 
-
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *SearchedVersion) GetDescription() string {
 	if o == nil || o.Description == nil {
@@ -145,7 +119,6 @@ func (o *SearchedVersion) SetDescription(v string) {
 	o.Description = &v
 }
 
-
 // GetCreatedOn returns the CreatedOn field value
 func (o *SearchedVersion) GetCreatedOn() string {
 	if o == nil {
@@ -169,7 +142,6 @@ func (o *SearchedVersion) GetCreatedOnOk() (*string, bool) {
 func (o *SearchedVersion) SetCreatedOn(v string) {
 	o.CreatedOn = v
 }
-
 
 // GetCreatedBy returns the CreatedBy field value
 func (o *SearchedVersion) GetCreatedBy() string {
@@ -195,7 +167,6 @@ func (o *SearchedVersion) SetCreatedBy(v string) {
 	o.CreatedBy = v
 }
 
-
 // GetType returns the Type field value
 func (o *SearchedVersion) GetType() ArtifactType {
 	if o == nil {
@@ -219,7 +190,6 @@ func (o *SearchedVersion) GetTypeOk() (*ArtifactType, bool) {
 func (o *SearchedVersion) SetType(v ArtifactType) {
 	o.Type = v
 }
-
 
 // GetLabels returns the Labels field value if set, zero value otherwise.
 func (o *SearchedVersion) GetLabels() []string {
@@ -253,7 +223,6 @@ func (o *SearchedVersion) SetLabels(v []string) {
 	o.Labels = &v
 }
 
-
 // GetState returns the State field value
 func (o *SearchedVersion) GetState() ArtifactState {
 	if o == nil {
@@ -277,7 +246,6 @@ func (o *SearchedVersion) GetStateOk() (*ArtifactState, bool) {
 func (o *SearchedVersion) SetState(v ArtifactState) {
 	o.State = v
 }
-
 
 // GetGlobalId returns the GlobalId field value
 func (o *SearchedVersion) GetGlobalId() int64 {
@@ -303,7 +271,6 @@ func (o *SearchedVersion) SetGlobalId(v int64) {
 	o.GlobalId = v
 }
 
-
 // GetVersion returns the Version field value
 func (o *SearchedVersion) GetVersion() string {
 	if o == nil {
@@ -327,7 +294,6 @@ func (o *SearchedVersion) GetVersionOk() (*string, bool) {
 func (o *SearchedVersion) SetVersion(v string) {
 	o.Version = v
 }
-
 
 // GetProperties returns the Properties field value if set, zero value otherwise.
 func (o *SearchedVersion) GetProperties() map[string]string {
@@ -361,7 +327,6 @@ func (o *SearchedVersion) SetProperties(v map[string]string) {
 	o.Properties = &v
 }
 
-
 // GetContentId returns the ContentId field value
 func (o *SearchedVersion) GetContentId() int64 {
 	if o == nil {
@@ -386,54 +351,41 @@ func (o *SearchedVersion) SetContentId(v int64) {
 	o.ContentId = v
 }
 
-
 func (o SearchedVersion) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-    
 	if true {
 		toSerialize["createdOn"] = o.CreatedOn
 	}
-    
 	if true {
 		toSerialize["createdBy"] = o.CreatedBy
 	}
-    
 	if true {
 		toSerialize["type"] = o.Type
 	}
-    
 	if o.Labels != nil {
 		toSerialize["labels"] = o.Labels
 	}
-    
 	if true {
 		toSerialize["state"] = o.State
 	}
-    
 	if true {
 		toSerialize["globalId"] = o.GlobalId
 	}
-    
 	if true {
 		toSerialize["version"] = o.Version
 	}
-    
 	if o.Properties != nil {
 		toSerialize["properties"] = o.Properties
 	}
-    
 	if true {
 		toSerialize["contentId"] = o.ContentId
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -472,4 +424,5 @@ func (v *NullableSearchedVersion) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

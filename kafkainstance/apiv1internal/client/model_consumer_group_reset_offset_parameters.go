@@ -16,14 +16,10 @@ import (
 
 // ConsumerGroupResetOffsetParameters struct for ConsumerGroupResetOffsetParameters
 type ConsumerGroupResetOffsetParameters struct {
-
 	Offset OffsetType `json:"offset"`
-
 	// Value associated with the given `offset`. Not used for `offset` values `earliest` and `latest`. When `offset` is `timestamp` then `value` must be a valid timestamp representing the point in time to reset the consumer group. When `offset` is `absolute` then `value` must be the integer offset to which the consumer group will be reset.
 	Value *string `json:"value,omitempty"`
-
 	Topics *[]TopicsToResetOffset `json:"topics,omitempty"`
-
 }
 
 // NewConsumerGroupResetOffsetParameters instantiates a new ConsumerGroupResetOffsetParameters object
@@ -41,13 +37,8 @@ func NewConsumerGroupResetOffsetParameters(offset OffsetType) *ConsumerGroupRese
 // but it doesn't guarantee that properties required by API are set
 func NewConsumerGroupResetOffsetParametersWithDefaults() *ConsumerGroupResetOffsetParameters {
 	this := ConsumerGroupResetOffsetParameters{}
-
-
-
-
 	return &this
 }
-
 
 // GetOffset returns the Offset field value
 func (o *ConsumerGroupResetOffsetParameters) GetOffset() OffsetType {
@@ -72,7 +63,6 @@ func (o *ConsumerGroupResetOffsetParameters) GetOffsetOk() (*OffsetType, bool) {
 func (o *ConsumerGroupResetOffsetParameters) SetOffset(v OffsetType) {
 	o.Offset = v
 }
-
 
 // GetValue returns the Value field value if set, zero value otherwise.
 func (o *ConsumerGroupResetOffsetParameters) GetValue() string {
@@ -106,7 +96,6 @@ func (o *ConsumerGroupResetOffsetParameters) SetValue(v string) {
 	o.Value = &v
 }
 
-
 // GetTopics returns the Topics field value if set, zero value otherwise.
 func (o *ConsumerGroupResetOffsetParameters) GetTopics() []TopicsToResetOffset {
 	if o == nil || o.Topics == nil {
@@ -139,22 +128,17 @@ func (o *ConsumerGroupResetOffsetParameters) SetTopics(v []TopicsToResetOffset) 
 	o.Topics = &v
 }
 
-
 func (o ConsumerGroupResetOffsetParameters) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["offset"] = o.Offset
 	}
-    
 	if o.Value != nil {
 		toSerialize["value"] = o.Value
 	}
-    
 	if o.Topics != nil {
 		toSerialize["topics"] = o.Topics
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -193,4 +177,5 @@ func (v *NullableConsumerGroupResetOffsetParameters) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

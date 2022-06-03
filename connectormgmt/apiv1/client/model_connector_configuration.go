@@ -16,15 +16,10 @@ import (
 
 // ConnectorConfiguration struct for ConnectorConfiguration
 type ConnectorConfiguration struct {
-
 	Kafka KafkaConnectionSettings `json:"kafka"`
-
 	ServiceAccount ServiceAccount `json:"service_account"`
-
 	SchemaRegistry *SchemaRegistryConnectionSettings `json:"schema_registry,omitempty"`
-
 	Connector map[string]interface{} `json:"connector"`
-
 }
 
 // NewConnectorConfiguration instantiates a new ConnectorConfiguration object
@@ -44,14 +39,8 @@ func NewConnectorConfiguration(kafka KafkaConnectionSettings, serviceAccount Ser
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorConfigurationWithDefaults() *ConnectorConfiguration {
 	this := ConnectorConfiguration{}
-
-
-
-
-
 	return &this
 }
-
 
 // GetKafka returns the Kafka field value
 func (o *ConnectorConfiguration) GetKafka() KafkaConnectionSettings {
@@ -77,7 +66,6 @@ func (o *ConnectorConfiguration) SetKafka(v KafkaConnectionSettings) {
 	o.Kafka = v
 }
 
-
 // GetServiceAccount returns the ServiceAccount field value
 func (o *ConnectorConfiguration) GetServiceAccount() ServiceAccount {
 	if o == nil {
@@ -101,7 +89,6 @@ func (o *ConnectorConfiguration) GetServiceAccountOk() (*ServiceAccount, bool) {
 func (o *ConnectorConfiguration) SetServiceAccount(v ServiceAccount) {
 	o.ServiceAccount = v
 }
-
 
 // GetSchemaRegistry returns the SchemaRegistry field value if set, zero value otherwise.
 func (o *ConnectorConfiguration) GetSchemaRegistry() SchemaRegistryConnectionSettings {
@@ -135,7 +122,6 @@ func (o *ConnectorConfiguration) SetSchemaRegistry(v SchemaRegistryConnectionSet
 	o.SchemaRegistry = &v
 }
 
-
 // GetConnector returns the Connector field value
 func (o *ConnectorConfiguration) GetConnector() map[string]interface{} {
 	if o == nil {
@@ -160,26 +146,20 @@ func (o *ConnectorConfiguration) SetConnector(v map[string]interface{}) {
 	o.Connector = v
 }
 
-
 func (o ConnectorConfiguration) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["kafka"] = o.Kafka
 	}
-    
 	if true {
 		toSerialize["service_account"] = o.ServiceAccount
 	}
-    
 	if o.SchemaRegistry != nil {
 		toSerialize["schema_registry"] = o.SchemaRegistry
 	}
-    
 	if true {
 		toSerialize["connector"] = o.Connector
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -218,4 +198,5 @@ func (v *NullableConnectorConfiguration) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

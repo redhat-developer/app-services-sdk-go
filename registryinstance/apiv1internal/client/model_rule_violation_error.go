@@ -17,22 +17,16 @@ import (
 
 // RuleViolationError All error responses, whether `4xx` or `5xx` will include one of these as the response body.
 type RuleViolationError struct {
-
 	// List of rule violation causes.
 	Causes []RuleViolationCause `json:"causes"`
-
 	// The short error message.
 	Message *string `json:"message,omitempty"`
-
 	// The server-side error code.
 	ErrorCode *int32 `json:"error_code,omitempty"`
-
 	// Full details about the error.  This might contain a server stack trace, for example.
 	Detail *string `json:"detail,omitempty"`
-
 	// The error name - typically the classname of the exception thrown by the server.
 	Name *string `json:"name,omitempty"`
-
 }
 
 // NewRuleViolationError instantiates a new RuleViolationError object
@@ -50,15 +44,8 @@ func NewRuleViolationError(causes []RuleViolationCause) *RuleViolationError {
 // but it doesn't guarantee that properties required by API are set
 func NewRuleViolationErrorWithDefaults() *RuleViolationError {
 	this := RuleViolationError{}
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetCauses returns the Causes field value
 func (o *RuleViolationError) GetCauses() []RuleViolationCause {
@@ -83,7 +70,6 @@ func (o *RuleViolationError) GetCausesOk() (*[]RuleViolationCause, bool) {
 func (o *RuleViolationError) SetCauses(v []RuleViolationCause) {
 	o.Causes = v
 }
-
 
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *RuleViolationError) GetMessage() string {
@@ -117,7 +103,6 @@ func (o *RuleViolationError) SetMessage(v string) {
 	o.Message = &v
 }
 
-
 // GetErrorCode returns the ErrorCode field value if set, zero value otherwise.
 func (o *RuleViolationError) GetErrorCode() int32 {
 	if o == nil || o.ErrorCode == nil {
@@ -149,7 +134,6 @@ func (o *RuleViolationError) HasErrorCode() bool {
 func (o *RuleViolationError) SetErrorCode(v int32) {
 	o.ErrorCode = &v
 }
-
 
 // GetDetail returns the Detail field value if set, zero value otherwise.
 func (o *RuleViolationError) GetDetail() string {
@@ -183,7 +167,6 @@ func (o *RuleViolationError) SetDetail(v string) {
 	o.Detail = &v
 }
 
-
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *RuleViolationError) GetName() string {
 	if o == nil || o.Name == nil {
@@ -216,30 +199,23 @@ func (o *RuleViolationError) SetName(v string) {
 	o.Name = &v
 }
 
-
 func (o RuleViolationError) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["causes"] = o.Causes
 	}
-    
 	if o.Message != nil {
 		toSerialize["message"] = o.Message
 	}
-    
 	if o.ErrorCode != nil {
 		toSerialize["error_code"] = o.ErrorCode
 	}
-    
 	if o.Detail != nil {
 		toSerialize["detail"] = o.Detail
 	}
-    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -278,4 +254,5 @@ func (v *NullableRuleViolationError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

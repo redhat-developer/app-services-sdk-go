@@ -16,11 +16,8 @@ import (
 
 // ServiceAccountList struct for ServiceAccountList
 type ServiceAccountList struct {
-
 	Kind string `json:"kind"`
-
 	Items []ServiceAccountListItem `json:"items"`
-
 }
 
 // NewServiceAccountList instantiates a new ServiceAccountList object
@@ -39,12 +36,8 @@ func NewServiceAccountList(kind string, items []ServiceAccountListItem) *Service
 // but it doesn't guarantee that properties required by API are set
 func NewServiceAccountListWithDefaults() *ServiceAccountList {
 	this := ServiceAccountList{}
-
-
-
 	return &this
 }
-
 
 // GetKind returns the Kind field value
 func (o *ServiceAccountList) GetKind() string {
@@ -70,7 +63,6 @@ func (o *ServiceAccountList) SetKind(v string) {
 	o.Kind = v
 }
 
-
 // GetItems returns the Items field value
 func (o *ServiceAccountList) GetItems() []ServiceAccountListItem {
 	if o == nil {
@@ -95,18 +87,14 @@ func (o *ServiceAccountList) SetItems(v []ServiceAccountListItem) {
 	o.Items = v
 }
 
-
 func (o ServiceAccountList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if true {
 		toSerialize["items"] = o.Items
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -145,4 +133,5 @@ func (v *NullableServiceAccountList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

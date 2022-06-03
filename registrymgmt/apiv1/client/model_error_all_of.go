@@ -17,13 +17,9 @@ import (
 
 // ErrorAllOf struct for ErrorAllOf
 type ErrorAllOf struct {
-
 	Code *string `json:"code,omitempty"`
-
 	Reason *string `json:"reason,omitempty"`
-
 	OperationId *string `json:"operation_id,omitempty"`
-
 }
 
 // NewErrorAllOf instantiates a new ErrorAllOf object
@@ -40,13 +36,8 @@ func NewErrorAllOf() *ErrorAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewErrorAllOfWithDefaults() *ErrorAllOf {
 	this := ErrorAllOf{}
-
-
-
-
 	return &this
 }
-
 
 // GetCode returns the Code field value if set, zero value otherwise.
 func (o *ErrorAllOf) GetCode() string {
@@ -80,7 +71,6 @@ func (o *ErrorAllOf) SetCode(v string) {
 	o.Code = &v
 }
 
-
 // GetReason returns the Reason field value if set, zero value otherwise.
 func (o *ErrorAllOf) GetReason() string {
 	if o == nil || o.Reason == nil {
@@ -112,7 +102,6 @@ func (o *ErrorAllOf) HasReason() bool {
 func (o *ErrorAllOf) SetReason(v string) {
 	o.Reason = &v
 }
-
 
 // GetOperationId returns the OperationId field value if set, zero value otherwise.
 func (o *ErrorAllOf) GetOperationId() string {
@@ -146,22 +135,17 @@ func (o *ErrorAllOf) SetOperationId(v string) {
 	o.OperationId = &v
 }
 
-
 func (o ErrorAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Code != nil {
 		toSerialize["code"] = o.Code
 	}
-    
 	if o.Reason != nil {
 		toSerialize["reason"] = o.Reason
 	}
-    
 	if o.OperationId != nil {
 		toSerialize["operation_id"] = o.OperationId
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -200,4 +184,5 @@ func (v *NullableErrorAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

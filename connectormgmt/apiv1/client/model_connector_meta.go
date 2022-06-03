@@ -17,25 +17,15 @@ import (
 
 // ConnectorMeta struct for ConnectorMeta
 type ConnectorMeta struct {
-
 	Owner *string `json:"owner,omitempty"`
-
 	CreatedAt *time.Time `json:"created_at,omitempty"`
-
 	ModifiedAt *time.Time `json:"modified_at,omitempty"`
-
 	Name string `json:"name"`
-
 	ConnectorTypeId string `json:"connector_type_id"`
-
 	NamespaceId string `json:"namespace_id"`
-
 	Channel *Channel `json:"channel,omitempty"`
-
 	DesiredState ConnectorDesiredState `json:"desired_state"`
-
 	ResourceVersion *int64 `json:"resource_version,omitempty"`
-
 }
 
 // NewConnectorMeta instantiates a new ConnectorMeta object
@@ -58,21 +48,10 @@ func NewConnectorMeta(name string, connectorTypeId string, namespaceId string, d
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorMetaWithDefaults() *ConnectorMeta {
 	this := ConnectorMeta{}
-
-
-
-
-
-
-
 	var channel Channel = CHANNEL_STABLE
 	this.Channel = &channel
-
-
-
 	return &this
 }
-
 
 // GetOwner returns the Owner field value if set, zero value otherwise.
 func (o *ConnectorMeta) GetOwner() string {
@@ -106,7 +85,6 @@ func (o *ConnectorMeta) SetOwner(v string) {
 	o.Owner = &v
 }
 
-
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *ConnectorMeta) GetCreatedAt() time.Time {
 	if o == nil || o.CreatedAt == nil {
@@ -138,7 +116,6 @@ func (o *ConnectorMeta) HasCreatedAt() bool {
 func (o *ConnectorMeta) SetCreatedAt(v time.Time) {
 	o.CreatedAt = &v
 }
-
 
 // GetModifiedAt returns the ModifiedAt field value if set, zero value otherwise.
 func (o *ConnectorMeta) GetModifiedAt() time.Time {
@@ -172,7 +149,6 @@ func (o *ConnectorMeta) SetModifiedAt(v time.Time) {
 	o.ModifiedAt = &v
 }
 
-
 // GetName returns the Name field value
 func (o *ConnectorMeta) GetName() string {
 	if o == nil {
@@ -196,7 +172,6 @@ func (o *ConnectorMeta) GetNameOk() (*string, bool) {
 func (o *ConnectorMeta) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetConnectorTypeId returns the ConnectorTypeId field value
 func (o *ConnectorMeta) GetConnectorTypeId() string {
@@ -222,7 +197,6 @@ func (o *ConnectorMeta) SetConnectorTypeId(v string) {
 	o.ConnectorTypeId = v
 }
 
-
 // GetNamespaceId returns the NamespaceId field value
 func (o *ConnectorMeta) GetNamespaceId() string {
 	if o == nil {
@@ -246,7 +220,6 @@ func (o *ConnectorMeta) GetNamespaceIdOk() (*string, bool) {
 func (o *ConnectorMeta) SetNamespaceId(v string) {
 	o.NamespaceId = v
 }
-
 
 // GetChannel returns the Channel field value if set, zero value otherwise.
 func (o *ConnectorMeta) GetChannel() Channel {
@@ -280,7 +253,6 @@ func (o *ConnectorMeta) SetChannel(v Channel) {
 	o.Channel = &v
 }
 
-
 // GetDesiredState returns the DesiredState field value
 func (o *ConnectorMeta) GetDesiredState() ConnectorDesiredState {
 	if o == nil {
@@ -304,7 +276,6 @@ func (o *ConnectorMeta) GetDesiredStateOk() (*ConnectorDesiredState, bool) {
 func (o *ConnectorMeta) SetDesiredState(v ConnectorDesiredState) {
 	o.DesiredState = v
 }
-
 
 // GetResourceVersion returns the ResourceVersion field value if set, zero value otherwise.
 func (o *ConnectorMeta) GetResourceVersion() int64 {
@@ -338,46 +309,35 @@ func (o *ConnectorMeta) SetResourceVersion(v int64) {
 	o.ResourceVersion = &v
 }
 
-
 func (o ConnectorMeta) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
 	}
-    
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt
 	}
-    
 	if o.ModifiedAt != nil {
 		toSerialize["modified_at"] = o.ModifiedAt
 	}
-    
 	if true {
 		toSerialize["name"] = o.Name
 	}
-    
 	if true {
 		toSerialize["connector_type_id"] = o.ConnectorTypeId
 	}
-    
 	if true {
 		toSerialize["namespace_id"] = o.NamespaceId
 	}
-    
 	if o.Channel != nil {
 		toSerialize["channel"] = o.Channel
 	}
-    
 	if true {
 		toSerialize["desired_state"] = o.DesiredState
 	}
-    
 	if o.ResourceVersion != nil {
 		toSerialize["resource_version"] = o.ResourceVersion
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -416,4 +376,5 @@ func (v *NullableConnectorMeta) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

@@ -16,9 +16,7 @@ import (
 
 // SupportedKafkaSizeBytesValueItem struct for SupportedKafkaSizeBytesValueItem
 type SupportedKafkaSizeBytesValueItem struct {
-
 	Bytes *int64 `json:"bytes,omitempty"`
-
 }
 
 // NewSupportedKafkaSizeBytesValueItem instantiates a new SupportedKafkaSizeBytesValueItem object
@@ -35,11 +33,8 @@ func NewSupportedKafkaSizeBytesValueItem() *SupportedKafkaSizeBytesValueItem {
 // but it doesn't guarantee that properties required by API are set
 func NewSupportedKafkaSizeBytesValueItemWithDefaults() *SupportedKafkaSizeBytesValueItem {
 	this := SupportedKafkaSizeBytesValueItem{}
-
-
 	return &this
 }
-
 
 // GetBytes returns the Bytes field value if set, zero value otherwise.
 func (o *SupportedKafkaSizeBytesValueItem) GetBytes() int64 {
@@ -73,14 +68,11 @@ func (o *SupportedKafkaSizeBytesValueItem) SetBytes(v int64) {
 	o.Bytes = &v
 }
 
-
 func (o SupportedKafkaSizeBytesValueItem) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Bytes != nil {
 		toSerialize["bytes"] = o.Bytes
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -119,4 +111,5 @@ func (v *NullableSupportedKafkaSizeBytesValueItem) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

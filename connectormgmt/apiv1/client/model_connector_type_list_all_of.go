@@ -16,9 +16,7 @@ import (
 
 // ConnectorTypeListAllOf struct for ConnectorTypeListAllOf
 type ConnectorTypeListAllOf struct {
-
 	Items *[]ConnectorType `json:"items,omitempty"`
-
 }
 
 // NewConnectorTypeListAllOf instantiates a new ConnectorTypeListAllOf object
@@ -35,11 +33,8 @@ func NewConnectorTypeListAllOf() *ConnectorTypeListAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorTypeListAllOfWithDefaults() *ConnectorTypeListAllOf {
 	this := ConnectorTypeListAllOf{}
-
-
 	return &this
 }
-
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *ConnectorTypeListAllOf) GetItems() []ConnectorType {
@@ -73,14 +68,11 @@ func (o *ConnectorTypeListAllOf) SetItems(v []ConnectorType) {
 	o.Items = &v
 }
 
-
 func (o ConnectorTypeListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -119,4 +111,5 @@ func (v *NullableConnectorTypeListAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

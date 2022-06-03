@@ -16,13 +16,12 @@ import (
 
 // RegionCapacityListItem schema for a kafka instance type capacity in region
 type RegionCapacityListItem struct {
-
 	// kafka instance type
 	InstanceType string `json:"instance_type"`
-
+	// flag indicating whether the capacity for the instance type in the region is reached
+	MaxCapacityReached *bool `json:"max_capacity_reached,omitempty"`
 	// list of available Kafka instance sizes that can be created in this region when taking account current capacity and regional limits
 	AvailableSizes []string `json:"available_sizes"`
-
 }
 
 // NewRegionCapacityListItem instantiates a new RegionCapacityListItem object
@@ -41,12 +40,8 @@ func NewRegionCapacityListItem(instanceType string, availableSizes []string) *Re
 // but it doesn't guarantee that properties required by API are set
 func NewRegionCapacityListItemWithDefaults() *RegionCapacityListItem {
 	this := RegionCapacityListItem{}
-
-
-
 	return &this
 }
-
 
 // GetInstanceType returns the InstanceType field value
 func (o *RegionCapacityListItem) GetInstanceType() string {
@@ -72,6 +67,37 @@ func (o *RegionCapacityListItem) SetInstanceType(v string) {
 	o.InstanceType = v
 }
 
+// GetMaxCapacityReached returns the MaxCapacityReached field value if set, zero value otherwise.
+func (o *RegionCapacityListItem) GetMaxCapacityReached() bool {
+	if o == nil || o.MaxCapacityReached == nil {
+		var ret bool
+		return ret
+	}
+	return *o.MaxCapacityReached
+}
+
+// GetMaxCapacityReachedOk returns a tuple with the MaxCapacityReached field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *RegionCapacityListItem) GetMaxCapacityReachedOk() (*bool, bool) {
+	if o == nil || o.MaxCapacityReached == nil {
+		return nil, false
+	}
+	return o.MaxCapacityReached, true
+}
+
+// HasMaxCapacityReached returns a boolean if a field has been set.
+func (o *RegionCapacityListItem) HasMaxCapacityReached() bool {
+	if o != nil && o.MaxCapacityReached != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxCapacityReached gets a reference to the given bool and assigns it to the MaxCapacityReached field.
+func (o *RegionCapacityListItem) SetMaxCapacityReached(v bool) {
+	o.MaxCapacityReached = &v
+}
 
 // GetAvailableSizes returns the AvailableSizes field value
 func (o *RegionCapacityListItem) GetAvailableSizes() []string {
@@ -97,18 +123,17 @@ func (o *RegionCapacityListItem) SetAvailableSizes(v []string) {
 	o.AvailableSizes = v
 }
 
-
 func (o RegionCapacityListItem) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["instance_type"] = o.InstanceType
 	}
-    
+	if o.MaxCapacityReached != nil {
+		toSerialize["max_capacity_reached"] = o.MaxCapacityReached
+	}
 	if true {
 		toSerialize["available_sizes"] = o.AvailableSizes
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -147,4 +172,5 @@ func (v *NullableRegionCapacityListItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

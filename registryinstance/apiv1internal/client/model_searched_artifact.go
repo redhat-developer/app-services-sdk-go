@@ -17,31 +17,19 @@ import (
 
 // SearchedArtifact Models a single artifact from the result set returned when searching for artifacts.
 type SearchedArtifact struct {
-
 	// The ID of a single artifact.
 	Id string `json:"id"`
-
 	Name *string `json:"name,omitempty"`
-
 	Description *string `json:"description,omitempty"`
-
 	CreatedOn string `json:"createdOn"`
-
 	CreatedBy string `json:"createdBy"`
-
 	Type ArtifactType `json:"type"`
-
 	Labels *[]string `json:"labels,omitempty"`
-
 	State ArtifactState `json:"state"`
-
 	ModifiedOn *string `json:"modifiedOn,omitempty"`
-
 	ModifiedBy *string `json:"modifiedBy,omitempty"`
-
 	// An ID of a single artifact group.
 	GroupId *string `json:"groupId,omitempty"`
-
 }
 
 // NewSearchedArtifact instantiates a new SearchedArtifact object
@@ -63,21 +51,8 @@ func NewSearchedArtifact(id string, createdOn string, createdBy string, type_ Ar
 // but it doesn't guarantee that properties required by API are set
 func NewSearchedArtifactWithDefaults() *SearchedArtifact {
 	this := SearchedArtifact{}
-
-
-
-
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value
 func (o *SearchedArtifact) GetId() string {
@@ -102,7 +77,6 @@ func (o *SearchedArtifact) GetIdOk() (*string, bool) {
 func (o *SearchedArtifact) SetId(v string) {
 	o.Id = v
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *SearchedArtifact) GetName() string {
@@ -136,7 +110,6 @@ func (o *SearchedArtifact) SetName(v string) {
 	o.Name = &v
 }
 
-
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *SearchedArtifact) GetDescription() string {
 	if o == nil || o.Description == nil {
@@ -169,7 +142,6 @@ func (o *SearchedArtifact) SetDescription(v string) {
 	o.Description = &v
 }
 
-
 // GetCreatedOn returns the CreatedOn field value
 func (o *SearchedArtifact) GetCreatedOn() string {
 	if o == nil {
@@ -193,7 +165,6 @@ func (o *SearchedArtifact) GetCreatedOnOk() (*string, bool) {
 func (o *SearchedArtifact) SetCreatedOn(v string) {
 	o.CreatedOn = v
 }
-
 
 // GetCreatedBy returns the CreatedBy field value
 func (o *SearchedArtifact) GetCreatedBy() string {
@@ -219,7 +190,6 @@ func (o *SearchedArtifact) SetCreatedBy(v string) {
 	o.CreatedBy = v
 }
 
-
 // GetType returns the Type field value
 func (o *SearchedArtifact) GetType() ArtifactType {
 	if o == nil {
@@ -243,7 +213,6 @@ func (o *SearchedArtifact) GetTypeOk() (*ArtifactType, bool) {
 func (o *SearchedArtifact) SetType(v ArtifactType) {
 	o.Type = v
 }
-
 
 // GetLabels returns the Labels field value if set, zero value otherwise.
 func (o *SearchedArtifact) GetLabels() []string {
@@ -277,7 +246,6 @@ func (o *SearchedArtifact) SetLabels(v []string) {
 	o.Labels = &v
 }
 
-
 // GetState returns the State field value
 func (o *SearchedArtifact) GetState() ArtifactState {
 	if o == nil {
@@ -301,7 +269,6 @@ func (o *SearchedArtifact) GetStateOk() (*ArtifactState, bool) {
 func (o *SearchedArtifact) SetState(v ArtifactState) {
 	o.State = v
 }
-
 
 // GetModifiedOn returns the ModifiedOn field value if set, zero value otherwise.
 func (o *SearchedArtifact) GetModifiedOn() string {
@@ -335,7 +302,6 @@ func (o *SearchedArtifact) SetModifiedOn(v string) {
 	o.ModifiedOn = &v
 }
 
-
 // GetModifiedBy returns the ModifiedBy field value if set, zero value otherwise.
 func (o *SearchedArtifact) GetModifiedBy() string {
 	if o == nil || o.ModifiedBy == nil {
@@ -367,7 +333,6 @@ func (o *SearchedArtifact) HasModifiedBy() bool {
 func (o *SearchedArtifact) SetModifiedBy(v string) {
 	o.ModifiedBy = &v
 }
-
 
 // GetGroupId returns the GroupId field value if set, zero value otherwise.
 func (o *SearchedArtifact) GetGroupId() string {
@@ -401,54 +366,41 @@ func (o *SearchedArtifact) SetGroupId(v string) {
 	o.GroupId = &v
 }
 
-
 func (o SearchedArtifact) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["id"] = o.Id
 	}
-    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-    
 	if true {
 		toSerialize["createdOn"] = o.CreatedOn
 	}
-    
 	if true {
 		toSerialize["createdBy"] = o.CreatedBy
 	}
-    
 	if true {
 		toSerialize["type"] = o.Type
 	}
-    
 	if o.Labels != nil {
 		toSerialize["labels"] = o.Labels
 	}
-    
 	if true {
 		toSerialize["state"] = o.State
 	}
-    
 	if o.ModifiedOn != nil {
 		toSerialize["modifiedOn"] = o.ModifiedOn
 	}
-    
 	if o.ModifiedBy != nil {
 		toSerialize["modifiedBy"] = o.ModifiedBy
 	}
-    
 	if o.GroupId != nil {
 		toSerialize["groupId"] = o.GroupId
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -487,4 +439,5 @@ func (v *NullableSearchedArtifact) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

@@ -16,20 +16,14 @@ import (
 
 // List struct for List
 type List struct {
-
 	Kind *string `json:"kind,omitempty"`
-
 	Items []map[string]interface{} `json:"items"`
-
 	// Total number of entries in the full result set
 	Total int32 `json:"total"`
-
 	// Number of entries per page (returned for fetch requests)
 	Size *int32 `json:"size,omitempty"`
-
 	// Current page number (returned for fetch requests)
 	Page *int32 `json:"page,omitempty"`
-
 }
 
 // NewList instantiates a new List object
@@ -48,15 +42,8 @@ func NewList(items []map[string]interface{}, total int32) *List {
 // but it doesn't guarantee that properties required by API are set
 func NewListWithDefaults() *List {
 	this := List{}
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *List) GetKind() string {
@@ -90,7 +77,6 @@ func (o *List) SetKind(v string) {
 	o.Kind = &v
 }
 
-
 // GetItems returns the Items field value
 func (o *List) GetItems() []map[string]interface{} {
 	if o == nil {
@@ -115,7 +101,6 @@ func (o *List) SetItems(v []map[string]interface{}) {
 	o.Items = v
 }
 
-
 // GetTotal returns the Total field value
 func (o *List) GetTotal() int32 {
 	if o == nil {
@@ -139,7 +124,6 @@ func (o *List) GetTotalOk() (*int32, bool) {
 func (o *List) SetTotal(v int32) {
 	o.Total = v
 }
-
 
 // GetSize returns the Size field value if set, zero value otherwise.
 func (o *List) GetSize() int32 {
@@ -173,7 +157,6 @@ func (o *List) SetSize(v int32) {
 	o.Size = &v
 }
 
-
 // GetPage returns the Page field value if set, zero value otherwise.
 func (o *List) GetPage() int32 {
 	if o == nil || o.Page == nil {
@@ -206,30 +189,23 @@ func (o *List) SetPage(v int32) {
 	o.Page = &v
 }
 
-
 func (o List) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if true {
 		toSerialize["items"] = o.Items
 	}
-    
 	if true {
 		toSerialize["total"] = o.Total
 	}
-    
 	if o.Size != nil {
 		toSerialize["size"] = o.Size
 	}
-    
 	if o.Page != nil {
 		toSerialize["page"] = o.Page
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -268,4 +244,5 @@ func (v *NullableList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

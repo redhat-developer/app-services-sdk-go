@@ -16,11 +16,8 @@ import (
 
 // KafkaConnectionSettings Holds the configuration to connect to a Kafka Instance.
 type KafkaConnectionSettings struct {
-
 	Id string `json:"id"`
-
 	Url string `json:"url"`
-
 }
 
 // NewKafkaConnectionSettings instantiates a new KafkaConnectionSettings object
@@ -39,12 +36,8 @@ func NewKafkaConnectionSettings(id string, url string) *KafkaConnectionSettings 
 // but it doesn't guarantee that properties required by API are set
 func NewKafkaConnectionSettingsWithDefaults() *KafkaConnectionSettings {
 	this := KafkaConnectionSettings{}
-
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value
 func (o *KafkaConnectionSettings) GetId() string {
@@ -70,7 +63,6 @@ func (o *KafkaConnectionSettings) SetId(v string) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *KafkaConnectionSettings) GetUrl() string {
 	if o == nil {
@@ -95,18 +87,14 @@ func (o *KafkaConnectionSettings) SetUrl(v string) {
 	o.Url = v
 }
 
-
 func (o KafkaConnectionSettings) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["id"] = o.Id
 	}
-    
 	if true {
 		toSerialize["url"] = o.Url
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -145,4 +133,5 @@ func (v *NullableKafkaConnectionSettings) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

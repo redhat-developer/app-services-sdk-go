@@ -16,9 +16,7 @@ import (
 
 // RootTypeForConsumerGroupResetOffsetResult struct for RootTypeForConsumerGroupResetOffsetResult
 type RootTypeForConsumerGroupResetOffsetResult struct {
-
 	Items *[]ConsumerGroupResetOffsetResultItem `json:"items,omitempty"`
-
 }
 
 // NewRootTypeForConsumerGroupResetOffsetResult instantiates a new RootTypeForConsumerGroupResetOffsetResult object
@@ -35,11 +33,8 @@ func NewRootTypeForConsumerGroupResetOffsetResult() *RootTypeForConsumerGroupRes
 // but it doesn't guarantee that properties required by API are set
 func NewRootTypeForConsumerGroupResetOffsetResultWithDefaults() *RootTypeForConsumerGroupResetOffsetResult {
 	this := RootTypeForConsumerGroupResetOffsetResult{}
-
-
 	return &this
 }
-
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *RootTypeForConsumerGroupResetOffsetResult) GetItems() []ConsumerGroupResetOffsetResultItem {
@@ -73,14 +68,11 @@ func (o *RootTypeForConsumerGroupResetOffsetResult) SetItems(v []ConsumerGroupRe
 	o.Items = &v
 }
 
-
 func (o RootTypeForConsumerGroupResetOffsetResult) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -119,4 +111,5 @@ func (v *NullableRootTypeForConsumerGroupResetOffsetResult) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

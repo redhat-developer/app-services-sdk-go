@@ -16,21 +16,15 @@ import (
 
 // ConnectorNamespaceQuota struct for ConnectorNamespaceQuota
 type ConnectorNamespaceQuota struct {
-
 	Connectors *int32 `json:"connectors,omitempty"`
-
 	// Memory quota for limits or requests
 	MemoryRequests *string `json:"memory_requests,omitempty"`
-
 	// Memory quota for limits or requests
 	MemoryLimits *string `json:"memory_limits,omitempty"`
-
 	// CPU quota for limits or requests
 	CpuRequests *string `json:"cpu_requests,omitempty"`
-
 	// CPU quota for limits or requests
 	CpuLimits *string `json:"cpu_limits,omitempty"`
-
 }
 
 // NewConnectorNamespaceQuota instantiates a new ConnectorNamespaceQuota object
@@ -47,15 +41,8 @@ func NewConnectorNamespaceQuota() *ConnectorNamespaceQuota {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorNamespaceQuotaWithDefaults() *ConnectorNamespaceQuota {
 	this := ConnectorNamespaceQuota{}
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetConnectors returns the Connectors field value if set, zero value otherwise.
 func (o *ConnectorNamespaceQuota) GetConnectors() int32 {
@@ -89,7 +76,6 @@ func (o *ConnectorNamespaceQuota) SetConnectors(v int32) {
 	o.Connectors = &v
 }
 
-
 // GetMemoryRequests returns the MemoryRequests field value if set, zero value otherwise.
 func (o *ConnectorNamespaceQuota) GetMemoryRequests() string {
 	if o == nil || o.MemoryRequests == nil {
@@ -121,7 +107,6 @@ func (o *ConnectorNamespaceQuota) HasMemoryRequests() bool {
 func (o *ConnectorNamespaceQuota) SetMemoryRequests(v string) {
 	o.MemoryRequests = &v
 }
-
 
 // GetMemoryLimits returns the MemoryLimits field value if set, zero value otherwise.
 func (o *ConnectorNamespaceQuota) GetMemoryLimits() string {
@@ -155,7 +140,6 @@ func (o *ConnectorNamespaceQuota) SetMemoryLimits(v string) {
 	o.MemoryLimits = &v
 }
 
-
 // GetCpuRequests returns the CpuRequests field value if set, zero value otherwise.
 func (o *ConnectorNamespaceQuota) GetCpuRequests() string {
 	if o == nil || o.CpuRequests == nil {
@@ -187,7 +171,6 @@ func (o *ConnectorNamespaceQuota) HasCpuRequests() bool {
 func (o *ConnectorNamespaceQuota) SetCpuRequests(v string) {
 	o.CpuRequests = &v
 }
-
 
 // GetCpuLimits returns the CpuLimits field value if set, zero value otherwise.
 func (o *ConnectorNamespaceQuota) GetCpuLimits() string {
@@ -221,30 +204,23 @@ func (o *ConnectorNamespaceQuota) SetCpuLimits(v string) {
 	o.CpuLimits = &v
 }
 
-
 func (o ConnectorNamespaceQuota) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Connectors != nil {
 		toSerialize["connectors"] = o.Connectors
 	}
-    
 	if o.MemoryRequests != nil {
 		toSerialize["memory_requests"] = o.MemoryRequests
 	}
-    
 	if o.MemoryLimits != nil {
 		toSerialize["memory_limits"] = o.MemoryLimits
 	}
-    
 	if o.CpuRequests != nil {
 		toSerialize["cpu_requests"] = o.CpuRequests
 	}
-    
 	if o.CpuLimits != nil {
 		toSerialize["cpu_limits"] = o.CpuLimits
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -283,4 +259,5 @@ func (v *NullableConnectorNamespaceQuota) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

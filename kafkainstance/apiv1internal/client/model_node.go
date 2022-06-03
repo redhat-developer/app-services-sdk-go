@@ -16,9 +16,7 @@ import (
 
 // Node Identifier for a Kafka server / broker.
 type Node struct {
-
 	Id *int32 `json:"id,omitempty"`
-
 }
 
 // NewNode instantiates a new Node object
@@ -35,11 +33,8 @@ func NewNode() *Node {
 // but it doesn't guarantee that properties required by API are set
 func NewNodeWithDefaults() *Node {
 	this := Node{}
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *Node) GetId() int32 {
@@ -73,14 +68,11 @@ func (o *Node) SetId(v int32) {
 	o.Id = &v
 }
 
-
 func (o Node) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -119,4 +111,5 @@ func (v *NullableNode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

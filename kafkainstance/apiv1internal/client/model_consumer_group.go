@@ -16,25 +16,17 @@ import (
 
 // ConsumerGroup struct for ConsumerGroup
 type ConsumerGroup struct {
-
 	// Unique identifier for the object. Not supported for all object kinds.
 	Id *string `json:"id,omitempty"`
-
 	Kind string `json:"kind"`
-
 	// Link path to request the object. Not supported for all object kinds.
 	Href *string `json:"href,omitempty"`
-
 	// Unique identifier for the consumer group
 	GroupId string `json:"groupId"`
-
 	State *ConsumerGroupState `json:"state,omitempty"`
-
 	// The list of consumers associated with this consumer group
 	Consumers []Consumer `json:"consumers"`
-
 	Metrics *ConsumerGroupMetrics `json:"metrics,omitempty"`
-
 }
 
 // NewConsumerGroup instantiates a new ConsumerGroup object
@@ -54,17 +46,8 @@ func NewConsumerGroup(kind string, groupId string, consumers []Consumer) *Consum
 // but it doesn't guarantee that properties required by API are set
 func NewConsumerGroupWithDefaults() *ConsumerGroup {
 	this := ConsumerGroup{}
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *ConsumerGroup) GetId() string {
@@ -98,7 +81,6 @@ func (o *ConsumerGroup) SetId(v string) {
 	o.Id = &v
 }
 
-
 // GetKind returns the Kind field value
 func (o *ConsumerGroup) GetKind() string {
 	if o == nil {
@@ -122,7 +104,6 @@ func (o *ConsumerGroup) GetKindOk() (*string, bool) {
 func (o *ConsumerGroup) SetKind(v string) {
 	o.Kind = v
 }
-
 
 // GetHref returns the Href field value if set, zero value otherwise.
 func (o *ConsumerGroup) GetHref() string {
@@ -156,7 +137,6 @@ func (o *ConsumerGroup) SetHref(v string) {
 	o.Href = &v
 }
 
-
 // GetGroupId returns the GroupId field value
 func (o *ConsumerGroup) GetGroupId() string {
 	if o == nil {
@@ -180,7 +160,6 @@ func (o *ConsumerGroup) GetGroupIdOk() (*string, bool) {
 func (o *ConsumerGroup) SetGroupId(v string) {
 	o.GroupId = v
 }
-
 
 // GetState returns the State field value if set, zero value otherwise.
 func (o *ConsumerGroup) GetState() ConsumerGroupState {
@@ -214,7 +193,6 @@ func (o *ConsumerGroup) SetState(v ConsumerGroupState) {
 	o.State = &v
 }
 
-
 // GetConsumers returns the Consumers field value
 func (o *ConsumerGroup) GetConsumers() []Consumer {
 	if o == nil {
@@ -238,7 +216,6 @@ func (o *ConsumerGroup) GetConsumersOk() (*[]Consumer, bool) {
 func (o *ConsumerGroup) SetConsumers(v []Consumer) {
 	o.Consumers = v
 }
-
 
 // GetMetrics returns the Metrics field value if set, zero value otherwise.
 func (o *ConsumerGroup) GetMetrics() ConsumerGroupMetrics {
@@ -272,38 +249,29 @@ func (o *ConsumerGroup) SetMetrics(v ConsumerGroupMetrics) {
 	o.Metrics = &v
 }
 
-
 func (o ConsumerGroup) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-    
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
 	}
-    
 	if true {
 		toSerialize["groupId"] = o.GroupId
 	}
-    
 	if o.State != nil {
 		toSerialize["state"] = o.State
 	}
-    
 	if true {
 		toSerialize["consumers"] = o.Consumers
 	}
-    
 	if o.Metrics != nil {
 		toSerialize["metrics"] = o.Metrics
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -342,4 +310,5 @@ func (v *NullableConsumerGroup) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

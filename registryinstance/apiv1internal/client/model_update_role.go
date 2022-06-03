@@ -17,9 +17,7 @@ import (
 
 // UpdateRole struct for UpdateRole
 type UpdateRole struct {
-
 	Role RoleType `json:"role"`
-
 }
 
 // NewUpdateRole instantiates a new UpdateRole object
@@ -37,11 +35,8 @@ func NewUpdateRole(role RoleType) *UpdateRole {
 // but it doesn't guarantee that properties required by API are set
 func NewUpdateRoleWithDefaults() *UpdateRole {
 	this := UpdateRole{}
-
-
 	return &this
 }
-
 
 // GetRole returns the Role field value
 func (o *UpdateRole) GetRole() RoleType {
@@ -67,14 +62,11 @@ func (o *UpdateRole) SetRole(v RoleType) {
 	o.Role = v
 }
 
-
 func (o UpdateRole) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["role"] = o.Role
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -113,4 +105,5 @@ func (v *NullableUpdateRole) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

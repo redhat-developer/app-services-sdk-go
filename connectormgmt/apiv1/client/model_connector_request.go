@@ -16,25 +16,15 @@ import (
 
 // ConnectorRequest struct for ConnectorRequest
 type ConnectorRequest struct {
-
 	Name string `json:"name"`
-
 	ConnectorTypeId string `json:"connector_type_id"`
-
 	NamespaceId string `json:"namespace_id"`
-
 	Channel *Channel `json:"channel,omitempty"`
-
 	DesiredState ConnectorDesiredState `json:"desired_state"`
-
 	Kafka KafkaConnectionSettings `json:"kafka"`
-
 	ServiceAccount ServiceAccount `json:"service_account"`
-
 	SchemaRegistry *SchemaRegistryConnectionSettings `json:"schema_registry,omitempty"`
-
 	Connector map[string]interface{} `json:"connector"`
-
 }
 
 // NewConnectorRequest instantiates a new ConnectorRequest object
@@ -60,21 +50,10 @@ func NewConnectorRequest(name string, connectorTypeId string, namespaceId string
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorRequestWithDefaults() *ConnectorRequest {
 	this := ConnectorRequest{}
-
-
-
-
 	var channel Channel = CHANNEL_STABLE
 	this.Channel = &channel
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value
 func (o *ConnectorRequest) GetName() string {
@@ -100,7 +79,6 @@ func (o *ConnectorRequest) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetConnectorTypeId returns the ConnectorTypeId field value
 func (o *ConnectorRequest) GetConnectorTypeId() string {
 	if o == nil {
@@ -125,7 +103,6 @@ func (o *ConnectorRequest) SetConnectorTypeId(v string) {
 	o.ConnectorTypeId = v
 }
 
-
 // GetNamespaceId returns the NamespaceId field value
 func (o *ConnectorRequest) GetNamespaceId() string {
 	if o == nil {
@@ -149,7 +126,6 @@ func (o *ConnectorRequest) GetNamespaceIdOk() (*string, bool) {
 func (o *ConnectorRequest) SetNamespaceId(v string) {
 	o.NamespaceId = v
 }
-
 
 // GetChannel returns the Channel field value if set, zero value otherwise.
 func (o *ConnectorRequest) GetChannel() Channel {
@@ -183,7 +159,6 @@ func (o *ConnectorRequest) SetChannel(v Channel) {
 	o.Channel = &v
 }
 
-
 // GetDesiredState returns the DesiredState field value
 func (o *ConnectorRequest) GetDesiredState() ConnectorDesiredState {
 	if o == nil {
@@ -207,7 +182,6 @@ func (o *ConnectorRequest) GetDesiredStateOk() (*ConnectorDesiredState, bool) {
 func (o *ConnectorRequest) SetDesiredState(v ConnectorDesiredState) {
 	o.DesiredState = v
 }
-
 
 // GetKafka returns the Kafka field value
 func (o *ConnectorRequest) GetKafka() KafkaConnectionSettings {
@@ -233,7 +207,6 @@ func (o *ConnectorRequest) SetKafka(v KafkaConnectionSettings) {
 	o.Kafka = v
 }
 
-
 // GetServiceAccount returns the ServiceAccount field value
 func (o *ConnectorRequest) GetServiceAccount() ServiceAccount {
 	if o == nil {
@@ -257,7 +230,6 @@ func (o *ConnectorRequest) GetServiceAccountOk() (*ServiceAccount, bool) {
 func (o *ConnectorRequest) SetServiceAccount(v ServiceAccount) {
 	o.ServiceAccount = v
 }
-
 
 // GetSchemaRegistry returns the SchemaRegistry field value if set, zero value otherwise.
 func (o *ConnectorRequest) GetSchemaRegistry() SchemaRegistryConnectionSettings {
@@ -291,7 +263,6 @@ func (o *ConnectorRequest) SetSchemaRegistry(v SchemaRegistryConnectionSettings)
 	o.SchemaRegistry = &v
 }
 
-
 // GetConnector returns the Connector field value
 func (o *ConnectorRequest) GetConnector() map[string]interface{} {
 	if o == nil {
@@ -316,46 +287,35 @@ func (o *ConnectorRequest) SetConnector(v map[string]interface{}) {
 	o.Connector = v
 }
 
-
 func (o ConnectorRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["name"] = o.Name
 	}
-    
 	if true {
 		toSerialize["connector_type_id"] = o.ConnectorTypeId
 	}
-    
 	if true {
 		toSerialize["namespace_id"] = o.NamespaceId
 	}
-    
 	if o.Channel != nil {
 		toSerialize["channel"] = o.Channel
 	}
-    
 	if true {
 		toSerialize["desired_state"] = o.DesiredState
 	}
-    
 	if true {
 		toSerialize["kafka"] = o.Kafka
 	}
-    
 	if true {
 		toSerialize["service_account"] = o.ServiceAccount
 	}
-    
 	if o.SchemaRegistry != nil {
 		toSerialize["schema_registry"] = o.SchemaRegistry
 	}
-    
 	if true {
 		toSerialize["connector"] = o.Connector
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -394,4 +354,5 @@ func (v *NullableConnectorRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

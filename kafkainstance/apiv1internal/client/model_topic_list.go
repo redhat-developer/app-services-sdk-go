@@ -16,9 +16,7 @@ import (
 
 // TopicList A list of topics.
 type TopicList struct {
-
 	Items *[]Topic `json:"items,omitempty"`
-
 }
 
 // NewTopicList instantiates a new TopicList object
@@ -35,11 +33,8 @@ func NewTopicList() *TopicList {
 // but it doesn't guarantee that properties required by API are set
 func NewTopicListWithDefaults() *TopicList {
 	this := TopicList{}
-
-
 	return &this
 }
-
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *TopicList) GetItems() []Topic {
@@ -73,14 +68,11 @@ func (o *TopicList) SetItems(v []Topic) {
 	o.Items = &v
 }
 
-
 func (o TopicList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -119,4 +111,5 @@ func (v *NullableTopicList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

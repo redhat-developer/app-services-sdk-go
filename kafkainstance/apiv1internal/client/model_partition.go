@@ -16,18 +16,15 @@ import (
 
 // Partition Kafka topic partition
 type Partition struct {
-
 	// The partition id, unique among partitions of the same topic
 	Partition int32 `json:"partition"`
-
 	// List of replicas for the partition
 	Replicas *[]Node `json:"replicas,omitempty"`
-
 	// List in-sync replicas for this partition.
 	Isr *[]Node `json:"isr,omitempty"`
-
 	Leader *Node `json:"leader,omitempty"`
-
+	// Unique id for the partition (deprecated, use `partition` instead)
+	Id *int32 `json:"id,omitempty"`
 }
 
 // NewPartition instantiates a new Partition object
@@ -45,14 +42,8 @@ func NewPartition(partition int32) *Partition {
 // but it doesn't guarantee that properties required by API are set
 func NewPartitionWithDefaults() *Partition {
 	this := Partition{}
-
-
-
-
-
 	return &this
 }
-
 
 // GetPartition returns the Partition field value
 func (o *Partition) GetPartition() int32 {
@@ -77,7 +68,6 @@ func (o *Partition) GetPartitionOk() (*int32, bool) {
 func (o *Partition) SetPartition(v int32) {
 	o.Partition = v
 }
-
 
 // GetReplicas returns the Replicas field value if set, zero value otherwise.
 func (o *Partition) GetReplicas() []Node {
@@ -111,7 +101,6 @@ func (o *Partition) SetReplicas(v []Node) {
 	o.Replicas = &v
 }
 
-
 // GetIsr returns the Isr field value if set, zero value otherwise.
 func (o *Partition) GetIsr() []Node {
 	if o == nil || o.Isr == nil {
@@ -143,7 +132,6 @@ func (o *Partition) HasIsr() bool {
 func (o *Partition) SetIsr(v []Node) {
 	o.Isr = &v
 }
-
 
 // GetLeader returns the Leader field value if set, zero value otherwise.
 func (o *Partition) GetLeader() Node {
@@ -177,26 +165,55 @@ func (o *Partition) SetLeader(v Node) {
 	o.Leader = &v
 }
 
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *Partition) GetId() int32 {
+	if o == nil || o.Id == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Partition) GetIdOk() (*int32, bool) {
+	if o == nil || o.Id == nil {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *Partition) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *Partition) SetId(v int32) {
+	o.Id = &v
+}
 
 func (o Partition) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["partition"] = o.Partition
 	}
-    
 	if o.Replicas != nil {
 		toSerialize["replicas"] = o.Replicas
 	}
-    
 	if o.Isr != nil {
 		toSerialize["isr"] = o.Isr
 	}
-    
 	if o.Leader != nil {
 		toSerialize["leader"] = o.Leader
 	}
-    
+	if o.Id != nil {
+		toSerialize["id"] = o.Id
+	}
 	return json.Marshal(toSerialize)
 }
 
@@ -235,4 +252,5 @@ func (v *NullablePartition) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

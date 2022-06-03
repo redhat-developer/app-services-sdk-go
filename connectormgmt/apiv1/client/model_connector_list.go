@@ -16,17 +16,11 @@ import (
 
 // ConnectorList struct for ConnectorList
 type ConnectorList struct {
-
 	Kind string `json:"kind"`
-
 	Page int32 `json:"page"`
-
 	Size int32 `json:"size"`
-
 	Total int32 `json:"total"`
-
 	Items []Connector `json:"items"`
-
 }
 
 // NewConnectorList instantiates a new ConnectorList object
@@ -48,15 +42,8 @@ func NewConnectorList(kind string, page int32, size int32, total int32, items []
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorListWithDefaults() *ConnectorList {
 	this := ConnectorList{}
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetKind returns the Kind field value
 func (o *ConnectorList) GetKind() string {
@@ -82,7 +69,6 @@ func (o *ConnectorList) SetKind(v string) {
 	o.Kind = v
 }
 
-
 // GetPage returns the Page field value
 func (o *ConnectorList) GetPage() int32 {
 	if o == nil {
@@ -106,7 +92,6 @@ func (o *ConnectorList) GetPageOk() (*int32, bool) {
 func (o *ConnectorList) SetPage(v int32) {
 	o.Page = v
 }
-
 
 // GetSize returns the Size field value
 func (o *ConnectorList) GetSize() int32 {
@@ -132,7 +117,6 @@ func (o *ConnectorList) SetSize(v int32) {
 	o.Size = v
 }
 
-
 // GetTotal returns the Total field value
 func (o *ConnectorList) GetTotal() int32 {
 	if o == nil {
@@ -156,7 +140,6 @@ func (o *ConnectorList) GetTotalOk() (*int32, bool) {
 func (o *ConnectorList) SetTotal(v int32) {
 	o.Total = v
 }
-
 
 // GetItems returns the Items field value
 func (o *ConnectorList) GetItems() []Connector {
@@ -182,30 +165,23 @@ func (o *ConnectorList) SetItems(v []Connector) {
 	o.Items = v
 }
 
-
 func (o ConnectorList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if true {
 		toSerialize["page"] = o.Page
 	}
-    
 	if true {
 		toSerialize["size"] = o.Size
 	}
-    
 	if true {
 		toSerialize["total"] = o.Total
 	}
-    
 	if true {
 		toSerialize["items"] = o.Items
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -244,4 +220,5 @@ func (v *NullableConnectorList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

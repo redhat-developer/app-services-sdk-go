@@ -16,9 +16,7 @@ import (
 
 // CloudProviderListAllOf struct for CloudProviderListAllOf
 type CloudProviderListAllOf struct {
-
 	Items *[]CloudProvider `json:"items,omitempty"`
-
 }
 
 // NewCloudProviderListAllOf instantiates a new CloudProviderListAllOf object
@@ -35,11 +33,8 @@ func NewCloudProviderListAllOf() *CloudProviderListAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewCloudProviderListAllOfWithDefaults() *CloudProviderListAllOf {
 	this := CloudProviderListAllOf{}
-
-
 	return &this
 }
-
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *CloudProviderListAllOf) GetItems() []CloudProvider {
@@ -73,14 +68,11 @@ func (o *CloudProviderListAllOf) SetItems(v []CloudProvider) {
 	o.Items = &v
 }
 
-
 func (o CloudProviderListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -119,4 +111,5 @@ func (v *NullableCloudProviderListAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

@@ -17,23 +17,14 @@ import (
 
 // ConnectorCluster struct for ConnectorCluster
 type ConnectorCluster struct {
-
 	Id *string `json:"id,omitempty"`
-
 	Kind *string `json:"kind,omitempty"`
-
 	Href *string `json:"href,omitempty"`
-
 	Owner *string `json:"owner,omitempty"`
-
 	CreatedAt *time.Time `json:"created_at,omitempty"`
-
 	ModifiedAt *time.Time `json:"modified_at,omitempty"`
-
 	Name *string `json:"name,omitempty"`
-
 	Status *ConnectorClusterStatusStatus `json:"status,omitempty"`
-
 }
 
 // NewConnectorCluster instantiates a new ConnectorCluster object
@@ -50,18 +41,8 @@ func NewConnectorCluster() *ConnectorCluster {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorClusterWithDefaults() *ConnectorCluster {
 	this := ConnectorCluster{}
-
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *ConnectorCluster) GetId() string {
@@ -95,7 +76,6 @@ func (o *ConnectorCluster) SetId(v string) {
 	o.Id = &v
 }
 
-
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *ConnectorCluster) GetKind() string {
 	if o == nil || o.Kind == nil {
@@ -127,7 +107,6 @@ func (o *ConnectorCluster) HasKind() bool {
 func (o *ConnectorCluster) SetKind(v string) {
 	o.Kind = &v
 }
-
 
 // GetHref returns the Href field value if set, zero value otherwise.
 func (o *ConnectorCluster) GetHref() string {
@@ -161,7 +140,6 @@ func (o *ConnectorCluster) SetHref(v string) {
 	o.Href = &v
 }
 
-
 // GetOwner returns the Owner field value if set, zero value otherwise.
 func (o *ConnectorCluster) GetOwner() string {
 	if o == nil || o.Owner == nil {
@@ -193,7 +171,6 @@ func (o *ConnectorCluster) HasOwner() bool {
 func (o *ConnectorCluster) SetOwner(v string) {
 	o.Owner = &v
 }
-
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *ConnectorCluster) GetCreatedAt() time.Time {
@@ -227,7 +204,6 @@ func (o *ConnectorCluster) SetCreatedAt(v time.Time) {
 	o.CreatedAt = &v
 }
 
-
 // GetModifiedAt returns the ModifiedAt field value if set, zero value otherwise.
 func (o *ConnectorCluster) GetModifiedAt() time.Time {
 	if o == nil || o.ModifiedAt == nil {
@@ -259,7 +235,6 @@ func (o *ConnectorCluster) HasModifiedAt() bool {
 func (o *ConnectorCluster) SetModifiedAt(v time.Time) {
 	o.ModifiedAt = &v
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ConnectorCluster) GetName() string {
@@ -293,7 +268,6 @@ func (o *ConnectorCluster) SetName(v string) {
 	o.Name = &v
 }
 
-
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *ConnectorCluster) GetStatus() ConnectorClusterStatusStatus {
 	if o == nil || o.Status == nil {
@@ -326,42 +300,32 @@ func (o *ConnectorCluster) SetStatus(v ConnectorClusterStatusStatus) {
 	o.Status = &v
 }
 
-
 func (o ConnectorCluster) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-    
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
 	}
-    
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
 	}
-    
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt
 	}
-    
 	if o.ModifiedAt != nil {
 		toSerialize["modified_at"] = o.ModifiedAt
 	}
-    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.Status != nil {
 		toSerialize["status"] = o.Status
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -400,4 +364,5 @@ func (v *NullableConnectorCluster) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

@@ -16,22 +16,18 @@ import (
 
 // CloudRegion Description of a region of a cloud provider.
 type CloudRegion struct {
-
 	// Indicates the type of this object. Will be 'CloudRegion'.
 	Kind *string `json:"kind,omitempty"`
-
 	// Unique identifier of the object.
 	Id *string `json:"id,omitempty"`
-
 	// Name of the region for display purposes, for example `N. Virginia`.
 	DisplayName *string `json:"display_name,omitempty"`
-
 	// Whether the region is enabled for deploying an OSD cluster.
 	Enabled bool `json:"enabled"`
-
+	// The Kafka instance types supported by this region.  DEPRECATION NOTICE - instance_type will be deprecated
+	SupportedInstanceTypes *[]string `json:"supported_instance_types,omitempty"`
 	// Indicates whether there is capacity left per instance type
 	Capacity []RegionCapacityListItem `json:"capacity"`
-
 }
 
 // NewCloudRegion instantiates a new CloudRegion object
@@ -50,17 +46,10 @@ func NewCloudRegion(enabled bool, capacity []RegionCapacityListItem) *CloudRegio
 // but it doesn't guarantee that properties required by API are set
 func NewCloudRegionWithDefaults() *CloudRegion {
 	this := CloudRegion{}
-
-
-
-
 	var enabled bool = false
 	this.Enabled = enabled
-
-
 	return &this
 }
-
 
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *CloudRegion) GetKind() string {
@@ -94,7 +83,6 @@ func (o *CloudRegion) SetKind(v string) {
 	o.Kind = &v
 }
 
-
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *CloudRegion) GetId() string {
 	if o == nil || o.Id == nil {
@@ -126,7 +114,6 @@ func (o *CloudRegion) HasId() bool {
 func (o *CloudRegion) SetId(v string) {
 	o.Id = &v
 }
-
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *CloudRegion) GetDisplayName() string {
@@ -160,7 +147,6 @@ func (o *CloudRegion) SetDisplayName(v string) {
 	o.DisplayName = &v
 }
 
-
 // GetEnabled returns the Enabled field value
 func (o *CloudRegion) GetEnabled() bool {
 	if o == nil {
@@ -185,6 +171,37 @@ func (o *CloudRegion) SetEnabled(v bool) {
 	o.Enabled = v
 }
 
+// GetSupportedInstanceTypes returns the SupportedInstanceTypes field value if set, zero value otherwise.
+func (o *CloudRegion) GetSupportedInstanceTypes() []string {
+	if o == nil || o.SupportedInstanceTypes == nil {
+		var ret []string
+		return ret
+	}
+	return *o.SupportedInstanceTypes
+}
+
+// GetSupportedInstanceTypesOk returns a tuple with the SupportedInstanceTypes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CloudRegion) GetSupportedInstanceTypesOk() (*[]string, bool) {
+	if o == nil || o.SupportedInstanceTypes == nil {
+		return nil, false
+	}
+	return o.SupportedInstanceTypes, true
+}
+
+// HasSupportedInstanceTypes returns a boolean if a field has been set.
+func (o *CloudRegion) HasSupportedInstanceTypes() bool {
+	if o != nil && o.SupportedInstanceTypes != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSupportedInstanceTypes gets a reference to the given []string and assigns it to the SupportedInstanceTypes field.
+func (o *CloudRegion) SetSupportedInstanceTypes(v []string) {
+	o.SupportedInstanceTypes = &v
+}
 
 // GetCapacity returns the Capacity field value
 func (o *CloudRegion) GetCapacity() []RegionCapacityListItem {
@@ -210,30 +227,26 @@ func (o *CloudRegion) SetCapacity(v []RegionCapacityListItem) {
 	o.Capacity = v
 }
 
-
 func (o CloudRegion) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-    
 	if o.DisplayName != nil {
 		toSerialize["display_name"] = o.DisplayName
 	}
-    
 	if true {
 		toSerialize["enabled"] = o.Enabled
 	}
-    
+	if o.SupportedInstanceTypes != nil {
+		toSerialize["supported_instance_types"] = o.SupportedInstanceTypes
+	}
 	if true {
 		toSerialize["capacity"] = o.Capacity
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -272,4 +285,5 @@ func (v *NullableCloudRegion) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

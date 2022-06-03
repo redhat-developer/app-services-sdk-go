@@ -16,11 +16,8 @@ import (
 
 // TopicsToResetOffset struct for TopicsToResetOffset
 type TopicsToResetOffset struct {
-
 	Topic string `json:"topic"`
-
 	Partitions *[]int32 `json:"partitions,omitempty"`
-
 }
 
 // NewTopicsToResetOffset instantiates a new TopicsToResetOffset object
@@ -38,12 +35,8 @@ func NewTopicsToResetOffset(topic string) *TopicsToResetOffset {
 // but it doesn't guarantee that properties required by API are set
 func NewTopicsToResetOffsetWithDefaults() *TopicsToResetOffset {
 	this := TopicsToResetOffset{}
-
-
-
 	return &this
 }
-
 
 // GetTopic returns the Topic field value
 func (o *TopicsToResetOffset) GetTopic() string {
@@ -68,7 +61,6 @@ func (o *TopicsToResetOffset) GetTopicOk() (*string, bool) {
 func (o *TopicsToResetOffset) SetTopic(v string) {
 	o.Topic = v
 }
-
 
 // GetPartitions returns the Partitions field value if set, zero value otherwise.
 func (o *TopicsToResetOffset) GetPartitions() []int32 {
@@ -102,18 +94,14 @@ func (o *TopicsToResetOffset) SetPartitions(v []int32) {
 	o.Partitions = &v
 }
 
-
 func (o TopicsToResetOffset) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["topic"] = o.Topic
 	}
-    
 	if o.Partitions != nil {
 		toSerialize["partitions"] = o.Partitions
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -152,4 +140,5 @@ func (v *NullableTopicsToResetOffset) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

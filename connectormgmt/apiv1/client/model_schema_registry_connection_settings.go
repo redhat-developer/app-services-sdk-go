@@ -16,11 +16,8 @@ import (
 
 // SchemaRegistryConnectionSettings Holds the configuration to connect to a Schem Registry Instance.
 type SchemaRegistryConnectionSettings struct {
-
 	Id string `json:"id"`
-
 	Url string `json:"url"`
-
 }
 
 // NewSchemaRegistryConnectionSettings instantiates a new SchemaRegistryConnectionSettings object
@@ -39,12 +36,8 @@ func NewSchemaRegistryConnectionSettings(id string, url string) *SchemaRegistryC
 // but it doesn't guarantee that properties required by API are set
 func NewSchemaRegistryConnectionSettingsWithDefaults() *SchemaRegistryConnectionSettings {
 	this := SchemaRegistryConnectionSettings{}
-
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value
 func (o *SchemaRegistryConnectionSettings) GetId() string {
@@ -70,7 +63,6 @@ func (o *SchemaRegistryConnectionSettings) SetId(v string) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *SchemaRegistryConnectionSettings) GetUrl() string {
 	if o == nil {
@@ -95,18 +87,14 @@ func (o *SchemaRegistryConnectionSettings) SetUrl(v string) {
 	o.Url = v
 }
 
-
 func (o SchemaRegistryConnectionSettings) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["id"] = o.Id
 	}
-    
 	if true {
 		toSerialize["url"] = o.Url
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -145,4 +133,5 @@ func (v *NullableSchemaRegistryConnectionSettings) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

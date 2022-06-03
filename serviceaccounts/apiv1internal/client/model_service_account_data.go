@@ -17,22 +17,14 @@ import (
 
 // ServiceAccountData struct for ServiceAccountData
 type ServiceAccountData struct {
-
 	Id *string `json:"id,omitempty"`
-
 	ClientId *string `json:"clientId,omitempty"`
-
 	// Provided during creation and resetting of service account credentials.
 	Secret *string `json:"secret,omitempty"`
-
 	Name *string `json:"name,omitempty"`
-
 	Description *string `json:"description,omitempty"`
-
 	CreatedBy *string `json:"createdBy,omitempty"`
-
 	CreatedAt *int64 `json:"createdAt,omitempty"`
-
 }
 
 // NewServiceAccountData instantiates a new ServiceAccountData object
@@ -49,17 +41,8 @@ func NewServiceAccountData() *ServiceAccountData {
 // but it doesn't guarantee that properties required by API are set
 func NewServiceAccountDataWithDefaults() *ServiceAccountData {
 	this := ServiceAccountData{}
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *ServiceAccountData) GetId() string {
@@ -93,7 +76,6 @@ func (o *ServiceAccountData) SetId(v string) {
 	o.Id = &v
 }
 
-
 // GetClientId returns the ClientId field value if set, zero value otherwise.
 func (o *ServiceAccountData) GetClientId() string {
 	if o == nil || o.ClientId == nil {
@@ -125,7 +107,6 @@ func (o *ServiceAccountData) HasClientId() bool {
 func (o *ServiceAccountData) SetClientId(v string) {
 	o.ClientId = &v
 }
-
 
 // GetSecret returns the Secret field value if set, zero value otherwise.
 func (o *ServiceAccountData) GetSecret() string {
@@ -159,7 +140,6 @@ func (o *ServiceAccountData) SetSecret(v string) {
 	o.Secret = &v
 }
 
-
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ServiceAccountData) GetName() string {
 	if o == nil || o.Name == nil {
@@ -191,7 +171,6 @@ func (o *ServiceAccountData) HasName() bool {
 func (o *ServiceAccountData) SetName(v string) {
 	o.Name = &v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ServiceAccountData) GetDescription() string {
@@ -225,7 +204,6 @@ func (o *ServiceAccountData) SetDescription(v string) {
 	o.Description = &v
 }
 
-
 // GetCreatedBy returns the CreatedBy field value if set, zero value otherwise.
 func (o *ServiceAccountData) GetCreatedBy() string {
 	if o == nil || o.CreatedBy == nil {
@@ -257,7 +235,6 @@ func (o *ServiceAccountData) HasCreatedBy() bool {
 func (o *ServiceAccountData) SetCreatedBy(v string) {
 	o.CreatedBy = &v
 }
-
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *ServiceAccountData) GetCreatedAt() int64 {
@@ -291,38 +268,29 @@ func (o *ServiceAccountData) SetCreatedAt(v int64) {
 	o.CreatedAt = &v
 }
 
-
 func (o ServiceAccountData) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-    
 	if o.ClientId != nil {
 		toSerialize["clientId"] = o.ClientId
 	}
-    
 	if o.Secret != nil {
 		toSerialize["secret"] = o.Secret
 	}
-    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-    
 	if o.CreatedBy != nil {
 		toSerialize["createdBy"] = o.CreatedBy
 	}
-    
 	if o.CreatedAt != nil {
 		toSerialize["createdAt"] = o.CreatedAt
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -361,4 +329,5 @@ func (v *NullableServiceAccountData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

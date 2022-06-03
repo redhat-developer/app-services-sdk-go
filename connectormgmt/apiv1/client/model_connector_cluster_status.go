@@ -16,9 +16,7 @@ import (
 
 // ConnectorClusterStatus struct for ConnectorClusterStatus
 type ConnectorClusterStatus struct {
-
 	Status *ConnectorClusterStatusStatus `json:"status,omitempty"`
-
 }
 
 // NewConnectorClusterStatus instantiates a new ConnectorClusterStatus object
@@ -35,11 +33,8 @@ func NewConnectorClusterStatus() *ConnectorClusterStatus {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorClusterStatusWithDefaults() *ConnectorClusterStatus {
 	this := ConnectorClusterStatus{}
-
-
 	return &this
 }
-
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *ConnectorClusterStatus) GetStatus() ConnectorClusterStatusStatus {
@@ -73,14 +68,11 @@ func (o *ConnectorClusterStatus) SetStatus(v ConnectorClusterStatusStatus) {
 	o.Status = &v
 }
 
-
 func (o ConnectorClusterStatus) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Status != nil {
 		toSerialize["status"] = o.Status
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -119,4 +111,5 @@ func (v *NullableConnectorClusterStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

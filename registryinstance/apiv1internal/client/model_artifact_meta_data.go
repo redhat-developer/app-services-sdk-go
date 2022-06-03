@@ -17,40 +17,24 @@ import (
 
 // ArtifactMetaData struct for ArtifactMetaData
 type ArtifactMetaData struct {
-
 	Name *string `json:"name,omitempty"`
-
 	Description *string `json:"description,omitempty"`
-
 	CreatedBy string `json:"createdBy"`
-
 	CreatedOn string `json:"createdOn"`
-
 	ModifiedBy string `json:"modifiedBy"`
-
 	ModifiedOn string `json:"modifiedOn"`
-
 	// The ID of a single artifact.
 	Id string `json:"id"`
-
 	Version string `json:"version"`
-
 	Type ArtifactType `json:"type"`
-
 	GlobalId int64 `json:"globalId"`
-
 	State ArtifactState `json:"state"`
-
 	Labels *[]string `json:"labels,omitempty"`
-
 	// User-defined name-value pairs. Name and value must be strings.
 	Properties *map[string]string `json:"properties,omitempty"`
-
 	// An ID of a single artifact group.
 	GroupId *string `json:"groupId,omitempty"`
-
 	ContentId int64 `json:"contentId"`
-
 }
 
 // NewArtifactMetaData instantiates a new ArtifactMetaData object
@@ -77,25 +61,8 @@ func NewArtifactMetaData(createdBy string, createdOn string, modifiedBy string, 
 // but it doesn't guarantee that properties required by API are set
 func NewArtifactMetaDataWithDefaults() *ArtifactMetaData {
 	this := ArtifactMetaData{}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ArtifactMetaData) GetName() string {
@@ -129,7 +96,6 @@ func (o *ArtifactMetaData) SetName(v string) {
 	o.Name = &v
 }
 
-
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ArtifactMetaData) GetDescription() string {
 	if o == nil || o.Description == nil {
@@ -162,7 +128,6 @@ func (o *ArtifactMetaData) SetDescription(v string) {
 	o.Description = &v
 }
 
-
 // GetCreatedBy returns the CreatedBy field value
 func (o *ArtifactMetaData) GetCreatedBy() string {
 	if o == nil {
@@ -186,7 +151,6 @@ func (o *ArtifactMetaData) GetCreatedByOk() (*string, bool) {
 func (o *ArtifactMetaData) SetCreatedBy(v string) {
 	o.CreatedBy = v
 }
-
 
 // GetCreatedOn returns the CreatedOn field value
 func (o *ArtifactMetaData) GetCreatedOn() string {
@@ -212,7 +176,6 @@ func (o *ArtifactMetaData) SetCreatedOn(v string) {
 	o.CreatedOn = v
 }
 
-
 // GetModifiedBy returns the ModifiedBy field value
 func (o *ArtifactMetaData) GetModifiedBy() string {
 	if o == nil {
@@ -236,7 +199,6 @@ func (o *ArtifactMetaData) GetModifiedByOk() (*string, bool) {
 func (o *ArtifactMetaData) SetModifiedBy(v string) {
 	o.ModifiedBy = v
 }
-
 
 // GetModifiedOn returns the ModifiedOn field value
 func (o *ArtifactMetaData) GetModifiedOn() string {
@@ -262,7 +224,6 @@ func (o *ArtifactMetaData) SetModifiedOn(v string) {
 	o.ModifiedOn = v
 }
 
-
 // GetId returns the Id field value
 func (o *ArtifactMetaData) GetId() string {
 	if o == nil {
@@ -286,7 +247,6 @@ func (o *ArtifactMetaData) GetIdOk() (*string, bool) {
 func (o *ArtifactMetaData) SetId(v string) {
 	o.Id = v
 }
-
 
 // GetVersion returns the Version field value
 func (o *ArtifactMetaData) GetVersion() string {
@@ -312,7 +272,6 @@ func (o *ArtifactMetaData) SetVersion(v string) {
 	o.Version = v
 }
 
-
 // GetType returns the Type field value
 func (o *ArtifactMetaData) GetType() ArtifactType {
 	if o == nil {
@@ -336,7 +295,6 @@ func (o *ArtifactMetaData) GetTypeOk() (*ArtifactType, bool) {
 func (o *ArtifactMetaData) SetType(v ArtifactType) {
 	o.Type = v
 }
-
 
 // GetGlobalId returns the GlobalId field value
 func (o *ArtifactMetaData) GetGlobalId() int64 {
@@ -362,7 +320,6 @@ func (o *ArtifactMetaData) SetGlobalId(v int64) {
 	o.GlobalId = v
 }
 
-
 // GetState returns the State field value
 func (o *ArtifactMetaData) GetState() ArtifactState {
 	if o == nil {
@@ -386,7 +343,6 @@ func (o *ArtifactMetaData) GetStateOk() (*ArtifactState, bool) {
 func (o *ArtifactMetaData) SetState(v ArtifactState) {
 	o.State = v
 }
-
 
 // GetLabels returns the Labels field value if set, zero value otherwise.
 func (o *ArtifactMetaData) GetLabels() []string {
@@ -420,7 +376,6 @@ func (o *ArtifactMetaData) SetLabels(v []string) {
 	o.Labels = &v
 }
 
-
 // GetProperties returns the Properties field value if set, zero value otherwise.
 func (o *ArtifactMetaData) GetProperties() map[string]string {
 	if o == nil || o.Properties == nil {
@@ -452,7 +407,6 @@ func (o *ArtifactMetaData) HasProperties() bool {
 func (o *ArtifactMetaData) SetProperties(v map[string]string) {
 	o.Properties = &v
 }
-
 
 // GetGroupId returns the GroupId field value if set, zero value otherwise.
 func (o *ArtifactMetaData) GetGroupId() string {
@@ -486,7 +440,6 @@ func (o *ArtifactMetaData) SetGroupId(v string) {
 	o.GroupId = &v
 }
 
-
 // GetContentId returns the ContentId field value
 func (o *ArtifactMetaData) GetContentId() int64 {
 	if o == nil {
@@ -511,70 +464,53 @@ func (o *ArtifactMetaData) SetContentId(v int64) {
 	o.ContentId = v
 }
 
-
 func (o ArtifactMetaData) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-    
 	if true {
 		toSerialize["createdBy"] = o.CreatedBy
 	}
-    
 	if true {
 		toSerialize["createdOn"] = o.CreatedOn
 	}
-    
 	if true {
 		toSerialize["modifiedBy"] = o.ModifiedBy
 	}
-    
 	if true {
 		toSerialize["modifiedOn"] = o.ModifiedOn
 	}
-    
 	if true {
 		toSerialize["id"] = o.Id
 	}
-    
 	if true {
 		toSerialize["version"] = o.Version
 	}
-    
 	if true {
 		toSerialize["type"] = o.Type
 	}
-    
 	if true {
 		toSerialize["globalId"] = o.GlobalId
 	}
-    
 	if true {
 		toSerialize["state"] = o.State
 	}
-    
 	if o.Labels != nil {
 		toSerialize["labels"] = o.Labels
 	}
-    
 	if o.Properties != nil {
 		toSerialize["properties"] = o.Properties
 	}
-    
 	if o.GroupId != nil {
 		toSerialize["groupId"] = o.GroupId
 	}
-    
 	if true {
 		toSerialize["contentId"] = o.ContentId
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -613,4 +549,5 @@ func (v *NullableArtifactMetaData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

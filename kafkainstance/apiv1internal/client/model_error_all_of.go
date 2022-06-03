@@ -16,15 +16,13 @@ import (
 
 // ErrorAllOf General error response
 type ErrorAllOf struct {
-
 	// General reason for the error. Does not change between specific occurrences.
 	Reason *string `json:"reason,omitempty"`
-
 	// Detail specific to an error occurrence. May be different depending on the condition(s) that trigger the error.
 	Detail *string `json:"detail,omitempty"`
-
 	Code *int32 `json:"code,omitempty"`
-
+	ErrorMessage *string `json:"error_message,omitempty"`
+	Class *string `json:"class,omitempty"`
 }
 
 // NewErrorAllOf instantiates a new ErrorAllOf object
@@ -41,13 +39,8 @@ func NewErrorAllOf() *ErrorAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewErrorAllOfWithDefaults() *ErrorAllOf {
 	this := ErrorAllOf{}
-
-
-
-
 	return &this
 }
-
 
 // GetReason returns the Reason field value if set, zero value otherwise.
 func (o *ErrorAllOf) GetReason() string {
@@ -81,7 +74,6 @@ func (o *ErrorAllOf) SetReason(v string) {
 	o.Reason = &v
 }
 
-
 // GetDetail returns the Detail field value if set, zero value otherwise.
 func (o *ErrorAllOf) GetDetail() string {
 	if o == nil || o.Detail == nil {
@@ -113,7 +105,6 @@ func (o *ErrorAllOf) HasDetail() bool {
 func (o *ErrorAllOf) SetDetail(v string) {
 	o.Detail = &v
 }
-
 
 // GetCode returns the Code field value if set, zero value otherwise.
 func (o *ErrorAllOf) GetCode() int32 {
@@ -147,22 +138,87 @@ func (o *ErrorAllOf) SetCode(v int32) {
 	o.Code = &v
 }
 
+// GetErrorMessage returns the ErrorMessage field value if set, zero value otherwise.
+func (o *ErrorAllOf) GetErrorMessage() string {
+	if o == nil || o.ErrorMessage == nil {
+		var ret string
+		return ret
+	}
+	return *o.ErrorMessage
+}
+
+// GetErrorMessageOk returns a tuple with the ErrorMessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ErrorAllOf) GetErrorMessageOk() (*string, bool) {
+	if o == nil || o.ErrorMessage == nil {
+		return nil, false
+	}
+	return o.ErrorMessage, true
+}
+
+// HasErrorMessage returns a boolean if a field has been set.
+func (o *ErrorAllOf) HasErrorMessage() bool {
+	if o != nil && o.ErrorMessage != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetErrorMessage gets a reference to the given string and assigns it to the ErrorMessage field.
+func (o *ErrorAllOf) SetErrorMessage(v string) {
+	o.ErrorMessage = &v
+}
+
+// GetClass returns the Class field value if set, zero value otherwise.
+func (o *ErrorAllOf) GetClass() string {
+	if o == nil || o.Class == nil {
+		var ret string
+		return ret
+	}
+	return *o.Class
+}
+
+// GetClassOk returns a tuple with the Class field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ErrorAllOf) GetClassOk() (*string, bool) {
+	if o == nil || o.Class == nil {
+		return nil, false
+	}
+	return o.Class, true
+}
+
+// HasClass returns a boolean if a field has been set.
+func (o *ErrorAllOf) HasClass() bool {
+	if o != nil && o.Class != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetClass gets a reference to the given string and assigns it to the Class field.
+func (o *ErrorAllOf) SetClass(v string) {
+	o.Class = &v
+}
 
 func (o ErrorAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Reason != nil {
 		toSerialize["reason"] = o.Reason
 	}
-    
 	if o.Detail != nil {
 		toSerialize["detail"] = o.Detail
 	}
-    
 	if o.Code != nil {
 		toSerialize["code"] = o.Code
 	}
-    
+	if o.ErrorMessage != nil {
+		toSerialize["error_message"] = o.ErrorMessage
+	}
+	if o.Class != nil {
+		toSerialize["class"] = o.Class
+	}
 	return json.Marshal(toSerialize)
 }
 
@@ -201,4 +257,5 @@ func (v *NullableErrorAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

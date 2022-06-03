@@ -16,11 +16,8 @@ import (
 
 // ServiceAccount struct for ServiceAccount
 type ServiceAccount struct {
-
 	ClientId string `json:"client_id"`
-
 	ClientSecret string `json:"client_secret"`
-
 }
 
 // NewServiceAccount instantiates a new ServiceAccount object
@@ -39,12 +36,8 @@ func NewServiceAccount(clientId string, clientSecret string) *ServiceAccount {
 // but it doesn't guarantee that properties required by API are set
 func NewServiceAccountWithDefaults() *ServiceAccount {
 	this := ServiceAccount{}
-
-
-
 	return &this
 }
-
 
 // GetClientId returns the ClientId field value
 func (o *ServiceAccount) GetClientId() string {
@@ -70,7 +63,6 @@ func (o *ServiceAccount) SetClientId(v string) {
 	o.ClientId = v
 }
 
-
 // GetClientSecret returns the ClientSecret field value
 func (o *ServiceAccount) GetClientSecret() string {
 	if o == nil {
@@ -95,18 +87,14 @@ func (o *ServiceAccount) SetClientSecret(v string) {
 	o.ClientSecret = v
 }
 
-
 func (o ServiceAccount) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["client_id"] = o.ClientId
 	}
-    
 	if true {
 		toSerialize["client_secret"] = o.ClientSecret
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -145,4 +133,5 @@ func (v *NullableServiceAccount) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

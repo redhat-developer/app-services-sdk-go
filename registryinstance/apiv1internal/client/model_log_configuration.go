@@ -17,9 +17,7 @@ import (
 
 // LogConfiguration struct for LogConfiguration
 type LogConfiguration struct {
-
 	Level LogLevel `json:"level"`
-
 }
 
 // NewLogConfiguration instantiates a new LogConfiguration object
@@ -37,11 +35,8 @@ func NewLogConfiguration(level LogLevel) *LogConfiguration {
 // but it doesn't guarantee that properties required by API are set
 func NewLogConfigurationWithDefaults() *LogConfiguration {
 	this := LogConfiguration{}
-
-
 	return &this
 }
-
 
 // GetLevel returns the Level field value
 func (o *LogConfiguration) GetLevel() LogLevel {
@@ -67,14 +62,11 @@ func (o *LogConfiguration) SetLevel(v LogLevel) {
 	o.Level = v
 }
 
-
 func (o LogConfiguration) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["level"] = o.Level
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -113,4 +105,5 @@ func (v *NullableLogConfiguration) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

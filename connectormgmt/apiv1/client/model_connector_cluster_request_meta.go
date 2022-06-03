@@ -16,9 +16,7 @@ import (
 
 // ConnectorClusterRequestMeta struct for ConnectorClusterRequestMeta
 type ConnectorClusterRequestMeta struct {
-
 	Name *string `json:"name,omitempty"`
-
 }
 
 // NewConnectorClusterRequestMeta instantiates a new ConnectorClusterRequestMeta object
@@ -35,11 +33,8 @@ func NewConnectorClusterRequestMeta() *ConnectorClusterRequestMeta {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorClusterRequestMetaWithDefaults() *ConnectorClusterRequestMeta {
 	this := ConnectorClusterRequestMeta{}
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ConnectorClusterRequestMeta) GetName() string {
@@ -73,14 +68,11 @@ func (o *ConnectorClusterRequestMeta) SetName(v string) {
 	o.Name = &v
 }
 
-
 func (o ConnectorClusterRequestMeta) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -119,4 +111,5 @@ func (v *NullableConnectorClusterRequestMeta) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

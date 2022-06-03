@@ -16,20 +16,14 @@ import (
 
 // AclBindingListPage struct for AclBindingListPage
 type AclBindingListPage struct {
-
 	Kind *string `json:"kind,omitempty"`
-
 	Items []AclBinding `json:"items"`
-
 	// Total number of entries in the full result set
 	Total int32 `json:"total"`
-
 	// Number of entries per page (returned for fetch requests)
 	Size *int32 `json:"size,omitempty"`
-
 	// Current page number (returned for fetch requests)
 	Page *int32 `json:"page,omitempty"`
-
 }
 
 // NewAclBindingListPage instantiates a new AclBindingListPage object
@@ -48,15 +42,8 @@ func NewAclBindingListPage(items []AclBinding, total int32) *AclBindingListPage 
 // but it doesn't guarantee that properties required by API are set
 func NewAclBindingListPageWithDefaults() *AclBindingListPage {
 	this := AclBindingListPage{}
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *AclBindingListPage) GetKind() string {
@@ -90,7 +77,6 @@ func (o *AclBindingListPage) SetKind(v string) {
 	o.Kind = &v
 }
 
-
 // GetItems returns the Items field value
 func (o *AclBindingListPage) GetItems() []AclBinding {
 	if o == nil {
@@ -115,7 +101,6 @@ func (o *AclBindingListPage) SetItems(v []AclBinding) {
 	o.Items = v
 }
 
-
 // GetTotal returns the Total field value
 func (o *AclBindingListPage) GetTotal() int32 {
 	if o == nil {
@@ -139,7 +124,6 @@ func (o *AclBindingListPage) GetTotalOk() (*int32, bool) {
 func (o *AclBindingListPage) SetTotal(v int32) {
 	o.Total = v
 }
-
 
 // GetSize returns the Size field value if set, zero value otherwise.
 func (o *AclBindingListPage) GetSize() int32 {
@@ -173,7 +157,6 @@ func (o *AclBindingListPage) SetSize(v int32) {
 	o.Size = &v
 }
 
-
 // GetPage returns the Page field value if set, zero value otherwise.
 func (o *AclBindingListPage) GetPage() int32 {
 	if o == nil || o.Page == nil {
@@ -206,30 +189,23 @@ func (o *AclBindingListPage) SetPage(v int32) {
 	o.Page = &v
 }
 
-
 func (o AclBindingListPage) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if true {
 		toSerialize["items"] = o.Items
 	}
-    
 	if true {
 		toSerialize["total"] = o.Total
 	}
-    
 	if o.Size != nil {
 		toSerialize["size"] = o.Size
 	}
-    
 	if o.Page != nil {
 		toSerialize["page"] = o.Page
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -268,4 +244,5 @@ func (v *NullableAclBindingListPage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

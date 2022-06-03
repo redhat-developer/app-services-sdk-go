@@ -17,10 +17,8 @@ import (
 
 // Error struct for Error
 type Error struct {
-
 	// The cause of the Error.
 	Error string `json:"error"`
-
 }
 
 // NewError instantiates a new Error object
@@ -38,11 +36,8 @@ func NewError(error_ string) *Error {
 // but it doesn't guarantee that properties required by API are set
 func NewErrorWithDefaults() *Error {
 	this := Error{}
-
-
 	return &this
 }
-
 
 // GetError returns the Error field value
 func (o *Error) GetError() string {
@@ -68,14 +63,11 @@ func (o *Error) SetError(v string) {
 	o.Error = v
 }
 
-
 func (o Error) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["error"] = o.Error
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -114,4 +106,5 @@ func (v *NullableError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

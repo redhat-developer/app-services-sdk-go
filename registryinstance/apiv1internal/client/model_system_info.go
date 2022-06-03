@@ -17,15 +17,10 @@ import (
 
 // SystemInfo struct for SystemInfo
 type SystemInfo struct {
-
 	Name *string `json:"name,omitempty"`
-
 	Description *string `json:"description,omitempty"`
-
 	Version *string `json:"version,omitempty"`
-
 	BuiltOn *string `json:"builtOn,omitempty"`
-
 }
 
 // NewSystemInfo instantiates a new SystemInfo object
@@ -42,14 +37,8 @@ func NewSystemInfo() *SystemInfo {
 // but it doesn't guarantee that properties required by API are set
 func NewSystemInfoWithDefaults() *SystemInfo {
 	this := SystemInfo{}
-
-
-
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *SystemInfo) GetName() string {
@@ -83,7 +72,6 @@ func (o *SystemInfo) SetName(v string) {
 	o.Name = &v
 }
 
-
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *SystemInfo) GetDescription() string {
 	if o == nil || o.Description == nil {
@@ -115,7 +103,6 @@ func (o *SystemInfo) HasDescription() bool {
 func (o *SystemInfo) SetDescription(v string) {
 	o.Description = &v
 }
-
 
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *SystemInfo) GetVersion() string {
@@ -149,7 +136,6 @@ func (o *SystemInfo) SetVersion(v string) {
 	o.Version = &v
 }
 
-
 // GetBuiltOn returns the BuiltOn field value if set, zero value otherwise.
 func (o *SystemInfo) GetBuiltOn() string {
 	if o == nil || o.BuiltOn == nil {
@@ -182,26 +168,20 @@ func (o *SystemInfo) SetBuiltOn(v string) {
 	o.BuiltOn = &v
 }
 
-
 func (o SystemInfo) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-    
 	if o.Version != nil {
 		toSerialize["version"] = o.Version
 	}
-    
 	if o.BuiltOn != nil {
 		toSerialize["builtOn"] = o.BuiltOn
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -240,4 +220,5 @@ func (v *NullableSystemInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

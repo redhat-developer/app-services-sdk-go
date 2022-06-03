@@ -16,9 +16,7 @@ import (
 
 // ConnectorClusterRequest Schema for the request to update a data plane cluster's name
 type ConnectorClusterRequest struct {
-
 	Name *string `json:"name,omitempty"`
-
 }
 
 // NewConnectorClusterRequest instantiates a new ConnectorClusterRequest object
@@ -35,11 +33,8 @@ func NewConnectorClusterRequest() *ConnectorClusterRequest {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorClusterRequestWithDefaults() *ConnectorClusterRequest {
 	this := ConnectorClusterRequest{}
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ConnectorClusterRequest) GetName() string {
@@ -73,14 +68,11 @@ func (o *ConnectorClusterRequest) SetName(v string) {
 	o.Name = &v
 }
 
-
 func (o ConnectorClusterRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -119,4 +111,5 @@ func (v *NullableConnectorClusterRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

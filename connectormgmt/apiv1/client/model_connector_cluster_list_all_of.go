@@ -16,9 +16,7 @@ import (
 
 // ConnectorClusterListAllOf struct for ConnectorClusterListAllOf
 type ConnectorClusterListAllOf struct {
-
 	Items *[]ConnectorCluster `json:"items,omitempty"`
-
 }
 
 // NewConnectorClusterListAllOf instantiates a new ConnectorClusterListAllOf object
@@ -35,11 +33,8 @@ func NewConnectorClusterListAllOf() *ConnectorClusterListAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorClusterListAllOfWithDefaults() *ConnectorClusterListAllOf {
 	this := ConnectorClusterListAllOf{}
-
-
 	return &this
 }
-
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *ConnectorClusterListAllOf) GetItems() []ConnectorCluster {
@@ -73,14 +68,11 @@ func (o *ConnectorClusterListAllOf) SetItems(v []ConnectorCluster) {
 	o.Items = &v
 }
 
-
 func (o ConnectorClusterListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -119,4 +111,5 @@ func (v *NullableConnectorClusterListAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

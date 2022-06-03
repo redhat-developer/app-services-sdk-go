@@ -16,18 +16,12 @@ import (
 
 // ConnectorNamespaceAllOf struct for ConnectorNamespaceAllOf
 type ConnectorNamespaceAllOf struct {
-
 	Name string `json:"name"`
-
 	ClusterId string `json:"cluster_id"`
-
 	// Namespace expiration timestamp in RFC 3339 format
 	Expiration *string `json:"expiration,omitempty"`
-
 	Tenant ConnectorNamespaceTenant `json:"tenant"`
-
 	Status ConnectorNamespaceStatus `json:"status"`
-
 }
 
 // NewConnectorNamespaceAllOf instantiates a new ConnectorNamespaceAllOf object
@@ -48,15 +42,8 @@ func NewConnectorNamespaceAllOf(name string, clusterId string, tenant ConnectorN
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorNamespaceAllOfWithDefaults() *ConnectorNamespaceAllOf {
 	this := ConnectorNamespaceAllOf{}
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value
 func (o *ConnectorNamespaceAllOf) GetName() string {
@@ -82,7 +69,6 @@ func (o *ConnectorNamespaceAllOf) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetClusterId returns the ClusterId field value
 func (o *ConnectorNamespaceAllOf) GetClusterId() string {
 	if o == nil {
@@ -106,7 +92,6 @@ func (o *ConnectorNamespaceAllOf) GetClusterIdOk() (*string, bool) {
 func (o *ConnectorNamespaceAllOf) SetClusterId(v string) {
 	o.ClusterId = v
 }
-
 
 // GetExpiration returns the Expiration field value if set, zero value otherwise.
 func (o *ConnectorNamespaceAllOf) GetExpiration() string {
@@ -140,7 +125,6 @@ func (o *ConnectorNamespaceAllOf) SetExpiration(v string) {
 	o.Expiration = &v
 }
 
-
 // GetTenant returns the Tenant field value
 func (o *ConnectorNamespaceAllOf) GetTenant() ConnectorNamespaceTenant {
 	if o == nil {
@@ -164,7 +148,6 @@ func (o *ConnectorNamespaceAllOf) GetTenantOk() (*ConnectorNamespaceTenant, bool
 func (o *ConnectorNamespaceAllOf) SetTenant(v ConnectorNamespaceTenant) {
 	o.Tenant = v
 }
-
 
 // GetStatus returns the Status field value
 func (o *ConnectorNamespaceAllOf) GetStatus() ConnectorNamespaceStatus {
@@ -190,30 +173,23 @@ func (o *ConnectorNamespaceAllOf) SetStatus(v ConnectorNamespaceStatus) {
 	o.Status = v
 }
 
-
 func (o ConnectorNamespaceAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["name"] = o.Name
 	}
-    
 	if true {
 		toSerialize["cluster_id"] = o.ClusterId
 	}
-    
 	if o.Expiration != nil {
 		toSerialize["expiration"] = o.Expiration
 	}
-    
 	if true {
 		toSerialize["tenant"] = o.Tenant
 	}
-    
 	if true {
 		toSerialize["status"] = o.Status
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -252,4 +228,5 @@ func (v *NullableConnectorNamespaceAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

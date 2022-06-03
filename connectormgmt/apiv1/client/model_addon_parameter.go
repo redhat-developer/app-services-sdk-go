@@ -16,11 +16,8 @@ import (
 
 // AddonParameter A addon parameter
 type AddonParameter struct {
-
 	Id *string `json:"id,omitempty"`
-
 	Value *string `json:"value,omitempty"`
-
 }
 
 // NewAddonParameter instantiates a new AddonParameter object
@@ -37,12 +34,8 @@ func NewAddonParameter() *AddonParameter {
 // but it doesn't guarantee that properties required by API are set
 func NewAddonParameterWithDefaults() *AddonParameter {
 	this := AddonParameter{}
-
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *AddonParameter) GetId() string {
@@ -76,7 +69,6 @@ func (o *AddonParameter) SetId(v string) {
 	o.Id = &v
 }
 
-
 // GetValue returns the Value field value if set, zero value otherwise.
 func (o *AddonParameter) GetValue() string {
 	if o == nil || o.Value == nil {
@@ -109,18 +101,14 @@ func (o *AddonParameter) SetValue(v string) {
 	o.Value = &v
 }
 
-
 func (o AddonParameter) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-    
 	if o.Value != nil {
 		toSerialize["value"] = o.Value
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -159,4 +147,5 @@ func (v *NullableAddonParameter) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

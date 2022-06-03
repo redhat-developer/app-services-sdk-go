@@ -16,12 +16,9 @@ import (
 
 // KafkaUpdateRequest struct for KafkaUpdateRequest
 type KafkaUpdateRequest struct {
-
 	Owner NullableString `json:"owner,omitempty"`
-
 	// Whether connection reauthentication is enabled or not. If set to true, connection reauthentication on the Kafka instance will be required every 5 minutes.
 	ReauthenticationEnabled NullableBool `json:"reauthentication_enabled,omitempty"`
-
 }
 
 // NewKafkaUpdateRequest instantiates a new KafkaUpdateRequest object
@@ -38,12 +35,8 @@ func NewKafkaUpdateRequest() *KafkaUpdateRequest {
 // but it doesn't guarantee that properties required by API are set
 func NewKafkaUpdateRequestWithDefaults() *KafkaUpdateRequest {
 	this := KafkaUpdateRequest{}
-
-
-
 	return &this
 }
-
 
 // GetOwner returns the Owner field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *KafkaUpdateRequest) GetOwner() string {
@@ -87,7 +80,6 @@ func (o *KafkaUpdateRequest) UnsetOwner() {
 	o.Owner.Unset()
 }
 
-
 // GetReauthenticationEnabled returns the ReauthenticationEnabled field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *KafkaUpdateRequest) GetReauthenticationEnabled() bool {
 	if o == nil || o.ReauthenticationEnabled.Get() == nil {
@@ -130,18 +122,14 @@ func (o *KafkaUpdateRequest) UnsetReauthenticationEnabled() {
 	o.ReauthenticationEnabled.Unset()
 }
 
-
 func (o KafkaUpdateRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Owner.IsSet() {
 		toSerialize["owner"] = o.Owner.Get()
 	}
-    
 	if o.ReauthenticationEnabled.IsSet() {
 		toSerialize["reauthentication_enabled"] = o.ReauthenticationEnabled.Get()
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -180,4 +168,5 @@ func (v *NullableKafkaUpdateRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 
