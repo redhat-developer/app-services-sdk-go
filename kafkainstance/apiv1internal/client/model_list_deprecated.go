@@ -14,12 +14,12 @@ import (
 	"encoding/json"
 )
 
-// TopicsList struct for TopicsList
-type TopicsList struct {
+// ListDeprecated struct for ListDeprecated
+type ListDeprecated struct {
 
 	Kind *string `json:"kind,omitempty"`
 
-	Items []Topic `json:"items"`
+	Items []map[string]interface{} `json:"items"`
 
 	// Total number of entries in the full result set
 	Total int32 `json:"total"`
@@ -32,22 +32,22 @@ type TopicsList struct {
 
 }
 
-// NewTopicsList instantiates a new TopicsList object
+// NewListDeprecated instantiates a new ListDeprecated object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTopicsList(items []Topic, total int32) *TopicsList {
-	this := TopicsList{}
+func NewListDeprecated(items []map[string]interface{}, total int32) *ListDeprecated {
+	this := ListDeprecated{}
 	this.Items = items
 	this.Total = total
 	return &this
 }
 
-// NewTopicsListWithDefaults instantiates a new TopicsList object
+// NewListDeprecatedWithDefaults instantiates a new ListDeprecated object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewTopicsListWithDefaults() *TopicsList {
-	this := TopicsList{}
+func NewListDeprecatedWithDefaults() *ListDeprecated {
+	this := ListDeprecated{}
 
 
 
@@ -59,7 +59,7 @@ func NewTopicsListWithDefaults() *TopicsList {
 
 
 // GetKind returns the Kind field value if set, zero value otherwise.
-func (o *TopicsList) GetKind() string {
+func (o *ListDeprecated) GetKind() string {
 	if o == nil || o.Kind == nil {
 		var ret string
 		return ret
@@ -69,7 +69,7 @@ func (o *TopicsList) GetKind() string {
 
 // GetKindOk returns a tuple with the Kind field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TopicsList) GetKindOk() (*string, bool) {
+func (o *ListDeprecated) GetKindOk() (*string, bool) {
 	if o == nil || o.Kind == nil {
 		return nil, false
 	}
@@ -77,7 +77,7 @@ func (o *TopicsList) GetKindOk() (*string, bool) {
 }
 
 // HasKind returns a boolean if a field has been set.
-func (o *TopicsList) HasKind() bool {
+func (o *ListDeprecated) HasKind() bool {
 	if o != nil && o.Kind != nil {
 		return true
 	}
@@ -86,15 +86,15 @@ func (o *TopicsList) HasKind() bool {
 }
 
 // SetKind gets a reference to the given string and assigns it to the Kind field.
-func (o *TopicsList) SetKind(v string) {
+func (o *ListDeprecated) SetKind(v string) {
 	o.Kind = &v
 }
 
 
 // GetItems returns the Items field value
-func (o *TopicsList) GetItems() []Topic {
+func (o *ListDeprecated) GetItems() []map[string]interface{} {
 	if o == nil {
-		var ret []Topic
+		var ret []map[string]interface{}
 		return ret
 	}
 
@@ -103,7 +103,7 @@ func (o *TopicsList) GetItems() []Topic {
 
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-func (o *TopicsList) GetItemsOk() (*[]Topic, bool) {
+func (o *ListDeprecated) GetItemsOk() (*[]map[string]interface{}, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -111,13 +111,13 @@ func (o *TopicsList) GetItemsOk() (*[]Topic, bool) {
 }
 
 // SetItems sets field value
-func (o *TopicsList) SetItems(v []Topic) {
+func (o *ListDeprecated) SetItems(v []map[string]interface{}) {
 	o.Items = v
 }
 
 
 // GetTotal returns the Total field value
-func (o *TopicsList) GetTotal() int32 {
+func (o *ListDeprecated) GetTotal() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -128,7 +128,7 @@ func (o *TopicsList) GetTotal() int32 {
 
 // GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
-func (o *TopicsList) GetTotalOk() (*int32, bool) {
+func (o *ListDeprecated) GetTotalOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -136,13 +136,13 @@ func (o *TopicsList) GetTotalOk() (*int32, bool) {
 }
 
 // SetTotal sets field value
-func (o *TopicsList) SetTotal(v int32) {
+func (o *ListDeprecated) SetTotal(v int32) {
 	o.Total = v
 }
 
 
 // GetSize returns the Size field value if set, zero value otherwise.
-func (o *TopicsList) GetSize() int32 {
+func (o *ListDeprecated) GetSize() int32 {
 	if o == nil || o.Size == nil {
 		var ret int32
 		return ret
@@ -152,7 +152,7 @@ func (o *TopicsList) GetSize() int32 {
 
 // GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TopicsList) GetSizeOk() (*int32, bool) {
+func (o *ListDeprecated) GetSizeOk() (*int32, bool) {
 	if o == nil || o.Size == nil {
 		return nil, false
 	}
@@ -160,7 +160,7 @@ func (o *TopicsList) GetSizeOk() (*int32, bool) {
 }
 
 // HasSize returns a boolean if a field has been set.
-func (o *TopicsList) HasSize() bool {
+func (o *ListDeprecated) HasSize() bool {
 	if o != nil && o.Size != nil {
 		return true
 	}
@@ -169,13 +169,13 @@ func (o *TopicsList) HasSize() bool {
 }
 
 // SetSize gets a reference to the given int32 and assigns it to the Size field.
-func (o *TopicsList) SetSize(v int32) {
+func (o *ListDeprecated) SetSize(v int32) {
 	o.Size = &v
 }
 
 
 // GetPage returns the Page field value if set, zero value otherwise.
-func (o *TopicsList) GetPage() int32 {
+func (o *ListDeprecated) GetPage() int32 {
 	if o == nil || o.Page == nil {
 		var ret int32
 		return ret
@@ -185,7 +185,7 @@ func (o *TopicsList) GetPage() int32 {
 
 // GetPageOk returns a tuple with the Page field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TopicsList) GetPageOk() (*int32, bool) {
+func (o *ListDeprecated) GetPageOk() (*int32, bool) {
 	if o == nil || o.Page == nil {
 		return nil, false
 	}
@@ -193,7 +193,7 @@ func (o *TopicsList) GetPageOk() (*int32, bool) {
 }
 
 // HasPage returns a boolean if a field has been set.
-func (o *TopicsList) HasPage() bool {
+func (o *ListDeprecated) HasPage() bool {
 	if o != nil && o.Page != nil {
 		return true
 	}
@@ -202,12 +202,12 @@ func (o *TopicsList) HasPage() bool {
 }
 
 // SetPage gets a reference to the given int32 and assigns it to the Page field.
-func (o *TopicsList) SetPage(v int32) {
+func (o *ListDeprecated) SetPage(v int32) {
 	o.Page = &v
 }
 
 
-func (o TopicsList) MarshalJSON() ([]byte, error) {
+func (o ListDeprecated) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
 	if o.Kind != nil {
@@ -233,38 +233,38 @@ func (o TopicsList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableTopicsList struct {
-	value *TopicsList
+type NullableListDeprecated struct {
+	value *ListDeprecated
 	isSet bool
 }
 
-func (v NullableTopicsList) Get() *TopicsList {
+func (v NullableListDeprecated) Get() *ListDeprecated {
 	return v.value
 }
 
-func (v *NullableTopicsList) Set(val *TopicsList) {
+func (v *NullableListDeprecated) Set(val *ListDeprecated) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableTopicsList) IsSet() bool {
+func (v NullableListDeprecated) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableTopicsList) Unset() {
+func (v *NullableListDeprecated) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableTopicsList(val *TopicsList) *NullableTopicsList {
-	return &NullableTopicsList{value: val, isSet: true}
+func NewNullableListDeprecated(val *ListDeprecated) *NullableListDeprecated {
+	return &NullableListDeprecated{value: val, isSet: true}
 }
 
-func (v NullableTopicsList) MarshalJSON() ([]byte, error) {
+func (v NullableListDeprecated) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableTopicsList) UnmarshalJSON(src []byte) error {
+func (v *NullableListDeprecated) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -4,18 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Kind** | Pointer to **string** |  | [optional] 
-**Items** | [**[]Error**](Error.md) |  | 
-**Total** | **interface{}** | Total number of errors returned in this request | 
-**Size** | Pointer to **int32** | Number of entries per page (returned for fetch requests) | [optional] 
-**Page** | Pointer to **int32** | Current page number (returned for fetch requests) | [optional] 
+**Items** | Pointer to [**[]Error**](Error.md) |  | [optional] 
+**Total** | Pointer to **interface{}** | Total number of errors returned in this request | [optional] 
 
 
 ## Methods
 
 ### NewErrorList
 
-`func NewErrorList(items []Error, total interface{}, ) *ErrorList`
+`func NewErrorList() *ErrorList`
 
 NewErrorList instantiates a new ErrorList object
 This constructor will assign default values to properties that have it defined,
@@ -29,32 +26,6 @@ will change when the set of required properties is changed
 NewErrorListWithDefaults instantiates a new ErrorList object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-
-### GetKind
-
-`func (o *ErrorList) GetKind() string`
-
-GetKind returns the Kind field if non-nil, zero value otherwise.
-
-### GetKindOk
-
-`func (o *ErrorList) GetKindOk() (*string, bool)`
-
-GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetKind
-
-`func (o *ErrorList) SetKind(v string)`
-
-SetKind sets Kind field to given value.
-
-### HasKind
-
-`func (o *ErrorList) HasKind() bool`
-
-HasKind returns a boolean if a field has been set.
 
 
 ### GetItems
@@ -76,6 +47,11 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
+### HasItems
+
+`func (o *ErrorList) HasItems() bool`
+
+HasItems returns a boolean if a field has been set.
 
 
 ### GetTotal
@@ -97,6 +73,11 @@ and a boolean to check if the value has been set.
 
 SetTotal sets Total field to given value.
 
+### HasTotal
+
+`func (o *ErrorList) HasTotal() bool`
+
+HasTotal returns a boolean if a field has been set.
 
 ### SetTotalNil
 
@@ -108,58 +89,6 @@ SetTotal sets Total field to given value.
 `func (o *ErrorList) UnsetTotal()`
 
 UnsetTotal ensures that no value is present for Total, not even an explicit nil
-
-### GetSize
-
-`func (o *ErrorList) GetSize() int32`
-
-GetSize returns the Size field if non-nil, zero value otherwise.
-
-### GetSizeOk
-
-`func (o *ErrorList) GetSizeOk() (*int32, bool)`
-
-GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSize
-
-`func (o *ErrorList) SetSize(v int32)`
-
-SetSize sets Size field to given value.
-
-### HasSize
-
-`func (o *ErrorList) HasSize() bool`
-
-HasSize returns a boolean if a field has been set.
-
-
-### GetPage
-
-`func (o *ErrorList) GetPage() int32`
-
-GetPage returns the Page field if non-nil, zero value otherwise.
-
-### GetPageOk
-
-`func (o *ErrorList) GetPageOk() (*int32, bool)`
-
-GetPageOk returns a tuple with the Page field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPage
-
-`func (o *ErrorList) SetPage(v int32)`
-
-SetPage sets Page field to given value.
-
-### HasPage
-
-`func (o *ErrorList) HasPage() bool`
-
-HasPage returns a boolean if a field has been set.
-
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

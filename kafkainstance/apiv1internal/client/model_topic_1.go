@@ -14,16 +14,8 @@ import (
 	"encoding/json"
 )
 
-// Topic struct for Topic
-type Topic struct {
-
-	// Unique identifier for the object. Not supported for all object kinds.
-	Id *string `json:"id,omitempty"`
-
-	Kind string `json:"kind"`
-
-	// Link path to request the object. Not supported for all object kinds.
-	Href *string `json:"href,omitempty"`
+// Topic1 Kafka Topic (A feed where records are stored and published)
+type Topic1 struct {
 
 	// The name of the topic.
 	Name *string `json:"name,omitempty"`
@@ -38,126 +30,31 @@ type Topic struct {
 
 }
 
-// NewTopic instantiates a new Topic object
+// NewTopic1 instantiates a new Topic1 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTopic(kind string) *Topic {
-	this := Topic{}
-	this.Kind = kind
+func NewTopic1() *Topic1 {
+	this := Topic1{}
 	return &this
 }
 
-// NewTopicWithDefaults instantiates a new Topic object
+// NewTopic1WithDefaults instantiates a new Topic1 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewTopicWithDefaults() *Topic {
-	this := Topic{}
-
-
-
+func NewTopic1WithDefaults() *Topic1 {
+	this := Topic1{}
 
 
 
 
 
 	return &this
-}
-
-
-// GetId returns the Id field value if set, zero value otherwise.
-func (o *Topic) GetId() string {
-	if o == nil || o.Id == nil {
-		var ret string
-		return ret
-	}
-	return *o.Id
-}
-
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Topic) GetIdOk() (*string, bool) {
-	if o == nil || o.Id == nil {
-		return nil, false
-	}
-	return o.Id, true
-}
-
-// HasId returns a boolean if a field has been set.
-func (o *Topic) HasId() bool {
-	if o != nil && o.Id != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *Topic) SetId(v string) {
-	o.Id = &v
-}
-
-
-// GetKind returns the Kind field value
-func (o *Topic) GetKind() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Kind
-}
-
-// GetKindOk returns a tuple with the Kind field value
-// and a boolean to check if the value has been set.
-func (o *Topic) GetKindOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Kind, true
-}
-
-// SetKind sets field value
-func (o *Topic) SetKind(v string) {
-	o.Kind = v
-}
-
-
-// GetHref returns the Href field value if set, zero value otherwise.
-func (o *Topic) GetHref() string {
-	if o == nil || o.Href == nil {
-		var ret string
-		return ret
-	}
-	return *o.Href
-}
-
-// GetHrefOk returns a tuple with the Href field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Topic) GetHrefOk() (*string, bool) {
-	if o == nil || o.Href == nil {
-		return nil, false
-	}
-	return o.Href, true
-}
-
-// HasHref returns a boolean if a field has been set.
-func (o *Topic) HasHref() bool {
-	if o != nil && o.Href != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetHref gets a reference to the given string and assigns it to the Href field.
-func (o *Topic) SetHref(v string) {
-	o.Href = &v
 }
 
 
 // GetName returns the Name field value if set, zero value otherwise.
-func (o *Topic) GetName() string {
+func (o *Topic1) GetName() string {
 	if o == nil || o.Name == nil {
 		var ret string
 		return ret
@@ -167,7 +64,7 @@ func (o *Topic) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Topic) GetNameOk() (*string, bool) {
+func (o *Topic1) GetNameOk() (*string, bool) {
 	if o == nil || o.Name == nil {
 		return nil, false
 	}
@@ -175,7 +72,7 @@ func (o *Topic) GetNameOk() (*string, bool) {
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *Topic) HasName() bool {
+func (o *Topic1) HasName() bool {
 	if o != nil && o.Name != nil {
 		return true
 	}
@@ -184,13 +81,13 @@ func (o *Topic) HasName() bool {
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
-func (o *Topic) SetName(v string) {
+func (o *Topic1) SetName(v string) {
 	o.Name = &v
 }
 
 
 // GetIsInternal returns the IsInternal field value if set, zero value otherwise.
-func (o *Topic) GetIsInternal() bool {
+func (o *Topic1) GetIsInternal() bool {
 	if o == nil || o.IsInternal == nil {
 		var ret bool
 		return ret
@@ -200,7 +97,7 @@ func (o *Topic) GetIsInternal() bool {
 
 // GetIsInternalOk returns a tuple with the IsInternal field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Topic) GetIsInternalOk() (*bool, bool) {
+func (o *Topic1) GetIsInternalOk() (*bool, bool) {
 	if o == nil || o.IsInternal == nil {
 		return nil, false
 	}
@@ -208,7 +105,7 @@ func (o *Topic) GetIsInternalOk() (*bool, bool) {
 }
 
 // HasIsInternal returns a boolean if a field has been set.
-func (o *Topic) HasIsInternal() bool {
+func (o *Topic1) HasIsInternal() bool {
 	if o != nil && o.IsInternal != nil {
 		return true
 	}
@@ -217,13 +114,13 @@ func (o *Topic) HasIsInternal() bool {
 }
 
 // SetIsInternal gets a reference to the given bool and assigns it to the IsInternal field.
-func (o *Topic) SetIsInternal(v bool) {
+func (o *Topic1) SetIsInternal(v bool) {
 	o.IsInternal = &v
 }
 
 
 // GetPartitions returns the Partitions field value if set, zero value otherwise.
-func (o *Topic) GetPartitions() []Partition {
+func (o *Topic1) GetPartitions() []Partition {
 	if o == nil || o.Partitions == nil {
 		var ret []Partition
 		return ret
@@ -233,7 +130,7 @@ func (o *Topic) GetPartitions() []Partition {
 
 // GetPartitionsOk returns a tuple with the Partitions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Topic) GetPartitionsOk() (*[]Partition, bool) {
+func (o *Topic1) GetPartitionsOk() (*[]Partition, bool) {
 	if o == nil || o.Partitions == nil {
 		return nil, false
 	}
@@ -241,7 +138,7 @@ func (o *Topic) GetPartitionsOk() (*[]Partition, bool) {
 }
 
 // HasPartitions returns a boolean if a field has been set.
-func (o *Topic) HasPartitions() bool {
+func (o *Topic1) HasPartitions() bool {
 	if o != nil && o.Partitions != nil {
 		return true
 	}
@@ -250,13 +147,13 @@ func (o *Topic) HasPartitions() bool {
 }
 
 // SetPartitions gets a reference to the given []Partition and assigns it to the Partitions field.
-func (o *Topic) SetPartitions(v []Partition) {
+func (o *Topic1) SetPartitions(v []Partition) {
 	o.Partitions = &v
 }
 
 
 // GetConfig returns the Config field value if set, zero value otherwise.
-func (o *Topic) GetConfig() []ConfigEntry {
+func (o *Topic1) GetConfig() []ConfigEntry {
 	if o == nil || o.Config == nil {
 		var ret []ConfigEntry
 		return ret
@@ -266,7 +163,7 @@ func (o *Topic) GetConfig() []ConfigEntry {
 
 // GetConfigOk returns a tuple with the Config field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Topic) GetConfigOk() (*[]ConfigEntry, bool) {
+func (o *Topic1) GetConfigOk() (*[]ConfigEntry, bool) {
 	if o == nil || o.Config == nil {
 		return nil, false
 	}
@@ -274,7 +171,7 @@ func (o *Topic) GetConfigOk() (*[]ConfigEntry, bool) {
 }
 
 // HasConfig returns a boolean if a field has been set.
-func (o *Topic) HasConfig() bool {
+func (o *Topic1) HasConfig() bool {
 	if o != nil && o.Config != nil {
 		return true
 	}
@@ -283,26 +180,14 @@ func (o *Topic) HasConfig() bool {
 }
 
 // SetConfig gets a reference to the given []ConfigEntry and assigns it to the Config field.
-func (o *Topic) SetConfig(v []ConfigEntry) {
+func (o *Topic1) SetConfig(v []ConfigEntry) {
 	o.Config = &v
 }
 
 
-func (o Topic) MarshalJSON() ([]byte, error) {
+func (o Topic1) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
-	if o.Id != nil {
-		toSerialize["id"] = o.Id
-	}
-    
-	if true {
-		toSerialize["kind"] = o.Kind
-	}
-    
-	if o.Href != nil {
-		toSerialize["href"] = o.Href
-	}
-    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
@@ -322,38 +207,38 @@ func (o Topic) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableTopic struct {
-	value *Topic
+type NullableTopic1 struct {
+	value *Topic1
 	isSet bool
 }
 
-func (v NullableTopic) Get() *Topic {
+func (v NullableTopic1) Get() *Topic1 {
 	return v.value
 }
 
-func (v *NullableTopic) Set(val *Topic) {
+func (v *NullableTopic1) Set(val *Topic1) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableTopic) IsSet() bool {
+func (v NullableTopic1) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableTopic) Unset() {
+func (v *NullableTopic1) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableTopic(val *Topic) *NullableTopic {
-	return &NullableTopic{value: val, isSet: true}
+func NewNullableTopic1(val *Topic1) *NullableTopic1 {
+	return &NullableTopic1{value: val, isSet: true}
 }
 
-func (v NullableTopic) MarshalJSON() ([]byte, error) {
+func (v NullableTopic1) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableTopic) UnmarshalJSON(src []byte) error {
+func (v *NullableTopic1) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

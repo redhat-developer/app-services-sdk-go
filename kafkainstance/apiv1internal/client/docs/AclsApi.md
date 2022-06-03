@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-    aclBinding := *openapiclient.NewAclBinding(openapiclient.AclResourceType("GROUP"), "ResourceName_example", openapiclient.AclPatternType("LITERAL"), "User:user-123-abc", openapiclient.AclOperation("ALL"), openapiclient.AclPermissionType("ALLOW"), "Kind_example") // AclBinding | ACL to create.
+    aclBinding := *openapiclient.NewAclBinding("Kind_example", openapiclient.AclResourceType("GROUP"), "ResourceName_example", openapiclient.AclPatternType("LITERAL"), "User:user-123-abc", openapiclient.AclOperation("ALL"), openapiclient.AclPermissionType("ALLOW")) // AclBinding | ACL to create.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
