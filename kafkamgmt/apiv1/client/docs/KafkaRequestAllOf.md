@@ -29,6 +29,8 @@ Name | Type | Description | Notes
 **MaxPartitions** | Pointer to **int32** |  | [optional] 
 **MaxDataRetentionPeriod** | Pointer to **string** |  | [optional] 
 **MaxConnectionAttemptsPerSec** | Pointer to **int32** |  | [optional] 
+**BillingCloudAccountId** | Pointer to **string** |  | [optional] 
+**Marketplace** | Pointer to **string** |  | [optional] 
 
 
 ## Methods
@@ -699,6 +701,58 @@ SetMaxConnectionAttemptsPerSec sets MaxConnectionAttemptsPerSec field to given v
 `func (o *KafkaRequestAllOf) HasMaxConnectionAttemptsPerSec() bool`
 
 HasMaxConnectionAttemptsPerSec returns a boolean if a field has been set.
+
+
+### GetBillingCloudAccountId
+
+`func (o *KafkaRequestAllOf) GetBillingCloudAccountId() string`
+
+GetBillingCloudAccountId returns the BillingCloudAccountId field if non-nil, zero value otherwise.
+
+### GetBillingCloudAccountIdOk
+
+`func (o *KafkaRequestAllOf) GetBillingCloudAccountIdOk() (*string, bool)`
+
+GetBillingCloudAccountIdOk returns a tuple with the BillingCloudAccountId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBillingCloudAccountId
+
+`func (o *KafkaRequestAllOf) SetBillingCloudAccountId(v string)`
+
+SetBillingCloudAccountId sets BillingCloudAccountId field to given value.
+
+### HasBillingCloudAccountId
+
+`func (o *KafkaRequestAllOf) HasBillingCloudAccountId() bool`
+
+HasBillingCloudAccountId returns a boolean if a field has been set.
+
+
+### GetMarketplace
+
+`func (o *KafkaRequestAllOf) GetMarketplace() string`
+
+GetMarketplace returns the Marketplace field if non-nil, zero value otherwise.
+
+### GetMarketplaceOk
+
+`func (o *KafkaRequestAllOf) GetMarketplaceOk() (*string, bool)`
+
+GetMarketplaceOk returns a tuple with the Marketplace field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMarketplace
+
+`func (o *KafkaRequestAllOf) SetMarketplace(v string)`
+
+SetMarketplace sets Marketplace field to given value.
+
+### HasMarketplace
+
+`func (o *KafkaRequestAllOf) HasMarketplace() bool`
+
+HasMarketplace returns a boolean if a field has been set.
 
 
 
