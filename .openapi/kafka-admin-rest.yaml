@@ -6,7 +6,7 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
-  version: 0.10.1-SNAPSHOT
+  version: 0.11.0
 servers:
 - url: /
   description: Kafka Admin REST API
@@ -966,41 +966,41 @@ paths:
 components:
   schemas:
     AclBinding:
-      title: ACL Binding
-      description: Represents a binding between a resource pattern and an access control
-        entry
-      required:
-      - resourceType
-      - resourceName
-      - patternType
-      - principal
-      - operation
-      - permission
-      type: object
       allOf:
       - $ref: '#/components/schemas/ObjectReference'
-      properties:
-        resourceType:
-          $ref: '#/components/schemas/AclResourceType'
-        resourceName:
-          pattern: \S
-          type: string
-          nullable: false
-        patternType:
-          $ref: '#/components/schemas/AclPatternType'
-        principal:
-          title: ACL Principal
-          description: Identifies the user or service account to which an ACL entry
-            is bound. The literal prefix value of `User:` is required. May be used
-            to specify all users with value `User:*`.
-          pattern: \S
-          type: string
-          example: User:user-123-abc
-          nullable: false
-        operation:
-          $ref: '#/components/schemas/AclOperation'
-        permission:
-          $ref: '#/components/schemas/AclPermissionType'
+      - title: ACL Binding
+        description: Represents a binding between a resource pattern and an access
+          control entry
+        required:
+        - resourceType
+        - resourceName
+        - patternType
+        - principal
+        - operation
+        - permission
+        type: object
+        properties:
+          resourceType:
+            $ref: '#/components/schemas/AclResourceType'
+          resourceName:
+            pattern: \S
+            type: string
+            nullable: false
+          patternType:
+            $ref: '#/components/schemas/AclPatternType'
+          principal:
+            title: ACL Principal
+            description: Identifies the user or service account to which an ACL entry
+              is bound. The literal prefix value of `User:` is required. May be used
+              to specify all users with value `User:*`.
+            pattern: \S
+            type: string
+            example: User:user-123-abc
+            nullable: false
+          operation:
+            $ref: '#/components/schemas/AclOperation'
+          permission:
+            $ref: '#/components/schemas/AclPermissionType'
       example:
         kind: AclBinding
         resourceType: TOPIC
@@ -1010,12 +1010,12 @@ components:
         operation: READ
         permission: ALLOW
     AclBindingListPage:
-      title: ACL Binding List
-      description: A page of ACL binding entries
-      type: object
       allOf:
       - $ref: '#/components/schemas/List'
-      - properties:
+      - title: ACL Binding List
+        description: A page of ACL binding entries
+        type: object
+        properties:
           items:
             type: array
             items:
@@ -1181,29 +1181,29 @@ components:
         lag: 0
         logEndOffset: 5
     ConsumerGroup:
-      description: A group of Kafka consumers
-      required:
-      - groupId
-      - consumers
-      type: object
       allOf:
       - $ref: '#/components/schemas/ObjectReference'
-      properties:
-        groupId:
-          description: Unique identifier for the consumer group
-          pattern: \S
-          type: string
-          nullable: false
-        state:
-          $ref: '#/components/schemas/ConsumerGroupState'
-        consumers:
-          description: The list of consumers associated with this consumer group
-          type: array
-          items:
-            $ref: '#/components/schemas/Consumer'
-          nullable: false
-        metrics:
-          $ref: '#/components/schemas/ConsumerGroupMetrics'
+      - description: A group of Kafka consumers
+        required:
+        - groupId
+        - consumers
+        type: object
+        properties:
+          groupId:
+            description: Unique identifier for the consumer group
+            pattern: \S
+            type: string
+            nullable: false
+          state:
+            $ref: '#/components/schemas/ConsumerGroupState'
+          consumers:
+            description: The list of consumers associated with this consumer group
+            type: array
+            items:
+              $ref: '#/components/schemas/Consumer'
+            nullable: false
+          metrics:
+            $ref: '#/components/schemas/ConsumerGroupMetrics'
     ConsumerGroupDescriptionOrderKey:
       enum:
       - offset
@@ -1212,48 +1212,16 @@ components:
       - partition
       type: string
     ConsumerGroupList:
-      title: ConsumerGroup List
-      description: A list of consumer groups
-      required:
-      - items
-      - total
-      type: object
-      properties:
-        kind:
-          type: string
-        items:
-          type: array
+      allOf:
+      - $ref: '#/components/schemas/ListDeprecated'
+      - title: ConsumerGroup List
+        description: A list of consumer groups
+        type: object
+        properties:
           items:
-            $ref: '#/components/schemas/ConsumerGroup'
-          nullable: false
-        total:
-          format: int32
-          description: Total number of entries in the full result set
-          type: integer
-          nullable: false
-        size:
-          format: int32
-          description: Number of entries per page (returned for fetch requests)
-          type: integer
-        page:
-          format: int32
-          description: Current page number (returned for fetch requests)
-          type: integer
-        offset:
-          format: int32
-          description: "Offset of the first record returned, zero-based"
-          type: integer
-          deprecated: true
-        limit:
-          format: int32
-          description: "Maximum number of records to return, from request"
-          type: integer
-          deprecated: true
-        count:
-          format: int32
-          description: Total number of entries in the full result set
-          type: integer
-          deprecated: true
+            type: array
+            items:
+              $ref: '#/components/schemas/ConsumerGroup'
       example:
         kind: ConsumerGroupList
         count: 1
@@ -1324,16 +1292,15 @@ components:
           items:
             $ref: '#/components/schemas/TopicsToResetOffset'
     ConsumerGroupResetOffsetResult:
-      title: Root Type for ConsumerGroupResetOffsetResult
-      type: object
       allOf:
       - $ref: '#/components/schemas/List'
-      - properties:
+      - title: Root Type for ConsumerGroupResetOffsetResult
+        type: object
+        properties:
           items:
             type: array
             items:
               $ref: '#/components/schemas/ConsumerGroupResetOffsetResultItem'
-      
       example:
         total: 2
         page: 1
@@ -1370,47 +1337,35 @@ components:
       - EMPTY
       type: string
     Error:
-      description: General error response
-      required:
-      - kind
-      type: object
-      properties:
-        id:
-          description: Unique identifier for the object. Not supported for all object
-            kinds.
-          type: string
-        kind:
-          type: string
-          readOnly: true
-          nullable: false
-        href:
-          description: Link path to request the object. Not supported for all object
-            kinds.
-          type: string
-        reason:
-          description: General reason for the error. Does not change between specific
-            occurrences.
-          type: string
-        detail:
-          description: Detail specific to an error occurrence. May be different depending
-            on the condition(s) that trigger the error.
-          type: string
-        code:
-          format: int32
-          type: integer
-        error_message:
-          type: string
-          deprecated: true
-        class:
-          type: string
-          deprecated: true
+      allOf:
+      - $ref: '#/components/schemas/ObjectReference'
+      - description: General error response
+        type: object
+        properties:
+          reason:
+            description: General reason for the error. Does not change between specific
+              occurrences.
+            type: string
+          detail:
+            description: Detail specific to an error occurrence. May be different
+              depending on the condition(s) that trigger the error.
+            type: string
+          code:
+            format: int32
+            type: integer
+          error_message:
+            type: string
+            deprecated: true
+          class:
+            type: string
+            deprecated: true
     ErrorList:
-      title: Error List
-      description: List of errors
-      type: object
       allOf:
       - $ref: '#/components/schemas/List'
-      - properties:
+      - title: Error List
+        description: List of errors
+        type: object
+        properties:
           items:
             type: array
             items:
@@ -1443,6 +1398,26 @@ components:
           format: int32
           description: Current page number (returned for fetch requests)
           type: integer
+    ListDeprecated:
+      allOf:
+      - $ref: '#/components/schemas/List'
+      - type: object
+        properties:
+          offset:
+            format: int32
+            description: "Offset of the first record returned, zero-based"
+            type: integer
+            deprecated: true
+          limit:
+            format: int32
+            description: "Maximum number of records to return, from request"
+            type: integer
+            deprecated: true
+          count:
+            format: int32
+            description: Total number of entries in the full result set
+            type: integer
+            deprecated: true
     NewTopicInput:
       description: Input object to create a new topic.
       required:
@@ -1540,45 +1515,45 @@ components:
         leader:
           id: 1
     Record:
-      title: Record
-      description: An individual record consumed from a topic or produced to a topic
-      required:
-      - value
-      type: object
       allOf:
       - $ref: '#/components/schemas/ObjectReference'
-      properties:
-        partition:
-          format: int32
-          description: The record's partition within the topic
-          type: integer
-        offset:
-          format: int64
-          description: The record's offset within the topic partition
-          type: integer
-          readOnly: true
-        timestamp:
-          format: date-time
-          description: "Timestamp associated with the record. The type is indicated\
-            \ by `timestampType`. When producing a record, this value will be used\
-            \ as the record's `CREATE_TIME`."
-          type: string
-        timestampType:
-          description: Type of timestamp associated with the record
-          type: string
-          readOnly: true
-        headers:
-          description: "Record headers, key/value pairs"
-          type: object
-          additionalProperties:
+      - title: Record
+        description: An individual record consumed from a topic or produced to a topic
+        required:
+        - value
+        type: object
+        properties:
+          partition:
+            format: int32
+            description: The record's partition within the topic
+            type: integer
+          offset:
+            format: int64
+            description: The record's offset within the topic partition
+            type: integer
+            readOnly: true
+          timestamp:
+            format: date-time
+            description: "Timestamp associated with the record. The type is indicated\
+              \ by `timestampType`. When producing a record, this value will be used\
+              \ as the record's `CREATE_TIME`."
             type: string
-        key:
-          description: Record key
-          type: string
-        value:
-          description: Record value
-          type: string
-          nullable: false
+          timestampType:
+            description: Type of timestamp associated with the record
+            type: string
+            readOnly: true
+          headers:
+            description: "Record headers, key/value pairs"
+            type: object
+            additionalProperties:
+              type: string
+          key:
+            description: Record key
+            type: string
+          value:
+            description: Record value
+            type: string
+            nullable: false
     RecordIncludedProperty:
       enum:
       - partition
@@ -1590,12 +1565,12 @@ components:
       - value
       type: string
     RecordList:
-      title: Record List
-      description: A page of records consumed from a topic
-      type: object
       allOf:
       - $ref: '#/components/schemas/List'
-      - properties:
+      - title: Record List
+        description: A page of records consumed from a topic
+        type: object
+        properties:
           items:
             type: array
             items:
@@ -1607,34 +1582,33 @@ components:
             description: Not used
           page:
             description: Not used
-
     SortDirection:
       enum:
       - asc
       - desc
       type: string
     Topic:
-      title: Topic
-      description: Kafka Topic (A feed where records are stored and published)
-      type: object
       allOf:
       - $ref: '#/components/schemas/ObjectReference'
-      properties:
-        name:
-          description: The name of the topic.
-          type: string
-        isInternal:
-          type: boolean
-        partitions:
-          description: Partitions for this topic.
-          type: array
-          items:
-            $ref: '#/components/schemas/Partition'
-        config:
-          description: Topic configuration entry.
-          type: array
-          items:
-            $ref: '#/components/schemas/ConfigEntry'
+      - title: Topic
+        description: Kafka Topic (A feed where records are stored and published)
+        type: object
+        properties:
+          name:
+            description: The name of the topic.
+            type: string
+          isInternal:
+            type: boolean
+          partitions:
+            description: Partitions for this topic.
+            type: array
+            items:
+              $ref: '#/components/schemas/Partition'
+          config:
+            description: Topic configuration entry.
+            type: array
+            items:
+              $ref: '#/components/schemas/ConfigEntry'
       example:
         id: my-topic
         kind: Topic
@@ -1698,48 +1672,16 @@ components:
         - key: max.message.bytes
           value: "1050000"
     TopicsList:
-      title: Topic List
-      description: A list of topics.
-      required:
-      - items
-      - total
-      type: object
-      properties:
-        kind:
-          type: string
-        items:
-          type: array
+      allOf:
+      - $ref: '#/components/schemas/ListDeprecated'
+      - title: Topic List
+        description: A list of topics.
+        type: object
+        properties:
           items:
-            $ref: '#/components/schemas/Topic'
-          nullable: false
-        total:
-          format: int32
-          description: Total number of entries in the full result set
-          type: integer
-          nullable: false
-        size:
-          format: int32
-          description: Number of entries per page (returned for fetch requests)
-          type: integer
-        page:
-          format: int32
-          description: Current page number (returned for fetch requests)
-          type: integer
-        offset:
-          format: int32
-          description: "Offset of the first record returned, zero-based"
-          type: integer
-          deprecated: true
-        limit:
-          format: int32
-          description: "Maximum number of records to return, from request"
-          type: integer
-          deprecated: true
-        count:
-          format: int32
-          description: Total number of entries in the full result set
-          type: integer
-          deprecated: true
+            type: array
+            items:
+              $ref: '#/components/schemas/Topic'
       example:
         kind: TopicList
         items:
