@@ -16,13 +16,9 @@ import (
 
 // ConsumerGroupResetOffsetResultItem struct for ConsumerGroupResetOffsetResultItem
 type ConsumerGroupResetOffsetResultItem struct {
-
 	Topic *string `json:"topic,omitempty"`
-
 	Partition *int32 `json:"partition,omitempty"`
-
 	Offset *int64 `json:"offset,omitempty"`
-
 }
 
 // NewConsumerGroupResetOffsetResultItem instantiates a new ConsumerGroupResetOffsetResultItem object
@@ -39,13 +35,8 @@ func NewConsumerGroupResetOffsetResultItem() *ConsumerGroupResetOffsetResultItem
 // but it doesn't guarantee that properties required by API are set
 func NewConsumerGroupResetOffsetResultItemWithDefaults() *ConsumerGroupResetOffsetResultItem {
 	this := ConsumerGroupResetOffsetResultItem{}
-
-
-
-
 	return &this
 }
-
 
 // GetTopic returns the Topic field value if set, zero value otherwise.
 func (o *ConsumerGroupResetOffsetResultItem) GetTopic() string {
@@ -79,7 +70,6 @@ func (o *ConsumerGroupResetOffsetResultItem) SetTopic(v string) {
 	o.Topic = &v
 }
 
-
 // GetPartition returns the Partition field value if set, zero value otherwise.
 func (o *ConsumerGroupResetOffsetResultItem) GetPartition() int32 {
 	if o == nil || o.Partition == nil {
@@ -111,7 +101,6 @@ func (o *ConsumerGroupResetOffsetResultItem) HasPartition() bool {
 func (o *ConsumerGroupResetOffsetResultItem) SetPartition(v int32) {
 	o.Partition = &v
 }
-
 
 // GetOffset returns the Offset field value if set, zero value otherwise.
 func (o *ConsumerGroupResetOffsetResultItem) GetOffset() int64 {
@@ -145,22 +134,17 @@ func (o *ConsumerGroupResetOffsetResultItem) SetOffset(v int64) {
 	o.Offset = &v
 }
 
-
 func (o ConsumerGroupResetOffsetResultItem) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Topic != nil {
 		toSerialize["topic"] = o.Topic
 	}
-    
 	if o.Partition != nil {
 		toSerialize["partition"] = o.Partition
 	}
-    
 	if o.Offset != nil {
 		toSerialize["offset"] = o.Offset
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -199,4 +183,5 @@ func (v *NullableConsumerGroupResetOffsetResultItem) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

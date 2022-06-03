@@ -16,17 +16,11 @@ import (
 
 // ConnectorRequestMeta struct for ConnectorRequestMeta
 type ConnectorRequestMeta struct {
-
 	Name string `json:"name"`
-
 	ConnectorTypeId string `json:"connector_type_id"`
-
 	NamespaceId string `json:"namespace_id"`
-
 	Channel *Channel `json:"channel,omitempty"`
-
 	DesiredState ConnectorDesiredState `json:"desired_state"`
-
 }
 
 // NewConnectorRequestMeta instantiates a new ConnectorRequestMeta object
@@ -49,17 +43,10 @@ func NewConnectorRequestMeta(name string, connectorTypeId string, namespaceId st
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorRequestMetaWithDefaults() *ConnectorRequestMeta {
 	this := ConnectorRequestMeta{}
-
-
-
-
 	var channel Channel = CHANNEL_STABLE
 	this.Channel = &channel
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value
 func (o *ConnectorRequestMeta) GetName() string {
@@ -85,7 +72,6 @@ func (o *ConnectorRequestMeta) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetConnectorTypeId returns the ConnectorTypeId field value
 func (o *ConnectorRequestMeta) GetConnectorTypeId() string {
 	if o == nil {
@@ -110,7 +96,6 @@ func (o *ConnectorRequestMeta) SetConnectorTypeId(v string) {
 	o.ConnectorTypeId = v
 }
 
-
 // GetNamespaceId returns the NamespaceId field value
 func (o *ConnectorRequestMeta) GetNamespaceId() string {
 	if o == nil {
@@ -134,7 +119,6 @@ func (o *ConnectorRequestMeta) GetNamespaceIdOk() (*string, bool) {
 func (o *ConnectorRequestMeta) SetNamespaceId(v string) {
 	o.NamespaceId = v
 }
-
 
 // GetChannel returns the Channel field value if set, zero value otherwise.
 func (o *ConnectorRequestMeta) GetChannel() Channel {
@@ -168,7 +152,6 @@ func (o *ConnectorRequestMeta) SetChannel(v Channel) {
 	o.Channel = &v
 }
 
-
 // GetDesiredState returns the DesiredState field value
 func (o *ConnectorRequestMeta) GetDesiredState() ConnectorDesiredState {
 	if o == nil {
@@ -193,30 +176,23 @@ func (o *ConnectorRequestMeta) SetDesiredState(v ConnectorDesiredState) {
 	o.DesiredState = v
 }
 
-
 func (o ConnectorRequestMeta) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["name"] = o.Name
 	}
-    
 	if true {
 		toSerialize["connector_type_id"] = o.ConnectorTypeId
 	}
-    
 	if true {
 		toSerialize["namespace_id"] = o.NamespaceId
 	}
-    
 	if o.Channel != nil {
 		toSerialize["channel"] = o.Channel
 	}
-    
 	if true {
 		toSerialize["desired_state"] = o.DesiredState
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -255,4 +231,5 @@ func (v *NullableConnectorRequestMeta) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

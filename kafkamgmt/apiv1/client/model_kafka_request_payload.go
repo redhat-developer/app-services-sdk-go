@@ -16,28 +16,22 @@ import (
 
 // KafkaRequestPayload Schema for the request body sent to /kafkas POST
 type KafkaRequestPayload struct {
-
 	// The cloud provider where the Kafka cluster will be created in
 	CloudProvider *string `json:"cloud_provider,omitempty"`
-
+	// Deprecated. If it is specified, the value will be ignored. The API automatically determines this value from the 'plan' attribute\"
+	MultiAz *bool `json:"multi_az,omitempty"`
 	// The name of the Kafka cluster. It must consist of lower-case alphanumeric characters or '-', start with an alphabetic character, and end with an alphanumeric character, and can not be longer than 32 characters.
 	Name string `json:"name"`
-
 	// The region where the Kafka cluster will be created in
 	Region *string `json:"region,omitempty"`
-
 	// Whether connection reauthentication is enabled or not. If set to true, connection reauthentication on the Kafka instance will be required every 5 minutes. The default value is true
 	ReauthenticationEnabled NullableBool `json:"reauthentication_enabled,omitempty"`
-
 	// kafka plan in a format of <instance_type>.<size_id>
 	Plan *string `json:"plan,omitempty"`
-
 	// cloud account id used to purchase the instance
 	BillingCloudAccountId NullableString `json:"billing_cloud_account_id,omitempty"`
-
 	// marketplace where the instance is purchased on
 	Marketplace NullableString `json:"marketplace,omitempty"`
-
 }
 
 // NewKafkaRequestPayload instantiates a new KafkaRequestPayload object
@@ -55,17 +49,8 @@ func NewKafkaRequestPayload(name string) *KafkaRequestPayload {
 // but it doesn't guarantee that properties required by API are set
 func NewKafkaRequestPayloadWithDefaults() *KafkaRequestPayload {
 	this := KafkaRequestPayload{}
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetCloudProvider returns the CloudProvider field value if set, zero value otherwise.
 func (o *KafkaRequestPayload) GetCloudProvider() string {
@@ -99,6 +84,37 @@ func (o *KafkaRequestPayload) SetCloudProvider(v string) {
 	o.CloudProvider = &v
 }
 
+// GetMultiAz returns the MultiAz field value if set, zero value otherwise.
+func (o *KafkaRequestPayload) GetMultiAz() bool {
+	if o == nil || o.MultiAz == nil {
+		var ret bool
+		return ret
+	}
+	return *o.MultiAz
+}
+
+// GetMultiAzOk returns a tuple with the MultiAz field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *KafkaRequestPayload) GetMultiAzOk() (*bool, bool) {
+	if o == nil || o.MultiAz == nil {
+		return nil, false
+	}
+	return o.MultiAz, true
+}
+
+// HasMultiAz returns a boolean if a field has been set.
+func (o *KafkaRequestPayload) HasMultiAz() bool {
+	if o != nil && o.MultiAz != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMultiAz gets a reference to the given bool and assigns it to the MultiAz field.
+func (o *KafkaRequestPayload) SetMultiAz(v bool) {
+	o.MultiAz = &v
+}
 
 // GetName returns the Name field value
 func (o *KafkaRequestPayload) GetName() string {
@@ -123,7 +139,6 @@ func (o *KafkaRequestPayload) GetNameOk() (*string, bool) {
 func (o *KafkaRequestPayload) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetRegion returns the Region field value if set, zero value otherwise.
 func (o *KafkaRequestPayload) GetRegion() string {
@@ -156,7 +171,6 @@ func (o *KafkaRequestPayload) HasRegion() bool {
 func (o *KafkaRequestPayload) SetRegion(v string) {
 	o.Region = &v
 }
-
 
 // GetReauthenticationEnabled returns the ReauthenticationEnabled field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *KafkaRequestPayload) GetReauthenticationEnabled() bool {
@@ -200,7 +214,6 @@ func (o *KafkaRequestPayload) UnsetReauthenticationEnabled() {
 	o.ReauthenticationEnabled.Unset()
 }
 
-
 // GetPlan returns the Plan field value if set, zero value otherwise.
 func (o *KafkaRequestPayload) GetPlan() string {
 	if o == nil || o.Plan == nil {
@@ -232,7 +245,6 @@ func (o *KafkaRequestPayload) HasPlan() bool {
 func (o *KafkaRequestPayload) SetPlan(v string) {
 	o.Plan = &v
 }
-
 
 // GetBillingCloudAccountId returns the BillingCloudAccountId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *KafkaRequestPayload) GetBillingCloudAccountId() string {
@@ -276,7 +288,6 @@ func (o *KafkaRequestPayload) UnsetBillingCloudAccountId() {
 	o.BillingCloudAccountId.Unset()
 }
 
-
 // GetMarketplace returns the Marketplace field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *KafkaRequestPayload) GetMarketplace() string {
 	if o == nil || o.Marketplace.Get() == nil {
@@ -319,38 +330,32 @@ func (o *KafkaRequestPayload) UnsetMarketplace() {
 	o.Marketplace.Unset()
 }
 
-
 func (o KafkaRequestPayload) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.CloudProvider != nil {
 		toSerialize["cloud_provider"] = o.CloudProvider
 	}
-    
+	if o.MultiAz != nil {
+		toSerialize["multi_az"] = o.MultiAz
+	}
 	if true {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.Region != nil {
 		toSerialize["region"] = o.Region
 	}
-    
 	if o.ReauthenticationEnabled.IsSet() {
 		toSerialize["reauthentication_enabled"] = o.ReauthenticationEnabled.Get()
 	}
-    
 	if o.Plan != nil {
 		toSerialize["plan"] = o.Plan
 	}
-    
 	if o.BillingCloudAccountId.IsSet() {
 		toSerialize["billing_cloud_account_id"] = o.BillingCloudAccountId.Get()
 	}
-    
 	if o.Marketplace.IsSet() {
 		toSerialize["marketplace"] = o.Marketplace.Get()
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -389,4 +394,5 @@ func (v *NullableKafkaRequestPayload) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

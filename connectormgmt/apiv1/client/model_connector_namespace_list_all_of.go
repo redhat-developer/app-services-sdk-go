@@ -16,9 +16,7 @@ import (
 
 // ConnectorNamespaceListAllOf struct for ConnectorNamespaceListAllOf
 type ConnectorNamespaceListAllOf struct {
-
 	Items *[]ConnectorNamespace `json:"items,omitempty"`
-
 }
 
 // NewConnectorNamespaceListAllOf instantiates a new ConnectorNamespaceListAllOf object
@@ -35,11 +33,8 @@ func NewConnectorNamespaceListAllOf() *ConnectorNamespaceListAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorNamespaceListAllOfWithDefaults() *ConnectorNamespaceListAllOf {
 	this := ConnectorNamespaceListAllOf{}
-
-
 	return &this
 }
-
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *ConnectorNamespaceListAllOf) GetItems() []ConnectorNamespace {
@@ -73,14 +68,11 @@ func (o *ConnectorNamespaceListAllOf) SetItems(v []ConnectorNamespace) {
 	o.Items = &v
 }
 
-
 func (o ConnectorNamespaceListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -119,4 +111,5 @@ func (v *NullableConnectorNamespaceListAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

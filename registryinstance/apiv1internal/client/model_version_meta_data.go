@@ -17,36 +17,22 @@ import (
 
 // VersionMetaData struct for VersionMetaData
 type VersionMetaData struct {
-
 	Version string `json:"version"`
-
 	Name *string `json:"name,omitempty"`
-
 	Description *string `json:"description,omitempty"`
-
 	CreatedBy string `json:"createdBy"`
-
 	CreatedOn string `json:"createdOn"`
-
 	Type ArtifactType `json:"type"`
-
 	GlobalId int64 `json:"globalId"`
-
 	State *ArtifactState `json:"state,omitempty"`
-
 	// The ID of a single artifact.
 	Id string `json:"id"`
-
 	Labels *[]string `json:"labels,omitempty"`
-
 	// User-defined name-value pairs. Name and value must be strings.
 	Properties *map[string]string `json:"properties,omitempty"`
-
 	// An ID of a single artifact group.
 	GroupId *string `json:"groupId,omitempty"`
-
 	ContentId int64 `json:"contentId"`
-
 }
 
 // NewVersionMetaData instantiates a new VersionMetaData object
@@ -70,23 +56,8 @@ func NewVersionMetaData(version string, createdBy string, createdOn string, type
 // but it doesn't guarantee that properties required by API are set
 func NewVersionMetaDataWithDefaults() *VersionMetaData {
 	this := VersionMetaData{}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetVersion returns the Version field value
 func (o *VersionMetaData) GetVersion() string {
@@ -111,7 +82,6 @@ func (o *VersionMetaData) GetVersionOk() (*string, bool) {
 func (o *VersionMetaData) SetVersion(v string) {
 	o.Version = v
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *VersionMetaData) GetName() string {
@@ -145,7 +115,6 @@ func (o *VersionMetaData) SetName(v string) {
 	o.Name = &v
 }
 
-
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *VersionMetaData) GetDescription() string {
 	if o == nil || o.Description == nil {
@@ -178,7 +147,6 @@ func (o *VersionMetaData) SetDescription(v string) {
 	o.Description = &v
 }
 
-
 // GetCreatedBy returns the CreatedBy field value
 func (o *VersionMetaData) GetCreatedBy() string {
 	if o == nil {
@@ -202,7 +170,6 @@ func (o *VersionMetaData) GetCreatedByOk() (*string, bool) {
 func (o *VersionMetaData) SetCreatedBy(v string) {
 	o.CreatedBy = v
 }
-
 
 // GetCreatedOn returns the CreatedOn field value
 func (o *VersionMetaData) GetCreatedOn() string {
@@ -228,7 +195,6 @@ func (o *VersionMetaData) SetCreatedOn(v string) {
 	o.CreatedOn = v
 }
 
-
 // GetType returns the Type field value
 func (o *VersionMetaData) GetType() ArtifactType {
 	if o == nil {
@@ -253,7 +219,6 @@ func (o *VersionMetaData) SetType(v ArtifactType) {
 	o.Type = v
 }
 
-
 // GetGlobalId returns the GlobalId field value
 func (o *VersionMetaData) GetGlobalId() int64 {
 	if o == nil {
@@ -277,7 +242,6 @@ func (o *VersionMetaData) GetGlobalIdOk() (*int64, bool) {
 func (o *VersionMetaData) SetGlobalId(v int64) {
 	o.GlobalId = v
 }
-
 
 // GetState returns the State field value if set, zero value otherwise.
 func (o *VersionMetaData) GetState() ArtifactState {
@@ -311,7 +275,6 @@ func (o *VersionMetaData) SetState(v ArtifactState) {
 	o.State = &v
 }
 
-
 // GetId returns the Id field value
 func (o *VersionMetaData) GetId() string {
 	if o == nil {
@@ -335,7 +298,6 @@ func (o *VersionMetaData) GetIdOk() (*string, bool) {
 func (o *VersionMetaData) SetId(v string) {
 	o.Id = v
 }
-
 
 // GetLabels returns the Labels field value if set, zero value otherwise.
 func (o *VersionMetaData) GetLabels() []string {
@@ -369,7 +331,6 @@ func (o *VersionMetaData) SetLabels(v []string) {
 	o.Labels = &v
 }
 
-
 // GetProperties returns the Properties field value if set, zero value otherwise.
 func (o *VersionMetaData) GetProperties() map[string]string {
 	if o == nil || o.Properties == nil {
@@ -401,7 +362,6 @@ func (o *VersionMetaData) HasProperties() bool {
 func (o *VersionMetaData) SetProperties(v map[string]string) {
 	o.Properties = &v
 }
-
 
 // GetGroupId returns the GroupId field value if set, zero value otherwise.
 func (o *VersionMetaData) GetGroupId() string {
@@ -435,7 +395,6 @@ func (o *VersionMetaData) SetGroupId(v string) {
 	o.GroupId = &v
 }
 
-
 // GetContentId returns the ContentId field value
 func (o *VersionMetaData) GetContentId() int64 {
 	if o == nil {
@@ -460,62 +419,47 @@ func (o *VersionMetaData) SetContentId(v int64) {
 	o.ContentId = v
 }
 
-
 func (o VersionMetaData) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["version"] = o.Version
 	}
-    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-    
 	if true {
 		toSerialize["createdBy"] = o.CreatedBy
 	}
-    
 	if true {
 		toSerialize["createdOn"] = o.CreatedOn
 	}
-    
 	if true {
 		toSerialize["type"] = o.Type
 	}
-    
 	if true {
 		toSerialize["globalId"] = o.GlobalId
 	}
-    
 	if o.State != nil {
 		toSerialize["state"] = o.State
 	}
-    
 	if true {
 		toSerialize["id"] = o.Id
 	}
-    
 	if o.Labels != nil {
 		toSerialize["labels"] = o.Labels
 	}
-    
 	if o.Properties != nil {
 		toSerialize["properties"] = o.Properties
 	}
-    
 	if o.GroupId != nil {
 		toSerialize["groupId"] = o.GroupId
 	}
-    
 	if true {
 		toSerialize["contentId"] = o.ContentId
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -554,4 +498,5 @@ func (v *NullableVersionMetaData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

@@ -16,18 +16,13 @@ import (
 
 // Topic1 Kafka Topic (A feed where records are stored and published)
 type Topic1 struct {
-
 	// The name of the topic.
 	Name *string `json:"name,omitempty"`
-
 	IsInternal *bool `json:"isInternal,omitempty"`
-
 	// Partitions for this topic.
 	Partitions *[]Partition `json:"partitions,omitempty"`
-
 	// Topic configuration entry.
 	Config *[]ConfigEntry `json:"config,omitempty"`
-
 }
 
 // NewTopic1 instantiates a new Topic1 object
@@ -44,14 +39,8 @@ func NewTopic1() *Topic1 {
 // but it doesn't guarantee that properties required by API are set
 func NewTopic1WithDefaults() *Topic1 {
 	this := Topic1{}
-
-
-
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Topic1) GetName() string {
@@ -85,7 +74,6 @@ func (o *Topic1) SetName(v string) {
 	o.Name = &v
 }
 
-
 // GetIsInternal returns the IsInternal field value if set, zero value otherwise.
 func (o *Topic1) GetIsInternal() bool {
 	if o == nil || o.IsInternal == nil {
@@ -117,7 +105,6 @@ func (o *Topic1) HasIsInternal() bool {
 func (o *Topic1) SetIsInternal(v bool) {
 	o.IsInternal = &v
 }
-
 
 // GetPartitions returns the Partitions field value if set, zero value otherwise.
 func (o *Topic1) GetPartitions() []Partition {
@@ -151,7 +138,6 @@ func (o *Topic1) SetPartitions(v []Partition) {
 	o.Partitions = &v
 }
 
-
 // GetConfig returns the Config field value if set, zero value otherwise.
 func (o *Topic1) GetConfig() []ConfigEntry {
 	if o == nil || o.Config == nil {
@@ -184,26 +170,20 @@ func (o *Topic1) SetConfig(v []ConfigEntry) {
 	o.Config = &v
 }
 
-
 func (o Topic1) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.IsInternal != nil {
 		toSerialize["isInternal"] = o.IsInternal
 	}
-    
 	if o.Partitions != nil {
 		toSerialize["partitions"] = o.Partitions
 	}
-    
 	if o.Config != nil {
 		toSerialize["config"] = o.Config
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -242,4 +222,5 @@ func (v *NullableTopic1) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

@@ -16,17 +16,12 @@ import (
 
 // ConsumerGroupAllOf A group of Kafka consumers
 type ConsumerGroupAllOf struct {
-
 	// Unique identifier for the consumer group
 	GroupId string `json:"groupId"`
-
 	State *ConsumerGroupState `json:"state,omitempty"`
-
 	// The list of consumers associated with this consumer group
 	Consumers []Consumer `json:"consumers"`
-
 	Metrics *ConsumerGroupMetrics `json:"metrics,omitempty"`
-
 }
 
 // NewConsumerGroupAllOf instantiates a new ConsumerGroupAllOf object
@@ -45,14 +40,8 @@ func NewConsumerGroupAllOf(groupId string, consumers []Consumer) *ConsumerGroupA
 // but it doesn't guarantee that properties required by API are set
 func NewConsumerGroupAllOfWithDefaults() *ConsumerGroupAllOf {
 	this := ConsumerGroupAllOf{}
-
-
-
-
-
 	return &this
 }
-
 
 // GetGroupId returns the GroupId field value
 func (o *ConsumerGroupAllOf) GetGroupId() string {
@@ -77,7 +66,6 @@ func (o *ConsumerGroupAllOf) GetGroupIdOk() (*string, bool) {
 func (o *ConsumerGroupAllOf) SetGroupId(v string) {
 	o.GroupId = v
 }
-
 
 // GetState returns the State field value if set, zero value otherwise.
 func (o *ConsumerGroupAllOf) GetState() ConsumerGroupState {
@@ -111,7 +99,6 @@ func (o *ConsumerGroupAllOf) SetState(v ConsumerGroupState) {
 	o.State = &v
 }
 
-
 // GetConsumers returns the Consumers field value
 func (o *ConsumerGroupAllOf) GetConsumers() []Consumer {
 	if o == nil {
@@ -135,7 +122,6 @@ func (o *ConsumerGroupAllOf) GetConsumersOk() (*[]Consumer, bool) {
 func (o *ConsumerGroupAllOf) SetConsumers(v []Consumer) {
 	o.Consumers = v
 }
-
 
 // GetMetrics returns the Metrics field value if set, zero value otherwise.
 func (o *ConsumerGroupAllOf) GetMetrics() ConsumerGroupMetrics {
@@ -169,26 +155,20 @@ func (o *ConsumerGroupAllOf) SetMetrics(v ConsumerGroupMetrics) {
 	o.Metrics = &v
 }
 
-
 func (o ConsumerGroupAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["groupId"] = o.GroupId
 	}
-    
 	if o.State != nil {
 		toSerialize["state"] = o.State
 	}
-    
 	if true {
 		toSerialize["consumers"] = o.Consumers
 	}
-    
 	if o.Metrics != nil {
 		toSerialize["metrics"] = o.Metrics
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -227,4 +207,5 @@ func (v *NullableConsumerGroupAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

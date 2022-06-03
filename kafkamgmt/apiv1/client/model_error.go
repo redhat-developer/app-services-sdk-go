@@ -16,19 +16,12 @@ import (
 
 // Error struct for Error
 type Error struct {
-
 	Id *string `json:"id,omitempty"`
-
 	Kind *string `json:"kind,omitempty"`
-
 	Href *string `json:"href,omitempty"`
-
 	Code *string `json:"code,omitempty"`
-
 	Reason *string `json:"reason,omitempty"`
-
 	OperationId *string `json:"operation_id,omitempty"`
-
 }
 
 // NewError instantiates a new Error object
@@ -45,16 +38,8 @@ func NewError() *Error {
 // but it doesn't guarantee that properties required by API are set
 func NewErrorWithDefaults() *Error {
 	this := Error{}
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *Error) GetId() string {
@@ -88,7 +73,6 @@ func (o *Error) SetId(v string) {
 	o.Id = &v
 }
 
-
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *Error) GetKind() string {
 	if o == nil || o.Kind == nil {
@@ -120,7 +104,6 @@ func (o *Error) HasKind() bool {
 func (o *Error) SetKind(v string) {
 	o.Kind = &v
 }
-
 
 // GetHref returns the Href field value if set, zero value otherwise.
 func (o *Error) GetHref() string {
@@ -154,7 +137,6 @@ func (o *Error) SetHref(v string) {
 	o.Href = &v
 }
 
-
 // GetCode returns the Code field value if set, zero value otherwise.
 func (o *Error) GetCode() string {
 	if o == nil || o.Code == nil {
@@ -186,7 +168,6 @@ func (o *Error) HasCode() bool {
 func (o *Error) SetCode(v string) {
 	o.Code = &v
 }
-
 
 // GetReason returns the Reason field value if set, zero value otherwise.
 func (o *Error) GetReason() string {
@@ -220,7 +201,6 @@ func (o *Error) SetReason(v string) {
 	o.Reason = &v
 }
 
-
 // GetOperationId returns the OperationId field value if set, zero value otherwise.
 func (o *Error) GetOperationId() string {
 	if o == nil || o.OperationId == nil {
@@ -253,34 +233,26 @@ func (o *Error) SetOperationId(v string) {
 	o.OperationId = &v
 }
 
-
 func (o Error) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-    
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
 	}
-    
 	if o.Code != nil {
 		toSerialize["code"] = o.Code
 	}
-    
 	if o.Reason != nil {
 		toSerialize["reason"] = o.Reason
 	}
-    
 	if o.OperationId != nil {
 		toSerialize["operation_id"] = o.OperationId
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -319,4 +291,5 @@ func (v *NullableError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

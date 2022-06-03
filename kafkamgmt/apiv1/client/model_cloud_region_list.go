@@ -16,17 +16,11 @@ import (
 
 // CloudRegionList struct for CloudRegionList
 type CloudRegionList struct {
-
 	Kind string `json:"kind"`
-
 	Page int32 `json:"page"`
-
 	Size int32 `json:"size"`
-
 	Total int32 `json:"total"`
-
 	Items []CloudRegion `json:"items"`
-
 }
 
 // NewCloudRegionList instantiates a new CloudRegionList object
@@ -48,15 +42,8 @@ func NewCloudRegionList(kind string, page int32, size int32, total int32, items 
 // but it doesn't guarantee that properties required by API are set
 func NewCloudRegionListWithDefaults() *CloudRegionList {
 	this := CloudRegionList{}
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetKind returns the Kind field value
 func (o *CloudRegionList) GetKind() string {
@@ -82,7 +69,6 @@ func (o *CloudRegionList) SetKind(v string) {
 	o.Kind = v
 }
 
-
 // GetPage returns the Page field value
 func (o *CloudRegionList) GetPage() int32 {
 	if o == nil {
@@ -106,7 +92,6 @@ func (o *CloudRegionList) GetPageOk() (*int32, bool) {
 func (o *CloudRegionList) SetPage(v int32) {
 	o.Page = v
 }
-
 
 // GetSize returns the Size field value
 func (o *CloudRegionList) GetSize() int32 {
@@ -132,7 +117,6 @@ func (o *CloudRegionList) SetSize(v int32) {
 	o.Size = v
 }
 
-
 // GetTotal returns the Total field value
 func (o *CloudRegionList) GetTotal() int32 {
 	if o == nil {
@@ -156,7 +140,6 @@ func (o *CloudRegionList) GetTotalOk() (*int32, bool) {
 func (o *CloudRegionList) SetTotal(v int32) {
 	o.Total = v
 }
-
 
 // GetItems returns the Items field value
 func (o *CloudRegionList) GetItems() []CloudRegion {
@@ -182,30 +165,23 @@ func (o *CloudRegionList) SetItems(v []CloudRegion) {
 	o.Items = v
 }
 
-
 func (o CloudRegionList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if true {
 		toSerialize["page"] = o.Page
 	}
-    
 	if true {
 		toSerialize["size"] = o.Size
 	}
-    
 	if true {
 		toSerialize["total"] = o.Total
 	}
-    
 	if true {
 		toSerialize["items"] = o.Items
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -244,4 +220,5 @@ func (v *NullableCloudRegionList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

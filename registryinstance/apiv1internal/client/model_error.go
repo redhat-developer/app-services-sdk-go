@@ -17,19 +17,14 @@ import (
 
 // Error All error responses, whether `4xx` or `5xx` will include one of these as the response body.
 type Error struct {
-
 	// The short error message.
 	Message *string `json:"message,omitempty"`
-
 	// The server-side error code.
 	ErrorCode *int32 `json:"error_code,omitempty"`
-
 	// Full details about the error.  This might contain a server stack trace, for example.
 	Detail *string `json:"detail,omitempty"`
-
 	// The error name - typically the classname of the exception thrown by the server.
 	Name *string `json:"name,omitempty"`
-
 }
 
 // NewError instantiates a new Error object
@@ -46,14 +41,8 @@ func NewError() *Error {
 // but it doesn't guarantee that properties required by API are set
 func NewErrorWithDefaults() *Error {
 	this := Error{}
-
-
-
-
-
 	return &this
 }
-
 
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *Error) GetMessage() string {
@@ -87,7 +76,6 @@ func (o *Error) SetMessage(v string) {
 	o.Message = &v
 }
 
-
 // GetErrorCode returns the ErrorCode field value if set, zero value otherwise.
 func (o *Error) GetErrorCode() int32 {
 	if o == nil || o.ErrorCode == nil {
@@ -119,7 +107,6 @@ func (o *Error) HasErrorCode() bool {
 func (o *Error) SetErrorCode(v int32) {
 	o.ErrorCode = &v
 }
-
 
 // GetDetail returns the Detail field value if set, zero value otherwise.
 func (o *Error) GetDetail() string {
@@ -153,7 +140,6 @@ func (o *Error) SetDetail(v string) {
 	o.Detail = &v
 }
 
-
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Error) GetName() string {
 	if o == nil || o.Name == nil {
@@ -186,26 +172,20 @@ func (o *Error) SetName(v string) {
 	o.Name = &v
 }
 
-
 func (o Error) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Message != nil {
 		toSerialize["message"] = o.Message
 	}
-    
 	if o.ErrorCode != nil {
 		toSerialize["error_code"] = o.ErrorCode
 	}
-    
 	if o.Detail != nil {
 		toSerialize["detail"] = o.Detail
 	}
-    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -244,4 +224,5 @@ func (v *NullableError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

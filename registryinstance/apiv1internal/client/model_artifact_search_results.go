@@ -17,13 +17,10 @@ import (
 
 // ArtifactSearchResults Describes the response received when searching for artifacts.
 type ArtifactSearchResults struct {
-
 	// The artifacts returned in the result set.
 	Artifacts []SearchedArtifact `json:"artifacts"`
-
 	// The total number of artifacts that matched the query that produced the result set (may be  more than the number of artifacts in the result set).
 	Count int32 `json:"count"`
-
 }
 
 // NewArtifactSearchResults instantiates a new ArtifactSearchResults object
@@ -42,12 +39,8 @@ func NewArtifactSearchResults(artifacts []SearchedArtifact, count int32) *Artifa
 // but it doesn't guarantee that properties required by API are set
 func NewArtifactSearchResultsWithDefaults() *ArtifactSearchResults {
 	this := ArtifactSearchResults{}
-
-
-
 	return &this
 }
-
 
 // GetArtifacts returns the Artifacts field value
 func (o *ArtifactSearchResults) GetArtifacts() []SearchedArtifact {
@@ -73,7 +66,6 @@ func (o *ArtifactSearchResults) SetArtifacts(v []SearchedArtifact) {
 	o.Artifacts = v
 }
 
-
 // GetCount returns the Count field value
 func (o *ArtifactSearchResults) GetCount() int32 {
 	if o == nil {
@@ -98,18 +90,14 @@ func (o *ArtifactSearchResults) SetCount(v int32) {
 	o.Count = v
 }
 
-
 func (o ArtifactSearchResults) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["artifacts"] = o.Artifacts
 	}
-    
 	if true {
 		toSerialize["count"] = o.Count
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -148,4 +136,5 @@ func (v *NullableArtifactSearchResults) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

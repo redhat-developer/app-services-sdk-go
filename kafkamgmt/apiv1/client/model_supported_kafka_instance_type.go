@@ -16,16 +16,12 @@ import (
 
 // SupportedKafkaInstanceType Supported Kafka instance type
 type SupportedKafkaInstanceType struct {
-
 	// Unique identifier of the Kafka instance type.
 	Id *string `json:"id,omitempty"`
-
 	// Human readable name of the supported Kafka instance type
 	DisplayName *string `json:"display_name,omitempty"`
-
 	//  A list of Kafka instance sizes available for this instance type
 	Sizes *[]SupportedKafkaSize `json:"sizes,omitempty"`
-
 }
 
 // NewSupportedKafkaInstanceType instantiates a new SupportedKafkaInstanceType object
@@ -42,13 +38,8 @@ func NewSupportedKafkaInstanceType() *SupportedKafkaInstanceType {
 // but it doesn't guarantee that properties required by API are set
 func NewSupportedKafkaInstanceTypeWithDefaults() *SupportedKafkaInstanceType {
 	this := SupportedKafkaInstanceType{}
-
-
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *SupportedKafkaInstanceType) GetId() string {
@@ -82,7 +73,6 @@ func (o *SupportedKafkaInstanceType) SetId(v string) {
 	o.Id = &v
 }
 
-
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *SupportedKafkaInstanceType) GetDisplayName() string {
 	if o == nil || o.DisplayName == nil {
@@ -114,7 +104,6 @@ func (o *SupportedKafkaInstanceType) HasDisplayName() bool {
 func (o *SupportedKafkaInstanceType) SetDisplayName(v string) {
 	o.DisplayName = &v
 }
-
 
 // GetSizes returns the Sizes field value if set, zero value otherwise.
 func (o *SupportedKafkaInstanceType) GetSizes() []SupportedKafkaSize {
@@ -148,22 +137,17 @@ func (o *SupportedKafkaInstanceType) SetSizes(v []SupportedKafkaSize) {
 	o.Sizes = &v
 }
 
-
 func (o SupportedKafkaInstanceType) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-    
 	if o.DisplayName != nil {
 		toSerialize["display_name"] = o.DisplayName
 	}
-    
 	if o.Sizes != nil {
 		toSerialize["sizes"] = o.Sizes
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -202,4 +186,5 @@ func (v *NullableSupportedKafkaInstanceType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

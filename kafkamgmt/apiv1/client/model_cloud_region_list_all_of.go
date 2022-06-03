@@ -16,9 +16,7 @@ import (
 
 // CloudRegionListAllOf struct for CloudRegionListAllOf
 type CloudRegionListAllOf struct {
-
 	Items *[]CloudRegion `json:"items,omitempty"`
-
 }
 
 // NewCloudRegionListAllOf instantiates a new CloudRegionListAllOf object
@@ -35,11 +33,8 @@ func NewCloudRegionListAllOf() *CloudRegionListAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewCloudRegionListAllOfWithDefaults() *CloudRegionListAllOf {
 	this := CloudRegionListAllOf{}
-
-
 	return &this
 }
-
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *CloudRegionListAllOf) GetItems() []CloudRegion {
@@ -73,14 +68,11 @@ func (o *CloudRegionListAllOf) SetItems(v []CloudRegion) {
 	o.Items = &v
 }
 
-
 func (o CloudRegionListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -119,4 +111,5 @@ func (v *NullableCloudRegionListAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

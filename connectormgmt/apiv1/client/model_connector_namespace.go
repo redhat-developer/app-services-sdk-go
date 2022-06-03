@@ -17,36 +17,21 @@ import (
 
 // ConnectorNamespace A connector namespace
 type ConnectorNamespace struct {
-
 	Id string `json:"id"`
-
 	Kind *string `json:"kind,omitempty"`
-
 	Href *string `json:"href,omitempty"`
-
 	Owner *string `json:"owner,omitempty"`
-
 	CreatedAt *time.Time `json:"created_at,omitempty"`
-
 	ModifiedAt *time.Time `json:"modified_at,omitempty"`
-
 	Name string `json:"name"`
-
 	Annotations *map[string]string `json:"annotations,omitempty"`
-
 	ResourceVersion int64 `json:"resource_version"`
-
 	Quota *ConnectorNamespaceQuota `json:"quota,omitempty"`
-
 	ClusterId string `json:"cluster_id"`
-
 	// Namespace expiration timestamp in RFC 3339 format
 	Expiration *string `json:"expiration,omitempty"`
-
 	Tenant ConnectorNamespaceTenant `json:"tenant"`
-
 	Status ConnectorNamespaceStatus `json:"status"`
-
 }
 
 // NewConnectorNamespace instantiates a new ConnectorNamespace object
@@ -69,24 +54,8 @@ func NewConnectorNamespace(id string, name string, resourceVersion int64, cluste
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorNamespaceWithDefaults() *ConnectorNamespace {
 	this := ConnectorNamespace{}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value
 func (o *ConnectorNamespace) GetId() string {
@@ -111,7 +80,6 @@ func (o *ConnectorNamespace) GetIdOk() (*string, bool) {
 func (o *ConnectorNamespace) SetId(v string) {
 	o.Id = v
 }
-
 
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *ConnectorNamespace) GetKind() string {
@@ -145,7 +113,6 @@ func (o *ConnectorNamespace) SetKind(v string) {
 	o.Kind = &v
 }
 
-
 // GetHref returns the Href field value if set, zero value otherwise.
 func (o *ConnectorNamespace) GetHref() string {
 	if o == nil || o.Href == nil {
@@ -177,7 +144,6 @@ func (o *ConnectorNamespace) HasHref() bool {
 func (o *ConnectorNamespace) SetHref(v string) {
 	o.Href = &v
 }
-
 
 // GetOwner returns the Owner field value if set, zero value otherwise.
 func (o *ConnectorNamespace) GetOwner() string {
@@ -211,7 +177,6 @@ func (o *ConnectorNamespace) SetOwner(v string) {
 	o.Owner = &v
 }
 
-
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *ConnectorNamespace) GetCreatedAt() time.Time {
 	if o == nil || o.CreatedAt == nil {
@@ -243,7 +208,6 @@ func (o *ConnectorNamespace) HasCreatedAt() bool {
 func (o *ConnectorNamespace) SetCreatedAt(v time.Time) {
 	o.CreatedAt = &v
 }
-
 
 // GetModifiedAt returns the ModifiedAt field value if set, zero value otherwise.
 func (o *ConnectorNamespace) GetModifiedAt() time.Time {
@@ -277,7 +241,6 @@ func (o *ConnectorNamespace) SetModifiedAt(v time.Time) {
 	o.ModifiedAt = &v
 }
 
-
 // GetName returns the Name field value
 func (o *ConnectorNamespace) GetName() string {
 	if o == nil {
@@ -301,7 +264,6 @@ func (o *ConnectorNamespace) GetNameOk() (*string, bool) {
 func (o *ConnectorNamespace) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetAnnotations returns the Annotations field value if set, zero value otherwise.
 func (o *ConnectorNamespace) GetAnnotations() map[string]string {
@@ -335,7 +297,6 @@ func (o *ConnectorNamespace) SetAnnotations(v map[string]string) {
 	o.Annotations = &v
 }
 
-
 // GetResourceVersion returns the ResourceVersion field value
 func (o *ConnectorNamespace) GetResourceVersion() int64 {
 	if o == nil {
@@ -359,7 +320,6 @@ func (o *ConnectorNamespace) GetResourceVersionOk() (*int64, bool) {
 func (o *ConnectorNamespace) SetResourceVersion(v int64) {
 	o.ResourceVersion = v
 }
-
 
 // GetQuota returns the Quota field value if set, zero value otherwise.
 func (o *ConnectorNamespace) GetQuota() ConnectorNamespaceQuota {
@@ -393,7 +353,6 @@ func (o *ConnectorNamespace) SetQuota(v ConnectorNamespaceQuota) {
 	o.Quota = &v
 }
 
-
 // GetClusterId returns the ClusterId field value
 func (o *ConnectorNamespace) GetClusterId() string {
 	if o == nil {
@@ -417,7 +376,6 @@ func (o *ConnectorNamespace) GetClusterIdOk() (*string, bool) {
 func (o *ConnectorNamespace) SetClusterId(v string) {
 	o.ClusterId = v
 }
-
 
 // GetExpiration returns the Expiration field value if set, zero value otherwise.
 func (o *ConnectorNamespace) GetExpiration() string {
@@ -451,7 +409,6 @@ func (o *ConnectorNamespace) SetExpiration(v string) {
 	o.Expiration = &v
 }
 
-
 // GetTenant returns the Tenant field value
 func (o *ConnectorNamespace) GetTenant() ConnectorNamespaceTenant {
 	if o == nil {
@@ -475,7 +432,6 @@ func (o *ConnectorNamespace) GetTenantOk() (*ConnectorNamespaceTenant, bool) {
 func (o *ConnectorNamespace) SetTenant(v ConnectorNamespaceTenant) {
 	o.Tenant = v
 }
-
 
 // GetStatus returns the Status field value
 func (o *ConnectorNamespace) GetStatus() ConnectorNamespaceStatus {
@@ -501,66 +457,50 @@ func (o *ConnectorNamespace) SetStatus(v ConnectorNamespaceStatus) {
 	o.Status = v
 }
 
-
 func (o ConnectorNamespace) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["id"] = o.Id
 	}
-    
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
 	}
-    
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
 	}
-    
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt
 	}
-    
 	if o.ModifiedAt != nil {
 		toSerialize["modified_at"] = o.ModifiedAt
 	}
-    
 	if true {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.Annotations != nil {
 		toSerialize["annotations"] = o.Annotations
 	}
-    
 	if true {
 		toSerialize["resource_version"] = o.ResourceVersion
 	}
-    
 	if o.Quota != nil {
 		toSerialize["quota"] = o.Quota
 	}
-    
 	if true {
 		toSerialize["cluster_id"] = o.ClusterId
 	}
-    
 	if o.Expiration != nil {
 		toSerialize["expiration"] = o.Expiration
 	}
-    
 	if true {
 		toSerialize["tenant"] = o.Tenant
 	}
-    
 	if true {
 		toSerialize["status"] = o.Status
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -599,4 +539,5 @@ func (v *NullableConnectorNamespace) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

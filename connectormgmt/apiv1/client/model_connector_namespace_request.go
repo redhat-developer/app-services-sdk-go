@@ -16,16 +16,11 @@ import (
 
 // ConnectorNamespaceRequest A connector namespace create request
 type ConnectorNamespaceRequest struct {
-
 	// Namespace name must match pattern `^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$`, or it may be empty to be auto-generated.
 	Name string `json:"name"`
-
 	Annotations *map[string]string `json:"annotations,omitempty"`
-
 	ClusterId string `json:"cluster_id"`
-
 	Kind ConnectorNamespaceTenantKind `json:"kind"`
-
 }
 
 // NewConnectorNamespaceRequest instantiates a new ConnectorNamespaceRequest object
@@ -45,14 +40,8 @@ func NewConnectorNamespaceRequest(name string, clusterId string, kind ConnectorN
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorNamespaceRequestWithDefaults() *ConnectorNamespaceRequest {
 	this := ConnectorNamespaceRequest{}
-
-
-
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value
 func (o *ConnectorNamespaceRequest) GetName() string {
@@ -77,7 +66,6 @@ func (o *ConnectorNamespaceRequest) GetNameOk() (*string, bool) {
 func (o *ConnectorNamespaceRequest) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetAnnotations returns the Annotations field value if set, zero value otherwise.
 func (o *ConnectorNamespaceRequest) GetAnnotations() map[string]string {
@@ -111,7 +99,6 @@ func (o *ConnectorNamespaceRequest) SetAnnotations(v map[string]string) {
 	o.Annotations = &v
 }
 
-
 // GetClusterId returns the ClusterId field value
 func (o *ConnectorNamespaceRequest) GetClusterId() string {
 	if o == nil {
@@ -135,7 +122,6 @@ func (o *ConnectorNamespaceRequest) GetClusterIdOk() (*string, bool) {
 func (o *ConnectorNamespaceRequest) SetClusterId(v string) {
 	o.ClusterId = v
 }
-
 
 // GetKind returns the Kind field value
 func (o *ConnectorNamespaceRequest) GetKind() ConnectorNamespaceTenantKind {
@@ -161,26 +147,20 @@ func (o *ConnectorNamespaceRequest) SetKind(v ConnectorNamespaceTenantKind) {
 	o.Kind = v
 }
 
-
 func (o ConnectorNamespaceRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.Annotations != nil {
 		toSerialize["annotations"] = o.Annotations
 	}
-    
 	if true {
 		toSerialize["cluster_id"] = o.ClusterId
 	}
-    
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -219,4 +199,5 @@ func (v *NullableConnectorNamespaceRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

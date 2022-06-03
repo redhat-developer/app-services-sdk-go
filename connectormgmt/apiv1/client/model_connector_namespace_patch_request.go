@@ -16,12 +16,9 @@ import (
 
 // ConnectorNamespacePatchRequest A connector namespace patch request
 type ConnectorNamespacePatchRequest struct {
-
 	// Namespace name must match pattern `^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$`, or it may be empty to be auto-generated.
 	Name *string `json:"name,omitempty"`
-
 	Annotations *map[string]string `json:"annotations,omitempty"`
-
 }
 
 // NewConnectorNamespacePatchRequest instantiates a new ConnectorNamespacePatchRequest object
@@ -38,12 +35,8 @@ func NewConnectorNamespacePatchRequest() *ConnectorNamespacePatchRequest {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorNamespacePatchRequestWithDefaults() *ConnectorNamespacePatchRequest {
 	this := ConnectorNamespacePatchRequest{}
-
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ConnectorNamespacePatchRequest) GetName() string {
@@ -77,7 +70,6 @@ func (o *ConnectorNamespacePatchRequest) SetName(v string) {
 	o.Name = &v
 }
 
-
 // GetAnnotations returns the Annotations field value if set, zero value otherwise.
 func (o *ConnectorNamespacePatchRequest) GetAnnotations() map[string]string {
 	if o == nil || o.Annotations == nil {
@@ -110,18 +102,14 @@ func (o *ConnectorNamespacePatchRequest) SetAnnotations(v map[string]string) {
 	o.Annotations = &v
 }
 
-
 func (o ConnectorNamespacePatchRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.Annotations != nil {
 		toSerialize["annotations"] = o.Annotations
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -160,4 +148,5 @@ func (v *NullableConnectorNamespacePatchRequest) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

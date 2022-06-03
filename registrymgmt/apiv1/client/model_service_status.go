@@ -17,10 +17,8 @@ import (
 
 // ServiceStatus Schema for the service status response body
 type ServiceStatus struct {
-
 	// Boolean property indicating if the maximum number of total Registry instances have been reached, therefore creation of more instances should not be allowed.
 	MaxInstancesReached *bool `json:"max_instances_reached,omitempty"`
-
 }
 
 // NewServiceStatus instantiates a new ServiceStatus object
@@ -37,11 +35,8 @@ func NewServiceStatus() *ServiceStatus {
 // but it doesn't guarantee that properties required by API are set
 func NewServiceStatusWithDefaults() *ServiceStatus {
 	this := ServiceStatus{}
-
-
 	return &this
 }
-
 
 // GetMaxInstancesReached returns the MaxInstancesReached field value if set, zero value otherwise.
 func (o *ServiceStatus) GetMaxInstancesReached() bool {
@@ -75,14 +70,11 @@ func (o *ServiceStatus) SetMaxInstancesReached(v bool) {
 	o.MaxInstancesReached = &v
 }
 
-
 func (o ServiceStatus) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.MaxInstancesReached != nil {
 		toSerialize["max_instances_reached"] = o.MaxInstancesReached
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -121,4 +113,5 @@ func (v *NullableServiceStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

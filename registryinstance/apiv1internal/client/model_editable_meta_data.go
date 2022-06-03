@@ -17,16 +17,11 @@ import (
 
 // EditableMetaData struct for EditableMetaData
 type EditableMetaData struct {
-
 	Name *string `json:"name,omitempty"`
-
 	Description *string `json:"description,omitempty"`
-
 	Labels *[]string `json:"labels,omitempty"`
-
 	// User-defined name-value pairs. Name and value must be strings.
 	Properties *map[string]string `json:"properties,omitempty"`
-
 }
 
 // NewEditableMetaData instantiates a new EditableMetaData object
@@ -43,14 +38,8 @@ func NewEditableMetaData() *EditableMetaData {
 // but it doesn't guarantee that properties required by API are set
 func NewEditableMetaDataWithDefaults() *EditableMetaData {
 	this := EditableMetaData{}
-
-
-
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *EditableMetaData) GetName() string {
@@ -84,7 +73,6 @@ func (o *EditableMetaData) SetName(v string) {
 	o.Name = &v
 }
 
-
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *EditableMetaData) GetDescription() string {
 	if o == nil || o.Description == nil {
@@ -116,7 +104,6 @@ func (o *EditableMetaData) HasDescription() bool {
 func (o *EditableMetaData) SetDescription(v string) {
 	o.Description = &v
 }
-
 
 // GetLabels returns the Labels field value if set, zero value otherwise.
 func (o *EditableMetaData) GetLabels() []string {
@@ -150,7 +137,6 @@ func (o *EditableMetaData) SetLabels(v []string) {
 	o.Labels = &v
 }
 
-
 // GetProperties returns the Properties field value if set, zero value otherwise.
 func (o *EditableMetaData) GetProperties() map[string]string {
 	if o == nil || o.Properties == nil {
@@ -183,26 +169,20 @@ func (o *EditableMetaData) SetProperties(v map[string]string) {
 	o.Properties = &v
 }
 
-
 func (o EditableMetaData) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-    
 	if o.Labels != nil {
 		toSerialize["labels"] = o.Labels
 	}
-    
 	if o.Properties != nil {
 		toSerialize["properties"] = o.Properties
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -241,4 +221,5 @@ func (v *NullableEditableMetaData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

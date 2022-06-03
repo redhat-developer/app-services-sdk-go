@@ -17,13 +17,10 @@ import (
 
 // VersionSearchResults Describes the response received when searching for artifacts.
 type VersionSearchResults struct {
-
 	// The total number of versions that matched the query (may be more than the number of versions returned in the result set).
 	Count int32 `json:"count"`
-
 	// The collection of artifact versions returned in the result set.
 	Versions []SearchedVersion `json:"versions"`
-
 }
 
 // NewVersionSearchResults instantiates a new VersionSearchResults object
@@ -42,12 +39,8 @@ func NewVersionSearchResults(count int32, versions []SearchedVersion) *VersionSe
 // but it doesn't guarantee that properties required by API are set
 func NewVersionSearchResultsWithDefaults() *VersionSearchResults {
 	this := VersionSearchResults{}
-
-
-
 	return &this
 }
-
 
 // GetCount returns the Count field value
 func (o *VersionSearchResults) GetCount() int32 {
@@ -73,7 +66,6 @@ func (o *VersionSearchResults) SetCount(v int32) {
 	o.Count = v
 }
 
-
 // GetVersions returns the Versions field value
 func (o *VersionSearchResults) GetVersions() []SearchedVersion {
 	if o == nil {
@@ -98,18 +90,14 @@ func (o *VersionSearchResults) SetVersions(v []SearchedVersion) {
 	o.Versions = v
 }
 
-
 func (o VersionSearchResults) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["count"] = o.Count
 	}
-    
 	if true {
 		toSerialize["versions"] = o.Versions
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -148,4 +136,5 @@ func (v *NullableVersionSearchResults) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

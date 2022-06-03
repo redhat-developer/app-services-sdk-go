@@ -17,41 +17,23 @@ import (
 
 // Connector struct for Connector
 type Connector struct {
-
 	Id *string `json:"id,omitempty"`
-
 	Kind *string `json:"kind,omitempty"`
-
 	Href *string `json:"href,omitempty"`
-
 	Owner *string `json:"owner,omitempty"`
-
 	CreatedAt *time.Time `json:"created_at,omitempty"`
-
 	ModifiedAt *time.Time `json:"modified_at,omitempty"`
-
 	Name string `json:"name"`
-
 	ConnectorTypeId string `json:"connector_type_id"`
-
 	NamespaceId string `json:"namespace_id"`
-
 	Channel *Channel `json:"channel,omitempty"`
-
 	DesiredState ConnectorDesiredState `json:"desired_state"`
-
 	ResourceVersion *int64 `json:"resource_version,omitempty"`
-
 	Kafka KafkaConnectionSettings `json:"kafka"`
-
 	ServiceAccount ServiceAccount `json:"service_account"`
-
 	SchemaRegistry *SchemaRegistryConnectionSettings `json:"schema_registry,omitempty"`
-
 	Connector map[string]interface{} `json:"connector"`
-
 	Status *ConnectorStatusStatus `json:"status,omitempty"`
-
 }
 
 // NewConnector instantiates a new Connector object
@@ -77,29 +59,10 @@ func NewConnector(name string, connectorTypeId string, namespaceId string, desir
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorWithDefaults() *Connector {
 	this := Connector{}
-
-
-
-
-
-
-
-
-
-
 	var channel Channel = CHANNEL_STABLE
 	this.Channel = &channel
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *Connector) GetId() string {
@@ -133,7 +96,6 @@ func (o *Connector) SetId(v string) {
 	o.Id = &v
 }
 
-
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *Connector) GetKind() string {
 	if o == nil || o.Kind == nil {
@@ -165,7 +127,6 @@ func (o *Connector) HasKind() bool {
 func (o *Connector) SetKind(v string) {
 	o.Kind = &v
 }
-
 
 // GetHref returns the Href field value if set, zero value otherwise.
 func (o *Connector) GetHref() string {
@@ -199,7 +160,6 @@ func (o *Connector) SetHref(v string) {
 	o.Href = &v
 }
 
-
 // GetOwner returns the Owner field value if set, zero value otherwise.
 func (o *Connector) GetOwner() string {
 	if o == nil || o.Owner == nil {
@@ -231,7 +191,6 @@ func (o *Connector) HasOwner() bool {
 func (o *Connector) SetOwner(v string) {
 	o.Owner = &v
 }
-
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *Connector) GetCreatedAt() time.Time {
@@ -265,7 +224,6 @@ func (o *Connector) SetCreatedAt(v time.Time) {
 	o.CreatedAt = &v
 }
 
-
 // GetModifiedAt returns the ModifiedAt field value if set, zero value otherwise.
 func (o *Connector) GetModifiedAt() time.Time {
 	if o == nil || o.ModifiedAt == nil {
@@ -298,7 +256,6 @@ func (o *Connector) SetModifiedAt(v time.Time) {
 	o.ModifiedAt = &v
 }
 
-
 // GetName returns the Name field value
 func (o *Connector) GetName() string {
 	if o == nil {
@@ -322,7 +279,6 @@ func (o *Connector) GetNameOk() (*string, bool) {
 func (o *Connector) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetConnectorTypeId returns the ConnectorTypeId field value
 func (o *Connector) GetConnectorTypeId() string {
@@ -348,7 +304,6 @@ func (o *Connector) SetConnectorTypeId(v string) {
 	o.ConnectorTypeId = v
 }
 
-
 // GetNamespaceId returns the NamespaceId field value
 func (o *Connector) GetNamespaceId() string {
 	if o == nil {
@@ -372,7 +327,6 @@ func (o *Connector) GetNamespaceIdOk() (*string, bool) {
 func (o *Connector) SetNamespaceId(v string) {
 	o.NamespaceId = v
 }
-
 
 // GetChannel returns the Channel field value if set, zero value otherwise.
 func (o *Connector) GetChannel() Channel {
@@ -406,7 +360,6 @@ func (o *Connector) SetChannel(v Channel) {
 	o.Channel = &v
 }
 
-
 // GetDesiredState returns the DesiredState field value
 func (o *Connector) GetDesiredState() ConnectorDesiredState {
 	if o == nil {
@@ -430,7 +383,6 @@ func (o *Connector) GetDesiredStateOk() (*ConnectorDesiredState, bool) {
 func (o *Connector) SetDesiredState(v ConnectorDesiredState) {
 	o.DesiredState = v
 }
-
 
 // GetResourceVersion returns the ResourceVersion field value if set, zero value otherwise.
 func (o *Connector) GetResourceVersion() int64 {
@@ -464,7 +416,6 @@ func (o *Connector) SetResourceVersion(v int64) {
 	o.ResourceVersion = &v
 }
 
-
 // GetKafka returns the Kafka field value
 func (o *Connector) GetKafka() KafkaConnectionSettings {
 	if o == nil {
@@ -489,7 +440,6 @@ func (o *Connector) SetKafka(v KafkaConnectionSettings) {
 	o.Kafka = v
 }
 
-
 // GetServiceAccount returns the ServiceAccount field value
 func (o *Connector) GetServiceAccount() ServiceAccount {
 	if o == nil {
@@ -513,7 +463,6 @@ func (o *Connector) GetServiceAccountOk() (*ServiceAccount, bool) {
 func (o *Connector) SetServiceAccount(v ServiceAccount) {
 	o.ServiceAccount = v
 }
-
 
 // GetSchemaRegistry returns the SchemaRegistry field value if set, zero value otherwise.
 func (o *Connector) GetSchemaRegistry() SchemaRegistryConnectionSettings {
@@ -547,7 +496,6 @@ func (o *Connector) SetSchemaRegistry(v SchemaRegistryConnectionSettings) {
 	o.SchemaRegistry = &v
 }
 
-
 // GetConnector returns the Connector field value
 func (o *Connector) GetConnector() map[string]interface{} {
 	if o == nil {
@@ -571,7 +519,6 @@ func (o *Connector) GetConnectorOk() (*map[string]interface{}, bool) {
 func (o *Connector) SetConnector(v map[string]interface{}) {
 	o.Connector = v
 }
-
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *Connector) GetStatus() ConnectorStatusStatus {
@@ -605,78 +552,59 @@ func (o *Connector) SetStatus(v ConnectorStatusStatus) {
 	o.Status = &v
 }
 
-
 func (o Connector) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-    
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
 	}
-    
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
 	}
-    
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt
 	}
-    
 	if o.ModifiedAt != nil {
 		toSerialize["modified_at"] = o.ModifiedAt
 	}
-    
 	if true {
 		toSerialize["name"] = o.Name
 	}
-    
 	if true {
 		toSerialize["connector_type_id"] = o.ConnectorTypeId
 	}
-    
 	if true {
 		toSerialize["namespace_id"] = o.NamespaceId
 	}
-    
 	if o.Channel != nil {
 		toSerialize["channel"] = o.Channel
 	}
-    
 	if true {
 		toSerialize["desired_state"] = o.DesiredState
 	}
-    
 	if o.ResourceVersion != nil {
 		toSerialize["resource_version"] = o.ResourceVersion
 	}
-    
 	if true {
 		toSerialize["kafka"] = o.Kafka
 	}
-    
 	if true {
 		toSerialize["service_account"] = o.ServiceAccount
 	}
-    
 	if o.SchemaRegistry != nil {
 		toSerialize["schema_registry"] = o.SchemaRegistry
 	}
-    
 	if true {
 		toSerialize["connector"] = o.Connector
 	}
-    
 	if o.Status != nil {
 		toSerialize["status"] = o.Status
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -715,4 +643,5 @@ func (v *NullableConnector) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

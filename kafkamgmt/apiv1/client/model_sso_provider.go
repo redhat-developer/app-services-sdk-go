@@ -16,25 +16,16 @@ import (
 
 // SsoProvider SSO Provider
 type SsoProvider struct {
-
 	Id *string `json:"id,omitempty"`
-
 	Kind *string `json:"kind,omitempty"`
-
 	Href *string `json:"href,omitempty"`
-
 	// name of the sso provider
 	Name *string `json:"name,omitempty"`
-
 	// base url
 	BaseUrl *string `json:"base_url,omitempty"`
-
 	TokenUrl *string `json:"token_url,omitempty"`
-
 	Jwks *string `json:"jwks,omitempty"`
-
 	ValidIssuer *string `json:"valid_issuer,omitempty"`
-
 }
 
 // NewSsoProvider instantiates a new SsoProvider object
@@ -51,18 +42,8 @@ func NewSsoProvider() *SsoProvider {
 // but it doesn't guarantee that properties required by API are set
 func NewSsoProviderWithDefaults() *SsoProvider {
 	this := SsoProvider{}
-
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *SsoProvider) GetId() string {
@@ -96,7 +77,6 @@ func (o *SsoProvider) SetId(v string) {
 	o.Id = &v
 }
 
-
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *SsoProvider) GetKind() string {
 	if o == nil || o.Kind == nil {
@@ -128,7 +108,6 @@ func (o *SsoProvider) HasKind() bool {
 func (o *SsoProvider) SetKind(v string) {
 	o.Kind = &v
 }
-
 
 // GetHref returns the Href field value if set, zero value otherwise.
 func (o *SsoProvider) GetHref() string {
@@ -162,7 +141,6 @@ func (o *SsoProvider) SetHref(v string) {
 	o.Href = &v
 }
 
-
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *SsoProvider) GetName() string {
 	if o == nil || o.Name == nil {
@@ -194,7 +172,6 @@ func (o *SsoProvider) HasName() bool {
 func (o *SsoProvider) SetName(v string) {
 	o.Name = &v
 }
-
 
 // GetBaseUrl returns the BaseUrl field value if set, zero value otherwise.
 func (o *SsoProvider) GetBaseUrl() string {
@@ -228,7 +205,6 @@ func (o *SsoProvider) SetBaseUrl(v string) {
 	o.BaseUrl = &v
 }
 
-
 // GetTokenUrl returns the TokenUrl field value if set, zero value otherwise.
 func (o *SsoProvider) GetTokenUrl() string {
 	if o == nil || o.TokenUrl == nil {
@@ -260,7 +236,6 @@ func (o *SsoProvider) HasTokenUrl() bool {
 func (o *SsoProvider) SetTokenUrl(v string) {
 	o.TokenUrl = &v
 }
-
 
 // GetJwks returns the Jwks field value if set, zero value otherwise.
 func (o *SsoProvider) GetJwks() string {
@@ -294,7 +269,6 @@ func (o *SsoProvider) SetJwks(v string) {
 	o.Jwks = &v
 }
 
-
 // GetValidIssuer returns the ValidIssuer field value if set, zero value otherwise.
 func (o *SsoProvider) GetValidIssuer() string {
 	if o == nil || o.ValidIssuer == nil {
@@ -327,42 +301,32 @@ func (o *SsoProvider) SetValidIssuer(v string) {
 	o.ValidIssuer = &v
 }
 
-
 func (o SsoProvider) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-    
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
 	}
-    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.BaseUrl != nil {
 		toSerialize["base_url"] = o.BaseUrl
 	}
-    
 	if o.TokenUrl != nil {
 		toSerialize["token_url"] = o.TokenUrl
 	}
-    
 	if o.Jwks != nil {
 		toSerialize["jwks"] = o.Jwks
 	}
-    
 	if o.ValidIssuer != nil {
 		toSerialize["valid_issuer"] = o.ValidIssuer
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -401,4 +365,5 @@ func (v *NullableSsoProvider) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

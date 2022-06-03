@@ -16,34 +16,24 @@ import (
 
 // ConnectorTypeAllOf struct for ConnectorTypeAllOf
 type ConnectorTypeAllOf struct {
-
 	// Name of the connector type.
 	Name *string `json:"name,omitempty"`
-
 	// Version of the connector type.
 	Version *string `json:"version,omitempty"`
-
 	// Channels of the connector type.
 	Channels *[]Channel `json:"channels,omitempty"`
-
 	// A description of the connector.
 	Description *string `json:"description,omitempty"`
-
 	// URL to an icon of the connector.
 	IconHref *string `json:"icon_href,omitempty"`
-
 	// Labels used to categorize the connector
 	Labels *[]string `json:"labels,omitempty"`
-
 	// The capabilities supported by the conenctor
 	Capabilities *[]string `json:"capabilities,omitempty"`
-
 	// A json schema that can be used to validate a ConnectorRequest connector field.
 	Schema *map[string]interface{} `json:"schema,omitempty"`
-
 	// A json schema that can be used to validate a ConnectorRequest connector field.
 	JsonSchema *map[string]interface{} `json:"json_schema,omitempty"`
-
 }
 
 // NewConnectorTypeAllOf instantiates a new ConnectorTypeAllOf object
@@ -60,19 +50,8 @@ func NewConnectorTypeAllOf() *ConnectorTypeAllOf {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorTypeAllOfWithDefaults() *ConnectorTypeAllOf {
 	this := ConnectorTypeAllOf{}
-
-
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ConnectorTypeAllOf) GetName() string {
@@ -106,7 +85,6 @@ func (o *ConnectorTypeAllOf) SetName(v string) {
 	o.Name = &v
 }
 
-
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *ConnectorTypeAllOf) GetVersion() string {
 	if o == nil || o.Version == nil {
@@ -138,7 +116,6 @@ func (o *ConnectorTypeAllOf) HasVersion() bool {
 func (o *ConnectorTypeAllOf) SetVersion(v string) {
 	o.Version = &v
 }
-
 
 // GetChannels returns the Channels field value if set, zero value otherwise.
 func (o *ConnectorTypeAllOf) GetChannels() []Channel {
@@ -172,7 +149,6 @@ func (o *ConnectorTypeAllOf) SetChannels(v []Channel) {
 	o.Channels = &v
 }
 
-
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ConnectorTypeAllOf) GetDescription() string {
 	if o == nil || o.Description == nil {
@@ -204,7 +180,6 @@ func (o *ConnectorTypeAllOf) HasDescription() bool {
 func (o *ConnectorTypeAllOf) SetDescription(v string) {
 	o.Description = &v
 }
-
 
 // GetIconHref returns the IconHref field value if set, zero value otherwise.
 func (o *ConnectorTypeAllOf) GetIconHref() string {
@@ -238,7 +213,6 @@ func (o *ConnectorTypeAllOf) SetIconHref(v string) {
 	o.IconHref = &v
 }
 
-
 // GetLabels returns the Labels field value if set, zero value otherwise.
 func (o *ConnectorTypeAllOf) GetLabels() []string {
 	if o == nil || o.Labels == nil {
@@ -270,7 +244,6 @@ func (o *ConnectorTypeAllOf) HasLabels() bool {
 func (o *ConnectorTypeAllOf) SetLabels(v []string) {
 	o.Labels = &v
 }
-
 
 // GetCapabilities returns the Capabilities field value if set, zero value otherwise.
 func (o *ConnectorTypeAllOf) GetCapabilities() []string {
@@ -304,7 +277,6 @@ func (o *ConnectorTypeAllOf) SetCapabilities(v []string) {
 	o.Capabilities = &v
 }
 
-
 // GetSchema returns the Schema field value if set, zero value otherwise.
 func (o *ConnectorTypeAllOf) GetSchema() map[string]interface{} {
 	if o == nil || o.Schema == nil {
@@ -336,7 +308,6 @@ func (o *ConnectorTypeAllOf) HasSchema() bool {
 func (o *ConnectorTypeAllOf) SetSchema(v map[string]interface{}) {
 	o.Schema = &v
 }
-
 
 // GetJsonSchema returns the JsonSchema field value if set, zero value otherwise.
 func (o *ConnectorTypeAllOf) GetJsonSchema() map[string]interface{} {
@@ -370,46 +341,35 @@ func (o *ConnectorTypeAllOf) SetJsonSchema(v map[string]interface{}) {
 	o.JsonSchema = &v
 }
 
-
 func (o ConnectorTypeAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.Version != nil {
 		toSerialize["version"] = o.Version
 	}
-    
 	if o.Channels != nil {
 		toSerialize["channels"] = o.Channels
 	}
-    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-    
 	if o.IconHref != nil {
 		toSerialize["icon_href"] = o.IconHref
 	}
-    
 	if o.Labels != nil {
 		toSerialize["labels"] = o.Labels
 	}
-    
 	if o.Capabilities != nil {
 		toSerialize["capabilities"] = o.Capabilities
 	}
-    
 	if o.Schema != nil {
 		toSerialize["schema"] = o.Schema
 	}
-    
 	if o.JsonSchema != nil {
 		toSerialize["json_schema"] = o.JsonSchema
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -448,4 +408,5 @@ func (v *NullableConnectorTypeAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

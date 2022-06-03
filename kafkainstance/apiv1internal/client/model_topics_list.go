@@ -16,20 +16,20 @@ import (
 
 // TopicsList struct for TopicsList
 type TopicsList struct {
-
 	Kind *string `json:"kind,omitempty"`
-
 	Items []Topic `json:"items"`
-
 	// Total number of entries in the full result set
 	Total int32 `json:"total"`
-
 	// Number of entries per page (returned for fetch requests)
 	Size *int32 `json:"size,omitempty"`
-
 	// Current page number (returned for fetch requests)
 	Page *int32 `json:"page,omitempty"`
-
+	// Offset of the first record returned, zero-based
+	Offset *int32 `json:"offset,omitempty"`
+	// Maximum number of records to return, from request
+	Limit *int32 `json:"limit,omitempty"`
+	// Total number of entries in the full result set
+	Count *int32 `json:"count,omitempty"`
 }
 
 // NewTopicsList instantiates a new TopicsList object
@@ -48,15 +48,8 @@ func NewTopicsList(items []Topic, total int32) *TopicsList {
 // but it doesn't guarantee that properties required by API are set
 func NewTopicsListWithDefaults() *TopicsList {
 	this := TopicsList{}
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *TopicsList) GetKind() string {
@@ -90,7 +83,6 @@ func (o *TopicsList) SetKind(v string) {
 	o.Kind = &v
 }
 
-
 // GetItems returns the Items field value
 func (o *TopicsList) GetItems() []Topic {
 	if o == nil {
@@ -115,7 +107,6 @@ func (o *TopicsList) SetItems(v []Topic) {
 	o.Items = v
 }
 
-
 // GetTotal returns the Total field value
 func (o *TopicsList) GetTotal() int32 {
 	if o == nil {
@@ -139,7 +130,6 @@ func (o *TopicsList) GetTotalOk() (*int32, bool) {
 func (o *TopicsList) SetTotal(v int32) {
 	o.Total = v
 }
-
 
 // GetSize returns the Size field value if set, zero value otherwise.
 func (o *TopicsList) GetSize() int32 {
@@ -173,7 +163,6 @@ func (o *TopicsList) SetSize(v int32) {
 	o.Size = &v
 }
 
-
 // GetPage returns the Page field value if set, zero value otherwise.
 func (o *TopicsList) GetPage() int32 {
 	if o == nil || o.Page == nil {
@@ -206,30 +195,128 @@ func (o *TopicsList) SetPage(v int32) {
 	o.Page = &v
 }
 
+// GetOffset returns the Offset field value if set, zero value otherwise.
+func (o *TopicsList) GetOffset() int32 {
+	if o == nil || o.Offset == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Offset
+}
+
+// GetOffsetOk returns a tuple with the Offset field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TopicsList) GetOffsetOk() (*int32, bool) {
+	if o == nil || o.Offset == nil {
+		return nil, false
+	}
+	return o.Offset, true
+}
+
+// HasOffset returns a boolean if a field has been set.
+func (o *TopicsList) HasOffset() bool {
+	if o != nil && o.Offset != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOffset gets a reference to the given int32 and assigns it to the Offset field.
+func (o *TopicsList) SetOffset(v int32) {
+	o.Offset = &v
+}
+
+// GetLimit returns the Limit field value if set, zero value otherwise.
+func (o *TopicsList) GetLimit() int32 {
+	if o == nil || o.Limit == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Limit
+}
+
+// GetLimitOk returns a tuple with the Limit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TopicsList) GetLimitOk() (*int32, bool) {
+	if o == nil || o.Limit == nil {
+		return nil, false
+	}
+	return o.Limit, true
+}
+
+// HasLimit returns a boolean if a field has been set.
+func (o *TopicsList) HasLimit() bool {
+	if o != nil && o.Limit != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLimit gets a reference to the given int32 and assigns it to the Limit field.
+func (o *TopicsList) SetLimit(v int32) {
+	o.Limit = &v
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *TopicsList) GetCount() int32 {
+	if o == nil || o.Count == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TopicsList) GetCountOk() (*int32, bool) {
+	if o == nil || o.Count == nil {
+		return nil, false
+	}
+	return o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *TopicsList) HasCount() bool {
+	if o != nil && o.Count != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *TopicsList) SetCount(v int32) {
+	o.Count = &v
+}
 
 func (o TopicsList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if true {
 		toSerialize["items"] = o.Items
 	}
-    
 	if true {
 		toSerialize["total"] = o.Total
 	}
-    
 	if o.Size != nil {
 		toSerialize["size"] = o.Size
 	}
-    
 	if o.Page != nil {
 		toSerialize["page"] = o.Page
 	}
-    
+	if o.Offset != nil {
+		toSerialize["offset"] = o.Offset
+	}
+	if o.Limit != nil {
+		toSerialize["limit"] = o.Limit
+	}
+	if o.Count != nil {
+		toSerialize["count"] = o.Count
+	}
 	return json.Marshal(toSerialize)
 }
 
@@ -268,4 +355,5 @@ func (v *NullableTopicsList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

@@ -16,13 +16,9 @@ import (
 
 // ConsumerGroupMetrics struct for ConsumerGroupMetrics
 type ConsumerGroupMetrics struct {
-
 	LaggingPartitions *int32 `json:"laggingPartitions,omitempty"`
-
 	ActiveConsumers *int32 `json:"activeConsumers,omitempty"`
-
 	UnassignedPartitions *int32 `json:"unassignedPartitions,omitempty"`
-
 }
 
 // NewConsumerGroupMetrics instantiates a new ConsumerGroupMetrics object
@@ -39,13 +35,8 @@ func NewConsumerGroupMetrics() *ConsumerGroupMetrics {
 // but it doesn't guarantee that properties required by API are set
 func NewConsumerGroupMetricsWithDefaults() *ConsumerGroupMetrics {
 	this := ConsumerGroupMetrics{}
-
-
-
-
 	return &this
 }
-
 
 // GetLaggingPartitions returns the LaggingPartitions field value if set, zero value otherwise.
 func (o *ConsumerGroupMetrics) GetLaggingPartitions() int32 {
@@ -79,7 +70,6 @@ func (o *ConsumerGroupMetrics) SetLaggingPartitions(v int32) {
 	o.LaggingPartitions = &v
 }
 
-
 // GetActiveConsumers returns the ActiveConsumers field value if set, zero value otherwise.
 func (o *ConsumerGroupMetrics) GetActiveConsumers() int32 {
 	if o == nil || o.ActiveConsumers == nil {
@@ -111,7 +101,6 @@ func (o *ConsumerGroupMetrics) HasActiveConsumers() bool {
 func (o *ConsumerGroupMetrics) SetActiveConsumers(v int32) {
 	o.ActiveConsumers = &v
 }
-
 
 // GetUnassignedPartitions returns the UnassignedPartitions field value if set, zero value otherwise.
 func (o *ConsumerGroupMetrics) GetUnassignedPartitions() int32 {
@@ -145,22 +134,17 @@ func (o *ConsumerGroupMetrics) SetUnassignedPartitions(v int32) {
 	o.UnassignedPartitions = &v
 }
 
-
 func (o ConsumerGroupMetrics) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.LaggingPartitions != nil {
 		toSerialize["laggingPartitions"] = o.LaggingPartitions
 	}
-    
 	if o.ActiveConsumers != nil {
 		toSerialize["activeConsumers"] = o.ActiveConsumers
 	}
-    
 	if o.UnassignedPartitions != nil {
 		toSerialize["unassignedPartitions"] = o.UnassignedPartitions
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -199,4 +183,5 @@ func (v *NullableConsumerGroupMetrics) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

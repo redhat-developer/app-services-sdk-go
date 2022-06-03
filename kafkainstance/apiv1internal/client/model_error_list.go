@@ -16,12 +16,9 @@ import (
 
 // ErrorList List of errors
 type ErrorList struct {
-
 	Items *[]Error `json:"items,omitempty"`
-
 	// Total number of errors returned in this request
 	Total interface{} `json:"total,omitempty"`
-
 }
 
 // NewErrorList instantiates a new ErrorList object
@@ -38,12 +35,8 @@ func NewErrorList() *ErrorList {
 // but it doesn't guarantee that properties required by API are set
 func NewErrorListWithDefaults() *ErrorList {
 	this := ErrorList{}
-
-
-
 	return &this
 }
-
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *ErrorList) GetItems() []Error {
@@ -76,7 +69,6 @@ func (o *ErrorList) HasItems() bool {
 func (o *ErrorList) SetItems(v []Error) {
 	o.Items = &v
 }
-
 
 // GetTotal returns the Total field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ErrorList) GetTotal() interface{} {
@@ -111,18 +103,14 @@ func (o *ErrorList) SetTotal(v interface{}) {
 	o.Total = v
 }
 
-
 func (o ErrorList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-    
 	if o.Total != nil {
 		toSerialize["total"] = o.Total
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -161,4 +149,5 @@ func (v *NullableErrorList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

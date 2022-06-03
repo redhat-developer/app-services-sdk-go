@@ -16,12 +16,9 @@ import (
 
 // ConnectorNamespaceTenant struct for ConnectorNamespaceTenant
 type ConnectorNamespaceTenant struct {
-
 	Kind ConnectorNamespaceTenantKind `json:"kind"`
-
 	// Either user or organisation id depending on the value of kind
 	Id string `json:"id"`
-
 }
 
 // NewConnectorNamespaceTenant instantiates a new ConnectorNamespaceTenant object
@@ -40,12 +37,8 @@ func NewConnectorNamespaceTenant(kind ConnectorNamespaceTenantKind, id string) *
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorNamespaceTenantWithDefaults() *ConnectorNamespaceTenant {
 	this := ConnectorNamespaceTenant{}
-
-
-
 	return &this
 }
-
 
 // GetKind returns the Kind field value
 func (o *ConnectorNamespaceTenant) GetKind() ConnectorNamespaceTenantKind {
@@ -71,7 +64,6 @@ func (o *ConnectorNamespaceTenant) SetKind(v ConnectorNamespaceTenantKind) {
 	o.Kind = v
 }
 
-
 // GetId returns the Id field value
 func (o *ConnectorNamespaceTenant) GetId() string {
 	if o == nil {
@@ -96,18 +88,14 @@ func (o *ConnectorNamespaceTenant) SetId(v string) {
 	o.Id = v
 }
 
-
 func (o ConnectorNamespaceTenant) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if true {
 		toSerialize["id"] = o.Id
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -146,4 +134,5 @@ func (v *NullableConnectorNamespaceTenant) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

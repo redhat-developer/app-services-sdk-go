@@ -16,11 +16,8 @@ import (
 
 // ConnectorClusterStatusStatus struct for ConnectorClusterStatusStatus
 type ConnectorClusterStatusStatus struct {
-
 	State *ConnectorClusterState `json:"state,omitempty"`
-
 	Error *string `json:"error,omitempty"`
-
 }
 
 // NewConnectorClusterStatusStatus instantiates a new ConnectorClusterStatusStatus object
@@ -37,12 +34,8 @@ func NewConnectorClusterStatusStatus() *ConnectorClusterStatusStatus {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorClusterStatusStatusWithDefaults() *ConnectorClusterStatusStatus {
 	this := ConnectorClusterStatusStatus{}
-
-
-
 	return &this
 }
-
 
 // GetState returns the State field value if set, zero value otherwise.
 func (o *ConnectorClusterStatusStatus) GetState() ConnectorClusterState {
@@ -76,7 +69,6 @@ func (o *ConnectorClusterStatusStatus) SetState(v ConnectorClusterState) {
 	o.State = &v
 }
 
-
 // GetError returns the Error field value if set, zero value otherwise.
 func (o *ConnectorClusterStatusStatus) GetError() string {
 	if o == nil || o.Error == nil {
@@ -109,18 +101,14 @@ func (o *ConnectorClusterStatusStatus) SetError(v string) {
 	o.Error = &v
 }
 
-
 func (o ConnectorClusterStatusStatus) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.State != nil {
 		toSerialize["state"] = o.State
 	}
-    
 	if o.Error != nil {
 		toSerialize["error"] = o.Error
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -159,4 +147,5 @@ func (v *NullableConnectorClusterStatusStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

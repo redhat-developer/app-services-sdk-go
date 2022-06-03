@@ -17,13 +17,10 @@ import (
 
 // RegistryCreate Information used to create a new Service Registry instance in a multi-tenant deployment.
 type RegistryCreate struct {
-
 	// User-defined Registry instance name. Required. Does not have to be unique.
 	Name *string `json:"name,omitempty"`
-
 	// User-provided description of the new Service Registry instance. Not required.
 	Description *string `json:"description,omitempty"`
-
 }
 
 // NewRegistryCreate instantiates a new RegistryCreate object
@@ -40,12 +37,8 @@ func NewRegistryCreate() *RegistryCreate {
 // but it doesn't guarantee that properties required by API are set
 func NewRegistryCreateWithDefaults() *RegistryCreate {
 	this := RegistryCreate{}
-
-
-
 	return &this
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *RegistryCreate) GetName() string {
@@ -79,7 +72,6 @@ func (o *RegistryCreate) SetName(v string) {
 	o.Name = &v
 }
 
-
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *RegistryCreate) GetDescription() string {
 	if o == nil || o.Description == nil {
@@ -112,18 +104,14 @@ func (o *RegistryCreate) SetDescription(v string) {
 	o.Description = &v
 }
 
-
 func (o RegistryCreate) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -162,4 +150,5 @@ func (v *NullableRegistryCreate) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

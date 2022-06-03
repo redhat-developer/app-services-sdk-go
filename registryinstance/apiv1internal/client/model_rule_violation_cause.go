@@ -17,11 +17,8 @@ import (
 
 // RuleViolationCause struct for RuleViolationCause
 type RuleViolationCause struct {
-
 	Description *string `json:"description,omitempty"`
-
 	Context *string `json:"context,omitempty"`
-
 }
 
 // NewRuleViolationCause instantiates a new RuleViolationCause object
@@ -38,12 +35,8 @@ func NewRuleViolationCause() *RuleViolationCause {
 // but it doesn't guarantee that properties required by API are set
 func NewRuleViolationCauseWithDefaults() *RuleViolationCause {
 	this := RuleViolationCause{}
-
-
-
 	return &this
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *RuleViolationCause) GetDescription() string {
@@ -77,7 +70,6 @@ func (o *RuleViolationCause) SetDescription(v string) {
 	o.Description = &v
 }
 
-
 // GetContext returns the Context field value if set, zero value otherwise.
 func (o *RuleViolationCause) GetContext() string {
 	if o == nil || o.Context == nil {
@@ -110,18 +102,14 @@ func (o *RuleViolationCause) SetContext(v string) {
 	o.Context = &v
 }
 
-
 func (o RuleViolationCause) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
-    
 	if o.Context != nil {
 		toSerialize["context"] = o.Context
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -160,4 +148,5 @@ func (v *NullableRuleViolationCause) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

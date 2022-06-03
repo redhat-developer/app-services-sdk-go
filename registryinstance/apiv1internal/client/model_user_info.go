@@ -17,17 +17,11 @@ import (
 
 // UserInfo Information about a single user.
 type UserInfo struct {
-
 	Username *string `json:"username,omitempty"`
-
 	DisplayName *string `json:"displayName,omitempty"`
-
 	Admin *bool `json:"admin,omitempty"`
-
 	Developer *bool `json:"developer,omitempty"`
-
 	Viewer *bool `json:"viewer,omitempty"`
-
 }
 
 // NewUserInfo instantiates a new UserInfo object
@@ -44,15 +38,8 @@ func NewUserInfo() *UserInfo {
 // but it doesn't guarantee that properties required by API are set
 func NewUserInfoWithDefaults() *UserInfo {
 	this := UserInfo{}
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetUsername returns the Username field value if set, zero value otherwise.
 func (o *UserInfo) GetUsername() string {
@@ -86,7 +73,6 @@ func (o *UserInfo) SetUsername(v string) {
 	o.Username = &v
 }
 
-
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *UserInfo) GetDisplayName() string {
 	if o == nil || o.DisplayName == nil {
@@ -118,7 +104,6 @@ func (o *UserInfo) HasDisplayName() bool {
 func (o *UserInfo) SetDisplayName(v string) {
 	o.DisplayName = &v
 }
-
 
 // GetAdmin returns the Admin field value if set, zero value otherwise.
 func (o *UserInfo) GetAdmin() bool {
@@ -152,7 +137,6 @@ func (o *UserInfo) SetAdmin(v bool) {
 	o.Admin = &v
 }
 
-
 // GetDeveloper returns the Developer field value if set, zero value otherwise.
 func (o *UserInfo) GetDeveloper() bool {
 	if o == nil || o.Developer == nil {
@@ -184,7 +168,6 @@ func (o *UserInfo) HasDeveloper() bool {
 func (o *UserInfo) SetDeveloper(v bool) {
 	o.Developer = &v
 }
-
 
 // GetViewer returns the Viewer field value if set, zero value otherwise.
 func (o *UserInfo) GetViewer() bool {
@@ -218,30 +201,23 @@ func (o *UserInfo) SetViewer(v bool) {
 	o.Viewer = &v
 }
 
-
 func (o UserInfo) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Username != nil {
 		toSerialize["username"] = o.Username
 	}
-    
 	if o.DisplayName != nil {
 		toSerialize["displayName"] = o.DisplayName
 	}
-    
 	if o.Admin != nil {
 		toSerialize["admin"] = o.Admin
 	}
-    
 	if o.Developer != nil {
 		toSerialize["developer"] = o.Developer
 	}
-    
 	if o.Viewer != nil {
 		toSerialize["viewer"] = o.Viewer
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -280,4 +256,5 @@ func (v *NullableUserInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

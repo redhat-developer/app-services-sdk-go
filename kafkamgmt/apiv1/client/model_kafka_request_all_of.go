@@ -17,65 +17,37 @@ import (
 
 // KafkaRequestAllOf struct for KafkaRequestAllOf
 type KafkaRequestAllOf struct {
-
 	// Values: [accepted, preparing, provisioning, ready, failed, deprovision, deleting] 
 	Status *string `json:"status,omitempty"`
-
 	// Name of Cloud used to deploy. For example AWS
 	CloudProvider *string `json:"cloud_provider,omitempty"`
-
 	MultiAz bool `json:"multi_az"`
-
 	// Values will be regions of specific cloud provider. For example: us-east-1 for AWS
 	Region *string `json:"region,omitempty"`
-
 	Owner *string `json:"owner,omitempty"`
-
 	Name *string `json:"name,omitempty"`
-
 	BootstrapServerHost *string `json:"bootstrap_server_host,omitempty"`
-
 	// The kafka admin server url to perform kafka admin operations e.g acl management etc. The value will be available when the Kafka has been fully provisioned i.e it reaches a 'ready' state
 	AdminApiServerUrl *string `json:"admin_api_server_url,omitempty"`
-
 	CreatedAt *time.Time `json:"created_at,omitempty"`
-
 	ExpiresAt NullableTime `json:"expires_at,omitempty"`
-
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
-
 	FailedReason *string `json:"failed_reason,omitempty"`
-
 	Version *string `json:"version,omitempty"`
-
 	InstanceType *string `json:"instance_type,omitempty"`
-
 	InstanceTypeName *string `json:"instance_type_name,omitempty"`
-
 	ReauthenticationEnabled bool `json:"reauthentication_enabled"`
-
 	KafkaStorageSize *string `json:"kafka_storage_size,omitempty"`
-
 	BrowserUrl *string `json:"browser_url,omitempty"`
-
 	SizeId *string `json:"size_id,omitempty"`
-
 	IngressThroughputPerSec *string `json:"ingress_throughput_per_sec,omitempty"`
-
 	EgressThroughputPerSec *string `json:"egress_throughput_per_sec,omitempty"`
-
 	TotalMaxConnections *int32 `json:"total_max_connections,omitempty"`
-
 	MaxPartitions *int32 `json:"max_partitions,omitempty"`
-
 	MaxDataRetentionPeriod *string `json:"max_data_retention_period,omitempty"`
-
 	MaxConnectionAttemptsPerSec *int32 `json:"max_connection_attempts_per_sec,omitempty"`
-
 	BillingCloudAccountId *string `json:"billing_cloud_account_id,omitempty"`
-
 	Marketplace *string `json:"marketplace,omitempty"`
-
 }
 
 // NewKafkaRequestAllOf instantiates a new KafkaRequestAllOf object
@@ -94,37 +66,8 @@ func NewKafkaRequestAllOf(multiAz bool, reauthenticationEnabled bool) *KafkaRequ
 // but it doesn't guarantee that properties required by API are set
 func NewKafkaRequestAllOfWithDefaults() *KafkaRequestAllOf {
 	this := KafkaRequestAllOf{}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetStatus() string {
@@ -158,7 +101,6 @@ func (o *KafkaRequestAllOf) SetStatus(v string) {
 	o.Status = &v
 }
 
-
 // GetCloudProvider returns the CloudProvider field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetCloudProvider() string {
 	if o == nil || o.CloudProvider == nil {
@@ -191,7 +133,6 @@ func (o *KafkaRequestAllOf) SetCloudProvider(v string) {
 	o.CloudProvider = &v
 }
 
-
 // GetMultiAz returns the MultiAz field value
 func (o *KafkaRequestAllOf) GetMultiAz() bool {
 	if o == nil {
@@ -215,7 +156,6 @@ func (o *KafkaRequestAllOf) GetMultiAzOk() (*bool, bool) {
 func (o *KafkaRequestAllOf) SetMultiAz(v bool) {
 	o.MultiAz = v
 }
-
 
 // GetRegion returns the Region field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetRegion() string {
@@ -249,7 +189,6 @@ func (o *KafkaRequestAllOf) SetRegion(v string) {
 	o.Region = &v
 }
 
-
 // GetOwner returns the Owner field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetOwner() string {
 	if o == nil || o.Owner == nil {
@@ -281,7 +220,6 @@ func (o *KafkaRequestAllOf) HasOwner() bool {
 func (o *KafkaRequestAllOf) SetOwner(v string) {
 	o.Owner = &v
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetName() string {
@@ -315,7 +253,6 @@ func (o *KafkaRequestAllOf) SetName(v string) {
 	o.Name = &v
 }
 
-
 // GetBootstrapServerHost returns the BootstrapServerHost field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetBootstrapServerHost() string {
 	if o == nil || o.BootstrapServerHost == nil {
@@ -347,7 +284,6 @@ func (o *KafkaRequestAllOf) HasBootstrapServerHost() bool {
 func (o *KafkaRequestAllOf) SetBootstrapServerHost(v string) {
 	o.BootstrapServerHost = &v
 }
-
 
 // GetAdminApiServerUrl returns the AdminApiServerUrl field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetAdminApiServerUrl() string {
@@ -381,7 +317,6 @@ func (o *KafkaRequestAllOf) SetAdminApiServerUrl(v string) {
 	o.AdminApiServerUrl = &v
 }
 
-
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetCreatedAt() time.Time {
 	if o == nil || o.CreatedAt == nil {
@@ -413,7 +348,6 @@ func (o *KafkaRequestAllOf) HasCreatedAt() bool {
 func (o *KafkaRequestAllOf) SetCreatedAt(v time.Time) {
 	o.CreatedAt = &v
 }
-
 
 // GetExpiresAt returns the ExpiresAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *KafkaRequestAllOf) GetExpiresAt() time.Time {
@@ -457,7 +391,6 @@ func (o *KafkaRequestAllOf) UnsetExpiresAt() {
 	o.ExpiresAt.Unset()
 }
 
-
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetUpdatedAt() time.Time {
 	if o == nil || o.UpdatedAt == nil {
@@ -489,7 +422,6 @@ func (o *KafkaRequestAllOf) HasUpdatedAt() bool {
 func (o *KafkaRequestAllOf) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt = &v
 }
-
 
 // GetFailedReason returns the FailedReason field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetFailedReason() string {
@@ -523,7 +455,6 @@ func (o *KafkaRequestAllOf) SetFailedReason(v string) {
 	o.FailedReason = &v
 }
 
-
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetVersion() string {
 	if o == nil || o.Version == nil {
@@ -555,7 +486,6 @@ func (o *KafkaRequestAllOf) HasVersion() bool {
 func (o *KafkaRequestAllOf) SetVersion(v string) {
 	o.Version = &v
 }
-
 
 // GetInstanceType returns the InstanceType field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetInstanceType() string {
@@ -589,7 +519,6 @@ func (o *KafkaRequestAllOf) SetInstanceType(v string) {
 	o.InstanceType = &v
 }
 
-
 // GetInstanceTypeName returns the InstanceTypeName field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetInstanceTypeName() string {
 	if o == nil || o.InstanceTypeName == nil {
@@ -622,7 +551,6 @@ func (o *KafkaRequestAllOf) SetInstanceTypeName(v string) {
 	o.InstanceTypeName = &v
 }
 
-
 // GetReauthenticationEnabled returns the ReauthenticationEnabled field value
 func (o *KafkaRequestAllOf) GetReauthenticationEnabled() bool {
 	if o == nil {
@@ -646,7 +574,6 @@ func (o *KafkaRequestAllOf) GetReauthenticationEnabledOk() (*bool, bool) {
 func (o *KafkaRequestAllOf) SetReauthenticationEnabled(v bool) {
 	o.ReauthenticationEnabled = v
 }
-
 
 // GetKafkaStorageSize returns the KafkaStorageSize field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetKafkaStorageSize() string {
@@ -680,7 +607,6 @@ func (o *KafkaRequestAllOf) SetKafkaStorageSize(v string) {
 	o.KafkaStorageSize = &v
 }
 
-
 // GetBrowserUrl returns the BrowserUrl field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetBrowserUrl() string {
 	if o == nil || o.BrowserUrl == nil {
@@ -712,7 +638,6 @@ func (o *KafkaRequestAllOf) HasBrowserUrl() bool {
 func (o *KafkaRequestAllOf) SetBrowserUrl(v string) {
 	o.BrowserUrl = &v
 }
-
 
 // GetSizeId returns the SizeId field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetSizeId() string {
@@ -746,7 +671,6 @@ func (o *KafkaRequestAllOf) SetSizeId(v string) {
 	o.SizeId = &v
 }
 
-
 // GetIngressThroughputPerSec returns the IngressThroughputPerSec field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetIngressThroughputPerSec() string {
 	if o == nil || o.IngressThroughputPerSec == nil {
@@ -778,7 +702,6 @@ func (o *KafkaRequestAllOf) HasIngressThroughputPerSec() bool {
 func (o *KafkaRequestAllOf) SetIngressThroughputPerSec(v string) {
 	o.IngressThroughputPerSec = &v
 }
-
 
 // GetEgressThroughputPerSec returns the EgressThroughputPerSec field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetEgressThroughputPerSec() string {
@@ -812,7 +735,6 @@ func (o *KafkaRequestAllOf) SetEgressThroughputPerSec(v string) {
 	o.EgressThroughputPerSec = &v
 }
 
-
 // GetTotalMaxConnections returns the TotalMaxConnections field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetTotalMaxConnections() int32 {
 	if o == nil || o.TotalMaxConnections == nil {
@@ -844,7 +766,6 @@ func (o *KafkaRequestAllOf) HasTotalMaxConnections() bool {
 func (o *KafkaRequestAllOf) SetTotalMaxConnections(v int32) {
 	o.TotalMaxConnections = &v
 }
-
 
 // GetMaxPartitions returns the MaxPartitions field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetMaxPartitions() int32 {
@@ -878,7 +799,6 @@ func (o *KafkaRequestAllOf) SetMaxPartitions(v int32) {
 	o.MaxPartitions = &v
 }
 
-
 // GetMaxDataRetentionPeriod returns the MaxDataRetentionPeriod field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetMaxDataRetentionPeriod() string {
 	if o == nil || o.MaxDataRetentionPeriod == nil {
@@ -910,7 +830,6 @@ func (o *KafkaRequestAllOf) HasMaxDataRetentionPeriod() bool {
 func (o *KafkaRequestAllOf) SetMaxDataRetentionPeriod(v string) {
 	o.MaxDataRetentionPeriod = &v
 }
-
 
 // GetMaxConnectionAttemptsPerSec returns the MaxConnectionAttemptsPerSec field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetMaxConnectionAttemptsPerSec() int32 {
@@ -944,7 +863,6 @@ func (o *KafkaRequestAllOf) SetMaxConnectionAttemptsPerSec(v int32) {
 	o.MaxConnectionAttemptsPerSec = &v
 }
 
-
 // GetBillingCloudAccountId returns the BillingCloudAccountId field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetBillingCloudAccountId() string {
 	if o == nil || o.BillingCloudAccountId == nil {
@@ -976,7 +894,6 @@ func (o *KafkaRequestAllOf) HasBillingCloudAccountId() bool {
 func (o *KafkaRequestAllOf) SetBillingCloudAccountId(v string) {
 	o.BillingCloudAccountId = &v
 }
-
 
 // GetMarketplace returns the Marketplace field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetMarketplace() string {
@@ -1010,118 +927,89 @@ func (o *KafkaRequestAllOf) SetMarketplace(v string) {
 	o.Marketplace = &v
 }
 
-
 func (o KafkaRequestAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Status != nil {
 		toSerialize["status"] = o.Status
 	}
-    
 	if o.CloudProvider != nil {
 		toSerialize["cloud_provider"] = o.CloudProvider
 	}
-    
 	if true {
 		toSerialize["multi_az"] = o.MultiAz
 	}
-    
 	if o.Region != nil {
 		toSerialize["region"] = o.Region
 	}
-    
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
 	}
-    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.BootstrapServerHost != nil {
 		toSerialize["bootstrap_server_host"] = o.BootstrapServerHost
 	}
-    
 	if o.AdminApiServerUrl != nil {
 		toSerialize["admin_api_server_url"] = o.AdminApiServerUrl
 	}
-    
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt
 	}
-    
 	if o.ExpiresAt.IsSet() {
 		toSerialize["expires_at"] = o.ExpiresAt.Get()
 	}
-    
 	if o.UpdatedAt != nil {
 		toSerialize["updated_at"] = o.UpdatedAt
 	}
-    
 	if o.FailedReason != nil {
 		toSerialize["failed_reason"] = o.FailedReason
 	}
-    
 	if o.Version != nil {
 		toSerialize["version"] = o.Version
 	}
-    
 	if o.InstanceType != nil {
 		toSerialize["instance_type"] = o.InstanceType
 	}
-    
 	if o.InstanceTypeName != nil {
 		toSerialize["instance_type_name"] = o.InstanceTypeName
 	}
-    
 	if true {
 		toSerialize["reauthentication_enabled"] = o.ReauthenticationEnabled
 	}
-    
 	if o.KafkaStorageSize != nil {
 		toSerialize["kafka_storage_size"] = o.KafkaStorageSize
 	}
-    
 	if o.BrowserUrl != nil {
 		toSerialize["browser_url"] = o.BrowserUrl
 	}
-    
 	if o.SizeId != nil {
 		toSerialize["size_id"] = o.SizeId
 	}
-    
 	if o.IngressThroughputPerSec != nil {
 		toSerialize["ingress_throughput_per_sec"] = o.IngressThroughputPerSec
 	}
-    
 	if o.EgressThroughputPerSec != nil {
 		toSerialize["egress_throughput_per_sec"] = o.EgressThroughputPerSec
 	}
-    
 	if o.TotalMaxConnections != nil {
 		toSerialize["total_max_connections"] = o.TotalMaxConnections
 	}
-    
 	if o.MaxPartitions != nil {
 		toSerialize["max_partitions"] = o.MaxPartitions
 	}
-    
 	if o.MaxDataRetentionPeriod != nil {
 		toSerialize["max_data_retention_period"] = o.MaxDataRetentionPeriod
 	}
-    
 	if o.MaxConnectionAttemptsPerSec != nil {
 		toSerialize["max_connection_attempts_per_sec"] = o.MaxConnectionAttemptsPerSec
 	}
-    
 	if o.BillingCloudAccountId != nil {
 		toSerialize["billing_cloud_account_id"] = o.BillingCloudAccountId
 	}
-    
 	if o.Marketplace != nil {
 		toSerialize["marketplace"] = o.Marketplace
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -1160,4 +1048,5 @@ func (v *NullableKafkaRequestAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

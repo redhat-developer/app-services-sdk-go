@@ -17,22 +17,14 @@ import (
 
 // ConnectorNamespaceMeta struct for ConnectorNamespaceMeta
 type ConnectorNamespaceMeta struct {
-
 	Owner *string `json:"owner,omitempty"`
-
 	CreatedAt *time.Time `json:"created_at,omitempty"`
-
 	ModifiedAt *time.Time `json:"modified_at,omitempty"`
-
 	// Namespace name must match pattern `^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$`, or it may be empty to be auto-generated.
 	Name *string `json:"name,omitempty"`
-
 	Annotations *map[string]string `json:"annotations,omitempty"`
-
 	ResourceVersion *int64 `json:"resource_version,omitempty"`
-
 	Quota *ConnectorNamespaceQuota `json:"quota,omitempty"`
-
 }
 
 // NewConnectorNamespaceMeta instantiates a new ConnectorNamespaceMeta object
@@ -49,17 +41,8 @@ func NewConnectorNamespaceMeta() *ConnectorNamespaceMeta {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorNamespaceMetaWithDefaults() *ConnectorNamespaceMeta {
 	this := ConnectorNamespaceMeta{}
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetOwner returns the Owner field value if set, zero value otherwise.
 func (o *ConnectorNamespaceMeta) GetOwner() string {
@@ -93,7 +76,6 @@ func (o *ConnectorNamespaceMeta) SetOwner(v string) {
 	o.Owner = &v
 }
 
-
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *ConnectorNamespaceMeta) GetCreatedAt() time.Time {
 	if o == nil || o.CreatedAt == nil {
@@ -125,7 +107,6 @@ func (o *ConnectorNamespaceMeta) HasCreatedAt() bool {
 func (o *ConnectorNamespaceMeta) SetCreatedAt(v time.Time) {
 	o.CreatedAt = &v
 }
-
 
 // GetModifiedAt returns the ModifiedAt field value if set, zero value otherwise.
 func (o *ConnectorNamespaceMeta) GetModifiedAt() time.Time {
@@ -159,7 +140,6 @@ func (o *ConnectorNamespaceMeta) SetModifiedAt(v time.Time) {
 	o.ModifiedAt = &v
 }
 
-
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ConnectorNamespaceMeta) GetName() string {
 	if o == nil || o.Name == nil {
@@ -191,7 +171,6 @@ func (o *ConnectorNamespaceMeta) HasName() bool {
 func (o *ConnectorNamespaceMeta) SetName(v string) {
 	o.Name = &v
 }
-
 
 // GetAnnotations returns the Annotations field value if set, zero value otherwise.
 func (o *ConnectorNamespaceMeta) GetAnnotations() map[string]string {
@@ -225,7 +204,6 @@ func (o *ConnectorNamespaceMeta) SetAnnotations(v map[string]string) {
 	o.Annotations = &v
 }
 
-
 // GetResourceVersion returns the ResourceVersion field value if set, zero value otherwise.
 func (o *ConnectorNamespaceMeta) GetResourceVersion() int64 {
 	if o == nil || o.ResourceVersion == nil {
@@ -257,7 +235,6 @@ func (o *ConnectorNamespaceMeta) HasResourceVersion() bool {
 func (o *ConnectorNamespaceMeta) SetResourceVersion(v int64) {
 	o.ResourceVersion = &v
 }
-
 
 // GetQuota returns the Quota field value if set, zero value otherwise.
 func (o *ConnectorNamespaceMeta) GetQuota() ConnectorNamespaceQuota {
@@ -291,38 +268,29 @@ func (o *ConnectorNamespaceMeta) SetQuota(v ConnectorNamespaceQuota) {
 	o.Quota = &v
 }
 
-
 func (o ConnectorNamespaceMeta) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
 	}
-    
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt
 	}
-    
 	if o.ModifiedAt != nil {
 		toSerialize["modified_at"] = o.ModifiedAt
 	}
-    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.Annotations != nil {
 		toSerialize["annotations"] = o.Annotations
 	}
-    
 	if o.ResourceVersion != nil {
 		toSerialize["resource_version"] = o.ResourceVersion
 	}
-    
 	if o.Quota != nil {
 		toSerialize["quota"] = o.Quota
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -361,4 +329,5 @@ func (v *NullableConnectorNamespaceMeta) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

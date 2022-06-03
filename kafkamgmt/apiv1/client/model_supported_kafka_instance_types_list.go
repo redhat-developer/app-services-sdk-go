@@ -16,9 +16,7 @@ import (
 
 // SupportedKafkaInstanceTypesList struct for SupportedKafkaInstanceTypesList
 type SupportedKafkaInstanceTypesList struct {
-
 	InstanceTypes *[]SupportedKafkaInstanceType `json:"instance_types,omitempty"`
-
 }
 
 // NewSupportedKafkaInstanceTypesList instantiates a new SupportedKafkaInstanceTypesList object
@@ -35,11 +33,8 @@ func NewSupportedKafkaInstanceTypesList() *SupportedKafkaInstanceTypesList {
 // but it doesn't guarantee that properties required by API are set
 func NewSupportedKafkaInstanceTypesListWithDefaults() *SupportedKafkaInstanceTypesList {
 	this := SupportedKafkaInstanceTypesList{}
-
-
 	return &this
 }
-
 
 // GetInstanceTypes returns the InstanceTypes field value if set, zero value otherwise.
 func (o *SupportedKafkaInstanceTypesList) GetInstanceTypes() []SupportedKafkaInstanceType {
@@ -73,14 +68,11 @@ func (o *SupportedKafkaInstanceTypesList) SetInstanceTypes(v []SupportedKafkaIns
 	o.InstanceTypes = &v
 }
 
-
 func (o SupportedKafkaInstanceTypesList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.InstanceTypes != nil {
 		toSerialize["instance_types"] = o.InstanceTypes
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -119,4 +111,5 @@ func (v *NullableSupportedKafkaInstanceTypesList) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

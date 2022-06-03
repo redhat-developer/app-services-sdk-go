@@ -17,11 +17,8 @@ import (
 
 // Rule struct for Rule
 type Rule struct {
-
 	Config string `json:"config"`
-
 	Type *RuleType `json:"type,omitempty"`
-
 }
 
 // NewRule instantiates a new Rule object
@@ -39,12 +36,8 @@ func NewRule(config string) *Rule {
 // but it doesn't guarantee that properties required by API are set
 func NewRuleWithDefaults() *Rule {
 	this := Rule{}
-
-
-
 	return &this
 }
-
 
 // GetConfig returns the Config field value
 func (o *Rule) GetConfig() string {
@@ -69,7 +62,6 @@ func (o *Rule) GetConfigOk() (*string, bool) {
 func (o *Rule) SetConfig(v string) {
 	o.Config = v
 }
-
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *Rule) GetType() RuleType {
@@ -103,18 +95,14 @@ func (o *Rule) SetType(v RuleType) {
 	o.Type = &v
 }
 
-
 func (o Rule) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["config"] = o.Config
 	}
-    
 	if o.Type != nil {
 		toSerialize["type"] = o.Type
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -153,4 +141,5 @@ func (v *NullableRule) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

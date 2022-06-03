@@ -16,57 +16,38 @@ import (
 
 // SupportedKafkaSize Supported Kafka Size
 type SupportedKafkaSize struct {
-
 	// Unique identifier of this Kafka instance size.
 	Id *string `json:"id,omitempty"`
-
 	// Display name of this Kafka instance size.
 	DisplayName *string `json:"display_name,omitempty"`
-
 	IngressThroughputPerSec *SupportedKafkaSizeBytesValueItem `json:"ingress_throughput_per_sec,omitempty"`
-
 	EgressThroughputPerSec *SupportedKafkaSizeBytesValueItem `json:"egress_throughput_per_sec,omitempty"`
-
 	// Maximum amount of total connections available to this Kafka instance size.
 	TotalMaxConnections *int32 `json:"total_max_connections,omitempty"`
-
 	MaxDataRetentionSize *SupportedKafkaSizeBytesValueItem `json:"max_data_retention_size,omitempty"`
-
 	// Maximum amount of total partitions available to this Kafka instance size.
 	MaxPartitions *int32 `json:"max_partitions,omitempty"`
-
 	// Maximum data retention period available to this Kafka instance size.
 	MaxDataRetentionPeriod *string `json:"max_data_retention_period,omitempty"`
-
 	// Maximium connection attempts per second available to this Kafka instance size.
 	MaxConnectionAttemptsPerSec *int32 `json:"max_connection_attempts_per_sec,omitempty"`
-
 	MaxMessageSize *SupportedKafkaSizeBytesValueItem `json:"max_message_size,omitempty"`
-
 	// Minimum number of in-sync replicas.
 	MinInSyncReplicas *int32 `json:"min_in_sync_replicas,omitempty"`
-
 	// Replication factor available to this Kafka instance size.
 	ReplicationFactor *int32 `json:"replication_factor,omitempty"`
-
 	// List of Availability Zone modes that this Kafka instance size supports. The possible values are \"single\", \"multi\".
 	SupportedAzModes *[]string `json:"supported_az_modes,omitempty"`
-
 	// The limit lifespan of the kafka instance in seconds. If not specified then the instance never expires.
 	LifespanSeconds NullableInt32 `json:"lifespan_seconds,omitempty"`
-
 	// Quota consumed by this Kafka instance size.
 	QuotaConsumed *int32 `json:"quota_consumed,omitempty"`
-
 	// Quota type used by this Kafka instance size.
 	QuotaType *string `json:"quota_type,omitempty"`
-
 	// Data plane cluster capacity consumed by this Kafka instance size.
 	CapacityConsumed *int32 `json:"capacity_consumed,omitempty"`
-
 	// Maturity level of the size. Can be \"stable\" or \"preview\".
 	MaturityStatus *string `json:"maturity_status,omitempty"`
-
 }
 
 // NewSupportedKafkaSize instantiates a new SupportedKafkaSize object
@@ -83,28 +64,8 @@ func NewSupportedKafkaSize() *SupportedKafkaSize {
 // but it doesn't guarantee that properties required by API are set
 func NewSupportedKafkaSizeWithDefaults() *SupportedKafkaSize {
 	this := SupportedKafkaSize{}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *SupportedKafkaSize) GetId() string {
@@ -138,7 +99,6 @@ func (o *SupportedKafkaSize) SetId(v string) {
 	o.Id = &v
 }
 
-
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
 func (o *SupportedKafkaSize) GetDisplayName() string {
 	if o == nil || o.DisplayName == nil {
@@ -170,7 +130,6 @@ func (o *SupportedKafkaSize) HasDisplayName() bool {
 func (o *SupportedKafkaSize) SetDisplayName(v string) {
 	o.DisplayName = &v
 }
-
 
 // GetIngressThroughputPerSec returns the IngressThroughputPerSec field value if set, zero value otherwise.
 func (o *SupportedKafkaSize) GetIngressThroughputPerSec() SupportedKafkaSizeBytesValueItem {
@@ -204,7 +163,6 @@ func (o *SupportedKafkaSize) SetIngressThroughputPerSec(v SupportedKafkaSizeByte
 	o.IngressThroughputPerSec = &v
 }
 
-
 // GetEgressThroughputPerSec returns the EgressThroughputPerSec field value if set, zero value otherwise.
 func (o *SupportedKafkaSize) GetEgressThroughputPerSec() SupportedKafkaSizeBytesValueItem {
 	if o == nil || o.EgressThroughputPerSec == nil {
@@ -236,7 +194,6 @@ func (o *SupportedKafkaSize) HasEgressThroughputPerSec() bool {
 func (o *SupportedKafkaSize) SetEgressThroughputPerSec(v SupportedKafkaSizeBytesValueItem) {
 	o.EgressThroughputPerSec = &v
 }
-
 
 // GetTotalMaxConnections returns the TotalMaxConnections field value if set, zero value otherwise.
 func (o *SupportedKafkaSize) GetTotalMaxConnections() int32 {
@@ -270,7 +227,6 @@ func (o *SupportedKafkaSize) SetTotalMaxConnections(v int32) {
 	o.TotalMaxConnections = &v
 }
 
-
 // GetMaxDataRetentionSize returns the MaxDataRetentionSize field value if set, zero value otherwise.
 func (o *SupportedKafkaSize) GetMaxDataRetentionSize() SupportedKafkaSizeBytesValueItem {
 	if o == nil || o.MaxDataRetentionSize == nil {
@@ -302,7 +258,6 @@ func (o *SupportedKafkaSize) HasMaxDataRetentionSize() bool {
 func (o *SupportedKafkaSize) SetMaxDataRetentionSize(v SupportedKafkaSizeBytesValueItem) {
 	o.MaxDataRetentionSize = &v
 }
-
 
 // GetMaxPartitions returns the MaxPartitions field value if set, zero value otherwise.
 func (o *SupportedKafkaSize) GetMaxPartitions() int32 {
@@ -336,7 +291,6 @@ func (o *SupportedKafkaSize) SetMaxPartitions(v int32) {
 	o.MaxPartitions = &v
 }
 
-
 // GetMaxDataRetentionPeriod returns the MaxDataRetentionPeriod field value if set, zero value otherwise.
 func (o *SupportedKafkaSize) GetMaxDataRetentionPeriod() string {
 	if o == nil || o.MaxDataRetentionPeriod == nil {
@@ -368,7 +322,6 @@ func (o *SupportedKafkaSize) HasMaxDataRetentionPeriod() bool {
 func (o *SupportedKafkaSize) SetMaxDataRetentionPeriod(v string) {
 	o.MaxDataRetentionPeriod = &v
 }
-
 
 // GetMaxConnectionAttemptsPerSec returns the MaxConnectionAttemptsPerSec field value if set, zero value otherwise.
 func (o *SupportedKafkaSize) GetMaxConnectionAttemptsPerSec() int32 {
@@ -402,7 +355,6 @@ func (o *SupportedKafkaSize) SetMaxConnectionAttemptsPerSec(v int32) {
 	o.MaxConnectionAttemptsPerSec = &v
 }
 
-
 // GetMaxMessageSize returns the MaxMessageSize field value if set, zero value otherwise.
 func (o *SupportedKafkaSize) GetMaxMessageSize() SupportedKafkaSizeBytesValueItem {
 	if o == nil || o.MaxMessageSize == nil {
@@ -434,7 +386,6 @@ func (o *SupportedKafkaSize) HasMaxMessageSize() bool {
 func (o *SupportedKafkaSize) SetMaxMessageSize(v SupportedKafkaSizeBytesValueItem) {
 	o.MaxMessageSize = &v
 }
-
 
 // GetMinInSyncReplicas returns the MinInSyncReplicas field value if set, zero value otherwise.
 func (o *SupportedKafkaSize) GetMinInSyncReplicas() int32 {
@@ -468,7 +419,6 @@ func (o *SupportedKafkaSize) SetMinInSyncReplicas(v int32) {
 	o.MinInSyncReplicas = &v
 }
 
-
 // GetReplicationFactor returns the ReplicationFactor field value if set, zero value otherwise.
 func (o *SupportedKafkaSize) GetReplicationFactor() int32 {
 	if o == nil || o.ReplicationFactor == nil {
@@ -501,7 +451,6 @@ func (o *SupportedKafkaSize) SetReplicationFactor(v int32) {
 	o.ReplicationFactor = &v
 }
 
-
 // GetSupportedAzModes returns the SupportedAzModes field value if set, zero value otherwise.
 func (o *SupportedKafkaSize) GetSupportedAzModes() []string {
 	if o == nil || o.SupportedAzModes == nil {
@@ -533,7 +482,6 @@ func (o *SupportedKafkaSize) HasSupportedAzModes() bool {
 func (o *SupportedKafkaSize) SetSupportedAzModes(v []string) {
 	o.SupportedAzModes = &v
 }
-
 
 // GetLifespanSeconds returns the LifespanSeconds field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SupportedKafkaSize) GetLifespanSeconds() int32 {
@@ -577,7 +525,6 @@ func (o *SupportedKafkaSize) UnsetLifespanSeconds() {
 	o.LifespanSeconds.Unset()
 }
 
-
 // GetQuotaConsumed returns the QuotaConsumed field value if set, zero value otherwise.
 func (o *SupportedKafkaSize) GetQuotaConsumed() int32 {
 	if o == nil || o.QuotaConsumed == nil {
@@ -609,7 +556,6 @@ func (o *SupportedKafkaSize) HasQuotaConsumed() bool {
 func (o *SupportedKafkaSize) SetQuotaConsumed(v int32) {
 	o.QuotaConsumed = &v
 }
-
 
 // GetQuotaType returns the QuotaType field value if set, zero value otherwise.
 func (o *SupportedKafkaSize) GetQuotaType() string {
@@ -643,7 +589,6 @@ func (o *SupportedKafkaSize) SetQuotaType(v string) {
 	o.QuotaType = &v
 }
 
-
 // GetCapacityConsumed returns the CapacityConsumed field value if set, zero value otherwise.
 func (o *SupportedKafkaSize) GetCapacityConsumed() int32 {
 	if o == nil || o.CapacityConsumed == nil {
@@ -675,7 +620,6 @@ func (o *SupportedKafkaSize) HasCapacityConsumed() bool {
 func (o *SupportedKafkaSize) SetCapacityConsumed(v int32) {
 	o.CapacityConsumed = &v
 }
-
 
 // GetMaturityStatus returns the MaturityStatus field value if set, zero value otherwise.
 func (o *SupportedKafkaSize) GetMaturityStatus() string {
@@ -709,82 +653,62 @@ func (o *SupportedKafkaSize) SetMaturityStatus(v string) {
 	o.MaturityStatus = &v
 }
 
-
 func (o SupportedKafkaSize) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-    
 	if o.DisplayName != nil {
 		toSerialize["display_name"] = o.DisplayName
 	}
-    
 	if o.IngressThroughputPerSec != nil {
 		toSerialize["ingress_throughput_per_sec"] = o.IngressThroughputPerSec
 	}
-    
 	if o.EgressThroughputPerSec != nil {
 		toSerialize["egress_throughput_per_sec"] = o.EgressThroughputPerSec
 	}
-    
 	if o.TotalMaxConnections != nil {
 		toSerialize["total_max_connections"] = o.TotalMaxConnections
 	}
-    
 	if o.MaxDataRetentionSize != nil {
 		toSerialize["max_data_retention_size"] = o.MaxDataRetentionSize
 	}
-    
 	if o.MaxPartitions != nil {
 		toSerialize["max_partitions"] = o.MaxPartitions
 	}
-    
 	if o.MaxDataRetentionPeriod != nil {
 		toSerialize["max_data_retention_period"] = o.MaxDataRetentionPeriod
 	}
-    
 	if o.MaxConnectionAttemptsPerSec != nil {
 		toSerialize["max_connection_attempts_per_sec"] = o.MaxConnectionAttemptsPerSec
 	}
-    
 	if o.MaxMessageSize != nil {
 		toSerialize["max_message_size"] = o.MaxMessageSize
 	}
-    
 	if o.MinInSyncReplicas != nil {
 		toSerialize["min_in_sync_replicas"] = o.MinInSyncReplicas
 	}
-    
 	if o.ReplicationFactor != nil {
 		toSerialize["replication_factor"] = o.ReplicationFactor
 	}
-    
 	if o.SupportedAzModes != nil {
 		toSerialize["supported_az_modes"] = o.SupportedAzModes
 	}
-    
 	if o.LifespanSeconds.IsSet() {
 		toSerialize["lifespan_seconds"] = o.LifespanSeconds.Get()
 	}
-    
 	if o.QuotaConsumed != nil {
 		toSerialize["quota_consumed"] = o.QuotaConsumed
 	}
-    
 	if o.QuotaType != nil {
 		toSerialize["quota_type"] = o.QuotaType
 	}
-    
 	if o.CapacityConsumed != nil {
 		toSerialize["capacity_consumed"] = o.CapacityConsumed
 	}
-    
 	if o.MaturityStatus != nil {
 		toSerialize["maturity_status"] = o.MaturityStatus
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -823,4 +747,5 @@ func (v *NullableSupportedKafkaSize) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

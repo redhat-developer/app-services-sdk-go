@@ -16,13 +16,9 @@ import (
 
 // InstantQuery struct for InstantQuery
 type InstantQuery struct {
-
 	Metric *map[string]string `json:"metric,omitempty"`
-
 	Timestamp *int64 `json:"timestamp,omitempty"`
-
 	Value float64 `json:"value"`
-
 }
 
 // NewInstantQuery instantiates a new InstantQuery object
@@ -40,13 +36,8 @@ func NewInstantQuery(value float64) *InstantQuery {
 // but it doesn't guarantee that properties required by API are set
 func NewInstantQueryWithDefaults() *InstantQuery {
 	this := InstantQuery{}
-
-
-
-
 	return &this
 }
-
 
 // GetMetric returns the Metric field value if set, zero value otherwise.
 func (o *InstantQuery) GetMetric() map[string]string {
@@ -80,7 +71,6 @@ func (o *InstantQuery) SetMetric(v map[string]string) {
 	o.Metric = &v
 }
 
-
 // GetTimestamp returns the Timestamp field value if set, zero value otherwise.
 func (o *InstantQuery) GetTimestamp() int64 {
 	if o == nil || o.Timestamp == nil {
@@ -113,7 +103,6 @@ func (o *InstantQuery) SetTimestamp(v int64) {
 	o.Timestamp = &v
 }
 
-
 // GetValue returns the Value field value
 func (o *InstantQuery) GetValue() float64 {
 	if o == nil {
@@ -138,22 +127,17 @@ func (o *InstantQuery) SetValue(v float64) {
 	o.Value = v
 }
 
-
 func (o InstantQuery) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Metric != nil {
 		toSerialize["metric"] = o.Metric
 	}
-    
 	if o.Timestamp != nil {
 		toSerialize["timestamp"] = o.Timestamp
 	}
-    
 	if true {
 		toSerialize["value"] = o.Value
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -192,4 +176,5 @@ func (v *NullableInstantQuery) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

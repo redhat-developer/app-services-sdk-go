@@ -16,17 +16,11 @@ import (
 
 // ConnectorTypeList struct for ConnectorTypeList
 type ConnectorTypeList struct {
-
 	Kind string `json:"kind"`
-
 	Page int32 `json:"page"`
-
 	Size int32 `json:"size"`
-
 	Total int32 `json:"total"`
-
 	Items []ConnectorType `json:"items"`
-
 }
 
 // NewConnectorTypeList instantiates a new ConnectorTypeList object
@@ -48,15 +42,8 @@ func NewConnectorTypeList(kind string, page int32, size int32, total int32, item
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorTypeListWithDefaults() *ConnectorTypeList {
 	this := ConnectorTypeList{}
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetKind returns the Kind field value
 func (o *ConnectorTypeList) GetKind() string {
@@ -82,7 +69,6 @@ func (o *ConnectorTypeList) SetKind(v string) {
 	o.Kind = v
 }
 
-
 // GetPage returns the Page field value
 func (o *ConnectorTypeList) GetPage() int32 {
 	if o == nil {
@@ -106,7 +92,6 @@ func (o *ConnectorTypeList) GetPageOk() (*int32, bool) {
 func (o *ConnectorTypeList) SetPage(v int32) {
 	o.Page = v
 }
-
 
 // GetSize returns the Size field value
 func (o *ConnectorTypeList) GetSize() int32 {
@@ -132,7 +117,6 @@ func (o *ConnectorTypeList) SetSize(v int32) {
 	o.Size = v
 }
 
-
 // GetTotal returns the Total field value
 func (o *ConnectorTypeList) GetTotal() int32 {
 	if o == nil {
@@ -156,7 +140,6 @@ func (o *ConnectorTypeList) GetTotalOk() (*int32, bool) {
 func (o *ConnectorTypeList) SetTotal(v int32) {
 	o.Total = v
 }
-
 
 // GetItems returns the Items field value
 func (o *ConnectorTypeList) GetItems() []ConnectorType {
@@ -182,30 +165,23 @@ func (o *ConnectorTypeList) SetItems(v []ConnectorType) {
 	o.Items = v
 }
 
-
 func (o ConnectorTypeList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if true {
 		toSerialize["page"] = o.Page
 	}
-    
 	if true {
 		toSerialize["size"] = o.Size
 	}
-    
 	if true {
 		toSerialize["total"] = o.Total
 	}
-    
 	if true {
 		toSerialize["items"] = o.Items
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -244,4 +220,5 @@ func (v *NullableConnectorTypeList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

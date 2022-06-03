@@ -16,9 +16,7 @@ import (
 
 // ConsumerGroupList A list of consumer groups
 type ConsumerGroupList struct {
-
 	Items *[]ConsumerGroup `json:"items,omitempty"`
-
 }
 
 // NewConsumerGroupList instantiates a new ConsumerGroupList object
@@ -35,11 +33,8 @@ func NewConsumerGroupList() *ConsumerGroupList {
 // but it doesn't guarantee that properties required by API are set
 func NewConsumerGroupListWithDefaults() *ConsumerGroupList {
 	this := ConsumerGroupList{}
-
-
 	return &this
 }
-
 
 // GetItems returns the Items field value if set, zero value otherwise.
 func (o *ConsumerGroupList) GetItems() []ConsumerGroup {
@@ -73,14 +68,11 @@ func (o *ConsumerGroupList) SetItems(v []ConsumerGroup) {
 	o.Items = &v
 }
 
-
 func (o ConsumerGroupList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -119,4 +111,5 @@ func (v *NullableConsumerGroupList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

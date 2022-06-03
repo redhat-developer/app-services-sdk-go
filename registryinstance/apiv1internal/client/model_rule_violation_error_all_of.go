@@ -17,10 +17,8 @@ import (
 
 // RuleViolationErrorAllOf struct for RuleViolationErrorAllOf
 type RuleViolationErrorAllOf struct {
-
 	// List of rule violation causes.
 	Causes []RuleViolationCause `json:"causes"`
-
 }
 
 // NewRuleViolationErrorAllOf instantiates a new RuleViolationErrorAllOf object
@@ -38,11 +36,8 @@ func NewRuleViolationErrorAllOf(causes []RuleViolationCause) *RuleViolationError
 // but it doesn't guarantee that properties required by API are set
 func NewRuleViolationErrorAllOfWithDefaults() *RuleViolationErrorAllOf {
 	this := RuleViolationErrorAllOf{}
-
-
 	return &this
 }
-
 
 // GetCauses returns the Causes field value
 func (o *RuleViolationErrorAllOf) GetCauses() []RuleViolationCause {
@@ -68,14 +63,11 @@ func (o *RuleViolationErrorAllOf) SetCauses(v []RuleViolationCause) {
 	o.Causes = v
 }
 
-
 func (o RuleViolationErrorAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["causes"] = o.Causes
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -114,4 +106,5 @@ func (v *NullableRuleViolationErrorAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

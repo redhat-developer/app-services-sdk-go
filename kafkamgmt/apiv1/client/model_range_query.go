@@ -16,11 +16,8 @@ import (
 
 // RangeQuery struct for RangeQuery
 type RangeQuery struct {
-
 	Metric *map[string]string `json:"metric,omitempty"`
-
 	Values *[]Values `json:"values,omitempty"`
-
 }
 
 // NewRangeQuery instantiates a new RangeQuery object
@@ -37,12 +34,8 @@ func NewRangeQuery() *RangeQuery {
 // but it doesn't guarantee that properties required by API are set
 func NewRangeQueryWithDefaults() *RangeQuery {
 	this := RangeQuery{}
-
-
-
 	return &this
 }
-
 
 // GetMetric returns the Metric field value if set, zero value otherwise.
 func (o *RangeQuery) GetMetric() map[string]string {
@@ -76,7 +69,6 @@ func (o *RangeQuery) SetMetric(v map[string]string) {
 	o.Metric = &v
 }
 
-
 // GetValues returns the Values field value if set, zero value otherwise.
 func (o *RangeQuery) GetValues() []Values {
 	if o == nil || o.Values == nil {
@@ -109,18 +101,14 @@ func (o *RangeQuery) SetValues(v []Values) {
 	o.Values = &v
 }
 
-
 func (o RangeQuery) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Metric != nil {
 		toSerialize["metric"] = o.Metric
 	}
-    
 	if o.Values != nil {
 		toSerialize["values"] = o.Values
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -159,4 +147,5 @@ func (v *NullableRangeQuery) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

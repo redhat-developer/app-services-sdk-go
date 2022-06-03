@@ -16,13 +16,10 @@ import (
 
 // TopicSettings The settings that are applicable to this topic. This includes partitions, configuration information, and number of replicas.
 type TopicSettings struct {
-
 	// Number of partitions for this topic. If not specified, the default for new topics is `1`. Number of partitions may not be reduced when updating existing topics
 	NumPartitions *int32 `json:"numPartitions,omitempty"`
-
 	// Topic configuration entries.
 	Config *[]ConfigEntry `json:"config,omitempty"`
-
 }
 
 // NewTopicSettings instantiates a new TopicSettings object
@@ -39,12 +36,8 @@ func NewTopicSettings() *TopicSettings {
 // but it doesn't guarantee that properties required by API are set
 func NewTopicSettingsWithDefaults() *TopicSettings {
 	this := TopicSettings{}
-
-
-
 	return &this
 }
-
 
 // GetNumPartitions returns the NumPartitions field value if set, zero value otherwise.
 func (o *TopicSettings) GetNumPartitions() int32 {
@@ -78,7 +71,6 @@ func (o *TopicSettings) SetNumPartitions(v int32) {
 	o.NumPartitions = &v
 }
 
-
 // GetConfig returns the Config field value if set, zero value otherwise.
 func (o *TopicSettings) GetConfig() []ConfigEntry {
 	if o == nil || o.Config == nil {
@@ -111,18 +103,14 @@ func (o *TopicSettings) SetConfig(v []ConfigEntry) {
 	o.Config = &v
 }
 
-
 func (o TopicSettings) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.NumPartitions != nil {
 		toSerialize["numPartitions"] = o.NumPartitions
 	}
-    
 	if o.Config != nil {
 		toSerialize["config"] = o.Config
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -161,4 +149,5 @@ func (v *NullableTopicSettings) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

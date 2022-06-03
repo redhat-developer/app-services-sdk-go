@@ -16,28 +16,18 @@ import (
 
 // AclBinding struct for AclBinding
 type AclBinding struct {
-
 	// Unique identifier for the object. Not supported for all object kinds.
 	Id *string `json:"id,omitempty"`
-
 	Kind string `json:"kind"`
-
 	// Link path to request the object. Not supported for all object kinds.
 	Href *string `json:"href,omitempty"`
-
 	ResourceType AclResourceType `json:"resourceType"`
-
 	ResourceName string `json:"resourceName"`
-
 	PatternType AclPatternType `json:"patternType"`
-
 	// Identifies the user or service account to which an ACL entry is bound. The literal prefix value of `User:` is required. May be used to specify all users with value `User:*`.
 	Principal string `json:"principal"`
-
 	Operation AclOperation `json:"operation"`
-
 	Permission AclPermissionType `json:"permission"`
-
 }
 
 // NewAclBinding instantiates a new AclBinding object
@@ -61,19 +51,8 @@ func NewAclBinding(kind string, resourceType AclResourceType, resourceName strin
 // but it doesn't guarantee that properties required by API are set
 func NewAclBindingWithDefaults() *AclBinding {
 	this := AclBinding{}
-
-
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *AclBinding) GetId() string {
@@ -107,7 +86,6 @@ func (o *AclBinding) SetId(v string) {
 	o.Id = &v
 }
 
-
 // GetKind returns the Kind field value
 func (o *AclBinding) GetKind() string {
 	if o == nil {
@@ -131,7 +109,6 @@ func (o *AclBinding) GetKindOk() (*string, bool) {
 func (o *AclBinding) SetKind(v string) {
 	o.Kind = v
 }
-
 
 // GetHref returns the Href field value if set, zero value otherwise.
 func (o *AclBinding) GetHref() string {
@@ -165,7 +142,6 @@ func (o *AclBinding) SetHref(v string) {
 	o.Href = &v
 }
 
-
 // GetResourceType returns the ResourceType field value
 func (o *AclBinding) GetResourceType() AclResourceType {
 	if o == nil {
@@ -189,7 +165,6 @@ func (o *AclBinding) GetResourceTypeOk() (*AclResourceType, bool) {
 func (o *AclBinding) SetResourceType(v AclResourceType) {
 	o.ResourceType = v
 }
-
 
 // GetResourceName returns the ResourceName field value
 func (o *AclBinding) GetResourceName() string {
@@ -215,7 +190,6 @@ func (o *AclBinding) SetResourceName(v string) {
 	o.ResourceName = v
 }
 
-
 // GetPatternType returns the PatternType field value
 func (o *AclBinding) GetPatternType() AclPatternType {
 	if o == nil {
@@ -239,7 +213,6 @@ func (o *AclBinding) GetPatternTypeOk() (*AclPatternType, bool) {
 func (o *AclBinding) SetPatternType(v AclPatternType) {
 	o.PatternType = v
 }
-
 
 // GetPrincipal returns the Principal field value
 func (o *AclBinding) GetPrincipal() string {
@@ -265,7 +238,6 @@ func (o *AclBinding) SetPrincipal(v string) {
 	o.Principal = v
 }
 
-
 // GetOperation returns the Operation field value
 func (o *AclBinding) GetOperation() AclOperation {
 	if o == nil {
@@ -289,7 +261,6 @@ func (o *AclBinding) GetOperationOk() (*AclOperation, bool) {
 func (o *AclBinding) SetOperation(v AclOperation) {
 	o.Operation = v
 }
-
 
 // GetPermission returns the Permission field value
 func (o *AclBinding) GetPermission() AclPermissionType {
@@ -315,46 +286,35 @@ func (o *AclBinding) SetPermission(v AclPermissionType) {
 	o.Permission = v
 }
 
-
 func (o AclBinding) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-    
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
 	}
-    
 	if true {
 		toSerialize["resourceType"] = o.ResourceType
 	}
-    
 	if true {
 		toSerialize["resourceName"] = o.ResourceName
 	}
-    
 	if true {
 		toSerialize["patternType"] = o.PatternType
 	}
-    
 	if true {
 		toSerialize["principal"] = o.Principal
 	}
-    
 	if true {
 		toSerialize["operation"] = o.Operation
 	}
-    
 	if true {
 		toSerialize["permission"] = o.Permission
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -393,4 +353,5 @@ func (v *NullableAclBinding) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

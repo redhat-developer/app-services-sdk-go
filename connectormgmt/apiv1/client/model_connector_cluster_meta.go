@@ -17,15 +17,10 @@ import (
 
 // ConnectorClusterMeta struct for ConnectorClusterMeta
 type ConnectorClusterMeta struct {
-
 	Owner *string `json:"owner,omitempty"`
-
 	CreatedAt *time.Time `json:"created_at,omitempty"`
-
 	ModifiedAt *time.Time `json:"modified_at,omitempty"`
-
 	Name *string `json:"name,omitempty"`
-
 }
 
 // NewConnectorClusterMeta instantiates a new ConnectorClusterMeta object
@@ -42,14 +37,8 @@ func NewConnectorClusterMeta() *ConnectorClusterMeta {
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorClusterMetaWithDefaults() *ConnectorClusterMeta {
 	this := ConnectorClusterMeta{}
-
-
-
-
-
 	return &this
 }
-
 
 // GetOwner returns the Owner field value if set, zero value otherwise.
 func (o *ConnectorClusterMeta) GetOwner() string {
@@ -83,7 +72,6 @@ func (o *ConnectorClusterMeta) SetOwner(v string) {
 	o.Owner = &v
 }
 
-
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *ConnectorClusterMeta) GetCreatedAt() time.Time {
 	if o == nil || o.CreatedAt == nil {
@@ -115,7 +103,6 @@ func (o *ConnectorClusterMeta) HasCreatedAt() bool {
 func (o *ConnectorClusterMeta) SetCreatedAt(v time.Time) {
 	o.CreatedAt = &v
 }
-
 
 // GetModifiedAt returns the ModifiedAt field value if set, zero value otherwise.
 func (o *ConnectorClusterMeta) GetModifiedAt() time.Time {
@@ -149,7 +136,6 @@ func (o *ConnectorClusterMeta) SetModifiedAt(v time.Time) {
 	o.ModifiedAt = &v
 }
 
-
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ConnectorClusterMeta) GetName() string {
 	if o == nil || o.Name == nil {
@@ -182,26 +168,20 @@ func (o *ConnectorClusterMeta) SetName(v string) {
 	o.Name = &v
 }
 
-
 func (o ConnectorClusterMeta) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Owner != nil {
 		toSerialize["owner"] = o.Owner
 	}
-    
 	if o.CreatedAt != nil {
 		toSerialize["created_at"] = o.CreatedAt
 	}
-    
 	if o.ModifiedAt != nil {
 		toSerialize["modified_at"] = o.ModifiedAt
 	}
-    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -240,4 +220,5 @@ func (v *NullableConnectorClusterMeta) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

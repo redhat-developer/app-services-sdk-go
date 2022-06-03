@@ -16,11 +16,8 @@ import (
 
 // ServiceConnectionSettings struct for ServiceConnectionSettings
 type ServiceConnectionSettings struct {
-
 	Id string `json:"id"`
-
 	Url string `json:"url"`
-
 }
 
 // NewServiceConnectionSettings instantiates a new ServiceConnectionSettings object
@@ -39,12 +36,8 @@ func NewServiceConnectionSettings(id string, url string) *ServiceConnectionSetti
 // but it doesn't guarantee that properties required by API are set
 func NewServiceConnectionSettingsWithDefaults() *ServiceConnectionSettings {
 	this := ServiceConnectionSettings{}
-
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value
 func (o *ServiceConnectionSettings) GetId() string {
@@ -70,7 +63,6 @@ func (o *ServiceConnectionSettings) SetId(v string) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *ServiceConnectionSettings) GetUrl() string {
 	if o == nil {
@@ -95,18 +87,14 @@ func (o *ServiceConnectionSettings) SetUrl(v string) {
 	o.Url = v
 }
 
-
 func (o ServiceConnectionSettings) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["id"] = o.Id
 	}
-    
 	if true {
 		toSerialize["url"] = o.Url
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -145,4 +133,5 @@ func (v *NullableServiceConnectionSettings) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

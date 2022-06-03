@@ -16,15 +16,10 @@ import (
 
 // ConnectorNamespaceStatus struct for ConnectorNamespaceStatus
 type ConnectorNamespaceStatus struct {
-
 	State ConnectorNamespaceState `json:"state"`
-
 	Version *string `json:"version,omitempty"`
-
 	ConnectorsDeployed int32 `json:"connectors_deployed"`
-
 	Error *string `json:"error,omitempty"`
-
 }
 
 // NewConnectorNamespaceStatus instantiates a new ConnectorNamespaceStatus object
@@ -43,14 +38,8 @@ func NewConnectorNamespaceStatus(state ConnectorNamespaceState, connectorsDeploy
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorNamespaceStatusWithDefaults() *ConnectorNamespaceStatus {
 	this := ConnectorNamespaceStatus{}
-
-
-
-
-
 	return &this
 }
-
 
 // GetState returns the State field value
 func (o *ConnectorNamespaceStatus) GetState() ConnectorNamespaceState {
@@ -75,7 +64,6 @@ func (o *ConnectorNamespaceStatus) GetStateOk() (*ConnectorNamespaceState, bool)
 func (o *ConnectorNamespaceStatus) SetState(v ConnectorNamespaceState) {
 	o.State = v
 }
-
 
 // GetVersion returns the Version field value if set, zero value otherwise.
 func (o *ConnectorNamespaceStatus) GetVersion() string {
@@ -109,7 +97,6 @@ func (o *ConnectorNamespaceStatus) SetVersion(v string) {
 	o.Version = &v
 }
 
-
 // GetConnectorsDeployed returns the ConnectorsDeployed field value
 func (o *ConnectorNamespaceStatus) GetConnectorsDeployed() int32 {
 	if o == nil {
@@ -133,7 +120,6 @@ func (o *ConnectorNamespaceStatus) GetConnectorsDeployedOk() (*int32, bool) {
 func (o *ConnectorNamespaceStatus) SetConnectorsDeployed(v int32) {
 	o.ConnectorsDeployed = v
 }
-
 
 // GetError returns the Error field value if set, zero value otherwise.
 func (o *ConnectorNamespaceStatus) GetError() string {
@@ -167,26 +153,20 @@ func (o *ConnectorNamespaceStatus) SetError(v string) {
 	o.Error = &v
 }
 
-
 func (o ConnectorNamespaceStatus) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["state"] = o.State
 	}
-    
 	if o.Version != nil {
 		toSerialize["version"] = o.Version
 	}
-    
 	if true {
 		toSerialize["connectors_deployed"] = o.ConnectorsDeployed
 	}
-    
 	if o.Error != nil {
 		toSerialize["error"] = o.Error
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -225,4 +205,5 @@ func (v *NullableConnectorNamespaceStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

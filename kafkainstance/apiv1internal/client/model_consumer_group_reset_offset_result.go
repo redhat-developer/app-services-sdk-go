@@ -16,20 +16,14 @@ import (
 
 // ConsumerGroupResetOffsetResult struct for ConsumerGroupResetOffsetResult
 type ConsumerGroupResetOffsetResult struct {
-
 	Kind *string `json:"kind,omitempty"`
-
 	Items []ConsumerGroupResetOffsetResultItem `json:"items"`
-
 	// Total number of entries in the full result set
 	Total int32 `json:"total"`
-
 	// Number of entries per page (returned for fetch requests)
 	Size *int32 `json:"size,omitempty"`
-
 	// Current page number (returned for fetch requests)
 	Page *int32 `json:"page,omitempty"`
-
 }
 
 // NewConsumerGroupResetOffsetResult instantiates a new ConsumerGroupResetOffsetResult object
@@ -48,15 +42,8 @@ func NewConsumerGroupResetOffsetResult(items []ConsumerGroupResetOffsetResultIte
 // but it doesn't guarantee that properties required by API are set
 func NewConsumerGroupResetOffsetResultWithDefaults() *ConsumerGroupResetOffsetResult {
 	this := ConsumerGroupResetOffsetResult{}
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetKind returns the Kind field value if set, zero value otherwise.
 func (o *ConsumerGroupResetOffsetResult) GetKind() string {
@@ -90,7 +77,6 @@ func (o *ConsumerGroupResetOffsetResult) SetKind(v string) {
 	o.Kind = &v
 }
 
-
 // GetItems returns the Items field value
 func (o *ConsumerGroupResetOffsetResult) GetItems() []ConsumerGroupResetOffsetResultItem {
 	if o == nil {
@@ -115,7 +101,6 @@ func (o *ConsumerGroupResetOffsetResult) SetItems(v []ConsumerGroupResetOffsetRe
 	o.Items = v
 }
 
-
 // GetTotal returns the Total field value
 func (o *ConsumerGroupResetOffsetResult) GetTotal() int32 {
 	if o == nil {
@@ -139,7 +124,6 @@ func (o *ConsumerGroupResetOffsetResult) GetTotalOk() (*int32, bool) {
 func (o *ConsumerGroupResetOffsetResult) SetTotal(v int32) {
 	o.Total = v
 }
-
 
 // GetSize returns the Size field value if set, zero value otherwise.
 func (o *ConsumerGroupResetOffsetResult) GetSize() int32 {
@@ -173,7 +157,6 @@ func (o *ConsumerGroupResetOffsetResult) SetSize(v int32) {
 	o.Size = &v
 }
 
-
 // GetPage returns the Page field value if set, zero value otherwise.
 func (o *ConsumerGroupResetOffsetResult) GetPage() int32 {
 	if o == nil || o.Page == nil {
@@ -206,30 +189,23 @@ func (o *ConsumerGroupResetOffsetResult) SetPage(v int32) {
 	o.Page = &v
 }
 
-
 func (o ConsumerGroupResetOffsetResult) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if true {
 		toSerialize["items"] = o.Items
 	}
-    
 	if true {
 		toSerialize["total"] = o.Total
 	}
-    
 	if o.Size != nil {
 		toSerialize["size"] = o.Size
 	}
-    
 	if o.Page != nil {
 		toSerialize["page"] = o.Page
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -268,4 +244,5 @@ func (v *NullableConsumerGroupResetOffsetResult) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

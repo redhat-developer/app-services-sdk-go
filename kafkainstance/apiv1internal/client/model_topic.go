@@ -16,26 +16,18 @@ import (
 
 // Topic struct for Topic
 type Topic struct {
-
 	// Unique identifier for the object. Not supported for all object kinds.
 	Id *string `json:"id,omitempty"`
-
 	Kind string `json:"kind"`
-
 	// Link path to request the object. Not supported for all object kinds.
 	Href *string `json:"href,omitempty"`
-
 	// The name of the topic.
 	Name *string `json:"name,omitempty"`
-
 	IsInternal *bool `json:"isInternal,omitempty"`
-
 	// Partitions for this topic.
 	Partitions *[]Partition `json:"partitions,omitempty"`
-
 	// Topic configuration entry.
 	Config *[]ConfigEntry `json:"config,omitempty"`
-
 }
 
 // NewTopic instantiates a new Topic object
@@ -53,17 +45,8 @@ func NewTopic(kind string) *Topic {
 // but it doesn't guarantee that properties required by API are set
 func NewTopicWithDefaults() *Topic {
 	this := Topic{}
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *Topic) GetId() string {
@@ -97,7 +80,6 @@ func (o *Topic) SetId(v string) {
 	o.Id = &v
 }
 
-
 // GetKind returns the Kind field value
 func (o *Topic) GetKind() string {
 	if o == nil {
@@ -121,7 +103,6 @@ func (o *Topic) GetKindOk() (*string, bool) {
 func (o *Topic) SetKind(v string) {
 	o.Kind = v
 }
-
 
 // GetHref returns the Href field value if set, zero value otherwise.
 func (o *Topic) GetHref() string {
@@ -155,7 +136,6 @@ func (o *Topic) SetHref(v string) {
 	o.Href = &v
 }
 
-
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *Topic) GetName() string {
 	if o == nil || o.Name == nil {
@@ -187,7 +167,6 @@ func (o *Topic) HasName() bool {
 func (o *Topic) SetName(v string) {
 	o.Name = &v
 }
-
 
 // GetIsInternal returns the IsInternal field value if set, zero value otherwise.
 func (o *Topic) GetIsInternal() bool {
@@ -221,7 +200,6 @@ func (o *Topic) SetIsInternal(v bool) {
 	o.IsInternal = &v
 }
 
-
 // GetPartitions returns the Partitions field value if set, zero value otherwise.
 func (o *Topic) GetPartitions() []Partition {
 	if o == nil || o.Partitions == nil {
@@ -253,7 +231,6 @@ func (o *Topic) HasPartitions() bool {
 func (o *Topic) SetPartitions(v []Partition) {
 	o.Partitions = &v
 }
-
 
 // GetConfig returns the Config field value if set, zero value otherwise.
 func (o *Topic) GetConfig() []ConfigEntry {
@@ -287,38 +264,29 @@ func (o *Topic) SetConfig(v []ConfigEntry) {
 	o.Config = &v
 }
 
-
 func (o Topic) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
-    
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if o.Href != nil {
 		toSerialize["href"] = o.Href
 	}
-    
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-    
 	if o.IsInternal != nil {
 		toSerialize["isInternal"] = o.IsInternal
 	}
-    
 	if o.Partitions != nil {
 		toSerialize["partitions"] = o.Partitions
 	}
-    
 	if o.Config != nil {
 		toSerialize["config"] = o.Config
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -357,4 +325,5 @@ func (v *NullableTopic) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

@@ -17,28 +17,20 @@ import (
 
 // Record1 An individual record consumed from a topic or produced to a topic
 type Record1 struct {
-
 	// The record's partition within the topic
 	Partition *int32 `json:"partition,omitempty"`
-
 	// The record's offset within the topic partition
 	Offset *int64 `json:"offset,omitempty"`
-
 	// Timestamp associated with the record. The type is indicated by `timestampType`. When producing a record, this value will be used as the record's `CREATE_TIME`.
 	Timestamp *time.Time `json:"timestamp,omitempty"`
-
 	// Type of timestamp associated with the record
 	TimestampType *string `json:"timestampType,omitempty"`
-
 	// Record headers, key/value pairs
 	Headers *map[string]string `json:"headers,omitempty"`
-
 	// Record key
 	Key *string `json:"key,omitempty"`
-
 	// Record value
 	Value string `json:"value"`
-
 }
 
 // NewRecord1 instantiates a new Record1 object
@@ -56,17 +48,8 @@ func NewRecord1(value string) *Record1 {
 // but it doesn't guarantee that properties required by API are set
 func NewRecord1WithDefaults() *Record1 {
 	this := Record1{}
-
-
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetPartition returns the Partition field value if set, zero value otherwise.
 func (o *Record1) GetPartition() int32 {
@@ -100,7 +83,6 @@ func (o *Record1) SetPartition(v int32) {
 	o.Partition = &v
 }
 
-
 // GetOffset returns the Offset field value if set, zero value otherwise.
 func (o *Record1) GetOffset() int64 {
 	if o == nil || o.Offset == nil {
@@ -132,7 +114,6 @@ func (o *Record1) HasOffset() bool {
 func (o *Record1) SetOffset(v int64) {
 	o.Offset = &v
 }
-
 
 // GetTimestamp returns the Timestamp field value if set, zero value otherwise.
 func (o *Record1) GetTimestamp() time.Time {
@@ -166,7 +147,6 @@ func (o *Record1) SetTimestamp(v time.Time) {
 	o.Timestamp = &v
 }
 
-
 // GetTimestampType returns the TimestampType field value if set, zero value otherwise.
 func (o *Record1) GetTimestampType() string {
 	if o == nil || o.TimestampType == nil {
@@ -198,7 +178,6 @@ func (o *Record1) HasTimestampType() bool {
 func (o *Record1) SetTimestampType(v string) {
 	o.TimestampType = &v
 }
-
 
 // GetHeaders returns the Headers field value if set, zero value otherwise.
 func (o *Record1) GetHeaders() map[string]string {
@@ -232,7 +211,6 @@ func (o *Record1) SetHeaders(v map[string]string) {
 	o.Headers = &v
 }
 
-
 // GetKey returns the Key field value if set, zero value otherwise.
 func (o *Record1) GetKey() string {
 	if o == nil || o.Key == nil {
@@ -265,7 +243,6 @@ func (o *Record1) SetKey(v string) {
 	o.Key = &v
 }
 
-
 // GetValue returns the Value field value
 func (o *Record1) GetValue() string {
 	if o == nil {
@@ -290,38 +267,29 @@ func (o *Record1) SetValue(v string) {
 	o.Value = v
 }
 
-
 func (o Record1) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if o.Partition != nil {
 		toSerialize["partition"] = o.Partition
 	}
-    
 	if o.Offset != nil {
 		toSerialize["offset"] = o.Offset
 	}
-    
 	if o.Timestamp != nil {
 		toSerialize["timestamp"] = o.Timestamp
 	}
-    
 	if o.TimestampType != nil {
 		toSerialize["timestampType"] = o.TimestampType
 	}
-    
 	if o.Headers != nil {
 		toSerialize["headers"] = o.Headers
 	}
-    
 	if o.Key != nil {
 		toSerialize["key"] = o.Key
 	}
-    
 	if true {
 		toSerialize["value"] = o.Value
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -360,4 +328,5 @@ func (v *NullableRecord1) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

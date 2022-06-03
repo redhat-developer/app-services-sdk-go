@@ -16,17 +16,11 @@ import (
 
 // ConnectorNamespaceList struct for ConnectorNamespaceList
 type ConnectorNamespaceList struct {
-
 	Kind string `json:"kind"`
-
 	Page int32 `json:"page"`
-
 	Size int32 `json:"size"`
-
 	Total int32 `json:"total"`
-
 	Items []ConnectorNamespace `json:"items"`
-
 }
 
 // NewConnectorNamespaceList instantiates a new ConnectorNamespaceList object
@@ -48,15 +42,8 @@ func NewConnectorNamespaceList(kind string, page int32, size int32, total int32,
 // but it doesn't guarantee that properties required by API are set
 func NewConnectorNamespaceListWithDefaults() *ConnectorNamespaceList {
 	this := ConnectorNamespaceList{}
-
-
-
-
-
-
 	return &this
 }
-
 
 // GetKind returns the Kind field value
 func (o *ConnectorNamespaceList) GetKind() string {
@@ -82,7 +69,6 @@ func (o *ConnectorNamespaceList) SetKind(v string) {
 	o.Kind = v
 }
 
-
 // GetPage returns the Page field value
 func (o *ConnectorNamespaceList) GetPage() int32 {
 	if o == nil {
@@ -106,7 +92,6 @@ func (o *ConnectorNamespaceList) GetPageOk() (*int32, bool) {
 func (o *ConnectorNamespaceList) SetPage(v int32) {
 	o.Page = v
 }
-
 
 // GetSize returns the Size field value
 func (o *ConnectorNamespaceList) GetSize() int32 {
@@ -132,7 +117,6 @@ func (o *ConnectorNamespaceList) SetSize(v int32) {
 	o.Size = v
 }
 
-
 // GetTotal returns the Total field value
 func (o *ConnectorNamespaceList) GetTotal() int32 {
 	if o == nil {
@@ -156,7 +140,6 @@ func (o *ConnectorNamespaceList) GetTotalOk() (*int32, bool) {
 func (o *ConnectorNamespaceList) SetTotal(v int32) {
 	o.Total = v
 }
-
 
 // GetItems returns the Items field value
 func (o *ConnectorNamespaceList) GetItems() []ConnectorNamespace {
@@ -182,30 +165,23 @@ func (o *ConnectorNamespaceList) SetItems(v []ConnectorNamespace) {
 	o.Items = v
 }
 
-
 func (o ConnectorNamespaceList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-    
 	if true {
 		toSerialize["page"] = o.Page
 	}
-    
 	if true {
 		toSerialize["size"] = o.Size
 	}
-    
 	if true {
 		toSerialize["total"] = o.Total
 	}
-    
 	if true {
 		toSerialize["items"] = o.Items
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -244,4 +220,5 @@ func (v *NullableConnectorNamespaceList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 

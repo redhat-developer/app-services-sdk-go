@@ -17,9 +17,7 @@ import (
 
 // UpdateState struct for UpdateState
 type UpdateState struct {
-
 	State ArtifactState `json:"state"`
-
 }
 
 // NewUpdateState instantiates a new UpdateState object
@@ -37,11 +35,8 @@ func NewUpdateState(state ArtifactState) *UpdateState {
 // but it doesn't guarantee that properties required by API are set
 func NewUpdateStateWithDefaults() *UpdateState {
 	this := UpdateState{}
-
-
 	return &this
 }
-
 
 // GetState returns the State field value
 func (o *UpdateState) GetState() ArtifactState {
@@ -67,14 +62,11 @@ func (o *UpdateState) SetState(v ArtifactState) {
 	o.State = v
 }
 
-
 func (o UpdateState) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	
 	if true {
 		toSerialize["state"] = o.State
 	}
-    
 	return json.Marshal(toSerialize)
 }
 
@@ -113,4 +105,5 @@ func (v *NullableUpdateState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
 
