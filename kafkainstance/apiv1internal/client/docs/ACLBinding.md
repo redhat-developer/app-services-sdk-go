@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **Operation** | [**AclOperation**](AclOperation.md) |  | 
 **Permission** | [**AclPermissionType**](AclPermissionType.md) |  | 
 
-
 ## Methods
 
 ### NewACLBinding
@@ -31,7 +30,6 @@ NewACLBindingWithDefaults instantiates a new ACLBinding object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetResourceType
 
 `func (o *ACLBinding) GetResourceType() AclResourceType`
@@ -50,7 +48,6 @@ and a boolean to check if the value has been set.
 `func (o *ACLBinding) SetResourceType(v AclResourceType)`
 
 SetResourceType sets ResourceType field to given value.
-
 
 
 ### GetResourceName
@@ -73,7 +70,6 @@ and a boolean to check if the value has been set.
 SetResourceName sets ResourceName field to given value.
 
 
-
 ### GetPatternType
 
 `func (o *ACLBinding) GetPatternType() AclPatternType`
@@ -92,7 +88,6 @@ and a boolean to check if the value has been set.
 `func (o *ACLBinding) SetPatternType(v AclPatternType)`
 
 SetPatternType sets PatternType field to given value.
-
 
 
 ### GetPrincipal
@@ -115,7 +110,6 @@ and a boolean to check if the value has been set.
 SetPrincipal sets Principal field to given value.
 
 
-
 ### GetOperation
 
 `func (o *ACLBinding) GetOperation() AclOperation`
@@ -134,7 +128,6 @@ and a boolean to check if the value has been set.
 `func (o *ACLBinding) SetOperation(v AclOperation)`
 
 SetOperation sets Operation field to given value.
-
 
 
 ### GetPermission
@@ -158,6 +151,6 @@ SetPermission sets Permission field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 
