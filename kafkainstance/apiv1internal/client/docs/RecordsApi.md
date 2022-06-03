@@ -113,7 +113,7 @@ import (
 
 func main() {
     topicName := "topicName_example" // string | Topic name
-    record := *openapiclient.NewRecord("Value_example", "Kind_example") // Record | 
+    record := *openapiclient.NewRecord("Kind_example", "Value_example") // Record | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)

@@ -4,9 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Kind** | Pointer to **string** |  | [optional] 
-**Items** | [**[]Record**](Record.md) |  | 
-**Total** | **interface{}** | Total number of records returned in this request. This value does not indicate the total number of records in the topic. | 
+**Items** | Pointer to [**[]Record**](Record.md) |  | [optional] 
+**Total** | Pointer to **interface{}** | Total number of records returned in this request. This value does not indicate the total number of records in the topic. | [optional] 
 **Size** | Pointer to **interface{}** | Not used | [optional] 
 **Page** | Pointer to **interface{}** | Not used | [optional] 
 
@@ -15,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewRecordList
 
-`func NewRecordList(items []Record, total interface{}, ) *RecordList`
+`func NewRecordList() *RecordList`
 
 NewRecordList instantiates a new RecordList object
 This constructor will assign default values to properties that have it defined,
@@ -29,32 +28,6 @@ will change when the set of required properties is changed
 NewRecordListWithDefaults instantiates a new RecordList object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-
-### GetKind
-
-`func (o *RecordList) GetKind() string`
-
-GetKind returns the Kind field if non-nil, zero value otherwise.
-
-### GetKindOk
-
-`func (o *RecordList) GetKindOk() (*string, bool)`
-
-GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetKind
-
-`func (o *RecordList) SetKind(v string)`
-
-SetKind sets Kind field to given value.
-
-### HasKind
-
-`func (o *RecordList) HasKind() bool`
-
-HasKind returns a boolean if a field has been set.
 
 
 ### GetItems
@@ -76,6 +49,11 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
+### HasItems
+
+`func (o *RecordList) HasItems() bool`
+
+HasItems returns a boolean if a field has been set.
 
 
 ### GetTotal
@@ -97,6 +75,11 @@ and a boolean to check if the value has been set.
 
 SetTotal sets Total field to given value.
 
+### HasTotal
+
+`func (o *RecordList) HasTotal() bool`
+
+HasTotal returns a boolean if a field has been set.
 
 ### SetTotalNil
 

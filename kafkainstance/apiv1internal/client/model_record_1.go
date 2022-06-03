@@ -15,16 +15,8 @@ import (
 	"time"
 )
 
-// Record struct for Record
-type Record struct {
-
-	// Unique identifier for the object. Not supported for all object kinds.
-	Id *string `json:"id,omitempty"`
-
-	Kind string `json:"kind"`
-
-	// Link path to request the object. Not supported for all object kinds.
-	Href *string `json:"href,omitempty"`
+// Record1 An individual record consumed from a topic or produced to a topic
+type Record1 struct {
 
 	// The record's partition within the topic
 	Partition *int32 `json:"partition,omitempty"`
@@ -49,25 +41,21 @@ type Record struct {
 
 }
 
-// NewRecord instantiates a new Record object
+// NewRecord1 instantiates a new Record1 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRecord(kind string, value string) *Record {
-	this := Record{}
-	this.Kind = kind
+func NewRecord1(value string) *Record1 {
+	this := Record1{}
 	this.Value = value
 	return &this
 }
 
-// NewRecordWithDefaults instantiates a new Record object
+// NewRecord1WithDefaults instantiates a new Record1 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewRecordWithDefaults() *Record {
-	this := Record{}
-
-
-
+func NewRecord1WithDefaults() *Record1 {
+	this := Record1{}
 
 
 
@@ -80,99 +68,8 @@ func NewRecordWithDefaults() *Record {
 }
 
 
-// GetId returns the Id field value if set, zero value otherwise.
-func (o *Record) GetId() string {
-	if o == nil || o.Id == nil {
-		var ret string
-		return ret
-	}
-	return *o.Id
-}
-
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Record) GetIdOk() (*string, bool) {
-	if o == nil || o.Id == nil {
-		return nil, false
-	}
-	return o.Id, true
-}
-
-// HasId returns a boolean if a field has been set.
-func (o *Record) HasId() bool {
-	if o != nil && o.Id != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *Record) SetId(v string) {
-	o.Id = &v
-}
-
-
-// GetKind returns the Kind field value
-func (o *Record) GetKind() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Kind
-}
-
-// GetKindOk returns a tuple with the Kind field value
-// and a boolean to check if the value has been set.
-func (o *Record) GetKindOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Kind, true
-}
-
-// SetKind sets field value
-func (o *Record) SetKind(v string) {
-	o.Kind = v
-}
-
-
-// GetHref returns the Href field value if set, zero value otherwise.
-func (o *Record) GetHref() string {
-	if o == nil || o.Href == nil {
-		var ret string
-		return ret
-	}
-	return *o.Href
-}
-
-// GetHrefOk returns a tuple with the Href field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Record) GetHrefOk() (*string, bool) {
-	if o == nil || o.Href == nil {
-		return nil, false
-	}
-	return o.Href, true
-}
-
-// HasHref returns a boolean if a field has been set.
-func (o *Record) HasHref() bool {
-	if o != nil && o.Href != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetHref gets a reference to the given string and assigns it to the Href field.
-func (o *Record) SetHref(v string) {
-	o.Href = &v
-}
-
-
 // GetPartition returns the Partition field value if set, zero value otherwise.
-func (o *Record) GetPartition() int32 {
+func (o *Record1) GetPartition() int32 {
 	if o == nil || o.Partition == nil {
 		var ret int32
 		return ret
@@ -182,7 +79,7 @@ func (o *Record) GetPartition() int32 {
 
 // GetPartitionOk returns a tuple with the Partition field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Record) GetPartitionOk() (*int32, bool) {
+func (o *Record1) GetPartitionOk() (*int32, bool) {
 	if o == nil || o.Partition == nil {
 		return nil, false
 	}
@@ -190,7 +87,7 @@ func (o *Record) GetPartitionOk() (*int32, bool) {
 }
 
 // HasPartition returns a boolean if a field has been set.
-func (o *Record) HasPartition() bool {
+func (o *Record1) HasPartition() bool {
 	if o != nil && o.Partition != nil {
 		return true
 	}
@@ -199,13 +96,13 @@ func (o *Record) HasPartition() bool {
 }
 
 // SetPartition gets a reference to the given int32 and assigns it to the Partition field.
-func (o *Record) SetPartition(v int32) {
+func (o *Record1) SetPartition(v int32) {
 	o.Partition = &v
 }
 
 
 // GetOffset returns the Offset field value if set, zero value otherwise.
-func (o *Record) GetOffset() int64 {
+func (o *Record1) GetOffset() int64 {
 	if o == nil || o.Offset == nil {
 		var ret int64
 		return ret
@@ -215,7 +112,7 @@ func (o *Record) GetOffset() int64 {
 
 // GetOffsetOk returns a tuple with the Offset field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Record) GetOffsetOk() (*int64, bool) {
+func (o *Record1) GetOffsetOk() (*int64, bool) {
 	if o == nil || o.Offset == nil {
 		return nil, false
 	}
@@ -223,7 +120,7 @@ func (o *Record) GetOffsetOk() (*int64, bool) {
 }
 
 // HasOffset returns a boolean if a field has been set.
-func (o *Record) HasOffset() bool {
+func (o *Record1) HasOffset() bool {
 	if o != nil && o.Offset != nil {
 		return true
 	}
@@ -232,13 +129,13 @@ func (o *Record) HasOffset() bool {
 }
 
 // SetOffset gets a reference to the given int64 and assigns it to the Offset field.
-func (o *Record) SetOffset(v int64) {
+func (o *Record1) SetOffset(v int64) {
 	o.Offset = &v
 }
 
 
 // GetTimestamp returns the Timestamp field value if set, zero value otherwise.
-func (o *Record) GetTimestamp() time.Time {
+func (o *Record1) GetTimestamp() time.Time {
 	if o == nil || o.Timestamp == nil {
 		var ret time.Time
 		return ret
@@ -248,7 +145,7 @@ func (o *Record) GetTimestamp() time.Time {
 
 // GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Record) GetTimestampOk() (*time.Time, bool) {
+func (o *Record1) GetTimestampOk() (*time.Time, bool) {
 	if o == nil || o.Timestamp == nil {
 		return nil, false
 	}
@@ -256,7 +153,7 @@ func (o *Record) GetTimestampOk() (*time.Time, bool) {
 }
 
 // HasTimestamp returns a boolean if a field has been set.
-func (o *Record) HasTimestamp() bool {
+func (o *Record1) HasTimestamp() bool {
 	if o != nil && o.Timestamp != nil {
 		return true
 	}
@@ -265,13 +162,13 @@ func (o *Record) HasTimestamp() bool {
 }
 
 // SetTimestamp gets a reference to the given time.Time and assigns it to the Timestamp field.
-func (o *Record) SetTimestamp(v time.Time) {
+func (o *Record1) SetTimestamp(v time.Time) {
 	o.Timestamp = &v
 }
 
 
 // GetTimestampType returns the TimestampType field value if set, zero value otherwise.
-func (o *Record) GetTimestampType() string {
+func (o *Record1) GetTimestampType() string {
 	if o == nil || o.TimestampType == nil {
 		var ret string
 		return ret
@@ -281,7 +178,7 @@ func (o *Record) GetTimestampType() string {
 
 // GetTimestampTypeOk returns a tuple with the TimestampType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Record) GetTimestampTypeOk() (*string, bool) {
+func (o *Record1) GetTimestampTypeOk() (*string, bool) {
 	if o == nil || o.TimestampType == nil {
 		return nil, false
 	}
@@ -289,7 +186,7 @@ func (o *Record) GetTimestampTypeOk() (*string, bool) {
 }
 
 // HasTimestampType returns a boolean if a field has been set.
-func (o *Record) HasTimestampType() bool {
+func (o *Record1) HasTimestampType() bool {
 	if o != nil && o.TimestampType != nil {
 		return true
 	}
@@ -298,13 +195,13 @@ func (o *Record) HasTimestampType() bool {
 }
 
 // SetTimestampType gets a reference to the given string and assigns it to the TimestampType field.
-func (o *Record) SetTimestampType(v string) {
+func (o *Record1) SetTimestampType(v string) {
 	o.TimestampType = &v
 }
 
 
 // GetHeaders returns the Headers field value if set, zero value otherwise.
-func (o *Record) GetHeaders() map[string]string {
+func (o *Record1) GetHeaders() map[string]string {
 	if o == nil || o.Headers == nil {
 		var ret map[string]string
 		return ret
@@ -314,7 +211,7 @@ func (o *Record) GetHeaders() map[string]string {
 
 // GetHeadersOk returns a tuple with the Headers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Record) GetHeadersOk() (*map[string]string, bool) {
+func (o *Record1) GetHeadersOk() (*map[string]string, bool) {
 	if o == nil || o.Headers == nil {
 		return nil, false
 	}
@@ -322,7 +219,7 @@ func (o *Record) GetHeadersOk() (*map[string]string, bool) {
 }
 
 // HasHeaders returns a boolean if a field has been set.
-func (o *Record) HasHeaders() bool {
+func (o *Record1) HasHeaders() bool {
 	if o != nil && o.Headers != nil {
 		return true
 	}
@@ -331,13 +228,13 @@ func (o *Record) HasHeaders() bool {
 }
 
 // SetHeaders gets a reference to the given map[string]string and assigns it to the Headers field.
-func (o *Record) SetHeaders(v map[string]string) {
+func (o *Record1) SetHeaders(v map[string]string) {
 	o.Headers = &v
 }
 
 
 // GetKey returns the Key field value if set, zero value otherwise.
-func (o *Record) GetKey() string {
+func (o *Record1) GetKey() string {
 	if o == nil || o.Key == nil {
 		var ret string
 		return ret
@@ -347,7 +244,7 @@ func (o *Record) GetKey() string {
 
 // GetKeyOk returns a tuple with the Key field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Record) GetKeyOk() (*string, bool) {
+func (o *Record1) GetKeyOk() (*string, bool) {
 	if o == nil || o.Key == nil {
 		return nil, false
 	}
@@ -355,7 +252,7 @@ func (o *Record) GetKeyOk() (*string, bool) {
 }
 
 // HasKey returns a boolean if a field has been set.
-func (o *Record) HasKey() bool {
+func (o *Record1) HasKey() bool {
 	if o != nil && o.Key != nil {
 		return true
 	}
@@ -364,13 +261,13 @@ func (o *Record) HasKey() bool {
 }
 
 // SetKey gets a reference to the given string and assigns it to the Key field.
-func (o *Record) SetKey(v string) {
+func (o *Record1) SetKey(v string) {
 	o.Key = &v
 }
 
 
 // GetValue returns the Value field value
-func (o *Record) GetValue() string {
+func (o *Record1) GetValue() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -381,7 +278,7 @@ func (o *Record) GetValue() string {
 
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
-func (o *Record) GetValueOk() (*string, bool) {
+func (o *Record1) GetValueOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -389,26 +286,14 @@ func (o *Record) GetValueOk() (*string, bool) {
 }
 
 // SetValue sets field value
-func (o *Record) SetValue(v string) {
+func (o *Record1) SetValue(v string) {
 	o.Value = v
 }
 
 
-func (o Record) MarshalJSON() ([]byte, error) {
+func (o Record1) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	
-	if o.Id != nil {
-		toSerialize["id"] = o.Id
-	}
-    
-	if true {
-		toSerialize["kind"] = o.Kind
-	}
-    
-	if o.Href != nil {
-		toSerialize["href"] = o.Href
-	}
-    
 	if o.Partition != nil {
 		toSerialize["partition"] = o.Partition
 	}
@@ -440,38 +325,38 @@ func (o Record) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableRecord struct {
-	value *Record
+type NullableRecord1 struct {
+	value *Record1
 	isSet bool
 }
 
-func (v NullableRecord) Get() *Record {
+func (v NullableRecord1) Get() *Record1 {
 	return v.value
 }
 
-func (v *NullableRecord) Set(val *Record) {
+func (v *NullableRecord1) Set(val *Record1) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableRecord) IsSet() bool {
+func (v NullableRecord1) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableRecord) Unset() {
+func (v *NullableRecord1) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableRecord(val *Record) *NullableRecord {
-	return &NullableRecord{value: val, isSet: true}
+func NewNullableRecord1(val *Record1) *NullableRecord1 {
+	return &NullableRecord1{value: val, isSet: true}
 }
 
-func (v NullableRecord) MarshalJSON() ([]byte, error) {
+func (v NullableRecord1) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableRecord) UnmarshalJSON(src []byte) error {
+func (v *NullableRecord1) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
