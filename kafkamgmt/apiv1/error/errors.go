@@ -86,6 +86,9 @@ const (
   // Instance plan not supported
   ERROR_42 string = "KAFKAS-MGMT-42"
 
+  // Billing account id missing or invalid
+  ERROR_43 string = "KAFKAS-MGMT-43"
+
   // Synchronous action is not supported, use async=true parameter
   ERROR_103 string = "KAFKAS-MGMT-103"
 
