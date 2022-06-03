@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **ModifiedBy** | Pointer to **string** |  | [optional] 
 **GroupId** | Pointer to **string** | An ID of a single artifact group. | [optional] 
 
-
 ## Methods
 
 ### NewSearchedArtifact
@@ -36,7 +35,6 @@ NewSearchedArtifactWithDefaults instantiates a new SearchedArtifact object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetId
 
 `func (o *SearchedArtifact) GetId() string`
@@ -55,7 +53,6 @@ and a boolean to check if the value has been set.
 `func (o *SearchedArtifact) SetId(v string)`
 
 SetId sets Id field to given value.
-
 
 
 ### GetName
@@ -83,7 +80,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-
 ### GetDescription
 
 `func (o *SearchedArtifact) GetDescription() string`
@@ -109,7 +105,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-
 ### GetCreatedOn
 
 `func (o *SearchedArtifact) GetCreatedOn() string`
@@ -128,7 +123,6 @@ and a boolean to check if the value has been set.
 `func (o *SearchedArtifact) SetCreatedOn(v string)`
 
 SetCreatedOn sets CreatedOn field to given value.
-
 
 
 ### GetCreatedBy
@@ -151,7 +145,6 @@ and a boolean to check if the value has been set.
 SetCreatedBy sets CreatedBy field to given value.
 
 
-
 ### GetType
 
 `func (o *SearchedArtifact) GetType() ArtifactType`
@@ -170,7 +163,6 @@ and a boolean to check if the value has been set.
 `func (o *SearchedArtifact) SetType(v ArtifactType)`
 
 SetType sets Type field to given value.
-
 
 
 ### GetLabels
@@ -198,7 +190,6 @@ SetLabels sets Labels field to given value.
 
 HasLabels returns a boolean if a field has been set.
 
-
 ### GetState
 
 `func (o *SearchedArtifact) GetState() ArtifactState`
@@ -217,7 +208,6 @@ and a boolean to check if the value has been set.
 `func (o *SearchedArtifact) SetState(v ArtifactState)`
 
 SetState sets State field to given value.
-
 
 
 ### GetModifiedOn
@@ -245,7 +235,6 @@ SetModifiedOn sets ModifiedOn field to given value.
 
 HasModifiedOn returns a boolean if a field has been set.
 
-
 ### GetModifiedBy
 
 `func (o *SearchedArtifact) GetModifiedBy() string`
@@ -270,7 +259,6 @@ SetModifiedBy sets ModifiedBy field to given value.
 `func (o *SearchedArtifact) HasModifiedBy() bool`
 
 HasModifiedBy returns a boolean if a field has been set.
-
 
 ### GetGroupId
 
@@ -298,6 +286,6 @@ SetGroupId sets GroupId field to given value.
 HasGroupId returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

@@ -20,7 +20,6 @@ Name | Type | Description | Notes
 **GroupId** | Pointer to **string** | An ID of a single artifact group. | [optional] 
 **ContentId** | **int64** |  | 
 
-
 ## Methods
 
 ### NewArtifactMetaData
@@ -39,7 +38,6 @@ will change when the set of required properties is changed
 NewArtifactMetaDataWithDefaults instantiates a new ArtifactMetaData object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetName
 
@@ -66,7 +64,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-
 ### GetDescription
 
 `func (o *ArtifactMetaData) GetDescription() string`
@@ -92,7 +89,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-
 ### GetCreatedBy
 
 `func (o *ArtifactMetaData) GetCreatedBy() string`
@@ -111,7 +107,6 @@ and a boolean to check if the value has been set.
 `func (o *ArtifactMetaData) SetCreatedBy(v string)`
 
 SetCreatedBy sets CreatedBy field to given value.
-
 
 
 ### GetCreatedOn
@@ -134,7 +129,6 @@ and a boolean to check if the value has been set.
 SetCreatedOn sets CreatedOn field to given value.
 
 
-
 ### GetModifiedBy
 
 `func (o *ArtifactMetaData) GetModifiedBy() string`
@@ -153,7 +147,6 @@ and a boolean to check if the value has been set.
 `func (o *ArtifactMetaData) SetModifiedBy(v string)`
 
 SetModifiedBy sets ModifiedBy field to given value.
-
 
 
 ### GetModifiedOn
@@ -176,7 +169,6 @@ and a boolean to check if the value has been set.
 SetModifiedOn sets ModifiedOn field to given value.
 
 
-
 ### GetId
 
 `func (o *ArtifactMetaData) GetId() string`
@@ -195,7 +187,6 @@ and a boolean to check if the value has been set.
 `func (o *ArtifactMetaData) SetId(v string)`
 
 SetId sets Id field to given value.
-
 
 
 ### GetVersion
@@ -218,7 +209,6 @@ and a boolean to check if the value has been set.
 SetVersion sets Version field to given value.
 
 
-
 ### GetType
 
 `func (o *ArtifactMetaData) GetType() ArtifactType`
@@ -237,7 +227,6 @@ and a boolean to check if the value has been set.
 `func (o *ArtifactMetaData) SetType(v ArtifactType)`
 
 SetType sets Type field to given value.
-
 
 
 ### GetGlobalId
@@ -260,7 +249,6 @@ and a boolean to check if the value has been set.
 SetGlobalId sets GlobalId field to given value.
 
 
-
 ### GetState
 
 `func (o *ArtifactMetaData) GetState() ArtifactState`
@@ -279,7 +267,6 @@ and a boolean to check if the value has been set.
 `func (o *ArtifactMetaData) SetState(v ArtifactState)`
 
 SetState sets State field to given value.
-
 
 
 ### GetLabels
@@ -307,7 +294,6 @@ SetLabels sets Labels field to given value.
 
 HasLabels returns a boolean if a field has been set.
 
-
 ### GetProperties
 
 `func (o *ArtifactMetaData) GetProperties() map[string]string`
@@ -332,7 +318,6 @@ SetProperties sets Properties field to given value.
 `func (o *ArtifactMetaData) HasProperties() bool`
 
 HasProperties returns a boolean if a field has been set.
-
 
 ### GetGroupId
 
@@ -359,7 +344,6 @@ SetGroupId sets GroupId field to given value.
 
 HasGroupId returns a boolean if a field has been set.
 
-
 ### GetContentId
 
 `func (o *ArtifactMetaData) GetContentId() int64`
@@ -381,6 +365,6 @@ SetContentId sets ContentId field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

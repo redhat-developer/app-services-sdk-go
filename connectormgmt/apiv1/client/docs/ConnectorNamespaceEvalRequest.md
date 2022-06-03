@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** | Namespace name must match pattern &#x60;^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$&#x60;, or it may be empty to be auto-generated. | [optional] 
 **Annotations** | Pointer to **map[string]string** |  | [optional] 
 
-
 ## Methods
 
 ### NewConnectorNamespaceEvalRequest
@@ -26,7 +25,6 @@ will change when the set of required properties is changed
 NewConnectorNamespaceEvalRequestWithDefaults instantiates a new ConnectorNamespaceEvalRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetName
 
@@ -52,7 +50,6 @@ SetName sets Name field to given value.
 `func (o *ConnectorNamespaceEvalRequest) HasName() bool`
 
 HasName returns a boolean if a field has been set.
-
 
 ### GetAnnotations
 
@@ -80,6 +77,6 @@ SetAnnotations sets Annotations field to given value.
 HasAnnotations returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

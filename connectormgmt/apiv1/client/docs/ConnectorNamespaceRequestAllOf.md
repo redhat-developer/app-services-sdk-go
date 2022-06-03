@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **ClusterId** | Pointer to **string** |  | [optional] 
 **Kind** | Pointer to [**ConnectorNamespaceTenantKind**](ConnectorNamespaceTenantKind.md) |  | [optional] 
 
-
 ## Methods
 
 ### NewConnectorNamespaceRequestAllOf
@@ -26,7 +25,6 @@ will change when the set of required properties is changed
 NewConnectorNamespaceRequestAllOfWithDefaults instantiates a new ConnectorNamespaceRequestAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetClusterId
 
@@ -52,7 +50,6 @@ SetClusterId sets ClusterId field to given value.
 `func (o *ConnectorNamespaceRequestAllOf) HasClusterId() bool`
 
 HasClusterId returns a boolean if a field has been set.
-
 
 ### GetKind
 
@@ -80,6 +77,6 @@ SetKind sets Kind field to given value.
 HasKind returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

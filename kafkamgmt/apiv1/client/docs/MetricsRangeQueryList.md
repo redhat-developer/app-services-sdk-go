@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Items** | Pointer to [**[]RangeQuery**](RangeQuery.md) |  | [optional] 
 
-
 ## Methods
 
 ### NewMetricsRangeQueryList
@@ -27,7 +26,6 @@ will change when the set of required properties is changed
 NewMetricsRangeQueryListWithDefaults instantiates a new MetricsRangeQueryList object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetKind
 
@@ -54,7 +52,6 @@ SetKind sets Kind field to given value.
 
 HasKind returns a boolean if a field has been set.
 
-
 ### GetId
 
 `func (o *MetricsRangeQueryList) GetId() string`
@@ -79,7 +76,6 @@ SetId sets Id field to given value.
 `func (o *MetricsRangeQueryList) HasId() bool`
 
 HasId returns a boolean if a field has been set.
-
 
 ### GetItems
 
@@ -107,6 +103,6 @@ SetItems sets Items field to given value.
 HasItems returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

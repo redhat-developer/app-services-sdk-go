@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Bytes** | Pointer to **int64** |  | [optional] 
 
-
 ## Methods
 
 ### NewSupportedKafkaSizeBytesValueItem
@@ -25,7 +24,6 @@ will change when the set of required properties is changed
 NewSupportedKafkaSizeBytesValueItemWithDefaults instantiates a new SupportedKafkaSizeBytesValueItem object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetBytes
 
@@ -53,6 +51,6 @@ SetBytes sets Bytes field to given value.
 HasBytes returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

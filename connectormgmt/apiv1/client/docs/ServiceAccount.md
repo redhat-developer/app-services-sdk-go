@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **ClientId** | **string** |  | 
 **ClientSecret** | **string** |  | 
 
-
 ## Methods
 
 ### NewServiceAccount
@@ -27,7 +26,6 @@ NewServiceAccountWithDefaults instantiates a new ServiceAccount object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetClientId
 
 `func (o *ServiceAccount) GetClientId() string`
@@ -46,7 +44,6 @@ and a boolean to check if the value has been set.
 `func (o *ServiceAccount) SetClientId(v string)`
 
 SetClientId sets ClientId field to given value.
-
 
 
 ### GetClientSecret
@@ -70,6 +67,6 @@ SetClientSecret sets ClientSecret field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

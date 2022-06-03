@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **State** | [**ArtifactState**](ArtifactState.md) |  | 
 
-
 ## Methods
 
 ### NewUpdateState
@@ -25,7 +24,6 @@ will change when the set of required properties is changed
 NewUpdateStateWithDefaults instantiates a new UpdateState object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetState
 
@@ -48,6 +46,6 @@ SetState sets State field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

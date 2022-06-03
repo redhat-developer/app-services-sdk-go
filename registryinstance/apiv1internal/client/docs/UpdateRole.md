@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Role** | [**RoleType**](RoleType.md) |  | 
 
-
 ## Methods
 
 ### NewUpdateRole
@@ -25,7 +24,6 @@ will change when the set of required properties is changed
 NewUpdateRoleWithDefaults instantiates a new UpdateRole object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetRole
 
@@ -48,6 +46,6 @@ SetRole sets Role field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

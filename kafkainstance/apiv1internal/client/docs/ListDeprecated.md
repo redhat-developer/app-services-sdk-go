@@ -9,7 +9,9 @@ Name | Type | Description | Notes
 **Total** | **int32** | Total number of entries in the full result set | 
 **Size** | Pointer to **int32** | Number of entries per page (returned for fetch requests) | [optional] 
 **Page** | Pointer to **int32** | Current page number (returned for fetch requests) | [optional] 
-
+**Offset** | Pointer to **int32** | Offset of the first record returned, zero-based | [optional] 
+**Limit** | Pointer to **int32** | Maximum number of records to return, from request | [optional] 
+**Count** | Pointer to **int32** | Total number of entries in the full result set | [optional] 
 
 ## Methods
 
@@ -29,7 +31,6 @@ will change when the set of required properties is changed
 NewListDeprecatedWithDefaults instantiates a new ListDeprecated object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetKind
 
@@ -56,7 +57,6 @@ SetKind sets Kind field to given value.
 
 HasKind returns a boolean if a field has been set.
 
-
 ### GetItems
 
 `func (o *ListDeprecated) GetItems() []map[string]interface{}`
@@ -77,7 +77,6 @@ and a boolean to check if the value has been set.
 SetItems sets Items field to given value.
 
 
-
 ### GetTotal
 
 `func (o *ListDeprecated) GetTotal() int32`
@@ -96,7 +95,6 @@ and a boolean to check if the value has been set.
 `func (o *ListDeprecated) SetTotal(v int32)`
 
 SetTotal sets Total field to given value.
-
 
 
 ### GetSize
@@ -124,7 +122,6 @@ SetSize sets Size field to given value.
 
 HasSize returns a boolean if a field has been set.
 
-
 ### GetPage
 
 `func (o *ListDeprecated) GetPage() int32`
@@ -150,7 +147,82 @@ SetPage sets Page field to given value.
 
 HasPage returns a boolean if a field has been set.
 
+### GetOffset
+
+`func (o *ListDeprecated) GetOffset() int32`
+
+GetOffset returns the Offset field if non-nil, zero value otherwise.
+
+### GetOffsetOk
+
+`func (o *ListDeprecated) GetOffsetOk() (*int32, bool)`
+
+GetOffsetOk returns a tuple with the Offset field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOffset
+
+`func (o *ListDeprecated) SetOffset(v int32)`
+
+SetOffset sets Offset field to given value.
+
+### HasOffset
+
+`func (o *ListDeprecated) HasOffset() bool`
+
+HasOffset returns a boolean if a field has been set.
+
+### GetLimit
+
+`func (o *ListDeprecated) GetLimit() int32`
+
+GetLimit returns the Limit field if non-nil, zero value otherwise.
+
+### GetLimitOk
+
+`func (o *ListDeprecated) GetLimitOk() (*int32, bool)`
+
+GetLimitOk returns a tuple with the Limit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLimit
+
+`func (o *ListDeprecated) SetLimit(v int32)`
+
+SetLimit sets Limit field to given value.
+
+### HasLimit
+
+`func (o *ListDeprecated) HasLimit() bool`
+
+HasLimit returns a boolean if a field has been set.
+
+### GetCount
+
+`func (o *ListDeprecated) GetCount() int32`
+
+GetCount returns the Count field if non-nil, zero value otherwise.
+
+### GetCountOk
+
+`func (o *ListDeprecated) GetCountOk() (*int32, bool)`
+
+GetCountOk returns a tuple with the Count field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCount
+
+`func (o *ListDeprecated) SetCount(v int32)`
+
+SetCount sets Count field to given value.
+
+### HasCount
+
+`func (o *ListDeprecated) HasCount() bool`
+
+HasCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

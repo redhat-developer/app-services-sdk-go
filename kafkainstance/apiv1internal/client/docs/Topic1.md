@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Partitions** | Pointer to [**[]Partition**](Partition.md) | Partitions for this topic. | [optional] 
 **Config** | Pointer to [**[]ConfigEntry**](ConfigEntry.md) | Topic configuration entry. | [optional] 
 
-
 ## Methods
 
 ### NewTopic1
@@ -28,7 +27,6 @@ will change when the set of required properties is changed
 NewTopic1WithDefaults instantiates a new Topic1 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetName
 
@@ -55,7 +53,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-
 ### GetIsInternal
 
 `func (o *Topic1) GetIsInternal() bool`
@@ -81,7 +78,6 @@ SetIsInternal sets IsInternal field to given value.
 
 HasIsInternal returns a boolean if a field has been set.
 
-
 ### GetPartitions
 
 `func (o *Topic1) GetPartitions() []Partition`
@@ -106,7 +102,6 @@ SetPartitions sets Partitions field to given value.
 `func (o *Topic1) HasPartitions() bool`
 
 HasPartitions returns a boolean if a field has been set.
-
 
 ### GetConfig
 
@@ -134,6 +129,6 @@ SetConfig sets Config field to given value.
 HasConfig returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

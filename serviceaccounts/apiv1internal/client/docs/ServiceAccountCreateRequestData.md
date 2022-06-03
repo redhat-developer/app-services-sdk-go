@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Description** | **string** |  | 
 
-
 ## Methods
 
 ### NewServiceAccountCreateRequestData
@@ -27,7 +26,6 @@ NewServiceAccountCreateRequestDataWithDefaults instantiates a new ServiceAccount
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetName
 
 `func (o *ServiceAccountCreateRequestData) GetName() string`
@@ -46,7 +44,6 @@ and a boolean to check if the value has been set.
 `func (o *ServiceAccountCreateRequestData) SetName(v string)`
 
 SetName sets Name field to given value.
-
 
 
 ### GetDescription
@@ -70,6 +67,6 @@ SetDescription sets Description field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

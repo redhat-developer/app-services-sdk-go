@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **ConnectorsDeployed** | **int32** |  | 
 **Error** | Pointer to **string** |  | [optional] 
 
-
 ## Methods
 
 ### NewConnectorNamespaceStatus
@@ -29,7 +28,6 @@ NewConnectorNamespaceStatusWithDefaults instantiates a new ConnectorNamespaceSta
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetState
 
 `func (o *ConnectorNamespaceStatus) GetState() ConnectorNamespaceState`
@@ -48,7 +46,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorNamespaceStatus) SetState(v ConnectorNamespaceState)`
 
 SetState sets State field to given value.
-
 
 
 ### GetVersion
@@ -76,7 +73,6 @@ SetVersion sets Version field to given value.
 
 HasVersion returns a boolean if a field has been set.
 
-
 ### GetConnectorsDeployed
 
 `func (o *ConnectorNamespaceStatus) GetConnectorsDeployed() int32`
@@ -95,7 +91,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorNamespaceStatus) SetConnectorsDeployed(v int32)`
 
 SetConnectorsDeployed sets ConnectorsDeployed field to given value.
-
 
 
 ### GetError
@@ -124,6 +119,6 @@ SetError sets Error field to given value.
 HasError returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

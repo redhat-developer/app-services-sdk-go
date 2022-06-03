@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **Key** | Pointer to **string** | Record key | [optional] 
 **Value** | **string** | Record value | 
 
-
 ## Methods
 
 ### NewRecord
@@ -34,7 +33,6 @@ will change when the set of required properties is changed
 NewRecordWithDefaults instantiates a new Record object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetId
 
@@ -61,7 +59,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-
 ### GetKind
 
 `func (o *Record) GetKind() string`
@@ -80,7 +77,6 @@ and a boolean to check if the value has been set.
 `func (o *Record) SetKind(v string)`
 
 SetKind sets Kind field to given value.
-
 
 
 ### GetHref
@@ -108,7 +104,6 @@ SetHref sets Href field to given value.
 
 HasHref returns a boolean if a field has been set.
 
-
 ### GetPartition
 
 `func (o *Record) GetPartition() int32`
@@ -133,7 +128,6 @@ SetPartition sets Partition field to given value.
 `func (o *Record) HasPartition() bool`
 
 HasPartition returns a boolean if a field has been set.
-
 
 ### GetOffset
 
@@ -160,7 +154,6 @@ SetOffset sets Offset field to given value.
 
 HasOffset returns a boolean if a field has been set.
 
-
 ### GetTimestamp
 
 `func (o *Record) GetTimestamp() time.Time`
@@ -185,7 +178,6 @@ SetTimestamp sets Timestamp field to given value.
 `func (o *Record) HasTimestamp() bool`
 
 HasTimestamp returns a boolean if a field has been set.
-
 
 ### GetTimestampType
 
@@ -212,7 +204,6 @@ SetTimestampType sets TimestampType field to given value.
 
 HasTimestampType returns a boolean if a field has been set.
 
-
 ### GetHeaders
 
 `func (o *Record) GetHeaders() map[string]string`
@@ -237,7 +228,6 @@ SetHeaders sets Headers field to given value.
 `func (o *Record) HasHeaders() bool`
 
 HasHeaders returns a boolean if a field has been set.
-
 
 ### GetKey
 
@@ -264,7 +254,6 @@ SetKey sets Key field to given value.
 
 HasKey returns a boolean if a field has been set.
 
-
 ### GetValue
 
 `func (o *Record) GetValue() string`
@@ -286,6 +275,6 @@ SetValue sets Value field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

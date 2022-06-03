@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Url** | **string** |  | 
 
-
 ## Methods
 
 ### NewKafkaConnectionSettings
@@ -27,7 +26,6 @@ NewKafkaConnectionSettingsWithDefaults instantiates a new KafkaConnectionSetting
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetId
 
 `func (o *KafkaConnectionSettings) GetId() string`
@@ -46,7 +44,6 @@ and a boolean to check if the value has been set.
 `func (o *KafkaConnectionSettings) SetId(v string)`
 
 SetId sets Id field to given value.
-
 
 
 ### GetUrl
@@ -70,6 +67,6 @@ SetUrl sets Url field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

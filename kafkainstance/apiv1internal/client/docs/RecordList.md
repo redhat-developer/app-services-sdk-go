@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Size** | Pointer to **interface{}** | Not used | [optional] 
 **Page** | Pointer to **interface{}** | Not used | [optional] 
 
-
 ## Methods
 
 ### NewRecordList
@@ -28,7 +27,6 @@ will change when the set of required properties is changed
 NewRecordListWithDefaults instantiates a new RecordList object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetItems
 
@@ -54,7 +52,6 @@ SetItems sets Items field to given value.
 `func (o *RecordList) HasItems() bool`
 
 HasItems returns a boolean if a field has been set.
-
 
 ### GetTotal
 
@@ -91,7 +88,6 @@ HasTotal returns a boolean if a field has been set.
 `func (o *RecordList) UnsetTotal()`
 
 UnsetTotal ensures that no value is present for Total, not even an explicit nil
-
 ### GetSize
 
 `func (o *RecordList) GetSize() interface{}`
@@ -127,7 +123,6 @@ HasSize returns a boolean if a field has been set.
 `func (o *RecordList) UnsetSize()`
 
 UnsetSize ensures that no value is present for Size, not even an explicit nil
-
 ### GetPage
 
 `func (o *RecordList) GetPage() interface{}`
@@ -164,6 +159,6 @@ HasPage returns a boolean if a field has been set.
 
 UnsetPage ensures that no value is present for Page, not even an explicit nil
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

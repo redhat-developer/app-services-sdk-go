@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **PrincipalId** | **string** |  | 
 **Role** | [**RoleType**](RoleType.md) |  | 
 
-
 ## Methods
 
 ### NewRoleMapping
@@ -27,7 +26,6 @@ NewRoleMappingWithDefaults instantiates a new RoleMapping object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetPrincipalId
 
 `func (o *RoleMapping) GetPrincipalId() string`
@@ -46,7 +44,6 @@ and a boolean to check if the value has been set.
 `func (o *RoleMapping) SetPrincipalId(v string)`
 
 SetPrincipalId sets PrincipalId field to given value.
-
 
 
 ### GetRole
@@ -70,6 +67,6 @@ SetRole sets Role field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

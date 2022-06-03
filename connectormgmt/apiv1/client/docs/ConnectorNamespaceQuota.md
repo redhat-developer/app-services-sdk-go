@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **CpuRequests** | Pointer to **string** | CPU quota for limits or requests | [optional] 
 **CpuLimits** | Pointer to **string** | CPU quota for limits or requests | [optional] 
 
-
 ## Methods
 
 ### NewConnectorNamespaceQuota
@@ -29,7 +28,6 @@ will change when the set of required properties is changed
 NewConnectorNamespaceQuotaWithDefaults instantiates a new ConnectorNamespaceQuota object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetConnectors
 
@@ -56,7 +54,6 @@ SetConnectors sets Connectors field to given value.
 
 HasConnectors returns a boolean if a field has been set.
 
-
 ### GetMemoryRequests
 
 `func (o *ConnectorNamespaceQuota) GetMemoryRequests() string`
@@ -81,7 +78,6 @@ SetMemoryRequests sets MemoryRequests field to given value.
 `func (o *ConnectorNamespaceQuota) HasMemoryRequests() bool`
 
 HasMemoryRequests returns a boolean if a field has been set.
-
 
 ### GetMemoryLimits
 
@@ -108,7 +104,6 @@ SetMemoryLimits sets MemoryLimits field to given value.
 
 HasMemoryLimits returns a boolean if a field has been set.
 
-
 ### GetCpuRequests
 
 `func (o *ConnectorNamespaceQuota) GetCpuRequests() string`
@@ -133,7 +128,6 @@ SetCpuRequests sets CpuRequests field to given value.
 `func (o *ConnectorNamespaceQuota) HasCpuRequests() bool`
 
 HasCpuRequests returns a boolean if a field has been set.
-
 
 ### GetCpuLimits
 
@@ -161,6 +155,6 @@ SetCpuLimits sets CpuLimits field to given value.
 HasCpuLimits returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

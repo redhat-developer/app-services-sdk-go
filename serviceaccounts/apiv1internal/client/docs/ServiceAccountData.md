@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **CreatedBy** | Pointer to **string** |  | [optional] 
 **CreatedAt** | Pointer to **int64** |  | [optional] 
 
-
 ## Methods
 
 ### NewServiceAccountData
@@ -31,7 +30,6 @@ will change when the set of required properties is changed
 NewServiceAccountDataWithDefaults instantiates a new ServiceAccountData object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetId
 
@@ -58,7 +56,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-
 ### GetClientId
 
 `func (o *ServiceAccountData) GetClientId() string`
@@ -83,7 +80,6 @@ SetClientId sets ClientId field to given value.
 `func (o *ServiceAccountData) HasClientId() bool`
 
 HasClientId returns a boolean if a field has been set.
-
 
 ### GetSecret
 
@@ -110,7 +106,6 @@ SetSecret sets Secret field to given value.
 
 HasSecret returns a boolean if a field has been set.
 
-
 ### GetName
 
 `func (o *ServiceAccountData) GetName() string`
@@ -135,7 +130,6 @@ SetName sets Name field to given value.
 `func (o *ServiceAccountData) HasName() bool`
 
 HasName returns a boolean if a field has been set.
-
 
 ### GetDescription
 
@@ -162,7 +156,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-
 ### GetCreatedBy
 
 `func (o *ServiceAccountData) GetCreatedBy() string`
@@ -187,7 +180,6 @@ SetCreatedBy sets CreatedBy field to given value.
 `func (o *ServiceAccountData) HasCreatedBy() bool`
 
 HasCreatedBy returns a boolean if a field has been set.
-
 
 ### GetCreatedAt
 
@@ -215,6 +207,6 @@ SetCreatedAt sets CreatedAt field to given value.
 HasCreatedAt returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

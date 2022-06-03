@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **UpdatedAt** | **time.Time** | ISO 8601 UTC timestamp. | 
 **InstanceType** | [**RegistryInstanceTypeValue**](RegistryInstanceTypeValue.md) |  | 
 
-
 ## Methods
 
 ### NewRootTypeForRegistry
@@ -35,7 +34,6 @@ will change when the set of required properties is changed
 NewRootTypeForRegistryWithDefaults instantiates a new RootTypeForRegistry object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetId
 
@@ -57,7 +55,6 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
-
 ### GetStatus
 
 `func (o *RootTypeForRegistry) GetStatus() RegistryStatusValue`
@@ -76,7 +73,6 @@ and a boolean to check if the value has been set.
 `func (o *RootTypeForRegistry) SetStatus(v RegistryStatusValue)`
 
 SetStatus sets Status field to given value.
-
 
 
 ### GetRegistryUrl
@@ -104,7 +100,6 @@ SetRegistryUrl sets RegistryUrl field to given value.
 
 HasRegistryUrl returns a boolean if a field has been set.
 
-
 ### GetBrowserUrl
 
 `func (o *RootTypeForRegistry) GetBrowserUrl() string`
@@ -129,7 +124,6 @@ SetBrowserUrl sets BrowserUrl field to given value.
 `func (o *RootTypeForRegistry) HasBrowserUrl() bool`
 
 HasBrowserUrl returns a boolean if a field has been set.
-
 
 ### GetName
 
@@ -156,7 +150,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-
 ### GetRegistryDeploymentId
 
 `func (o *RootTypeForRegistry) GetRegistryDeploymentId() int32`
@@ -181,7 +174,6 @@ SetRegistryDeploymentId sets RegistryDeploymentId field to given value.
 `func (o *RootTypeForRegistry) HasRegistryDeploymentId() bool`
 
 HasRegistryDeploymentId returns a boolean if a field has been set.
-
 
 ### GetOwner
 
@@ -208,7 +200,6 @@ SetOwner sets Owner field to given value.
 
 HasOwner returns a boolean if a field has been set.
 
-
 ### GetDescription
 
 `func (o *RootTypeForRegistry) GetDescription() string`
@@ -234,7 +225,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-
 ### GetCreatedAt
 
 `func (o *RootTypeForRegistry) GetCreatedAt() time.Time`
@@ -255,7 +245,6 @@ and a boolean to check if the value has been set.
 SetCreatedAt sets CreatedAt field to given value.
 
 
-
 ### GetUpdatedAt
 
 `func (o *RootTypeForRegistry) GetUpdatedAt() time.Time`
@@ -274,7 +263,6 @@ and a boolean to check if the value has been set.
 `func (o *RootTypeForRegistry) SetUpdatedAt(v time.Time)`
 
 SetUpdatedAt sets UpdatedAt field to given value.
-
 
 
 ### GetInstanceType
@@ -298,6 +286,6 @@ SetInstanceType sets InstanceType field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

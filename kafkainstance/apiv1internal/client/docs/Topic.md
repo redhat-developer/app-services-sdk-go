@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **Partitions** | Pointer to [**[]Partition**](Partition.md) | Partitions for this topic. | [optional] 
 **Config** | Pointer to [**[]ConfigEntry**](ConfigEntry.md) | Topic configuration entry. | [optional] 
 
-
 ## Methods
 
 ### NewTopic
@@ -31,7 +30,6 @@ will change when the set of required properties is changed
 NewTopicWithDefaults instantiates a new Topic object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetId
 
@@ -58,7 +56,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-
 ### GetKind
 
 `func (o *Topic) GetKind() string`
@@ -77,7 +74,6 @@ and a boolean to check if the value has been set.
 `func (o *Topic) SetKind(v string)`
 
 SetKind sets Kind field to given value.
-
 
 
 ### GetHref
@@ -105,7 +101,6 @@ SetHref sets Href field to given value.
 
 HasHref returns a boolean if a field has been set.
 
-
 ### GetName
 
 `func (o *Topic) GetName() string`
@@ -130,7 +125,6 @@ SetName sets Name field to given value.
 `func (o *Topic) HasName() bool`
 
 HasName returns a boolean if a field has been set.
-
 
 ### GetIsInternal
 
@@ -157,7 +151,6 @@ SetIsInternal sets IsInternal field to given value.
 
 HasIsInternal returns a boolean if a field has been set.
 
-
 ### GetPartitions
 
 `func (o *Topic) GetPartitions() []Partition`
@@ -182,7 +175,6 @@ SetPartitions sets Partitions field to given value.
 `func (o *Topic) HasPartitions() bool`
 
 HasPartitions returns a boolean if a field has been set.
-
 
 ### GetConfig
 
@@ -210,6 +202,6 @@ SetConfig sets Config field to given value.
 HasConfig returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

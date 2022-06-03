@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Consumers** | [**[]Consumer**](Consumer.md) | The list of consumers associated with this consumer group | 
 **Metrics** | Pointer to [**ConsumerGroupMetrics**](ConsumerGroupMetrics.md) |  | [optional] 
 
-
 ## Methods
 
 ### NewConsumerGroupAllOf
@@ -29,7 +28,6 @@ NewConsumerGroupAllOfWithDefaults instantiates a new ConsumerGroupAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetGroupId
 
 `func (o *ConsumerGroupAllOf) GetGroupId() string`
@@ -48,7 +46,6 @@ and a boolean to check if the value has been set.
 `func (o *ConsumerGroupAllOf) SetGroupId(v string)`
 
 SetGroupId sets GroupId field to given value.
-
 
 
 ### GetState
@@ -76,7 +73,6 @@ SetState sets State field to given value.
 
 HasState returns a boolean if a field has been set.
 
-
 ### GetConsumers
 
 `func (o *ConsumerGroupAllOf) GetConsumers() []Consumer`
@@ -95,7 +91,6 @@ and a boolean to check if the value has been set.
 `func (o *ConsumerGroupAllOf) SetConsumers(v []Consumer)`
 
 SetConsumers sets Consumers field to given value.
-
 
 
 ### GetMetrics
@@ -124,6 +119,6 @@ SetMetrics sets Metrics field to given value.
 HasMetrics returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

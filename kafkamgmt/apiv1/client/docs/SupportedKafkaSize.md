@@ -23,7 +23,6 @@ Name | Type | Description | Notes
 **CapacityConsumed** | Pointer to **int32** | Data plane cluster capacity consumed by this Kafka instance size. | [optional] 
 **MaturityStatus** | Pointer to **string** | Maturity level of the size. Can be \&quot;stable\&quot; or \&quot;preview\&quot;. | [optional] 
 
-
 ## Methods
 
 ### NewSupportedKafkaSize
@@ -42,7 +41,6 @@ will change when the set of required properties is changed
 NewSupportedKafkaSizeWithDefaults instantiates a new SupportedKafkaSize object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetId
 
@@ -69,7 +67,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-
 ### GetDisplayName
 
 `func (o *SupportedKafkaSize) GetDisplayName() string`
@@ -94,7 +91,6 @@ SetDisplayName sets DisplayName field to given value.
 `func (o *SupportedKafkaSize) HasDisplayName() bool`
 
 HasDisplayName returns a boolean if a field has been set.
-
 
 ### GetIngressThroughputPerSec
 
@@ -121,7 +117,6 @@ SetIngressThroughputPerSec sets IngressThroughputPerSec field to given value.
 
 HasIngressThroughputPerSec returns a boolean if a field has been set.
 
-
 ### GetEgressThroughputPerSec
 
 `func (o *SupportedKafkaSize) GetEgressThroughputPerSec() SupportedKafkaSizeBytesValueItem`
@@ -146,7 +141,6 @@ SetEgressThroughputPerSec sets EgressThroughputPerSec field to given value.
 `func (o *SupportedKafkaSize) HasEgressThroughputPerSec() bool`
 
 HasEgressThroughputPerSec returns a boolean if a field has been set.
-
 
 ### GetTotalMaxConnections
 
@@ -173,7 +167,6 @@ SetTotalMaxConnections sets TotalMaxConnections field to given value.
 
 HasTotalMaxConnections returns a boolean if a field has been set.
 
-
 ### GetMaxDataRetentionSize
 
 `func (o *SupportedKafkaSize) GetMaxDataRetentionSize() SupportedKafkaSizeBytesValueItem`
@@ -198,7 +191,6 @@ SetMaxDataRetentionSize sets MaxDataRetentionSize field to given value.
 `func (o *SupportedKafkaSize) HasMaxDataRetentionSize() bool`
 
 HasMaxDataRetentionSize returns a boolean if a field has been set.
-
 
 ### GetMaxPartitions
 
@@ -225,7 +217,6 @@ SetMaxPartitions sets MaxPartitions field to given value.
 
 HasMaxPartitions returns a boolean if a field has been set.
 
-
 ### GetMaxDataRetentionPeriod
 
 `func (o *SupportedKafkaSize) GetMaxDataRetentionPeriod() string`
@@ -250,7 +241,6 @@ SetMaxDataRetentionPeriod sets MaxDataRetentionPeriod field to given value.
 `func (o *SupportedKafkaSize) HasMaxDataRetentionPeriod() bool`
 
 HasMaxDataRetentionPeriod returns a boolean if a field has been set.
-
 
 ### GetMaxConnectionAttemptsPerSec
 
@@ -277,7 +267,6 @@ SetMaxConnectionAttemptsPerSec sets MaxConnectionAttemptsPerSec field to given v
 
 HasMaxConnectionAttemptsPerSec returns a boolean if a field has been set.
 
-
 ### GetMaxMessageSize
 
 `func (o *SupportedKafkaSize) GetMaxMessageSize() SupportedKafkaSizeBytesValueItem`
@@ -302,7 +291,6 @@ SetMaxMessageSize sets MaxMessageSize field to given value.
 `func (o *SupportedKafkaSize) HasMaxMessageSize() bool`
 
 HasMaxMessageSize returns a boolean if a field has been set.
-
 
 ### GetMinInSyncReplicas
 
@@ -329,7 +317,6 @@ SetMinInSyncReplicas sets MinInSyncReplicas field to given value.
 
 HasMinInSyncReplicas returns a boolean if a field has been set.
 
-
 ### GetReplicationFactor
 
 `func (o *SupportedKafkaSize) GetReplicationFactor() int32`
@@ -355,7 +342,6 @@ SetReplicationFactor sets ReplicationFactor field to given value.
 
 HasReplicationFactor returns a boolean if a field has been set.
 
-
 ### GetSupportedAzModes
 
 `func (o *SupportedKafkaSize) GetSupportedAzModes() []string`
@@ -380,7 +366,6 @@ SetSupportedAzModes sets SupportedAzModes field to given value.
 `func (o *SupportedKafkaSize) HasSupportedAzModes() bool`
 
 HasSupportedAzModes returns a boolean if a field has been set.
-
 
 ### GetLifespanSeconds
 
@@ -417,7 +402,6 @@ HasLifespanSeconds returns a boolean if a field has been set.
 `func (o *SupportedKafkaSize) UnsetLifespanSeconds()`
 
 UnsetLifespanSeconds ensures that no value is present for LifespanSeconds, not even an explicit nil
-
 ### GetQuotaConsumed
 
 `func (o *SupportedKafkaSize) GetQuotaConsumed() int32`
@@ -442,7 +426,6 @@ SetQuotaConsumed sets QuotaConsumed field to given value.
 `func (o *SupportedKafkaSize) HasQuotaConsumed() bool`
 
 HasQuotaConsumed returns a boolean if a field has been set.
-
 
 ### GetQuotaType
 
@@ -469,7 +452,6 @@ SetQuotaType sets QuotaType field to given value.
 
 HasQuotaType returns a boolean if a field has been set.
 
-
 ### GetCapacityConsumed
 
 `func (o *SupportedKafkaSize) GetCapacityConsumed() int32`
@@ -494,7 +476,6 @@ SetCapacityConsumed sets CapacityConsumed field to given value.
 `func (o *SupportedKafkaSize) HasCapacityConsumed() bool`
 
 HasCapacityConsumed returns a boolean if a field has been set.
-
 
 ### GetMaturityStatus
 
@@ -522,6 +503,6 @@ SetMaturityStatus sets MaturityStatus field to given value.
 HasMaturityStatus returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

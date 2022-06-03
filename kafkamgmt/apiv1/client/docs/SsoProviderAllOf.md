@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Jwks** | Pointer to **string** |  | [optional] 
 **ValidIssuer** | Pointer to **string** |  | [optional] 
 
-
 ## Methods
 
 ### NewSsoProviderAllOf
@@ -29,7 +28,6 @@ will change when the set of required properties is changed
 NewSsoProviderAllOfWithDefaults instantiates a new SsoProviderAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetName
 
@@ -56,7 +54,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-
 ### GetBaseUrl
 
 `func (o *SsoProviderAllOf) GetBaseUrl() string`
@@ -81,7 +78,6 @@ SetBaseUrl sets BaseUrl field to given value.
 `func (o *SsoProviderAllOf) HasBaseUrl() bool`
 
 HasBaseUrl returns a boolean if a field has been set.
-
 
 ### GetTokenUrl
 
@@ -108,7 +104,6 @@ SetTokenUrl sets TokenUrl field to given value.
 
 HasTokenUrl returns a boolean if a field has been set.
 
-
 ### GetJwks
 
 `func (o *SsoProviderAllOf) GetJwks() string`
@@ -133,7 +128,6 @@ SetJwks sets Jwks field to given value.
 `func (o *SsoProviderAllOf) HasJwks() bool`
 
 HasJwks returns a boolean if a field has been set.
-
 
 ### GetValidIssuer
 
@@ -161,6 +155,6 @@ SetValidIssuer sets ValidIssuer field to given value.
 HasValidIssuer returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

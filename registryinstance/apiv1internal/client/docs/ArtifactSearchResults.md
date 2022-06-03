@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Artifacts** | [**[]SearchedArtifact**](SearchedArtifact.md) | The artifacts returned in the result set. | 
 **Count** | **int32** | The total number of artifacts that matched the query that produced the result set (may be  more than the number of artifacts in the result set). | 
 
-
 ## Methods
 
 ### NewArtifactSearchResults
@@ -27,7 +26,6 @@ NewArtifactSearchResultsWithDefaults instantiates a new ArtifactSearchResults ob
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetArtifacts
 
 `func (o *ArtifactSearchResults) GetArtifacts() []SearchedArtifact`
@@ -46,7 +44,6 @@ and a boolean to check if the value has been set.
 `func (o *ArtifactSearchResults) SetArtifacts(v []SearchedArtifact)`
 
 SetArtifacts sets Artifacts field to given value.
-
 
 
 ### GetCount
@@ -70,6 +67,6 @@ SetCount sets Count field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

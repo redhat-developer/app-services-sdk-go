@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Total** | **int32** |  | 
 **Items** | [**[]ConnectorCluster**](ConnectorCluster.md) |  | 
 
-
 ## Methods
 
 ### NewConnectorClusterList
@@ -30,7 +29,6 @@ NewConnectorClusterListWithDefaults instantiates a new ConnectorClusterList obje
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetKind
 
 `func (o *ConnectorClusterList) GetKind() string`
@@ -49,7 +47,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorClusterList) SetKind(v string)`
 
 SetKind sets Kind field to given value.
-
 
 
 ### GetPage
@@ -72,7 +69,6 @@ and a boolean to check if the value has been set.
 SetPage sets Page field to given value.
 
 
-
 ### GetSize
 
 `func (o *ConnectorClusterList) GetSize() int32`
@@ -93,7 +89,6 @@ and a boolean to check if the value has been set.
 SetSize sets Size field to given value.
 
 
-
 ### GetTotal
 
 `func (o *ConnectorClusterList) GetTotal() int32`
@@ -112,7 +107,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorClusterList) SetTotal(v int32)`
 
 SetTotal sets Total field to given value.
-
 
 
 ### GetItems
@@ -136,6 +130,6 @@ SetItems sets Items field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

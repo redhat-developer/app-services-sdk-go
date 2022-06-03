@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Owner** | Pointer to **NullableString** |  | [optional] 
 **ReauthenticationEnabled** | Pointer to **NullableBool** | Whether connection reauthentication is enabled or not. If set to true, connection reauthentication on the Kafka instance will be required every 5 minutes. | [optional] 
 
-
 ## Methods
 
 ### NewKafkaUpdateRequest
@@ -26,7 +25,6 @@ will change when the set of required properties is changed
 NewKafkaUpdateRequestWithDefaults instantiates a new KafkaUpdateRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetOwner
 
@@ -63,7 +61,6 @@ HasOwner returns a boolean if a field has been set.
 `func (o *KafkaUpdateRequest) UnsetOwner()`
 
 UnsetOwner ensures that no value is present for Owner, not even an explicit nil
-
 ### GetReauthenticationEnabled
 
 `func (o *KafkaUpdateRequest) GetReauthenticationEnabled() bool`
@@ -100,6 +97,6 @@ HasReauthenticationEnabled returns a boolean if a field has been set.
 
 UnsetReauthenticationEnabled ensures that no value is present for ReauthenticationEnabled, not even an explicit nil
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

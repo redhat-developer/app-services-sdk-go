@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Timestamp** | Pointer to **int64** |  | [optional] 
 **Value** | **float64** |  | 
 
-
 ## Methods
 
 ### NewValues
@@ -26,7 +25,6 @@ will change when the set of required properties is changed
 NewValuesWithDefaults instantiates a new Values object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetTimestamp
 
@@ -53,7 +51,6 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-
 ### GetValue
 
 `func (o *Values) GetValue() float64`
@@ -75,6 +72,6 @@ SetValue sets Value field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

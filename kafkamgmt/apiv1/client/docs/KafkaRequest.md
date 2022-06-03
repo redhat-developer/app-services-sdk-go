@@ -35,7 +35,6 @@ Name | Type | Description | Notes
 **BillingCloudAccountId** | Pointer to **string** |  | [optional] 
 **Marketplace** | Pointer to **string** |  | [optional] 
 
-
 ## Methods
 
 ### NewKafkaRequest
@@ -54,7 +53,6 @@ will change when the set of required properties is changed
 NewKafkaRequestWithDefaults instantiates a new KafkaRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetId
 
@@ -81,7 +79,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-
 ### GetKind
 
 `func (o *KafkaRequest) GetKind() string`
@@ -106,7 +103,6 @@ SetKind sets Kind field to given value.
 `func (o *KafkaRequest) HasKind() bool`
 
 HasKind returns a boolean if a field has been set.
-
 
 ### GetHref
 
@@ -133,7 +129,6 @@ SetHref sets Href field to given value.
 
 HasHref returns a boolean if a field has been set.
 
-
 ### GetStatus
 
 `func (o *KafkaRequest) GetStatus() string`
@@ -158,7 +153,6 @@ SetStatus sets Status field to given value.
 `func (o *KafkaRequest) HasStatus() bool`
 
 HasStatus returns a boolean if a field has been set.
-
 
 ### GetCloudProvider
 
@@ -185,7 +179,6 @@ SetCloudProvider sets CloudProvider field to given value.
 
 HasCloudProvider returns a boolean if a field has been set.
 
-
 ### GetMultiAz
 
 `func (o *KafkaRequest) GetMultiAz() bool`
@@ -204,7 +197,6 @@ and a boolean to check if the value has been set.
 `func (o *KafkaRequest) SetMultiAz(v bool)`
 
 SetMultiAz sets MultiAz field to given value.
-
 
 
 ### GetRegion
@@ -232,7 +224,6 @@ SetRegion sets Region field to given value.
 
 HasRegion returns a boolean if a field has been set.
 
-
 ### GetOwner
 
 `func (o *KafkaRequest) GetOwner() string`
@@ -257,7 +248,6 @@ SetOwner sets Owner field to given value.
 `func (o *KafkaRequest) HasOwner() bool`
 
 HasOwner returns a boolean if a field has been set.
-
 
 ### GetName
 
@@ -284,7 +274,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-
 ### GetBootstrapServerHost
 
 `func (o *KafkaRequest) GetBootstrapServerHost() string`
@@ -309,7 +298,6 @@ SetBootstrapServerHost sets BootstrapServerHost field to given value.
 `func (o *KafkaRequest) HasBootstrapServerHost() bool`
 
 HasBootstrapServerHost returns a boolean if a field has been set.
-
 
 ### GetAdminApiServerUrl
 
@@ -336,7 +324,6 @@ SetAdminApiServerUrl sets AdminApiServerUrl field to given value.
 
 HasAdminApiServerUrl returns a boolean if a field has been set.
 
-
 ### GetCreatedAt
 
 `func (o *KafkaRequest) GetCreatedAt() time.Time`
@@ -361,7 +348,6 @@ SetCreatedAt sets CreatedAt field to given value.
 `func (o *KafkaRequest) HasCreatedAt() bool`
 
 HasCreatedAt returns a boolean if a field has been set.
-
 
 ### GetExpiresAt
 
@@ -398,7 +384,6 @@ HasExpiresAt returns a boolean if a field has been set.
 `func (o *KafkaRequest) UnsetExpiresAt()`
 
 UnsetExpiresAt ensures that no value is present for ExpiresAt, not even an explicit nil
-
 ### GetUpdatedAt
 
 `func (o *KafkaRequest) GetUpdatedAt() time.Time`
@@ -423,7 +408,6 @@ SetUpdatedAt sets UpdatedAt field to given value.
 `func (o *KafkaRequest) HasUpdatedAt() bool`
 
 HasUpdatedAt returns a boolean if a field has been set.
-
 
 ### GetFailedReason
 
@@ -450,7 +434,6 @@ SetFailedReason sets FailedReason field to given value.
 
 HasFailedReason returns a boolean if a field has been set.
 
-
 ### GetVersion
 
 `func (o *KafkaRequest) GetVersion() string`
@@ -475,7 +458,6 @@ SetVersion sets Version field to given value.
 `func (o *KafkaRequest) HasVersion() bool`
 
 HasVersion returns a boolean if a field has been set.
-
 
 ### GetInstanceType
 
@@ -502,7 +484,6 @@ SetInstanceType sets InstanceType field to given value.
 
 HasInstanceType returns a boolean if a field has been set.
 
-
 ### GetInstanceTypeName
 
 `func (o *KafkaRequest) GetInstanceTypeName() string`
@@ -528,7 +509,6 @@ SetInstanceTypeName sets InstanceTypeName field to given value.
 
 HasInstanceTypeName returns a boolean if a field has been set.
 
-
 ### GetReauthenticationEnabled
 
 `func (o *KafkaRequest) GetReauthenticationEnabled() bool`
@@ -547,7 +527,6 @@ and a boolean to check if the value has been set.
 `func (o *KafkaRequest) SetReauthenticationEnabled(v bool)`
 
 SetReauthenticationEnabled sets ReauthenticationEnabled field to given value.
-
 
 
 ### GetKafkaStorageSize
@@ -575,7 +554,6 @@ SetKafkaStorageSize sets KafkaStorageSize field to given value.
 
 HasKafkaStorageSize returns a boolean if a field has been set.
 
-
 ### GetBrowserUrl
 
 `func (o *KafkaRequest) GetBrowserUrl() string`
@@ -600,7 +578,6 @@ SetBrowserUrl sets BrowserUrl field to given value.
 `func (o *KafkaRequest) HasBrowserUrl() bool`
 
 HasBrowserUrl returns a boolean if a field has been set.
-
 
 ### GetSizeId
 
@@ -627,7 +604,6 @@ SetSizeId sets SizeId field to given value.
 
 HasSizeId returns a boolean if a field has been set.
 
-
 ### GetIngressThroughputPerSec
 
 `func (o *KafkaRequest) GetIngressThroughputPerSec() string`
@@ -652,7 +628,6 @@ SetIngressThroughputPerSec sets IngressThroughputPerSec field to given value.
 `func (o *KafkaRequest) HasIngressThroughputPerSec() bool`
 
 HasIngressThroughputPerSec returns a boolean if a field has been set.
-
 
 ### GetEgressThroughputPerSec
 
@@ -679,7 +654,6 @@ SetEgressThroughputPerSec sets EgressThroughputPerSec field to given value.
 
 HasEgressThroughputPerSec returns a boolean if a field has been set.
 
-
 ### GetTotalMaxConnections
 
 `func (o *KafkaRequest) GetTotalMaxConnections() int32`
@@ -704,7 +678,6 @@ SetTotalMaxConnections sets TotalMaxConnections field to given value.
 `func (o *KafkaRequest) HasTotalMaxConnections() bool`
 
 HasTotalMaxConnections returns a boolean if a field has been set.
-
 
 ### GetMaxPartitions
 
@@ -731,7 +704,6 @@ SetMaxPartitions sets MaxPartitions field to given value.
 
 HasMaxPartitions returns a boolean if a field has been set.
 
-
 ### GetMaxDataRetentionPeriod
 
 `func (o *KafkaRequest) GetMaxDataRetentionPeriod() string`
@@ -756,7 +728,6 @@ SetMaxDataRetentionPeriod sets MaxDataRetentionPeriod field to given value.
 `func (o *KafkaRequest) HasMaxDataRetentionPeriod() bool`
 
 HasMaxDataRetentionPeriod returns a boolean if a field has been set.
-
 
 ### GetMaxConnectionAttemptsPerSec
 
@@ -783,7 +754,6 @@ SetMaxConnectionAttemptsPerSec sets MaxConnectionAttemptsPerSec field to given v
 
 HasMaxConnectionAttemptsPerSec returns a boolean if a field has been set.
 
-
 ### GetBillingCloudAccountId
 
 `func (o *KafkaRequest) GetBillingCloudAccountId() string`
@@ -808,7 +778,6 @@ SetBillingCloudAccountId sets BillingCloudAccountId field to given value.
 `func (o *KafkaRequest) HasBillingCloudAccountId() bool`
 
 HasBillingCloudAccountId returns a boolean if a field has been set.
-
 
 ### GetMarketplace
 
@@ -836,6 +805,6 @@ SetMarketplace sets Marketplace field to given value.
 HasMarketplace returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

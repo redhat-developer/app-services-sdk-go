@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **Properties** | Pointer to **map[string]string** | User-defined name-value pairs. Name and value must be strings. | [optional] 
 **ContentId** | **int64** |  | 
 
-
 ## Methods
 
 ### NewSearchedVersion
@@ -35,7 +34,6 @@ will change when the set of required properties is changed
 NewSearchedVersionWithDefaults instantiates a new SearchedVersion object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetName
 
@@ -62,7 +60,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-
 ### GetDescription
 
 `func (o *SearchedVersion) GetDescription() string`
@@ -88,7 +85,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-
 ### GetCreatedOn
 
 `func (o *SearchedVersion) GetCreatedOn() string`
@@ -107,7 +103,6 @@ and a boolean to check if the value has been set.
 `func (o *SearchedVersion) SetCreatedOn(v string)`
 
 SetCreatedOn sets CreatedOn field to given value.
-
 
 
 ### GetCreatedBy
@@ -130,7 +125,6 @@ and a boolean to check if the value has been set.
 SetCreatedBy sets CreatedBy field to given value.
 
 
-
 ### GetType
 
 `func (o *SearchedVersion) GetType() ArtifactType`
@@ -149,7 +143,6 @@ and a boolean to check if the value has been set.
 `func (o *SearchedVersion) SetType(v ArtifactType)`
 
 SetType sets Type field to given value.
-
 
 
 ### GetLabels
@@ -177,7 +170,6 @@ SetLabels sets Labels field to given value.
 
 HasLabels returns a boolean if a field has been set.
 
-
 ### GetState
 
 `func (o *SearchedVersion) GetState() ArtifactState`
@@ -196,7 +188,6 @@ and a boolean to check if the value has been set.
 `func (o *SearchedVersion) SetState(v ArtifactState)`
 
 SetState sets State field to given value.
-
 
 
 ### GetGlobalId
@@ -219,7 +210,6 @@ and a boolean to check if the value has been set.
 SetGlobalId sets GlobalId field to given value.
 
 
-
 ### GetVersion
 
 `func (o *SearchedVersion) GetVersion() string`
@@ -238,7 +228,6 @@ and a boolean to check if the value has been set.
 `func (o *SearchedVersion) SetVersion(v string)`
 
 SetVersion sets Version field to given value.
-
 
 
 ### GetProperties
@@ -266,7 +255,6 @@ SetProperties sets Properties field to given value.
 
 HasProperties returns a boolean if a field has been set.
 
-
 ### GetContentId
 
 `func (o *SearchedVersion) GetContentId() int64`
@@ -288,6 +276,6 @@ SetContentId sets ContentId field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

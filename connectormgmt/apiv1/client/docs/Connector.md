@@ -22,7 +22,6 @@ Name | Type | Description | Notes
 **Connector** | **map[string]interface{}** |  | 
 **Status** | Pointer to [**ConnectorStatusStatus**](ConnectorStatusStatus.md) |  | [optional] 
 
-
 ## Methods
 
 ### NewConnector
@@ -41,7 +40,6 @@ will change when the set of required properties is changed
 NewConnectorWithDefaults instantiates a new Connector object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetId
 
@@ -68,7 +66,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-
 ### GetKind
 
 `func (o *Connector) GetKind() string`
@@ -93,7 +90,6 @@ SetKind sets Kind field to given value.
 `func (o *Connector) HasKind() bool`
 
 HasKind returns a boolean if a field has been set.
-
 
 ### GetHref
 
@@ -120,7 +116,6 @@ SetHref sets Href field to given value.
 
 HasHref returns a boolean if a field has been set.
 
-
 ### GetOwner
 
 `func (o *Connector) GetOwner() string`
@@ -145,7 +140,6 @@ SetOwner sets Owner field to given value.
 `func (o *Connector) HasOwner() bool`
 
 HasOwner returns a boolean if a field has been set.
-
 
 ### GetCreatedAt
 
@@ -172,7 +166,6 @@ SetCreatedAt sets CreatedAt field to given value.
 
 HasCreatedAt returns a boolean if a field has been set.
 
-
 ### GetModifiedAt
 
 `func (o *Connector) GetModifiedAt() time.Time`
@@ -198,7 +191,6 @@ SetModifiedAt sets ModifiedAt field to given value.
 
 HasModifiedAt returns a boolean if a field has been set.
 
-
 ### GetName
 
 `func (o *Connector) GetName() string`
@@ -217,7 +209,6 @@ and a boolean to check if the value has been set.
 `func (o *Connector) SetName(v string)`
 
 SetName sets Name field to given value.
-
 
 
 ### GetConnectorTypeId
@@ -240,7 +231,6 @@ and a boolean to check if the value has been set.
 SetConnectorTypeId sets ConnectorTypeId field to given value.
 
 
-
 ### GetNamespaceId
 
 `func (o *Connector) GetNamespaceId() string`
@@ -259,7 +249,6 @@ and a boolean to check if the value has been set.
 `func (o *Connector) SetNamespaceId(v string)`
 
 SetNamespaceId sets NamespaceId field to given value.
-
 
 
 ### GetChannel
@@ -287,7 +276,6 @@ SetChannel sets Channel field to given value.
 
 HasChannel returns a boolean if a field has been set.
 
-
 ### GetDesiredState
 
 `func (o *Connector) GetDesiredState() ConnectorDesiredState`
@@ -306,7 +294,6 @@ and a boolean to check if the value has been set.
 `func (o *Connector) SetDesiredState(v ConnectorDesiredState)`
 
 SetDesiredState sets DesiredState field to given value.
-
 
 
 ### GetResourceVersion
@@ -334,7 +321,6 @@ SetResourceVersion sets ResourceVersion field to given value.
 
 HasResourceVersion returns a boolean if a field has been set.
 
-
 ### GetKafka
 
 `func (o *Connector) GetKafka() KafkaConnectionSettings`
@@ -355,7 +341,6 @@ and a boolean to check if the value has been set.
 SetKafka sets Kafka field to given value.
 
 
-
 ### GetServiceAccount
 
 `func (o *Connector) GetServiceAccount() ServiceAccount`
@@ -374,7 +359,6 @@ and a boolean to check if the value has been set.
 `func (o *Connector) SetServiceAccount(v ServiceAccount)`
 
 SetServiceAccount sets ServiceAccount field to given value.
-
 
 
 ### GetSchemaRegistry
@@ -402,7 +386,6 @@ SetSchemaRegistry sets SchemaRegistry field to given value.
 
 HasSchemaRegistry returns a boolean if a field has been set.
 
-
 ### GetConnector
 
 `func (o *Connector) GetConnector() map[string]interface{}`
@@ -421,7 +404,6 @@ and a boolean to check if the value has been set.
 `func (o *Connector) SetConnector(v map[string]interface{})`
 
 SetConnector sets Connector field to given value.
-
 
 
 ### GetStatus
@@ -450,6 +432,6 @@ SetStatus sets Status field to given value.
 HasStatus returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

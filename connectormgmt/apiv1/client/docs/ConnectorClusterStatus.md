@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Status** | Pointer to [**ConnectorClusterStatusStatus**](ConnectorClusterStatusStatus.md) |  | [optional] 
 
-
 ## Methods
 
 ### NewConnectorClusterStatus
@@ -25,7 +24,6 @@ will change when the set of required properties is changed
 NewConnectorClusterStatusWithDefaults instantiates a new ConnectorClusterStatus object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetStatus
 
@@ -53,6 +51,6 @@ SetStatus sets Status field to given value.
 HasStatus returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **DesiredState** | [**ConnectorDesiredState**](ConnectorDesiredState.md) |  | 
 **ResourceVersion** | Pointer to **int64** |  | [optional] 
 
-
 ## Methods
 
 ### NewConnectorMeta
@@ -33,7 +32,6 @@ will change when the set of required properties is changed
 NewConnectorMetaWithDefaults instantiates a new ConnectorMeta object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetOwner
 
@@ -60,7 +58,6 @@ SetOwner sets Owner field to given value.
 
 HasOwner returns a boolean if a field has been set.
 
-
 ### GetCreatedAt
 
 `func (o *ConnectorMeta) GetCreatedAt() time.Time`
@@ -85,7 +82,6 @@ SetCreatedAt sets CreatedAt field to given value.
 `func (o *ConnectorMeta) HasCreatedAt() bool`
 
 HasCreatedAt returns a boolean if a field has been set.
-
 
 ### GetModifiedAt
 
@@ -112,7 +108,6 @@ SetModifiedAt sets ModifiedAt field to given value.
 
 HasModifiedAt returns a boolean if a field has been set.
 
-
 ### GetName
 
 `func (o *ConnectorMeta) GetName() string`
@@ -131,7 +126,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorMeta) SetName(v string)`
 
 SetName sets Name field to given value.
-
 
 
 ### GetConnectorTypeId
@@ -154,7 +148,6 @@ and a boolean to check if the value has been set.
 SetConnectorTypeId sets ConnectorTypeId field to given value.
 
 
-
 ### GetNamespaceId
 
 `func (o *ConnectorMeta) GetNamespaceId() string`
@@ -173,7 +166,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorMeta) SetNamespaceId(v string)`
 
 SetNamespaceId sets NamespaceId field to given value.
-
 
 
 ### GetChannel
@@ -201,7 +193,6 @@ SetChannel sets Channel field to given value.
 
 HasChannel returns a boolean if a field has been set.
 
-
 ### GetDesiredState
 
 `func (o *ConnectorMeta) GetDesiredState() ConnectorDesiredState`
@@ -220,7 +211,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorMeta) SetDesiredState(v ConnectorDesiredState)`
 
 SetDesiredState sets DesiredState field to given value.
-
 
 
 ### GetResourceVersion
@@ -249,6 +239,6 @@ SetResourceVersion sets ResourceVersion field to given value.
 HasResourceVersion returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

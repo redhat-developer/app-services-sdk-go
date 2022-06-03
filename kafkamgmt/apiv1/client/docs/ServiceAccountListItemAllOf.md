@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** | server generated unique id of the service account | [optional] 
 **ClientId** | Pointer to **string** | client id of the service account | [optional] 
 **Name** | Pointer to **string** | name of the service account | [optional] 
+**Owner** | Pointer to **string** | owner of the service account | [optional] 
 **CreatedBy** | Pointer to **string** | service account created by the user | [optional] 
 **CreatedAt** | Pointer to **time.Time** | service account creation timestamp | [optional] 
 **Description** | Pointer to **string** | description of the service account | [optional] 
-
 
 ## Methods
 
@@ -30,7 +30,6 @@ will change when the set of required properties is changed
 NewServiceAccountListItemAllOfWithDefaults instantiates a new ServiceAccountListItemAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetId
 
@@ -57,7 +56,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-
 ### GetClientId
 
 `func (o *ServiceAccountListItemAllOf) GetClientId() string`
@@ -82,7 +80,6 @@ SetClientId sets ClientId field to given value.
 `func (o *ServiceAccountListItemAllOf) HasClientId() bool`
 
 HasClientId returns a boolean if a field has been set.
-
 
 ### GetName
 
@@ -109,6 +106,30 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *ServiceAccountListItemAllOf) GetOwner() string`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *ServiceAccountListItemAllOf) GetOwnerOk() (*string, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *ServiceAccountListItemAllOf) SetOwner(v string)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *ServiceAccountListItemAllOf) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
 
 ### GetCreatedBy
 
@@ -135,7 +156,6 @@ SetCreatedBy sets CreatedBy field to given value.
 
 HasCreatedBy returns a boolean if a field has been set.
 
-
 ### GetCreatedAt
 
 `func (o *ServiceAccountListItemAllOf) GetCreatedAt() time.Time`
@@ -160,7 +180,6 @@ SetCreatedAt sets CreatedAt field to given value.
 `func (o *ServiceAccountListItemAllOf) HasCreatedAt() bool`
 
 HasCreatedAt returns a boolean if a field has been set.
-
 
 ### GetDescription
 
@@ -188,6 +207,6 @@ SetDescription sets Description field to given value.
 HasDescription returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

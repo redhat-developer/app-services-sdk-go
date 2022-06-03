@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **Jwks** | Pointer to **string** |  | [optional] 
 **ValidIssuer** | Pointer to **string** |  | [optional] 
 
-
 ## Methods
 
 ### NewSsoProvider
@@ -32,7 +31,6 @@ will change when the set of required properties is changed
 NewSsoProviderWithDefaults instantiates a new SsoProvider object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetId
 
@@ -59,7 +57,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-
 ### GetKind
 
 `func (o *SsoProvider) GetKind() string`
@@ -84,7 +81,6 @@ SetKind sets Kind field to given value.
 `func (o *SsoProvider) HasKind() bool`
 
 HasKind returns a boolean if a field has been set.
-
 
 ### GetHref
 
@@ -111,7 +107,6 @@ SetHref sets Href field to given value.
 
 HasHref returns a boolean if a field has been set.
 
-
 ### GetName
 
 `func (o *SsoProvider) GetName() string`
@@ -136,7 +131,6 @@ SetName sets Name field to given value.
 `func (o *SsoProvider) HasName() bool`
 
 HasName returns a boolean if a field has been set.
-
 
 ### GetBaseUrl
 
@@ -163,7 +157,6 @@ SetBaseUrl sets BaseUrl field to given value.
 
 HasBaseUrl returns a boolean if a field has been set.
 
-
 ### GetTokenUrl
 
 `func (o *SsoProvider) GetTokenUrl() string`
@@ -189,7 +182,6 @@ SetTokenUrl sets TokenUrl field to given value.
 
 HasTokenUrl returns a boolean if a field has been set.
 
-
 ### GetJwks
 
 `func (o *SsoProvider) GetJwks() string`
@@ -214,7 +206,6 @@ SetJwks sets Jwks field to given value.
 `func (o *SsoProvider) HasJwks() bool`
 
 HasJwks returns a boolean if a field has been set.
-
 
 ### GetValidIssuer
 
@@ -242,6 +233,6 @@ SetValidIssuer sets ValidIssuer field to given value.
 HasValidIssuer returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 
-
 ## Methods
 
 ### NewConnectorClusterRequest
@@ -25,7 +24,6 @@ will change when the set of required properties is changed
 NewConnectorClusterRequestWithDefaults instantiates a new ConnectorClusterRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetName
 
@@ -53,6 +51,6 @@ SetName sets Name field to given value.
 HasName returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **ActiveConsumers** | Pointer to **int32** |  | [optional] 
 **UnassignedPartitions** | Pointer to **int32** |  | [optional] 
 
-
 ## Methods
 
 ### NewConsumerGroupMetrics
@@ -27,7 +26,6 @@ will change when the set of required properties is changed
 NewConsumerGroupMetricsWithDefaults instantiates a new ConsumerGroupMetrics object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetLaggingPartitions
 
@@ -54,7 +52,6 @@ SetLaggingPartitions sets LaggingPartitions field to given value.
 
 HasLaggingPartitions returns a boolean if a field has been set.
 
-
 ### GetActiveConsumers
 
 `func (o *ConsumerGroupMetrics) GetActiveConsumers() int32`
@@ -79,7 +76,6 @@ SetActiveConsumers sets ActiveConsumers field to given value.
 `func (o *ConsumerGroupMetrics) HasActiveConsumers() bool`
 
 HasActiveConsumers returns a boolean if a field has been set.
-
 
 ### GetUnassignedPartitions
 
@@ -107,6 +103,6 @@ SetUnassignedPartitions sets UnassignedPartitions field to given value.
 HasUnassignedPartitions returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

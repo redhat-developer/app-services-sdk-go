@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **DisplayName** | Pointer to **string** | Human readable name of the supported Kafka instance type | [optional] 
 **Sizes** | Pointer to [**[]SupportedKafkaSize**](SupportedKafkaSize.md) |  A list of Kafka instance sizes available for this instance type | [optional] 
 
-
 ## Methods
 
 ### NewSupportedKafkaInstanceType
@@ -27,7 +26,6 @@ will change when the set of required properties is changed
 NewSupportedKafkaInstanceTypeWithDefaults instantiates a new SupportedKafkaInstanceType object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetId
 
@@ -54,7 +52,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-
 ### GetDisplayName
 
 `func (o *SupportedKafkaInstanceType) GetDisplayName() string`
@@ -79,7 +76,6 @@ SetDisplayName sets DisplayName field to given value.
 `func (o *SupportedKafkaInstanceType) HasDisplayName() bool`
 
 HasDisplayName returns a boolean if a field has been set.
-
 
 ### GetSizes
 
@@ -107,6 +103,6 @@ SetSizes sets Sizes field to given value.
 HasSizes returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 
