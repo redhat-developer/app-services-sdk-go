@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Kind** | [**ConnectorNamespaceTenantKind**](ConnectorNamespaceTenantKind.md) |  | 
 **Id** | **string** | Either user or organisation id depending on the value of kind | 
 
-
 ## Methods
 
 ### NewConnectorNamespaceTenant
@@ -27,7 +26,6 @@ NewConnectorNamespaceTenantWithDefaults instantiates a new ConnectorNamespaceTen
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetKind
 
 `func (o *ConnectorNamespaceTenant) GetKind() ConnectorNamespaceTenantKind`
@@ -46,7 +44,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorNamespaceTenant) SetKind(v ConnectorNamespaceTenantKind)`
 
 SetKind sets Kind field to given value.
-
 
 
 ### GetId
@@ -70,6 +67,6 @@ SetId sets Id field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

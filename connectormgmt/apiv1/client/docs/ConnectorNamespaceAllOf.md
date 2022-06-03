@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Tenant** | [**ConnectorNamespaceTenant**](ConnectorNamespaceTenant.md) |  | 
 **Status** | [**ConnectorNamespaceStatus**](ConnectorNamespaceStatus.md) |  | 
 
-
 ## Methods
 
 ### NewConnectorNamespaceAllOf
@@ -29,7 +28,6 @@ will change when the set of required properties is changed
 NewConnectorNamespaceAllOfWithDefaults instantiates a new ConnectorNamespaceAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetName
 
@@ -51,7 +49,6 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
-
 ### GetClusterId
 
 `func (o *ConnectorNamespaceAllOf) GetClusterId() string`
@@ -70,7 +67,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorNamespaceAllOf) SetClusterId(v string)`
 
 SetClusterId sets ClusterId field to given value.
-
 
 
 ### GetExpiration
@@ -98,7 +94,6 @@ SetExpiration sets Expiration field to given value.
 
 HasExpiration returns a boolean if a field has been set.
 
-
 ### GetTenant
 
 `func (o *ConnectorNamespaceAllOf) GetTenant() ConnectorNamespaceTenant`
@@ -117,7 +112,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorNamespaceAllOf) SetTenant(v ConnectorNamespaceTenant)`
 
 SetTenant sets Tenant field to given value.
-
 
 
 ### GetStatus
@@ -141,6 +135,6 @@ SetStatus sets Status field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

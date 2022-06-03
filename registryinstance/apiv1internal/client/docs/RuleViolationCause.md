@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **Context** | Pointer to **string** |  | [optional] 
 
-
 ## Methods
 
 ### NewRuleViolationCause
@@ -26,7 +25,6 @@ will change when the set of required properties is changed
 NewRuleViolationCauseWithDefaults instantiates a new RuleViolationCause object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetDescription
 
@@ -52,7 +50,6 @@ SetDescription sets Description field to given value.
 `func (o *RuleViolationCause) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
 
 ### GetContext
 
@@ -80,6 +77,6 @@ SetContext sets Context field to given value.
 HasContext returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

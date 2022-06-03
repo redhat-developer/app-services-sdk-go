@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MaxInstancesReached** | Pointer to **bool** | Boolean property indicating if the maximum number of total Registry instances have been reached, therefore creation of more instances should not be allowed. | [optional] 
 
-
 ## Methods
 
 ### NewServiceStatus
@@ -25,7 +24,6 @@ will change when the set of required properties is changed
 NewServiceStatusWithDefaults instantiates a new ServiceStatus object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetMaxInstancesReached
 
@@ -53,6 +51,6 @@ SetMaxInstancesReached sets MaxInstancesReached field to given value.
 HasMaxInstancesReached returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

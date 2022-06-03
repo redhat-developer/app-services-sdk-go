@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Causes** | [**[]RuleViolationCause**](RuleViolationCause.md) | List of rule violation causes. | 
 
-
 ## Methods
 
 ### NewRuleViolationErrorAllOf
@@ -25,7 +24,6 @@ will change when the set of required properties is changed
 NewRuleViolationErrorAllOfWithDefaults instantiates a new RuleViolationErrorAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetCauses
 
@@ -48,6 +46,6 @@ SetCauses sets Causes field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 **GroupId** | Pointer to **string** | An ID of a single artifact group. | [optional] 
 **ContentId** | **int64** |  | 
 
-
 ## Methods
 
 ### NewVersionMetaData
@@ -38,7 +37,6 @@ NewVersionMetaDataWithDefaults instantiates a new VersionMetaData object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetVersion
 
 `func (o *VersionMetaData) GetVersion() string`
@@ -57,7 +55,6 @@ and a boolean to check if the value has been set.
 `func (o *VersionMetaData) SetVersion(v string)`
 
 SetVersion sets Version field to given value.
-
 
 
 ### GetName
@@ -85,7 +82,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-
 ### GetDescription
 
 `func (o *VersionMetaData) GetDescription() string`
@@ -111,7 +107,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-
 ### GetCreatedBy
 
 `func (o *VersionMetaData) GetCreatedBy() string`
@@ -130,7 +125,6 @@ and a boolean to check if the value has been set.
 `func (o *VersionMetaData) SetCreatedBy(v string)`
 
 SetCreatedBy sets CreatedBy field to given value.
-
 
 
 ### GetCreatedOn
@@ -153,7 +147,6 @@ and a boolean to check if the value has been set.
 SetCreatedOn sets CreatedOn field to given value.
 
 
-
 ### GetType
 
 `func (o *VersionMetaData) GetType() ArtifactType`
@@ -174,7 +167,6 @@ and a boolean to check if the value has been set.
 SetType sets Type field to given value.
 
 
-
 ### GetGlobalId
 
 `func (o *VersionMetaData) GetGlobalId() int64`
@@ -193,7 +185,6 @@ and a boolean to check if the value has been set.
 `func (o *VersionMetaData) SetGlobalId(v int64)`
 
 SetGlobalId sets GlobalId field to given value.
-
 
 
 ### GetState
@@ -221,7 +212,6 @@ SetState sets State field to given value.
 
 HasState returns a boolean if a field has been set.
 
-
 ### GetId
 
 `func (o *VersionMetaData) GetId() string`
@@ -240,7 +230,6 @@ and a boolean to check if the value has been set.
 `func (o *VersionMetaData) SetId(v string)`
 
 SetId sets Id field to given value.
-
 
 
 ### GetLabels
@@ -268,7 +257,6 @@ SetLabels sets Labels field to given value.
 
 HasLabels returns a boolean if a field has been set.
 
-
 ### GetProperties
 
 `func (o *VersionMetaData) GetProperties() map[string]string`
@@ -293,7 +281,6 @@ SetProperties sets Properties field to given value.
 `func (o *VersionMetaData) HasProperties() bool`
 
 HasProperties returns a boolean if a field has been set.
-
 
 ### GetGroupId
 
@@ -320,7 +307,6 @@ SetGroupId sets GroupId field to given value.
 
 HasGroupId returns a boolean if a field has been set.
 
-
 ### GetContentId
 
 `func (o *VersionMetaData) GetContentId() int64`
@@ -342,6 +328,6 @@ SetContentId sets ContentId field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
 **ModifiedAt** | Pointer to **time.Time** |  | [optional] 
 
-
 ## Methods
 
 ### NewObjectMeta
@@ -27,7 +26,6 @@ will change when the set of required properties is changed
 NewObjectMetaWithDefaults instantiates a new ObjectMeta object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetOwner
 
@@ -54,7 +52,6 @@ SetOwner sets Owner field to given value.
 
 HasOwner returns a boolean if a field has been set.
 
-
 ### GetCreatedAt
 
 `func (o *ObjectMeta) GetCreatedAt() time.Time`
@@ -79,7 +76,6 @@ SetCreatedAt sets CreatedAt field to given value.
 `func (o *ObjectMeta) HasCreatedAt() bool`
 
 HasCreatedAt returns a boolean if a field has been set.
-
 
 ### GetModifiedAt
 
@@ -107,6 +103,6 @@ SetModifiedAt sets ModifiedAt field to given value.
 HasModifiedAt returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

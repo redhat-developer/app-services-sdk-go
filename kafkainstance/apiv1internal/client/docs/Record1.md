@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **Key** | Pointer to **string** | Record key | [optional] 
 **Value** | **string** | Record value | 
 
-
 ## Methods
 
 ### NewRecord1
@@ -31,7 +30,6 @@ will change when the set of required properties is changed
 NewRecord1WithDefaults instantiates a new Record1 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetPartition
 
@@ -58,7 +56,6 @@ SetPartition sets Partition field to given value.
 
 HasPartition returns a boolean if a field has been set.
 
-
 ### GetOffset
 
 `func (o *Record1) GetOffset() int64`
@@ -83,7 +80,6 @@ SetOffset sets Offset field to given value.
 `func (o *Record1) HasOffset() bool`
 
 HasOffset returns a boolean if a field has been set.
-
 
 ### GetTimestamp
 
@@ -110,7 +106,6 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-
 ### GetTimestampType
 
 `func (o *Record1) GetTimestampType() string`
@@ -135,7 +130,6 @@ SetTimestampType sets TimestampType field to given value.
 `func (o *Record1) HasTimestampType() bool`
 
 HasTimestampType returns a boolean if a field has been set.
-
 
 ### GetHeaders
 
@@ -162,7 +156,6 @@ SetHeaders sets Headers field to given value.
 
 HasHeaders returns a boolean if a field has been set.
 
-
 ### GetKey
 
 `func (o *Record1) GetKey() string`
@@ -188,7 +181,6 @@ SetKey sets Key field to given value.
 
 HasKey returns a boolean if a field has been set.
 
-
 ### GetValue
 
 `func (o *Record1) GetValue() string`
@@ -210,6 +202,6 @@ SetValue sets Value field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

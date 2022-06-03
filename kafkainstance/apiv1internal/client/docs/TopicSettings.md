@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **NumPartitions** | Pointer to **int32** | Number of partitions for this topic. If not specified, the default for new topics is &#x60;1&#x60;. Number of partitions may not be reduced when updating existing topics | [optional] 
 **Config** | Pointer to [**[]ConfigEntry**](ConfigEntry.md) | Topic configuration entries. | [optional] 
 
-
 ## Methods
 
 ### NewTopicSettings
@@ -26,7 +25,6 @@ will change when the set of required properties is changed
 NewTopicSettingsWithDefaults instantiates a new TopicSettings object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetNumPartitions
 
@@ -52,7 +50,6 @@ SetNumPartitions sets NumPartitions field to given value.
 `func (o *TopicSettings) HasNumPartitions() bool`
 
 HasNumPartitions returns a boolean if a field has been set.
-
 
 ### GetConfig
 
@@ -80,6 +77,6 @@ SetConfig sets Config field to given value.
 HasConfig returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

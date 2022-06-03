@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
 
-
 ## Methods
 
 ### NewNode
@@ -25,7 +24,6 @@ will change when the set of required properties is changed
 NewNodeWithDefaults instantiates a new Node object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetId
 
@@ -53,6 +51,6 @@ SetId sets Id field to given value.
 HasId returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

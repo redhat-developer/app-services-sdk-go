@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **Schema** | Pointer to **map[string]interface{}** | A json schema that can be used to validate a ConnectorRequest connector field. | [optional] 
 **JsonSchema** | Pointer to **map[string]interface{}** | A json schema that can be used to validate a ConnectorRequest connector field. | [optional] 
 
-
 ## Methods
 
 ### NewConnectorTypeAllOf
@@ -33,7 +32,6 @@ will change when the set of required properties is changed
 NewConnectorTypeAllOfWithDefaults instantiates a new ConnectorTypeAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetName
 
@@ -60,7 +58,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-
 ### GetVersion
 
 `func (o *ConnectorTypeAllOf) GetVersion() string`
@@ -85,7 +82,6 @@ SetVersion sets Version field to given value.
 `func (o *ConnectorTypeAllOf) HasVersion() bool`
 
 HasVersion returns a boolean if a field has been set.
-
 
 ### GetChannels
 
@@ -112,7 +108,6 @@ SetChannels sets Channels field to given value.
 
 HasChannels returns a boolean if a field has been set.
 
-
 ### GetDescription
 
 `func (o *ConnectorTypeAllOf) GetDescription() string`
@@ -137,7 +132,6 @@ SetDescription sets Description field to given value.
 `func (o *ConnectorTypeAllOf) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
 
 ### GetIconHref
 
@@ -164,7 +158,6 @@ SetIconHref sets IconHref field to given value.
 
 HasIconHref returns a boolean if a field has been set.
 
-
 ### GetLabels
 
 `func (o *ConnectorTypeAllOf) GetLabels() []string`
@@ -189,7 +182,6 @@ SetLabels sets Labels field to given value.
 `func (o *ConnectorTypeAllOf) HasLabels() bool`
 
 HasLabels returns a boolean if a field has been set.
-
 
 ### GetCapabilities
 
@@ -216,7 +208,6 @@ SetCapabilities sets Capabilities field to given value.
 
 HasCapabilities returns a boolean if a field has been set.
 
-
 ### GetSchema
 
 `func (o *ConnectorTypeAllOf) GetSchema() map[string]interface{}`
@@ -241,7 +232,6 @@ SetSchema sets Schema field to given value.
 `func (o *ConnectorTypeAllOf) HasSchema() bool`
 
 HasSchema returns a boolean if a field has been set.
-
 
 ### GetJsonSchema
 
@@ -269,6 +259,6 @@ SetJsonSchema sets JsonSchema field to given value.
 HasJsonSchema returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

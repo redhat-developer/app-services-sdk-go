@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Developer** | Pointer to **bool** |  | [optional] 
 **Viewer** | Pointer to **bool** |  | [optional] 
 
-
 ## Methods
 
 ### NewUserInfo
@@ -29,7 +28,6 @@ will change when the set of required properties is changed
 NewUserInfoWithDefaults instantiates a new UserInfo object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetUsername
 
@@ -56,7 +54,6 @@ SetUsername sets Username field to given value.
 
 HasUsername returns a boolean if a field has been set.
 
-
 ### GetDisplayName
 
 `func (o *UserInfo) GetDisplayName() string`
@@ -81,7 +78,6 @@ SetDisplayName sets DisplayName field to given value.
 `func (o *UserInfo) HasDisplayName() bool`
 
 HasDisplayName returns a boolean if a field has been set.
-
 
 ### GetAdmin
 
@@ -108,7 +104,6 @@ SetAdmin sets Admin field to given value.
 
 HasAdmin returns a boolean if a field has been set.
 
-
 ### GetDeveloper
 
 `func (o *UserInfo) GetDeveloper() bool`
@@ -133,7 +128,6 @@ SetDeveloper sets Developer field to given value.
 `func (o *UserInfo) HasDeveloper() bool`
 
 HasDeveloper returns a boolean if a field has been set.
-
 
 ### GetViewer
 
@@ -161,6 +155,6 @@ SetViewer sets Viewer field to given value.
 HasViewer returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

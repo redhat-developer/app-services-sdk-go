@@ -7,7 +7,8 @@ Name | Type | Description | Notes
 **Reason** | Pointer to **string** | General reason for the error. Does not change between specific occurrences. | [optional] 
 **Detail** | Pointer to **string** | Detail specific to an error occurrence. May be different depending on the condition(s) that trigger the error. | [optional] 
 **Code** | Pointer to **int32** |  | [optional] 
-
+**ErrorMessage** | Pointer to **string** |  | [optional] 
+**Class** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -27,7 +28,6 @@ will change when the set of required properties is changed
 NewErrorAllOfWithDefaults instantiates a new ErrorAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetReason
 
@@ -54,7 +54,6 @@ SetReason sets Reason field to given value.
 
 HasReason returns a boolean if a field has been set.
 
-
 ### GetDetail
 
 `func (o *ErrorAllOf) GetDetail() string`
@@ -79,7 +78,6 @@ SetDetail sets Detail field to given value.
 `func (o *ErrorAllOf) HasDetail() bool`
 
 HasDetail returns a boolean if a field has been set.
-
 
 ### GetCode
 
@@ -106,7 +104,57 @@ SetCode sets Code field to given value.
 
 HasCode returns a boolean if a field has been set.
 
+### GetErrorMessage
+
+`func (o *ErrorAllOf) GetErrorMessage() string`
+
+GetErrorMessage returns the ErrorMessage field if non-nil, zero value otherwise.
+
+### GetErrorMessageOk
+
+`func (o *ErrorAllOf) GetErrorMessageOk() (*string, bool)`
+
+GetErrorMessageOk returns a tuple with the ErrorMessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetErrorMessage
+
+`func (o *ErrorAllOf) SetErrorMessage(v string)`
+
+SetErrorMessage sets ErrorMessage field to given value.
+
+### HasErrorMessage
+
+`func (o *ErrorAllOf) HasErrorMessage() bool`
+
+HasErrorMessage returns a boolean if a field has been set.
+
+### GetClass
+
+`func (o *ErrorAllOf) GetClass() string`
+
+GetClass returns the Class field if non-nil, zero value otherwise.
+
+### GetClassOk
+
+`func (o *ErrorAllOf) GetClassOk() (*string, bool)`
+
+GetClassOk returns a tuple with the Class field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClass
+
+`func (o *ErrorAllOf) SetClass(v string)`
+
+SetClass sets Class field to given value.
+
+### HasClass
+
+`func (o *ErrorAllOf) HasClass() bool`
+
+HasClass returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

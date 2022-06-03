@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Size** | **int32** |  | 
 **Total** | **int32** |  | 
 
-
 ## Methods
 
 ### NewList
@@ -29,7 +28,6 @@ NewListWithDefaults instantiates a new List object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetKind
 
 `func (o *List) GetKind() string`
@@ -48,7 +46,6 @@ and a boolean to check if the value has been set.
 `func (o *List) SetKind(v string)`
 
 SetKind sets Kind field to given value.
-
 
 
 ### GetPage
@@ -71,7 +68,6 @@ and a boolean to check if the value has been set.
 SetPage sets Page field to given value.
 
 
-
 ### GetSize
 
 `func (o *List) GetSize() int32`
@@ -90,7 +86,6 @@ and a boolean to check if the value has been set.
 `func (o *List) SetSize(v int32)`
 
 SetSize sets Size field to given value.
-
 
 
 ### GetTotal
@@ -114,6 +109,6 @@ SetTotal sets Total field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

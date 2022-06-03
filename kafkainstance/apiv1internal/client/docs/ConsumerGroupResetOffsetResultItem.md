@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **Partition** | Pointer to **int32** |  | [optional] 
 **Offset** | Pointer to **int64** |  | [optional] 
 
-
 ## Methods
 
 ### NewConsumerGroupResetOffsetResultItem
@@ -27,7 +26,6 @@ will change when the set of required properties is changed
 NewConsumerGroupResetOffsetResultItemWithDefaults instantiates a new ConsumerGroupResetOffsetResultItem object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetTopic
 
@@ -54,7 +52,6 @@ SetTopic sets Topic field to given value.
 
 HasTopic returns a boolean if a field has been set.
 
-
 ### GetPartition
 
 `func (o *ConsumerGroupResetOffsetResultItem) GetPartition() int32`
@@ -79,7 +76,6 @@ SetPartition sets Partition field to given value.
 `func (o *ConsumerGroupResetOffsetResultItem) HasPartition() bool`
 
 HasPartition returns a boolean if a field has been set.
-
 
 ### GetOffset
 
@@ -107,6 +103,6 @@ SetOffset sets Offset field to given value.
 HasOffset returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

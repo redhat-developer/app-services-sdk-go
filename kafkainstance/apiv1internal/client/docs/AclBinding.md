@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **Operation** | [**AclOperation**](AclOperation.md) |  | 
 **Permission** | [**AclPermissionType**](AclPermissionType.md) |  | 
 
-
 ## Methods
 
 ### NewAclBinding
@@ -33,7 +32,6 @@ will change when the set of required properties is changed
 NewAclBindingWithDefaults instantiates a new AclBinding object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetId
 
@@ -60,7 +58,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-
 ### GetKind
 
 `func (o *AclBinding) GetKind() string`
@@ -79,7 +76,6 @@ and a boolean to check if the value has been set.
 `func (o *AclBinding) SetKind(v string)`
 
 SetKind sets Kind field to given value.
-
 
 
 ### GetHref
@@ -107,7 +103,6 @@ SetHref sets Href field to given value.
 
 HasHref returns a boolean if a field has been set.
 
-
 ### GetResourceType
 
 `func (o *AclBinding) GetResourceType() AclResourceType`
@@ -126,7 +121,6 @@ and a boolean to check if the value has been set.
 `func (o *AclBinding) SetResourceType(v AclResourceType)`
 
 SetResourceType sets ResourceType field to given value.
-
 
 
 ### GetResourceName
@@ -149,7 +143,6 @@ and a boolean to check if the value has been set.
 SetResourceName sets ResourceName field to given value.
 
 
-
 ### GetPatternType
 
 `func (o *AclBinding) GetPatternType() AclPatternType`
@@ -168,7 +161,6 @@ and a boolean to check if the value has been set.
 `func (o *AclBinding) SetPatternType(v AclPatternType)`
 
 SetPatternType sets PatternType field to given value.
-
 
 
 ### GetPrincipal
@@ -191,7 +183,6 @@ and a boolean to check if the value has been set.
 SetPrincipal sets Principal field to given value.
 
 
-
 ### GetOperation
 
 `func (o *AclBinding) GetOperation() AclOperation`
@@ -210,7 +201,6 @@ and a boolean to check if the value has been set.
 `func (o *AclBinding) SetOperation(v AclOperation)`
 
 SetOperation sets Operation field to given value.
-
 
 
 ### GetPermission
@@ -234,6 +224,6 @@ SetPermission sets Permission field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

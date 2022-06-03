@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** |  | [optional] 
 **Status** | Pointer to [**ConnectorClusterStatusStatus**](ConnectorClusterStatusStatus.md) |  | [optional] 
 
-
 ## Methods
 
 ### NewConnectorCluster
@@ -32,7 +31,6 @@ will change when the set of required properties is changed
 NewConnectorClusterWithDefaults instantiates a new ConnectorCluster object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetId
 
@@ -59,7 +57,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-
 ### GetKind
 
 `func (o *ConnectorCluster) GetKind() string`
@@ -84,7 +81,6 @@ SetKind sets Kind field to given value.
 `func (o *ConnectorCluster) HasKind() bool`
 
 HasKind returns a boolean if a field has been set.
-
 
 ### GetHref
 
@@ -111,7 +107,6 @@ SetHref sets Href field to given value.
 
 HasHref returns a boolean if a field has been set.
 
-
 ### GetOwner
 
 `func (o *ConnectorCluster) GetOwner() string`
@@ -136,7 +131,6 @@ SetOwner sets Owner field to given value.
 `func (o *ConnectorCluster) HasOwner() bool`
 
 HasOwner returns a boolean if a field has been set.
-
 
 ### GetCreatedAt
 
@@ -163,7 +157,6 @@ SetCreatedAt sets CreatedAt field to given value.
 
 HasCreatedAt returns a boolean if a field has been set.
 
-
 ### GetModifiedAt
 
 `func (o *ConnectorCluster) GetModifiedAt() time.Time`
@@ -189,7 +182,6 @@ SetModifiedAt sets ModifiedAt field to given value.
 
 HasModifiedAt returns a boolean if a field has been set.
 
-
 ### GetName
 
 `func (o *ConnectorCluster) GetName() string`
@@ -214,7 +206,6 @@ SetName sets Name field to given value.
 `func (o *ConnectorCluster) HasName() bool`
 
 HasName returns a boolean if a field has been set.
-
 
 ### GetStatus
 
@@ -242,6 +233,6 @@ SetStatus sets Status field to given value.
 HasStatus returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

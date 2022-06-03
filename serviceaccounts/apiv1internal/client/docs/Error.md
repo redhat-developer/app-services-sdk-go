@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Error** | **string** | The cause of the Error. | 
 
-
 ## Methods
 
 ### NewError
@@ -25,7 +24,6 @@ will change when the set of required properties is changed
 NewErrorWithDefaults instantiates a new Error object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetError
 
@@ -48,6 +46,6 @@ SetError sets Error field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Replicas** | Pointer to [**[]Node**](Node.md) | List of replicas for the partition | [optional] 
 **Isr** | Pointer to [**[]Node**](Node.md) | List in-sync replicas for this partition. | [optional] 
 **Leader** | Pointer to [**Node**](Node.md) |  | [optional] 
-
+**Id** | Pointer to **int32** | Unique id for the partition (deprecated, use &#x60;partition&#x60; instead) | [optional] 
 
 ## Methods
 
@@ -29,7 +29,6 @@ NewPartitionWithDefaults instantiates a new Partition object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetPartition
 
 `func (o *Partition) GetPartition() int32`
@@ -48,7 +47,6 @@ and a boolean to check if the value has been set.
 `func (o *Partition) SetPartition(v int32)`
 
 SetPartition sets Partition field to given value.
-
 
 
 ### GetReplicas
@@ -76,7 +74,6 @@ SetReplicas sets Replicas field to given value.
 
 HasReplicas returns a boolean if a field has been set.
 
-
 ### GetIsr
 
 `func (o *Partition) GetIsr() []Node`
@@ -101,7 +98,6 @@ SetIsr sets Isr field to given value.
 `func (o *Partition) HasIsr() bool`
 
 HasIsr returns a boolean if a field has been set.
-
 
 ### GetLeader
 
@@ -128,7 +124,32 @@ SetLeader sets Leader field to given value.
 
 HasLeader returns a boolean if a field has been set.
 
+### GetId
+
+`func (o *Partition) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *Partition) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *Partition) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *Partition) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

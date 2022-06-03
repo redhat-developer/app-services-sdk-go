@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **ResourceVersion** | Pointer to **int64** |  | [optional] 
 **Quota** | Pointer to [**ConnectorNamespaceQuota**](ConnectorNamespaceQuota.md) |  | [optional] 
 
-
 ## Methods
 
 ### NewConnectorNamespaceMeta
@@ -31,7 +30,6 @@ will change when the set of required properties is changed
 NewConnectorNamespaceMetaWithDefaults instantiates a new ConnectorNamespaceMeta object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetOwner
 
@@ -58,7 +56,6 @@ SetOwner sets Owner field to given value.
 
 HasOwner returns a boolean if a field has been set.
 
-
 ### GetCreatedAt
 
 `func (o *ConnectorNamespaceMeta) GetCreatedAt() time.Time`
@@ -83,7 +80,6 @@ SetCreatedAt sets CreatedAt field to given value.
 `func (o *ConnectorNamespaceMeta) HasCreatedAt() bool`
 
 HasCreatedAt returns a boolean if a field has been set.
-
 
 ### GetModifiedAt
 
@@ -110,7 +106,6 @@ SetModifiedAt sets ModifiedAt field to given value.
 
 HasModifiedAt returns a boolean if a field has been set.
 
-
 ### GetName
 
 `func (o *ConnectorNamespaceMeta) GetName() string`
@@ -135,7 +130,6 @@ SetName sets Name field to given value.
 `func (o *ConnectorNamespaceMeta) HasName() bool`
 
 HasName returns a boolean if a field has been set.
-
 
 ### GetAnnotations
 
@@ -162,7 +156,6 @@ SetAnnotations sets Annotations field to given value.
 
 HasAnnotations returns a boolean if a field has been set.
 
-
 ### GetResourceVersion
 
 `func (o *ConnectorNamespaceMeta) GetResourceVersion() int64`
@@ -187,7 +180,6 @@ SetResourceVersion sets ResourceVersion field to given value.
 `func (o *ConnectorNamespaceMeta) HasResourceVersion() bool`
 
 HasResourceVersion returns a boolean if a field has been set.
-
 
 ### GetQuota
 
@@ -215,6 +207,6 @@ SetQuota sets Quota field to given value.
 HasQuota returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CloudProvider** | Pointer to **string** | The cloud provider where the Kafka cluster will be created in | [optional] 
+**MultiAz** | Pointer to **bool** | Deprecated. If it is specified, the value will be ignored. The API automatically determines this value from the &#39;plan&#39; attribute\&quot; | [optional] 
 **Name** | **string** | The name of the Kafka cluster. It must consist of lower-case alphanumeric characters or &#39;-&#39;, start with an alphabetic character, and end with an alphanumeric character, and can not be longer than 32 characters. | 
 **Region** | Pointer to **string** | The region where the Kafka cluster will be created in | [optional] 
 **ReauthenticationEnabled** | Pointer to **NullableBool** | Whether connection reauthentication is enabled or not. If set to true, connection reauthentication on the Kafka instance will be required every 5 minutes. The default value is true | [optional] 
 **Plan** | Pointer to **string** | kafka plan in a format of &lt;instance_type&gt;.&lt;size_id&gt; | [optional] 
 **BillingCloudAccountId** | Pointer to **NullableString** | cloud account id used to purchase the instance | [optional] 
 **Marketplace** | Pointer to **NullableString** | marketplace where the instance is purchased on | [optional] 
-
 
 ## Methods
 
@@ -31,7 +31,6 @@ will change when the set of required properties is changed
 NewKafkaRequestPayloadWithDefaults instantiates a new KafkaRequestPayload object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetCloudProvider
 
@@ -58,6 +57,30 @@ SetCloudProvider sets CloudProvider field to given value.
 
 HasCloudProvider returns a boolean if a field has been set.
 
+### GetMultiAz
+
+`func (o *KafkaRequestPayload) GetMultiAz() bool`
+
+GetMultiAz returns the MultiAz field if non-nil, zero value otherwise.
+
+### GetMultiAzOk
+
+`func (o *KafkaRequestPayload) GetMultiAzOk() (*bool, bool)`
+
+GetMultiAzOk returns a tuple with the MultiAz field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMultiAz
+
+`func (o *KafkaRequestPayload) SetMultiAz(v bool)`
+
+SetMultiAz sets MultiAz field to given value.
+
+### HasMultiAz
+
+`func (o *KafkaRequestPayload) HasMultiAz() bool`
+
+HasMultiAz returns a boolean if a field has been set.
 
 ### GetName
 
@@ -77,7 +100,6 @@ and a boolean to check if the value has been set.
 `func (o *KafkaRequestPayload) SetName(v string)`
 
 SetName sets Name field to given value.
-
 
 
 ### GetRegion
@@ -104,7 +126,6 @@ SetRegion sets Region field to given value.
 `func (o *KafkaRequestPayload) HasRegion() bool`
 
 HasRegion returns a boolean if a field has been set.
-
 
 ### GetReauthenticationEnabled
 
@@ -141,7 +162,6 @@ HasReauthenticationEnabled returns a boolean if a field has been set.
 `func (o *KafkaRequestPayload) UnsetReauthenticationEnabled()`
 
 UnsetReauthenticationEnabled ensures that no value is present for ReauthenticationEnabled, not even an explicit nil
-
 ### GetPlan
 
 `func (o *KafkaRequestPayload) GetPlan() string`
@@ -166,7 +186,6 @@ SetPlan sets Plan field to given value.
 `func (o *KafkaRequestPayload) HasPlan() bool`
 
 HasPlan returns a boolean if a field has been set.
-
 
 ### GetBillingCloudAccountId
 
@@ -203,7 +222,6 @@ HasBillingCloudAccountId returns a boolean if a field has been set.
 `func (o *KafkaRequestPayload) UnsetBillingCloudAccountId()`
 
 UnsetBillingCloudAccountId ensures that no value is present for BillingCloudAccountId, not even an explicit nil
-
 ### GetMarketplace
 
 `func (o *KafkaRequestPayload) GetMarketplace() string`
@@ -240,6 +258,6 @@ HasMarketplace returns a boolean if a field has been set.
 
 UnsetMarketplace ensures that no value is present for Marketplace, not even an explicit nil
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

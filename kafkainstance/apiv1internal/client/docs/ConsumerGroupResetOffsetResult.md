@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Size** | Pointer to **int32** | Number of entries per page (returned for fetch requests) | [optional] 
 **Page** | Pointer to **int32** | Current page number (returned for fetch requests) | [optional] 
 
-
 ## Methods
 
 ### NewConsumerGroupResetOffsetResult
@@ -29,7 +28,6 @@ will change when the set of required properties is changed
 NewConsumerGroupResetOffsetResultWithDefaults instantiates a new ConsumerGroupResetOffsetResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetKind
 
@@ -56,7 +54,6 @@ SetKind sets Kind field to given value.
 
 HasKind returns a boolean if a field has been set.
 
-
 ### GetItems
 
 `func (o *ConsumerGroupResetOffsetResult) GetItems() []ConsumerGroupResetOffsetResultItem`
@@ -77,7 +74,6 @@ and a boolean to check if the value has been set.
 SetItems sets Items field to given value.
 
 
-
 ### GetTotal
 
 `func (o *ConsumerGroupResetOffsetResult) GetTotal() int32`
@@ -96,7 +92,6 @@ and a boolean to check if the value has been set.
 `func (o *ConsumerGroupResetOffsetResult) SetTotal(v int32)`
 
 SetTotal sets Total field to given value.
-
 
 
 ### GetSize
@@ -124,7 +119,6 @@ SetSize sets Size field to given value.
 
 HasSize returns a boolean if a field has been set.
 
-
 ### GetPage
 
 `func (o *ConsumerGroupResetOffsetResult) GetPage() int32`
@@ -151,6 +145,6 @@ SetPage sets Page field to given value.
 HasPage returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

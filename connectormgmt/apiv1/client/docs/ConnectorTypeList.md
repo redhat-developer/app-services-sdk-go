@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Total** | **int32** |  | 
 **Items** | [**[]ConnectorType**](ConnectorType.md) |  | 
 
-
 ## Methods
 
 ### NewConnectorTypeList
@@ -30,7 +29,6 @@ NewConnectorTypeListWithDefaults instantiates a new ConnectorTypeList object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetKind
 
 `func (o *ConnectorTypeList) GetKind() string`
@@ -49,7 +47,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorTypeList) SetKind(v string)`
 
 SetKind sets Kind field to given value.
-
 
 
 ### GetPage
@@ -72,7 +69,6 @@ and a boolean to check if the value has been set.
 SetPage sets Page field to given value.
 
 
-
 ### GetSize
 
 `func (o *ConnectorTypeList) GetSize() int32`
@@ -93,7 +89,6 @@ and a boolean to check if the value has been set.
 SetSize sets Size field to given value.
 
 
-
 ### GetTotal
 
 `func (o *ConnectorTypeList) GetTotal() int32`
@@ -112,7 +107,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorTypeList) SetTotal(v int32)`
 
 SetTotal sets Total field to given value.
-
 
 
 ### GetItems
@@ -136,6 +130,6 @@ SetItems sets Items field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

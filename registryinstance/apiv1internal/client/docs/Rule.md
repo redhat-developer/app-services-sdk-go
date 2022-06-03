@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Config** | **string** |  | 
 **Type** | Pointer to [**RuleType**](RuleType.md) |  | [optional] 
 
-
 ## Methods
 
 ### NewRule
@@ -27,7 +26,6 @@ NewRuleWithDefaults instantiates a new Rule object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetConfig
 
 `func (o *Rule) GetConfig() string`
@@ -46,7 +44,6 @@ and a boolean to check if the value has been set.
 `func (o *Rule) SetConfig(v string)`
 
 SetConfig sets Config field to given value.
-
 
 
 ### GetType
@@ -75,6 +72,6 @@ SetType sets Type field to given value.
 HasType returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

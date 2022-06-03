@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **Value** | Pointer to **string** | Value associated with the given &#x60;offset&#x60;. Not used for &#x60;offset&#x60; values &#x60;earliest&#x60; and &#x60;latest&#x60;. When &#x60;offset&#x60; is &#x60;timestamp&#x60; then &#x60;value&#x60; must be a valid timestamp representing the point in time to reset the consumer group. When &#x60;offset&#x60; is &#x60;absolute&#x60; then &#x60;value&#x60; must be the integer offset to which the consumer group will be reset. | [optional] 
 **Topics** | Pointer to [**[]TopicsToResetOffset**](TopicsToResetOffset.md) |  | [optional] 
 
-
 ## Methods
 
 ### NewConsumerGroupResetOffsetParameters
@@ -28,7 +27,6 @@ NewConsumerGroupResetOffsetParametersWithDefaults instantiates a new ConsumerGro
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetOffset
 
 `func (o *ConsumerGroupResetOffsetParameters) GetOffset() OffsetType`
@@ -47,7 +45,6 @@ and a boolean to check if the value has been set.
 `func (o *ConsumerGroupResetOffsetParameters) SetOffset(v OffsetType)`
 
 SetOffset sets Offset field to given value.
-
 
 
 ### GetValue
@@ -75,7 +72,6 @@ SetValue sets Value field to given value.
 
 HasValue returns a boolean if a field has been set.
 
-
 ### GetTopics
 
 `func (o *ConsumerGroupResetOffsetParameters) GetTopics() []TopicsToResetOffset`
@@ -102,6 +98,6 @@ SetTopics sets Topics field to given value.
 HasTopics returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

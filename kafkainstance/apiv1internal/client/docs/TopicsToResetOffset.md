@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Topic** | **string** |  | 
 **Partitions** | Pointer to **[]int32** |  | [optional] 
 
-
 ## Methods
 
 ### NewTopicsToResetOffset
@@ -27,7 +26,6 @@ NewTopicsToResetOffsetWithDefaults instantiates a new TopicsToResetOffset object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetTopic
 
 `func (o *TopicsToResetOffset) GetTopic() string`
@@ -46,7 +44,6 @@ and a boolean to check if the value has been set.
 `func (o *TopicsToResetOffset) SetTopic(v string)`
 
 SetTopic sets Topic field to given value.
-
 
 
 ### GetPartitions
@@ -75,6 +72,6 @@ SetPartitions sets Partitions field to given value.
 HasPartitions returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

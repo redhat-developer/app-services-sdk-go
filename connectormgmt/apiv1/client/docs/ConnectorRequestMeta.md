@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Channel** | Pointer to [**Channel**](Channel.md) |  | [optional] [default to CHANNEL_STABLE]
 **DesiredState** | [**ConnectorDesiredState**](ConnectorDesiredState.md) |  | 
 
-
 ## Methods
 
 ### NewConnectorRequestMeta
@@ -30,7 +29,6 @@ NewConnectorRequestMetaWithDefaults instantiates a new ConnectorRequestMeta obje
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetName
 
 `func (o *ConnectorRequestMeta) GetName() string`
@@ -49,7 +47,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorRequestMeta) SetName(v string)`
 
 SetName sets Name field to given value.
-
 
 
 ### GetConnectorTypeId
@@ -72,7 +69,6 @@ and a boolean to check if the value has been set.
 SetConnectorTypeId sets ConnectorTypeId field to given value.
 
 
-
 ### GetNamespaceId
 
 `func (o *ConnectorRequestMeta) GetNamespaceId() string`
@@ -91,7 +87,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorRequestMeta) SetNamespaceId(v string)`
 
 SetNamespaceId sets NamespaceId field to given value.
-
 
 
 ### GetChannel
@@ -119,7 +114,6 @@ SetChannel sets Channel field to given value.
 
 HasChannel returns a boolean if a field has been set.
 
-
 ### GetDesiredState
 
 `func (o *ConnectorRequestMeta) GetDesiredState() ConnectorDesiredState`
@@ -141,6 +135,6 @@ SetDesiredState sets DesiredState field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

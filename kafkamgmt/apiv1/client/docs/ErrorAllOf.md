@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **Reason** | Pointer to **string** |  | [optional] 
 **OperationId** | Pointer to **string** |  | [optional] 
 
-
 ## Methods
 
 ### NewErrorAllOf
@@ -27,7 +26,6 @@ will change when the set of required properties is changed
 NewErrorAllOfWithDefaults instantiates a new ErrorAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetCode
 
@@ -54,7 +52,6 @@ SetCode sets Code field to given value.
 
 HasCode returns a boolean if a field has been set.
 
-
 ### GetReason
 
 `func (o *ErrorAllOf) GetReason() string`
@@ -79,7 +76,6 @@ SetReason sets Reason field to given value.
 `func (o *ErrorAllOf) HasReason() bool`
 
 HasReason returns a boolean if a field has been set.
-
 
 ### GetOperationId
 
@@ -107,6 +103,6 @@ SetOperationId sets OperationId field to given value.
 HasOperationId returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

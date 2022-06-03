@@ -19,7 +19,6 @@ Name | Type | Description | Notes
 **Tenant** | [**ConnectorNamespaceTenant**](ConnectorNamespaceTenant.md) |  | 
 **Status** | [**ConnectorNamespaceStatus**](ConnectorNamespaceStatus.md) |  | 
 
-
 ## Methods
 
 ### NewConnectorNamespace
@@ -39,7 +38,6 @@ NewConnectorNamespaceWithDefaults instantiates a new ConnectorNamespace object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetId
 
 `func (o *ConnectorNamespace) GetId() string`
@@ -58,7 +56,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorNamespace) SetId(v string)`
 
 SetId sets Id field to given value.
-
 
 
 ### GetKind
@@ -86,7 +83,6 @@ SetKind sets Kind field to given value.
 
 HasKind returns a boolean if a field has been set.
 
-
 ### GetHref
 
 `func (o *ConnectorNamespace) GetHref() string`
@@ -111,7 +107,6 @@ SetHref sets Href field to given value.
 `func (o *ConnectorNamespace) HasHref() bool`
 
 HasHref returns a boolean if a field has been set.
-
 
 ### GetOwner
 
@@ -138,7 +133,6 @@ SetOwner sets Owner field to given value.
 
 HasOwner returns a boolean if a field has been set.
 
-
 ### GetCreatedAt
 
 `func (o *ConnectorNamespace) GetCreatedAt() time.Time`
@@ -163,7 +157,6 @@ SetCreatedAt sets CreatedAt field to given value.
 `func (o *ConnectorNamespace) HasCreatedAt() bool`
 
 HasCreatedAt returns a boolean if a field has been set.
-
 
 ### GetModifiedAt
 
@@ -190,7 +183,6 @@ SetModifiedAt sets ModifiedAt field to given value.
 
 HasModifiedAt returns a boolean if a field has been set.
 
-
 ### GetName
 
 `func (o *ConnectorNamespace) GetName() string`
@@ -209,7 +201,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorNamespace) SetName(v string)`
 
 SetName sets Name field to given value.
-
 
 
 ### GetAnnotations
@@ -237,7 +228,6 @@ SetAnnotations sets Annotations field to given value.
 
 HasAnnotations returns a boolean if a field has been set.
 
-
 ### GetResourceVersion
 
 `func (o *ConnectorNamespace) GetResourceVersion() int64`
@@ -256,7 +246,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorNamespace) SetResourceVersion(v int64)`
 
 SetResourceVersion sets ResourceVersion field to given value.
-
 
 
 ### GetQuota
@@ -284,7 +273,6 @@ SetQuota sets Quota field to given value.
 
 HasQuota returns a boolean if a field has been set.
 
-
 ### GetClusterId
 
 `func (o *ConnectorNamespace) GetClusterId() string`
@@ -303,7 +291,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorNamespace) SetClusterId(v string)`
 
 SetClusterId sets ClusterId field to given value.
-
 
 
 ### GetExpiration
@@ -331,7 +318,6 @@ SetExpiration sets Expiration field to given value.
 
 HasExpiration returns a boolean if a field has been set.
 
-
 ### GetTenant
 
 `func (o *ConnectorNamespace) GetTenant() ConnectorNamespaceTenant`
@@ -350,7 +336,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorNamespace) SetTenant(v ConnectorNamespaceTenant)`
 
 SetTenant sets Tenant field to given value.
-
 
 
 ### GetStatus
@@ -374,6 +359,6 @@ SetStatus sets Status field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** | Human friendly identifier of the cloud provider, for example &#x60;aws&#x60;. | [optional] 
 **Enabled** | **bool** | Whether the cloud provider is enabled for deploying an OSD cluster. | 
 
-
 ## Methods
 
 ### NewCloudProvider
@@ -29,7 +28,6 @@ will change when the set of required properties is changed
 NewCloudProviderWithDefaults instantiates a new CloudProvider object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetKind
 
@@ -56,7 +54,6 @@ SetKind sets Kind field to given value.
 
 HasKind returns a boolean if a field has been set.
 
-
 ### GetId
 
 `func (o *CloudProvider) GetId() string`
@@ -81,7 +78,6 @@ SetId sets Id field to given value.
 `func (o *CloudProvider) HasId() bool`
 
 HasId returns a boolean if a field has been set.
-
 
 ### GetDisplayName
 
@@ -108,7 +104,6 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
-
 ### GetName
 
 `func (o *CloudProvider) GetName() string`
@@ -134,7 +129,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-
 ### GetEnabled
 
 `func (o *CloudProvider) GetEnabled() bool`
@@ -156,6 +150,6 @@ SetEnabled sets Enabled field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

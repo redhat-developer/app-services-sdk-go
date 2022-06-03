@@ -10,7 +10,8 @@ Name | Type | Description | Notes
 **Reason** | Pointer to **string** | General reason for the error. Does not change between specific occurrences. | [optional] 
 **Detail** | Pointer to **string** | Detail specific to an error occurrence. May be different depending on the condition(s) that trigger the error. | [optional] 
 **Code** | Pointer to **int32** |  | [optional] 
-
+**ErrorMessage** | Pointer to **string** |  | [optional] 
+**Class** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -30,7 +31,6 @@ will change when the set of required properties is changed
 NewErrorWithDefaults instantiates a new Error object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetId
 
@@ -57,7 +57,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-
 ### GetKind
 
 `func (o *Error) GetKind() string`
@@ -76,7 +75,6 @@ and a boolean to check if the value has been set.
 `func (o *Error) SetKind(v string)`
 
 SetKind sets Kind field to given value.
-
 
 
 ### GetHref
@@ -104,7 +102,6 @@ SetHref sets Href field to given value.
 
 HasHref returns a boolean if a field has been set.
 
-
 ### GetReason
 
 `func (o *Error) GetReason() string`
@@ -129,7 +126,6 @@ SetReason sets Reason field to given value.
 `func (o *Error) HasReason() bool`
 
 HasReason returns a boolean if a field has been set.
-
 
 ### GetDetail
 
@@ -156,7 +152,6 @@ SetDetail sets Detail field to given value.
 
 HasDetail returns a boolean if a field has been set.
 
-
 ### GetCode
 
 `func (o *Error) GetCode() int32`
@@ -182,7 +177,57 @@ SetCode sets Code field to given value.
 
 HasCode returns a boolean if a field has been set.
 
+### GetErrorMessage
+
+`func (o *Error) GetErrorMessage() string`
+
+GetErrorMessage returns the ErrorMessage field if non-nil, zero value otherwise.
+
+### GetErrorMessageOk
+
+`func (o *Error) GetErrorMessageOk() (*string, bool)`
+
+GetErrorMessageOk returns a tuple with the ErrorMessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetErrorMessage
+
+`func (o *Error) SetErrorMessage(v string)`
+
+SetErrorMessage sets ErrorMessage field to given value.
+
+### HasErrorMessage
+
+`func (o *Error) HasErrorMessage() bool`
+
+HasErrorMessage returns a boolean if a field has been set.
+
+### GetClass
+
+`func (o *Error) GetClass() string`
+
+GetClass returns the Class field if non-nil, zero value otherwise.
+
+### GetClassOk
+
+`func (o *Error) GetClassOk() (*string, bool)`
+
+GetClassOk returns a tuple with the Class field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClass
+
+`func (o *Error) SetClass(v string)`
+
+SetClass sets Class field to given value.
+
+### HasClass
+
+`func (o *Error) HasClass() bool`
+
+HasClass returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

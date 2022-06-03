@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Count** | **int32** | The total number of versions that matched the query (may be more than the number of versions returned in the result set). | 
 **Versions** | [**[]SearchedVersion**](SearchedVersion.md) | The collection of artifact versions returned in the result set. | 
 
-
 ## Methods
 
 ### NewVersionSearchResults
@@ -27,7 +26,6 @@ NewVersionSearchResultsWithDefaults instantiates a new VersionSearchResults obje
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetCount
 
 `func (o *VersionSearchResults) GetCount() int32`
@@ -46,7 +44,6 @@ and a boolean to check if the value has been set.
 `func (o *VersionSearchResults) SetCount(v int32)`
 
 SetCount sets Count field to given value.
-
 
 
 ### GetVersions
@@ -70,6 +67,6 @@ SetVersions sets Versions field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

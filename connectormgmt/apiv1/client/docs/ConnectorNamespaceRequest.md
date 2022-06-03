@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **ClusterId** | **string** |  | 
 **Kind** | [**ConnectorNamespaceTenantKind**](ConnectorNamespaceTenantKind.md) |  | 
 
-
 ## Methods
 
 ### NewConnectorNamespaceRequest
@@ -29,7 +28,6 @@ NewConnectorNamespaceRequestWithDefaults instantiates a new ConnectorNamespaceRe
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetName
 
 `func (o *ConnectorNamespaceRequest) GetName() string`
@@ -48,7 +46,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorNamespaceRequest) SetName(v string)`
 
 SetName sets Name field to given value.
-
 
 
 ### GetAnnotations
@@ -76,7 +73,6 @@ SetAnnotations sets Annotations field to given value.
 
 HasAnnotations returns a boolean if a field has been set.
 
-
 ### GetClusterId
 
 `func (o *ConnectorNamespaceRequest) GetClusterId() string`
@@ -95,7 +91,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorNamespaceRequest) SetClusterId(v string)`
 
 SetClusterId sets ClusterId field to given value.
-
 
 
 ### GetKind
@@ -119,6 +114,6 @@ SetKind sets Kind field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **Consumers** | [**[]Consumer**](Consumer.md) | The list of consumers associated with this consumer group | 
 **Metrics** | Pointer to [**ConsumerGroupMetrics**](ConsumerGroupMetrics.md) |  | [optional] 
 
-
 ## Methods
 
 ### NewConsumerGroup
@@ -31,7 +30,6 @@ will change when the set of required properties is changed
 NewConsumerGroupWithDefaults instantiates a new ConsumerGroup object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetId
 
@@ -58,7 +56,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-
 ### GetKind
 
 `func (o *ConsumerGroup) GetKind() string`
@@ -77,7 +74,6 @@ and a boolean to check if the value has been set.
 `func (o *ConsumerGroup) SetKind(v string)`
 
 SetKind sets Kind field to given value.
-
 
 
 ### GetHref
@@ -105,7 +101,6 @@ SetHref sets Href field to given value.
 
 HasHref returns a boolean if a field has been set.
 
-
 ### GetGroupId
 
 `func (o *ConsumerGroup) GetGroupId() string`
@@ -124,7 +119,6 @@ and a boolean to check if the value has been set.
 `func (o *ConsumerGroup) SetGroupId(v string)`
 
 SetGroupId sets GroupId field to given value.
-
 
 
 ### GetState
@@ -152,7 +146,6 @@ SetState sets State field to given value.
 
 HasState returns a boolean if a field has been set.
 
-
 ### GetConsumers
 
 `func (o *ConsumerGroup) GetConsumers() []Consumer`
@@ -171,7 +164,6 @@ and a boolean to check if the value has been set.
 `func (o *ConsumerGroup) SetConsumers(v []Consumer)`
 
 SetConsumers sets Consumers field to given value.
-
 
 
 ### GetMetrics
@@ -200,6 +192,6 @@ SetMetrics sets Metrics field to given value.
 HasMetrics returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

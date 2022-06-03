@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Labels** | Pointer to **[]string** |  | [optional] 
 **Properties** | Pointer to **map[string]string** | User-defined name-value pairs. Name and value must be strings. | [optional] 
 
-
 ## Methods
 
 ### NewEditableMetaData
@@ -28,7 +27,6 @@ will change when the set of required properties is changed
 NewEditableMetaDataWithDefaults instantiates a new EditableMetaData object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetName
 
@@ -55,7 +53,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-
 ### GetDescription
 
 `func (o *EditableMetaData) GetDescription() string`
@@ -81,7 +78,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-
 ### GetLabels
 
 `func (o *EditableMetaData) GetLabels() []string`
@@ -106,7 +102,6 @@ SetLabels sets Labels field to given value.
 `func (o *EditableMetaData) HasLabels() bool`
 
 HasLabels returns a boolean if a field has been set.
-
 
 ### GetProperties
 
@@ -134,6 +129,6 @@ SetProperties sets Properties field to given value.
 HasProperties returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

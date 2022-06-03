@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Key** | **string** | The key indicating what configuration entry you would like to set for the topic. | 
 **Value** | **string** | Value to indicate the setting on the topic configuration entry. | 
 
-
 ## Methods
 
 ### NewConfigEntry
@@ -27,7 +26,6 @@ NewConfigEntryWithDefaults instantiates a new ConfigEntry object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetKey
 
 `func (o *ConfigEntry) GetKey() string`
@@ -46,7 +44,6 @@ and a boolean to check if the value has been set.
 `func (o *ConfigEntry) SetKey(v string)`
 
 SetKey sets Key field to given value.
-
 
 
 ### GetValue
@@ -70,6 +67,6 @@ SetValue sets Value field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **State** | Pointer to [**ConnectorClusterState**](ConnectorClusterState.md) |  | [optional] 
 **Error** | Pointer to **string** |  | [optional] 
 
-
 ## Methods
 
 ### NewConnectorClusterStatusStatus
@@ -26,7 +25,6 @@ will change when the set of required properties is changed
 NewConnectorClusterStatusStatusWithDefaults instantiates a new ConnectorClusterStatusStatus object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetState
 
@@ -52,7 +50,6 @@ SetState sets State field to given value.
 `func (o *ConnectorClusterStatusStatus) HasState() bool`
 
 HasState returns a boolean if a field has been set.
-
 
 ### GetError
 
@@ -80,6 +77,6 @@ SetError sets Error field to given value.
 HasError returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Detail** | Pointer to **string** | Full details about the error.  This might contain a server stack trace, for example. | [optional] 
 **Name** | Pointer to **string** | The error name - typically the classname of the exception thrown by the server. | [optional] 
 
-
 ## Methods
 
 ### NewError
@@ -28,7 +27,6 @@ will change when the set of required properties is changed
 NewErrorWithDefaults instantiates a new Error object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetMessage
 
@@ -55,7 +53,6 @@ SetMessage sets Message field to given value.
 
 HasMessage returns a boolean if a field has been set.
 
-
 ### GetErrorCode
 
 `func (o *Error) GetErrorCode() int32`
@@ -81,7 +78,6 @@ SetErrorCode sets ErrorCode field to given value.
 
 HasErrorCode returns a boolean if a field has been set.
 
-
 ### GetDetail
 
 `func (o *Error) GetDetail() string`
@@ -106,7 +102,6 @@ SetDetail sets Detail field to given value.
 `func (o *Error) HasDetail() bool`
 
 HasDetail returns a boolean if a field has been set.
-
 
 ### GetName
 
@@ -134,6 +129,6 @@ SetName sets Name field to given value.
 HasName returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

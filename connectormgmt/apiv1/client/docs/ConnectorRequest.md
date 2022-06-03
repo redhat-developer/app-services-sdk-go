@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **SchemaRegistry** | Pointer to [**SchemaRegistryConnectionSettings**](SchemaRegistryConnectionSettings.md) |  | [optional] 
 **Connector** | **map[string]interface{}** |  | 
 
-
 ## Methods
 
 ### NewConnectorRequest
@@ -34,7 +33,6 @@ NewConnectorRequestWithDefaults instantiates a new ConnectorRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-
 ### GetName
 
 `func (o *ConnectorRequest) GetName() string`
@@ -53,7 +51,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorRequest) SetName(v string)`
 
 SetName sets Name field to given value.
-
 
 
 ### GetConnectorTypeId
@@ -76,7 +73,6 @@ and a boolean to check if the value has been set.
 SetConnectorTypeId sets ConnectorTypeId field to given value.
 
 
-
 ### GetNamespaceId
 
 `func (o *ConnectorRequest) GetNamespaceId() string`
@@ -95,7 +91,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorRequest) SetNamespaceId(v string)`
 
 SetNamespaceId sets NamespaceId field to given value.
-
 
 
 ### GetChannel
@@ -123,7 +118,6 @@ SetChannel sets Channel field to given value.
 
 HasChannel returns a boolean if a field has been set.
 
-
 ### GetDesiredState
 
 `func (o *ConnectorRequest) GetDesiredState() ConnectorDesiredState`
@@ -142,7 +136,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorRequest) SetDesiredState(v ConnectorDesiredState)`
 
 SetDesiredState sets DesiredState field to given value.
-
 
 
 ### GetKafka
@@ -165,7 +158,6 @@ and a boolean to check if the value has been set.
 SetKafka sets Kafka field to given value.
 
 
-
 ### GetServiceAccount
 
 `func (o *ConnectorRequest) GetServiceAccount() ServiceAccount`
@@ -184,7 +176,6 @@ and a boolean to check if the value has been set.
 `func (o *ConnectorRequest) SetServiceAccount(v ServiceAccount)`
 
 SetServiceAccount sets ServiceAccount field to given value.
-
 
 
 ### GetSchemaRegistry
@@ -212,7 +203,6 @@ SetSchemaRegistry sets SchemaRegistry field to given value.
 
 HasSchemaRegistry returns a boolean if a field has been set.
 
-
 ### GetConnector
 
 `func (o *ConnectorRequest) GetConnector() map[string]interface{}`
@@ -234,6 +224,6 @@ SetConnector sets Connector field to given value.
 
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

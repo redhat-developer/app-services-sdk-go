@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **Schema** | Pointer to **map[string]interface{}** | A json schema that can be used to validate a ConnectorRequest connector field. | [optional] 
 **JsonSchema** | Pointer to **map[string]interface{}** | A json schema that can be used to validate a ConnectorRequest connector field. | [optional] 
 
-
 ## Methods
 
 ### NewConnectorType
@@ -36,7 +35,6 @@ will change when the set of required properties is changed
 NewConnectorTypeWithDefaults instantiates a new ConnectorType object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetId
 
@@ -63,7 +61,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-
 ### GetKind
 
 `func (o *ConnectorType) GetKind() string`
@@ -88,7 +85,6 @@ SetKind sets Kind field to given value.
 `func (o *ConnectorType) HasKind() bool`
 
 HasKind returns a boolean if a field has been set.
-
 
 ### GetHref
 
@@ -115,7 +111,6 @@ SetHref sets Href field to given value.
 
 HasHref returns a boolean if a field has been set.
 
-
 ### GetName
 
 `func (o *ConnectorType) GetName() string`
@@ -140,7 +135,6 @@ SetName sets Name field to given value.
 `func (o *ConnectorType) HasName() bool`
 
 HasName returns a boolean if a field has been set.
-
 
 ### GetVersion
 
@@ -167,7 +161,6 @@ SetVersion sets Version field to given value.
 
 HasVersion returns a boolean if a field has been set.
 
-
 ### GetChannels
 
 `func (o *ConnectorType) GetChannels() []Channel`
@@ -192,7 +185,6 @@ SetChannels sets Channels field to given value.
 `func (o *ConnectorType) HasChannels() bool`
 
 HasChannels returns a boolean if a field has been set.
-
 
 ### GetDescription
 
@@ -219,7 +211,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-
 ### GetIconHref
 
 `func (o *ConnectorType) GetIconHref() string`
@@ -244,7 +235,6 @@ SetIconHref sets IconHref field to given value.
 `func (o *ConnectorType) HasIconHref() bool`
 
 HasIconHref returns a boolean if a field has been set.
-
 
 ### GetLabels
 
@@ -271,7 +261,6 @@ SetLabels sets Labels field to given value.
 
 HasLabels returns a boolean if a field has been set.
 
-
 ### GetCapabilities
 
 `func (o *ConnectorType) GetCapabilities() []string`
@@ -297,7 +286,6 @@ SetCapabilities sets Capabilities field to given value.
 
 HasCapabilities returns a boolean if a field has been set.
 
-
 ### GetSchema
 
 `func (o *ConnectorType) GetSchema() map[string]interface{}`
@@ -322,7 +310,6 @@ SetSchema sets Schema field to given value.
 `func (o *ConnectorType) HasSchema() bool`
 
 HasSchema returns a boolean if a field has been set.
-
 
 ### GetJsonSchema
 
@@ -350,6 +337,6 @@ SetJsonSchema sets JsonSchema field to given value.
 HasJsonSchema returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

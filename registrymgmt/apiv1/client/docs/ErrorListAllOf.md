@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Items** | Pointer to [**[]Error**](Error.md) |  | [optional] 
 
-
 ## Methods
 
 ### NewErrorListAllOf
@@ -25,7 +24,6 @@ will change when the set of required properties is changed
 NewErrorListAllOfWithDefaults instantiates a new ErrorListAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
 
 ### GetItems
 
@@ -53,6 +51,6 @@ SetItems sets Items field to given value.
 HasItems returns a boolean if a field has been set.
 
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 
