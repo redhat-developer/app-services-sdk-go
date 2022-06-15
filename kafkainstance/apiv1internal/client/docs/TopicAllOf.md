@@ -1,4 +1,4 @@
-# Topic1
+# TopicAllOf
 
 ## Properties
 
@@ -11,120 +11,120 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewTopic1
+### NewTopicAllOf
 
-`func NewTopic1() *Topic1`
+`func NewTopicAllOf() *TopicAllOf`
 
-NewTopic1 instantiates a new Topic1 object
+NewTopicAllOf instantiates a new TopicAllOf object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewTopic1WithDefaults
+### NewTopicAllOfWithDefaults
 
-`func NewTopic1WithDefaults() *Topic1`
+`func NewTopicAllOfWithDefaults() *TopicAllOf`
 
-NewTopic1WithDefaults instantiates a new Topic1 object
+NewTopicAllOfWithDefaults instantiates a new TopicAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetName
 
-`func (o *Topic1) GetName() string`
+`func (o *TopicAllOf) GetName() string`
 
 GetName returns the Name field if non-nil, zero value otherwise.
 
 ### GetNameOk
 
-`func (o *Topic1) GetNameOk() (*string, bool)`
+`func (o *TopicAllOf) GetNameOk() (*string, bool)`
 
 GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetName
 
-`func (o *Topic1) SetName(v string)`
+`func (o *TopicAllOf) SetName(v string)`
 
 SetName sets Name field to given value.
 
 ### HasName
 
-`func (o *Topic1) HasName() bool`
+`func (o *TopicAllOf) HasName() bool`
 
 HasName returns a boolean if a field has been set.
 
 ### GetIsInternal
 
-`func (o *Topic1) GetIsInternal() bool`
+`func (o *TopicAllOf) GetIsInternal() bool`
 
 GetIsInternal returns the IsInternal field if non-nil, zero value otherwise.
 
 ### GetIsInternalOk
 
-`func (o *Topic1) GetIsInternalOk() (*bool, bool)`
+`func (o *TopicAllOf) GetIsInternalOk() (*bool, bool)`
 
 GetIsInternalOk returns a tuple with the IsInternal field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsInternal
 
-`func (o *Topic1) SetIsInternal(v bool)`
+`func (o *TopicAllOf) SetIsInternal(v bool)`
 
 SetIsInternal sets IsInternal field to given value.
 
 ### HasIsInternal
 
-`func (o *Topic1) HasIsInternal() bool`
+`func (o *TopicAllOf) HasIsInternal() bool`
 
 HasIsInternal returns a boolean if a field has been set.
 
 ### GetPartitions
 
-`func (o *Topic1) GetPartitions() []Partition`
+`func (o *TopicAllOf) GetPartitions() []Partition`
 
 GetPartitions returns the Partitions field if non-nil, zero value otherwise.
 
 ### GetPartitionsOk
 
-`func (o *Topic1) GetPartitionsOk() (*[]Partition, bool)`
+`func (o *TopicAllOf) GetPartitionsOk() (*[]Partition, bool)`
 
 GetPartitionsOk returns a tuple with the Partitions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPartitions
 
-`func (o *Topic1) SetPartitions(v []Partition)`
+`func (o *TopicAllOf) SetPartitions(v []Partition)`
 
 SetPartitions sets Partitions field to given value.
 
 ### HasPartitions
 
-`func (o *Topic1) HasPartitions() bool`
+`func (o *TopicAllOf) HasPartitions() bool`
 
 HasPartitions returns a boolean if a field has been set.
 
 ### GetConfig
 
-`func (o *Topic1) GetConfig() []ConfigEntry`
+`func (o *TopicAllOf) GetConfig() []ConfigEntry`
 
 GetConfig returns the Config field if non-nil, zero value otherwise.
 
 ### GetConfigOk
 
-`func (o *Topic1) GetConfigOk() (*[]ConfigEntry, bool)`
+`func (o *TopicAllOf) GetConfigOk() (*[]ConfigEntry, bool)`
 
 GetConfigOk returns a tuple with the Config field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetConfig
 
-`func (o *Topic1) SetConfig(v []ConfigEntry)`
+`func (o *TopicAllOf) SetConfig(v []ConfigEntry)`
 
 SetConfig sets Config field to given value.
 
 ### HasConfig
 
-`func (o *Topic1) HasConfig() bool`
+`func (o *TopicAllOf) HasConfig() bool`
 
 HasConfig returns a boolean if a field has been set.
 

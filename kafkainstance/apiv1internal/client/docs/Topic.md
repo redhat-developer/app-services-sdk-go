@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Unique identifier for the object. Not supported for all object kinds. | [optional] 
-**Kind** | **string** |  | [readonly] 
+**Kind** | Pointer to **string** |  | [optional] [readonly] 
 **Href** | Pointer to **string** | Link path to request the object. Not supported for all object kinds. | [optional] 
 **Name** | Pointer to **string** | The name of the topic. | [optional] 
 **IsInternal** | Pointer to **bool** |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewTopic
 
-`func NewTopic(kind string, ) *Topic`
+`func NewTopic() *Topic`
 
 NewTopic instantiates a new Topic object
 This constructor will assign default values to properties that have it defined,
@@ -75,6 +75,11 @@ and a boolean to check if the value has been set.
 
 SetKind sets Kind field to given value.
 
+### HasKind
+
+`func (o *Topic) HasKind() bool`
+
+HasKind returns a boolean if a field has been set.
 
 ### GetHref
 
