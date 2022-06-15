@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Unique identifier for the object. Not supported for all object kinds. | [optional] 
-**Kind** | **string** |  | [readonly] 
+**Kind** | Pointer to **string** |  | [optional] [readonly] 
 **Href** | Pointer to **string** | Link path to request the object. Not supported for all object kinds. | [optional] 
 **Partition** | Pointer to **int32** | The record&#39;s partition within the topic | [optional] 
 **Offset** | Pointer to **int64** | The record&#39;s offset within the topic partition | [optional] [readonly] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewRecord
 
-`func NewRecord(kind string, value string, ) *Record`
+`func NewRecord(value string, ) *Record`
 
 NewRecord instantiates a new Record object
 This constructor will assign default values to properties that have it defined,
@@ -78,6 +78,11 @@ and a boolean to check if the value has been set.
 
 SetKind sets Kind field to given value.
 
+### HasKind
+
+`func (o *Record) HasKind() bool`
+
+HasKind returns a boolean if a field has been set.
 
 ### GetHref
 

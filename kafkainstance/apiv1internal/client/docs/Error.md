@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Unique identifier for the object. Not supported for all object kinds. | [optional] 
-**Kind** | **string** |  | [readonly] 
+**Kind** | Pointer to **string** |  | [optional] [readonly] 
 **Href** | Pointer to **string** | Link path to request the object. Not supported for all object kinds. | [optional] 
 **Reason** | Pointer to **string** | General reason for the error. Does not change between specific occurrences. | [optional] 
 **Detail** | Pointer to **string** | Detail specific to an error occurrence. May be different depending on the condition(s) that trigger the error. | [optional] 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewError
 
-`func NewError(kind string, ) *Error`
+`func NewError() *Error`
 
 NewError instantiates a new Error object
 This constructor will assign default values to properties that have it defined,
@@ -76,6 +76,11 @@ and a boolean to check if the value has been set.
 
 SetKind sets Kind field to given value.
 
+### HasKind
+
+`func (o *Error) HasKind() bool`
+
+HasKind returns a boolean if a field has been set.
 
 ### GetHref
 

@@ -4,16 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]Record**](Record.md) |  | [optional] 
-**Total** | Pointer to **interface{}** | Total number of records returned in this request. This value does not indicate the total number of records in the topic. | [optional] 
-**Size** | Pointer to **interface{}** | Not used | [optional] 
-**Page** | Pointer to **interface{}** | Not used | [optional] 
+**Kind** | Pointer to **string** |  | [optional] 
+**Items** | [**[]Record**](Record.md) |  | 
+**Total** | **int32** | Total number of records returned in this request. This value does not indicate the total number of records in the topic. | 
+**Size** | Pointer to **int32** | Not used | [optional] 
+**Page** | Pointer to **int32** | Not used | [optional] 
 
 ## Methods
 
 ### NewRecordList
 
-`func NewRecordList() *RecordList`
+`func NewRecordList(items []Record, total int32, ) *RecordList`
 
 NewRecordList instantiates a new RecordList object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +28,31 @@ will change when the set of required properties is changed
 NewRecordListWithDefaults instantiates a new RecordList object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetKind
+
+`func (o *RecordList) GetKind() string`
+
+GetKind returns the Kind field if non-nil, zero value otherwise.
+
+### GetKindOk
+
+`func (o *RecordList) GetKindOk() (*string, bool)`
+
+GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKind
+
+`func (o *RecordList) SetKind(v string)`
+
+SetKind sets Kind field to given value.
+
+### HasKind
+
+`func (o *RecordList) HasKind() bool`
+
+HasKind returns a boolean if a field has been set.
 
 ### GetItems
 
@@ -47,63 +73,43 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
-### HasItems
-
-`func (o *RecordList) HasItems() bool`
-
-HasItems returns a boolean if a field has been set.
 
 ### GetTotal
 
-`func (o *RecordList) GetTotal() interface{}`
+`func (o *RecordList) GetTotal() int32`
 
 GetTotal returns the Total field if non-nil, zero value otherwise.
 
 ### GetTotalOk
 
-`func (o *RecordList) GetTotalOk() (*interface{}, bool)`
+`func (o *RecordList) GetTotalOk() (*int32, bool)`
 
 GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTotal
 
-`func (o *RecordList) SetTotal(v interface{})`
+`func (o *RecordList) SetTotal(v int32)`
 
 SetTotal sets Total field to given value.
 
-### HasTotal
 
-`func (o *RecordList) HasTotal() bool`
-
-HasTotal returns a boolean if a field has been set.
-
-### SetTotalNil
-
-`func (o *RecordList) SetTotalNil(b bool)`
-
- SetTotalNil sets the value for Total to be an explicit nil
-
-### UnsetTotal
-`func (o *RecordList) UnsetTotal()`
-
-UnsetTotal ensures that no value is present for Total, not even an explicit nil
 ### GetSize
 
-`func (o *RecordList) GetSize() interface{}`
+`func (o *RecordList) GetSize() int32`
 
 GetSize returns the Size field if non-nil, zero value otherwise.
 
 ### GetSizeOk
 
-`func (o *RecordList) GetSizeOk() (*interface{}, bool)`
+`func (o *RecordList) GetSizeOk() (*int32, bool)`
 
 GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSize
 
-`func (o *RecordList) SetSize(v interface{})`
+`func (o *RecordList) SetSize(v int32)`
 
 SetSize sets Size field to given value.
 
@@ -113,32 +119,22 @@ SetSize sets Size field to given value.
 
 HasSize returns a boolean if a field has been set.
 
-### SetSizeNil
-
-`func (o *RecordList) SetSizeNil(b bool)`
-
- SetSizeNil sets the value for Size to be an explicit nil
-
-### UnsetSize
-`func (o *RecordList) UnsetSize()`
-
-UnsetSize ensures that no value is present for Size, not even an explicit nil
 ### GetPage
 
-`func (o *RecordList) GetPage() interface{}`
+`func (o *RecordList) GetPage() int32`
 
 GetPage returns the Page field if non-nil, zero value otherwise.
 
 ### GetPageOk
 
-`func (o *RecordList) GetPageOk() (*interface{}, bool)`
+`func (o *RecordList) GetPageOk() (*int32, bool)`
 
 GetPageOk returns a tuple with the Page field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPage
 
-`func (o *RecordList) SetPage(v interface{})`
+`func (o *RecordList) SetPage(v int32)`
 
 SetPage sets Page field to given value.
 
@@ -148,16 +144,6 @@ SetPage sets Page field to given value.
 
 HasPage returns a boolean if a field has been set.
 
-### SetPageNil
-
-`func (o *RecordList) SetPageNil(b bool)`
-
- SetPageNil sets the value for Page to be an explicit nil
-
-### UnsetPage
-`func (o *RecordList) UnsetPage()`
-
-UnsetPage ensures that no value is present for Page, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
