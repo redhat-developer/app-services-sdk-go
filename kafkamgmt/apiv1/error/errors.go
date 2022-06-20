@@ -38,6 +38,9 @@ const (
   // Unable to read request body
   ERROR_17 string = "KAFKAS-MGMT-17"
 
+  // Unable to perform this action, as the service is currently under maintenance
+  ERROR_18 string = "KAFKAS-MGMT-18"
+
   // Bad request
   ERROR_21 string = "KAFKAS-MGMT-21"
 

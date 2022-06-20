@@ -14,7 +14,7 @@ const (
   // Bad date or time format
   ERROR_3 string = "SRS-MGMT-3"
 
-  // Invalid request content. Make sure the request conforms to the given JSON schema
+  // Invalid request content or parameters. Make sure the request conforms to the given JSON schema
   ERROR_4 string = "SRS-MGMT-4"
 
   // Bad request format - invalid JSON
