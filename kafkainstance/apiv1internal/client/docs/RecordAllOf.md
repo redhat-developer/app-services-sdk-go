@@ -1,4 +1,4 @@
-# Record1
+# RecordAllOf
 
 ## Properties
 
@@ -14,189 +14,189 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewRecord1
+### NewRecordAllOf
 
-`func NewRecord1(value string, ) *Record1`
+`func NewRecordAllOf(value string, ) *RecordAllOf`
 
-NewRecord1 instantiates a new Record1 object
+NewRecordAllOf instantiates a new RecordAllOf object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewRecord1WithDefaults
+### NewRecordAllOfWithDefaults
 
-`func NewRecord1WithDefaults() *Record1`
+`func NewRecordAllOfWithDefaults() *RecordAllOf`
 
-NewRecord1WithDefaults instantiates a new Record1 object
+NewRecordAllOfWithDefaults instantiates a new RecordAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetPartition
 
-`func (o *Record1) GetPartition() int32`
+`func (o *RecordAllOf) GetPartition() int32`
 
 GetPartition returns the Partition field if non-nil, zero value otherwise.
 
 ### GetPartitionOk
 
-`func (o *Record1) GetPartitionOk() (*int32, bool)`
+`func (o *RecordAllOf) GetPartitionOk() (*int32, bool)`
 
 GetPartitionOk returns a tuple with the Partition field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPartition
 
-`func (o *Record1) SetPartition(v int32)`
+`func (o *RecordAllOf) SetPartition(v int32)`
 
 SetPartition sets Partition field to given value.
 
 ### HasPartition
 
-`func (o *Record1) HasPartition() bool`
+`func (o *RecordAllOf) HasPartition() bool`
 
 HasPartition returns a boolean if a field has been set.
 
 ### GetOffset
 
-`func (o *Record1) GetOffset() int64`
+`func (o *RecordAllOf) GetOffset() int64`
 
 GetOffset returns the Offset field if non-nil, zero value otherwise.
 
 ### GetOffsetOk
 
-`func (o *Record1) GetOffsetOk() (*int64, bool)`
+`func (o *RecordAllOf) GetOffsetOk() (*int64, bool)`
 
 GetOffsetOk returns a tuple with the Offset field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOffset
 
-`func (o *Record1) SetOffset(v int64)`
+`func (o *RecordAllOf) SetOffset(v int64)`
 
 SetOffset sets Offset field to given value.
 
 ### HasOffset
 
-`func (o *Record1) HasOffset() bool`
+`func (o *RecordAllOf) HasOffset() bool`
 
 HasOffset returns a boolean if a field has been set.
 
 ### GetTimestamp
 
-`func (o *Record1) GetTimestamp() time.Time`
+`func (o *RecordAllOf) GetTimestamp() time.Time`
 
 GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
 
 ### GetTimestampOk
 
-`func (o *Record1) GetTimestampOk() (*time.Time, bool)`
+`func (o *RecordAllOf) GetTimestampOk() (*time.Time, bool)`
 
 GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTimestamp
 
-`func (o *Record1) SetTimestamp(v time.Time)`
+`func (o *RecordAllOf) SetTimestamp(v time.Time)`
 
 SetTimestamp sets Timestamp field to given value.
 
 ### HasTimestamp
 
-`func (o *Record1) HasTimestamp() bool`
+`func (o *RecordAllOf) HasTimestamp() bool`
 
 HasTimestamp returns a boolean if a field has been set.
 
 ### GetTimestampType
 
-`func (o *Record1) GetTimestampType() string`
+`func (o *RecordAllOf) GetTimestampType() string`
 
 GetTimestampType returns the TimestampType field if non-nil, zero value otherwise.
 
 ### GetTimestampTypeOk
 
-`func (o *Record1) GetTimestampTypeOk() (*string, bool)`
+`func (o *RecordAllOf) GetTimestampTypeOk() (*string, bool)`
 
 GetTimestampTypeOk returns a tuple with the TimestampType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTimestampType
 
-`func (o *Record1) SetTimestampType(v string)`
+`func (o *RecordAllOf) SetTimestampType(v string)`
 
 SetTimestampType sets TimestampType field to given value.
 
 ### HasTimestampType
 
-`func (o *Record1) HasTimestampType() bool`
+`func (o *RecordAllOf) HasTimestampType() bool`
 
 HasTimestampType returns a boolean if a field has been set.
 
 ### GetHeaders
 
-`func (o *Record1) GetHeaders() map[string]string`
+`func (o *RecordAllOf) GetHeaders() map[string]string`
 
 GetHeaders returns the Headers field if non-nil, zero value otherwise.
 
 ### GetHeadersOk
 
-`func (o *Record1) GetHeadersOk() (*map[string]string, bool)`
+`func (o *RecordAllOf) GetHeadersOk() (*map[string]string, bool)`
 
 GetHeadersOk returns a tuple with the Headers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeaders
 
-`func (o *Record1) SetHeaders(v map[string]string)`
+`func (o *RecordAllOf) SetHeaders(v map[string]string)`
 
 SetHeaders sets Headers field to given value.
 
 ### HasHeaders
 
-`func (o *Record1) HasHeaders() bool`
+`func (o *RecordAllOf) HasHeaders() bool`
 
 HasHeaders returns a boolean if a field has been set.
 
 ### GetKey
 
-`func (o *Record1) GetKey() string`
+`func (o *RecordAllOf) GetKey() string`
 
 GetKey returns the Key field if non-nil, zero value otherwise.
 
 ### GetKeyOk
 
-`func (o *Record1) GetKeyOk() (*string, bool)`
+`func (o *RecordAllOf) GetKeyOk() (*string, bool)`
 
 GetKeyOk returns a tuple with the Key field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKey
 
-`func (o *Record1) SetKey(v string)`
+`func (o *RecordAllOf) SetKey(v string)`
 
 SetKey sets Key field to given value.
 
 ### HasKey
 
-`func (o *Record1) HasKey() bool`
+`func (o *RecordAllOf) HasKey() bool`
 
 HasKey returns a boolean if a field has been set.
 
 ### GetValue
 
-`func (o *Record1) GetValue() string`
+`func (o *RecordAllOf) GetValue() string`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *Record1) GetValueOk() (*string, bool)`
+`func (o *RecordAllOf) GetValueOk() (*string, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *Record1) SetValue(v string)`
+`func (o *RecordAllOf) SetValue(v string)`
 
 SetValue sets Value field to given value.
 
