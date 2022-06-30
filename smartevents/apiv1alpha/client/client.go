@@ -3,7 +3,7 @@
  *
  * The API exposed by the fleet manager of the SmartEvents service.
  *
- * API version: 0.0.1
+ * API version: 0.0.3
  * Contact: openbridge-dev@redhat.com
  */
 
@@ -42,7 +42,7 @@ var (
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 )
 
-// APIClient manages communication with the Red Hat Openshift SmartEvents Fleet Manager API v0.0.1
+// APIClient manages communication with the Red Hat Openshift SmartEvents Fleet Manager API v0.0.3
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration

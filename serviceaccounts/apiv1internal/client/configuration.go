@@ -109,6 +109,14 @@ func NewConfiguration() *Configuration {
 				URL: "https://sso.redhat.com/auth/realms/redhat-external",
 				Description: "Production server",
 			},
+			{
+				URL: "https://sso.stage.redhat.com/auth/realms/redhat-external",
+				Description: "Stage server",
+			},
+			{
+				URL: "http://localhost:8081/auth/realms/redhat-external",
+				Description: "Local development",
+			},
 		},
 		OperationServers: map[string]ServerConfigurations{
 		},

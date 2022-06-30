@@ -18,17 +18,16 @@ import (
 // ServiceAccountCreateRequestData struct for ServiceAccountCreateRequestData
 type ServiceAccountCreateRequestData struct {
 	Name string `json:"name"`
-	Description string `json:"description"`
+	Description *string `json:"description,omitempty"`
 }
 
 // NewServiceAccountCreateRequestData instantiates a new ServiceAccountCreateRequestData object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewServiceAccountCreateRequestData(name string, description string) *ServiceAccountCreateRequestData {
+func NewServiceAccountCreateRequestData(name string) *ServiceAccountCreateRequestData {
 	this := ServiceAccountCreateRequestData{}
 	this.Name = name
-	this.Description = description
 	return &this
 }
 
@@ -64,28 +63,36 @@ func (o *ServiceAccountCreateRequestData) SetName(v string) {
 	o.Name = v
 }
 
-// GetDescription returns the Description field value
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ServiceAccountCreateRequestData) GetDescription() string {
-	if o == nil {
+	if o == nil || o.Description == nil {
 		var ret string
 		return ret
 	}
-
-	return o.Description
+	return *o.Description
 }
 
-// GetDescriptionOk returns a tuple with the Description field value
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ServiceAccountCreateRequestData) GetDescriptionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil || o.Description == nil {
 		return nil, false
 	}
-	return &o.Description, true
+	return o.Description, true
 }
 
-// SetDescription sets field value
+// HasDescription returns a boolean if a field has been set.
+func (o *ServiceAccountCreateRequestData) HasDescription() bool {
+	if o != nil && o.Description != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *ServiceAccountCreateRequestData) SetDescription(v string) {
-	o.Description = v
+	o.Description = &v
 }
 
 func (o ServiceAccountCreateRequestData) MarshalJSON() ([]byte, error) {
@@ -93,7 +100,7 @@ func (o ServiceAccountCreateRequestData) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["name"] = o.Name
 	}
-	if true {
+	if o.Description != nil {
 		toSerialize["description"] = o.Description
 	}
 	return json.Marshal(toSerialize)

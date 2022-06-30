@@ -89,13 +89,45 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [Error](docs/Error.md)
+ - [RedHatErrorRepresentation](docs/RedHatErrorRepresentation.md)
  - [ServiceAccountCreateRequestData](docs/ServiceAccountCreateRequestData.md)
  - [ServiceAccountData](docs/ServiceAccountData.md)
  - [ServiceAccountRequestData](docs/ServiceAccountRequestData.md)
+ - [ValidationExceptionData](docs/ValidationExceptionData.md)
 
 
 ## Documentation For Authorization
 
+
+
+### authFlow
+
+
+- **Type**: OAuth
+- **Flow**: accessCode
+- **Authorization URL**: /auth/realms/redhat-external/protocol/openid-connect/auth
+- **Scopes**: 
+ - **openid**: Treat as an OIDC request
+ - **api.iam.service_accounts**: Grants access to the service accounts api
+
+Example
+
+```golang
+auth := context.WithValue(context.Background(), sw.ContextAccessToken, "ACCESSTOKENSTRING")
+r, err := client.Service.Operation(auth, args)
+```
+
+Or via OAuth2 module to automatically refresh tokens and perform user authentication.
+
+```golang
+import "golang.org/x/oauth2"
+
+/* Perform OAuth2 round trip request and obtain a token */
+
+tokenSource := oauth2cfg.TokenSource(createContext(httpClient), &token)
+auth := context.WithValue(oauth2.NoContext, sw.ContextOAuth2, tokenSource)
+r, err := client.Service.Operation(auth, args)
+```
 
 
 ### bearerAuth
@@ -106,6 +138,36 @@ Example
 
 ```golang
 auth := context.WithValue(context.Background(), sw.ContextAccessToken, "BEARERTOKENSTRING")
+r, err := client.Service.Operation(auth, args)
+```
+
+
+### serviceAccounts
+
+
+- **Type**: OAuth
+- **Flow**: application
+- **Authorization URL**: 
+- **Scopes**: 
+ - **openid**: Treat as an OIDC request
+ - **api.iam.service_accounts**: Grants access to the service accounts api
+
+Example
+
+```golang
+auth := context.WithValue(context.Background(), sw.ContextAccessToken, "ACCESSTOKENSTRING")
+r, err := client.Service.Operation(auth, args)
+```
+
+Or via OAuth2 module to automatically refresh tokens and perform user authentication.
+
+```golang
+import "golang.org/x/oauth2"
+
+/* Perform OAuth2 round trip request and obtain a token */
+
+tokenSource := oauth2cfg.TokenSource(createContext(httpClient), &token)
+auth := context.WithValue(oauth2.NoContext, sw.ContextOAuth2, tokenSource)
 r, err := client.Service.Operation(auth, args)
 ```
 
