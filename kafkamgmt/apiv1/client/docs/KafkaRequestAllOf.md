@@ -20,7 +20,8 @@ Name | Type | Description | Notes
 **InstanceType** | Pointer to **string** |  | [optional] 
 **InstanceTypeName** | Pointer to **string** |  | [optional] 
 **ReauthenticationEnabled** | **bool** |  | 
-**KafkaStorageSize** | Pointer to **string** |  | [optional] 
+**KafkaStorageSize** | Pointer to **string** | Maximum data storage available to this Kafka. This is now deprecated, please use max_data_retention_size instead. | [optional] 
+**MaxDataRetentionSize** | Pointer to [**SupportedKafkaSizeBytesValueItem**](SupportedKafkaSizeBytesValueItem.md) |  | [optional] 
 **BrowserUrl** | Pointer to **string** |  | [optional] 
 **SizeId** | Pointer to **string** |  | [optional] 
 **IngressThroughputPerSec** | Pointer to **string** |  | [optional] 
@@ -476,6 +477,31 @@ SetKafkaStorageSize sets KafkaStorageSize field to given value.
 `func (o *KafkaRequestAllOf) HasKafkaStorageSize() bool`
 
 HasKafkaStorageSize returns a boolean if a field has been set.
+
+### GetMaxDataRetentionSize
+
+`func (o *KafkaRequestAllOf) GetMaxDataRetentionSize() SupportedKafkaSizeBytesValueItem`
+
+GetMaxDataRetentionSize returns the MaxDataRetentionSize field if non-nil, zero value otherwise.
+
+### GetMaxDataRetentionSizeOk
+
+`func (o *KafkaRequestAllOf) GetMaxDataRetentionSizeOk() (*SupportedKafkaSizeBytesValueItem, bool)`
+
+GetMaxDataRetentionSizeOk returns a tuple with the MaxDataRetentionSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxDataRetentionSize
+
+`func (o *KafkaRequestAllOf) SetMaxDataRetentionSize(v SupportedKafkaSizeBytesValueItem)`
+
+SetMaxDataRetentionSize sets MaxDataRetentionSize field to given value.
+
+### HasMaxDataRetentionSize
+
+`func (o *KafkaRequestAllOf) HasMaxDataRetentionSize() bool`
+
+HasMaxDataRetentionSize returns a boolean if a field has been set.
 
 ### GetBrowserUrl
 
