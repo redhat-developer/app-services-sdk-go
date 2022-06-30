@@ -1,7 +1,7 @@
 /*
- * Service Registry Fleet Manager
+ * Service Registry Management API
  *
- * Service Registry Fleet Manager is a REST API for managing Service Registry instances. Service Registry is a datastore for event schemas and API designs, which is based on the open source Apicurio Registry project.
+ * Service Registry Management API is a REST API for managing Service Registry instances. Service Registry is a datastore for event schemas and API designs, which is based on the open source Apicurio Registry project.
  *
  * API version: 0.0.6
  * Contact: rhosak-eval-support@redhat.com
