@@ -6,7 +6,7 @@ on:
 
 jobs:
   merge:
-    if: github.event.pull_request.user.login == "app-services-ci"
+    if: github.event.pull_request.user.login == 'app-services-ci'
     runs-on: ubuntu-latest
     name: Merge
     steps:
