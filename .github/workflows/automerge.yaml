@@ -1,0 +1,21 @@
+name: Merge Bot
+
+on:
+  pull_request:
+
+
+jobs:
+  merge:
+    if: github.event.pull_request.user.login == "app-services-ci"
+    runs-on: ubuntu-latest
+    name: Merge
+    steps:
+    - name: Integration check
+      uses: squalrus/merge-bot@v0.1.0
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        test: true
+        reviewers: false
+        checks_enabled: true
+        method: squash
+        delete_source_branch: true
