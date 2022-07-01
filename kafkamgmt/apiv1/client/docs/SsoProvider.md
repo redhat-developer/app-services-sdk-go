@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**Kind** | Pointer to **string** |  | [optional] 
-**Href** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
+**Kind** | **string** |  | 
+**Href** | **string** |  | 
 **Name** | Pointer to **string** | name of the sso provider | [optional] 
 **BaseUrl** | Pointer to **string** | base url | [optional] 
 **TokenUrl** | Pointer to **string** |  | [optional] 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewSsoProvider
 
-`func NewSsoProvider() *SsoProvider`
+`func NewSsoProvider(id string, kind string, href string, ) *SsoProvider`
 
 NewSsoProvider instantiates a new SsoProvider object
 This constructor will assign default values to properties that have it defined,
@@ -51,11 +51,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *SsoProvider) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetKind
 
@@ -76,11 +71,6 @@ and a boolean to check if the value has been set.
 
 SetKind sets Kind field to given value.
 
-### HasKind
-
-`func (o *SsoProvider) HasKind() bool`
-
-HasKind returns a boolean if a field has been set.
 
 ### GetHref
 
@@ -101,11 +91,6 @@ and a boolean to check if the value has been set.
 
 SetHref sets Href field to given value.
 
-### HasHref
-
-`func (o *SsoProvider) HasHref() bool`
-
-HasHref returns a boolean if a field has been set.
 
 ### GetName
 

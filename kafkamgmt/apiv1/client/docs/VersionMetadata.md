@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**Kind** | Pointer to **string** |  | [optional] 
-**Href** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
+**Kind** | **string** |  | 
+**Href** | **string** |  | 
 **Collections** | Pointer to [**[]ObjectReference**](ObjectReference.md) |  | [optional] 
 
 ## Methods
 
 ### NewVersionMetadata
 
-`func NewVersionMetadata() *VersionMetadata`
+`func NewVersionMetadata(id string, kind string, href string, ) *VersionMetadata`
 
 NewVersionMetadata instantiates a new VersionMetadata object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *VersionMetadata) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetKind
 
@@ -72,11 +67,6 @@ and a boolean to check if the value has been set.
 
 SetKind sets Kind field to given value.
 
-### HasKind
-
-`func (o *VersionMetadata) HasKind() bool`
-
-HasKind returns a boolean if a field has been set.
 
 ### GetHref
 
@@ -97,11 +87,6 @@ and a boolean to check if the value has been set.
 
 SetHref sets Href field to given value.
 
-### HasHref
-
-`func (o *VersionMetadata) HasHref() bool`
-
-HasHref returns a boolean if a field has been set.
 
 ### GetCollections
 
