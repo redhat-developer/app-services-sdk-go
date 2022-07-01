@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**Description** | **string** |  | 
+**Description** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewServiceAccountCreateRequestData
 
-`func NewServiceAccountCreateRequestData(name string, description string, ) *ServiceAccountCreateRequestData`
+`func NewServiceAccountCreateRequestData(name string, ) *ServiceAccountCreateRequestData`
 
 NewServiceAccountCreateRequestData instantiates a new ServiceAccountCreateRequestData object
 This constructor will assign default values to properties that have it defined,
@@ -65,6 +65,11 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
+### HasDescription
+
+`func (o *ServiceAccountCreateRequestData) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

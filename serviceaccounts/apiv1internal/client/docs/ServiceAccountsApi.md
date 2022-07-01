@@ -34,7 +34,7 @@ import (
 )
 
 func main() {
-    serviceAccountCreateRequestData := *openapiclient.NewServiceAccountCreateRequestData("Name_example", "Description_example") // ServiceAccountCreateRequestData | 'name' and 'description' of the service account
+    serviceAccountCreateRequestData := *openapiclient.NewServiceAccountCreateRequestData("Name_example") // ServiceAccountCreateRequestData | 'name' and 'description' of the service account
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+[authFlow](../README.md#authFlow), [serviceAccounts](../README.md#serviceAccounts)
 
 ### HTTP request headers
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+[authFlow](../README.md#authFlow), [serviceAccounts](../README.md#serviceAccounts)
 
 ### HTTP request headers
 
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+[authFlow](../README.md#authFlow), [serviceAccounts](../README.md#serviceAccounts)
 
 ### HTTP request headers
 
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+[authFlow](../README.md#authFlow), [serviceAccounts](../README.md#serviceAccounts)
 
 ### HTTP request headers
 
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+[authFlow](../README.md#authFlow), [serviceAccounts](../README.md#serviceAccounts)
 
 ### HTTP request headers
 
@@ -417,7 +417,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearerAuth](../README.md#bearerAuth)
+[authFlow](../README.md#authFlow), [serviceAccounts](../README.md#serviceAccounts)
 
 ### HTTP request headers
 

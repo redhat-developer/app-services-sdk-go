@@ -5,13 +5,17 @@ api_service_accounts.go
 client.go
 configuration.go
 docs/Error.md
+docs/RedHatErrorRepresentation.md
 docs/ServiceAccountCreateRequestData.md
 docs/ServiceAccountData.md
 docs/ServiceAccountRequestData.md
 docs/ServiceAccountsApi.md
+docs/ValidationExceptionData.md
 model_error.go
+model_red_hat_error_representation.go
 model_service_account_create_request_data.go
 model_service_account_data.go
 model_service_account_request_data.go
+model_validation_exception_data.go
 response.go
 utils.go
