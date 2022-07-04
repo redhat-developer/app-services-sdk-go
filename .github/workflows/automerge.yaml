@@ -1,11 +1,9 @@
 name: AutoMerge Bot
+on: pull_request_target
 
-on:
-  pull_request:
-    branches: [main]
-  ## Temp
-  push:
-    branches: [merge-test]
+permissions:
+  pull-requests: write
+  contents: write
  
 jobs:
   merge:
