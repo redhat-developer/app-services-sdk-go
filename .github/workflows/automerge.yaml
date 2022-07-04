@@ -9,14 +9,15 @@ on:
 env: 
   #PR_USER: app-services-ci
   PR_USER: wtrocki
+  APP_SERVICES_CI_TOKEN: ${{ secrets.CI_USER_TOKEN }}
 jobs:
   merge:
     runs-on: ubuntu-latest
     name: Merge changes
+    if:  github.actor == '${{ env.PR_USER}}'
     steps:
-    - name: User check
-      if: github.event.pull_request.user.login == '${PR_USER}'
-      run: echo "PR for the right user"
-    - name: User check 2
-      if:  github.actor == '${PR_USER}'
-      run: echo "PR for the right user 2"
+    - name: Merge Changes
+      run: gh pr merge --auto --squash "$PR_URL"
+      env:
+        PR_URL: ${{ github.event.pull_request.html_url }}
+        GITHUB_TOKEN: ${{ env.APP_SERVICES_CI_TOKEN }}
