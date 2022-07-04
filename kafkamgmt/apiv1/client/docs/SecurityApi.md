@@ -4,12 +4,12 @@ All URIs are relative to *https://api.openshift.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateServiceAccount**](SecurityApi.md#CreateServiceAccount) | **Post** /api/kafkas_mgmt/v1/service_accounts | Creates a service account
-[**DeleteServiceAccountById**](SecurityApi.md#DeleteServiceAccountById) | **Delete** /api/kafkas_mgmt/v1/service_accounts/{id} | Deletes a service account by ID
-[**GetServiceAccountById**](SecurityApi.md#GetServiceAccountById) | **Get** /api/kafkas_mgmt/v1/service_accounts/{id} | Returned service account by ID
-[**GetServiceAccounts**](SecurityApi.md#GetServiceAccounts) | **Get** /api/kafkas_mgmt/v1/service_accounts | Returns a list of service accounts
-[**GetSsoProviders**](SecurityApi.md#GetSsoProviders) | **Get** /api/kafkas_mgmt/v1/sso_providers | Return sso provider info
-[**ResetServiceAccountCreds**](SecurityApi.md#ResetServiceAccountCreds) | **Post** /api/kafkas_mgmt/v1/service_accounts/{id}/reset_credentials | Resets the credentials for a service account by ID
+[**CreateServiceAccount**](SecurityApi.md#CreateServiceAccount) | **Post** /api/kafkas_mgmt/v1/service_accounts | 
+[**DeleteServiceAccountById**](SecurityApi.md#DeleteServiceAccountById) | **Delete** /api/kafkas_mgmt/v1/service_accounts/{id} | 
+[**GetServiceAccountById**](SecurityApi.md#GetServiceAccountById) | **Get** /api/kafkas_mgmt/v1/service_accounts/{id} | 
+[**GetServiceAccounts**](SecurityApi.md#GetServiceAccounts) | **Get** /api/kafkas_mgmt/v1/service_accounts | 
+[**GetSsoProviders**](SecurityApi.md#GetSsoProviders) | **Get** /api/kafkas_mgmt/v1/sso_providers | 
+[**ResetServiceAccountCreds**](SecurityApi.md#ResetServiceAccountCreds) | **Post** /api/kafkas_mgmt/v1/service_accounts/{id}/reset_credentials | 
 
 
 
@@ -17,7 +17,9 @@ Method | HTTP request | Description
 
 > ServiceAccount CreateServiceAccount(ctx).ServiceAccountRequest(serviceAccountRequest).Execute()
 
-Creates a service account
+
+
+
 
 ### Example
 
@@ -81,7 +83,9 @@ Name | Type | Description  | Notes
 
 > Error DeleteServiceAccountById(ctx, id).Execute()
 
-Deletes a service account by ID
+
+
+
 
 ### Example
 
@@ -149,7 +153,9 @@ Name | Type | Description  | Notes
 
 > ServiceAccount GetServiceAccountById(ctx, id).Execute()
 
-Returned service account by ID
+
+
+
 
 ### Example
 
@@ -217,7 +223,9 @@ Name | Type | Description  | Notes
 
 > ServiceAccountList GetServiceAccounts(ctx).ClientId(clientId).Execute()
 
-Returns a list of service accounts
+
+
+
 
 ### Example
 
@@ -281,7 +289,9 @@ Name | Type | Description  | Notes
 
 > SsoProvider GetSsoProviders(ctx).Execute()
 
-Return sso provider info
+
+
+
 
 ### Example
 
@@ -340,7 +350,9 @@ No authorization required
 
 > ServiceAccount ResetServiceAccountCreds(ctx, id).Execute()
 
-Resets the credentials for a service account by ID
+
+
+
 
 ### Example
 

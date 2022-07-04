@@ -78,26 +78,26 @@ All URIs are relative to *https://api.openshift.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**CreateKafka**](docs/DefaultApi.md#createkafka) | **Post** /api/kafkas_mgmt/v1/kafkas | Creates a Kafka request
-*DefaultApi* | [**DeleteKafkaById**](docs/DefaultApi.md#deletekafkabyid) | **Delete** /api/kafkas_mgmt/v1/kafkas/{id} | Deletes a Kafka request by ID
-*DefaultApi* | [**FederateMetrics**](docs/DefaultApi.md#federatemetrics) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/federate | Returns all metrics in scrapeable format for a given kafka id
-*DefaultApi* | [**GetCloudProviderRegions**](docs/DefaultApi.md#getcloudproviderregions) | **Get** /api/kafkas_mgmt/v1/cloud_providers/{id}/regions | Returns the list of supported regions of the supported cloud provider
-*DefaultApi* | [**GetCloudProviders**](docs/DefaultApi.md#getcloudproviders) | **Get** /api/kafkas_mgmt/v1/cloud_providers | Returns the list of supported cloud providers
-*DefaultApi* | [**GetInstanceTypesByCloudProviderAndRegion**](docs/DefaultApi.md#getinstancetypesbycloudproviderandregion) | **Get** /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region} | Returns the list of supported Kafka instance types and sizes filtered by cloud provider and region
-*DefaultApi* | [**GetKafkaById**](docs/DefaultApi.md#getkafkabyid) | **Get** /api/kafkas_mgmt/v1/kafkas/{id} | Returns a Kafka request by ID
-*DefaultApi* | [**GetKafkas**](docs/DefaultApi.md#getkafkas) | **Get** /api/kafkas_mgmt/v1/kafkas | Returns a list of Kafka requests
-*DefaultApi* | [**GetMetricsByInstantQuery**](docs/DefaultApi.md#getmetricsbyinstantquery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query | Returns metrics with instant query by Kafka ID
-*DefaultApi* | [**GetMetricsByRangeQuery**](docs/DefaultApi.md#getmetricsbyrangequery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query_range | Returns metrics with timeseries range query by Kafka ID
-*DefaultApi* | [**GetVersionMetadata**](docs/DefaultApi.md#getversionmetadata) | **Get** /api/kafkas_mgmt/v1 | Returns the version metadata
-*DefaultApi* | [**UpdateKafkaById**](docs/DefaultApi.md#updatekafkabyid) | **Patch** /api/kafkas_mgmt/v1/kafkas/{id} | Update a Kafka instance by id
-*ErrorsApi* | [**GetErrorById**](docs/ErrorsApi.md#geterrorbyid) | **Get** /api/kafkas_mgmt/v1/errors/{id} | Returns the error by id
-*ErrorsApi* | [**GetErrors**](docs/ErrorsApi.md#geterrors) | **Get** /api/kafkas_mgmt/v1/errors | Returns the list of possible API errors
-*SecurityApi* | [**CreateServiceAccount**](docs/SecurityApi.md#createserviceaccount) | **Post** /api/kafkas_mgmt/v1/service_accounts | Creates a service account
-*SecurityApi* | [**DeleteServiceAccountById**](docs/SecurityApi.md#deleteserviceaccountbyid) | **Delete** /api/kafkas_mgmt/v1/service_accounts/{id} | Deletes a service account by ID
-*SecurityApi* | [**GetServiceAccountById**](docs/SecurityApi.md#getserviceaccountbyid) | **Get** /api/kafkas_mgmt/v1/service_accounts/{id} | Returned service account by ID
-*SecurityApi* | [**GetServiceAccounts**](docs/SecurityApi.md#getserviceaccounts) | **Get** /api/kafkas_mgmt/v1/service_accounts | Returns a list of service accounts
-*SecurityApi* | [**GetSsoProviders**](docs/SecurityApi.md#getssoproviders) | **Get** /api/kafkas_mgmt/v1/sso_providers | Return sso provider info
-*SecurityApi* | [**ResetServiceAccountCreds**](docs/SecurityApi.md#resetserviceaccountcreds) | **Post** /api/kafkas_mgmt/v1/service_accounts/{id}/reset_credentials | Resets the credentials for a service account by ID
+*DefaultApi* | [**CreateKafka**](docs/DefaultApi.md#createkafka) | **Post** /api/kafkas_mgmt/v1/kafkas | 
+*DefaultApi* | [**DeleteKafkaById**](docs/DefaultApi.md#deletekafkabyid) | **Delete** /api/kafkas_mgmt/v1/kafkas/{id} | 
+*DefaultApi* | [**FederateMetrics**](docs/DefaultApi.md#federatemetrics) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/federate | 
+*DefaultApi* | [**GetCloudProviderRegions**](docs/DefaultApi.md#getcloudproviderregions) | **Get** /api/kafkas_mgmt/v1/cloud_providers/{id}/regions | 
+*DefaultApi* | [**GetCloudProviders**](docs/DefaultApi.md#getcloudproviders) | **Get** /api/kafkas_mgmt/v1/cloud_providers | 
+*DefaultApi* | [**GetInstanceTypesByCloudProviderAndRegion**](docs/DefaultApi.md#getinstancetypesbycloudproviderandregion) | **Get** /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region} | 
+*DefaultApi* | [**GetKafkaById**](docs/DefaultApi.md#getkafkabyid) | **Get** /api/kafkas_mgmt/v1/kafkas/{id} | 
+*DefaultApi* | [**GetKafkas**](docs/DefaultApi.md#getkafkas) | **Get** /api/kafkas_mgmt/v1/kafkas | 
+*DefaultApi* | [**GetMetricsByInstantQuery**](docs/DefaultApi.md#getmetricsbyinstantquery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query | 
+*DefaultApi* | [**GetMetricsByRangeQuery**](docs/DefaultApi.md#getmetricsbyrangequery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query_range | 
+*DefaultApi* | [**GetVersionMetadata**](docs/DefaultApi.md#getversionmetadata) | **Get** /api/kafkas_mgmt/v1 | 
+*DefaultApi* | [**UpdateKafkaById**](docs/DefaultApi.md#updatekafkabyid) | **Patch** /api/kafkas_mgmt/v1/kafkas/{id} | 
+*ErrorsApi* | [**GetErrorById**](docs/ErrorsApi.md#geterrorbyid) | **Get** /api/kafkas_mgmt/v1/errors/{id} | 
+*ErrorsApi* | [**GetErrors**](docs/ErrorsApi.md#geterrors) | **Get** /api/kafkas_mgmt/v1/errors | 
+*SecurityApi* | [**CreateServiceAccount**](docs/SecurityApi.md#createserviceaccount) | **Post** /api/kafkas_mgmt/v1/service_accounts | 
+*SecurityApi* | [**DeleteServiceAccountById**](docs/SecurityApi.md#deleteserviceaccountbyid) | **Delete** /api/kafkas_mgmt/v1/service_accounts/{id} | 
+*SecurityApi* | [**GetServiceAccountById**](docs/SecurityApi.md#getserviceaccountbyid) | **Get** /api/kafkas_mgmt/v1/service_accounts/{id} | 
+*SecurityApi* | [**GetServiceAccounts**](docs/SecurityApi.md#getserviceaccounts) | **Get** /api/kafkas_mgmt/v1/service_accounts | 
+*SecurityApi* | [**GetSsoProviders**](docs/SecurityApi.md#getssoproviders) | **Get** /api/kafkas_mgmt/v1/sso_providers | 
+*SecurityApi* | [**ResetServiceAccountCreds**](docs/SecurityApi.md#resetserviceaccountcreds) | **Post** /api/kafkas_mgmt/v1/service_accounts/{id}/reset_credentials | 
 
 
 ## Documentation For Models
@@ -109,7 +109,6 @@ Class | Method | HTTP request | Description
  - [CloudRegionList](docs/CloudRegionList.md)
  - [CloudRegionListAllOf](docs/CloudRegionListAllOf.md)
  - [Error](docs/Error.md)
- - [ErrorAllOf](docs/ErrorAllOf.md)
  - [ErrorList](docs/ErrorList.md)
  - [ErrorListAllOf](docs/ErrorListAllOf.md)
  - [InstantQuery](docs/InstantQuery.md)
@@ -180,5 +179,5 @@ Each of these functions takes a value of the given basic type and returns a poin
 
 ## Author
 
-
+rhosak-support@redhat.com
 

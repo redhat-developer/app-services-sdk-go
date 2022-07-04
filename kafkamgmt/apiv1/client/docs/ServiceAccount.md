@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | server generated unique id of the service account | [optional] 
-**Kind** | Pointer to **string** |  | [optional] 
-**Href** | Pointer to **string** |  | [optional] 
+**Id** | **string** | server generated unique id of the service account | 
+**Kind** | **string** |  | 
+**Href** | **string** |  | 
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **ClientId** | Pointer to **string** |  | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewServiceAccount
 
-`func NewServiceAccount() *ServiceAccount`
+`func NewServiceAccount(id string, kind string, href string, ) *ServiceAccount`
 
 NewServiceAccount instantiates a new ServiceAccount object
 This constructor will assign default values to properties that have it defined,
@@ -53,11 +53,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *ServiceAccount) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetKind
 
@@ -78,11 +73,6 @@ and a boolean to check if the value has been set.
 
 SetKind sets Kind field to given value.
 
-### HasKind
-
-`func (o *ServiceAccount) HasKind() bool`
-
-HasKind returns a boolean if a field has been set.
 
 ### GetHref
 
@@ -103,11 +93,6 @@ and a boolean to check if the value has been set.
 
 SetHref sets Href field to given value.
 
-### HasHref
-
-`func (o *ServiceAccount) HasHref() bool`
-
-HasHref returns a boolean if a field has been set.
 
 ### GetName
 

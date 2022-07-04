@@ -14,7 +14,6 @@ docs/CloudRegionList.md
 docs/CloudRegionListAllOf.md
 docs/DefaultApi.md
 docs/Error.md
-docs/ErrorAllOf.md
 docs/ErrorList.md
 docs/ErrorListAllOf.md
 docs/ErrorsApi.md
@@ -58,7 +57,6 @@ model_cloud_region.go
 model_cloud_region_list.go
 model_cloud_region_list_all_of.go
 model_error.go
-model_error_all_of.go
 model_error_list.go
 model_error_list_all_of.go
 model_instant_query.go
