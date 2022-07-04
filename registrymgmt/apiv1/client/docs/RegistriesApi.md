@@ -4,9 +4,9 @@ All URIs are relative to *https://api.openshift.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateRegistry**](RegistriesApi.md#CreateRegistry) | **Post** /api/serviceregistry_mgmt/v1/registries | Create a new Registry instance
+[**CreateRegistry**](RegistriesApi.md#CreateRegistry) | **Post** /api/serviceregistry_mgmt/v1/registries | 
 [**DeleteRegistry**](RegistriesApi.md#DeleteRegistry) | **Delete** /api/serviceregistry_mgmt/v1/registries/{id} | Delete a Registry instance
-[**GetRegistries**](RegistriesApi.md#GetRegistries) | **Get** /api/serviceregistry_mgmt/v1/registries | Get the list of all Registry instances
+[**GetRegistries**](RegistriesApi.md#GetRegistries) | **Get** /api/serviceregistry_mgmt/v1/registries | 
 [**GetRegistry**](RegistriesApi.md#GetRegistry) | **Get** /api/serviceregistry_mgmt/v1/registries/{id} | Get a Registry instance
 
 
@@ -15,7 +15,9 @@ Method | HTTP request | Description
 
 > Registry CreateRegistry(ctx).RegistryCreate(registryCreate).Execute()
 
-Create a new Registry instance
+
+
+
 
 ### Example
 
@@ -30,7 +32,7 @@ import (
 )
 
 func main() {
-    registryCreate := *openapiclient.NewRegistryCreate() // RegistryCreate | A new `Registry` instance to be created.
+    registryCreate := *openapiclient.NewRegistryCreate("Name_example") // RegistryCreate | A new `Registry` instance to be created.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -147,7 +149,9 @@ Name | Type | Description  | Notes
 
 > RegistryList GetRegistries(ctx).Page(page).Size(size).OrderBy(orderBy).Search(search).Execute()
 
-Get the list of all Registry instances
+
+
+
 
 ### Example
 

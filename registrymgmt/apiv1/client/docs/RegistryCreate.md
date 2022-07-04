@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | User-defined Registry instance name. Required. Does not have to be unique. | [optional] 
+**Name** | **string** | User-defined Registry instance name. Required. Must be unique within a given organization. | 
 **Description** | Pointer to **string** | User-provided description of the new Service Registry instance. Not required. | [optional] 
 
 ## Methods
 
 ### NewRegistryCreate
 
-`func NewRegistryCreate() *RegistryCreate`
+`func NewRegistryCreate(name string, ) *RegistryCreate`
 
 NewRegistryCreate instantiates a new RegistryCreate object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
-
-`func (o *RegistryCreate) HasName() bool`
-
-HasName returns a boolean if a field has been set.
 
 ### GetDescription
 

@@ -4,8 +4,8 @@ All URIs are relative to *https://api.openshift.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetError**](ErrorsApi.md#GetError) | **Get** /api/serviceregistry_mgmt/v1/errors/{id} | Get information about a specific error type
-[**GetErrors**](ErrorsApi.md#GetErrors) | **Get** /api/serviceregistry_mgmt/v1/errors | Get the list of all errors
+[**GetError**](ErrorsApi.md#GetError) | **Get** /api/serviceregistry_mgmt/v1/errors/{id} | 
+[**GetErrors**](ErrorsApi.md#GetErrors) | **Get** /api/serviceregistry_mgmt/v1/errors | 
 
 
 
@@ -13,7 +13,9 @@ Method | HTTP request | Description
 
 > Error GetError(ctx, id).Execute()
 
-Get information about a specific error type
+
+
+
 
 ### Example
 
@@ -81,7 +83,9 @@ No authorization required
 
 > ErrorList GetErrors(ctx).Page(page).Size(size).Execute()
 
-Get the list of all errors
+
+
+
 
 ### Example
 

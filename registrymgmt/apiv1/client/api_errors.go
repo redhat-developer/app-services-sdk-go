@@ -28,7 +28,8 @@ var (
 type ErrorsApi interface {
 
 	/*
-	 * GetError Get information about a specific error type
+	 * GetError Method for GetError
+	 * Get information about a specific error type
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @param id A unique identifier for an error type.
 	 * @return ApiGetErrorRequest
@@ -42,7 +43,8 @@ type ErrorsApi interface {
 	GetErrorExecute(r ApiGetErrorRequest) (Error, *_nethttp.Response, error)
 
 	/*
-	 * GetErrors Get the list of all errors
+	 * GetErrors Method for GetErrors
+	 * Get the list of all errors
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @return ApiGetErrorsRequest
 	 */
@@ -70,7 +72,8 @@ func (r ApiGetErrorRequest) Execute() (Error, *_nethttp.Response, error) {
 }
 
 /*
- * GetError Get information about a specific error type
+ * GetError Method for GetError
+ * Get information about a specific error type
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id A unique identifier for an error type.
  * @return ApiGetErrorRequest
@@ -206,7 +209,8 @@ func (r ApiGetErrorsRequest) Execute() (ErrorList, *_nethttp.Response, error) {
 }
 
 /*
- * GetErrors Get the list of all errors
+ * GetErrors Method for GetErrors
+ * Get the list of all errors
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiGetErrorsRequest
  */

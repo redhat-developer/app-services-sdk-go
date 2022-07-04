@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Kind** | Pointer to **string** |  | [optional] 
-**Href** | Pointer to **string** |  | [optional] 
+**Kind** | **string** |  | 
+**Href** | **string** |  | 
 **Status** | [**RegistryStatusValue**](RegistryStatusValue.md) |  | 
 **RegistryUrl** | Pointer to **string** |  | [optional] 
 **BrowserUrl** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **string** | User-defined Registry instance name. Does not have to be unique. | [optional] 
+**Name** | **string** | User-defined Registry instance name. Does not have to be unique. | 
 **RegistryDeploymentId** | Pointer to **int32** | Identifier of a multi-tenant deployment, where this Service Registry instance resides. | [optional] 
-**Owner** | Pointer to **string** | Registry instance owner. | [optional] 
+**Owner** | **string** | Registry instance owner. | 
 **Description** | Pointer to **string** | Description of the Registry instance. | [optional] 
 **CreatedAt** | **time.Time** | ISO 8601 UTC timestamp. | 
 **UpdatedAt** | **time.Time** | ISO 8601 UTC timestamp. | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewRegistry
 
-`func NewRegistry(id string, status RegistryStatusValue, createdAt time.Time, updatedAt time.Time, instanceType RegistryInstanceTypeValue, ) *Registry`
+`func NewRegistry(id string, kind string, href string, status RegistryStatusValue, name string, owner string, createdAt time.Time, updatedAt time.Time, instanceType RegistryInstanceTypeValue, ) *Registry`
 
 NewRegistry instantiates a new Registry object
 This constructor will assign default values to properties that have it defined,
@@ -76,11 +76,6 @@ and a boolean to check if the value has been set.
 
 SetKind sets Kind field to given value.
 
-### HasKind
-
-`func (o *Registry) HasKind() bool`
-
-HasKind returns a boolean if a field has been set.
 
 ### GetHref
 
@@ -101,11 +96,6 @@ and a boolean to check if the value has been set.
 
 SetHref sets Href field to given value.
 
-### HasHref
-
-`func (o *Registry) HasHref() bool`
-
-HasHref returns a boolean if a field has been set.
 
 ### GetStatus
 
@@ -196,11 +186,6 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
-
-`func (o *Registry) HasName() bool`
-
-HasName returns a boolean if a field has been set.
 
 ### GetRegistryDeploymentId
 
@@ -246,11 +231,6 @@ and a boolean to check if the value has been set.
 
 SetOwner sets Owner field to given value.
 
-### HasOwner
-
-`func (o *Registry) HasOwner() bool`
-
-HasOwner returns a boolean if a field has been set.
 
 ### GetDescription
 

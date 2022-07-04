@@ -27,7 +27,8 @@ var (
 type DefaultApi interface {
 
 	/*
-	 * GetServiceStatus Get the service status
+	 * GetServiceStatus Method for GetServiceStatus
+	 * Get the service status
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @return ApiGetServiceStatusRequest
 	 */
@@ -54,7 +55,8 @@ func (r ApiGetServiceStatusRequest) Execute() (ServiceStatus, *_nethttp.Response
 }
 
 /*
- * GetServiceStatus Get the service status
+ * GetServiceStatus Method for GetServiceStatus
+ * Get the service status
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiGetServiceStatusRequest
  */

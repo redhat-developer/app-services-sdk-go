@@ -19,17 +19,17 @@ import (
 // Registry struct for Registry
 type Registry struct {
 	Id string `json:"id"`
-	Kind *string `json:"kind,omitempty"`
-	Href *string `json:"href,omitempty"`
+	Kind string `json:"kind"`
+	Href string `json:"href"`
 	Status RegistryStatusValue `json:"status"`
 	RegistryUrl *string `json:"registryUrl,omitempty"`
 	BrowserUrl *string `json:"browserUrl,omitempty"`
 	// User-defined Registry instance name. Does not have to be unique.
-	Name *string `json:"name,omitempty"`
+	Name string `json:"name"`
 	// Identifier of a multi-tenant deployment, where this Service Registry instance resides.
 	RegistryDeploymentId *int32 `json:"registryDeploymentId,omitempty"`
 	// Registry instance owner.
-	Owner *string `json:"owner,omitempty"`
+	Owner string `json:"owner"`
 	// Description of the Registry instance.
 	Description *string `json:"description,omitempty"`
 	// ISO 8601 UTC timestamp.
@@ -43,10 +43,14 @@ type Registry struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRegistry(id string, status RegistryStatusValue, createdAt time.Time, updatedAt time.Time, instanceType RegistryInstanceTypeValue) *Registry {
+func NewRegistry(id string, kind string, href string, status RegistryStatusValue, name string, owner string, createdAt time.Time, updatedAt time.Time, instanceType RegistryInstanceTypeValue) *Registry {
 	this := Registry{}
 	this.Id = id
+	this.Kind = kind
+	this.Href = href
 	this.Status = status
+	this.Name = name
+	this.Owner = owner
 	this.CreatedAt = createdAt
 	this.UpdatedAt = updatedAt
 	this.InstanceType = instanceType
@@ -85,68 +89,52 @@ func (o *Registry) SetId(v string) {
 	o.Id = v
 }
 
-// GetKind returns the Kind field value if set, zero value otherwise.
+// GetKind returns the Kind field value
 func (o *Registry) GetKind() string {
-	if o == nil || o.Kind == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Kind
+
+	return o.Kind
 }
 
-// GetKindOk returns a tuple with the Kind field value if set, nil otherwise
+// GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
 func (o *Registry) GetKindOk() (*string, bool) {
-	if o == nil || o.Kind == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Kind, true
+	return &o.Kind, true
 }
 
-// HasKind returns a boolean if a field has been set.
-func (o *Registry) HasKind() bool {
-	if o != nil && o.Kind != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetKind gets a reference to the given string and assigns it to the Kind field.
+// SetKind sets field value
 func (o *Registry) SetKind(v string) {
-	o.Kind = &v
+	o.Kind = v
 }
 
-// GetHref returns the Href field value if set, zero value otherwise.
+// GetHref returns the Href field value
 func (o *Registry) GetHref() string {
-	if o == nil || o.Href == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Href
+
+	return o.Href
 }
 
-// GetHrefOk returns a tuple with the Href field value if set, nil otherwise
+// GetHrefOk returns a tuple with the Href field value
 // and a boolean to check if the value has been set.
 func (o *Registry) GetHrefOk() (*string, bool) {
-	if o == nil || o.Href == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Href, true
+	return &o.Href, true
 }
 
-// HasHref returns a boolean if a field has been set.
-func (o *Registry) HasHref() bool {
-	if o != nil && o.Href != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetHref gets a reference to the given string and assigns it to the Href field.
+// SetHref sets field value
 func (o *Registry) SetHref(v string) {
-	o.Href = &v
+	o.Href = v
 }
 
 // GetStatus returns the Status field value
@@ -237,36 +225,28 @@ func (o *Registry) SetBrowserUrl(v string) {
 	o.BrowserUrl = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value
 func (o *Registry) GetName() string {
-	if o == nil || o.Name == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *Registry) GetNameOk() (*string, bool) {
-	if o == nil || o.Name == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Name, true
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *Registry) HasName() bool {
-	if o != nil && o.Name != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName sets field value
 func (o *Registry) SetName(v string) {
-	o.Name = &v
+	o.Name = v
 }
 
 // GetRegistryDeploymentId returns the RegistryDeploymentId field value if set, zero value otherwise.
@@ -301,36 +281,28 @@ func (o *Registry) SetRegistryDeploymentId(v int32) {
 	o.RegistryDeploymentId = &v
 }
 
-// GetOwner returns the Owner field value if set, zero value otherwise.
+// GetOwner returns the Owner field value
 func (o *Registry) GetOwner() string {
-	if o == nil || o.Owner == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Owner
+
+	return o.Owner
 }
 
-// GetOwnerOk returns a tuple with the Owner field value if set, nil otherwise
+// GetOwnerOk returns a tuple with the Owner field value
 // and a boolean to check if the value has been set.
 func (o *Registry) GetOwnerOk() (*string, bool) {
-	if o == nil || o.Owner == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Owner, true
+	return &o.Owner, true
 }
 
-// HasOwner returns a boolean if a field has been set.
-func (o *Registry) HasOwner() bool {
-	if o != nil && o.Owner != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetOwner gets a reference to the given string and assigns it to the Owner field.
+// SetOwner sets field value
 func (o *Registry) SetOwner(v string) {
-	o.Owner = &v
+	o.Owner = v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -442,10 +414,10 @@ func (o Registry) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["id"] = o.Id
 	}
-	if o.Kind != nil {
+	if true {
 		toSerialize["kind"] = o.Kind
 	}
-	if o.Href != nil {
+	if true {
 		toSerialize["href"] = o.Href
 	}
 	if true {
@@ -457,13 +429,13 @@ func (o Registry) MarshalJSON() ([]byte, error) {
 	if o.BrowserUrl != nil {
 		toSerialize["browserUrl"] = o.BrowserUrl
 	}
-	if o.Name != nil {
+	if true {
 		toSerialize["name"] = o.Name
 	}
 	if o.RegistryDeploymentId != nil {
 		toSerialize["registryDeploymentId"] = o.RegistryDeploymentId
 	}
-	if o.Owner != nil {
+	if true {
 		toSerialize["owner"] = o.Owner
 	}
 	if o.Description != nil {
