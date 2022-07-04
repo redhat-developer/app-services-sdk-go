@@ -1,0 +1,22 @@
+name: AutoMerge app-services-ci PRs
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [merge-test]
+
+env: 
+  #PR_USER: app-services-ci
+  PR_USER: wtrocki
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    name: Merge changes
+    steps:
+    - name: User check
+      if: github.event.pull_request.user.login == '${PR_USER}'
+      run: echo "PR for the right user"
+    - name: User check 2
+      if:  github.actor == '${PR_USER}'
+      run: echo "PR for the right user 2"
