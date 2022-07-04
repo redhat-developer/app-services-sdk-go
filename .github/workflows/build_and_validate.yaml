@@ -6,7 +6,6 @@ on:
     paths:
       - '**.go'
       - '.openapi/**'
-      - '.github/**'
   pull_request:
     branches: [main]
     paths:
