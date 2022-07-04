@@ -79,19 +79,18 @@ All URIs are relative to *https://api.openshift.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**GetServiceStatus**](docs/DefaultApi.md#getservicestatus) | **Get** /api/serviceregistry_mgmt/v1/status | Get the service status
-*ErrorsApi* | [**GetError**](docs/ErrorsApi.md#geterror) | **Get** /api/serviceregistry_mgmt/v1/errors/{id} | Get information about a specific error type
-*ErrorsApi* | [**GetErrors**](docs/ErrorsApi.md#geterrors) | **Get** /api/serviceregistry_mgmt/v1/errors | Get the list of all errors
-*RegistriesApi* | [**CreateRegistry**](docs/RegistriesApi.md#createregistry) | **Post** /api/serviceregistry_mgmt/v1/registries | Create a new Registry instance
+*DefaultApi* | [**GetServiceStatus**](docs/DefaultApi.md#getservicestatus) | **Get** /api/serviceregistry_mgmt/v1/status | 
+*ErrorsApi* | [**GetError**](docs/ErrorsApi.md#geterror) | **Get** /api/serviceregistry_mgmt/v1/errors/{id} | 
+*ErrorsApi* | [**GetErrors**](docs/ErrorsApi.md#geterrors) | **Get** /api/serviceregistry_mgmt/v1/errors | 
+*RegistriesApi* | [**CreateRegistry**](docs/RegistriesApi.md#createregistry) | **Post** /api/serviceregistry_mgmt/v1/registries | 
 *RegistriesApi* | [**DeleteRegistry**](docs/RegistriesApi.md#deleteregistry) | **Delete** /api/serviceregistry_mgmt/v1/registries/{id} | Delete a Registry instance
-*RegistriesApi* | [**GetRegistries**](docs/RegistriesApi.md#getregistries) | **Get** /api/serviceregistry_mgmt/v1/registries | Get the list of all Registry instances
+*RegistriesApi* | [**GetRegistries**](docs/RegistriesApi.md#getregistries) | **Get** /api/serviceregistry_mgmt/v1/registries | 
 *RegistriesApi* | [**GetRegistry**](docs/RegistriesApi.md#getregistry) | **Get** /api/serviceregistry_mgmt/v1/registries/{id} | Get a Registry instance
 
 
 ## Documentation For Models
 
  - [Error](docs/Error.md)
- - [ErrorAllOf](docs/ErrorAllOf.md)
  - [ErrorList](docs/ErrorList.md)
  - [ErrorListAllOf](docs/ErrorListAllOf.md)
  - [List](docs/List.md)

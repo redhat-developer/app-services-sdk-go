@@ -28,7 +28,8 @@ var (
 type RegistriesApi interface {
 
 	/*
-	 * CreateRegistry Create a new Registry instance
+	 * CreateRegistry Method for CreateRegistry
+	 * Create a new Registry instance
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @return ApiCreateRegistryRequest
 	 */
@@ -55,7 +56,8 @@ type RegistriesApi interface {
 	DeleteRegistryExecute(r ApiDeleteRegistryRequest) (*_nethttp.Response, error)
 
 	/*
-	 * GetRegistries Get the list of all Registry instances
+	 * GetRegistries Method for GetRegistries
+	 * Get the list of all Registry instances
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @return ApiGetRegistriesRequest
 	 */
@@ -102,7 +104,8 @@ func (r ApiCreateRegistryRequest) Execute() (Registry, *_nethttp.Response, error
 }
 
 /*
- * CreateRegistry Create a new Registry instance
+ * CreateRegistry Method for CreateRegistry
+ * Create a new Registry instance
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiCreateRegistryRequest
  */
@@ -381,7 +384,8 @@ func (r ApiGetRegistriesRequest) Execute() (RegistryList, *_nethttp.Response, er
 }
 
 /*
- * GetRegistries Get the list of all Registry instances
+ * GetRegistries Method for GetRegistries
+ * Get the list of all Registry instances
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiGetRegistriesRequest
  */

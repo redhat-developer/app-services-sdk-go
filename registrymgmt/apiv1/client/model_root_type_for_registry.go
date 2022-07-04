@@ -23,11 +23,11 @@ type RootTypeForRegistry struct {
 	RegistryUrl *string `json:"registryUrl,omitempty"`
 	BrowserUrl *string `json:"browserUrl,omitempty"`
 	// User-defined Registry instance name. Does not have to be unique.
-	Name *string `json:"name,omitempty"`
+	Name string `json:"name"`
 	// Identifier of a multi-tenant deployment, where this Service Registry instance resides.
 	RegistryDeploymentId *int32 `json:"registryDeploymentId,omitempty"`
 	// Registry instance owner.
-	Owner *string `json:"owner,omitempty"`
+	Owner string `json:"owner"`
 	// Description of the Registry instance.
 	Description *string `json:"description,omitempty"`
 	// ISO 8601 UTC timestamp.
@@ -41,10 +41,12 @@ type RootTypeForRegistry struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRootTypeForRegistry(id string, status RegistryStatusValue, createdAt time.Time, updatedAt time.Time, instanceType RegistryInstanceTypeValue) *RootTypeForRegistry {
+func NewRootTypeForRegistry(id string, status RegistryStatusValue, name string, owner string, createdAt time.Time, updatedAt time.Time, instanceType RegistryInstanceTypeValue) *RootTypeForRegistry {
 	this := RootTypeForRegistry{}
 	this.Id = id
 	this.Status = status
+	this.Name = name
+	this.Owner = owner
 	this.CreatedAt = createdAt
 	this.UpdatedAt = updatedAt
 	this.InstanceType = instanceType
@@ -171,36 +173,28 @@ func (o *RootTypeForRegistry) SetBrowserUrl(v string) {
 	o.BrowserUrl = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value
 func (o *RootTypeForRegistry) GetName() string {
-	if o == nil || o.Name == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *RootTypeForRegistry) GetNameOk() (*string, bool) {
-	if o == nil || o.Name == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Name, true
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *RootTypeForRegistry) HasName() bool {
-	if o != nil && o.Name != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName sets field value
 func (o *RootTypeForRegistry) SetName(v string) {
-	o.Name = &v
+	o.Name = v
 }
 
 // GetRegistryDeploymentId returns the RegistryDeploymentId field value if set, zero value otherwise.
@@ -235,36 +229,28 @@ func (o *RootTypeForRegistry) SetRegistryDeploymentId(v int32) {
 	o.RegistryDeploymentId = &v
 }
 
-// GetOwner returns the Owner field value if set, zero value otherwise.
+// GetOwner returns the Owner field value
 func (o *RootTypeForRegistry) GetOwner() string {
-	if o == nil || o.Owner == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Owner
+
+	return o.Owner
 }
 
-// GetOwnerOk returns a tuple with the Owner field value if set, nil otherwise
+// GetOwnerOk returns a tuple with the Owner field value
 // and a boolean to check if the value has been set.
 func (o *RootTypeForRegistry) GetOwnerOk() (*string, bool) {
-	if o == nil || o.Owner == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Owner, true
+	return &o.Owner, true
 }
 
-// HasOwner returns a boolean if a field has been set.
-func (o *RootTypeForRegistry) HasOwner() bool {
-	if o != nil && o.Owner != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetOwner gets a reference to the given string and assigns it to the Owner field.
+// SetOwner sets field value
 func (o *RootTypeForRegistry) SetOwner(v string) {
-	o.Owner = &v
+	o.Owner = v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -385,13 +371,13 @@ func (o RootTypeForRegistry) MarshalJSON() ([]byte, error) {
 	if o.BrowserUrl != nil {
 		toSerialize["browserUrl"] = o.BrowserUrl
 	}
-	if o.Name != nil {
+	if true {
 		toSerialize["name"] = o.Name
 	}
 	if o.RegistryDeploymentId != nil {
 		toSerialize["registryDeploymentId"] = o.RegistryDeploymentId
 	}
-	if o.Owner != nil {
+	if true {
 		toSerialize["owner"] = o.Owner
 	}
 	if o.Description != nil {
