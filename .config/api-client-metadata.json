@@ -35,10 +35,10 @@
     "release_level": "internal",
     "openapi_file": ".openapi/service-accounts.yaml"
   },
-  "smart-events/v1alpha": {
+  "smartevents-mgmt/v1": {
     "apiGroup": "smartevents",
     "apiVersion": "v1alpha",
     "release_level": "internal",
-    "openapi_file": ".openapi/rhose-api.yaml"
+    "openapi_file": ".openapi/smartevents_mgmt.yaml"
   }
 }
