@@ -3,7 +3,7 @@
  *
  * The API exposed by the fleet manager of the SmartEvents service.
  *
- * API version: 0.0.3
+ * API version: 0.0.1
  * Contact: openbridge-dev@redhat.com
  */
 
