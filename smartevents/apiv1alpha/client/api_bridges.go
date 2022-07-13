@@ -3,7 +3,7 @@
  *
  * The API exposed by the fleet manager of the SmartEvents service.
  *
- * API version: 0.0.3
+ * API version: 0.0.1
  * Contact: openbridge-dev@redhat.com
  */
 
@@ -136,7 +136,7 @@ func (a *BridgesApiService) BridgesAPICreateBridgeExecute(r ApiBridgesAPICreateB
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/bridges"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/bridges"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -241,7 +241,7 @@ func (a *BridgesApiService) BridgesAPIDeleteBridgeExecute(r ApiBridgesAPIDeleteB
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/bridges/{bridgeId}"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/bridges/{bridgeId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"bridgeId"+"}", _neturl.PathEscape(parameterToString(r.bridgeId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -338,7 +338,7 @@ func (a *BridgesApiService) BridgesAPIGetBridgeExecute(r ApiBridgesAPIGetBridgeR
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/bridges/{bridgeId}"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/bridges/{bridgeId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"bridgeId"+"}", _neturl.PathEscape(parameterToString(r.bridgeId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -464,7 +464,7 @@ func (a *BridgesApiService) BridgesAPIGetBridgesExecute(r ApiBridgesAPIGetBridge
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/bridges"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/bridges"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
