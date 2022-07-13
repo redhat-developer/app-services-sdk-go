@@ -3,7 +3,7 @@
  *
  * The API exposed by the fleet manager of the SmartEvents service.
  *
- * API version: 0.0.3
+ * API version: 0.0.1
  * Contact: openbridge-dev@redhat.com
  */
 
@@ -120,7 +120,7 @@ func (a *SchemaCatalogApiService) SchemaAPIGetActionProcessorSchemaExecute(r Api
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/schemas/actions/{id}"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/schemas/actions/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -223,7 +223,7 @@ func (a *SchemaCatalogApiService) SchemaAPIGetCatalogExecute(r ApiSchemaAPIGetCa
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/schemas"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/schemas"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -328,7 +328,7 @@ func (a *SchemaCatalogApiService) SchemaAPIGetSourceProcessorSchemaExecute(r Api
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/schemas/sources/{id}"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/schemas/sources/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
