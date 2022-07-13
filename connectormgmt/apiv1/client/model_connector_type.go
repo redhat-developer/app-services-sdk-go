@@ -12,94 +12,459 @@ package connectormgmtclient
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
-// ConnectorType - Represents a connector type supported by the API
+// ConnectorType Represents a connector type supported by the API
 type ConnectorType struct {
-	ConnectorTypeAllOf *ConnectorTypeAllOf
-	ObjectReference *ObjectReference
+	Id *string `json:"id,omitempty"`
+	Kind *string `json:"kind,omitempty"`
+	Href *string `json:"href,omitempty"`
+	// Name of the connector type.
+	Name string `json:"name"`
+	// Version of the connector type.
+	Version string `json:"version"`
+	// Channels of the connector type.
+	Channels *[]Channel `json:"channels,omitempty"`
+	// A description of the connector.
+	Description *string `json:"description,omitempty"`
+	// URL to an icon of the connector.
+	IconHref *string `json:"icon_href,omitempty"`
+	// Labels used to categorize the connector
+	Labels *[]string `json:"labels,omitempty"`
+	// The capabilities supported by the conenctor
+	Capabilities *[]string `json:"capabilities,omitempty"`
+	// A json schema that can be used to validate a ConnectorRequest connector field.
+	Schema *map[string]interface{} `json:"schema,omitempty"`
+	// A json schema that can be used to validate a ConnectorRequest connector field.
+	JsonSchema *map[string]interface{} `json:"json_schema,omitempty"`
 }
 
-// ConnectorTypeAllOfAsConnectorType is a convenience function that returns ConnectorTypeAllOf wrapped in ConnectorType
-func ConnectorTypeAllOfAsConnectorType(v *ConnectorTypeAllOf) ConnectorType {
-	return ConnectorType{ ConnectorTypeAllOf: v}
+// NewConnectorType instantiates a new ConnectorType object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewConnectorType(name string, version string) *ConnectorType {
+	this := ConnectorType{}
+	this.Name = name
+	this.Version = version
+	return &this
 }
 
-// ObjectReferenceAsConnectorType is a convenience function that returns ObjectReference wrapped in ConnectorType
-func ObjectReferenceAsConnectorType(v *ObjectReference) ConnectorType {
-	return ConnectorType{ ObjectReference: v}
+// NewConnectorTypeWithDefaults instantiates a new ConnectorType object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewConnectorTypeWithDefaults() *ConnectorType {
+	this := ConnectorType{}
+	return &this
 }
 
-
-// Unmarshal JSON data into one of the pointers in the struct
-func (dst *ConnectorType) UnmarshalJSON(data []byte) error {
-	var err error
-	match := 0
-	// try to unmarshal data into ConnectorTypeAllOf
-	err = json.Unmarshal(data, &dst.ConnectorTypeAllOf)
-	if err == nil {
-		jsonConnectorTypeAllOf, _ := json.Marshal(dst.ConnectorTypeAllOf)
-		if string(jsonConnectorTypeAllOf) == "{}" { // empty struct
-			dst.ConnectorTypeAllOf = nil
-		} else {
-			match++
-		}
-	} else {
-		dst.ConnectorTypeAllOf = nil
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *ConnectorType) GetId() string {
+	if o == nil || o.Id == nil {
+		var ret string
+		return ret
 	}
-
-	// try to unmarshal data into ObjectReference
-	err = json.Unmarshal(data, &dst.ObjectReference)
-	if err == nil {
-		jsonObjectReference, _ := json.Marshal(dst.ObjectReference)
-		if string(jsonObjectReference) == "{}" { // empty struct
-			dst.ObjectReference = nil
-		} else {
-			match++
-		}
-	} else {
-		dst.ObjectReference = nil
-	}
-
-	if match > 1 { // more than 1 match
-		// reset to nil
-		dst.ConnectorTypeAllOf = nil
-		dst.ObjectReference = nil
-
-		return fmt.Errorf("Data matches more than one schema in oneOf(ConnectorType)")
-	} else if match == 1 {
-		return nil // exactly one match
-	} else { // no match
-		return fmt.Errorf("Data failed to match schemas in oneOf(ConnectorType)")
-	}
+	return *o.Id
 }
 
-// Marshal data from the first non-nil pointers in the struct to JSON
-func (src ConnectorType) MarshalJSON() ([]byte, error) {
-	if src.ConnectorTypeAllOf != nil {
-		return json.Marshal(&src.ConnectorTypeAllOf)
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConnectorType) GetIdOk() (*string, bool) {
+	if o == nil || o.Id == nil {
+		return nil, false
 	}
-
-	if src.ObjectReference != nil {
-		return json.Marshal(&src.ObjectReference)
-	}
-
-	return nil, nil // no data in oneOf schemas
+	return o.Id, true
 }
 
-// Get the actual instance
-func (obj *ConnectorType) GetActualInstance() (interface{}) {
-	if obj.ConnectorTypeAllOf != nil {
-		return obj.ConnectorTypeAllOf
+// HasId returns a boolean if a field has been set.
+func (o *ConnectorType) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
 	}
 
-	if obj.ObjectReference != nil {
-		return obj.ObjectReference
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *ConnectorType) SetId(v string) {
+	o.Id = &v
+}
+
+// GetKind returns the Kind field value if set, zero value otherwise.
+func (o *ConnectorType) GetKind() string {
+	if o == nil || o.Kind == nil {
+		var ret string
+		return ret
+	}
+	return *o.Kind
+}
+
+// GetKindOk returns a tuple with the Kind field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConnectorType) GetKindOk() (*string, bool) {
+	if o == nil || o.Kind == nil {
+		return nil, false
+	}
+	return o.Kind, true
+}
+
+// HasKind returns a boolean if a field has been set.
+func (o *ConnectorType) HasKind() bool {
+	if o != nil && o.Kind != nil {
+		return true
 	}
 
-	// all schemas are nil
-	return nil
+	return false
+}
+
+// SetKind gets a reference to the given string and assigns it to the Kind field.
+func (o *ConnectorType) SetKind(v string) {
+	o.Kind = &v
+}
+
+// GetHref returns the Href field value if set, zero value otherwise.
+func (o *ConnectorType) GetHref() string {
+	if o == nil || o.Href == nil {
+		var ret string
+		return ret
+	}
+	return *o.Href
+}
+
+// GetHrefOk returns a tuple with the Href field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConnectorType) GetHrefOk() (*string, bool) {
+	if o == nil || o.Href == nil {
+		return nil, false
+	}
+	return o.Href, true
+}
+
+// HasHref returns a boolean if a field has been set.
+func (o *ConnectorType) HasHref() bool {
+	if o != nil && o.Href != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetHref gets a reference to the given string and assigns it to the Href field.
+func (o *ConnectorType) SetHref(v string) {
+	o.Href = &v
+}
+
+// GetName returns the Name field value
+func (o *ConnectorType) GetName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value
+// and a boolean to check if the value has been set.
+func (o *ConnectorType) GetNameOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Name, true
+}
+
+// SetName sets field value
+func (o *ConnectorType) SetName(v string) {
+	o.Name = v
+}
+
+// GetVersion returns the Version field value
+func (o *ConnectorType) GetVersion() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Version
+}
+
+// GetVersionOk returns a tuple with the Version field value
+// and a boolean to check if the value has been set.
+func (o *ConnectorType) GetVersionOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Version, true
+}
+
+// SetVersion sets field value
+func (o *ConnectorType) SetVersion(v string) {
+	o.Version = v
+}
+
+// GetChannels returns the Channels field value if set, zero value otherwise.
+func (o *ConnectorType) GetChannels() []Channel {
+	if o == nil || o.Channels == nil {
+		var ret []Channel
+		return ret
+	}
+	return *o.Channels
+}
+
+// GetChannelsOk returns a tuple with the Channels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConnectorType) GetChannelsOk() (*[]Channel, bool) {
+	if o == nil || o.Channels == nil {
+		return nil, false
+	}
+	return o.Channels, true
+}
+
+// HasChannels returns a boolean if a field has been set.
+func (o *ConnectorType) HasChannels() bool {
+	if o != nil && o.Channels != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetChannels gets a reference to the given []Channel and assigns it to the Channels field.
+func (o *ConnectorType) SetChannels(v []Channel) {
+	o.Channels = &v
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise.
+func (o *ConnectorType) GetDescription() string {
+	if o == nil || o.Description == nil {
+		var ret string
+		return ret
+	}
+	return *o.Description
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConnectorType) GetDescriptionOk() (*string, bool) {
+	if o == nil || o.Description == nil {
+		return nil, false
+	}
+	return o.Description, true
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *ConnectorType) HasDescription() bool {
+	if o != nil && o.Description != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
+func (o *ConnectorType) SetDescription(v string) {
+	o.Description = &v
+}
+
+// GetIconHref returns the IconHref field value if set, zero value otherwise.
+func (o *ConnectorType) GetIconHref() string {
+	if o == nil || o.IconHref == nil {
+		var ret string
+		return ret
+	}
+	return *o.IconHref
+}
+
+// GetIconHrefOk returns a tuple with the IconHref field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConnectorType) GetIconHrefOk() (*string, bool) {
+	if o == nil || o.IconHref == nil {
+		return nil, false
+	}
+	return o.IconHref, true
+}
+
+// HasIconHref returns a boolean if a field has been set.
+func (o *ConnectorType) HasIconHref() bool {
+	if o != nil && o.IconHref != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIconHref gets a reference to the given string and assigns it to the IconHref field.
+func (o *ConnectorType) SetIconHref(v string) {
+	o.IconHref = &v
+}
+
+// GetLabels returns the Labels field value if set, zero value otherwise.
+func (o *ConnectorType) GetLabels() []string {
+	if o == nil || o.Labels == nil {
+		var ret []string
+		return ret
+	}
+	return *o.Labels
+}
+
+// GetLabelsOk returns a tuple with the Labels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConnectorType) GetLabelsOk() (*[]string, bool) {
+	if o == nil || o.Labels == nil {
+		return nil, false
+	}
+	return o.Labels, true
+}
+
+// HasLabels returns a boolean if a field has been set.
+func (o *ConnectorType) HasLabels() bool {
+	if o != nil && o.Labels != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLabels gets a reference to the given []string and assigns it to the Labels field.
+func (o *ConnectorType) SetLabels(v []string) {
+	o.Labels = &v
+}
+
+// GetCapabilities returns the Capabilities field value if set, zero value otherwise.
+func (o *ConnectorType) GetCapabilities() []string {
+	if o == nil || o.Capabilities == nil {
+		var ret []string
+		return ret
+	}
+	return *o.Capabilities
+}
+
+// GetCapabilitiesOk returns a tuple with the Capabilities field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConnectorType) GetCapabilitiesOk() (*[]string, bool) {
+	if o == nil || o.Capabilities == nil {
+		return nil, false
+	}
+	return o.Capabilities, true
+}
+
+// HasCapabilities returns a boolean if a field has been set.
+func (o *ConnectorType) HasCapabilities() bool {
+	if o != nil && o.Capabilities != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCapabilities gets a reference to the given []string and assigns it to the Capabilities field.
+func (o *ConnectorType) SetCapabilities(v []string) {
+	o.Capabilities = &v
+}
+
+// GetSchema returns the Schema field value if set, zero value otherwise.
+func (o *ConnectorType) GetSchema() map[string]interface{} {
+	if o == nil || o.Schema == nil {
+		var ret map[string]interface{}
+		return ret
+	}
+	return *o.Schema
+}
+
+// GetSchemaOk returns a tuple with the Schema field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConnectorType) GetSchemaOk() (*map[string]interface{}, bool) {
+	if o == nil || o.Schema == nil {
+		return nil, false
+	}
+	return o.Schema, true
+}
+
+// HasSchema returns a boolean if a field has been set.
+func (o *ConnectorType) HasSchema() bool {
+	if o != nil && o.Schema != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSchema gets a reference to the given map[string]interface{} and assigns it to the Schema field.
+func (o *ConnectorType) SetSchema(v map[string]interface{}) {
+	o.Schema = &v
+}
+
+// GetJsonSchema returns the JsonSchema field value if set, zero value otherwise.
+func (o *ConnectorType) GetJsonSchema() map[string]interface{} {
+	if o == nil || o.JsonSchema == nil {
+		var ret map[string]interface{}
+		return ret
+	}
+	return *o.JsonSchema
+}
+
+// GetJsonSchemaOk returns a tuple with the JsonSchema field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConnectorType) GetJsonSchemaOk() (*map[string]interface{}, bool) {
+	if o == nil || o.JsonSchema == nil {
+		return nil, false
+	}
+	return o.JsonSchema, true
+}
+
+// HasJsonSchema returns a boolean if a field has been set.
+func (o *ConnectorType) HasJsonSchema() bool {
+	if o != nil && o.JsonSchema != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetJsonSchema gets a reference to the given map[string]interface{} and assigns it to the JsonSchema field.
+func (o *ConnectorType) SetJsonSchema(v map[string]interface{}) {
+	o.JsonSchema = &v
+}
+
+func (o ConnectorType) MarshalJSON() ([]byte, error) {
+	toSerialize := map[string]interface{}{}
+	if o.Id != nil {
+		toSerialize["id"] = o.Id
+	}
+	if o.Kind != nil {
+		toSerialize["kind"] = o.Kind
+	}
+	if o.Href != nil {
+		toSerialize["href"] = o.Href
+	}
+	if true {
+		toSerialize["name"] = o.Name
+	}
+	if true {
+		toSerialize["version"] = o.Version
+	}
+	if o.Channels != nil {
+		toSerialize["channels"] = o.Channels
+	}
+	if o.Description != nil {
+		toSerialize["description"] = o.Description
+	}
+	if o.IconHref != nil {
+		toSerialize["icon_href"] = o.IconHref
+	}
+	if o.Labels != nil {
+		toSerialize["labels"] = o.Labels
+	}
+	if o.Capabilities != nil {
+		toSerialize["capabilities"] = o.Capabilities
+	}
+	if o.Schema != nil {
+		toSerialize["schema"] = o.Schema
+	}
+	if o.JsonSchema != nil {
+		toSerialize["json_schema"] = o.JsonSchema
+	}
+	return json.Marshal(toSerialize)
 }
 
 type NullableConnectorType struct {
