@@ -4,9 +4,9 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SchemaAPIGetActionProcessorSchema**](SchemaCatalogApi.md#SchemaAPIGetActionProcessorSchema) | **Get** /api/v1/schemas/actions/{id} | Get action processor schema
-[**SchemaAPIGetCatalog**](SchemaCatalogApi.md#SchemaAPIGetCatalog) | **Get** /api/v1/schemas | Get processor catalog
-[**SchemaAPIGetSourceProcessorSchema**](SchemaCatalogApi.md#SchemaAPIGetSourceProcessorSchema) | **Get** /api/v1/schemas/sources/{id} | Get source processor schema
+[**SchemaAPIGetActionProcessorSchema**](SchemaCatalogApi.md#SchemaAPIGetActionProcessorSchema) | **Get** /api/smartevents_mgmt/v1/schemas/actions/{id} | Get action processor schema
+[**SchemaAPIGetCatalog**](SchemaCatalogApi.md#SchemaAPIGetCatalog) | **Get** /api/smartevents_mgmt/v1/schemas | Get processor catalog
+[**SchemaAPIGetSourceProcessorSchema**](SchemaCatalogApi.md#SchemaAPIGetSourceProcessorSchema) | **Get** /api/smartevents_mgmt/v1/schemas/sources/{id} | Get source processor schema
 
 
 

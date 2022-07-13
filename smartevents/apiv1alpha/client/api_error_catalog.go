@@ -3,7 +3,7 @@
  *
  * The API exposed by the fleet manager of the SmartEvents service.
  *
- * API version: 0.0.3
+ * API version: 0.0.1
  * Contact: openbridge-dev@redhat.com
  */
 
@@ -105,7 +105,7 @@ func (a *ErrorCatalogApiService) ErrorsAPIGetErrorExecute(r ApiErrorsAPIGetError
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/errors/{id}"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/errors/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -218,7 +218,7 @@ func (a *ErrorCatalogApiService) ErrorsAPIGetErrorsExecute(r ApiErrorsAPIGetErro
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/errors"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/errors"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

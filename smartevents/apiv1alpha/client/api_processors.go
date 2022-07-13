@@ -3,7 +3,7 @@
  *
  * The API exposed by the fleet manager of the SmartEvents service.
  *
- * API version: 0.0.3
+ * API version: 0.0.1
  * Contact: openbridge-dev@redhat.com
  */
 
@@ -159,7 +159,7 @@ func (a *ProcessorsApiService) ProcessorsAPIAddProcessorToBridgeExecute(r ApiPro
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/bridges/{bridgeId}/processors"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/bridges/{bridgeId}/processors"
 	localVarPath = strings.Replace(localVarPath, "{"+"bridgeId"+"}", _neturl.PathEscape(parameterToString(r.bridgeId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -271,7 +271,7 @@ func (a *ProcessorsApiService) ProcessorsAPIDeleteProcessorExecute(r ApiProcesso
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/bridges/{bridgeId}/processors/{processorId}"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/bridges/{bridgeId}/processors/{processorId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"bridgeId"+"}", _neturl.PathEscape(parameterToString(r.bridgeId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"processorId"+"}", _neturl.PathEscape(parameterToString(r.processorId, "")), -1)
 
@@ -372,7 +372,7 @@ func (a *ProcessorsApiService) ProcessorsAPIGetProcessorExecute(r ApiProcessorsA
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/bridges/{bridgeId}/processors/{processorId}"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/bridges/{bridgeId}/processors/{processorId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"bridgeId"+"}", _neturl.PathEscape(parameterToString(r.bridgeId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"processorId"+"}", _neturl.PathEscape(parameterToString(r.processorId, "")), -1)
 
@@ -510,7 +510,7 @@ func (a *ProcessorsApiService) ProcessorsAPIListProcessorsExecute(r ApiProcessor
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/bridges/{bridgeId}/processors"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/bridges/{bridgeId}/processors"
 	localVarPath = strings.Replace(localVarPath, "{"+"bridgeId"+"}", _neturl.PathEscape(parameterToString(r.bridgeId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -650,7 +650,7 @@ func (a *ProcessorsApiService) ProcessorsAPIUpdateProcessorExecute(r ApiProcesso
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/bridges/{bridgeId}/processors/{processorId}"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/bridges/{bridgeId}/processors/{processorId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"bridgeId"+"}", _neturl.PathEscape(parameterToString(r.bridgeId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"processorId"+"}", _neturl.PathEscape(parameterToString(r.processorId, "")), -1)
 
