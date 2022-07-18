@@ -7,5 +7,5 @@ require (
 	github.com/google/go-github/v38 v38.1.0
 	github.com/google/go-querystring v1.1.0 // indirect
 	golang.org/x/crypto v0.0.0-20210817164053-32db794688a5 // indirect
-	golang.org/x/oauth2 v0.0.0-20220630143837-2104d58473e0
+	golang.org/x/oauth2 v0.0.0-20220718184931-c8730f7fcb92
 )
