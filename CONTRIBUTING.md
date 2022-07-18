@@ -10,8 +10,9 @@
 
 ## Generating an API client locally
 
-You may want to generate an SDK locally.
-See Codegen [README](./internal/apigen/README.md) for more details
+```bash
+make generate
+```
 
 ## Adding a new service
 
