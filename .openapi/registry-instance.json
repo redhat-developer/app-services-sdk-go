@@ -18,7 +18,9 @@
     "/ids/contentIds/{contentId}/": {
       "summary": "Access artifact content utilizing the unique content identifier for that content.",
       "get": {
-        "tags": ["Artifacts"],
+        "tags": [
+          "Artifacts"
+        ],
         "responses": {
           "200": {
             "$ref": "#/components/responses/ArtifactContent"
@@ -50,7 +52,9 @@
     "/ids/globalIds/{globalId}": {
       "summary": "Access artifact content utilizing an artifact version's globally unique identifier.",
       "get": {
-        "tags": ["Artifacts"],
+        "tags": [
+          "Artifacts"
+        ],
         "parameters": [
           {
             "name": "dereference",
@@ -92,7 +96,9 @@
     "/ids/contentHashes/{contentHash}/": {
       "summary": "Access artifact content utilizing the SHA-256 hash of the content.",
       "get": {
-        "tags": ["Artifacts"],
+        "tags": [
+          "Artifacts"
+        ],
         "responses": {
           "200": {
             "$ref": "#/components/responses/ArtifactContent"
@@ -123,7 +129,10 @@
     "/admin/rules": {
       "summary": "Manage the global rules that apply to all artifacts if not otherwise configured.",
       "get": {
-        "tags": ["Global rules", "Admin"],
+        "tags": [
+          "Global rules",
+          "Admin"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -157,7 +166,10 @@
           },
           "required": true
         },
-        "tags": ["Global rules", "Admin"],
+        "tags": [
+          "Global rules",
+          "Admin"
+        ],
         "responses": {
           "204": {
             "description": "The global rule was added."
@@ -177,7 +189,10 @@
         "description": "Adds a rule to the list of globally configured rules.\n\nThis operation can fail for the following reasons:\n\n* The rule type is unknown (HTTP error `400`)\n* The rule already exists (HTTP error `409`)\n* A server error occurred (HTTP error `500`)\n"
       },
       "delete": {
-        "tags": ["Global rules", "Admin"],
+        "tags": [
+          "Global rules",
+          "Admin"
+        ],
         "responses": {
           "204": {
             "description": "All global rules have been removed successfully."
@@ -194,7 +209,10 @@
     "/admin/rules/{rule}": {
       "summary": "Manage the configuration of a single global artifact rule.",
       "get": {
-        "tags": ["Global rules", "Admin"],
+        "tags": [
+          "Global rules",
+          "Admin"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -228,7 +246,10 @@
           },
           "required": true
         },
-        "tags": ["Global rules", "Admin"],
+        "tags": [
+          "Global rules",
+          "Admin"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -252,7 +273,10 @@
         "description": "Updates the configuration for a globally configured rule.\n\nThis operation can fail for the following reasons:\n\n* Invalid rule name/type (HTTP error `400`)\n* No rule with name/type `rule` exists (HTTP error `404`)\n* A server error occurred (HTTP error `500`)\n"
       },
       "delete": {
-        "tags": ["Global rules", "Admin"],
+        "tags": [
+          "Global rules",
+          "Admin"
+        ],
         "responses": {
           "204": {
             "description": "The global rule was successfully deleted."
@@ -283,7 +307,9 @@
     "/admin/loggers": {
       "summary": "Manage logger settings/configurations.",
       "get": {
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -310,7 +336,9 @@
     "/admin/loggers/{logger}": {
       "summary": "Manage logger settings/configurations.",
       "get": {
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -342,7 +370,9 @@
           },
           "required": true
         },
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -363,7 +393,9 @@
         "description": "Configures the logger referenced by the provided logger name with the given configuration."
       },
       "delete": {
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -398,7 +430,9 @@
     "/system/info": {
       "summary": "Retrieve system information",
       "get": {
-        "tags": ["System"],
+        "tags": [
+          "System"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -422,7 +456,10 @@
     "/search/artifacts": {
       "summary": "Search for artifacts in the registry.",
       "get": {
-        "tags": ["Search", "Artifacts"],
+        "tags": [
+          "Search",
+          "Artifacts"
+        ],
         "parameters": [
           {
             "name": "name",
@@ -557,7 +594,10 @@
           },
           "required": true
         },
-        "tags": ["Search", "Artifacts"],
+        "tags": [
+          "Search",
+          "Artifacts"
+        ],
         "parameters": [
           {
             "name": "canonical",
@@ -599,7 +639,10 @@
             "name": "order",
             "description": "Sort order, ascending (`asc`) or descending (`desc`).",
             "schema": {
-              "enum": ["asc", "desc"],
+              "enum": [
+                "asc",
+                "desc"
+              ],
               "type": "string"
             },
             "in": "query"
@@ -608,7 +651,10 @@
             "name": "orderby",
             "description": "The field to sort by.  Can be one of:\n\n* `name`\n* `createdOn`\n",
             "schema": {
-              "enum": ["name", "createdOn"],
+              "enum": [
+                "name",
+                "createdOn"
+              ],
               "type": "string"
             },
             "in": "query"
@@ -637,7 +683,9 @@
     "/admin/export": {
       "summary": "Provides a way to export registry data.",
       "get": {
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "parameters": [
           {
             "name": "forBrowser",
@@ -682,7 +730,9 @@
           },
           "required": true
         },
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "parameters": [
           {
             "name": "X-Registry-Preserve-GlobalId",
@@ -728,7 +778,9 @@
           },
           "required": true
         },
-        "tags": ["Artifacts"],
+        "tags": [
+          "Artifacts"
+        ],
         "responses": {
           "204": {
             "description": "Returned when the operation was successful."
@@ -771,7 +823,9 @@
     "/groups/{groupId}/artifacts/{artifactId}/versions/{version}/meta": {
       "summary": "Manage the metadata for a single version of an artifact in the registry.",
       "get": {
-        "tags": ["Metadata"],
+        "tags": [
+          "Metadata"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -805,7 +859,9 @@
           },
           "required": true
         },
-        "tags": ["Metadata"],
+        "tags": [
+          "Metadata"
+        ],
         "responses": {
           "204": {
             "description": "The artifact version's metadata was successfully updated."
@@ -822,7 +878,9 @@
         "description": "Updates the user-editable portion of the artifact version's metadata.  Only some of \nthe metadata fields are editable by the user.  For example, `description` is editable, \nbut `createdOn` is not.\n\nThis operation can fail for the following reasons:\n\n* No artifact with this `artifactId` exists (HTTP error `404`)\n* No version with this `version` exists (HTTP error `404`)\n* A server error occurred (HTTP error `500`)\n"
       },
       "delete": {
-        "tags": ["Metadata"],
+        "tags": [
+          "Metadata"
+        ],
         "responses": {
           "204": {
             "description": "The artifact version's user-editable metadata was successfully deleted."
@@ -871,7 +929,9 @@
     "/groups/{groupId}/artifacts/{artifactId}/versions/{version}": {
       "summary": "Manage a single version of a single artifact in the registry.",
       "get": {
-        "tags": ["Versions"],
+        "tags": [
+          "Versions"
+        ],
         "parameters": [
           {
             "name": "dereference",
@@ -940,7 +1000,9 @@
           },
           "required": true
         },
-        "tags": ["Versions"],
+        "tags": [
+          "Versions"
+        ],
         "responses": {
           "204": {
             "description": "Returned when the update was successful."
@@ -992,7 +1054,9 @@
     "/groups/{groupId}/artifacts/{artifactId}/rules": {
       "summary": "Manage the rules for a single artifact.",
       "get": {
-        "tags": ["Artifact rules"],
+        "tags": [
+          "Artifact rules"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -1029,7 +1093,9 @@
           },
           "required": true
         },
-        "tags": ["Artifact rules"],
+        "tags": [
+          "Artifact rules"
+        ],
         "responses": {
           "204": {
             "description": "The rule was added."
@@ -1049,7 +1115,9 @@
         "description": "Adds a rule to the list of rules that get applied to the artifact when adding new\nversions.  All configured rules must pass to successfully add a new artifact version.\n\nThis operation can fail for the following reasons:\n\n* No artifact with this `artifactId` exists (HTTP error `404`)\n* Rule (named in the request body) is unknown (HTTP error `400`)\n* A server error occurred (HTTP error `500`)"
       },
       "delete": {
-        "tags": ["Artifact rules"],
+        "tags": [
+          "Artifact rules"
+        ],
         "responses": {
           "204": {
             "description": "The rules were successfully deleted."
@@ -1089,7 +1157,9 @@
     "/groups/{groupId}/artifacts/{artifactId}/rules/{rule}": {
       "summary": "Manage the configuration of a single artifact rule.",
       "get": {
-        "tags": ["Artifact rules"],
+        "tags": [
+          "Artifact rules"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -1123,7 +1193,9 @@
           },
           "required": true
         },
-        "tags": ["Artifact rules"],
+        "tags": [
+          "Artifact rules"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -1147,7 +1219,9 @@
         "description": "Updates the configuration of a single rule for the artifact.  The configuration data\nis specific to each rule type, so the configuration of the `COMPATIBILITY` rule \nis in a different format from the configuration of the `VALIDITY` rule.\n\nThis operation can fail for the following reasons:\n\n* No artifact with this `artifactId` exists (HTTP error `404`)\n* No rule with this name/type is configured for this artifact (HTTP error `404`)\n* Invalid rule type (HTTP error `400`)\n* A server error occurred (HTTP error `500`)\n"
       },
       "delete": {
-        "tags": ["Artifact rules"],
+        "tags": [
+          "Artifact rules"
+        ],
         "responses": {
           "204": {
             "description": "The rule was successfully deleted."
@@ -1186,7 +1260,10 @@
           "name": "rule",
           "description": "The unique name/type of a rule.",
           "schema": {
-            "enum": ["VALIDITY", "COMPATIBILITY"],
+            "enum": [
+              "VALIDITY",
+              "COMPATIBILITY"
+            ],
             "type": "string"
           },
           "in": "path",
@@ -1197,7 +1274,9 @@
     "/admin/roleMappings/{principalId}": {
       "summary": "Manage the configuration of a single role mapping.",
       "get": {
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -1231,7 +1310,9 @@
           },
           "required": true
         },
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "responses": {
           "204": {
             "description": "Response when the update is successful."
@@ -1248,7 +1329,9 @@
         "description": "Updates a single role mapping for one user/principal.\n\nThis operation can fail for the following reasons:\n\n* No role mapping for the principalId exists (HTTP error `404`)\n* A server error occurred (HTTP error `500`)\n"
       },
       "delete": {
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "responses": {
           "204": {
             "description": "Response returned when the delete was successful."
@@ -1279,7 +1362,9 @@
     "/admin/roleMappings": {
       "summary": "Collection to manage role mappings for authenticated principals",
       "get": {
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -1313,7 +1398,9 @@
           },
           "required": true
         },
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "responses": {
           "204": {
             "description": "Returned when the role mapping was successfully created."
@@ -1330,7 +1417,9 @@
     "/users/me": {
       "summary": "Retrieves information about the current user",
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -1353,7 +1442,9 @@
     },
     "/ids/contentHashes/{contentHash}/references": {
       "get": {
-        "tags": ["Artifacts"],
+        "tags": [
+          "Artifacts"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -1387,7 +1478,9 @@
     },
     "/ids/contentIds/{contentId}/references": {
       "get": {
-        "tags": ["Artifacts"],
+        "tags": [
+          "Artifacts"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -1422,7 +1515,9 @@
     },
     "/ids/globalIds/{globalId}/references": {
       "get": {
-        "tags": ["Artifacts"],
+        "tags": [
+          "Artifacts"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -1458,7 +1553,9 @@
     "/groups/{groupId}/artifacts/{artifactId}/versions/{version}/references": {
       "summary": "Manage the references for a single version of an artifact in the registry.",
       "get": {
-        "tags": ["Versions"],
+        "tags": [
+          "Versions"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -1517,7 +1614,9 @@
     "/admin/config/properties": {
       "summary": "Manage configuration properties.",
       "get": {
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -1544,7 +1643,9 @@
     "/admin/config/properties/{propertyName}": {
       "summary": "Manage a single configuration property (by name).",
       "get": {
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -1578,7 +1679,9 @@
           },
           "required": true
         },
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "responses": {
           "204": {
             "description": "The configuration property was updated."
@@ -1595,7 +1698,9 @@
         "description": "Updates the value of a single configuration property.\n\nThis operation may fail for one of the following reasons:\n\n* Property not found or not configured (HTTP error `404`)\n* A server error occurred (HTTP error `500`)\n"
       },
       "delete": {
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "responses": {
           "204": {
             "description": "The configuration property was deleted."
@@ -1626,7 +1731,9 @@
     "/system/limits": {
       "summary": "Retrieve resource limits information",
       "get": {
-        "tags": ["System"],
+        "tags": [
+          "System"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -1650,7 +1757,9 @@
     "/groups/{groupId}/artifacts/{artifactId}": {
       "summary": "Manage a single artifact.",
       "get": {
-        "tags": ["Artifacts"],
+        "tags": [
+          "Artifacts"
+        ],
         "parameters": [
           {
             "name": "dereference",
@@ -1747,7 +1856,9 @@
           },
           "required": true
         },
-        "tags": ["Artifacts"],
+        "tags": [
+          "Artifacts"
+        ],
         "parameters": [
           {
             "name": "X-Registry-Version",
@@ -1816,7 +1927,9 @@
         "description": "Updates an artifact by uploading new content.  The body of the request can\nbe the raw content of the artifact or a JSON object containing both the raw content and\na set of references to other artifacts..  This is typically in JSON format for *most*\nof the supported types, but may be in another format for a few (for example, `PROTOBUF`).\nThe type of the content should be compatible with the artifact's type (it would be\nan error to update an `AVRO` artifact with new `OPENAPI` content, for example).\n\nThe update could fail for a number of reasons including:\n\n* Provided content (request body) was empty (HTTP error `400`)\n* No artifact with the `artifactId` exists (HTTP error `404`)\n* The new content violates one of the rules configured for the artifact (HTTP error `409`)\n* A server error occurred (HTTP error `500`)\n\nWhen successful, this creates a new version of the artifact, making it the most recent\n(and therefore official) version of the artifact."
       },
       "delete": {
-        "tags": ["Artifacts"],
+        "tags": [
+          "Artifacts"
+        ],
         "responses": {
           "204": {
             "description": "Returned when the artifact was successfully deleted."
@@ -1856,7 +1969,9 @@
     "/groups/{groupId}/artifacts": {
       "summary": "Manage the collection of artifacts within a single group in the registry.",
       "get": {
-        "tags": ["Artifacts"],
+        "tags": [
+          "Artifacts"
+        ],
         "parameters": [
           {
             "name": "limit",
@@ -1980,7 +2095,9 @@
           },
           "required": true
         },
-        "tags": ["Artifacts"],
+        "tags": [
+          "Artifacts"
+        ],
         "parameters": [
           {
             "name": "X-Registry-ArtifactType",
@@ -2082,7 +2199,9 @@
         "description": "Creates a new artifact by posting the artifact content.  The body of the request should\nbe the raw content of the artifact.  This is typically in JSON format for *most* of the \nsupported types, but may be in another format for a few (for example, `PROTOBUF`).\n\nThe registry attempts to figure out what kind of artifact is being added from the\nfollowing supported list:\n\n* Avro (`AVRO`)\n* Protobuf (`PROTOBUF`)\n* JSON Schema (`JSON`)\n* Kafka Connect (`KCONNECT`)\n* OpenAPI (`OPENAPI`)\n* AsyncAPI (`ASYNCAPI`)\n* GraphQL (`GRAPHQL`)\n* Web Services Description Language (`WSDL`)\n* XML Schema (`XSD`)\n\nAlternatively, you can specify the artifact type using the `X-Registry-ArtifactType` \nHTTP request header, or include a hint in the request's `Content-Type`.  For example:\n\n```\nContent-Type: application/json; artifactType=AVRO\n```\n\nAn artifact is created using the content provided in the body of the request.  This\ncontent is created under a unique artifact ID that can be provided in the request\nusing the `X-Registry-ArtifactId` request header.  If not provided in the request,\nthe server generates a unique ID for the artifact.  It is typically recommended\nthat callers provide the ID, because this is typically a meaningful identifier, \nand for most use cases should be supplied by the caller.\n\nIf an artifact with the provided artifact ID already exists, the default behavior\nis for the server to reject the content with a 409 error.  However, the caller can\nsupply the `ifExists` query parameter to alter this default behavior. The `ifExists`\nquery parameter can have one of the following values:\n\n* `FAIL` (*default*) - server rejects the content with a 409 error\n* `UPDATE` - server updates the existing artifact and returns the new metadata\n* `RETURN` - server does not create or add content to the server, but instead \nreturns the metadata for the existing artifact\n* `RETURN_OR_UPDATE` - server returns an existing **version** that matches the \nprovided content if such a version exists, otherwise a new version is created\n\nThis operation may fail for one of the following reasons:\n\n* An invalid `ArtifactType` was indicated (HTTP error `400`)\n* No `ArtifactType` was indicated and the server could not determine one from the content (HTTP error `400`)\n* Provided content (request body) was empty (HTTP error `400`)\n* An artifact with the provided ID already exists (HTTP error `409`)\n* The content violates one of the configured global rules (HTTP error `409`)\n* A server error occurred (HTTP error `500`)\n"
       },
       "delete": {
-        "tags": ["Artifacts"],
+        "tags": [
+          "Artifacts"
+        ],
         "responses": {
           "204": {
             "description": "When the delete operation is successful, a simple 204 is returned."
@@ -2119,7 +2238,9 @@
           },
           "required": true
         },
-        "tags": ["Artifact rules"],
+        "tags": [
+          "Artifact rules"
+        ],
         "responses": {
           "204": {
             "description": "When successful, returns \"No Content\" to indicate that the rules passed, and the\ncontent was not updated."
@@ -2162,7 +2283,9 @@
     "/groups/{groupId}/artifacts/{artifactId}/versions": {
       "summary": "Manage all the versions of an artifact in the registry.",
       "get": {
-        "tags": ["Versions"],
+        "tags": [
+          "Versions"
+        ],
         "parameters": [
           {
             "name": "offset",
@@ -2192,7 +2315,12 @@
                 },
                 "examples": {
                   "All Versions": {
-                    "value": [5, 6, 10, 103]
+                    "value": [
+                      5,
+                      6,
+                      10,
+                      103
+                    ]
                   }
                 }
               }
@@ -2280,7 +2408,9 @@
           },
           "required": true
         },
-        "tags": ["Versions"],
+        "tags": [
+          "Versions"
+        ],
         "parameters": [
           {
             "name": "X-Registry-Version",
@@ -2372,7 +2502,9 @@
     "/groups/{groupId}/artifacts/{artifactId}/meta": {
       "summary": "Manage the metadata of a single artifact.",
       "get": {
-        "tags": ["Metadata"],
+        "tags": [
+          "Metadata"
+        ],
         "responses": {
           "200": {
             "content": {
@@ -2407,7 +2539,9 @@
           },
           "required": true
         },
-        "tags": ["Metadata"],
+        "tags": [
+          "Metadata"
+        ],
         "responses": {
           "204": {
             "description": "The artifact's metadata was updated."
@@ -2488,7 +2622,9 @@
           },
           "required": true
         },
-        "tags": ["Metadata"],
+        "tags": [
+          "Metadata"
+        ],
         "parameters": [
           {
             "name": "canonical",
@@ -2541,8 +2677,7 @@
           "required": true
         }
       ]
-    },
-    "x-codegen-contextRoot": "/apis/registry/v2"
+    }
   },
   "components": {
     "schemas": {
@@ -2572,7 +2707,10 @@
         "example": {
           "name": "Artifact Name",
           "description": "The description of the artifact.",
-          "labels": ["regional", "global"],
+          "labels": [
+            "regional",
+            "global"
+          ],
           "properties": {
             "custom-1": "foo",
             "custom-2": "bar"
@@ -2582,7 +2720,9 @@
       "Rule": {
         "title": "Root Type for Rule",
         "description": "",
-        "required": ["config"],
+        "required": [
+          "config"
+        ],
         "type": "object",
         "properties": {
           "config": {
@@ -2627,7 +2767,10 @@
       },
       "RuleType": {
         "description": "",
-        "enum": ["VALIDITY", "COMPATIBILITY"],
+        "enum": [
+          "VALIDITY",
+          "COMPATIBILITY"
+        ],
         "type": "string",
         "example": "VALIDITY",
         "x-codegen-package": "io.apicurio.registry.types"
@@ -2653,7 +2796,9 @@
       "UpdateState": {
         "title": "Root Type for UpdateState",
         "description": "",
-        "required": ["state"],
+        "required": [
+          "state"
+        ],
         "type": "object",
         "properties": {
           "state": {
@@ -2666,13 +2811,20 @@
       },
       "ArtifactState": {
         "description": "Describes the state of an artifact or artifact version.  The following states\nare possible:\n\n* ENABLED\n* DISABLED\n* DEPRECATED\n",
-        "enum": ["ENABLED", "DISABLED", "DEPRECATED"],
+        "enum": [
+          "ENABLED",
+          "DISABLED",
+          "DEPRECATED"
+        ],
         "type": "string",
         "x-codegen-package": "io.apicurio.registry.types"
       },
       "ArtifactSearchResults": {
         "description": "Describes the response received when searching for artifacts.",
-        "required": ["count", "artifacts"],
+        "required": [
+          "count",
+          "artifacts"
+        ],
         "type": "object",
         "properties": {
           "artifacts": {
@@ -2690,12 +2842,18 @@
       },
       "SortOrder": {
         "description": "",
-        "enum": ["asc", "desc"],
+        "enum": [
+          "asc",
+          "desc"
+        ],
         "type": "string"
       },
       "VersionSearchResults": {
         "description": "Describes the response received when searching for artifacts.",
-        "required": ["count", "versions"],
+        "required": [
+          "count",
+          "versions"
+        ],
         "type": "object",
         "properties": {
           "count": {
@@ -2745,7 +2903,9 @@
       },
       "LogConfiguration": {
         "description": "",
-        "required": ["level"],
+        "required": [
+          "level"
+        ],
         "type": "object",
         "properties": {
           "level": {
@@ -2759,7 +2919,9 @@
         "type": "object",
         "allOf": [
           {
-            "required": ["name"],
+            "required": [
+              "name"
+            ],
             "type": "object",
             "properties": {
               "name": {
@@ -2784,12 +2946,20 @@
       },
       "IfExists": {
         "description": "",
-        "enum": ["FAIL", "UPDATE", "RETURN", "RETURN_OR_UPDATE"],
+        "enum": [
+          "FAIL",
+          "UPDATE",
+          "RETURN",
+          "RETURN_OR_UPDATE"
+        ],
         "type": "string"
       },
       "SortBy": {
         "description": "",
-        "enum": ["name", "createdOn"],
+        "enum": [
+          "name",
+          "createdOn"
+        ],
         "type": "string"
       },
       "LogLevel": {
@@ -2825,7 +2995,7 @@
             "type": "string"
           },
           "builtOn": {
-            "format": "date-time",
+            "format": "utc-date",
             "type": "string"
           }
         },
@@ -2843,7 +3013,10 @@
       },
       "RoleMapping": {
         "description": "The mapping between a user/principal and their role.",
-        "required": ["principalId", "role"],
+        "required": [
+          "principalId",
+          "role"
+        ],
         "type": "object",
         "properties": {
           "principalId": {
@@ -2867,14 +3040,20 @@
       },
       "RoleType": {
         "description": "",
-        "enum": ["READ_ONLY", "DEVELOPER", "ADMIN"],
+        "enum": [
+          "READ_ONLY",
+          "DEVELOPER",
+          "ADMIN"
+        ],
         "type": "string",
         "x-codegen-package": "io.apicurio.registry.types"
       },
       "UpdateRole": {
         "title": "Root Type for UpdateRole",
         "description": "",
-        "required": ["role"],
+        "required": [
+          "role"
+        ],
         "type": "object",
         "properties": {
           "role": {
@@ -2941,7 +3120,9 @@
       "DownloadRef": {
         "title": "Root Type for Download",
         "description": "Models a download \"link\".  Useful for browser use-cases.",
-        "required": ["downloadId"],
+        "required": [
+          "downloadId"
+        ],
         "type": "object",
         "properties": {
           "downloadId": {
@@ -2984,7 +3165,7 @@
             "type": "string"
           },
           "createdOn": {
-            "format": "date-time",
+            "format": "utc-date",
             "type": "string",
             "x-codegen-formatPattern": "yyyy-MM-dd'T'HH:mm:ssZ"
           },
@@ -2992,7 +3173,7 @@
             "type": "string"
           },
           "modifiedOn": {
-            "format": "date-time",
+            "format": "utc-date",
             "type": "string",
             "x-codegen-formatPattern": "yyyy-MM-dd'T'HH:mm:ssZ"
           },
@@ -3058,7 +3239,10 @@
           "modifiedOn": "2019-07-19T15:09:00Z",
           "globalId": 12984719247,
           "contentId": 82736,
-          "labels": ["label-1", "label-2"],
+          "labels": [
+            "label-1",
+            "label-2"
+          ],
           "properties": {
             "custom-1": "foo",
             "custom-2": "bar"
@@ -3075,7 +3259,14 @@
       },
       "SearchedArtifact": {
         "description": "Models a single artifact from the result set returned when searching for artifacts.",
-        "required": ["createdBy", "createdOn", "id", "type", "state", "group"],
+        "required": [
+          "createdBy",
+          "createdOn",
+          "id",
+          "type",
+          "state",
+          "group"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -3091,7 +3282,7 @@
             "type": "string"
           },
           "createdOn": {
-            "format": "date-time",
+            "format": "utc-date",
             "description": "",
             "type": "string",
             "x-codegen-formatPattern": "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -3116,7 +3307,7 @@
             "description": ""
           },
           "modifiedOn": {
-            "format": "date-time",
+            "format": "utc-date",
             "description": "",
             "type": "string",
             "x-codegen-formatPattern": "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -3135,7 +3326,10 @@
           "id": "Procurement-Invoice",
           "name": "Artifact Name",
           "description": "Description of the artifact",
-          "labels": ["current", "internal"],
+          "labels": [
+            "current",
+            "internal"
+          ],
           "type": "AVRO",
           "state": "ENABLED",
           "createdBy": "user1",
@@ -3169,7 +3363,7 @@
             "type": "string"
           },
           "createdOn": {
-            "format": "date-time",
+            "format": "utc-date",
             "type": "string",
             "x-codegen-formatPattern": "yyyy-MM-dd'T'HH:mm:ssZ"
           },
@@ -3222,7 +3416,10 @@
           "createdOn": "2019-05-17T12:00:00Z",
           "globalId": 183282932983,
           "contentId": 12347,
-          "labels": ["label-1", "label-2"],
+          "labels": [
+            "label-1",
+            "label-2"
+          ],
           "properties": {
             "custom-1": "foo",
             "custom-2": "bar"
@@ -3260,7 +3457,7 @@
             "type": "string"
           },
           "createdOn": {
-            "format": "date-time",
+            "format": "utc-date",
             "description": "",
             "type": "string",
             "x-codegen-formatPattern": "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -3313,7 +3510,10 @@
         "example": {
           "name": "Artifact Version Name",
           "description": "Description of the artifact version",
-          "labels": ["current", "internal"],
+          "labels": [
+            "current",
+            "internal"
+          ],
           "type": "AVRO",
           "state": "ENABLED",
           "createdOn": "2018-02-10T09:30Z",
@@ -3331,7 +3531,9 @@
         "type": "object",
         "allOf": [
           {
-            "required": ["causes"],
+            "required": [
+              "causes"
+            ],
             "type": "object",
             "properties": {
               "causes": {
@@ -3366,7 +3568,11 @@
       "ArtifactReference": {
         "title": "Root Type for ArtifactReference",
         "description": "A reference to a different artifact. Typically used with artifact types that can have dependencies like Protobuf.",
-        "required": ["artifactId", "groupId", "name"],
+        "required": [
+          "artifactId",
+          "groupId",
+          "name"
+        ],
         "type": "object",
         "properties": {
           "groupId": {
@@ -3391,7 +3597,10 @@
       },
       "ContentCreateRequest": {
         "description": "",
-        "required": ["content", "references"],
+        "required": [
+          "content",
+          "references"
+        ],
         "type": "object",
         "properties": {
           "content": {
@@ -3411,7 +3620,13 @@
       "ConfigurationProperty": {
         "title": "Root Type for ConfigurationProperty",
         "description": "",
-        "required": ["name", "value", "type", "label", "description"],
+        "required": [
+          "name",
+          "value",
+          "type",
+          "label",
+          "description"
+        ],
         "type": "object",
         "properties": {
           "name": {
@@ -3444,7 +3659,9 @@
       "UpdateConfigurationProperty": {
         "title": "Root Type for UpdateConfigurationProperty",
         "description": "",
-        "required": ["value"],
+        "required": [
+          "value"
+        ],
         "type": "object",
         "properties": {
           "value": {
@@ -3679,14 +3896,5 @@
       "name": "Users",
       "description": "Some operations related to users."
     }
-  ],
-  "x-codegen": {
-    "bean-annotations": [
-      "io.quarkus.runtime.annotations.RegisterForReflection",
-      {
-        "annotation": "lombok.ToString",
-        "excludeEnums": true
-      }
-    ]
-  }
+  ]
 }
