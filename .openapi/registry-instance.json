@@ -190,8 +190,7 @@
       },
       "delete": {
         "tags": [
-          "Global rules",
-          "Admin"
+          "Global rules"
         ],
         "responses": {
           "204": {
@@ -210,8 +209,7 @@
       "summary": "Manage the configuration of a single global artifact rule.",
       "get": {
         "tags": [
-          "Global rules",
-          "Admin"
+          "Global rules"
         ],
         "responses": {
           "200": {
@@ -247,8 +245,7 @@
           "required": true
         },
         "tags": [
-          "Global rules",
-          "Admin"
+          "Global rules"
         ],
         "responses": {
           "200": {
@@ -274,8 +271,7 @@
       },
       "delete": {
         "tags": [
-          "Global rules",
-          "Admin"
+          "Global rules"
         ],
         "responses": {
           "204": {
@@ -457,9 +453,7 @@
       "summary": "Search for artifacts in the registry.",
       "get": {
         "tags": [
-          "Search",
-          "Artifacts"
-        ],
+          "Search"],
         "parameters": [
           {
             "name": "name",
@@ -595,9 +589,7 @@
           "required": true
         },
         "tags": [
-          "Search",
-          "Artifacts"
-        ],
+          "Search" ],
         "parameters": [
           {
             "name": "canonical",
