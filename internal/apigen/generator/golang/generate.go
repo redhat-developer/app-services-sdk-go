@@ -97,31 +97,7 @@ func generateMocks(tag string, output string) error {
 	}
 
 	filePrefix := strings.ToLower(strings.Join(strings.Split(tag, " "), "_"))
-
-	mockFilePath := path.Join(output, fmt.Sprintf("%v_api_mock.go", filePrefix))
-	fmt.Println(mockFilePath)
-
-	out, err = exec.Command("rm", "-f", mockFilePath).CombinedOutput()
-	if err != nil {
-		fmt.Fprintln(os.Stderr, string(out))
-		return err
-	} else {
-		fmt.Println(string(out))
-	}
-
-	tagChunks := strings.Split(tag, " ")
-	for index := range tagChunks {
-		tagChunks[index] = strings.Title(tagChunks[index])
-	}
-	interfaceName := fmt.Sprintf("%vApi", strings.Join(tagChunks, ""))
-
-	out, err = exec.Command("moq", "-out", mockFilePath, output, interfaceName).CombinedOutput()
-	if err != nil {
-		fmt.Fprintln(os.Stderr, string(out))
-		return err
-	} else {
-		fmt.Println(string(out))
-	}
+ 
 	out, err = exec.Command("go", "mod", "tidy").CombinedOutput()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, string(out))
