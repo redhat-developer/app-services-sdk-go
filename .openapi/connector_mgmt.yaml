@@ -1284,15 +1284,9 @@ components:
     ConnectorType:
       description: >-
         Represents a connector type supported by the API
-      oneOf:
-        - required:
-            - name
-            - version
-            - schema
-        - required:
-            - name
-            - version
-            - json_schema
+      required:
+        - name
+        - version
       allOf:
         - $ref: "#/components/schemas/ObjectReference"
         - type: object
