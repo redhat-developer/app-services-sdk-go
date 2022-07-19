@@ -57,7 +57,6 @@ docs/ConnectorTypeListAllOf.md
 docs/ConnectorTypesApi.md
 docs/ConnectorsApi.md
 docs/Error.md
-docs/ErrorAllOf.md
 docs/KafkaConnectionSettings.md
 docs/List.md
 docs/ObjectMeta.md
@@ -111,7 +110,6 @@ model_connector_type_all_of.go
 model_connector_type_list.go
 model_connector_type_list_all_of.go
 model_error.go
-model_error_all_of.go
 model_kafka_connection_settings.go
 model_list.go
 model_object_meta.go

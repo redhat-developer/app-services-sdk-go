@@ -144,7 +144,6 @@ Class | Method | HTTP request | Description
  - [ConnectorTypeList](docs/ConnectorTypeList.md)
  - [ConnectorTypeListAllOf](docs/ConnectorTypeListAllOf.md)
  - [Error](docs/Error.md)
- - [ErrorAllOf](docs/ErrorAllOf.md)
  - [KafkaConnectionSettings](docs/KafkaConnectionSettings.md)
  - [List](docs/List.md)
  - [ObjectMeta](docs/ObjectMeta.md)
@@ -190,5 +189,5 @@ Each of these functions takes a value of the given basic type and returns a poin
 
 ## Author
 
-
+rhosak-support@redhat.com
 
