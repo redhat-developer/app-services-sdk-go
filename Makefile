@@ -5,8 +5,8 @@ lint:
 .PHONY: lint
 
 generate:
-	./scripts/generate.
-.PHONY generate
+	./scripts/generate.sh 
+.PHONY: generate
 
 generate-mocks:
 	moq -out kafkamgmt/apiv1/client/default_api_mock.go kafkamgmt/apiv1/client DefaultApi 
