@@ -453,7 +453,8 @@
       "summary": "Search for artifacts in the registry.",
       "get": {
         "tags": [
-          "Search"],
+          "Search"
+        ],
         "parameters": [
           {
             "name": "name",
@@ -589,7 +590,8 @@
           "required": true
         },
         "tags": [
-          "Search" ],
+          "Search"
+        ],
         "parameters": [
           {
             "name": "canonical",
