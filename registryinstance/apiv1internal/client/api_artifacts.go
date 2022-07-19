@@ -3,7 +3,7 @@
  *
  * Apicurio Registry is a datastore for standard event schemas and API designs. Apicurio Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.  The Apicurio Registry REST API enables client applications to manage the artifacts in the registry. This API provides create, read, update, and delete operations for schema and API artifacts, rules, versions, and metadata.   The supported artifact types include: - Apache Avro schema - AsyncAPI specification - Google protocol buffers - GraphQL schema - JSON Schema - Kafka Connect schema - OpenAPI specification - Web Services Description Language - XML Schema Definition   **Important**: The Apicurio Registry REST API is available from `https://MY-REGISTRY-URL/apis/registry/v2` by default. Therefore you must prefix all API operation paths with `../apis/registry/v2` in this case. For example: `../apis/registry/v2/ids/globalIds/{globalId}`. 
  *
- * API version: 2.1.0-SNAPSHOT
+ * API version: 2.2.5.Final
  * Contact: apicurio@lists.jboss.org
  */
 
@@ -19,7 +19,6 @@ import (
 	_neturl "net/url"
 	"strings"
 	"os"
-	"reflect"
 )
 
 // Linger please
@@ -236,40 +235,68 @@ This operation may fail for one of the following reasons:
 	ListArtifactsInGroupExecute(r ApiListArtifactsInGroupRequest) (ArtifactSearchResults, *_nethttp.Response, error)
 
 	/*
-	 * SearchArtifacts Search for artifacts
-	 * Returns a paginated list of all artifacts that match the provided filter criteria.
+	 * ReferencesByContentHash Returns a list with all the references for the artifact with the given hash
+	 * Returns a list containing all the artifact references using the artifact content hash.
+
+This operation may fail for one of the following reasons:
+
+* A server error occurred (HTTP error `500`)
 
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @return ApiSearchArtifactsRequest
+	 * @param contentHash SHA-256 content hash for a single artifact content.
+	 * @return ApiReferencesByContentHashRequest
 	 */
-	SearchArtifacts(ctx _context.Context) ApiSearchArtifactsRequest
+	ReferencesByContentHash(ctx _context.Context, contentHash string) ApiReferencesByContentHashRequest
 
 	/*
-	 * SearchArtifactsExecute executes the request
-	 * @return ArtifactSearchResults
+	 * ReferencesByContentHashExecute executes the request
+	 * @return []ArtifactReference
 	 */
-	SearchArtifactsExecute(r ApiSearchArtifactsRequest) (ArtifactSearchResults, *_nethttp.Response, error)
+	ReferencesByContentHashExecute(r ApiReferencesByContentHashRequest) ([]ArtifactReference, *_nethttp.Response, error)
 
 	/*
-	 * SearchArtifactsByContent Search for artifacts by content
-	 * Returns a paginated list of all artifacts with at least one version that matches the
-posted content.
+	 * ReferencesByContentId Returns a list with all the references for the artifact with the given content id.
+	 * Returns a list containing all the artifact references using the artifact contentId.
 
+This operation may fail for one of the following reasons:
+
+* A server error occurred (HTTP error `500`)
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @return ApiSearchArtifactsByContentRequest
+	 * @param contentId Global identifier for a single artifact content.
+	 * @return ApiReferencesByContentIdRequest
 	 */
-	SearchArtifactsByContent(ctx _context.Context) ApiSearchArtifactsByContentRequest
+	ReferencesByContentId(ctx _context.Context, contentId int64) ApiReferencesByContentIdRequest
 
 	/*
-	 * SearchArtifactsByContentExecute executes the request
-	 * @return ArtifactSearchResults
+	 * ReferencesByContentIdExecute executes the request
+	 * @return []ArtifactReference
 	 */
-	SearchArtifactsByContentExecute(r ApiSearchArtifactsByContentRequest) (ArtifactSearchResults, *_nethttp.Response, error)
+	ReferencesByContentIdExecute(r ApiReferencesByContentIdRequest) ([]ArtifactReference, *_nethttp.Response, error)
+
+	/*
+	 * ReferencesByGlobalId Returns a list with all the references for the artifact with the given global id.
+	 * Returns a list containing all the artifact references using the artifact global id.
+
+This operation may fail for one of the following reasons:
+
+* A server error occurred (HTTP error `500`)
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param globalId Global identifier for an artifact version.
+	 * @return ApiReferencesByGlobalIdRequest
+	 */
+	ReferencesByGlobalId(ctx _context.Context, globalId int64) ApiReferencesByGlobalIdRequest
+
+	/*
+	 * ReferencesByGlobalIdExecute executes the request
+	 * @return []ArtifactReference
+	 */
+	ReferencesByGlobalIdExecute(r ApiReferencesByGlobalIdRequest) ([]ArtifactReference, *_nethttp.Response, error)
 
 	/*
 	 * UpdateArtifact Update artifact
-	 * Updates an artifact by uploading new content.  The body of the request should
-be the raw content of the artifact.  This is typically in JSON format for *most*
+	 * Updates an artifact by uploading new content.  The body of the request can
+be the raw content of the artifact or a JSON object containing both the raw content and
+a set of references to other artifacts..  This is typically in JSON format for *most*
 of the supported types, but may be in another format for a few (for example, `PROTOBUF`).
 The type of the content should be compatible with the artifact's type (it would be
 an error to update an `AVRO` artifact with new `OPENAPI` content, for example).
@@ -327,7 +354,7 @@ type ApiCreateArtifactRequest struct {
 	ctx _context.Context
 	ApiService ArtifactsApi
 	groupId string
-	body **os.File
+	body *interface{}
 	xRegistryArtifactType *ArtifactType
 	xRegistryArtifactId *string
 	xRegistryVersion *string
@@ -339,7 +366,7 @@ type ApiCreateArtifactRequest struct {
 	xRegistryNameEncoded *string
 }
 
-func (r ApiCreateArtifactRequest) Body(body *os.File) ApiCreateArtifactRequest {
+func (r ApiCreateArtifactRequest) Body(body interface{}) ApiCreateArtifactRequest {
 	r.body = &body
 	return r
 }
@@ -486,7 +513,7 @@ func (a *ArtifactsApiService) CreateArtifactExecute(r ApiCreateArtifactRequest) 
 		localVarQueryParams.Add("canonical", parameterToString(*r.canonical, ""))
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/create.extended+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -821,8 +848,13 @@ type ApiGetContentByGlobalIdRequest struct {
 	ctx _context.Context
 	ApiService ArtifactsApi
 	globalId int64
+	dereference *bool
 }
 
+func (r ApiGetContentByGlobalIdRequest) Dereference(dereference bool) ApiGetContentByGlobalIdRequest {
+	r.dereference = &dereference
+	return r
+}
 
 func (r ApiGetContentByGlobalIdRequest) Execute() (*os.File, *_nethttp.Response, error) {
 	return r.ApiService.GetContentByGlobalIdExecute(r)
@@ -876,6 +908,9 @@ func (a *ArtifactsApiService) GetContentByGlobalIdExecute(r ApiGetContentByGloba
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.dereference != nil {
+		localVarQueryParams.Add("dereference", parameterToString(*r.dereference, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -915,7 +950,7 @@ func (a *ArtifactsApiService) GetContentByGlobalIdExecute(r ApiGetContentByGloba
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 500 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -925,7 +960,7 @@ func (a *ArtifactsApiService) GetContentByGlobalIdExecute(r ApiGetContentByGloba
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 500 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1048,7 +1083,7 @@ func (a *ArtifactsApiService) GetContentByHashExecute(r ApiGetContentByHashReque
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 500 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1058,7 +1093,7 @@ func (a *ArtifactsApiService) GetContentByHashExecute(r ApiGetContentByHashReque
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 500 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1181,7 +1216,7 @@ func (a *ArtifactsApiService) GetContentByIdExecute(r ApiGetContentByIdRequest) 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 500 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1191,7 +1226,7 @@ func (a *ArtifactsApiService) GetContentByIdExecute(r ApiGetContentByIdRequest) 
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 500 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1220,8 +1255,13 @@ type ApiGetLatestArtifactRequest struct {
 	ApiService ArtifactsApi
 	groupId string
 	artifactId string
+	dereference *bool
 }
 
+func (r ApiGetLatestArtifactRequest) Dereference(dereference bool) ApiGetLatestArtifactRequest {
+	r.dereference = &dereference
+	return r
+}
 
 func (r ApiGetLatestArtifactRequest) Execute() (*os.File, *_nethttp.Response, error) {
 	return r.ApiService.GetLatestArtifactExecute(r)
@@ -1279,6 +1319,9 @@ func (a *ArtifactsApiService) GetLatestArtifactExecute(r ApiGetLatestArtifactReq
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.dereference != nil {
+		localVarQueryParams.Add("dereference", parameterToString(*r.dereference, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1499,143 +1542,63 @@ func (a *ArtifactsApiService) ListArtifactsInGroupExecute(r ApiListArtifactsInGr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSearchArtifactsRequest struct {
+type ApiReferencesByContentHashRequest struct {
 	ctx _context.Context
 	ApiService ArtifactsApi
-	name *string
-	offset *int32
-	limit *int32
-	order *SortOrder
-	orderby *SortBy
-	labels *[]string
-	properties *[]string
-	description *string
-	group *string
+	contentHash string
 }
 
-func (r ApiSearchArtifactsRequest) Name(name string) ApiSearchArtifactsRequest {
-	r.name = &name
-	return r
-}
-func (r ApiSearchArtifactsRequest) Offset(offset int32) ApiSearchArtifactsRequest {
-	r.offset = &offset
-	return r
-}
-func (r ApiSearchArtifactsRequest) Limit(limit int32) ApiSearchArtifactsRequest {
-	r.limit = &limit
-	return r
-}
-func (r ApiSearchArtifactsRequest) Order(order SortOrder) ApiSearchArtifactsRequest {
-	r.order = &order
-	return r
-}
-func (r ApiSearchArtifactsRequest) Orderby(orderby SortBy) ApiSearchArtifactsRequest {
-	r.orderby = &orderby
-	return r
-}
-func (r ApiSearchArtifactsRequest) Labels(labels []string) ApiSearchArtifactsRequest {
-	r.labels = &labels
-	return r
-}
-func (r ApiSearchArtifactsRequest) Properties(properties []string) ApiSearchArtifactsRequest {
-	r.properties = &properties
-	return r
-}
-func (r ApiSearchArtifactsRequest) Description(description string) ApiSearchArtifactsRequest {
-	r.description = &description
-	return r
-}
-func (r ApiSearchArtifactsRequest) Group(group string) ApiSearchArtifactsRequest {
-	r.group = &group
-	return r
-}
 
-func (r ApiSearchArtifactsRequest) Execute() (ArtifactSearchResults, *_nethttp.Response, error) {
-	return r.ApiService.SearchArtifactsExecute(r)
+func (r ApiReferencesByContentHashRequest) Execute() ([]ArtifactReference, *_nethttp.Response, error) {
+	return r.ApiService.ReferencesByContentHashExecute(r)
 }
 
 /*
- * SearchArtifacts Search for artifacts
- * Returns a paginated list of all artifacts that match the provided filter criteria.
+ * ReferencesByContentHash Returns a list with all the references for the artifact with the given hash
+ * Returns a list containing all the artifact references using the artifact content hash.
+
+This operation may fail for one of the following reasons:
+
+* A server error occurred (HTTP error `500`)
 
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiSearchArtifactsRequest
+ * @param contentHash SHA-256 content hash for a single artifact content.
+ * @return ApiReferencesByContentHashRequest
  */
-func (a *ArtifactsApiService) SearchArtifacts(ctx _context.Context) ApiSearchArtifactsRequest {
-	return ApiSearchArtifactsRequest{
+func (a *ArtifactsApiService) ReferencesByContentHash(ctx _context.Context, contentHash string) ApiReferencesByContentHashRequest {
+	return ApiReferencesByContentHashRequest{
 		ApiService: a,
 		ctx: ctx,
+		contentHash: contentHash,
 	}
 }
 
 /*
  * Execute executes the request
- * @return ArtifactSearchResults
+ * @return []ArtifactReference
  */
-func (a *ArtifactsApiService) SearchArtifactsExecute(r ApiSearchArtifactsRequest) (ArtifactSearchResults, *_nethttp.Response, error) {
+func (a *ArtifactsApiService) ReferencesByContentHashExecute(r ApiReferencesByContentHashRequest) ([]ArtifactReference, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ArtifactSearchResults
+		localVarReturnValue  []ArtifactReference
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArtifactsApiService.SearchArtifacts")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArtifactsApiService.ReferencesByContentHash")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/search/artifacts"
+	localVarPath := localBasePath + "/ids/contentHashes/{contentHash}/references"
+	localVarPath = strings.Replace(localVarPath, "{"+"contentHash"+"}", _neturl.PathEscape(parameterToString(r.contentHash, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if r.name != nil {
-		localVarQueryParams.Add("name", parameterToString(*r.name, ""))
-	}
-	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
-	}
-	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
-	}
-	if r.order != nil {
-		localVarQueryParams.Add("order", parameterToString(*r.order, ""))
-	}
-	if r.orderby != nil {
-		localVarQueryParams.Add("orderby", parameterToString(*r.orderby, ""))
-	}
-	if r.labels != nil {
-		t := *r.labels
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("labels", parameterToString(s.Index(i), "multi"))
-			}
-		} else {
-			localVarQueryParams.Add("labels", parameterToString(t, "multi"))
-		}
-	}
-	if r.properties != nil {
-		t := *r.properties
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("properties", parameterToString(s.Index(i), "multi"))
-			}
-		} else {
-			localVarQueryParams.Add("properties", parameterToString(t, "multi"))
-		}
-	}
-	if r.description != nil {
-		localVarQueryParams.Add("description", parameterToString(*r.description, ""))
-	}
-	if r.group != nil {
-		localVarQueryParams.Add("group", parameterToString(*r.group, ""))
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1674,15 +1637,6 @@ func (a *ArtifactsApiService) SearchArtifactsExecute(r ApiSearchArtifactsRequest
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1699,112 +1653,62 @@ func (a *ArtifactsApiService) SearchArtifactsExecute(r ApiSearchArtifactsRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSearchArtifactsByContentRequest struct {
+type ApiReferencesByContentIdRequest struct {
 	ctx _context.Context
 	ApiService ArtifactsApi
-	body **os.File
-	canonical *bool
-	artifactType *ArtifactType
-	offset *int32
-	limit *int32
-	order *string
-	orderby *string
+	contentId int64
 }
 
-func (r ApiSearchArtifactsByContentRequest) Body(body *os.File) ApiSearchArtifactsByContentRequest {
-	r.body = &body
-	return r
-}
-func (r ApiSearchArtifactsByContentRequest) Canonical(canonical bool) ApiSearchArtifactsByContentRequest {
-	r.canonical = &canonical
-	return r
-}
-func (r ApiSearchArtifactsByContentRequest) ArtifactType(artifactType ArtifactType) ApiSearchArtifactsByContentRequest {
-	r.artifactType = &artifactType
-	return r
-}
-func (r ApiSearchArtifactsByContentRequest) Offset(offset int32) ApiSearchArtifactsByContentRequest {
-	r.offset = &offset
-	return r
-}
-func (r ApiSearchArtifactsByContentRequest) Limit(limit int32) ApiSearchArtifactsByContentRequest {
-	r.limit = &limit
-	return r
-}
-func (r ApiSearchArtifactsByContentRequest) Order(order string) ApiSearchArtifactsByContentRequest {
-	r.order = &order
-	return r
-}
-func (r ApiSearchArtifactsByContentRequest) Orderby(orderby string) ApiSearchArtifactsByContentRequest {
-	r.orderby = &orderby
-	return r
-}
 
-func (r ApiSearchArtifactsByContentRequest) Execute() (ArtifactSearchResults, *_nethttp.Response, error) {
-	return r.ApiService.SearchArtifactsByContentExecute(r)
+func (r ApiReferencesByContentIdRequest) Execute() ([]ArtifactReference, *_nethttp.Response, error) {
+	return r.ApiService.ReferencesByContentIdExecute(r)
 }
 
 /*
- * SearchArtifactsByContent Search for artifacts by content
- * Returns a paginated list of all artifacts with at least one version that matches the
-posted content.
+ * ReferencesByContentId Returns a list with all the references for the artifact with the given content id.
+ * Returns a list containing all the artifact references using the artifact contentId.
 
+This operation may fail for one of the following reasons:
+
+* A server error occurred (HTTP error `500`)
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiSearchArtifactsByContentRequest
+ * @param contentId Global identifier for a single artifact content.
+ * @return ApiReferencesByContentIdRequest
  */
-func (a *ArtifactsApiService) SearchArtifactsByContent(ctx _context.Context) ApiSearchArtifactsByContentRequest {
-	return ApiSearchArtifactsByContentRequest{
+func (a *ArtifactsApiService) ReferencesByContentId(ctx _context.Context, contentId int64) ApiReferencesByContentIdRequest {
+	return ApiReferencesByContentIdRequest{
 		ApiService: a,
 		ctx: ctx,
+		contentId: contentId,
 	}
 }
 
 /*
  * Execute executes the request
- * @return ArtifactSearchResults
+ * @return []ArtifactReference
  */
-func (a *ArtifactsApiService) SearchArtifactsByContentExecute(r ApiSearchArtifactsByContentRequest) (ArtifactSearchResults, *_nethttp.Response, error) {
+func (a *ArtifactsApiService) ReferencesByContentIdExecute(r ApiReferencesByContentIdRequest) ([]ArtifactReference, *_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ArtifactSearchResults
+		localVarReturnValue  []ArtifactReference
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArtifactsApiService.SearchArtifactsByContent")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArtifactsApiService.ReferencesByContentId")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/search/artifacts"
+	localVarPath := localBasePath + "/ids/contentIds/{contentId}/references"
+	localVarPath = strings.Replace(localVarPath, "{"+"contentId"+"}", _neturl.PathEscape(parameterToString(r.contentId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
-	if r.body == nil {
-		return localVarReturnValue, nil, reportError("body is required and must be specified")
-	}
 
-	if r.canonical != nil {
-		localVarQueryParams.Add("canonical", parameterToString(*r.canonical, ""))
-	}
-	if r.artifactType != nil {
-		localVarQueryParams.Add("artifactType", parameterToString(*r.artifactType, ""))
-	}
-	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
-	}
-	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
-	}
-	if r.order != nil {
-		localVarQueryParams.Add("order", parameterToString(*r.order, ""))
-	}
-	if r.orderby != nil {
-		localVarQueryParams.Add("orderby", parameterToString(*r.orderby, ""))
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1822,8 +1726,6 @@ func (a *ArtifactsApiService) SearchArtifactsByContentExecute(r ApiSearchArtifac
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1846,14 +1748,115 @@ func (a *ArtifactsApiService) SearchArtifactsByContentExecute(r ApiSearchArtifac
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiReferencesByGlobalIdRequest struct {
+	ctx _context.Context
+	ApiService ArtifactsApi
+	globalId int64
+}
+
+
+func (r ApiReferencesByGlobalIdRequest) Execute() ([]ArtifactReference, *_nethttp.Response, error) {
+	return r.ApiService.ReferencesByGlobalIdExecute(r)
+}
+
+/*
+ * ReferencesByGlobalId Returns a list with all the references for the artifact with the given global id.
+ * Returns a list containing all the artifact references using the artifact global id.
+
+This operation may fail for one of the following reasons:
+
+* A server error occurred (HTTP error `500`)
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param globalId Global identifier for an artifact version.
+ * @return ApiReferencesByGlobalIdRequest
+ */
+func (a *ArtifactsApiService) ReferencesByGlobalId(ctx _context.Context, globalId int64) ApiReferencesByGlobalIdRequest {
+	return ApiReferencesByGlobalIdRequest{
+		ApiService: a,
+		ctx: ctx,
+		globalId: globalId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return []ArtifactReference
+ */
+func (a *ArtifactsApiService) ReferencesByGlobalIdExecute(r ApiReferencesByGlobalIdRequest) ([]ArtifactReference, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  []ArtifactReference
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ArtifactsApiService.ReferencesByGlobalId")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/ids/globalIds/{globalId}/references"
+	localVarPath = strings.Replace(localVarPath, "{"+"globalId"+"}", _neturl.PathEscape(parameterToString(r.globalId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1875,7 +1878,7 @@ type ApiUpdateArtifactRequest struct {
 	ApiService ArtifactsApi
 	groupId string
 	artifactId string
-	body **os.File
+	body *interface{}
 	xRegistryVersion *string
 	xRegistryName *string
 	xRegistryNameEncoded *string
@@ -1883,7 +1886,7 @@ type ApiUpdateArtifactRequest struct {
 	xRegistryDescriptionEncoded *string
 }
 
-func (r ApiUpdateArtifactRequest) Body(body *os.File) ApiUpdateArtifactRequest {
+func (r ApiUpdateArtifactRequest) Body(body interface{}) ApiUpdateArtifactRequest {
 	r.body = &body
 	return r
 }
@@ -1914,8 +1917,9 @@ func (r ApiUpdateArtifactRequest) Execute() (ArtifactMetaData, *_nethttp.Respons
 
 /*
  * UpdateArtifact Update artifact
- * Updates an artifact by uploading new content.  The body of the request should
-be the raw content of the artifact.  This is typically in JSON format for *most*
+ * Updates an artifact by uploading new content.  The body of the request can
+be the raw content of the artifact or a JSON object containing both the raw content and
+a set of references to other artifacts..  This is typically in JSON format for *most*
 of the supported types, but may be in another format for a few (for example, `PROTOBUF`).
 The type of the content should be compatible with the artifact's type (it would be
 an error to update an `AVRO` artifact with new `OPENAPI` content, for example).
@@ -1974,7 +1978,7 @@ func (a *ArtifactsApiService) UpdateArtifactExecute(r ApiUpdateArtifactRequest) 
 	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/create.extended+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)

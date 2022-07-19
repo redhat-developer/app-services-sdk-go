@@ -3,7 +3,7 @@
  *
  * Apicurio Registry is a datastore for standard event schemas and API designs. Apicurio Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.  The Apicurio Registry REST API enables client applications to manage the artifacts in the registry. This API provides create, read, update, and delete operations for schema and API artifacts, rules, versions, and metadata.   The supported artifact types include: - Apache Avro schema - AsyncAPI specification - Google protocol buffers - GraphQL schema - JSON Schema - Kafka Connect schema - OpenAPI specification - Web Services Description Language - XML Schema Definition   **Important**: The Apicurio Registry REST API is available from `https://MY-REGISTRY-URL/apis/registry/v2` by default. Therefore you must prefix all API operation paths with `../apis/registry/v2` in this case. For example: `../apis/registry/v2/ids/globalIds/{globalId}`. 
  *
- * API version: 2.1.0-SNAPSHOT
+ * API version: 2.2.5.Final
  * Contact: apicurio@lists.jboss.org
  */
 
@@ -68,47 +68,6 @@ This operation can fail for the following reasons:
 	CreateRoleMappingExecute(r ApiCreateRoleMappingRequest) (*_nethttp.Response, error)
 
 	/*
-	 * DeleteAllGlobalRules Delete all global rules
-	 * Deletes all globally configured rules.
-
-This operation can fail for the following reasons:
-
-* A server error occurred (HTTP error `500`)
-
-	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @return ApiDeleteAllGlobalRulesRequest
-	 */
-	DeleteAllGlobalRules(ctx _context.Context) ApiDeleteAllGlobalRulesRequest
-
-	/*
-	 * DeleteAllGlobalRulesExecute executes the request
-	 */
-	DeleteAllGlobalRulesExecute(r ApiDeleteAllGlobalRulesRequest) (*_nethttp.Response, error)
-
-	/*
-	 * DeleteGlobalRule Delete global rule
-	 * Deletes a single global rule.  If this is the only rule configured, this is the same
-as deleting **all** rules.
-
-This operation can fail for the following reasons:
-
-* Invalid rule name/type (HTTP error `400`)
-* No rule with name/type `rule` exists (HTTP error `404`)
-* Rule cannot be deleted (HTTP error `409`)
-* A server error occurred (HTTP error `500`)
-
-	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @param rule The unique name/type of a rule.
-	 * @return ApiDeleteGlobalRuleRequest
-	 */
-	DeleteGlobalRule(ctx _context.Context, rule RuleType) ApiDeleteGlobalRuleRequest
-
-	/*
-	 * DeleteGlobalRuleExecute executes the request
-	 */
-	DeleteGlobalRuleExecute(r ApiDeleteGlobalRuleRequest) (*_nethttp.Response, error)
-
-	/*
 	 * DeleteRoleMapping Delete a role mapping
 	 * Deletes a single role mapping, effectively denying access to a user/principal.
 
@@ -143,26 +102,25 @@ This operation can fail for the following reasons:
 	ExportDataExecute(r ApiExportDataRequest) (*os.File, *_nethttp.Response, error)
 
 	/*
-	 * GetGlobalRuleConfig Get global rule configuration
-	 * Returns information about the named globally configured rule.
+	 * GetConfigProperty Get the value of a configuration property
+	 * Returns the value of a single configuration property.
 
-This operation can fail for the following reasons:
+This operation may fail for one of the following reasons:
 
-* Invalid rule name/type (HTTP error `400`)
-* No rule with name/type `rule` exists (HTTP error `404`)
+* Property not found or not configured (HTTP error `404`)
 * A server error occurred (HTTP error `500`)
 
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @param rule The unique name/type of a rule.
-	 * @return ApiGetGlobalRuleConfigRequest
+	 * @param propertyName The name of a configuration property.
+	 * @return ApiGetConfigPropertyRequest
 	 */
-	GetGlobalRuleConfig(ctx _context.Context, rule RuleType) ApiGetGlobalRuleConfigRequest
+	GetConfigProperty(ctx _context.Context, propertyName string) ApiGetConfigPropertyRequest
 
 	/*
-	 * GetGlobalRuleConfigExecute executes the request
-	 * @return Rule
+	 * GetConfigPropertyExecute executes the request
+	 * @return ConfigurationProperty
 	 */
-	GetGlobalRuleConfigExecute(r ApiGetGlobalRuleConfigRequest) (Rule, *_nethttp.Response, error)
+	GetConfigPropertyExecute(r ApiGetConfigPropertyRequest) (ConfigurationProperty, *_nethttp.Response, error)
 
 	/*
 	 * GetLogConfiguration Get a single logger configuration
@@ -212,6 +170,25 @@ This operation can fail for the following reasons:
 	 * ImportDataExecute executes the request
 	 */
 	ImportDataExecute(r ApiImportDataRequest) (*_nethttp.Response, error)
+
+	/*
+	 * ListConfigProperties List all configuration properties
+	 * Returns a list of all configuration properties that have been set.  The list is not paged.
+
+This operation may fail for one of the following reasons:
+
+* A server error occurred (HTTP error `500`)
+
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @return ApiListConfigPropertiesRequest
+	 */
+	ListConfigProperties(ctx _context.Context) ApiListConfigPropertiesRequest
+
+	/*
+	 * ListConfigPropertiesExecute executes the request
+	 * @return []ConfigurationProperty
+	 */
+	ListConfigPropertiesExecute(r ApiListConfigPropertiesRequest) ([]ConfigurationProperty, *_nethttp.Response, error)
 
 	/*
 	 * ListGlobalRules List global rules
@@ -282,6 +259,28 @@ This operation can fail for the following reasons:
 	RemoveLogConfigurationExecute(r ApiRemoveLogConfigurationRequest) (NamedLogConfiguration, *_nethttp.Response, error)
 
 	/*
+	 * ResetConfigProperty Reset a configuration property
+	 * Resets the value of a single configuration property.  This will return the property to
+its default value (see external documentation for supported properties and their default
+values).
+
+This operation may fail for one of the following reasons:
+
+* Property not found or not configured (HTTP error `404`)
+* A server error occurred (HTTP error `500`)
+
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param propertyName The name of a configuration property.
+	 * @return ApiResetConfigPropertyRequest
+	 */
+	ResetConfigProperty(ctx _context.Context, propertyName string) ApiResetConfigPropertyRequest
+
+	/*
+	 * ResetConfigPropertyExecute executes the request
+	 */
+	ResetConfigPropertyExecute(r ApiResetConfigPropertyRequest) (*_nethttp.Response, error)
+
+	/*
 	 * SetLogConfiguration Set a logger's configuration
 	 * Configures the logger referenced by the provided logger name with the given configuration.
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -297,26 +296,24 @@ This operation can fail for the following reasons:
 	SetLogConfigurationExecute(r ApiSetLogConfigurationRequest) (NamedLogConfiguration, *_nethttp.Response, error)
 
 	/*
-	 * UpdateGlobalRuleConfig Update global rule configuration
-	 * Updates the configuration for a globally configured rule.
+	 * UpdateConfigProperty Update a configuration property
+	 * Updates the value of a single configuration property.
 
-This operation can fail for the following reasons:
+This operation may fail for one of the following reasons:
 
-* Invalid rule name/type (HTTP error `400`)
-* No rule with name/type `rule` exists (HTTP error `404`)
+* Property not found or not configured (HTTP error `404`)
 * A server error occurred (HTTP error `500`)
 
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @param rule The unique name/type of a rule.
-	 * @return ApiUpdateGlobalRuleConfigRequest
+	 * @param propertyName The name of a configuration property.
+	 * @return ApiUpdateConfigPropertyRequest
 	 */
-	UpdateGlobalRuleConfig(ctx _context.Context, rule RuleType) ApiUpdateGlobalRuleConfigRequest
+	UpdateConfigProperty(ctx _context.Context, propertyName string) ApiUpdateConfigPropertyRequest
 
 	/*
-	 * UpdateGlobalRuleConfigExecute executes the request
-	 * @return Rule
+	 * UpdateConfigPropertyExecute executes the request
 	 */
-	UpdateGlobalRuleConfigExecute(r ApiUpdateGlobalRuleConfigRequest) (Rule, *_nethttp.Response, error)
+	UpdateConfigPropertyExecute(r ApiUpdateConfigPropertyRequest) (*_nethttp.Response, error)
 
 	/*
 	 * UpdateRoleMapping Update a role mapping
@@ -595,234 +592,6 @@ func (a *AdminApiService) CreateRoleMappingExecute(r ApiCreateRoleMappingRequest
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteAllGlobalRulesRequest struct {
-	ctx _context.Context
-	ApiService AdminApi
-}
-
-
-func (r ApiDeleteAllGlobalRulesRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.DeleteAllGlobalRulesExecute(r)
-}
-
-/*
- * DeleteAllGlobalRules Delete all global rules
- * Deletes all globally configured rules.
-
-This operation can fail for the following reasons:
-
-* A server error occurred (HTTP error `500`)
-
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiDeleteAllGlobalRulesRequest
- */
-func (a *AdminApiService) DeleteAllGlobalRules(ctx _context.Context) ApiDeleteAllGlobalRulesRequest {
-	return ApiDeleteAllGlobalRulesRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *AdminApiService) DeleteAllGlobalRulesExecute(r ApiDeleteAllGlobalRulesRequest) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminApiService.DeleteAllGlobalRules")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/admin/rules"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiDeleteGlobalRuleRequest struct {
-	ctx _context.Context
-	ApiService AdminApi
-	rule RuleType
-}
-
-
-func (r ApiDeleteGlobalRuleRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.DeleteGlobalRuleExecute(r)
-}
-
-/*
- * DeleteGlobalRule Delete global rule
- * Deletes a single global rule.  If this is the only rule configured, this is the same
-as deleting **all** rules.
-
-This operation can fail for the following reasons:
-
-* Invalid rule name/type (HTTP error `400`)
-* No rule with name/type `rule` exists (HTTP error `404`)
-* Rule cannot be deleted (HTTP error `409`)
-* A server error occurred (HTTP error `500`)
-
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param rule The unique name/type of a rule.
- * @return ApiDeleteGlobalRuleRequest
- */
-func (a *AdminApiService) DeleteGlobalRule(ctx _context.Context, rule RuleType) ApiDeleteGlobalRuleRequest {
-	return ApiDeleteGlobalRuleRequest{
-		ApiService: a,
-		ctx: ctx,
-		rule: rule,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *AdminApiService) DeleteGlobalRuleExecute(r ApiDeleteGlobalRuleRequest) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminApiService.DeleteGlobalRule")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/admin/rules/{rule}"
-	localVarPath = strings.Replace(localVarPath, "{"+"rule"+"}", _neturl.PathEscape(parameterToString(r.rule, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v Error
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
 type ApiDeleteRoleMappingRequest struct {
 	ctx _context.Context
 	ApiService AdminApi
@@ -946,8 +715,13 @@ func (a *AdminApiService) DeleteRoleMappingExecute(r ApiDeleteRoleMappingRequest
 type ApiExportDataRequest struct {
 	ctx _context.Context
 	ApiService AdminApi
+	forBrowser *bool
 }
 
+func (r ApiExportDataRequest) ForBrowser(forBrowser bool) ApiExportDataRequest {
+	r.forBrowser = &forBrowser
+	return r
+}
 
 func (r ApiExportDataRequest) Execute() (*os.File, *_nethttp.Response, error) {
 	return r.ApiService.ExportDataExecute(r)
@@ -991,6 +765,9 @@ func (a *AdminApiService) ExportDataExecute(r ApiExportDataRequest) (*os.File, *
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.forBrowser != nil {
+		localVarQueryParams.Add("forBrowser", parameterToString(*r.forBrowser, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1001,7 +778,7 @@ func (a *AdminApiService) ExportDataExecute(r ApiExportDataRequest) (*os.File, *
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/zip"}
+	localVarHTTPHeaderAccepts := []string{"application/zip", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -1030,6 +807,15 @@ func (a *AdminApiService) ExportDataExecute(r ApiExportDataRequest) (*os.File, *
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1045,60 +831,59 @@ func (a *AdminApiService) ExportDataExecute(r ApiExportDataRequest) (*os.File, *
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetGlobalRuleConfigRequest struct {
+type ApiGetConfigPropertyRequest struct {
 	ctx _context.Context
 	ApiService AdminApi
-	rule RuleType
+	propertyName string
 }
 
 
-func (r ApiGetGlobalRuleConfigRequest) Execute() (Rule, *_nethttp.Response, error) {
-	return r.ApiService.GetGlobalRuleConfigExecute(r)
+func (r ApiGetConfigPropertyRequest) Execute() (ConfigurationProperty, *_nethttp.Response, error) {
+	return r.ApiService.GetConfigPropertyExecute(r)
 }
 
 /*
- * GetGlobalRuleConfig Get global rule configuration
- * Returns information about the named globally configured rule.
+ * GetConfigProperty Get the value of a configuration property
+ * Returns the value of a single configuration property.
 
-This operation can fail for the following reasons:
+This operation may fail for one of the following reasons:
 
-* Invalid rule name/type (HTTP error `400`)
-* No rule with name/type `rule` exists (HTTP error `404`)
+* Property not found or not configured (HTTP error `404`)
 * A server error occurred (HTTP error `500`)
 
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param rule The unique name/type of a rule.
- * @return ApiGetGlobalRuleConfigRequest
+ * @param propertyName The name of a configuration property.
+ * @return ApiGetConfigPropertyRequest
  */
-func (a *AdminApiService) GetGlobalRuleConfig(ctx _context.Context, rule RuleType) ApiGetGlobalRuleConfigRequest {
-	return ApiGetGlobalRuleConfigRequest{
+func (a *AdminApiService) GetConfigProperty(ctx _context.Context, propertyName string) ApiGetConfigPropertyRequest {
+	return ApiGetConfigPropertyRequest{
 		ApiService: a,
 		ctx: ctx,
-		rule: rule,
+		propertyName: propertyName,
 	}
 }
 
 /*
  * Execute executes the request
- * @return Rule
+ * @return ConfigurationProperty
  */
-func (a *AdminApiService) GetGlobalRuleConfigExecute(r ApiGetGlobalRuleConfigRequest) (Rule, *_nethttp.Response, error) {
+func (a *AdminApiService) GetConfigPropertyExecute(r ApiGetConfigPropertyRequest) (ConfigurationProperty, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Rule
+		localVarReturnValue  ConfigurationProperty
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminApiService.GetGlobalRuleConfig")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminApiService.GetConfigProperty")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/admin/rules/{rule}"
-	localVarPath = strings.Replace(localVarPath, "{"+"rule"+"}", _neturl.PathEscape(parameterToString(r.rule, "")), -1)
+	localVarPath := localBasePath + "/admin/config/properties/{propertyName}"
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyName"+"}", _neturl.PathEscape(parameterToString(r.propertyName, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1427,10 +1212,20 @@ type ApiImportDataRequest struct {
 	ctx _context.Context
 	ApiService AdminApi
 	body **os.File
+	xRegistryPreserveGlobalId *bool
+	xRegistryPreserveContentId *bool
 }
 
 func (r ApiImportDataRequest) Body(body *os.File) ApiImportDataRequest {
 	r.body = &body
+	return r
+}
+func (r ApiImportDataRequest) XRegistryPreserveGlobalId(xRegistryPreserveGlobalId bool) ApiImportDataRequest {
+	r.xRegistryPreserveGlobalId = &xRegistryPreserveGlobalId
+	return r
+}
+func (r ApiImportDataRequest) XRegistryPreserveContentId(xRegistryPreserveContentId bool) ApiImportDataRequest {
+	r.xRegistryPreserveContentId = &xRegistryPreserveContentId
 	return r
 }
 
@@ -1494,6 +1289,12 @@ func (a *AdminApiService) ImportDataExecute(r ApiImportDataRequest) (*_nethttp.R
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.xRegistryPreserveGlobalId != nil {
+		localVarHeaderParams["X-Registry-Preserve-GlobalId"] = parameterToString(*r.xRegistryPreserveGlobalId, "")
+	}
+	if r.xRegistryPreserveContentId != nil {
+		localVarHeaderParams["X-Registry-Preserve-ContentId"] = parameterToString(*r.xRegistryPreserveContentId, "")
+	}
 	// body params
 	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
@@ -1531,6 +1332,122 @@ func (a *AdminApiService) ImportDataExecute(r ApiImportDataRequest) (*_nethttp.R
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+type ApiListConfigPropertiesRequest struct {
+	ctx _context.Context
+	ApiService AdminApi
+}
+
+
+func (r ApiListConfigPropertiesRequest) Execute() ([]ConfigurationProperty, *_nethttp.Response, error) {
+	return r.ApiService.ListConfigPropertiesExecute(r)
+}
+
+/*
+ * ListConfigProperties List all configuration properties
+ * Returns a list of all configuration properties that have been set.  The list is not paged.
+
+This operation may fail for one of the following reasons:
+
+* A server error occurred (HTTP error `500`)
+
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @return ApiListConfigPropertiesRequest
+ */
+func (a *AdminApiService) ListConfigProperties(ctx _context.Context) ApiListConfigPropertiesRequest {
+	return ApiListConfigPropertiesRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return []ConfigurationProperty
+ */
+func (a *AdminApiService) ListConfigPropertiesExecute(r ApiListConfigPropertiesRequest) ([]ConfigurationProperty, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  []ConfigurationProperty
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminApiService.ListConfigProperties")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/admin/config/properties"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiListGlobalRulesRequest struct {
@@ -1992,6 +1909,128 @@ func (a *AdminApiService) RemoveLogConfigurationExecute(r ApiRemoveLogConfigurat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiResetConfigPropertyRequest struct {
+	ctx _context.Context
+	ApiService AdminApi
+	propertyName string
+}
+
+
+func (r ApiResetConfigPropertyRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.ResetConfigPropertyExecute(r)
+}
+
+/*
+ * ResetConfigProperty Reset a configuration property
+ * Resets the value of a single configuration property.  This will return the property to
+its default value (see external documentation for supported properties and their default
+values).
+
+This operation may fail for one of the following reasons:
+
+* Property not found or not configured (HTTP error `404`)
+* A server error occurred (HTTP error `500`)
+
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param propertyName The name of a configuration property.
+ * @return ApiResetConfigPropertyRequest
+ */
+func (a *AdminApiService) ResetConfigProperty(ctx _context.Context, propertyName string) ApiResetConfigPropertyRequest {
+	return ApiResetConfigPropertyRequest{
+		ApiService: a,
+		ctx: ctx,
+		propertyName: propertyName,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *AdminApiService) ResetConfigPropertyExecute(r ApiResetConfigPropertyRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodDelete
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminApiService.ResetConfigProperty")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/admin/config/properties/{propertyName}"
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyName"+"}", _neturl.PathEscape(parameterToString(r.propertyName, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiSetLogConfigurationRequest struct {
 	ctx _context.Context
 	ApiService AdminApi
@@ -2117,71 +2156,68 @@ func (a *AdminApiService) SetLogConfigurationExecute(r ApiSetLogConfigurationReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateGlobalRuleConfigRequest struct {
+type ApiUpdateConfigPropertyRequest struct {
 	ctx _context.Context
 	ApiService AdminApi
-	rule RuleType
-	rule2 *Rule
+	propertyName string
+	updateConfigurationProperty *UpdateConfigurationProperty
 }
 
-func (r ApiUpdateGlobalRuleConfigRequest) Rule2(rule2 Rule) ApiUpdateGlobalRuleConfigRequest {
-	r.rule2 = &rule2
+func (r ApiUpdateConfigPropertyRequest) UpdateConfigurationProperty(updateConfigurationProperty UpdateConfigurationProperty) ApiUpdateConfigPropertyRequest {
+	r.updateConfigurationProperty = &updateConfigurationProperty
 	return r
 }
 
-func (r ApiUpdateGlobalRuleConfigRequest) Execute() (Rule, *_nethttp.Response, error) {
-	return r.ApiService.UpdateGlobalRuleConfigExecute(r)
+func (r ApiUpdateConfigPropertyRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.UpdateConfigPropertyExecute(r)
 }
 
 /*
- * UpdateGlobalRuleConfig Update global rule configuration
- * Updates the configuration for a globally configured rule.
+ * UpdateConfigProperty Update a configuration property
+ * Updates the value of a single configuration property.
 
-This operation can fail for the following reasons:
+This operation may fail for one of the following reasons:
 
-* Invalid rule name/type (HTTP error `400`)
-* No rule with name/type `rule` exists (HTTP error `404`)
+* Property not found or not configured (HTTP error `404`)
 * A server error occurred (HTTP error `500`)
 
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param rule The unique name/type of a rule.
- * @return ApiUpdateGlobalRuleConfigRequest
+ * @param propertyName The name of a configuration property.
+ * @return ApiUpdateConfigPropertyRequest
  */
-func (a *AdminApiService) UpdateGlobalRuleConfig(ctx _context.Context, rule RuleType) ApiUpdateGlobalRuleConfigRequest {
-	return ApiUpdateGlobalRuleConfigRequest{
+func (a *AdminApiService) UpdateConfigProperty(ctx _context.Context, propertyName string) ApiUpdateConfigPropertyRequest {
+	return ApiUpdateConfigPropertyRequest{
 		ApiService: a,
 		ctx: ctx,
-		rule: rule,
+		propertyName: propertyName,
 	}
 }
 
 /*
  * Execute executes the request
- * @return Rule
  */
-func (a *AdminApiService) UpdateGlobalRuleConfigExecute(r ApiUpdateGlobalRuleConfigRequest) (Rule, *_nethttp.Response, error) {
+func (a *AdminApiService) UpdateConfigPropertyExecute(r ApiUpdateConfigPropertyRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Rule
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminApiService.UpdateGlobalRuleConfig")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminApiService.UpdateConfigProperty")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/admin/rules/{rule}"
-	localVarPath = strings.Replace(localVarPath, "{"+"rule"+"}", _neturl.PathEscape(parameterToString(r.rule, "")), -1)
+	localVarPath := localBasePath + "/admin/config/properties/{propertyName}"
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyName"+"}", _neturl.PathEscape(parameterToString(r.propertyName, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
-	if r.rule2 == nil {
-		return localVarReturnValue, nil, reportError("rule2 is required and must be specified")
+	if r.updateConfigurationProperty == nil {
+		return nil, reportError("updateConfigurationProperty is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -2202,22 +2238,22 @@ func (a *AdminApiService) UpdateGlobalRuleConfigExecute(r ApiUpdateGlobalRuleCon
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.rule2
+	localVarPostBody = r.updateConfigurationProperty
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -2230,33 +2266,24 @@ func (a *AdminApiService) UpdateGlobalRuleConfigExecute(r ApiUpdateGlobalRuleCon
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
+		return localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
+	return localVarHTTPResponse, nil
 }
 
 type ApiUpdateRoleMappingRequest struct {
