@@ -130,8 +130,7 @@
       "summary": "Manage the global rules that apply to all artifacts if not otherwise configured.",
       "get": {
         "tags": [
-          "Global rules",
-          "Admin"
+          "Global rules"
         ],
         "responses": {
           "200": {
@@ -167,8 +166,7 @@
           "required": true
         },
         "tags": [
-          "Global rules",
-          "Admin"
+          "Global rules"
         ],
         "responses": {
           "204": {
