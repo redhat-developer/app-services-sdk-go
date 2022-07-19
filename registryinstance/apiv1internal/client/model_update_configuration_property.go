@@ -15,129 +15,93 @@ import (
 	"encoding/json"
 )
 
-// Rule struct for Rule
-type Rule struct {
-	Config string `json:"config"`
-	Type *RuleType `json:"type,omitempty"`
+// UpdateConfigurationProperty struct for UpdateConfigurationProperty
+type UpdateConfigurationProperty struct {
+	Value string `json:"value"`
 }
 
-// NewRule instantiates a new Rule object
+// NewUpdateConfigurationProperty instantiates a new UpdateConfigurationProperty object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRule(config string) *Rule {
-	this := Rule{}
-	this.Config = config
+func NewUpdateConfigurationProperty(value string) *UpdateConfigurationProperty {
+	this := UpdateConfigurationProperty{}
+	this.Value = value
 	return &this
 }
 
-// NewRuleWithDefaults instantiates a new Rule object
+// NewUpdateConfigurationPropertyWithDefaults instantiates a new UpdateConfigurationProperty object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewRuleWithDefaults() *Rule {
-	this := Rule{}
+func NewUpdateConfigurationPropertyWithDefaults() *UpdateConfigurationProperty {
+	this := UpdateConfigurationProperty{}
 	return &this
 }
 
-// GetConfig returns the Config field value
-func (o *Rule) GetConfig() string {
+// GetValue returns the Value field value
+func (o *UpdateConfigurationProperty) GetValue() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Config
+	return o.Value
 }
 
-// GetConfigOk returns a tuple with the Config field value
+// GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
-func (o *Rule) GetConfigOk() (*string, bool) {
+func (o *UpdateConfigurationProperty) GetValueOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Config, true
+	return &o.Value, true
 }
 
-// SetConfig sets field value
-func (o *Rule) SetConfig(v string) {
-	o.Config = v
+// SetValue sets field value
+func (o *UpdateConfigurationProperty) SetValue(v string) {
+	o.Value = v
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
-func (o *Rule) GetType() RuleType {
-	if o == nil || o.Type == nil {
-		var ret RuleType
-		return ret
-	}
-	return *o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Rule) GetTypeOk() (*RuleType, bool) {
-	if o == nil || o.Type == nil {
-		return nil, false
-	}
-	return o.Type, true
-}
-
-// HasType returns a boolean if a field has been set.
-func (o *Rule) HasType() bool {
-	if o != nil && o.Type != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given RuleType and assigns it to the Type field.
-func (o *Rule) SetType(v RuleType) {
-	o.Type = &v
-}
-
-func (o Rule) MarshalJSON() ([]byte, error) {
+func (o UpdateConfigurationProperty) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
-		toSerialize["config"] = o.Config
-	}
-	if o.Type != nil {
-		toSerialize["type"] = o.Type
+		toSerialize["value"] = o.Value
 	}
 	return json.Marshal(toSerialize)
 }
 
-type NullableRule struct {
-	value *Rule
+type NullableUpdateConfigurationProperty struct {
+	value *UpdateConfigurationProperty
 	isSet bool
 }
 
-func (v NullableRule) Get() *Rule {
+func (v NullableUpdateConfigurationProperty) Get() *UpdateConfigurationProperty {
 	return v.value
 }
 
-func (v *NullableRule) Set(val *Rule) {
+func (v *NullableUpdateConfigurationProperty) Set(val *UpdateConfigurationProperty) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableRule) IsSet() bool {
+func (v NullableUpdateConfigurationProperty) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableRule) Unset() {
+func (v *NullableUpdateConfigurationProperty) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableRule(val *Rule) *NullableRule {
-	return &NullableRule{value: val, isSet: true}
+func NewNullableUpdateConfigurationProperty(val *UpdateConfigurationProperty) *NullableUpdateConfigurationProperty {
+	return &NullableUpdateConfigurationProperty{value: val, isSet: true}
 }
 
-func (v NullableRule) MarshalJSON() ([]byte, error) {
+func (v NullableUpdateConfigurationProperty) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableRule) UnmarshalJSON(src []byte) error {
+func (v *NullableUpdateConfigurationProperty) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

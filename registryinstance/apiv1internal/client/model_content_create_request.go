@@ -15,124 +15,124 @@ import (
 	"encoding/json"
 )
 
-// VersionSearchResults Describes the response received when searching for artifacts.
-type VersionSearchResults struct {
-	// The total number of versions that matched the query (may be more than the number of versions returned in the result set).
-	Count int32 `json:"count"`
-	// The collection of artifact versions returned in the result set.
-	Versions []SearchedVersion `json:"versions"`
+// ContentCreateRequest struct for ContentCreateRequest
+type ContentCreateRequest struct {
+	// Raw content of the artifact.
+	Content string `json:"content"`
+	// Collection of references to other artifacts.
+	References []ArtifactReference `json:"references"`
 }
 
-// NewVersionSearchResults instantiates a new VersionSearchResults object
+// NewContentCreateRequest instantiates a new ContentCreateRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVersionSearchResults(count int32, versions []SearchedVersion) *VersionSearchResults {
-	this := VersionSearchResults{}
-	this.Count = count
-	this.Versions = versions
+func NewContentCreateRequest(content string, references []ArtifactReference) *ContentCreateRequest {
+	this := ContentCreateRequest{}
+	this.Content = content
+	this.References = references
 	return &this
 }
 
-// NewVersionSearchResultsWithDefaults instantiates a new VersionSearchResults object
+// NewContentCreateRequestWithDefaults instantiates a new ContentCreateRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewVersionSearchResultsWithDefaults() *VersionSearchResults {
-	this := VersionSearchResults{}
+func NewContentCreateRequestWithDefaults() *ContentCreateRequest {
+	this := ContentCreateRequest{}
 	return &this
 }
 
-// GetCount returns the Count field value
-func (o *VersionSearchResults) GetCount() int32 {
+// GetContent returns the Content field value
+func (o *ContentCreateRequest) GetContent() string {
 	if o == nil {
-		var ret int32
+		var ret string
 		return ret
 	}
 
-	return o.Count
+	return o.Content
 }
 
-// GetCountOk returns a tuple with the Count field value
+// GetContentOk returns a tuple with the Content field value
 // and a boolean to check if the value has been set.
-func (o *VersionSearchResults) GetCountOk() (*int32, bool) {
+func (o *ContentCreateRequest) GetContentOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Count, true
+	return &o.Content, true
 }
 
-// SetCount sets field value
-func (o *VersionSearchResults) SetCount(v int32) {
-	o.Count = v
+// SetContent sets field value
+func (o *ContentCreateRequest) SetContent(v string) {
+	o.Content = v
 }
 
-// GetVersions returns the Versions field value
-func (o *VersionSearchResults) GetVersions() []SearchedVersion {
+// GetReferences returns the References field value
+func (o *ContentCreateRequest) GetReferences() []ArtifactReference {
 	if o == nil {
-		var ret []SearchedVersion
+		var ret []ArtifactReference
 		return ret
 	}
 
-	return o.Versions
+	return o.References
 }
 
-// GetVersionsOk returns a tuple with the Versions field value
+// GetReferencesOk returns a tuple with the References field value
 // and a boolean to check if the value has been set.
-func (o *VersionSearchResults) GetVersionsOk() (*[]SearchedVersion, bool) {
+func (o *ContentCreateRequest) GetReferencesOk() (*[]ArtifactReference, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Versions, true
+	return &o.References, true
 }
 
-// SetVersions sets field value
-func (o *VersionSearchResults) SetVersions(v []SearchedVersion) {
-	o.Versions = v
+// SetReferences sets field value
+func (o *ContentCreateRequest) SetReferences(v []ArtifactReference) {
+	o.References = v
 }
 
-func (o VersionSearchResults) MarshalJSON() ([]byte, error) {
+func (o ContentCreateRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
-		toSerialize["count"] = o.Count
+		toSerialize["content"] = o.Content
 	}
 	if true {
-		toSerialize["versions"] = o.Versions
+		toSerialize["references"] = o.References
 	}
 	return json.Marshal(toSerialize)
 }
 
-type NullableVersionSearchResults struct {
-	value *VersionSearchResults
+type NullableContentCreateRequest struct {
+	value *ContentCreateRequest
 	isSet bool
 }
 
-func (v NullableVersionSearchResults) Get() *VersionSearchResults {
+func (v NullableContentCreateRequest) Get() *ContentCreateRequest {
 	return v.value
 }
 
-func (v *NullableVersionSearchResults) Set(val *VersionSearchResults) {
+func (v *NullableContentCreateRequest) Set(val *ContentCreateRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableVersionSearchResults) IsSet() bool {
+func (v NullableContentCreateRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableVersionSearchResults) Unset() {
+func (v *NullableContentCreateRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableVersionSearchResults(val *VersionSearchResults) *NullableVersionSearchResults {
-	return &NullableVersionSearchResults{value: val, isSet: true}
+func NewNullableContentCreateRequest(val *ContentCreateRequest) *NullableContentCreateRequest {
+	return &NullableContentCreateRequest{value: val, isSet: true}
 }
 
-func (v NullableVersionSearchResults) MarshalJSON() ([]byte, error) {
+func (v NullableContentCreateRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableVersionSearchResults) UnmarshalJSON(src []byte) error {
+func (v *NullableContentCreateRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

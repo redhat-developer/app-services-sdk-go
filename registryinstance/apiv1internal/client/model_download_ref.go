@@ -15,124 +15,129 @@ import (
 	"encoding/json"
 )
 
-// VersionSearchResults Describes the response received when searching for artifacts.
-type VersionSearchResults struct {
-	// The total number of versions that matched the query (may be more than the number of versions returned in the result set).
-	Count int32 `json:"count"`
-	// The collection of artifact versions returned in the result set.
-	Versions []SearchedVersion `json:"versions"`
+// DownloadRef Models a download \"link\".  Useful for browser use-cases.
+type DownloadRef struct {
+	DownloadId string `json:"downloadId"`
+	Href *string `json:"href,omitempty"`
 }
 
-// NewVersionSearchResults instantiates a new VersionSearchResults object
+// NewDownloadRef instantiates a new DownloadRef object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVersionSearchResults(count int32, versions []SearchedVersion) *VersionSearchResults {
-	this := VersionSearchResults{}
-	this.Count = count
-	this.Versions = versions
+func NewDownloadRef(downloadId string) *DownloadRef {
+	this := DownloadRef{}
+	this.DownloadId = downloadId
 	return &this
 }
 
-// NewVersionSearchResultsWithDefaults instantiates a new VersionSearchResults object
+// NewDownloadRefWithDefaults instantiates a new DownloadRef object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewVersionSearchResultsWithDefaults() *VersionSearchResults {
-	this := VersionSearchResults{}
+func NewDownloadRefWithDefaults() *DownloadRef {
+	this := DownloadRef{}
 	return &this
 }
 
-// GetCount returns the Count field value
-func (o *VersionSearchResults) GetCount() int32 {
+// GetDownloadId returns the DownloadId field value
+func (o *DownloadRef) GetDownloadId() string {
 	if o == nil {
-		var ret int32
+		var ret string
 		return ret
 	}
 
-	return o.Count
+	return o.DownloadId
 }
 
-// GetCountOk returns a tuple with the Count field value
+// GetDownloadIdOk returns a tuple with the DownloadId field value
 // and a boolean to check if the value has been set.
-func (o *VersionSearchResults) GetCountOk() (*int32, bool) {
+func (o *DownloadRef) GetDownloadIdOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Count, true
+	return &o.DownloadId, true
 }
 
-// SetCount sets field value
-func (o *VersionSearchResults) SetCount(v int32) {
-	o.Count = v
+// SetDownloadId sets field value
+func (o *DownloadRef) SetDownloadId(v string) {
+	o.DownloadId = v
 }
 
-// GetVersions returns the Versions field value
-func (o *VersionSearchResults) GetVersions() []SearchedVersion {
-	if o == nil {
-		var ret []SearchedVersion
+// GetHref returns the Href field value if set, zero value otherwise.
+func (o *DownloadRef) GetHref() string {
+	if o == nil || o.Href == nil {
+		var ret string
 		return ret
 	}
-
-	return o.Versions
+	return *o.Href
 }
 
-// GetVersionsOk returns a tuple with the Versions field value
+// GetHrefOk returns a tuple with the Href field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *VersionSearchResults) GetVersionsOk() (*[]SearchedVersion, bool) {
-	if o == nil  {
+func (o *DownloadRef) GetHrefOk() (*string, bool) {
+	if o == nil || o.Href == nil {
 		return nil, false
 	}
-	return &o.Versions, true
+	return o.Href, true
 }
 
-// SetVersions sets field value
-func (o *VersionSearchResults) SetVersions(v []SearchedVersion) {
-	o.Versions = v
+// HasHref returns a boolean if a field has been set.
+func (o *DownloadRef) HasHref() bool {
+	if o != nil && o.Href != nil {
+		return true
+	}
+
+	return false
 }
 
-func (o VersionSearchResults) MarshalJSON() ([]byte, error) {
+// SetHref gets a reference to the given string and assigns it to the Href field.
+func (o *DownloadRef) SetHref(v string) {
+	o.Href = &v
+}
+
+func (o DownloadRef) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
-		toSerialize["count"] = o.Count
+		toSerialize["downloadId"] = o.DownloadId
 	}
-	if true {
-		toSerialize["versions"] = o.Versions
+	if o.Href != nil {
+		toSerialize["href"] = o.Href
 	}
 	return json.Marshal(toSerialize)
 }
 
-type NullableVersionSearchResults struct {
-	value *VersionSearchResults
+type NullableDownloadRef struct {
+	value *DownloadRef
 	isSet bool
 }
 
-func (v NullableVersionSearchResults) Get() *VersionSearchResults {
+func (v NullableDownloadRef) Get() *DownloadRef {
 	return v.value
 }
 
-func (v *NullableVersionSearchResults) Set(val *VersionSearchResults) {
+func (v *NullableDownloadRef) Set(val *DownloadRef) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableVersionSearchResults) IsSet() bool {
+func (v NullableDownloadRef) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableVersionSearchResults) Unset() {
+func (v *NullableDownloadRef) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableVersionSearchResults(val *VersionSearchResults) *NullableVersionSearchResults {
-	return &NullableVersionSearchResults{value: val, isSet: true}
+func NewNullableDownloadRef(val *DownloadRef) *NullableDownloadRef {
+	return &NullableDownloadRef{value: val, isSet: true}
 }
 
-func (v NullableVersionSearchResults) MarshalJSON() ([]byte, error) {
+func (v NullableDownloadRef) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableVersionSearchResults) UnmarshalJSON(src []byte) error {
+func (v *NullableDownloadRef) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

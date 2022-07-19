@@ -12,8 +12,9 @@ Method | HTTP request | Description
 [**GetContentById**](ArtifactsApi.md#GetContentById) | **Get** /ids/contentIds/{contentId}/ | Get artifact content by ID
 [**GetLatestArtifact**](ArtifactsApi.md#GetLatestArtifact) | **Get** /groups/{groupId}/artifacts/{artifactId} | Get latest artifact
 [**ListArtifactsInGroup**](ArtifactsApi.md#ListArtifactsInGroup) | **Get** /groups/{groupId}/artifacts | List artifacts in group
-[**SearchArtifacts**](ArtifactsApi.md#SearchArtifacts) | **Get** /search/artifacts | Search for artifacts
-[**SearchArtifactsByContent**](ArtifactsApi.md#SearchArtifactsByContent) | **Post** /search/artifacts | Search for artifacts by content
+[**ReferencesByContentHash**](ArtifactsApi.md#ReferencesByContentHash) | **Get** /ids/contentHashes/{contentHash}/references | Returns a list with all the references for the artifact with the given hash
+[**ReferencesByContentId**](ArtifactsApi.md#ReferencesByContentId) | **Get** /ids/contentIds/{contentId}/references | Returns a list with all the references for the artifact with the given content id.
+[**ReferencesByGlobalId**](ArtifactsApi.md#ReferencesByGlobalId) | **Get** /ids/globalIds/{globalId}/references | Returns a list with all the references for the artifact with the given global id.
 [**UpdateArtifact**](ArtifactsApi.md#UpdateArtifact) | **Put** /groups/{groupId}/artifacts/{artifactId} | Update artifact
 [**UpdateArtifactState**](ArtifactsApi.md#UpdateArtifactState) | **Put** /groups/{groupId}/artifacts/{artifactId}/state | Update artifact state
 
@@ -41,7 +42,7 @@ import (
 
 func main() {
     groupId := "groupId_example" // string | Unique ID of an artifact group.
-    body := os.NewFile(1234, "some_file") // *os.File | The content of the artifact being created. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`) 
+    body := interface{}({"openapi":"3.0.2","info":{"title":"Empty API","version":"1.0.7","description":"An example API design using OpenAPI."},"paths":{"/widgets":{"get":{"responses":{"200":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"string"}}}},"description":"All widgets"}},"summary":"Get widgets"}}},"components":{"schemas":{"Widget":{"title":"Root Type for Widget","description":"A sample data type.","type":"object","properties":{"property-1":{"type":"string"},"property-2":{"type":"boolean"}},"example":{"property-1":"value1","property-2":true}}}}}) // interface{} | The content of the artifact being created. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`) 
     xRegistryArtifactType := openapiclient.ArtifactType("AVRO") // ArtifactType | Specifies the type of the artifact being added. Possible values include:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`) (optional)
     xRegistryArtifactId := "xRegistryArtifactId_example" // string | A client-provided, globally unique identifier for the new artifact. (optional)
     xRegistryVersion := "xRegistryVersion_example" // string | Specifies the version number of this initial version of the artifact content.  This would typically be a simple integer or a SemVer value.  If not provided, the server will assign a version number automatically (starting with version `1`). (optional)
@@ -80,7 +81,7 @@ Other parameters are passed through a pointer to a apiCreateArtifactRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body** | ***os.File** | The content of the artifact being created. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;)  | 
+ **body** | **interface{}** | The content of the artifact being created. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;)  | 
  **xRegistryArtifactType** | [**ArtifactType**](ArtifactType.md) | Specifies the type of the artifact being added. Possible values include:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;) | 
  **xRegistryArtifactId** | **string** | A client-provided, globally unique identifier for the new artifact. | 
  **xRegistryVersion** | **string** | Specifies the version number of this initial version of the artifact content.  This would typically be a simple integer or a SemVer value.  If not provided, the server will assign a version number automatically (starting with version &#x60;1&#x60;). | 
@@ -101,7 +102,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/create.extended+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -250,7 +251,7 @@ No authorization required
 
 ## GetContentByGlobalId
 
-> *os.File GetContentByGlobalId(ctx, globalId).Execute()
+> *os.File GetContentByGlobalId(ctx, globalId).Dereference(dereference).Execute()
 
 Get artifact by global ID
 
@@ -270,10 +271,11 @@ import (
 
 func main() {
     globalId := int64(789) // int64 | Global identifier for an artifact version.
+    dereference := true // bool | Allows the user to specify if the content should be dereferenced when being returned (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ArtifactsApi.GetContentByGlobalId(context.Background(), globalId).Execute()
+    resp, r, err := api_client.ArtifactsApi.GetContentByGlobalId(context.Background(), globalId).Dereference(dereference).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ArtifactsApi.GetContentByGlobalId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -299,6 +301,7 @@ Other parameters are passed through a pointer to a apiGetContentByGlobalIdReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **dereference** | **bool** | Allows the user to specify if the content should be dereferenced when being returned | 
 
 ### Return type
 
@@ -460,7 +463,7 @@ No authorization required
 
 ## GetLatestArtifact
 
-> *os.File GetLatestArtifact(ctx, groupId, artifactId).Execute()
+> *os.File GetLatestArtifact(ctx, groupId, artifactId).Dereference(dereference).Execute()
 
 Get latest artifact
 
@@ -481,10 +484,11 @@ import (
 func main() {
     groupId := "groupId_example" // string | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
     artifactId := "artifactId_example" // string | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+    dereference := true // bool | Allows the user to specify if the content should be dereferenced when being returned (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ArtifactsApi.GetLatestArtifact(context.Background(), groupId, artifactId).Execute()
+    resp, r, err := api_client.ArtifactsApi.GetLatestArtifact(context.Background(), groupId, artifactId).Dereference(dereference).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ArtifactsApi.GetLatestArtifact``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -512,6 +516,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **dereference** | **bool** | Allows the user to specify if the content should be dereferenced when being returned | 
 
 ### Return type
 
@@ -609,11 +614,11 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## SearchArtifacts
+## ReferencesByContentHash
 
-> ArtifactSearchResults SearchArtifacts(ctx).Name(name).Offset(offset).Limit(limit).Order(order).Orderby(orderby).Labels(labels).Properties(properties).Description(description).Group(group).Execute()
+> []ArtifactReference ReferencesByContentHash(ctx, contentHash).Execute()
 
-Search for artifacts
+Returns a list with all the references for the artifact with the given hash
 
 
 
@@ -630,52 +635,40 @@ import (
 )
 
 func main() {
-    name := "name_example" // string | Filter by artifact name. (optional)
-    offset := int32(56) // int32 | The number of artifacts to skip before starting to collect the result set.  Defaults to 0. (optional) (default to 0)
-    limit := int32(56) // int32 | The number of artifacts to return.  Defaults to 20. (optional) (default to 20)
-    order := openapiclient.SortOrder("asc") // SortOrder | Sort order, ascending (`asc`) or descending (`desc`). (optional)
-    orderby := openapiclient.SortBy("name") // SortBy | The field to sort by.  Can be one of:  * `name` * `createdOn`  (optional)
-    labels := []string{"Inner_example"} // []string | Filter by label.  Include one or more label to only return artifacts containing all of the specified labels. (optional)
-    properties := []string{"Inner_example"} // []string | Filter by one or more name/value property.  Separate each name/value pair using a colon.  For example `properties=foo:bar` will return only artifacts with a custom property named `foo` and value `bar`. (optional)
-    description := "description_example" // string | Filter by description. (optional)
-    group := "group_example" // string | Filter by artifact group. (optional)
+    contentHash := "contentHash_example" // string | SHA-256 content hash for a single artifact content.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ArtifactsApi.SearchArtifacts(context.Background()).Name(name).Offset(offset).Limit(limit).Order(order).Orderby(orderby).Labels(labels).Properties(properties).Description(description).Group(group).Execute()
+    resp, r, err := api_client.ArtifactsApi.ReferencesByContentHash(context.Background(), contentHash).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ArtifactsApi.SearchArtifacts``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ArtifactsApi.ReferencesByContentHash``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `SearchArtifacts`: ArtifactSearchResults
-    fmt.Fprintf(os.Stdout, "Response from `ArtifactsApi.SearchArtifacts`: %v\n", resp)
+    // response from `ReferencesByContentHash`: []ArtifactReference
+    fmt.Fprintf(os.Stdout, "Response from `ArtifactsApi.ReferencesByContentHash`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**contentHash** | **string** | SHA-256 content hash for a single artifact content. | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiSearchArtifactsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiReferencesByContentHashRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string** | Filter by artifact name. | 
- **offset** | **int32** | The number of artifacts to skip before starting to collect the result set.  Defaults to 0. | [default to 0]
- **limit** | **int32** | The number of artifacts to return.  Defaults to 20. | [default to 20]
- **order** | [**SortOrder**](SortOrder.md) | Sort order, ascending (&#x60;asc&#x60;) or descending (&#x60;desc&#x60;). | 
- **orderby** | [**SortBy**](SortBy.md) | The field to sort by.  Can be one of:  * &#x60;name&#x60; * &#x60;createdOn&#x60;  | 
- **labels** | **[]string** | Filter by label.  Include one or more label to only return artifacts containing all of the specified labels. | 
- **properties** | **[]string** | Filter by one or more name/value property.  Separate each name/value pair using a colon.  For example &#x60;properties&#x3D;foo:bar&#x60; will return only artifacts with a custom property named &#x60;foo&#x60; and value &#x60;bar&#x60;. | 
- **description** | **string** | Filter by description. | 
- **group** | **string** | Filter by artifact group. | 
+
 
 ### Return type
 
-[**ArtifactSearchResults**](ArtifactSearchResults.md)
+[**[]ArtifactReference**](ArtifactReference.md)
 
 ### Authorization
 
@@ -691,11 +684,11 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## SearchArtifactsByContent
+## ReferencesByContentId
 
-> ArtifactSearchResults SearchArtifactsByContent(ctx).Body(body).Canonical(canonical).ArtifactType(artifactType).Offset(offset).Limit(limit).Order(order).Orderby(orderby).Execute()
+> []ArtifactReference ReferencesByContentId(ctx, contentId).Execute()
 
-Search for artifacts by content
+Returns a list with all the references for the artifact with the given content id.
 
 
 
@@ -712,48 +705,110 @@ import (
 )
 
 func main() {
-    body := os.NewFile(1234, "some_file") // *os.File | The content to search for.
-    canonical := true // bool | Parameter that can be set to `true` to indicate that the server should \"canonicalize\" the content when searching for matching artifacts.  Canonicalization is unique to each artifact type, but typically involves removing any extra whitespace and formatting the content in a consistent manner.  Must be used along with the `artifactType` query parameter. (optional)
-    artifactType := openapiclient.ArtifactType("AVRO") // ArtifactType | Indicates the type of artifact represented by the content being used for the search.  This is only needed when using the `canonical` query parameter, so that the server knows how to canonicalize the content prior to searching for matching artifacts. (optional)
-    offset := int32(56) // int32 | The number of artifacts to skip before starting to collect the result set.  Defaults to 0. (optional) (default to 0)
-    limit := int32(56) // int32 | The number of artifacts to return.  Defaults to 20. (optional) (default to 20)
-    order := "order_example" // string | Sort order, ascending (`asc`) or descending (`desc`). (optional)
-    orderby := "orderby_example" // string | The field to sort by.  Can be one of:  * `name` * `createdOn`  (optional)
+    contentId := int64(789) // int64 | Global identifier for a single artifact content.
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ArtifactsApi.SearchArtifactsByContent(context.Background()).Body(body).Canonical(canonical).ArtifactType(artifactType).Offset(offset).Limit(limit).Order(order).Orderby(orderby).Execute()
+    resp, r, err := api_client.ArtifactsApi.ReferencesByContentId(context.Background(), contentId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ArtifactsApi.SearchArtifactsByContent``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ArtifactsApi.ReferencesByContentId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `SearchArtifactsByContent`: ArtifactSearchResults
-    fmt.Fprintf(os.Stdout, "Response from `ArtifactsApi.SearchArtifactsByContent`: %v\n", resp)
+    // response from `ReferencesByContentId`: []ArtifactReference
+    fmt.Fprintf(os.Stdout, "Response from `ArtifactsApi.ReferencesByContentId`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**contentId** | **int64** | Global identifier for a single artifact content. | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiSearchArtifactsByContentRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiReferencesByContentIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | ***os.File** | The content to search for. | 
- **canonical** | **bool** | Parameter that can be set to &#x60;true&#x60; to indicate that the server should \&quot;canonicalize\&quot; the content when searching for matching artifacts.  Canonicalization is unique to each artifact type, but typically involves removing any extra whitespace and formatting the content in a consistent manner.  Must be used along with the &#x60;artifactType&#x60; query parameter. | 
- **artifactType** | [**ArtifactType**](ArtifactType.md) | Indicates the type of artifact represented by the content being used for the search.  This is only needed when using the &#x60;canonical&#x60; query parameter, so that the server knows how to canonicalize the content prior to searching for matching artifacts. | 
- **offset** | **int32** | The number of artifacts to skip before starting to collect the result set.  Defaults to 0. | [default to 0]
- **limit** | **int32** | The number of artifacts to return.  Defaults to 20. | [default to 20]
- **order** | **string** | Sort order, ascending (&#x60;asc&#x60;) or descending (&#x60;desc&#x60;). | 
- **orderby** | **string** | The field to sort by.  Can be one of:  * &#x60;name&#x60; * &#x60;createdOn&#x60;  | 
+
 
 ### Return type
 
-[**ArtifactSearchResults**](ArtifactSearchResults.md)
+[**[]ArtifactReference**](ArtifactReference.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ReferencesByGlobalId
+
+> []ArtifactReference ReferencesByGlobalId(ctx, globalId).Execute()
+
+Returns a list with all the references for the artifact with the given global id.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    globalId := int64(789) // int64 | Global identifier for an artifact version.
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ArtifactsApi.ReferencesByGlobalId(context.Background(), globalId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ArtifactsApi.ReferencesByGlobalId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ReferencesByGlobalId`: []ArtifactReference
+    fmt.Fprintf(os.Stdout, "Response from `ArtifactsApi.ReferencesByGlobalId`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**globalId** | **int64** | Global identifier for an artifact version. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiReferencesByGlobalIdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**[]ArtifactReference**](ArtifactReference.md)
 
 ### Authorization
 
@@ -792,7 +847,7 @@ import (
 func main() {
     groupId := "groupId_example" // string | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
     artifactId := "artifactId_example" // string | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
-    body := os.NewFile(1234, "some_file") // *os.File | The new content of the artifact being updated. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`) 
+    body := interface{}({"openapi":"3.0.2","info":{"title":"Empty API","version":"1.0.7","description":"An example API design using OpenAPI."},"paths":{"/widgets":{"get":{"responses":{"200":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"string"}}}},"description":"All widgets"}},"summary":"Get widgets"}}},"components":{"schemas":{"Widget":{"title":"Root Type for Widget","description":"A sample data type.","type":"object","properties":{"property-1":{"type":"string"},"property-2":{"type":"boolean"}},"example":{"property-1":"value1","property-2":true}}}}}) // interface{} | The new content of the artifact being updated. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (`AVRO`) * Protobuf (`PROTOBUF`) * JSON Schema (`JSON`) * Kafka Connect (`KCONNECT`) * OpenAPI (`OPENAPI`) * AsyncAPI (`ASYNCAPI`) * GraphQL (`GRAPHQL`) * Web Services Description Language (`WSDL`) * XML Schema (`XSD`) 
     xRegistryVersion := "xRegistryVersion_example" // string | Specifies the version number of this new version of the artifact content.  This would typically be a simple integer or a SemVer value.  If not provided, the server will assign a version number automatically. (optional)
     xRegistryName := "xRegistryName_example" // string | Specifies the artifact name of this new version of the artifact content. Name must be ASCII-only string. If this is not provided, the server will extract the name from the artifact content. (optional)
     xRegistryNameEncoded := "xRegistryNameEncoded_example" // string | Specifies the artifact name of this new version of the artifact content. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content. (optional)
@@ -829,7 +884,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **body** | ***os.File** | The new content of the artifact being updated. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;)  | 
+ **body** | **interface{}** | The new content of the artifact being updated. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;)  | 
  **xRegistryVersion** | **string** | Specifies the version number of this new version of the artifact content.  This would typically be a simple integer or a SemVer value.  If not provided, the server will assign a version number automatically. | 
  **xRegistryName** | **string** | Specifies the artifact name of this new version of the artifact content. Name must be ASCII-only string. If this is not provided, the server will extract the name from the artifact content. | 
  **xRegistryNameEncoded** | **string** | Specifies the artifact name of this new version of the artifact content. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content. | 
@@ -846,7 +901,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/create.extended+json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

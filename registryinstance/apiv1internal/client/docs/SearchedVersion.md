@@ -15,12 +15,13 @@ Name | Type | Description | Notes
 **Version** | **string** |  | 
 **Properties** | Pointer to **map[string]string** | User-defined name-value pairs. Name and value must be strings. | [optional] 
 **ContentId** | **int64** |  | 
+**References** | [**[]ArtifactReference**](ArtifactReference.md) |  | 
 
 ## Methods
 
 ### NewSearchedVersion
 
-`func NewSearchedVersion(createdOn string, createdBy string, type_ ArtifactType, state ArtifactState, globalId int64, version string, contentId int64, ) *SearchedVersion`
+`func NewSearchedVersion(createdOn string, createdBy string, type_ ArtifactType, state ArtifactState, globalId int64, version string, contentId int64, references []ArtifactReference, ) *SearchedVersion`
 
 NewSearchedVersion instantiates a new SearchedVersion object
 This constructor will assign default values to properties that have it defined,
@@ -273,6 +274,26 @@ and a boolean to check if the value has been set.
 `func (o *SearchedVersion) SetContentId(v int64)`
 
 SetContentId sets ContentId field to given value.
+
+
+### GetReferences
+
+`func (o *SearchedVersion) GetReferences() []ArtifactReference`
+
+GetReferences returns the References field if non-nil, zero value otherwise.
+
+### GetReferencesOk
+
+`func (o *SearchedVersion) GetReferencesOk() (*[]ArtifactReference, bool)`
+
+GetReferencesOk returns a tuple with the References field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReferences
+
+`func (o *SearchedVersion) SetReferences(v []ArtifactReference)`
+
+SetReferences sets References field to given value.
 
 
 
