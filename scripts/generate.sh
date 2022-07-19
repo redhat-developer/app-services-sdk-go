@@ -61,8 +61,8 @@ rm -Rf $OUTPUT_PATH
 npx @openapitools/openapi-generator-cli generate -g go -i \
     "$OPENAPI_FILENAME" -o "$OUTPUT_PATH" \
     --package-name="${PACKAGE_NAME}" \
-    --additional-properties=$additional_properties 
-    --ignore-file-override=accountmgmt/.openapi-generator-ignore
+    --additional-properties=$additional_properties \
+    --ignore-file-override=./accountmgmt/.openapi-generator-ignore
 
 git checkout -- $OPENAPI_FILENAME
 
