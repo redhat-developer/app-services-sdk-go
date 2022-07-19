@@ -39,6 +39,7 @@ type KafkaRequest struct {
 	FailedReason *string `json:"failed_reason,omitempty"`
 	Version *string `json:"version,omitempty"`
 	InstanceType *string `json:"instance_type,omitempty"`
+	// This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region} endpoint to retrieve the field instead.
 	InstanceTypeName *string `json:"instance_type_name,omitempty"`
 	ReauthenticationEnabled bool `json:"reauthentication_enabled"`
 	// Maximum data storage available to this Kafka. This is now deprecated, please use max_data_retention_size instead.
@@ -46,11 +47,17 @@ type KafkaRequest struct {
 	MaxDataRetentionSize *SupportedKafkaSizeBytesValueItem `json:"max_data_retention_size,omitempty"`
 	BrowserUrl *string `json:"browser_url,omitempty"`
 	SizeId *string `json:"size_id,omitempty"`
+	// This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region} endpoint to retrieve the field instead.
 	IngressThroughputPerSec *string `json:"ingress_throughput_per_sec,omitempty"`
+	// This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region} endpoint to retrieve the field instead.
 	EgressThroughputPerSec *string `json:"egress_throughput_per_sec,omitempty"`
+	// This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region} endpoint to retrieve the field instead.
 	TotalMaxConnections *int32 `json:"total_max_connections,omitempty"`
+	// This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region} endpoint to retrieve the field instead.
 	MaxPartitions *int32 `json:"max_partitions,omitempty"`
+	// This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region} endpoint to retrieve the field instead.
 	MaxDataRetentionPeriod *string `json:"max_data_retention_period,omitempty"`
+	// This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region} endpoint to retrieve the field instead.
 	MaxConnectionAttemptsPerSec *int32 `json:"max_connection_attempts_per_sec,omitempty"`
 	BillingCloudAccountId *string `json:"billing_cloud_account_id,omitempty"`
 	Marketplace *string `json:"marketplace,omitempty"`
