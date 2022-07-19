@@ -325,7 +325,6 @@ paths:
       summary: List global rules
       tags:
       - Global rules
-      - Admin
     post:
       description: |
         Adds a rule to the list of globally configured rules.
@@ -379,7 +378,6 @@ paths:
       summary: Create global rule
       tags:
       - Global rules
-      - Admin
     summary: Manage the global rules that apply to all artifacts if not otherwise
       configured.
   /admin/rules/{rule}:

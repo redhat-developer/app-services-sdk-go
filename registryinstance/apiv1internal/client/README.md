@@ -96,7 +96,6 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AdminApi* | [**CreateGlobalRule**](docs/AdminApi.md#createglobalrule) | **Post** /admin/rules | Create global rule
 *AdminApi* | [**CreateRoleMapping**](docs/AdminApi.md#createrolemapping) | **Post** /admin/roleMappings | Create a new role mapping
 *AdminApi* | [**DeleteRoleMapping**](docs/AdminApi.md#deleterolemapping) | **Delete** /admin/roleMappings/{principalId} | Delete a role mapping
 *AdminApi* | [**ExportData**](docs/AdminApi.md#exportdata) | **Get** /admin/export | Export registry data
@@ -105,7 +104,6 @@ Class | Method | HTTP request | Description
 *AdminApi* | [**GetRoleMapping**](docs/AdminApi.md#getrolemapping) | **Get** /admin/roleMappings/{principalId} | Return a single role mapping
 *AdminApi* | [**ImportData**](docs/AdminApi.md#importdata) | **Post** /admin/import | Import registry data
 *AdminApi* | [**ListConfigProperties**](docs/AdminApi.md#listconfigproperties) | **Get** /admin/config/properties | List all configuration properties
-*AdminApi* | [**ListGlobalRules**](docs/AdminApi.md#listglobalrules) | **Get** /admin/rules | List global rules
 *AdminApi* | [**ListLogConfigurations**](docs/AdminApi.md#listlogconfigurations) | **Get** /admin/loggers | List logging configurations
 *AdminApi* | [**ListRoleMappings**](docs/AdminApi.md#listrolemappings) | **Get** /admin/roleMappings | List all role mappings
 *AdminApi* | [**RemoveLogConfiguration**](docs/AdminApi.md#removelogconfiguration) | **Delete** /admin/loggers/{logger} | Removes logger configuration

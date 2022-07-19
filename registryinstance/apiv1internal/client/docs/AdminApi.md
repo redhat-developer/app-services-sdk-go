@@ -4,7 +4,6 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateGlobalRule**](AdminApi.md#CreateGlobalRule) | **Post** /admin/rules | Create global rule
 [**CreateRoleMapping**](AdminApi.md#CreateRoleMapping) | **Post** /admin/roleMappings | Create a new role mapping
 [**DeleteRoleMapping**](AdminApi.md#DeleteRoleMapping) | **Delete** /admin/roleMappings/{principalId} | Delete a role mapping
 [**ExportData**](AdminApi.md#ExportData) | **Get** /admin/export | Export registry data
@@ -13,7 +12,6 @@ Method | HTTP request | Description
 [**GetRoleMapping**](AdminApi.md#GetRoleMapping) | **Get** /admin/roleMappings/{principalId} | Return a single role mapping
 [**ImportData**](AdminApi.md#ImportData) | **Post** /admin/import | Import registry data
 [**ListConfigProperties**](AdminApi.md#ListConfigProperties) | **Get** /admin/config/properties | List all configuration properties
-[**ListGlobalRules**](AdminApi.md#ListGlobalRules) | **Get** /admin/rules | List global rules
 [**ListLogConfigurations**](AdminApi.md#ListLogConfigurations) | **Get** /admin/loggers | List logging configurations
 [**ListRoleMappings**](AdminApi.md#ListRoleMappings) | **Get** /admin/roleMappings | List all role mappings
 [**RemoveLogConfiguration**](AdminApi.md#RemoveLogConfiguration) | **Delete** /admin/loggers/{logger} | Removes logger configuration
@@ -22,70 +20,6 @@ Method | HTTP request | Description
 [**UpdateConfigProperty**](AdminApi.md#UpdateConfigProperty) | **Put** /admin/config/properties/{propertyName} | Update a configuration property
 [**UpdateRoleMapping**](AdminApi.md#UpdateRoleMapping) | **Put** /admin/roleMappings/{principalId} | Update a role mapping
 
-
-
-## CreateGlobalRule
-
-> CreateGlobalRule(ctx).Rule(rule).Execute()
-
-Create global rule
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    rule := *openapiclient.NewRule("Config_example") // Rule | 
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AdminApi.CreateGlobalRule(context.Background()).Rule(rule).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.CreateGlobalRule``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateGlobalRuleRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **rule** | [**Rule**](Rule.md) |  | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
 
 
 ## CreateRoleMapping
@@ -610,67 +544,6 @@ Other parameters are passed through a pointer to a apiListConfigPropertiesReques
 ### Return type
 
 [**[]ConfigurationProperty**](ConfigurationProperty.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ListGlobalRules
-
-> []RuleType ListGlobalRules(ctx).Execute()
-
-List global rules
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AdminApi.ListGlobalRules(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.ListGlobalRules``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ListGlobalRules`: []RuleType
-    fmt.Fprintf(os.Stdout, "Response from `AdminApi.ListGlobalRules`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListGlobalRulesRequest struct via the builder pattern
-
-
-### Return type
-
-[**[]RuleType**](RuleType.md)
 
 ### Authorization
 
