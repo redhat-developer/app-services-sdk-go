@@ -1,4 +1,4 @@
-# Go API client for smarteventsclient
+# Go API client for smarteventsmgmtclient
 
 The API exposed by the fleet manager of the SmartEvents service.
 
@@ -22,7 +22,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```golang
-import sw "./smarteventsclient"
+import sw "./smarteventsmgmtclient"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:
