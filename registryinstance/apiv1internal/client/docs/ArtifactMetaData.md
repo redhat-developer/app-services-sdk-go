@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **Properties** | Pointer to **map[string]string** | User-defined name-value pairs. Name and value must be strings. | [optional] 
 **GroupId** | Pointer to **string** | An ID of a single artifact group. | [optional] 
 **ContentId** | **int64** |  | 
+**References** | Pointer to [**[]ArtifactReference**](ArtifactReference.md) |  | [optional] 
 
 ## Methods
 
@@ -363,6 +364,31 @@ and a boolean to check if the value has been set.
 
 SetContentId sets ContentId field to given value.
 
+
+### GetReferences
+
+`func (o *ArtifactMetaData) GetReferences() []ArtifactReference`
+
+GetReferences returns the References field if non-nil, zero value otherwise.
+
+### GetReferencesOk
+
+`func (o *ArtifactMetaData) GetReferencesOk() (*[]ArtifactReference, bool)`
+
+GetReferencesOk returns a tuple with the References field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReferences
+
+`func (o *ArtifactMetaData) SetReferences(v []ArtifactReference)`
+
+SetReferences sets References field to given value.
+
+### HasReferences
+
+`func (o *ArtifactMetaData) HasReferences() bool`
+
+HasReferences returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

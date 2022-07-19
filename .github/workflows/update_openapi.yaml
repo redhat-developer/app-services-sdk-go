@@ -16,30 +16,8 @@ jobs:
           go-version: 1.16
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Set client metadata
-        id: set_config
-        run: |
-          content=$(cat .config/api-client-metadata.json)
-          content="${content//'%'/'%25'}"
-          content="${content//$'\n'/'%0A'}"
-          content="${content//$'\r'/'%0D'}"
-          echo "::set-output name=client_config::$content"
-      - name: Set OpenAPI file path
-        id: set_filepath
-        run: |
-          openapi_filepath=${{ fromJSON(steps.set_config.outputs.client_config)[env.CLIENT_ID].openapi_file }}
-          echo "::set-output name=openapi_file::$openapi_filepath"
       - name: Fetch OpenAPI schema
-        run: |
-          export PATH=${PATH}:`go env GOPATH`/bin
-
-          # fetch API spec
-          go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-fetch@latest
-          api-fetch --download-url=${{ env.DOWNLOAD_URL }} --download-location=".openapi" --token=${{ secrets.BF2_TOKEN }}
-          go mod tidy
-
-
-      
+        run: ./scripts/fetch_api.sh ${{ github.event.client_payload.download_url }}
       - uses: peter-evans/create-pull-request@v4
         with:
           title: "chore(openapi): update ${{ env.CLIENT_ID }} OpenAPI document"

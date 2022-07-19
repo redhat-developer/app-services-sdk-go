@@ -24,7 +24,7 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Apicurio Registry API [v2]
-  version: 2.1.0-SNAPSHOT
+  version: 2.2.5.Final
 servers:
 - url: /
 tags:
@@ -102,18 +102,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/FileContent'
           description: The content of one version of one artifact.
-        "500":
-          content:
-            application/json:
-              examples:
-                ErrorExample:
-                  value:
-                    error_code: 500
-                    message: Lost connection to the database.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can fail with an unexpected
-            server error.
         "404":
           content:
             application/json:
@@ -126,6 +114,18 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: Common response for all operations that can return a `404`
             error.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
       summary: Get artifact content by ID
       tags:
       - Artifacts
@@ -152,6 +152,15 @@ paths:
           format: int64
           type: integer
         style: simple
+      - description: Allows the user to specify if the content should be dereferenced
+          when being returned
+        explode: true
+        in: query
+        name: dereference
+        required: false
+        schema:
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -167,18 +176,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/FileContent'
           description: The content of one version of one artifact.
-        "500":
-          content:
-            application/json:
-              examples:
-                ErrorExample:
-                  value:
-                    error_code: 500
-                    message: Lost connection to the database.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can fail with an unexpected
-            server error.
         "404":
           content:
             application/json:
@@ -191,6 +188,18 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: Common response for all operations that can return a `404`
             error.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
       summary: Get artifact by global ID
       tags:
       - Artifacts
@@ -229,18 +238,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/FileContent'
           description: The content of one version of one artifact.
-        "500":
-          content:
-            application/json:
-              examples:
-                ErrorExample:
-                  value:
-                    error_code: 500
-                    message: Lost connection to the database.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can fail with an unexpected
-            server error.
         "404":
           content:
             application/json:
@@ -253,6 +250,18 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: Common response for all operations that can return a `404`
             error.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
       summary: Get artifact content by SHA-256 hash
       tags:
       - Artifacts
@@ -283,7 +292,7 @@ paths:
             server error.
       summary: Delete all global rules
       tags:
-      - Admin
+      - Global rules
     get:
       description: |
         Gets a list of all the currently configured global rules (if any).
@@ -315,7 +324,7 @@ paths:
             server error.
       summary: List global rules
       tags:
-      - Admin
+      - Global rules
     post:
       description: |
         Adds a rule to the list of globally configured rules.
@@ -368,7 +377,7 @@ paths:
             server error.
       summary: Create global rule
       tags:
-      - Admin
+      - Global rules
     summary: Manage the global rules that apply to all artifacts if not otherwise
       configured.
   /admin/rules/{rule}:
@@ -422,7 +431,7 @@ paths:
             server error.
       summary: Delete global rule
       tags:
-      - Admin
+      - Global rules
     get:
       description: |
         Returns information about the named globally configured rule.
@@ -475,7 +484,7 @@ paths:
             server error.
       summary: Get global rule configuration
       tags:
-      - Admin
+      - Global rules
     put:
       description: |
         Updates the configuration for a globally configured rule.
@@ -534,7 +543,7 @@ paths:
             server error.
       summary: Update global rule configuration
       tags:
-      - Admin
+      - Global rules
     summary: Manage the configuration of a single global artifact rule.
   /admin/loggers:
     get:
@@ -806,6 +815,24 @@ paths:
         schema:
           type: string
         style: form
+      - description: Filter by globalId.
+        explode: true
+        in: query
+        name: globalId
+        required: false
+        schema:
+          format: int64
+          type: integer
+        style: form
+      - description: Filter by contentId.
+        explode: true
+        in: query
+        name: contentId
+        required: false
+        schema:
+          format: int64
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -829,7 +856,7 @@ paths:
             server error.
       summary: Search for artifacts
       tags:
-      - Artifacts
+      - Search
     post:
       description: |
         Returns a paginated list of all artifacts with at least one version that matches the
@@ -934,12 +961,24 @@ paths:
             server error.
       summary: Search for artifacts by content
       tags:
-      - Artifacts
+      - Search
     summary: Search for artifacts in the registry.
   /admin/export:
     get:
       description: Exports registry data as a ZIP archive.
       operationId: exportData
+      parameters:
+      - description: Indicates if the operation is done for a browser.  If true, the
+          response will be a JSON payload with a property called `href`.  This `href`
+          will be a single-use, naked download link suitable for use by a web browser
+          to download the content.
+        explode: true
+        in: query
+        name: forBrowser
+        required: false
+        schema:
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -947,6 +986,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/FileContent'
           description: Response when the export is successful.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
       summary: Export registry data
       tags:
       - Admin
@@ -956,6 +1007,28 @@ paths:
       description: Imports registry data that was previously exported using the `/admin/export`
         operation.
       operationId: importData
+      parameters:
+      - description: If this header is set to false, global ids of imported data will
+          be ignored and replaced by next id in global id sequence. This allows to
+          import any data even thought the global ids would cause a conflict.
+        explode: false
+        in: header
+        name: X-Registry-Preserve-GlobalId
+        required: false
+        schema:
+          type: boolean
+        style: simple
+      - description: If this header is set to false, content ids of imported data
+          will be ignored and replaced by next id in content id sequence. The mapping
+          between content and artifacts will be preserved. This allows to import any
+          data even thought the content ids would cause a conflict.
+        explode: false
+        in: header
+        name: X-Registry-Preserve-ContentId
+        required: false
+        schema:
+          type: boolean
+        style: simple
       requestBody:
         content:
           application/zip:
@@ -1054,257 +1127,6 @@ paths:
       tags:
       - Artifacts
     summary: Manage the state of an artifact.
-  /groups/{groupId}/artifacts/{artifactId}/meta:
-    get:
-      description: |-
-        Gets the metadata for an artifact in the registry.  The returned metadata includes
-        both generated (read-only) and editable metadata (such as name and description).
-
-        This operation can fail for the following reasons:
-
-        * No artifact with this `artifactId` exists (HTTP error `404`)
-        * A server error occurred (HTTP error `500`)
-      operationId: getArtifactMetaData
-      parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
-        explode: false
-        in: path
-        name: groupId
-        required: true
-        schema:
-          $ref: '#/components/schemas/GroupId'
-        style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
-        explode: false
-        in: path
-        name: artifactId
-        required: true
-        schema:
-          $ref: '#/components/schemas/ArtifactId'
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ArtifactMetaData'
-          description: The artifact's metadata.
-        "404":
-          content:
-            application/json:
-              examples:
-                NotFoundExample:
-                  value:
-                    error_code: 404
-                    message: No artifact with id 'Topic-1/Inbound' could be found.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can return a `404`
-            error.
-        "500":
-          content:
-            application/json:
-              examples:
-                ErrorExample:
-                  value:
-                    error_code: 500
-                    message: Lost connection to the database.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can fail with an unexpected
-            server error.
-      summary: Get artifact metadata
-      tags:
-      - Metadata
-    post:
-      description: |
-        Gets the metadata for an artifact that matches the raw content.  Searches the registry
-        for a version of the given artifact matching the content provided in the body of the
-        POST.
-
-        This operation can fail for the following reasons:
-
-        * Provided content (request body) was empty (HTTP error `400`)
-        * No artifact with the `artifactId` exists (HTTP error `404`)
-        * No artifact version matching the provided content exists (HTTP error `404`)
-        * A server error occurred (HTTP error `500`)
-      operationId: getArtifactVersionMetaDataByContent
-      parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
-        explode: false
-        in: path
-        name: groupId
-        required: true
-        schema:
-          $ref: '#/components/schemas/GroupId'
-        style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
-        explode: false
-        in: path
-        name: artifactId
-        required: true
-        schema:
-          $ref: '#/components/schemas/ArtifactId'
-        style: simple
-      - description: Parameter that can be set to `true` to indicate that the server
-          should "canonicalize" the content when searching for a matching version.  Canonicalization
-          is unique to each artifact type, but typically involves removing any extra
-          whitespace and formatting the content in a consistent manner.
-        explode: true
-        in: query
-        name: canonical
-        required: false
-        schema:
-          type: boolean
-        style: form
-      requestBody:
-        content:
-          '*/*':
-            examples:
-              OpenAPI:
-                value:
-                  openapi: 3.0.2
-                  info:
-                    title: Empty API
-                    version: 1.0.7
-                    description: An example API design using OpenAPI.
-                  paths:
-                    /widgets:
-                      get:
-                        responses:
-                          "200":
-                            content:
-                              application/json:
-                                schema:
-                                  type: array
-                                  items:
-                                    type: string
-                            description: All widgets
-                        summary: Get widgets
-                  components:
-                    schemas:
-                      Widget:
-                        title: Root Type for Widget
-                        description: A sample data type.
-                        type: object
-                        properties:
-                          property-1:
-                            type: string
-                          property-2:
-                            type: boolean
-                        example:
-                          property-1: value1
-                          property-2: true
-            schema:
-              $ref: '#/components/schemas/FileContent'
-        description: The content of an artifact version.
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionMetaData'
-          description: The metadata of the artifact version matching the provided
-            content.
-        "404":
-          content:
-            application/json:
-              examples:
-                NotFoundExample:
-                  value:
-                    error_code: 404
-                    message: No artifact with id 'Topic-1/Inbound' could be found.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can return a `404`
-            error.
-        "500":
-          content:
-            application/json:
-              examples:
-                ErrorExample:
-                  value:
-                    error_code: 500
-                    message: Lost connection to the database.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can fail with an unexpected
-            server error.
-      summary: Get artifact version metadata by content
-      tags:
-      - Metadata
-    put:
-      description: |-
-        Updates the editable parts of the artifact's metadata.  Not all metadata fields can
-        be updated.  For example, `createdOn` and `createdBy` are both read-only properties.
-
-        This operation can fail for the following reasons:
-
-        * No artifact with the `artifactId` exists (HTTP error `404`)
-        * A server error occurred (HTTP error `500`)
-      operationId: updateArtifactMetaData
-      parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
-        explode: false
-        in: path
-        name: groupId
-        required: true
-        schema:
-          $ref: '#/components/schemas/GroupId'
-        style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
-        explode: false
-        in: path
-        name: artifactId
-        required: true
-        schema:
-          $ref: '#/components/schemas/ArtifactId'
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/EditableMetaData'
-        description: Updated artifact metadata.
-        required: true
-      responses:
-        "204":
-          description: The artifact's metadata was updated.
-        "404":
-          content:
-            application/json:
-              examples:
-                NotFoundExample:
-                  value:
-                    error_code: 404
-                    message: No artifact with id 'Topic-1/Inbound' could be found.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can return a `404`
-            error.
-        "500":
-          content:
-            application/json:
-              examples:
-                ErrorExample:
-                  value:
-                    error_code: 500
-                    message: Lost connection to the database.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can fail with an unexpected
-            server error.
-      summary: Update artifact metadata
-      tags:
-      - Metadata
-    summary: Manage the metadata of a single artifact.
   /groups/{groupId}/artifacts/{artifactId}/versions/{version}/meta:
     delete:
       description: |
@@ -1555,7 +1377,30 @@ paths:
         schema:
           $ref: '#/components/schemas/Version'
         style: simple
+      - description: Allows the user to specify if the content should be dereferenced
+          when being returned
+        explode: true
+        in: query
+        name: dereference
+        required: false
+        schema:
+          type: boolean
+        style: form
       responses:
+        "200":
+          content:
+            '*/*':
+              examples:
+                OpenAPI:
+                  value:
+                    openapi: 3.0.2
+                    info:
+                      title: Empty API
+                      version: 1.0.0
+                      description: An example API design using OpenAPI.
+              schema:
+                $ref: '#/components/schemas/FileContent'
+          description: The content of one version of one artifact.
         "404":
           content:
             application/json:
@@ -1580,20 +1425,6 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: Common response for all operations that can fail with an unexpected
             server error.
-        "200":
-          content:
-            '*/*':
-              examples:
-                OpenAPI:
-                  value:
-                    openapi: 3.0.2
-                    info:
-                      title: Empty API
-                      version: 1.0.0
-                      description: An example API design using OpenAPI.
-              schema:
-                $ref: '#/components/schemas/FileContent'
-          description: The content of one version of one artifact.
       summary: Get artifact version
       tags:
       - Versions
@@ -2103,25 +1934,368 @@ paths:
       tags:
       - Artifact rules
     summary: Manage the configuration of a single artifact rule.
-  /groups/{groupId}/artifacts/{artifactId}/test:
+  /admin/roleMappings/{principalId}:
+    delete:
+      description: |
+        Deletes a single role mapping, effectively denying access to a user/principal.
+
+        This operation can fail for the following reasons:
+
+        * No role mapping for the principalId exists (HTTP error `404`)
+        * A server error occurred (HTTP error `500`)
+      operationId: deleteRoleMapping
+      parameters:
+      - description: Unique id of a principal (typically either a user or service
+          account).
+        explode: false
+        in: path
+        name: principalId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: Response returned when the delete was successful.
+        "404":
+          content:
+            application/json:
+              examples:
+                NotFoundExample:
+                  value:
+                    error_code: 404
+                    message: No artifact with id 'Topic-1/Inbound' could be found.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can return a `404`
+            error.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: Delete a role mapping
+      tags:
+      - Admin
+    get:
+      description: |
+        Gets the details of a single role mapping (by principalId).
+
+        This operation can fail for the following reasons:
+
+        * No role mapping for the principalId exists (HTTP error `404`)
+        * A server error occurred (HTTP error `500`)
+      operationId: getRoleMapping
+      parameters:
+      - description: Unique id of a principal (typically either a user or service
+          account).
+        explode: false
+        in: path
+        name: principalId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleMapping'
+          description: When successful, returns the details of a role mapping.
+        "404":
+          content:
+            application/json:
+              examples:
+                NotFoundExample:
+                  value:
+                    error_code: 404
+                    message: No artifact with id 'Topic-1/Inbound' could be found.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can return a `404`
+            error.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: Return a single role mapping
+      tags:
+      - Admin
     put:
-      description: "Tests whether an update to the artifact's content *would* succeed\
-        \ for the provided content.\nUltimately, this applies any rules configured\
-        \ for the artifact against the given content\nto determine whether the rules\
-        \ would pass or fail, but without actually updating the artifact\ncontent.\n\
-        \nThe body of the request should be the raw content of the artifact.  This\
-        \ is typically in \nJSON format for *most* of the supported types, but may\
-        \ be in another format for a few \n(for example, `PROTOBUF`).\n\nThe update\
-        \ could fail for a number of reasons including:\n\n* Provided content (request\
-        \ body) was empty (HTTP error `400`)\n* No artifact with the `artifactId`\
-        \ exists (HTTP error `404`)\n* The new content violates one of the rules configured\
-        \ for the artifact (HTTP error `409`)\n* The provided artifact type is not\
-        \ recognized (HTTP error `404`)\n* A server error occurred (HTTP error `500`)\n\
-        \nWhen successful, this operation simply returns a *No Content* response.\
-        \  This response\nindicates that the content is valid against the configured\
-        \ content rules for the \nartifact (or the global rules if no artifact rules\
-        \ are enabled)."
-      operationId: testUpdateArtifact
+      description: |
+        Updates a single role mapping for one user/principal.
+
+        This operation can fail for the following reasons:
+
+        * No role mapping for the principalId exists (HTTP error `404`)
+        * A server error occurred (HTTP error `500`)
+      operationId: updateRoleMapping
+      parameters:
+      - description: Unique id of a principal (typically either a user or service
+          account).
+        explode: false
+        in: path
+        name: principalId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRole'
+        required: true
+      responses:
+        "204":
+          description: Response when the update is successful.
+        "404":
+          content:
+            application/json:
+              examples:
+                NotFoundExample:
+                  value:
+                    error_code: 404
+                    message: No artifact with id 'Topic-1/Inbound' could be found.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can return a `404`
+            error.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: Update a role mapping
+      tags:
+      - Admin
+    summary: Manage the configuration of a single role mapping.
+  /admin/roleMappings:
+    get:
+      description: |
+        Gets a list of all role mappings configured in the registry (if any).
+
+        This operation can fail for the following reasons:
+
+        * A server error occurred (HTTP error `500`)
+      operationId: listRoleMappings
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RoleMapping'
+                type: array
+          description: A successful response will return the list of role mappings.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: List all role mappings
+      tags:
+      - Admin
+    post:
+      description: |+
+        Creates a new mapping between a user/principal and a role.
+
+        This operation can fail for the following reasons:
+
+        * A server error occurred (HTTP error `500`)
+
+      operationId: createRoleMapping
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleMapping'
+        required: true
+      responses:
+        "204":
+          description: Returned when the role mapping was successfully created.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: Create a new role mapping
+      tags:
+      - Admin
+    summary: Collection to manage role mappings for authenticated principals
+  /users/me:
+    get:
+      description: Returns information about the currently authenticated user.
+      operationId: getCurrentUserInfo
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserInfo'
+          description: Response when the endpoint is successfully invoked.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: Get current user
+      tags:
+      - Users
+    summary: Retrieves information about the current user
+  /ids/contentHashes/{contentHash}/references:
+    get:
+      description: |
+        Returns a list containing all the artifact references using the artifact content hash.
+
+        This operation may fail for one of the following reasons:
+
+        * A server error occurred (HTTP error `500`)
+      operationId: referencesByContentHash
+      parameters:
+      - description: SHA-256 content hash for a single artifact content.
+        explode: false
+        in: path
+        name: contentHash
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ArtifactReference'
+                type: array
+          description: A list containing all the references for the artifact with
+            the given content hash.
+      summary: Returns a list with all the references for the artifact with the given
+        hash
+      tags:
+      - Artifacts
+  /ids/contentIds/{contentId}/references:
+    get:
+      description: |-
+        Returns a list containing all the artifact references using the artifact contentId.
+
+        This operation may fail for one of the following reasons:
+
+        * A server error occurred (HTTP error `500`)
+      operationId: referencesByContentId
+      parameters:
+      - description: Global identifier for a single artifact content.
+        explode: false
+        in: path
+        name: contentId
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ArtifactReference'
+                type: array
+          description: A list containing all the references for the artifact with
+            the given content id.
+      summary: Returns a list with all the references for the artifact with the given
+        content id.
+      tags:
+      - Artifacts
+  /ids/globalIds/{globalId}/references:
+    get:
+      description: |-
+        Returns a list containing all the artifact references using the artifact global id.
+
+        This operation may fail for one of the following reasons:
+
+        * A server error occurred (HTTP error `500`)
+      operationId: referencesByGlobalId
+      parameters:
+      - description: Global identifier for an artifact version.
+        explode: false
+        in: path
+        name: globalId
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ArtifactReference'
+                type: array
+          description: A list containing all the references for the artifact with
+            the given global id.
+      summary: Returns a list with all the references for the artifact with the given
+        global id.
+      tags:
+      - Artifacts
+  /groups/{groupId}/artifacts/{artifactId}/versions/{version}/references:
+    get:
+      description: "Retrieves a single version of the artifact content.  Both the\
+        \ `artifactId` and the\nunique `version` number must be provided.  The `Content-Type`\
+        \ of the response depends \non the artifact type.  In most cases, this is\
+        \ `application/json`, but for some types \nit may be different (for example,\
+        \ `PROTOBUF`).\n\nThis operation can fail for the following reasons:\n\n*\
+        \ No artifact with this `artifactId` exists (HTTP error `404`)\n* No version\
+        \ with this `version` exists (HTTP error `404`)\n* A server error occurred\
+        \ (HTTP error `500`)\n"
+      operationId: getArtifactVersionReferences
       parameters:
       - description: The artifact group ID.  Must be a string provided by the client,
           representing the name of the grouping of artifacts.
@@ -2141,13 +2315,541 @@ paths:
         schema:
           $ref: '#/components/schemas/ArtifactId'
         style: simple
+      - description: The unique identifier of a specific version of the artifact content.
+        explode: false
+        in: path
+        name: version
+        required: true
+        schema:
+          $ref: '#/components/schemas/Version'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ArtifactReference'
+                type: array
+          description: List of all the artifact references for this artifact.
+        "404":
+          content:
+            application/json:
+              examples:
+                NotFoundExample:
+                  value:
+                    error_code: 404
+                    message: No artifact with id 'Topic-1/Inbound' could be found.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can return a `404`
+            error.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: Get artifact version
+      tags:
+      - Versions
+    summary: Manage the references for a single version of an artifact in the registry.
+  /admin/config/properties:
+    get:
+      description: |
+        Returns a list of all configuration properties that have been set.  The list is not paged.
+
+        This operation may fail for one of the following reasons:
+
+        * A server error occurred (HTTP error `500`)
+      operationId: listConfigProperties
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ConfigurationProperty'
+                type: array
+          description: On a successful response, returns a list of configuration properties.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: List all configuration properties
+      tags:
+      - Admin
+    summary: Manage configuration properties.
+  /admin/config/properties/{propertyName}:
+    delete:
+      description: |
+        Resets the value of a single configuration property.  This will return the property to
+        its default value (see external documentation for supported properties and their default
+        values).
+
+        This operation may fail for one of the following reasons:
+
+        * Property not found or not configured (HTTP error `404`)
+        * A server error occurred (HTTP error `500`)
+      operationId: resetConfigProperty
+      parameters:
+      - description: The name of a configuration property.
+        explode: false
+        in: path
+        name: propertyName
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: The configuration property was deleted.
+        "404":
+          content:
+            application/json:
+              examples:
+                NotFoundExample:
+                  value:
+                    error_code: 404
+                    message: No artifact with id 'Topic-1/Inbound' could be found.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can return a `404`
+            error.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: Reset a configuration property
+      tags:
+      - Admin
+    get:
+      description: |
+        Returns the value of a single configuration property.
+
+        This operation may fail for one of the following reasons:
+
+        * Property not found or not configured (HTTP error `404`)
+        * A server error occurred (HTTP error `500`)
+      operationId: getConfigProperty
+      parameters:
+      - description: The name of a configuration property.
+        explode: false
+        in: path
+        name: propertyName
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfigurationProperty'
+          description: The configuration property value.
+        "404":
+          content:
+            application/json:
+              examples:
+                NotFoundExample:
+                  value:
+                    error_code: 404
+                    message: No artifact with id 'Topic-1/Inbound' could be found.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can return a `404`
+            error.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: Get the value of a configuration property
+      tags:
+      - Admin
+    put:
+      description: |
+        Updates the value of a single configuration property.
+
+        This operation may fail for one of the following reasons:
+
+        * Property not found or not configured (HTTP error `404`)
+        * A server error occurred (HTTP error `500`)
+      operationId: updateConfigProperty
+      parameters:
+      - description: The name of a configuration property.
+        explode: false
+        in: path
+        name: propertyName
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateConfigurationProperty'
+        required: true
+      responses:
+        "204":
+          description: The configuration property was updated.
+        "404":
+          content:
+            application/json:
+              examples:
+                NotFoundExample:
+                  value:
+                    error_code: 404
+                    message: No artifact with id 'Topic-1/Inbound' could be found.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can return a `404`
+            error.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: Update a configuration property
+      tags:
+      - Admin
+    summary: Manage a single configuration property (by name).
+  /system/limits:
+    get:
+      description: This operation retrieves the list of limitations on used resources,
+        that are applied on the current instance of Registry.
+      operationId: getResourceLimits
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Limits'
+          description: On success, returns resource limits
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: Get resource limits information
+      tags:
+      - System
+    summary: Retrieve resource limits information
+  /groups/{groupId}/artifacts/{artifactId}:
+    delete:
+      description: |-
+        Deletes an artifact completely, resulting in all versions of the artifact also being
+        deleted.  This may fail for one of the following reasons:
+
+        * No artifact with the `artifactId` exists (HTTP error `404`)
+        * A server error occurred (HTTP error `500`)
+      operationId: deleteArtifact
+      parameters:
+      - description: The artifact group ID.  Must be a string provided by the client,
+          representing the name of the grouping of artifacts.
+        explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          $ref: '#/components/schemas/GroupId'
+        style: simple
+      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
+          representing the unique artifact identifier.
+        explode: false
+        in: path
+        name: artifactId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ArtifactId'
+        style: simple
+      responses:
+        "204":
+          description: Returned when the artifact was successfully deleted.
+        "404":
+          content:
+            application/json:
+              examples:
+                NotFoundExample:
+                  value:
+                    error_code: 404
+                    message: No artifact with id 'Topic-1/Inbound' could be found.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can return a `404`
+            error.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: Delete artifact
+      tags:
+      - Artifacts
+    get:
+      description: "Returns the latest version of the artifact in its raw form.  The\
+        \ `Content-Type` of the\nresponse depends on the artifact type.  In most cases,\
+        \ this is `application/json`, but \nfor some types it may be different (for\
+        \ example, `PROTOBUF`).\n\nThis operation may fail for one of the following\
+        \ reasons:\n\n* No artifact with this `artifactId` exists (HTTP error `404`)\n\
+        * A server error occurred (HTTP error `500`)\n"
+      operationId: getLatestArtifact
+      parameters:
+      - description: The artifact group ID.  Must be a string provided by the client,
+          representing the name of the grouping of artifacts.
+        explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          $ref: '#/components/schemas/GroupId'
+        style: simple
+      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
+          representing the unique artifact identifier.
+        explode: false
+        in: path
+        name: artifactId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ArtifactId'
+        style: simple
+      - description: Allows the user to specify if the content should be dereferenced
+          when being returned
+        explode: true
+        in: query
+        name: dereference
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              examples:
+                OpenAPI:
+                  value:
+                    openapi: 3.0.2
+                    info:
+                      title: Empty API
+                      version: 1.0.0
+                      description: An example API design using OpenAPI.
+              schema:
+                $ref: '#/components/schemas/FileContent'
+          description: The content of one version of one artifact.
+        "404":
+          content:
+            application/json:
+              examples:
+                NotFoundExample:
+                  value:
+                    error_code: 404
+                    message: No artifact with id 'Topic-1/Inbound' could be found.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can return a `404`
+            error.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: Get latest artifact
+      tags:
+      - Artifacts
+    put:
+      description: |-
+        Updates an artifact by uploading new content.  The body of the request can
+        be the raw content of the artifact or a JSON object containing both the raw content and
+        a set of references to other artifacts..  This is typically in JSON format for *most*
+        of the supported types, but may be in another format for a few (for example, `PROTOBUF`).
+        The type of the content should be compatible with the artifact's type (it would be
+        an error to update an `AVRO` artifact with new `OPENAPI` content, for example).
+
+        The update could fail for a number of reasons including:
+
+        * Provided content (request body) was empty (HTTP error `400`)
+        * No artifact with the `artifactId` exists (HTTP error `404`)
+        * The new content violates one of the rules configured for the artifact (HTTP error `409`)
+        * A server error occurred (HTTP error `500`)
+
+        When successful, this creates a new version of the artifact, making it the most recent
+        (and therefore official) version of the artifact.
+      operationId: updateArtifact
+      parameters:
+      - description: The artifact group ID.  Must be a string provided by the client,
+          representing the name of the grouping of artifacts.
+        explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          $ref: '#/components/schemas/GroupId'
+        style: simple
+      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
+          representing the unique artifact identifier.
+        explode: false
+        in: path
+        name: artifactId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ArtifactId'
+        style: simple
+      - description: |-
+          Specifies the version number of this new version of the artifact content.  This would typically
+          be a simple integer or a SemVer value.  If not provided, the server will assign a version number
+          automatically.
+        explode: false
+        in: header
+        name: X-Registry-Version
+        required: false
+        schema:
+          $ref: '#/components/schemas/Version'
+        style: simple
+      - description: |-
+          Specifies the artifact name of this new version of the artifact content. Name must be ASCII-only string. If this is not
+          provided, the server will extract the name from the artifact content.
+        explode: false
+        in: header
+        name: X-Registry-Name
+        required: false
+        schema:
+          $ref: '#/components/schemas/ArtifactName'
+        style: simple
+      - description: Specifies the artifact name of this new version of the artifact
+          content. Value of this must be Base64 encoded string. If this is not provided,
+          the server will extract the name from the artifact content.
+        explode: false
+        in: header
+        name: X-Registry-Name-Encoded
+        required: false
+        schema:
+          $ref: '#/components/schemas/EncodedArtifactName'
+        style: simple
+      - description: Specifies the artifact description of this new version of the
+          artifact content. Description must be ASCII-only string. If this is not
+          provided, the server will extract the description from the artifact content.
+        explode: false
+        in: header
+        name: X-Registry-Description
+        required: false
+        schema:
+          $ref: '#/components/schemas/ArtifactDescription'
+        style: simple
+      - description: Specifies the artifact description of this new version of the
+          artifact content. Value of this must be Base64 encoded string. If this is
+          not provided, the server will extract the description from the artifact
+          content.
+        explode: false
+        in: header
+        name: X-Registry-Description-Encoded
+        required: false
+        schema:
+          $ref: '#/components/schemas/EncodedArtifactDescription'
+        style: simple
       requestBody:
         content:
           '*/*':
+            examples:
+              OpenAPI Example:
+                value:
+                  openapi: 3.0.2
+                  info:
+                    title: Empty API
+                    version: 1.0.7
+                    description: An example API design using OpenAPI.
+                  paths:
+                    /widgets:
+                      get:
+                        responses:
+                          "200":
+                            content:
+                              application/json:
+                                schema:
+                                  type: array
+                                  items:
+                                    type: string
+                            description: All widgets
+                        summary: Get widgets
+                  components:
+                    schemas:
+                      Widget:
+                        title: Root Type for Widget
+                        description: A sample data type.
+                        type: object
+                        properties:
+                          property-1:
+                            type: string
+                          property-2:
+                            type: boolean
+                        example:
+                          property-1: value1
+                          property-2: true
+            schema: {}
+          application/create.extended+json:
             schema:
-              $ref: '#/components/schemas/FileContent'
+              $ref: '#/components/schemas/ContentCreateRequest'
         description: |
-          The content of the artifact being tested. This is often, but not always, JSON data
+          The new content of the artifact being updated. This is often, but not always, JSON data
           representing one of the supported artifact types:
 
           * Avro (`AVRO`)
@@ -2161,10 +2863,12 @@ paths:
           * XML Schema (`XSD`)
         required: true
       responses:
-        "204":
-          description: |-
-            When successful, returns "No Content" to indicate that the rules passed, and the
-            content was not updated.
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArtifactMetaData'
+          description: When successful, returns the updated artifact metadata.
         "404":
           content:
             application/json:
@@ -2181,17 +2885,12 @@ paths:
           content:
             application/json:
               examples:
-                RuleViolationConflictExample:
+                ConflictExample:
                   value:
                     error_code: 409
-                    message: The artifact content was invalid
-                    causes:
-                    - description: API is missing a title
-                      context: /info[title]
-                    - description: Operation IDs must be unique
-                      context: /paths[/invoices]/put[operationId]
+                    message: The artifact content was invalid.
               schema:
-                $ref: '#/components/schemas/RuleViolationError'
+                $ref: '#/components/schemas/Error'
           description: Common response used when an input conflicts with existing
             data.
         "500":
@@ -2206,10 +2905,10 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: Common response for all operations that can fail with an unexpected
             server error.
-      summary: Test update artifact
+      summary: Update artifact
       tags:
-      - Artifact rules
-    summary: Test whether content would pass update rules.
+      - Artifacts
+    summary: Manage a single artifact.
   /groups/{groupId}/artifacts:
     delete:
       description: Deletes all of the artifacts that exist in a given group.
@@ -2494,8 +3193,10 @@ paths:
                         example:
                           property-1: value1
                           property-2: true
+            schema: {}
+          application/create.extended+json:
             schema:
-              $ref: '#/components/schemas/FileContent'
+              $ref: '#/components/schemas/ContentCreateRequest'
         description: |
           The content of the artifact being created. This is often, but not always, JSON data
           representing one of the supported artifact types:
@@ -2557,151 +3258,25 @@ paths:
       tags:
       - Artifacts
     summary: Manage the collection of artifacts within a single group in the registry.
-  /groups/{groupId}/artifacts/{artifactId}:
-    delete:
-      description: |-
-        Deletes an artifact completely, resulting in all versions of the artifact also being
-        deleted.  This may fail for one of the following reasons:
-
-        * No artifact with the `artifactId` exists (HTTP error `404`)
-        * A server error occurred (HTTP error `500`)
-      operationId: deleteArtifact
-      parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
-        explode: false
-        in: path
-        name: groupId
-        required: true
-        schema:
-          $ref: '#/components/schemas/GroupId'
-        style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
-        explode: false
-        in: path
-        name: artifactId
-        required: true
-        schema:
-          $ref: '#/components/schemas/ArtifactId'
-        style: simple
-      responses:
-        "204":
-          description: Returned when the artifact was successfully deleted.
-        "404":
-          content:
-            application/json:
-              examples:
-                NotFoundExample:
-                  value:
-                    error_code: 404
-                    message: No artifact with id 'Topic-1/Inbound' could be found.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can return a `404`
-            error.
-        "500":
-          content:
-            application/json:
-              examples:
-                ErrorExample:
-                  value:
-                    error_code: 500
-                    message: Lost connection to the database.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can fail with an unexpected
-            server error.
-      summary: Delete artifact
-      tags:
-      - Artifacts
-    get:
-      description: "Returns the latest version of the artifact in its raw form.  The\
-        \ `Content-Type` of the\nresponse depends on the artifact type.  In most cases,\
-        \ this is `application/json`, but \nfor some types it may be different (for\
-        \ example, `PROTOBUF`).\n\nThis operation may fail for one of the following\
-        \ reasons:\n\n* No artifact with this `artifactId` exists (HTTP error `404`)\n\
-        * A server error occurred (HTTP error `500`)\n"
-      operationId: getLatestArtifact
-      parameters:
-      - description: The artifact group ID.  Must be a string provided by the client,
-          representing the name of the grouping of artifacts.
-        explode: false
-        in: path
-        name: groupId
-        required: true
-        schema:
-          $ref: '#/components/schemas/GroupId'
-        style: simple
-      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
-          representing the unique artifact identifier.
-        explode: false
-        in: path
-        name: artifactId
-        required: true
-        schema:
-          $ref: '#/components/schemas/ArtifactId'
-        style: simple
-      responses:
-        "200":
-          content:
-            '*/*':
-              examples:
-                OpenAPI:
-                  value:
-                    openapi: 3.0.2
-                    info:
-                      title: Empty API
-                      version: 1.0.0
-                      description: An example API design using OpenAPI.
-              schema:
-                $ref: '#/components/schemas/FileContent'
-          description: The content of one version of one artifact.
-        "404":
-          content:
-            application/json:
-              examples:
-                NotFoundExample:
-                  value:
-                    error_code: 404
-                    message: No artifact with id 'Topic-1/Inbound' could be found.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can return a `404`
-            error.
-        "500":
-          content:
-            application/json:
-              examples:
-                ErrorExample:
-                  value:
-                    error_code: 500
-                    message: Lost connection to the database.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can fail with an unexpected
-            server error.
-      summary: Get latest artifact
-      tags:
-      - Artifacts
+  /groups/{groupId}/artifacts/{artifactId}/test:
     put:
-      description: |-
-        Updates an artifact by uploading new content.  The body of the request should
-        be the raw content of the artifact.  This is typically in JSON format for *most*
-        of the supported types, but may be in another format for a few (for example, `PROTOBUF`).
-        The type of the content should be compatible with the artifact's type (it would be
-        an error to update an `AVRO` artifact with new `OPENAPI` content, for example).
-
-        The update could fail for a number of reasons including:
-
-        * Provided content (request body) was empty (HTTP error `400`)
-        * No artifact with the `artifactId` exists (HTTP error `404`)
-        * The new content violates one of the rules configured for the artifact (HTTP error `409`)
-        * A server error occurred (HTTP error `500`)
-
-        When successful, this creates a new version of the artifact, making it the most recent
-        (and therefore official) version of the artifact.
-      operationId: updateArtifact
+      description: "Tests whether an update to the artifact's content *would* succeed\
+        \ for the provided content.\nUltimately, this applies any rules configured\
+        \ for the artifact against the given content\nto determine whether the rules\
+        \ would pass or fail, but without actually updating the artifact\ncontent.\n\
+        \nThe body of the request should be the raw content of the artifact.  This\
+        \ is typically in \nJSON format for *most* of the supported types, but may\
+        \ be in another format for a few \n(for example, `PROTOBUF`).\n\nThe update\
+        \ could fail for a number of reasons including:\n\n* Provided content (request\
+        \ body) was empty (HTTP error `400`)\n* No artifact with the `artifactId`\
+        \ exists (HTTP error `404`)\n* The new content violates one of the rules configured\
+        \ for the artifact (HTTP error `409`)\n* The provided artifact type is not\
+        \ recognized (HTTP error `404`)\n* A server error occurred (HTTP error `500`)\n\
+        \nWhen successful, this operation simply returns a *No Content* response.\
+        \  This response\nindicates that the content is valid against the configured\
+        \ content rules for the \nartifact (or the global rules if no artifact rules\
+        \ are enabled)."
+      operationId: testUpdateArtifact
       parameters:
       - description: The artifact group ID.  Must be a string provided by the client,
           representing the name of the grouping of artifacts.
@@ -2720,101 +3295,13 @@ paths:
         required: true
         schema:
           $ref: '#/components/schemas/ArtifactId'
-        style: simple
-      - description: |-
-          Specifies the version number of this new version of the artifact content.  This would typically
-          be a simple integer or a SemVer value.  If not provided, the server will assign a version number
-          automatically.
-        explode: false
-        in: header
-        name: X-Registry-Version
-        required: false
-        schema:
-          $ref: '#/components/schemas/Version'
-        style: simple
-      - description: |-
-          Specifies the artifact name of this new version of the artifact content. Name must be ASCII-only string. If this is not
-          provided, the server will extract the name from the artifact content.
-        explode: false
-        in: header
-        name: X-Registry-Name
-        required: false
-        schema:
-          $ref: '#/components/schemas/ArtifactName'
-        style: simple
-      - description: Specifies the artifact name of this new version of the artifact
-          content. Value of this must be Base64 encoded string. If this is not provided,
-          the server will extract the name from the artifact content.
-        explode: false
-        in: header
-        name: X-Registry-Name-Encoded
-        required: false
-        schema:
-          $ref: '#/components/schemas/EncodedArtifactName'
-        style: simple
-      - description: Specifies the artifact description of this new version of the
-          artifact content. Description must be ASCII-only string. If this is not
-          provided, the server will extract the description from the artifact content.
-        explode: false
-        in: header
-        name: X-Registry-Description
-        required: false
-        schema:
-          $ref: '#/components/schemas/ArtifactDescription'
-        style: simple
-      - description: Specifies the artifact description of this new version of the
-          artifact content. Value of this must be Base64 encoded string. If this is
-          not provided, the server will extract the description from the artifact
-          content.
-        explode: false
-        in: header
-        name: X-Registry-Description-Encoded
-        required: false
-        schema:
-          $ref: '#/components/schemas/EncodedArtifactDescription'
         style: simple
       requestBody:
         content:
           '*/*':
-            examples:
-              OpenAPI Example:
-                value:
-                  openapi: 3.0.2
-                  info:
-                    title: Empty API
-                    version: 1.0.7
-                    description: An example API design using OpenAPI.
-                  paths:
-                    /widgets:
-                      get:
-                        responses:
-                          "200":
-                            content:
-                              application/json:
-                                schema:
-                                  type: array
-                                  items:
-                                    type: string
-                            description: All widgets
-                        summary: Get widgets
-                  components:
-                    schemas:
-                      Widget:
-                        title: Root Type for Widget
-                        description: A sample data type.
-                        type: object
-                        properties:
-                          property-1:
-                            type: string
-                          property-2:
-                            type: boolean
-                        example:
-                          property-1: value1
-                          property-2: true
-            schema:
-              $ref: '#/components/schemas/FileContent'
+            schema: {}
         description: |
-          The new content of the artifact being updated. This is often, but not always, JSON data
+          The content of the artifact being tested. This is often, but not always, JSON data
           representing one of the supported artifact types:
 
           * Avro (`AVRO`)
@@ -2828,12 +3315,10 @@ paths:
           * XML Schema (`XSD`)
         required: true
       responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ArtifactMetaData'
-          description: When successful, returns the updated artifact metadata.
+        "204":
+          description: |-
+            When successful, returns "No Content" to indicate that the rules passed, and the
+            content was not updated.
         "404":
           content:
             application/json:
@@ -2850,12 +3335,17 @@ paths:
           content:
             application/json:
               examples:
-                ConflictExample:
+                RuleViolationConflictExample:
                   value:
                     error_code: 409
-                    message: The artifact content was invalid.
+                    message: The artifact content was invalid
+                    causes:
+                    - description: API is missing a title
+                      context: /info[title]
+                    - description: Operation IDs must be unique
+                      context: /paths[/invoices]/put[operationId]
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/RuleViolationError'
           description: Common response used when an input conflicts with existing
             data.
         "500":
@@ -2870,10 +3360,10 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: Common response for all operations that can fail with an unexpected
             server error.
-      summary: Update artifact
+      summary: Test update artifact
       tags:
-      - Artifacts
-    summary: Manage a single artifact.
+      - Artifact rules
+    summary: Test whether content would pass update rules.
   /groups/{groupId}/artifacts/{artifactId}/versions:
     get:
       description: |
@@ -2966,14 +3456,15 @@ paths:
         \  The configured rules for\nthe artifact are applied, and if they all pass,\
         \ the new content is added as the most recent \nversion of the artifact. \
         \ If any of the rules fail, an error is returned.\n\nThe body of the request\
-        \ should be the raw content of the new artifact version, and the type\nof\
-        \ that content should match the artifact's type (for example if the artifact\
-        \ type is `AVRO`\nthen the content of the request should be an Apache Avro\
-        \ document).\n\nThis operation can fail for the following reasons:\n\n* Provided\
-        \ content (request body) was empty (HTTP error `400`)\n* No artifact with\
-        \ this `artifactId` exists (HTTP error `404`)\n* The new content violates\
-        \ one of the rules configured for the artifact (HTTP error `409`)\n* A server\
-        \ error occurred (HTTP error `500`)\n"
+        \ can be the raw content of the new artifact version, or the raw content \n\
+        and a set of references pointing to other artifacts, and the type\nof that\
+        \ content should match the artifact's type (for example if the artifact type\
+        \ is `AVRO`\nthen the content of the request should be an Apache Avro document).\n\
+        \nThis operation can fail for the following reasons:\n\n* Provided content\
+        \ (request body) was empty (HTTP error `400`)\n* No artifact with this `artifactId`\
+        \ exists (HTTP error `404`)\n* The new content violates one of the rules configured\
+        \ for the artifact (HTTP error `409`)\n* A server error occurred (HTTP error\
+        \ `500`)\n"
       operationId: createArtifactVersion
       parameters:
       - description: The artifact group ID.  Must be a string provided by the client,
@@ -3084,10 +3575,12 @@ paths:
                         example:
                           property-1: value1
                           property-2: true
+            schema: {}
+          application/create.extended+json:
             schema:
-              $ref: '#/components/schemas/FileContent'
+              $ref: '#/components/schemas/ContentCreateRequest'
         description: |
-          The content of the artifact version being created. This is often, but not always, JSON data
+          The content of the artifact version being created or the content and a set of references to other artifacts. This is often, but not always, JSON data
           representing one of the supported artifact types:
 
           * Avro (`AVRO`)
@@ -3152,82 +3645,43 @@ paths:
       tags:
       - Versions
     summary: Manage all the versions of an artifact in the registry.
-  /admin/roleMappings/{principalId}:
-    delete:
-      description: |
-        Deletes a single role mapping, effectively denying access to a user/principal.
-
-        This operation can fail for the following reasons:
-
-        * No role mapping for the principalId exists (HTTP error `404`)
-        * A server error occurred (HTTP error `500`)
-      operationId: deleteRoleMapping
-      parameters:
-      - description: Unique id of a principal (typically either a user or service
-          account).
-        explode: false
-        in: path
-        name: principalId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: Response returned when the delete was successful.
-        "404":
-          content:
-            application/json:
-              examples:
-                NotFoundExample:
-                  value:
-                    error_code: 404
-                    message: No artifact with id 'Topic-1/Inbound' could be found.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can return a `404`
-            error.
-        "500":
-          content:
-            application/json:
-              examples:
-                ErrorExample:
-                  value:
-                    error_code: 500
-                    message: Lost connection to the database.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can fail with an unexpected
-            server error.
-      summary: Delete a role mapping
-      tags:
-      - Admin
+  /groups/{groupId}/artifacts/{artifactId}/meta:
     get:
-      description: |
-        Gets the details of a single role mapping (by principalId).
+      description: |-
+        Gets the metadata for an artifact in the registry.  The returned metadata includes
+        both generated (read-only) and editable metadata (such as name and description).
 
         This operation can fail for the following reasons:
 
-        * No role mapping for the principalId exists (HTTP error `404`)
+        * No artifact with this `artifactId` exists (HTTP error `404`)
         * A server error occurred (HTTP error `500`)
-      operationId: getRoleMapping
+      operationId: getArtifactMetaData
       parameters:
-      - description: Unique id of a principal (typically either a user or service
-          account).
+      - description: The artifact group ID.  Must be a string provided by the client,
+          representing the name of the grouping of artifacts.
         explode: false
         in: path
-        name: principalId
+        name: groupId
         required: true
         schema:
-          type: string
+          $ref: '#/components/schemas/GroupId'
+        style: simple
+      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
+          representing the unique artifact identifier.
+        explode: false
+        in: path
+        name: artifactId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ArtifactId'
         style: simple
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RoleMapping'
-          description: When successful, returns the details of a role mapping.
+                $ref: '#/components/schemas/ArtifactMetaData'
+          description: The artifact's metadata.
         "404":
           content:
             application/json:
@@ -3252,143 +3706,113 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: Common response for all operations that can fail with an unexpected
             server error.
-      summary: Return a single role mapping
+      summary: Get artifact metadata
       tags:
-      - Admin
-    put:
-      description: |
-        Updates a single role mapping for one user/principal.
-
-        This operation can fail for the following reasons:
-
-        * No role mapping for the principalId exists (HTTP error `404`)
-        * A server error occurred (HTTP error `500`)
-      operationId: updateRoleMapping
-      parameters:
-      - description: Unique id of a principal (typically either a user or service
-          account).
-        explode: false
-        in: path
-        name: principalId
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UpdateRole'
-        required: true
-      responses:
-        "204":
-          description: Response when the update is successful.
-        "404":
-          content:
-            application/json:
-              examples:
-                NotFoundExample:
-                  value:
-                    error_code: 404
-                    message: No artifact with id 'Topic-1/Inbound' could be found.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can return a `404`
-            error.
-        "500":
-          content:
-            application/json:
-              examples:
-                ErrorExample:
-                  value:
-                    error_code: 500
-                    message: Lost connection to the database.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can fail with an unexpected
-            server error.
-      summary: Update a role mapping
-      tags:
-      - Admin
-    summary: Manage the configuration of a single role mapping.
-  /admin/roleMappings:
-    get:
-      description: |
-        Gets a list of all role mappings configured in the registry (if any).
-
-        This operation can fail for the following reasons:
-
-        * A server error occurred (HTTP error `500`)
-      operationId: listRoleMappings
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/RoleMapping'
-                type: array
-          description: A successful response will return the list of role mappings.
-        "500":
-          content:
-            application/json:
-              examples:
-                ErrorExample:
-                  value:
-                    error_code: 500
-                    message: Lost connection to the database.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can fail with an unexpected
-            server error.
-      summary: List all role mappings
-      tags:
-      - Admin
+      - Metadata
     post:
-      description: |+
-        Creates a new mapping between a user/principal and a role.
+      description: |
+        Gets the metadata for an artifact that matches the raw content.  Searches the registry
+        for a version of the given artifact matching the content provided in the body of the
+        POST.
 
         This operation can fail for the following reasons:
 
+        * Provided content (request body) was empty (HTTP error `400`)
+        * No artifact with the `artifactId` exists (HTTP error `404`)
+        * No artifact version matching the provided content exists (HTTP error `404`)
         * A server error occurred (HTTP error `500`)
-
-      operationId: createRoleMapping
+      operationId: getArtifactVersionMetaDataByContent
+      parameters:
+      - description: The artifact group ID.  Must be a string provided by the client,
+          representing the name of the grouping of artifacts.
+        explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          $ref: '#/components/schemas/GroupId'
+        style: simple
+      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
+          representing the unique artifact identifier.
+        explode: false
+        in: path
+        name: artifactId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ArtifactId'
+        style: simple
+      - description: Parameter that can be set to `true` to indicate that the server
+          should "canonicalize" the content when searching for a matching version.  Canonicalization
+          is unique to each artifact type, but typically involves removing any extra
+          whitespace and formatting the content in a consistent manner.
+        explode: true
+        in: query
+        name: canonical
+        required: false
+        schema:
+          type: boolean
+        style: form
       requestBody:
         content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/RoleMapping'
+          '*/*':
+            examples:
+              OpenAPI:
+                value:
+                  openapi: 3.0.2
+                  info:
+                    title: Empty API
+                    version: 1.0.7
+                    description: An example API design using OpenAPI.
+                  paths:
+                    /widgets:
+                      get:
+                        responses:
+                          "200":
+                            content:
+                              application/json:
+                                schema:
+                                  type: array
+                                  items:
+                                    type: string
+                            description: All widgets
+                        summary: Get widgets
+                  components:
+                    schemas:
+                      Widget:
+                        title: Root Type for Widget
+                        description: A sample data type.
+                        type: object
+                        properties:
+                          property-1:
+                            type: string
+                          property-2:
+                            type: boolean
+                        example:
+                          property-1: value1
+                          property-2: true
+            schema: {}
+        description: The content of an artifact version.
         required: true
-      responses:
-        "204":
-          description: Returned when the role mapping was successfully created.
-        "500":
-          content:
-            application/json:
-              examples:
-                ErrorExample:
-                  value:
-                    error_code: 500
-                    message: Lost connection to the database.
-              schema:
-                $ref: '#/components/schemas/Error'
-          description: Common response for all operations that can fail with an unexpected
-            server error.
-      summary: Create a new role mapping
-      tags:
-      - Admin
-    summary: Collection to manage role mappings for authenticated principals
-  /users/me:
-    get:
-      description: Returns information about the currently authenticated user.
-      operationId: getCurrentUserInfo
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserInfo'
-          description: Response when the endpoint is successfully invoked.
+                $ref: '#/components/schemas/VersionMetaData'
+          description: The metadata of the artifact version matching the provided
+            content.
+        "404":
+          content:
+            application/json:
+              examples:
+                NotFoundExample:
+                  value:
+                    error_code: 404
+                    message: No artifact with id 'Topic-1/Inbound' could be found.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can return a `404`
+            error.
         "500":
           content:
             application/json:
@@ -3401,10 +3825,76 @@ paths:
                 $ref: '#/components/schemas/Error'
           description: Common response for all operations that can fail with an unexpected
             server error.
-      summary: Get current user
+      summary: Get artifact version metadata by content
       tags:
-      - Users
-    summary: Retrieves information about the current user
+      - Metadata
+    put:
+      description: |-
+        Updates the editable parts of the artifact's metadata.  Not all metadata fields can
+        be updated.  For example, `createdOn` and `createdBy` are both read-only properties.
+
+        This operation can fail for the following reasons:
+
+        * No artifact with the `artifactId` exists (HTTP error `404`)
+        * A server error occurred (HTTP error `500`)
+      operationId: updateArtifactMetaData
+      parameters:
+      - description: The artifact group ID.  Must be a string provided by the client,
+          representing the name of the grouping of artifacts.
+        explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          $ref: '#/components/schemas/GroupId'
+        style: simple
+      - description: The artifact ID.  Can be a string (client-provided) or UUID (server-generated),
+          representing the unique artifact identifier.
+        explode: false
+        in: path
+        name: artifactId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ArtifactId'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EditableMetaData'
+        description: Updated artifact metadata.
+        required: true
+      responses:
+        "204":
+          description: The artifact's metadata was updated.
+        "404":
+          content:
+            application/json:
+              examples:
+                NotFoundExample:
+                  value:
+                    error_code: 404
+                    message: No artifact with id 'Topic-1/Inbound' could be found.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can return a `404`
+            error.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: Update artifact metadata
+      tags:
+      - Metadata
+    summary: Manage the metadata of a single artifact.
 components:
   responses:
     NotFound:
@@ -3505,75 +3995,6 @@ components:
           x-codegen-inline: true
           x-codegen-type: StringMap
       title: Root Type for EditableArtifactMetaData
-      type: object
-    VersionMetaData:
-      example:
-        groupId: My-Group
-        id: my-artifact-id
-        version: 1221432
-        type: PROTOBUF
-        name: Artifact Name
-        description: The description of the artifact
-        createdBy: user1
-        createdOn: 2019-05-17T12:00:00Z
-        globalId: 183282932983
-        contentId: 12347
-        labels:
-        - label-1
-        - label-2
-        properties:
-          custom-1: foo
-          custom-2: bar
-      properties:
-        version:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        createdBy:
-          type: string
-        createdOn:
-          format: utc-date
-          type: string
-        type:
-          $ref: '#/components/schemas/ArtifactType'
-        globalId:
-          format: int64
-          type: integer
-        state:
-          $ref: '#/components/schemas/ArtifactState'
-        id:
-          description: The ID of a single artifact.
-          example: example-artifact
-          type: string
-        labels:
-          items:
-            type: string
-          type: array
-        properties:
-          additionalProperties:
-            type: string
-          description: User-defined name-value pairs. Name and value must be strings.
-          type: object
-          x-codegen-inline: true
-          x-codegen-type: StringMap
-        groupId:
-          description: An ID of a single artifact group.
-          example: my-group
-          type: string
-        contentId:
-          format: int64
-          type: integer
-      required:
-      - contentId
-      - createdBy
-      - createdOn
-      - globalId
-      - id
-      - type
-      - version
-      title: Root Type for ArtifactVersionMetaData
       type: object
     Rule:
       example:
@@ -3723,6 +4144,7 @@ components:
           version: 85
           properties: {}
           contentId: 62
+          references: {}
         - name: Artifact Version Name
           description: Description of the artifact version
           labels:
@@ -3736,6 +4158,7 @@ components:
           version: 85
           properties: {}
           contentId: 62
+          references: {}
         count: 0
       properties:
         count:
@@ -3752,82 +4175,6 @@ components:
       required:
       - count
       - versions
-      type: object
-    SearchedVersion:
-      description: Models a single artifact from the result set returned when searching
-        for artifacts.
-      example:
-        name: Artifact Version Name
-        description: Description of the artifact version
-        labels:
-        - current
-        - internal
-        type: AVRO
-        state: ENABLED
-        createdOn: 2018-02-10T09:30Z
-        createdBy: some text
-        globalId: 37
-        version: 85
-        properties: {}
-        contentId: 62
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        createdOn:
-          format: utc-date
-          type: string
-        createdBy:
-          type: string
-        type:
-          $ref: '#/components/schemas/ArtifactType'
-        labels:
-          items:
-            type: string
-          type: array
-        state:
-          $ref: '#/components/schemas/ArtifactState'
-        globalId:
-          format: int64
-          type: integer
-        version:
-          type: string
-        properties:
-          additionalProperties:
-            type: string
-          description: User-defined name-value pairs. Name and value must be strings.
-          type: object
-          x-codegen-inline: true
-          x-codegen-type: StringMap
-        contentId:
-          format: int64
-          type: integer
-      required:
-      - contentId
-      - createdBy
-      - createdOn
-      - globalId
-      - state
-      - type
-      - version
-      type: object
-    RuleViolationError:
-      allOf:
-      - $ref: '#/components/schemas/RuleViolationError_allOf'
-      - $ref: '#/components/schemas/Error'
-      description: |-
-        All error responses, whether `4xx` or `5xx` will include one of these as the response
-        body.
-      example:
-        error_code: 409
-        message: Artifact failed validation
-        causes:
-        - description: API is missing a title
-          context: /info[title]
-        - description: Operation IDs must be unique
-          context: /paths[/invoices]/put[operationId]
-      title: Root Type for Error
       type: object
     RuleViolationCause:
       example:
@@ -3856,140 +4203,6 @@ components:
         recommended to use a simple integer or a semver value.
       example: 3.1.6
       type: string
-    SearchedArtifact:
-      description: Models a single artifact from the result set returned when searching
-        for artifacts.
-      example:
-        groupId: My-Group
-        id: Procurement-Invoice
-        name: Artifact Name
-        description: Description of the artifact
-        labels:
-        - current
-        - internal
-        type: AVRO
-        state: ENABLED
-        createdBy: user1
-        createdOn: 2019-03-22T12:51:19Z
-      properties:
-        id:
-          description: The ID of a single artifact.
-          example: example-artifact
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        createdOn:
-          format: utc-date
-          type: string
-        createdBy:
-          type: string
-        type:
-          $ref: '#/components/schemas/ArtifactType'
-        labels:
-          items:
-            type: string
-          type: array
-        state:
-          $ref: '#/components/schemas/ArtifactState'
-        modifiedOn:
-          format: utc-date
-          type: string
-        modifiedBy:
-          type: string
-        groupId:
-          description: An ID of a single artifact group.
-          example: my-group
-          type: string
-      required:
-      - createdBy
-      - createdOn
-      - group
-      - id
-      - state
-      - type
-      type: object
-    ArtifactMetaData:
-      example:
-        groupId: My-Group
-        id: Procurement-Invoice
-        name: Artifact Name
-        description: Description of the artifact
-        type: AVRO
-        version: 18
-        createdBy: user1
-        createdOn: 2019-03-22T12:51:19Z
-        modifiedBy: user2
-        modifiedOn: 2019-07-19T15:09:00Z
-        globalId: 12984719247
-        contentId: 82736
-        labels:
-        - label-1
-        - label-2
-        properties:
-          custom-1: foo
-          custom-2: bar
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        createdBy:
-          type: string
-        createdOn:
-          format: utc-date
-          type: string
-        modifiedBy:
-          type: string
-        modifiedOn:
-          format: utc-date
-          type: string
-        id:
-          description: The ID of a single artifact.
-          example: example-artifact
-          type: string
-        version:
-          type: string
-        type:
-          $ref: '#/components/schemas/ArtifactType'
-        globalId:
-          format: int64
-          type: integer
-        state:
-          $ref: '#/components/schemas/ArtifactState'
-        labels:
-          items:
-            type: string
-          type: array
-        properties:
-          additionalProperties:
-            type: string
-          description: User-defined name-value pairs. Name and value must be strings.
-          type: object
-          x-codegen-inline: true
-          x-codegen-type: StringMap
-        groupId:
-          description: An ID of a single artifact group.
-          example: my-group
-          type: string
-        contentId:
-          format: int64
-          type: integer
-      required:
-      - contentId
-      - createdBy
-      - createdOn
-      - globalId
-      - group
-      - id
-      - modifiedBy
-      - modifiedOn
-      - state
-      - type
-      - version
-      title: Root Type for ArtifactMetaData
-      type: object
     LogConfiguration:
       example: {}
       properties:
@@ -4062,13 +4275,17 @@ components:
     RoleMapping:
       description: The mapping between a user/principal and their role.
       example:
-        principalId: user1
+        principalId: svc_account_84874587_123484
+        principalName: famartin-svc-account
         role: READ_ONLY
       properties:
         principalId:
           type: string
         role:
           $ref: '#/components/schemas/RoleType'
+        principalName:
+          description: A friendly name for the principal.
+          type: string
       required:
       - principalId
       - role
@@ -4131,6 +4348,465 @@ components:
       example: Artifact description
       type: string
       x-codegen-inline: true
+    DownloadRef:
+      description: Models a download "link".  Useful for browser use-cases.
+      example:
+        downloadId: 247-4987490-297845
+        href: https://54321.registry.examples.org/apis/registry/v2/downloads/247-4987490-297845
+      properties:
+        downloadId:
+          type: string
+        href:
+          type: string
+      required:
+      - downloadId
+      title: Root Type for Download
+      type: object
+    ArtifactMetaData:
+      example:
+        groupId: My-Group
+        id: Procurement-Invoice
+        name: Artifact Name
+        description: Description of the artifact
+        type: AVRO
+        version: 18
+        createdBy: user1
+        createdOn: 2019-03-22T12:51:19Z
+        modifiedBy: user2
+        modifiedOn: 2019-07-19T15:09:00Z
+        globalId: 12984719247
+        contentId: 82736
+        labels:
+        - label-1
+        - label-2
+        properties:
+          custom-1: foo
+          custom-2: bar
+        references:
+        - groupId: mygroup
+          artifactId: 13842090-2ce3-11ec-8d3d-0242ac130003
+          version: 2
+          name: foo.bar.Open
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        createdBy:
+          type: string
+        createdOn:
+          format: utc-date
+          type: string
+          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
+        modifiedBy:
+          type: string
+        modifiedOn:
+          format: utc-date
+          type: string
+          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
+        id:
+          description: The ID of a single artifact.
+          example: example-artifact
+          type: string
+        version:
+          type: string
+        type:
+          $ref: '#/components/schemas/ArtifactType'
+        globalId:
+          format: int64
+          type: integer
+        state:
+          $ref: '#/components/schemas/ArtifactState'
+        labels:
+          items:
+            type: string
+          type: array
+        properties:
+          additionalProperties:
+            type: string
+          description: User-defined name-value pairs. Name and value must be strings.
+          type: object
+          x-codegen-inline: true
+          x-codegen-type: StringMap
+        groupId:
+          description: An ID of a single artifact group.
+          example: my-group
+          type: string
+        contentId:
+          format: int64
+          type: integer
+        references:
+          items:
+            $ref: '#/components/schemas/ArtifactReference'
+          type: array
+      required:
+      - contentId
+      - createdBy
+      - createdOn
+      - globalId
+      - group
+      - id
+      - modifiedBy
+      - modifiedOn
+      - state
+      - type
+      - version
+      title: Root Type for ArtifactMetaData
+      type: object
+    SearchedArtifact:
+      description: Models a single artifact from the result set returned when searching
+        for artifacts.
+      example:
+        groupId: My-Group
+        id: Procurement-Invoice
+        name: Artifact Name
+        description: Description of the artifact
+        labels:
+        - current
+        - internal
+        type: AVRO
+        state: ENABLED
+        createdBy: user1
+        createdOn: 2019-03-22T12:51:19Z
+      properties:
+        id:
+          description: The ID of a single artifact.
+          example: example-artifact
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        createdOn:
+          format: utc-date
+          type: string
+          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
+        createdBy:
+          type: string
+        type:
+          $ref: '#/components/schemas/ArtifactType'
+        labels:
+          items:
+            type: string
+          type: array
+        state:
+          $ref: '#/components/schemas/ArtifactState'
+        modifiedOn:
+          format: utc-date
+          type: string
+          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
+        modifiedBy:
+          type: string
+        groupId:
+          description: An ID of a single artifact group.
+          example: my-group
+          type: string
+      required:
+      - createdBy
+      - createdOn
+      - group
+      - id
+      - state
+      - type
+      type: object
+    VersionMetaData:
+      example:
+        groupId: My-Group
+        id: my-artifact-id
+        version: 1221432
+        type: PROTOBUF
+        name: Artifact Name
+        description: The description of the artifact
+        createdBy: user1
+        createdOn: 2019-05-17T12:00:00Z
+        globalId: 183282932983
+        contentId: 12347
+        labels:
+        - label-1
+        - label-2
+        properties:
+          custom-1: foo
+          custom-2: bar
+        references:
+        - groupId: mygroup
+          artifactId: 13842090-2ce3-11ec-8d3d-0242ac130003
+          version: 2
+          name: foo.bar.Open
+      properties:
+        version:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        createdBy:
+          type: string
+        createdOn:
+          format: utc-date
+          type: string
+          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
+        type:
+          $ref: '#/components/schemas/ArtifactType'
+        globalId:
+          format: int64
+          type: integer
+        state:
+          $ref: '#/components/schemas/ArtifactState'
+        id:
+          description: The ID of a single artifact.
+          example: example-artifact
+          type: string
+        labels:
+          items:
+            type: string
+          type: array
+        properties:
+          additionalProperties:
+            type: string
+          description: User-defined name-value pairs. Name and value must be strings.
+          type: object
+          x-codegen-inline: true
+          x-codegen-type: StringMap
+        groupId:
+          description: An ID of a single artifact group.
+          example: my-group
+          type: string
+        contentId:
+          format: int64
+          type: integer
+      required:
+      - contentId
+      - createdBy
+      - createdOn
+      - globalId
+      - id
+      - type
+      - version
+      title: Root Type for ArtifactVersionMetaData
+      type: object
+    SearchedVersion:
+      description: Models a single artifact from the result set returned when searching
+        for artifacts.
+      example:
+        name: Artifact Version Name
+        description: Description of the artifact version
+        labels:
+        - current
+        - internal
+        type: AVRO
+        state: ENABLED
+        createdOn: 2018-02-10T09:30Z
+        createdBy: some text
+        globalId: 37
+        version: 85
+        properties: {}
+        contentId: 62
+        references: {}
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        createdOn:
+          format: utc-date
+          type: string
+          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
+        createdBy:
+          type: string
+        type:
+          $ref: '#/components/schemas/ArtifactType'
+        labels:
+          items:
+            type: string
+          type: array
+        state:
+          $ref: '#/components/schemas/ArtifactState'
+        globalId:
+          format: int64
+          type: integer
+        version:
+          type: string
+        properties:
+          additionalProperties:
+            type: string
+          description: User-defined name-value pairs. Name and value must be strings.
+          type: object
+          x-codegen-inline: true
+          x-codegen-type: StringMap
+        contentId:
+          format: int64
+          type: integer
+        references:
+          items:
+            $ref: '#/components/schemas/ArtifactReference'
+          type: array
+      required:
+      - contentId
+      - createdBy
+      - createdOn
+      - globalId
+      - references
+      - state
+      - type
+      - version
+      type: object
+    RuleViolationError:
+      allOf:
+      - $ref: '#/components/schemas/RuleViolationError_allOf'
+      - $ref: '#/components/schemas/Error'
+      description: |-
+        All error responses, whether `4xx` or `5xx` will include one of these as the response
+        body.
+      example:
+        error_code: 409
+        message: Artifact failed validation
+        causes:
+        - description: API is missing a title
+          context: /info[title]
+        - description: Operation IDs must be unique
+          context: /paths[/invoices]/put[operationId]
+      title: Root Type for Error
+      type: object
+      x-codegen-extendsClass: io.apicurio.registry.rest.v2.beans.Error
+    ArtifactReference:
+      description: A reference to a different artifact. Typically used with artifact
+        types that can have dependencies like Protobuf.
+      example:
+        groupId: mygroup
+        artifactId: 13842090-2ce3-11ec-8d3d-0242ac130003
+        version: "2"
+        name: foo.bar.Open
+      properties:
+        groupId:
+          type: string
+        artifactId:
+          type: string
+        version:
+          type: string
+        name:
+          type: string
+      required:
+      - artifactId
+      - groupId
+      - name
+      title: Root Type for ArtifactReference
+      type: object
+    ContentCreateRequest:
+      properties:
+        content:
+          description: Raw content of the artifact.
+          example: ""
+          type: string
+        references:
+          description: Collection of references to other artifacts.
+          items:
+            $ref: '#/components/schemas/ArtifactReference'
+          type: array
+      required:
+      - content
+      - references
+      type: object
+    ConfigurationProperty:
+      example:
+        name: registry.auth.owner-only-authorization
+        value: "true"
+        type: boolean
+        label: Owner Only Authorization
+        description: When enabled, the registry will allow only the artifact owner
+          (creator) to modify an artifact.
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+        type:
+          type: string
+        label:
+          type: string
+        description:
+          type: string
+      required:
+      - description
+      - label
+      - name
+      - type
+      - value
+      title: Root Type for ConfigurationProperty
+      type: object
+    UpdateConfigurationProperty:
+      example:
+        value: "true"
+      properties:
+        value:
+          type: string
+      required:
+      - value
+      title: Root Type for UpdateConfigurationProperty
+      type: object
+    Limits:
+      description: |-
+        List of limitations on used resources, that are applied on the current instance of Registry.
+        Keys represent the resource type and are suffixed by the corresponding unit.
+        Values are integers. Only non-negative values are allowed, with the exception of -1, which means that the limit is not applied.
+      example:
+        maxTotalSchemasCount: -1
+        maxSchemaSizeBytes: -1
+        maxArtifactsCount: -1
+        maxVersionsPerArtifactCount: -1
+        maxArtifactPropertiesCount: -1
+        maxPropertyKeySizeBytes: -1
+        maxPropertyValueSizeBytes: -1
+        maxArtifactLabelsCount: -1
+        maxLabelSizeBytes: -1
+        maxArtifactNameLengthChars: -1
+        maxArtifactDescriptionLengthChars: -1
+        maxRequestsPerSecondCount: -1
+      properties:
+        maxTotalSchemasCount:
+          format: int64
+          type: integer
+        maxSchemaSizeBytes:
+          format: int64
+          type: integer
+        maxArtifactsCount:
+          format: int64
+          type: integer
+        maxVersionsPerArtifactCount:
+          format: int64
+          type: integer
+        maxArtifactPropertiesCount:
+          format: int64
+          type: integer
+        maxPropertyKeySizeBytes:
+          format: int64
+          type: integer
+        maxPropertyValueSizeBytes:
+          format: int64
+          type: integer
+        maxArtifactLabelsCount:
+          format: int64
+          type: integer
+        maxLabelSizeBytes:
+          format: int64
+          type: integer
+        maxArtifactNameLengthChars:
+          format: int64
+          type: integer
+        maxArtifactDescriptionLengthChars:
+          format: int64
+          type: integer
+        maxRequestsPerSecondCount:
+          format: int64
+          type: integer
+      title: Root Type for Limits
+      type: object
+    NamedLogConfiguration_allOf:
+      properties:
+        name:
+          type: string
+      required:
+      - name
+      type: object
     RuleViolationError_allOf:
       properties:
         causes:
@@ -4141,13 +4817,3 @@ components:
       required:
       - causes
       type: object
-    NamedLogConfiguration_allOf:
-      properties:
-        name:
-          type: string
-      required:
-      - name
-      type: object
-x-codegen:
-  bean-annotations:
-  - io.quarkus.runtime.annotations.RegisterForReflection

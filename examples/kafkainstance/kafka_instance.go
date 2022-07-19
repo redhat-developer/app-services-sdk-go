@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	kafkainstanceapi "github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal"
+	kafkainstanceapi "github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1"
 	"golang.org/x/oauth2"
 )
 

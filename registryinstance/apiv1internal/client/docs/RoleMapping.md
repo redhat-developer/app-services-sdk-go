@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PrincipalId** | **string** |  | 
 **Role** | [**RoleType**](RoleType.md) |  | 
+**PrincipalName** | Pointer to **string** | A friendly name for the principal. | [optional] 
 
 ## Methods
 
@@ -65,6 +66,31 @@ and a boolean to check if the value has been set.
 
 SetRole sets Role field to given value.
 
+
+### GetPrincipalName
+
+`func (o *RoleMapping) GetPrincipalName() string`
+
+GetPrincipalName returns the PrincipalName field if non-nil, zero value otherwise.
+
+### GetPrincipalNameOk
+
+`func (o *RoleMapping) GetPrincipalNameOk() (*string, bool)`
+
+GetPrincipalNameOk returns a tuple with the PrincipalName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrincipalName
+
+`func (o *RoleMapping) SetPrincipalName(v string)`
+
+SetPrincipalName sets PrincipalName field to given value.
+
+### HasPrincipalName
+
+`func (o *RoleMapping) HasPrincipalName() bool`
+
+HasPrincipalName returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

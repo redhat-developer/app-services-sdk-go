@@ -45,11 +45,3 @@ jobs:
         with:
           version: v1.43
           args: --timeout 2m0s
-      - name: Validate clients
-        if: steps.filter.outputs.openapi == 'true'
-        run: |
-          export PATH=${PATH}:`go env GOPATH`/bin
-
-          go get -u github.com/redhat-developer/app-services-sdk-go/internal/apigen/cmd/api-generate-all@latest
-          api-generate-all --repo-metadata=.config/api-client-metadata.json --generator go --templates-dir=./scripts/templates
-          go mod tidy
