@@ -21,7 +21,7 @@ func main() {
 		BaseURL:    os.Getenv("API_URL"),
 	})
 
-	artifacts, _, err := apiClient.ArtifactsApi.SearchArtifacts(context.TODO()).Execute()
+	artifacts, _, err := apiClient.ArtifactsApi.ListArtifactsInGroup(context.TODO(), "default").Execute()
 	if err != nil {
 		panic(err)
 	}
