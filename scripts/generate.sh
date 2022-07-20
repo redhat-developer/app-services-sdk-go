@@ -93,7 +93,7 @@ generate_sdk $OPENAPI_FILENAME $OUTPUT_PATH $PACKAGE_NAME
 
 OPENAPI_FILENAME=".openapi/service-accounts.yaml"
 PACKAGE_NAME="serviceaccountsclient"
-OUTPUT_PATH="serviceaccounts/apiv1internal/client"
+OUTPUT_PATH="serviceaccountmgmt/apiv1/client"
 
 generate_sdk $OPENAPI_FILENAME $OUTPUT_PATH $PACKAGE_NAME
 
