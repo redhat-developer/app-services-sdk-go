@@ -30,7 +30,7 @@ import "github.com/redhat-developer/app-services-sdk-go"
 | API                       | Status | Package                                                                                                                                                         |
 | :------------------------ | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | KafkaManagement           | beta   | [`github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1)         |
-| Service Accounts Management  | alpha   | [`github.com/redhat-developer/app-services-sdk-go/serviceaccounts/apiv1`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/serviceaccounts/apiv1)         |
+| Service Account Management  | alpha   | [`github.com/redhat-developer/app-services-sdk-go/serviceaccountmgmt/apiv1`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/serviceaccountmgmt/apiv1)         |
 | ServiceRegistryManagement | alpha  | [`github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1)   |
 | ConnectorManagement       | alpha  | [`github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1) |
 
@@ -39,7 +39,7 @@ import "github.com/redhat-developer/app-services-sdk-go"
 
 | API              | Status | Package                                                                                                                                                                               |
 | ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| KafkaInstance    | beta   | [`github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal)       |
+| KafkaInstance    | beta   | [`github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/kafkainstance/apiv1internal)       |
 | RegistryInstance | beta   | [`github.com/redhat-developer/app-services-sdk-go/registryinstance/apiv1internal`](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go/registryinstance/apiv1internal) |
 
 
