@@ -2845,7 +2845,7 @@ paths:
                           property-1: value1
                           property-2: true
             schema: {}
-          application/create.extended+json:
+          application/json:
             schema:
               $ref: '#/components/schemas/ContentCreateRequest'
         description: |
@@ -3194,7 +3194,7 @@ paths:
                           property-1: value1
                           property-2: true
             schema: {}
-          application/create.extended+json:
+          application/json:
             schema:
               $ref: '#/components/schemas/ContentCreateRequest'
         description: |
@@ -3576,7 +3576,7 @@ paths:
                           property-1: value1
                           property-2: true
             schema: {}
-          application/create.extended+json:
+          application/json:
             schema:
               $ref: '#/components/schemas/ContentCreateRequest'
         description: |

@@ -89,7 +89,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/create.extended+json
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
