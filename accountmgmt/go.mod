@@ -1,6 +1,6 @@
 module github.com/redhat-developer/app-services-sdk-go/accountmgmt
 
-go 1.15
+go 1.15.15
 
 require (
 	github.com/redhat-developer/app-services-sdk-go v0.10.0
