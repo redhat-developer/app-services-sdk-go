@@ -1840,7 +1840,7 @@
                 }
               }
             },
-            "application/create.extended+json": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ContentCreateRequest"
               }
@@ -2079,7 +2079,7 @@
                 }
               }
             },
-            "application/create.extended+json": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ContentCreateRequest"
               }
@@ -2392,7 +2392,7 @@
                 }
               }
             },
-            "application/create.extended+json": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ContentCreateRequest"
               }
