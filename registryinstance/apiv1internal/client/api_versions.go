@@ -268,7 +268,7 @@ func (a *VersionsApiService) CreateArtifactVersionExecute(r ApiCreateArtifactVer
 	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/create.extended+json"}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
