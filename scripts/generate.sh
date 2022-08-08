@@ -100,7 +100,7 @@ OUTPUT_PATH="serviceaccountmgmt/apiv1/client"
 
 generate_sdk $OPENAPI_FILENAME $OUTPUT_PATH $PACKAGE_NAME
 
-OPENAPI_FILENAME=".openapi/smartevents-mgmt.yaml"
+OPENAPI_FILENAME=".openapi/smartevents_mgmt.yaml"
 PACKAGE_NAME="smarteventsmgmtclient"
 OUTPUT_PATH="smarteventsmgmt/apiv1alpha/client"
 
