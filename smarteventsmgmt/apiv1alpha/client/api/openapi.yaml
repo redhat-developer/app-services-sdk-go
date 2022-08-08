@@ -6,10 +6,13 @@ info:
   description: The API exposed by the fleet manager of the SmartEvents service.
   license:
     name: Apache 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0.html
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: Red Hat Openshift SmartEvents Fleet Manager
   version: 0.0.1
 servers:
+- url: https://api.stage.openshift.com
+- url: http://localhost:8000
+- url: https://api.openshift.com
 - url: /
 tags:
 - description: The API that allow the user to retrieve, create or delete Bridge instances.
@@ -77,19 +80,33 @@ paths:
           description: Success.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Bad request.
         "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Unauthorized.
         "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Forbidden.
         "404":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Not found.
         "500":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Internal error.
       security:
       - bearer: []
@@ -113,7 +130,9 @@ paths:
           description: Accepted.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Bad request.
         "401":
           description: Unauthorized.
@@ -121,7 +140,9 @@ paths:
           description: Forbidden.
         "500":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Internal error.
       security:
       - bearer: []
@@ -145,7 +166,9 @@ paths:
           description: Accepted.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Bad request.
         "401":
           description: Unauthorized.
@@ -153,11 +176,15 @@ paths:
           description: Forbidden.
         "404":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Not found.
         "500":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Internal error.
       security:
       - bearer: []
@@ -186,7 +213,9 @@ paths:
           description: Success.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Bad request.
         "401":
           description: Unauthorized.
@@ -194,15 +223,79 @@ paths:
           description: Forbidden.
         "404":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Not found.
         "500":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Internal error.
       security:
       - bearer: []
       summary: Get a Bridge instance
+      tags:
+      - Bridges
+    put:
+      description: Update a Bridge instance for the authenticated user.
+      operationId: BridgesAPI_updateBridge
+      parameters:
+      - explode: false
+        in: path
+        name: bridgeId
+        required: true
+        schema:
+          minLength: 1
+          nullable: false
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BridgeRequest'
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BridgeResponse'
+          description: Accepted.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Unauthorized.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Forbidden.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Not found.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Internal error.
+      security:
+      - bearer: []
+      summary: Update a Bridge instance
       tags:
       - Bridges
   /api/smartevents_mgmt/v1/bridges/{bridgeId}/processors:
@@ -274,7 +367,9 @@ paths:
           description: Success.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Bad request.
         "401":
           description: Unauthorized.
@@ -282,11 +377,15 @@ paths:
           description: Forbidden.
         "404":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Not found.
         "500":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Internal error.
       security:
       - bearer: []
@@ -320,7 +419,9 @@ paths:
           description: Accepted.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Bad request.
         "401":
           description: Unauthorized.
@@ -328,11 +429,15 @@ paths:
           description: Forbidden.
         "404":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Not found.
         "500":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Internal error.
       security:
       - bearer: []
@@ -363,7 +468,9 @@ paths:
           description: Accepted.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Bad request.
         "401":
           description: Unauthorized.
@@ -371,11 +478,15 @@ paths:
           description: Forbidden.
         "404":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Not found.
         "500":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Internal error.
       security:
       - bearer: []
@@ -413,7 +524,9 @@ paths:
           description: Success.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Bad request.
         "401":
           description: Unauthorized.
@@ -421,11 +534,15 @@ paths:
           description: Forbidden.
         "404":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Not found.
         "500":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Internal error.
       security:
       - bearer: []
@@ -469,7 +586,9 @@ paths:
           description: Accepted.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Bad request.
         "401":
           description: Unauthorized.
@@ -477,11 +596,15 @@ paths:
           description: Forbidden.
         "404":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Not found.
         "500":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Internal error.
       security:
       - bearer: []
@@ -523,11 +646,15 @@ paths:
           description: Success.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Bad request.
         "500":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Internal error.
       summary: List Supported Cloud Providers.
       tags:
@@ -555,11 +682,21 @@ paths:
           description: Success.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Bad request.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
+          description: Not found.
         "500":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Internal error.
       summary: Get Cloud Provider.
       tags:
@@ -608,11 +745,15 @@ paths:
           description: Success.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Bad request.
         "500":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Internal error.
       summary: List Supported Cloud Regions.
       tags:
@@ -652,13 +793,17 @@ paths:
           description: Success.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Bad request.
         "401":
           description: Unauthorized.
         "500":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Internal error.
       summary: Get the list of errors.
       tags:
@@ -685,13 +830,17 @@ paths:
           description: Success.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Bad request.
         "401":
           description: Unauthorized.
         "500":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Internal error.
       summary: Get an error from the error catalog.
       tags:
@@ -709,7 +858,9 @@ paths:
           description: Success.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Bad request.
         "401":
           description: Unauthorized.
@@ -717,7 +868,9 @@ paths:
           description: Forbidden.
         "500":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Internal error.
       security:
       - bearer: []
@@ -745,7 +898,9 @@ paths:
           description: Success.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Bad request.
         "401":
           description: Unauthorized.
@@ -753,7 +908,9 @@ paths:
           description: Forbidden.
         "500":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Internal error.
       security:
       - bearer: []
@@ -781,7 +938,9 @@ paths:
           description: Success.
         "400":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Bad request.
         "401":
           description: Unauthorized.
@@ -789,7 +948,9 @@ paths:
           description: Forbidden.
         "500":
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsList'
           description: Internal error.
       security:
       - bearer: []
@@ -855,29 +1016,38 @@ components:
         page: 0
         items:
         - owner: owner
-          endpoint: endpoint
           error_handler:
             type: type
             parameters: '{}'
           submitted_at: 2000-01-23T04:56:07.000+00:00
           kind: kind
+          cloud_provider: cloud_provider
+          endpoint: endpoint
           name: name
           id: id
           href: href
           published_at: 2000-01-23T04:56:07.000+00:00
+          modified_at: 2000-01-23T04:56:07.000+00:00
+          region: region
+          status: ""
         - owner: owner
-          endpoint: endpoint
           error_handler:
             type: type
             parameters: '{}'
           submitted_at: 2000-01-23T04:56:07.000+00:00
           kind: kind
+          cloud_provider: cloud_provider
+          endpoint: endpoint
           name: name
           id: id
           href: href
           published_at: 2000-01-23T04:56:07.000+00:00
+          modified_at: 2000-01-23T04:56:07.000+00:00
+          region: region
+          status: ""
       properties:
         kind:
+          nullable: false
           type: string
         items:
           items:
@@ -885,13 +1055,21 @@ components:
           type: array
         page:
           format: int64
+          nullable: false
           type: integer
         size:
           format: int64
+          nullable: false
           type: integer
         total:
           format: int64
+          nullable: false
           type: integer
+      required:
+      - kind
+      - page
+      - size
+      - total
       type: object
     BridgeRequest:
       example:
@@ -899,6 +1077,8 @@ components:
           type: type
           parameters: '{}'
         name: name
+        cloud_provider: cloud_provider
+        region: region
       properties:
         name:
           minLength: 1
@@ -906,45 +1086,80 @@ components:
           type: string
         error_handler:
           $ref: '#/components/schemas/Action'
+        cloud_provider:
+          minLength: 1
+          nullable: false
+          type: string
+        region:
+          minLength: 1
+          nullable: false
+          type: string
       required:
+      - cloud_provider
       - name
+      - region
       type: object
     BridgeResponse:
       example:
         owner: owner
-        endpoint: endpoint
         error_handler:
           type: type
           parameters: '{}'
         submitted_at: 2000-01-23T04:56:07.000+00:00
         kind: kind
+        cloud_provider: cloud_provider
+        endpoint: endpoint
         name: name
         id: id
         href: href
         published_at: 2000-01-23T04:56:07.000+00:00
+        modified_at: 2000-01-23T04:56:07.000+00:00
+        region: region
+        status: ""
       properties:
         kind:
+          nullable: false
           type: string
         id:
+          nullable: false
           type: string
         name:
           type: string
         href:
+          nullable: false
           type: string
         submitted_at:
           format: date-time
+          nullable: false
           type: string
         published_at:
           format: date-time
           type: string
+        modified_at:
+          format: date-time
+          type: string
         status:
-          $ref: '#/components/schemas/ManagedResourceStatus'
+          allOf:
+          - $ref: '#/components/schemas/ManagedResourceStatus'
+          - nullable: false
         owner:
+          nullable: false
           type: string
         endpoint:
           type: string
         error_handler:
           $ref: '#/components/schemas/Action'
+        cloud_provider:
+          type: string
+        region:
+          type: string
+      required:
+      - href
+      - id
+      - kind
+      - owner
+      - status
+      - submitted_at
       type: object
     CloudProviderListResponse:
       example:
@@ -967,6 +1182,7 @@ components:
           enabled: true
       properties:
         kind:
+          nullable: false
           type: string
         items:
           items:
@@ -974,13 +1190,21 @@ components:
           type: array
         page:
           format: int64
+          nullable: false
           type: integer
         size:
           format: int64
+          nullable: false
           type: integer
         total:
           format: int64
+          nullable: false
           type: integer
+      required:
+      - kind
+      - page
+      - size
+      - total
       type: object
     CloudProviderResponse:
       example:
@@ -992,17 +1216,28 @@ components:
         enabled: true
       properties:
         kind:
+          nullable: false
           type: string
         id:
+          nullable: false
           type: string
         name:
           type: string
         href:
+          nullable: false
           type: string
         display_name:
+          nullable: false
           type: string
         enabled:
+          nullable: false
           type: boolean
+      required:
+      - display_name
+      - enabled
+      - href
+      - id
+      - kind
       type: object
     CloudRegionListResponse:
       example:
@@ -1021,6 +1256,7 @@ components:
           enabled: true
       properties:
         kind:
+          nullable: false
           type: string
         items:
           items:
@@ -1028,13 +1264,21 @@ components:
           type: array
         page:
           format: int64
+          nullable: false
           type: integer
         size:
           format: int64
+          nullable: false
           type: integer
         total:
           format: int64
+          nullable: false
           type: integer
+      required:
+      - kind
+      - page
+      - size
+      - total
       type: object
     CloudRegionResponse:
       example:
@@ -1044,13 +1288,53 @@ components:
         enabled: true
       properties:
         kind:
+          nullable: false
+          type: string
+        name:
+          nullable: false
+          type: string
+        display_name:
+          nullable: false
+          type: string
+        enabled:
+          nullable: false
+          type: boolean
+      required:
+      - display_name
+      - enabled
+      - kind
+      - name
+      type: object
+    Error:
+      example:
+        reason: reason
+        code: code
+        kind: kind
+        name: name
+        id: id
+        href: href
+      properties:
+        kind:
+          nullable: false
           type: string
         name:
           type: string
-        display_name:
+        code:
           type: string
-        enabled:
-          type: boolean
+        reason:
+          nullable: false
+          type: string
+        id:
+          nullable: false
+          type: string
+        href:
+          nullable: false
+          type: string
+      required:
+      - href
+      - id
+      - kind
+      - reason
       type: object
     ErrorListResponse:
       example:
@@ -1073,51 +1357,57 @@ components:
           href: href
       properties:
         kind:
+          nullable: false
           type: string
         items:
           items:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: '#/components/schemas/Error'
           type: array
         page:
           format: int64
+          nullable: false
           type: integer
         size:
           format: int64
+          nullable: false
           type: integer
         total:
           format: int64
+          nullable: false
           type: integer
+      required:
+      - kind
+      - page
+      - size
+      - total
       type: object
-    ErrorResponse:
-      example:
-        reason: reason
-        code: code
-        kind: kind
-        name: name
-        id: id
-        href: href
+    ErrorsList:
       properties:
         kind:
-          type: string
-        id:
-          type: string
-        name:
-          type: string
-        href:
-          type: string
-        code:
-          type: string
-        reason:
-          type: string
-      type: object
-    ErrorsResponse:
-      properties:
-        kind:
+          nullable: false
           type: string
         items:
           items:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: '#/components/schemas/Error'
           type: array
+      required:
+      - kind
+      type: object
+    List:
+      allOf:
+      - $ref: '#/components/schemas/ListResponse'
+      - $ref: '#/components/schemas/List_allOf'
+    ListResponse:
+      properties:
+        kind:
+          nullable: false
+          type: string
+        items:
+          items:
+            type: object
+          type: array
+      required:
+      - kind
       type: object
     ManagedResourceStatus:
       enum:
@@ -1130,6 +1420,24 @@ components:
       - deleted
       - failed
       type: string
+    ObjectReference:
+      properties:
+        kind:
+          nullable: false
+          type: string
+        id:
+          nullable: false
+          type: string
+        name:
+          type: string
+        href:
+          nullable: false
+          type: string
+      required:
+      - href
+      - id
+      - kind
+      type: object
     ProcessorCatalogResponse:
       example:
         kind: kind
@@ -1148,11 +1456,14 @@ components:
           type: type
       properties:
         kind:
+          nullable: false
           type: string
         items:
           items:
             $ref: '#/components/schemas/ProcessorSchemaEntryResponse'
           type: array
+      required:
+      - kind
       type: object
     ProcessorListResponse:
       example:
@@ -1172,6 +1483,7 @@ components:
           source:
             type: type
             parameters: '{}'
+          type: ""
           name: name
           action:
             type: type
@@ -1179,7 +1491,9 @@ components:
           id: id
           href: href
           published_at: 2000-01-23T04:56:07.000+00:00
+          modified_at: 2000-01-23T04:56:07.000+00:00
           transformationTemplate: transformationTemplate
+          status: ""
         - owner: owner
           submitted_at: 2000-01-23T04:56:07.000+00:00
           kind: kind
@@ -1191,6 +1505,7 @@ components:
           source:
             type: type
             parameters: '{}'
+          type: ""
           name: name
           action:
             type: type
@@ -1198,9 +1513,12 @@ components:
           id: id
           href: href
           published_at: 2000-01-23T04:56:07.000+00:00
+          modified_at: 2000-01-23T04:56:07.000+00:00
           transformationTemplate: transformationTemplate
+          status: ""
       properties:
         kind:
+          nullable: false
           type: string
         items:
           items:
@@ -1208,13 +1526,21 @@ components:
           type: array
         page:
           format: int64
+          nullable: false
           type: integer
         size:
           format: int64
+          nullable: false
           type: integer
         total:
           format: int64
+          nullable: false
           type: integer
+      required:
+      - kind
+      - page
+      - size
+      - total
       type: object
     ProcessorRequest:
       example:
@@ -1263,6 +1589,7 @@ components:
         source:
           type: type
           parameters: '{}'
+        type: ""
         name: name
         action:
           type: type
@@ -1270,28 +1597,42 @@ components:
         id: id
         href: href
         published_at: 2000-01-23T04:56:07.000+00:00
+        modified_at: 2000-01-23T04:56:07.000+00:00
         transformationTemplate: transformationTemplate
+        status: ""
       properties:
         kind:
+          nullable: false
           type: string
         id:
+          nullable: false
           type: string
         name:
           type: string
         href:
+          nullable: false
           type: string
         submitted_at:
           format: date-time
+          nullable: false
           type: string
         published_at:
           format: date-time
           type: string
+        modified_at:
+          format: date-time
+          type: string
         status:
-          $ref: '#/components/schemas/ManagedResourceStatus'
+          allOf:
+          - $ref: '#/components/schemas/ManagedResourceStatus'
+          - nullable: false
         owner:
+          nullable: false
           type: string
         type:
-          $ref: '#/components/schemas/ProcessorType'
+          allOf:
+          - $ref: '#/components/schemas/ProcessorType'
+          - nullable: false
         filters:
           items:
             $ref: '#/components/schemas/BaseFilter'
@@ -1303,6 +1644,14 @@ components:
           $ref: '#/components/schemas/Action'
         source:
           $ref: '#/components/schemas/Source'
+      required:
+      - href
+      - id
+      - kind
+      - owner
+      - status
+      - submitted_at
+      - type
       type: object
     ProcessorSchemaEntryResponse:
       example:
@@ -1314,17 +1663,30 @@ components:
         type: type
       properties:
         kind:
+          nullable: false
           type: string
         id:
+          nullable: false
           type: string
         name:
+          nullable: false
           type: string
         description:
+          nullable: false
           type: string
         type:
+          nullable: false
           type: string
         href:
+          nullable: false
           type: string
+      required:
+      - description
+      - href
+      - id
+      - kind
+      - name
+      - type
       type: object
     ProcessorType:
       enum:
@@ -1345,6 +1707,25 @@ components:
       required:
       - parameters
       - type
+      type: object
+    List_allOf:
+      properties:
+        page:
+          format: int64
+          nullable: false
+          type: integer
+        size:
+          format: int64
+          nullable: false
+          type: integer
+        total:
+          format: int64
+          nullable: false
+          type: integer
+      required:
+      - page
+      - size
+      - total
       type: object
   securitySchemes:
     bearer:

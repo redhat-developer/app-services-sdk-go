@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Kind** | Pointer to **string** |  | [optional] 
-**Id** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
-**Description** | Pointer to **string** |  | [optional] 
-**Type** | Pointer to **string** |  | [optional] 
-**Href** | Pointer to **string** |  | [optional] 
+**Kind** | **string** |  | 
+**Id** | **string** |  | 
+**Name** | **string** |  | 
+**Description** | **string** |  | 
+**Type** | **string** |  | 
+**Href** | **string** |  | 
 
 ## Methods
 
 ### NewProcessorSchemaEntryResponse
 
-`func NewProcessorSchemaEntryResponse() *ProcessorSchemaEntryResponse`
+`func NewProcessorSchemaEntryResponse(kind string, id string, name string, description string, type_ string, href string, ) *ProcessorSchemaEntryResponse`
 
 NewProcessorSchemaEntryResponse instantiates a new ProcessorSchemaEntryResponse object
 This constructor will assign default values to properties that have it defined,
@@ -49,11 +49,6 @@ and a boolean to check if the value has been set.
 
 SetKind sets Kind field to given value.
 
-### HasKind
-
-`func (o *ProcessorSchemaEntryResponse) HasKind() bool`
-
-HasKind returns a boolean if a field has been set.
 
 ### GetId
 
@@ -74,11 +69,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *ProcessorSchemaEntryResponse) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -99,11 +89,6 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
-
-`func (o *ProcessorSchemaEntryResponse) HasName() bool`
-
-HasName returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -124,11 +109,6 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
-### HasDescription
-
-`func (o *ProcessorSchemaEntryResponse) HasDescription() bool`
-
-HasDescription returns a boolean if a field has been set.
 
 ### GetType
 
@@ -149,11 +129,6 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
-### HasType
-
-`func (o *ProcessorSchemaEntryResponse) HasType() bool`
-
-HasType returns a boolean if a field has been set.
 
 ### GetHref
 
@@ -174,11 +149,6 @@ and a boolean to check if the value has been set.
 
 SetHref sets Href field to given value.
 
-### HasHref
-
-`func (o *ProcessorSchemaEntryResponse) HasHref() bool`
-
-HasHref returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

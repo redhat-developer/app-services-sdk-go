@@ -17,19 +17,23 @@ import (
 
 // CloudProviderListResponse struct for CloudProviderListResponse
 type CloudProviderListResponse struct {
-	Kind *string `json:"kind,omitempty"`
+	Kind string `json:"kind"`
 	Items *[]CloudProviderResponse `json:"items,omitempty"`
-	Page *int64 `json:"page,omitempty"`
-	Size *int64 `json:"size,omitempty"`
-	Total *int64 `json:"total,omitempty"`
+	Page int64 `json:"page"`
+	Size int64 `json:"size"`
+	Total int64 `json:"total"`
 }
 
 // NewCloudProviderListResponse instantiates a new CloudProviderListResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCloudProviderListResponse() *CloudProviderListResponse {
+func NewCloudProviderListResponse(kind string, page int64, size int64, total int64) *CloudProviderListResponse {
 	this := CloudProviderListResponse{}
+	this.Kind = kind
+	this.Page = page
+	this.Size = size
+	this.Total = total
 	return &this
 }
 
@@ -41,36 +45,28 @@ func NewCloudProviderListResponseWithDefaults() *CloudProviderListResponse {
 	return &this
 }
 
-// GetKind returns the Kind field value if set, zero value otherwise.
+// GetKind returns the Kind field value
 func (o *CloudProviderListResponse) GetKind() string {
-	if o == nil || o.Kind == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Kind
+
+	return o.Kind
 }
 
-// GetKindOk returns a tuple with the Kind field value if set, nil otherwise
+// GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
 func (o *CloudProviderListResponse) GetKindOk() (*string, bool) {
-	if o == nil || o.Kind == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Kind, true
+	return &o.Kind, true
 }
 
-// HasKind returns a boolean if a field has been set.
-func (o *CloudProviderListResponse) HasKind() bool {
-	if o != nil && o.Kind != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetKind gets a reference to the given string and assigns it to the Kind field.
+// SetKind sets field value
 func (o *CloudProviderListResponse) SetKind(v string) {
-	o.Kind = &v
+	o.Kind = v
 }
 
 // GetItems returns the Items field value if set, zero value otherwise.
@@ -105,117 +101,93 @@ func (o *CloudProviderListResponse) SetItems(v []CloudProviderResponse) {
 	o.Items = &v
 }
 
-// GetPage returns the Page field value if set, zero value otherwise.
+// GetPage returns the Page field value
 func (o *CloudProviderListResponse) GetPage() int64 {
-	if o == nil || o.Page == nil {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.Page
+
+	return o.Page
 }
 
-// GetPageOk returns a tuple with the Page field value if set, nil otherwise
+// GetPageOk returns a tuple with the Page field value
 // and a boolean to check if the value has been set.
 func (o *CloudProviderListResponse) GetPageOk() (*int64, bool) {
-	if o == nil || o.Page == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Page, true
+	return &o.Page, true
 }
 
-// HasPage returns a boolean if a field has been set.
-func (o *CloudProviderListResponse) HasPage() bool {
-	if o != nil && o.Page != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetPage gets a reference to the given int64 and assigns it to the Page field.
+// SetPage sets field value
 func (o *CloudProviderListResponse) SetPage(v int64) {
-	o.Page = &v
+	o.Page = v
 }
 
-// GetSize returns the Size field value if set, zero value otherwise.
+// GetSize returns the Size field value
 func (o *CloudProviderListResponse) GetSize() int64 {
-	if o == nil || o.Size == nil {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.Size
+
+	return o.Size
 }
 
-// GetSizeOk returns a tuple with the Size field value if set, nil otherwise
+// GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *CloudProviderListResponse) GetSizeOk() (*int64, bool) {
-	if o == nil || o.Size == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Size, true
+	return &o.Size, true
 }
 
-// HasSize returns a boolean if a field has been set.
-func (o *CloudProviderListResponse) HasSize() bool {
-	if o != nil && o.Size != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetSize gets a reference to the given int64 and assigns it to the Size field.
+// SetSize sets field value
 func (o *CloudProviderListResponse) SetSize(v int64) {
-	o.Size = &v
+	o.Size = v
 }
 
-// GetTotal returns the Total field value if set, zero value otherwise.
+// GetTotal returns the Total field value
 func (o *CloudProviderListResponse) GetTotal() int64 {
-	if o == nil || o.Total == nil {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.Total
+
+	return o.Total
 }
 
-// GetTotalOk returns a tuple with the Total field value if set, nil otherwise
+// GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
 func (o *CloudProviderListResponse) GetTotalOk() (*int64, bool) {
-	if o == nil || o.Total == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Total, true
+	return &o.Total, true
 }
 
-// HasTotal returns a boolean if a field has been set.
-func (o *CloudProviderListResponse) HasTotal() bool {
-	if o != nil && o.Total != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTotal gets a reference to the given int64 and assigns it to the Total field.
+// SetTotal sets field value
 func (o *CloudProviderListResponse) SetTotal(v int64) {
-	o.Total = &v
+	o.Total = v
 }
 
 func (o CloudProviderListResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Kind != nil {
+	if true {
 		toSerialize["kind"] = o.Kind
 	}
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-	if o.Page != nil {
+	if true {
 		toSerialize["page"] = o.Page
 	}
-	if o.Size != nil {
+	if true {
 		toSerialize["size"] = o.Size
 	}
-	if o.Total != nil {
+	if true {
 		toSerialize["total"] = o.Total
 	}
 	return json.Marshal(toSerialize)

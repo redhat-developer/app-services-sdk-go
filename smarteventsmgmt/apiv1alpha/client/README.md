@@ -74,7 +74,7 @@ ctx = context.WithValue(context.Background(), sw.ContextOperationServerVariables
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.stage.openshift.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -82,6 +82,7 @@ Class | Method | HTTP request | Description
 *BridgesApi* | [**BridgesAPIDeleteBridge**](docs/BridgesApi.md#bridgesapideletebridge) | **Delete** /api/smartevents_mgmt/v1/bridges/{bridgeId} | Delete a Bridge instance
 *BridgesApi* | [**BridgesAPIGetBridge**](docs/BridgesApi.md#bridgesapigetbridge) | **Get** /api/smartevents_mgmt/v1/bridges/{bridgeId} | Get a Bridge instance
 *BridgesApi* | [**BridgesAPIGetBridges**](docs/BridgesApi.md#bridgesapigetbridges) | **Get** /api/smartevents_mgmt/v1/bridges | Get the list of Bridge instances
+*BridgesApi* | [**BridgesAPIUpdateBridge**](docs/BridgesApi.md#bridgesapiupdatebridge) | **Put** /api/smartevents_mgmt/v1/bridges/{bridgeId} | Update a Bridge instance
 *CloudProvidersApi* | [**CloudProviderAPIGetCloudProvider**](docs/CloudProvidersApi.md#cloudproviderapigetcloudprovider) | **Get** /api/smartevents_mgmt/v1/cloud_providers/{id} | Get Cloud Provider.
 *CloudProvidersApi* | [**CloudProviderAPIListCloudProviderRegions**](docs/CloudProvidersApi.md#cloudproviderapilistcloudproviderregions) | **Get** /api/smartevents_mgmt/v1/cloud_providers/{id}/regions | List Supported Cloud Regions.
 *CloudProvidersApi* | [**CloudProviderAPIListCloudProviders**](docs/CloudProvidersApi.md#cloudproviderapilistcloudproviders) | **Get** /api/smartevents_mgmt/v1/cloud_providers | List Supported Cloud Providers.
@@ -110,10 +111,14 @@ Class | Method | HTTP request | Description
  - [CloudProviderResponse](docs/CloudProviderResponse.md)
  - [CloudRegionListResponse](docs/CloudRegionListResponse.md)
  - [CloudRegionResponse](docs/CloudRegionResponse.md)
+ - [Error](docs/Error.md)
  - [ErrorListResponse](docs/ErrorListResponse.md)
- - [ErrorResponse](docs/ErrorResponse.md)
- - [ErrorsResponse](docs/ErrorsResponse.md)
+ - [ErrorsList](docs/ErrorsList.md)
+ - [List](docs/List.md)
+ - [ListAllOf](docs/ListAllOf.md)
+ - [ListResponse](docs/ListResponse.md)
  - [ManagedResourceStatus](docs/ManagedResourceStatus.md)
+ - [ObjectReference](docs/ObjectReference.md)
  - [ProcessorCatalogResponse](docs/ProcessorCatalogResponse.md)
  - [ProcessorListResponse](docs/ProcessorListResponse.md)
  - [ProcessorRequest](docs/ProcessorRequest.md)

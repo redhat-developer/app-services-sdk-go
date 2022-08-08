@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Kind** | Pointer to **string** |  | [optional] 
-**Id** | Pointer to **string** |  | [optional] 
+**Kind** | **string** |  | 
+**Id** | **string** |  | 
 **Name** | Pointer to **string** |  | [optional] 
-**Href** | Pointer to **string** |  | [optional] 
-**DisplayName** | Pointer to **string** |  | [optional] 
-**Enabled** | Pointer to **bool** |  | [optional] 
+**Href** | **string** |  | 
+**DisplayName** | **string** |  | 
+**Enabled** | **bool** |  | 
 
 ## Methods
 
 ### NewCloudProviderResponse
 
-`func NewCloudProviderResponse() *CloudProviderResponse`
+`func NewCloudProviderResponse(kind string, id string, href string, displayName string, enabled bool, ) *CloudProviderResponse`
 
 NewCloudProviderResponse instantiates a new CloudProviderResponse object
 This constructor will assign default values to properties that have it defined,
@@ -49,11 +49,6 @@ and a boolean to check if the value has been set.
 
 SetKind sets Kind field to given value.
 
-### HasKind
-
-`func (o *CloudProviderResponse) HasKind() bool`
-
-HasKind returns a boolean if a field has been set.
 
 ### GetId
 
@@ -74,11 +69,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *CloudProviderResponse) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -124,11 +114,6 @@ and a boolean to check if the value has been set.
 
 SetHref sets Href field to given value.
 
-### HasHref
-
-`func (o *CloudProviderResponse) HasHref() bool`
-
-HasHref returns a boolean if a field has been set.
 
 ### GetDisplayName
 
@@ -149,11 +134,6 @@ and a boolean to check if the value has been set.
 
 SetDisplayName sets DisplayName field to given value.
 
-### HasDisplayName
-
-`func (o *CloudProviderResponse) HasDisplayName() bool`
-
-HasDisplayName returns a boolean if a field has been set.
 
 ### GetEnabled
 
@@ -174,11 +154,6 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
-### HasEnabled
-
-`func (o *CloudProviderResponse) HasEnabled() bool`
-
-HasEnabled returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Kind** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
-**DisplayName** | Pointer to **string** |  | [optional] 
-**Enabled** | Pointer to **bool** |  | [optional] 
+**Kind** | **string** |  | 
+**Name** | **string** |  | 
+**DisplayName** | **string** |  | 
+**Enabled** | **bool** |  | 
 
 ## Methods
 
 ### NewCloudRegionResponse
 
-`func NewCloudRegionResponse() *CloudRegionResponse`
+`func NewCloudRegionResponse(kind string, name string, displayName string, enabled bool, ) *CloudRegionResponse`
 
 NewCloudRegionResponse instantiates a new CloudRegionResponse object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetKind sets Kind field to given value.
 
-### HasKind
-
-`func (o *CloudRegionResponse) HasKind() bool`
-
-HasKind returns a boolean if a field has been set.
 
 ### GetName
 
@@ -72,11 +67,6 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
-
-`func (o *CloudRegionResponse) HasName() bool`
-
-HasName returns a boolean if a field has been set.
 
 ### GetDisplayName
 
@@ -97,11 +87,6 @@ and a boolean to check if the value has been set.
 
 SetDisplayName sets DisplayName field to given value.
 
-### HasDisplayName
-
-`func (o *CloudRegionResponse) HasDisplayName() bool`
-
-HasDisplayName returns a boolean if a field has been set.
 
 ### GetEnabled
 
@@ -122,11 +107,6 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
-### HasEnabled
-
-`func (o *CloudRegionResponse) HasEnabled() bool`
-
-HasEnabled returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

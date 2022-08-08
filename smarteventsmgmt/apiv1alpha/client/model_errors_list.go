@@ -15,32 +15,32 @@ import (
 	"encoding/json"
 )
 
-// ProcessorCatalogResponse struct for ProcessorCatalogResponse
-type ProcessorCatalogResponse struct {
+// ErrorsList struct for ErrorsList
+type ErrorsList struct {
 	Kind string `json:"kind"`
-	Items *[]ProcessorSchemaEntryResponse `json:"items,omitempty"`
+	Items *[]Error `json:"items,omitempty"`
 }
 
-// NewProcessorCatalogResponse instantiates a new ProcessorCatalogResponse object
+// NewErrorsList instantiates a new ErrorsList object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProcessorCatalogResponse(kind string) *ProcessorCatalogResponse {
-	this := ProcessorCatalogResponse{}
+func NewErrorsList(kind string) *ErrorsList {
+	this := ErrorsList{}
 	this.Kind = kind
 	return &this
 }
 
-// NewProcessorCatalogResponseWithDefaults instantiates a new ProcessorCatalogResponse object
+// NewErrorsListWithDefaults instantiates a new ErrorsList object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewProcessorCatalogResponseWithDefaults() *ProcessorCatalogResponse {
-	this := ProcessorCatalogResponse{}
+func NewErrorsListWithDefaults() *ErrorsList {
+	this := ErrorsList{}
 	return &this
 }
 
 // GetKind returns the Kind field value
-func (o *ProcessorCatalogResponse) GetKind() string {
+func (o *ErrorsList) GetKind() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -51,7 +51,7 @@ func (o *ProcessorCatalogResponse) GetKind() string {
 
 // GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
-func (o *ProcessorCatalogResponse) GetKindOk() (*string, bool) {
+func (o *ErrorsList) GetKindOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -59,14 +59,14 @@ func (o *ProcessorCatalogResponse) GetKindOk() (*string, bool) {
 }
 
 // SetKind sets field value
-func (o *ProcessorCatalogResponse) SetKind(v string) {
+func (o *ErrorsList) SetKind(v string) {
 	o.Kind = v
 }
 
 // GetItems returns the Items field value if set, zero value otherwise.
-func (o *ProcessorCatalogResponse) GetItems() []ProcessorSchemaEntryResponse {
+func (o *ErrorsList) GetItems() []Error {
 	if o == nil || o.Items == nil {
-		var ret []ProcessorSchemaEntryResponse
+		var ret []Error
 		return ret
 	}
 	return *o.Items
@@ -74,7 +74,7 @@ func (o *ProcessorCatalogResponse) GetItems() []ProcessorSchemaEntryResponse {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProcessorCatalogResponse) GetItemsOk() (*[]ProcessorSchemaEntryResponse, bool) {
+func (o *ErrorsList) GetItemsOk() (*[]Error, bool) {
 	if o == nil || o.Items == nil {
 		return nil, false
 	}
@@ -82,7 +82,7 @@ func (o *ProcessorCatalogResponse) GetItemsOk() (*[]ProcessorSchemaEntryResponse
 }
 
 // HasItems returns a boolean if a field has been set.
-func (o *ProcessorCatalogResponse) HasItems() bool {
+func (o *ErrorsList) HasItems() bool {
 	if o != nil && o.Items != nil {
 		return true
 	}
@@ -90,12 +90,12 @@ func (o *ProcessorCatalogResponse) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []ProcessorSchemaEntryResponse and assigns it to the Items field.
-func (o *ProcessorCatalogResponse) SetItems(v []ProcessorSchemaEntryResponse) {
+// SetItems gets a reference to the given []Error and assigns it to the Items field.
+func (o *ErrorsList) SetItems(v []Error) {
 	o.Items = &v
 }
 
-func (o ProcessorCatalogResponse) MarshalJSON() ([]byte, error) {
+func (o ErrorsList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["kind"] = o.Kind
@@ -106,38 +106,38 @@ func (o ProcessorCatalogResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableProcessorCatalogResponse struct {
-	value *ProcessorCatalogResponse
+type NullableErrorsList struct {
+	value *ErrorsList
 	isSet bool
 }
 
-func (v NullableProcessorCatalogResponse) Get() *ProcessorCatalogResponse {
+func (v NullableErrorsList) Get() *ErrorsList {
 	return v.value
 }
 
-func (v *NullableProcessorCatalogResponse) Set(val *ProcessorCatalogResponse) {
+func (v *NullableErrorsList) Set(val *ErrorsList) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableProcessorCatalogResponse) IsSet() bool {
+func (v NullableErrorsList) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableProcessorCatalogResponse) Unset() {
+func (v *NullableErrorsList) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableProcessorCatalogResponse(val *ProcessorCatalogResponse) *NullableProcessorCatalogResponse {
-	return &NullableProcessorCatalogResponse{value: val, isSet: true}
+func NewNullableErrorsList(val *ErrorsList) *NullableErrorsList {
+	return &NullableErrorsList{value: val, isSet: true}
 }
 
-func (v NullableProcessorCatalogResponse) MarshalJSON() ([]byte, error) {
+func (v NullableErrorsList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableProcessorCatalogResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableErrorsList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
