@@ -17,19 +17,23 @@ import (
 
 // BridgeListResponse struct for BridgeListResponse
 type BridgeListResponse struct {
-	Kind *string `json:"kind,omitempty"`
+	Kind string `json:"kind"`
 	Items *[]BridgeResponse `json:"items,omitempty"`
-	Page *int64 `json:"page,omitempty"`
-	Size *int64 `json:"size,omitempty"`
-	Total *int64 `json:"total,omitempty"`
+	Page int64 `json:"page"`
+	Size int64 `json:"size"`
+	Total int64 `json:"total"`
 }
 
 // NewBridgeListResponse instantiates a new BridgeListResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBridgeListResponse() *BridgeListResponse {
+func NewBridgeListResponse(kind string, page int64, size int64, total int64) *BridgeListResponse {
 	this := BridgeListResponse{}
+	this.Kind = kind
+	this.Page = page
+	this.Size = size
+	this.Total = total
 	return &this
 }
 
@@ -41,36 +45,28 @@ func NewBridgeListResponseWithDefaults() *BridgeListResponse {
 	return &this
 }
 
-// GetKind returns the Kind field value if set, zero value otherwise.
+// GetKind returns the Kind field value
 func (o *BridgeListResponse) GetKind() string {
-	if o == nil || o.Kind == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Kind
+
+	return o.Kind
 }
 
-// GetKindOk returns a tuple with the Kind field value if set, nil otherwise
+// GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
 func (o *BridgeListResponse) GetKindOk() (*string, bool) {
-	if o == nil || o.Kind == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Kind, true
+	return &o.Kind, true
 }
 
-// HasKind returns a boolean if a field has been set.
-func (o *BridgeListResponse) HasKind() bool {
-	if o != nil && o.Kind != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetKind gets a reference to the given string and assigns it to the Kind field.
+// SetKind sets field value
 func (o *BridgeListResponse) SetKind(v string) {
-	o.Kind = &v
+	o.Kind = v
 }
 
 // GetItems returns the Items field value if set, zero value otherwise.
@@ -105,117 +101,93 @@ func (o *BridgeListResponse) SetItems(v []BridgeResponse) {
 	o.Items = &v
 }
 
-// GetPage returns the Page field value if set, zero value otherwise.
+// GetPage returns the Page field value
 func (o *BridgeListResponse) GetPage() int64 {
-	if o == nil || o.Page == nil {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.Page
+
+	return o.Page
 }
 
-// GetPageOk returns a tuple with the Page field value if set, nil otherwise
+// GetPageOk returns a tuple with the Page field value
 // and a boolean to check if the value has been set.
 func (o *BridgeListResponse) GetPageOk() (*int64, bool) {
-	if o == nil || o.Page == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Page, true
+	return &o.Page, true
 }
 
-// HasPage returns a boolean if a field has been set.
-func (o *BridgeListResponse) HasPage() bool {
-	if o != nil && o.Page != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetPage gets a reference to the given int64 and assigns it to the Page field.
+// SetPage sets field value
 func (o *BridgeListResponse) SetPage(v int64) {
-	o.Page = &v
+	o.Page = v
 }
 
-// GetSize returns the Size field value if set, zero value otherwise.
+// GetSize returns the Size field value
 func (o *BridgeListResponse) GetSize() int64 {
-	if o == nil || o.Size == nil {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.Size
+
+	return o.Size
 }
 
-// GetSizeOk returns a tuple with the Size field value if set, nil otherwise
+// GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *BridgeListResponse) GetSizeOk() (*int64, bool) {
-	if o == nil || o.Size == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Size, true
+	return &o.Size, true
 }
 
-// HasSize returns a boolean if a field has been set.
-func (o *BridgeListResponse) HasSize() bool {
-	if o != nil && o.Size != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetSize gets a reference to the given int64 and assigns it to the Size field.
+// SetSize sets field value
 func (o *BridgeListResponse) SetSize(v int64) {
-	o.Size = &v
+	o.Size = v
 }
 
-// GetTotal returns the Total field value if set, zero value otherwise.
+// GetTotal returns the Total field value
 func (o *BridgeListResponse) GetTotal() int64 {
-	if o == nil || o.Total == nil {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.Total
+
+	return o.Total
 }
 
-// GetTotalOk returns a tuple with the Total field value if set, nil otherwise
+// GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
 func (o *BridgeListResponse) GetTotalOk() (*int64, bool) {
-	if o == nil || o.Total == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Total, true
+	return &o.Total, true
 }
 
-// HasTotal returns a boolean if a field has been set.
-func (o *BridgeListResponse) HasTotal() bool {
-	if o != nil && o.Total != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTotal gets a reference to the given int64 and assigns it to the Total field.
+// SetTotal sets field value
 func (o *BridgeListResponse) SetTotal(v int64) {
-	o.Total = &v
+	o.Total = v
 }
 
 func (o BridgeListResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Kind != nil {
+	if true {
 		toSerialize["kind"] = o.Kind
 	}
 	if o.Items != nil {
 		toSerialize["items"] = o.Items
 	}
-	if o.Page != nil {
+	if true {
 		toSerialize["page"] = o.Page
 	}
-	if o.Size != nil {
+	if true {
 		toSerialize["size"] = o.Size
 	}
-	if o.Total != nil {
+	if true {
 		toSerialize["total"] = o.Total
 	}
 	return json.Marshal(toSerialize)

@@ -19,15 +19,19 @@ import (
 type BridgeRequest struct {
 	Name string `json:"name"`
 	ErrorHandler *Action `json:"error_handler,omitempty"`
+	CloudProvider string `json:"cloud_provider"`
+	Region string `json:"region"`
 }
 
 // NewBridgeRequest instantiates a new BridgeRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBridgeRequest(name string) *BridgeRequest {
+func NewBridgeRequest(name string, cloudProvider string, region string) *BridgeRequest {
 	this := BridgeRequest{}
 	this.Name = name
+	this.CloudProvider = cloudProvider
+	this.Region = region
 	return &this
 }
 
@@ -95,6 +99,54 @@ func (o *BridgeRequest) SetErrorHandler(v Action) {
 	o.ErrorHandler = &v
 }
 
+// GetCloudProvider returns the CloudProvider field value
+func (o *BridgeRequest) GetCloudProvider() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CloudProvider
+}
+
+// GetCloudProviderOk returns a tuple with the CloudProvider field value
+// and a boolean to check if the value has been set.
+func (o *BridgeRequest) GetCloudProviderOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.CloudProvider, true
+}
+
+// SetCloudProvider sets field value
+func (o *BridgeRequest) SetCloudProvider(v string) {
+	o.CloudProvider = v
+}
+
+// GetRegion returns the Region field value
+func (o *BridgeRequest) GetRegion() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Region
+}
+
+// GetRegionOk returns a tuple with the Region field value
+// and a boolean to check if the value has been set.
+func (o *BridgeRequest) GetRegionOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Region, true
+}
+
+// SetRegion sets field value
+func (o *BridgeRequest) SetRegion(v string) {
+	o.Region = v
+}
+
 func (o BridgeRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -102,6 +154,12 @@ func (o BridgeRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.ErrorHandler != nil {
 		toSerialize["error_handler"] = o.ErrorHandler
+	}
+	if true {
+		toSerialize["cloud_provider"] = o.CloudProvider
+	}
+	if true {
+		toSerialize["region"] = o.Region
 	}
 	return json.Marshal(toSerialize)
 }

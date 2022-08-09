@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Kind** | Pointer to **string** |  | [optional] 
+**Kind** | **string** |  | 
 **Items** | Pointer to [**[]CloudRegionResponse**](CloudRegionResponse.md) |  | [optional] 
-**Page** | Pointer to **int64** |  | [optional] 
-**Size** | Pointer to **int64** |  | [optional] 
-**Total** | Pointer to **int64** |  | [optional] 
+**Page** | **int64** |  | 
+**Size** | **int64** |  | 
+**Total** | **int64** |  | 
 
 ## Methods
 
 ### NewCloudRegionListResponse
 
-`func NewCloudRegionListResponse() *CloudRegionListResponse`
+`func NewCloudRegionListResponse(kind string, page int64, size int64, total int64, ) *CloudRegionListResponse`
 
 NewCloudRegionListResponse instantiates a new CloudRegionListResponse object
 This constructor will assign default values to properties that have it defined,
@@ -48,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetKind sets Kind field to given value.
 
-### HasKind
-
-`func (o *CloudRegionListResponse) HasKind() bool`
-
-HasKind returns a boolean if a field has been set.
 
 ### GetItems
 
@@ -98,11 +93,6 @@ and a boolean to check if the value has been set.
 
 SetPage sets Page field to given value.
 
-### HasPage
-
-`func (o *CloudRegionListResponse) HasPage() bool`
-
-HasPage returns a boolean if a field has been set.
 
 ### GetSize
 
@@ -123,11 +113,6 @@ and a boolean to check if the value has been set.
 
 SetSize sets Size field to given value.
 
-### HasSize
-
-`func (o *CloudRegionListResponse) HasSize() bool`
-
-HasSize returns a boolean if a field has been set.
 
 ### GetTotal
 
@@ -148,11 +133,6 @@ and a boolean to check if the value has been set.
 
 SetTotal sets Total field to given value.
 
-### HasTotal
-
-`func (o *CloudRegionListResponse) HasTotal() bool`
-
-HasTotal returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

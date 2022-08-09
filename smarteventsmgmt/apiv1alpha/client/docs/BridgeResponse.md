@@ -4,22 +4,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Kind** | Pointer to **string** |  | [optional] 
-**Id** | Pointer to **string** |  | [optional] 
+**Kind** | **string** |  | 
+**Id** | **string** |  | 
 **Name** | Pointer to **string** |  | [optional] 
-**Href** | Pointer to **string** |  | [optional] 
-**SubmittedAt** | Pointer to **time.Time** |  | [optional] 
+**Href** | **string** |  | 
+**SubmittedAt** | **time.Time** |  | 
 **PublishedAt** | Pointer to **time.Time** |  | [optional] 
-**Status** | Pointer to [**ManagedResourceStatus**](ManagedResourceStatus.md) |  | [optional] 
-**Owner** | Pointer to **string** |  | [optional] 
+**ModifiedAt** | Pointer to **time.Time** |  | [optional] 
+**Status** | [**ManagedResourceStatus**](ManagedResourceStatus.md) |  | 
+**Owner** | **string** |  | 
 **Endpoint** | Pointer to **string** |  | [optional] 
 **ErrorHandler** | Pointer to [**Action**](Action.md) |  | [optional] 
+**CloudProvider** | Pointer to **string** |  | [optional] 
+**Region** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewBridgeResponse
 
-`func NewBridgeResponse() *BridgeResponse`
+`func NewBridgeResponse(kind string, id string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, ) *BridgeResponse`
 
 NewBridgeResponse instantiates a new BridgeResponse object
 This constructor will assign default values to properties that have it defined,
@@ -53,11 +56,6 @@ and a boolean to check if the value has been set.
 
 SetKind sets Kind field to given value.
 
-### HasKind
-
-`func (o *BridgeResponse) HasKind() bool`
-
-HasKind returns a boolean if a field has been set.
 
 ### GetId
 
@@ -78,11 +76,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *BridgeResponse) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -128,11 +121,6 @@ and a boolean to check if the value has been set.
 
 SetHref sets Href field to given value.
 
-### HasHref
-
-`func (o *BridgeResponse) HasHref() bool`
-
-HasHref returns a boolean if a field has been set.
 
 ### GetSubmittedAt
 
@@ -153,11 +141,6 @@ and a boolean to check if the value has been set.
 
 SetSubmittedAt sets SubmittedAt field to given value.
 
-### HasSubmittedAt
-
-`func (o *BridgeResponse) HasSubmittedAt() bool`
-
-HasSubmittedAt returns a boolean if a field has been set.
 
 ### GetPublishedAt
 
@@ -184,6 +167,31 @@ SetPublishedAt sets PublishedAt field to given value.
 
 HasPublishedAt returns a boolean if a field has been set.
 
+### GetModifiedAt
+
+`func (o *BridgeResponse) GetModifiedAt() time.Time`
+
+GetModifiedAt returns the ModifiedAt field if non-nil, zero value otherwise.
+
+### GetModifiedAtOk
+
+`func (o *BridgeResponse) GetModifiedAtOk() (*time.Time, bool)`
+
+GetModifiedAtOk returns a tuple with the ModifiedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModifiedAt
+
+`func (o *BridgeResponse) SetModifiedAt(v time.Time)`
+
+SetModifiedAt sets ModifiedAt field to given value.
+
+### HasModifiedAt
+
+`func (o *BridgeResponse) HasModifiedAt() bool`
+
+HasModifiedAt returns a boolean if a field has been set.
+
 ### GetStatus
 
 `func (o *BridgeResponse) GetStatus() ManagedResourceStatus`
@@ -203,11 +211,6 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
-### HasStatus
-
-`func (o *BridgeResponse) HasStatus() bool`
-
-HasStatus returns a boolean if a field has been set.
 
 ### GetOwner
 
@@ -228,11 +231,6 @@ and a boolean to check if the value has been set.
 
 SetOwner sets Owner field to given value.
 
-### HasOwner
-
-`func (o *BridgeResponse) HasOwner() bool`
-
-HasOwner returns a boolean if a field has been set.
 
 ### GetEndpoint
 
@@ -283,6 +281,56 @@ SetErrorHandler sets ErrorHandler field to given value.
 `func (o *BridgeResponse) HasErrorHandler() bool`
 
 HasErrorHandler returns a boolean if a field has been set.
+
+### GetCloudProvider
+
+`func (o *BridgeResponse) GetCloudProvider() string`
+
+GetCloudProvider returns the CloudProvider field if non-nil, zero value otherwise.
+
+### GetCloudProviderOk
+
+`func (o *BridgeResponse) GetCloudProviderOk() (*string, bool)`
+
+GetCloudProviderOk returns a tuple with the CloudProvider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCloudProvider
+
+`func (o *BridgeResponse) SetCloudProvider(v string)`
+
+SetCloudProvider sets CloudProvider field to given value.
+
+### HasCloudProvider
+
+`func (o *BridgeResponse) HasCloudProvider() bool`
+
+HasCloudProvider returns a boolean if a field has been set.
+
+### GetRegion
+
+`func (o *BridgeResponse) GetRegion() string`
+
+GetRegion returns the Region field if non-nil, zero value otherwise.
+
+### GetRegionOk
+
+`func (o *BridgeResponse) GetRegionOk() (*string, bool)`
+
+GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegion
+
+`func (o *BridgeResponse) SetRegion(v string)`
+
+SetRegion sets Region field to given value.
+
+### HasRegion
+
+`func (o *BridgeResponse) HasRegion() bool`
+
+HasRegion returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -898,6 +898,8 @@ type ApiListConnectorClustersRequest struct {
 	ApiService ConnectorClustersApi
 	page *string
 	size *string
+	orderBy *string
+	search *string
 }
 
 func (r ApiListConnectorClustersRequest) Page(page string) ApiListConnectorClustersRequest {
@@ -906,6 +908,14 @@ func (r ApiListConnectorClustersRequest) Page(page string) ApiListConnectorClust
 }
 func (r ApiListConnectorClustersRequest) Size(size string) ApiListConnectorClustersRequest {
 	r.size = &size
+	return r
+}
+func (r ApiListConnectorClustersRequest) OrderBy(orderBy string) ApiListConnectorClustersRequest {
+	r.orderBy = &orderBy
+	return r
+}
+func (r ApiListConnectorClustersRequest) Search(search string) ApiListConnectorClustersRequest {
+	r.search = &search
 	return r
 }
 
@@ -956,6 +966,12 @@ func (a *ConnectorClustersApiService) ListConnectorClustersExecute(r ApiListConn
 	}
 	if r.size != nil {
 		localVarQueryParams.Add("size", parameterToString(*r.size, ""))
+	}
+	if r.orderBy != nil {
+		localVarQueryParams.Add("orderBy", parameterToString(*r.orderBy, ""))
+	}
+	if r.search != nil {
+		localVarQueryParams.Add("search", parameterToString(*r.search, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

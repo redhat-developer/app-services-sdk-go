@@ -1,78 +1,73 @@
-# ErrorsResponse
+# ListResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Kind** | Pointer to **string** |  | [optional] 
-**Items** | Pointer to [**[]ErrorResponse**](ErrorResponse.md) |  | [optional] 
+**Kind** | **string** |  | 
+**Items** | Pointer to **[]map[string]interface{}** |  | [optional] 
 
 ## Methods
 
-### NewErrorsResponse
+### NewListResponse
 
-`func NewErrorsResponse() *ErrorsResponse`
+`func NewListResponse(kind string, ) *ListResponse`
 
-NewErrorsResponse instantiates a new ErrorsResponse object
+NewListResponse instantiates a new ListResponse object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewErrorsResponseWithDefaults
+### NewListResponseWithDefaults
 
-`func NewErrorsResponseWithDefaults() *ErrorsResponse`
+`func NewListResponseWithDefaults() *ListResponse`
 
-NewErrorsResponseWithDefaults instantiates a new ErrorsResponse object
+NewListResponseWithDefaults instantiates a new ListResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetKind
 
-`func (o *ErrorsResponse) GetKind() string`
+`func (o *ListResponse) GetKind() string`
 
 GetKind returns the Kind field if non-nil, zero value otherwise.
 
 ### GetKindOk
 
-`func (o *ErrorsResponse) GetKindOk() (*string, bool)`
+`func (o *ListResponse) GetKindOk() (*string, bool)`
 
 GetKindOk returns a tuple with the Kind field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKind
 
-`func (o *ErrorsResponse) SetKind(v string)`
+`func (o *ListResponse) SetKind(v string)`
 
 SetKind sets Kind field to given value.
 
-### HasKind
-
-`func (o *ErrorsResponse) HasKind() bool`
-
-HasKind returns a boolean if a field has been set.
 
 ### GetItems
 
-`func (o *ErrorsResponse) GetItems() []ErrorResponse`
+`func (o *ListResponse) GetItems() []map[string]interface{}`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *ErrorsResponse) GetItemsOk() (*[]ErrorResponse, bool)`
+`func (o *ListResponse) GetItemsOk() (*[]map[string]interface{}, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *ErrorsResponse) SetItems(v []ErrorResponse)`
+`func (o *ListResponse) SetItems(v []map[string]interface{})`
 
 SetItems sets Items field to given value.
 
 ### HasItems
 
-`func (o *ErrorsResponse) HasItems() bool`
+`func (o *ListResponse) HasItems() bool`
 
 HasItems returns a boolean if a field has been set.
 

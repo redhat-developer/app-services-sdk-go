@@ -1,6 +1,6 @@
 # \BridgesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.stage.openshift.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**BridgesAPIDeleteBridge**](BridgesApi.md#BridgesAPIDeleteBridge) | **Delete** /api/smartevents_mgmt/v1/bridges/{bridgeId} | Delete a Bridge instance
 [**BridgesAPIGetBridge**](BridgesApi.md#BridgesAPIGetBridge) | **Get** /api/smartevents_mgmt/v1/bridges/{bridgeId} | Get a Bridge instance
 [**BridgesAPIGetBridges**](BridgesApi.md#BridgesAPIGetBridges) | **Get** /api/smartevents_mgmt/v1/bridges | Get the list of Bridge instances
+[**BridgesAPIUpdateBridge**](BridgesApi.md#BridgesAPIUpdateBridge) | **Put** /api/smartevents_mgmt/v1/bridges/{bridgeId} | Update a Bridge instance
 
 
 
@@ -32,7 +33,7 @@ import (
 )
 
 func main() {
-    bridgeRequest := *openapiclient.NewBridgeRequest("Name_example") // BridgeRequest |  (optional)
+    bridgeRequest := *openapiclient.NewBridgeRequest("Name_example", "CloudProvider_example", "Region_example") // BridgeRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -280,6 +281,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BridgesAPIUpdateBridge
+
+> BridgeResponse BridgesAPIUpdateBridge(ctx, bridgeId).BridgeRequest(bridgeRequest).Execute()
+
+Update a Bridge instance
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    bridgeId := "bridgeId_example" // string | 
+    bridgeRequest := *openapiclient.NewBridgeRequest("Name_example", "CloudProvider_example", "Region_example") // BridgeRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.BridgesApi.BridgesAPIUpdateBridge(context.Background(), bridgeId).BridgeRequest(bridgeRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `BridgesApi.BridgesAPIUpdateBridge``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `BridgesAPIUpdateBridge`: BridgeResponse
+    fmt.Fprintf(os.Stdout, "Response from `BridgesApi.BridgesAPIUpdateBridge`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**bridgeId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBridgesAPIUpdateBridgeRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **bridgeRequest** | [**BridgeRequest**](BridgeRequest.md) |  | 
+
+### Return type
+
+[**BridgeResponse**](BridgeResponse.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

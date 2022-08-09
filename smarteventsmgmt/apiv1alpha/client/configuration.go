@@ -106,6 +106,18 @@ func NewConfiguration() *Configuration {
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
+				URL: "https://api.stage.openshift.com",
+				Description: "No description provided",
+			},
+			{
+				URL: "http://localhost:8000",
+				Description: "No description provided",
+			},
+			{
+				URL: "https://api.openshift.com",
+				Description: "No description provided",
+			},
+			{
 				URL: "",
 				Description: "No description provided",
 			},
