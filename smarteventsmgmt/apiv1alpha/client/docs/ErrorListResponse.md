@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Kind** | Pointer to **string** |  | [optional] 
-**Items** | Pointer to [**[]ErrorResponse**](ErrorResponse.md) |  | [optional] 
-**Page** | Pointer to **int64** |  | [optional] 
-**Size** | Pointer to **int64** |  | [optional] 
-**Total** | Pointer to **int64** |  | [optional] 
+**Kind** | **string** |  | 
+**Items** | Pointer to [**[]Error**](Error.md) |  | [optional] 
+**Page** | **int64** |  | 
+**Size** | **int64** |  | 
+**Total** | **int64** |  | 
 
 ## Methods
 
 ### NewErrorListResponse
 
-`func NewErrorListResponse() *ErrorListResponse`
+`func NewErrorListResponse(kind string, page int64, size int64, total int64, ) *ErrorListResponse`
 
 NewErrorListResponse instantiates a new ErrorListResponse object
 This constructor will assign default values to properties that have it defined,
@@ -48,28 +48,23 @@ and a boolean to check if the value has been set.
 
 SetKind sets Kind field to given value.
 
-### HasKind
-
-`func (o *ErrorListResponse) HasKind() bool`
-
-HasKind returns a boolean if a field has been set.
 
 ### GetItems
 
-`func (o *ErrorListResponse) GetItems() []ErrorResponse`
+`func (o *ErrorListResponse) GetItems() []Error`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *ErrorListResponse) GetItemsOk() (*[]ErrorResponse, bool)`
+`func (o *ErrorListResponse) GetItemsOk() (*[]Error, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *ErrorListResponse) SetItems(v []ErrorResponse)`
+`func (o *ErrorListResponse) SetItems(v []Error)`
 
 SetItems sets Items field to given value.
 
@@ -98,11 +93,6 @@ and a boolean to check if the value has been set.
 
 SetPage sets Page field to given value.
 
-### HasPage
-
-`func (o *ErrorListResponse) HasPage() bool`
-
-HasPage returns a boolean if a field has been set.
 
 ### GetSize
 
@@ -123,11 +113,6 @@ and a boolean to check if the value has been set.
 
 SetSize sets Size field to given value.
 
-### HasSize
-
-`func (o *ErrorListResponse) HasSize() bool`
-
-HasSize returns a boolean if a field has been set.
 
 ### GetTotal
 
@@ -148,11 +133,6 @@ and a boolean to check if the value has been set.
 
 SetTotal sets Total field to given value.
 
-### HasTotal
-
-`func (o *ErrorListResponse) HasTotal() bool`
-
-HasTotal returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

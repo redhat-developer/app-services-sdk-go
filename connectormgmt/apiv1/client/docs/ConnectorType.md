@@ -14,14 +14,13 @@ Name | Type | Description | Notes
 **IconHref** | Pointer to **string** | URL to an icon of the connector. | [optional] 
 **Labels** | Pointer to **[]string** | Labels used to categorize the connector | [optional] 
 **Capabilities** | Pointer to **[]string** | The capabilities supported by the conenctor | [optional] 
-**Schema** | Pointer to **map[string]interface{}** | A json schema that can be used to validate a ConnectorRequest connector field. | [optional] 
-**JsonSchema** | Pointer to **map[string]interface{}** | A json schema that can be used to validate a ConnectorRequest connector field. | [optional] 
+**Schema** | **map[string]interface{}** | A json schema that can be used to validate a ConnectorRequest connector field. | 
 
 ## Methods
 
 ### NewConnectorType
 
-`func NewConnectorType(name string, version string, ) *ConnectorType`
+`func NewConnectorType(name string, version string, schema map[string]interface{}, ) *ConnectorType`
 
 NewConnectorType instantiates a new ConnectorType object
 This constructor will assign default values to properties that have it defined,
@@ -295,36 +294,6 @@ and a boolean to check if the value has been set.
 
 SetSchema sets Schema field to given value.
 
-### HasSchema
-
-`func (o *ConnectorType) HasSchema() bool`
-
-HasSchema returns a boolean if a field has been set.
-
-### GetJsonSchema
-
-`func (o *ConnectorType) GetJsonSchema() map[string]interface{}`
-
-GetJsonSchema returns the JsonSchema field if non-nil, zero value otherwise.
-
-### GetJsonSchemaOk
-
-`func (o *ConnectorType) GetJsonSchemaOk() (*map[string]interface{}, bool)`
-
-GetJsonSchemaOk returns a tuple with the JsonSchema field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetJsonSchema
-
-`func (o *ConnectorType) SetJsonSchema(v map[string]interface{})`
-
-SetJsonSchema sets JsonSchema field to given value.
-
-### HasJsonSchema
-
-`func (o *ConnectorType) HasJsonSchema() bool`
-
-HasJsonSchema returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -1,6 +1,6 @@
 # \CloudProvidersApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.stage.openshift.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

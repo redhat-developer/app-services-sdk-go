@@ -4,15 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Kind** | Pointer to **string** |  | [optional] 
-**Id** | Pointer to **string** |  | [optional] 
+**Kind** | **string** |  | 
+**Id** | **string** |  | 
 **Name** | Pointer to **string** |  | [optional] 
-**Href** | Pointer to **string** |  | [optional] 
-**SubmittedAt** | Pointer to **time.Time** |  | [optional] 
+**Href** | **string** |  | 
+**SubmittedAt** | **time.Time** |  | 
 **PublishedAt** | Pointer to **time.Time** |  | [optional] 
-**Status** | Pointer to [**ManagedResourceStatus**](ManagedResourceStatus.md) |  | [optional] 
-**Owner** | Pointer to **string** |  | [optional] 
-**Type** | Pointer to [**ProcessorType**](ProcessorType.md) |  | [optional] 
+**ModifiedAt** | Pointer to **time.Time** |  | [optional] 
+**Status** | [**ManagedResourceStatus**](ManagedResourceStatus.md) |  | 
+**Owner** | **string** |  | 
+**Type** | [**ProcessorType**](ProcessorType.md) |  | 
 **Filters** | Pointer to [**[]BaseFilter**](BaseFilter.md) |  | [optional] 
 **TransformationTemplate** | Pointer to **string** |  | [optional] 
 **Action** | Pointer to [**Action**](Action.md) |  | [optional] 
@@ -22,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewProcessorResponse
 
-`func NewProcessorResponse() *ProcessorResponse`
+`func NewProcessorResponse(kind string, id string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, type_ ProcessorType, ) *ProcessorResponse`
 
 NewProcessorResponse instantiates a new ProcessorResponse object
 This constructor will assign default values to properties that have it defined,
@@ -56,11 +57,6 @@ and a boolean to check if the value has been set.
 
 SetKind sets Kind field to given value.
 
-### HasKind
-
-`func (o *ProcessorResponse) HasKind() bool`
-
-HasKind returns a boolean if a field has been set.
 
 ### GetId
 
@@ -81,11 +77,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *ProcessorResponse) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -131,11 +122,6 @@ and a boolean to check if the value has been set.
 
 SetHref sets Href field to given value.
 
-### HasHref
-
-`func (o *ProcessorResponse) HasHref() bool`
-
-HasHref returns a boolean if a field has been set.
 
 ### GetSubmittedAt
 
@@ -156,11 +142,6 @@ and a boolean to check if the value has been set.
 
 SetSubmittedAt sets SubmittedAt field to given value.
 
-### HasSubmittedAt
-
-`func (o *ProcessorResponse) HasSubmittedAt() bool`
-
-HasSubmittedAt returns a boolean if a field has been set.
 
 ### GetPublishedAt
 
@@ -187,6 +168,31 @@ SetPublishedAt sets PublishedAt field to given value.
 
 HasPublishedAt returns a boolean if a field has been set.
 
+### GetModifiedAt
+
+`func (o *ProcessorResponse) GetModifiedAt() time.Time`
+
+GetModifiedAt returns the ModifiedAt field if non-nil, zero value otherwise.
+
+### GetModifiedAtOk
+
+`func (o *ProcessorResponse) GetModifiedAtOk() (*time.Time, bool)`
+
+GetModifiedAtOk returns a tuple with the ModifiedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModifiedAt
+
+`func (o *ProcessorResponse) SetModifiedAt(v time.Time)`
+
+SetModifiedAt sets ModifiedAt field to given value.
+
+### HasModifiedAt
+
+`func (o *ProcessorResponse) HasModifiedAt() bool`
+
+HasModifiedAt returns a boolean if a field has been set.
+
 ### GetStatus
 
 `func (o *ProcessorResponse) GetStatus() ManagedResourceStatus`
@@ -206,11 +212,6 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
-### HasStatus
-
-`func (o *ProcessorResponse) HasStatus() bool`
-
-HasStatus returns a boolean if a field has been set.
 
 ### GetOwner
 
@@ -231,11 +232,6 @@ and a boolean to check if the value has been set.
 
 SetOwner sets Owner field to given value.
 
-### HasOwner
-
-`func (o *ProcessorResponse) HasOwner() bool`
-
-HasOwner returns a boolean if a field has been set.
 
 ### GetType
 
@@ -256,11 +252,6 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
-### HasType
-
-`func (o *ProcessorResponse) HasType() bool`
-
-HasType returns a boolean if a field has been set.
 
 ### GetFilters
 

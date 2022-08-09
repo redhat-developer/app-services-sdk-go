@@ -35,19 +35,18 @@ type ConnectorType struct {
 	// The capabilities supported by the conenctor
 	Capabilities *[]string `json:"capabilities,omitempty"`
 	// A json schema that can be used to validate a ConnectorRequest connector field.
-	Schema *map[string]interface{} `json:"schema,omitempty"`
-	// A json schema that can be used to validate a ConnectorRequest connector field.
-	JsonSchema *map[string]interface{} `json:"json_schema,omitempty"`
+	Schema map[string]interface{} `json:"schema"`
 }
 
 // NewConnectorType instantiates a new ConnectorType object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConnectorType(name string, version string) *ConnectorType {
+func NewConnectorType(name string, version string, schema map[string]interface{}) *ConnectorType {
 	this := ConnectorType{}
 	this.Name = name
 	this.Version = version
+	this.Schema = schema
 	return &this
 }
 
@@ -363,68 +362,28 @@ func (o *ConnectorType) SetCapabilities(v []string) {
 	o.Capabilities = &v
 }
 
-// GetSchema returns the Schema field value if set, zero value otherwise.
+// GetSchema returns the Schema field value
 func (o *ConnectorType) GetSchema() map[string]interface{} {
-	if o == nil || o.Schema == nil {
+	if o == nil {
 		var ret map[string]interface{}
 		return ret
 	}
-	return *o.Schema
+
+	return o.Schema
 }
 
-// GetSchemaOk returns a tuple with the Schema field value if set, nil otherwise
+// GetSchemaOk returns a tuple with the Schema field value
 // and a boolean to check if the value has been set.
 func (o *ConnectorType) GetSchemaOk() (*map[string]interface{}, bool) {
-	if o == nil || o.Schema == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Schema, true
+	return &o.Schema, true
 }
 
-// HasSchema returns a boolean if a field has been set.
-func (o *ConnectorType) HasSchema() bool {
-	if o != nil && o.Schema != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetSchema gets a reference to the given map[string]interface{} and assigns it to the Schema field.
+// SetSchema sets field value
 func (o *ConnectorType) SetSchema(v map[string]interface{}) {
-	o.Schema = &v
-}
-
-// GetJsonSchema returns the JsonSchema field value if set, zero value otherwise.
-func (o *ConnectorType) GetJsonSchema() map[string]interface{} {
-	if o == nil || o.JsonSchema == nil {
-		var ret map[string]interface{}
-		return ret
-	}
-	return *o.JsonSchema
-}
-
-// GetJsonSchemaOk returns a tuple with the JsonSchema field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ConnectorType) GetJsonSchemaOk() (*map[string]interface{}, bool) {
-	if o == nil || o.JsonSchema == nil {
-		return nil, false
-	}
-	return o.JsonSchema, true
-}
-
-// HasJsonSchema returns a boolean if a field has been set.
-func (o *ConnectorType) HasJsonSchema() bool {
-	if o != nil && o.JsonSchema != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetJsonSchema gets a reference to the given map[string]interface{} and assigns it to the JsonSchema field.
-func (o *ConnectorType) SetJsonSchema(v map[string]interface{}) {
-	o.JsonSchema = &v
+	o.Schema = v
 }
 
 func (o ConnectorType) MarshalJSON() ([]byte, error) {
@@ -459,11 +418,8 @@ func (o ConnectorType) MarshalJSON() ([]byte, error) {
 	if o.Capabilities != nil {
 		toSerialize["capabilities"] = o.Capabilities
 	}
-	if o.Schema != nil {
+	if true {
 		toSerialize["schema"] = o.Schema
-	}
-	if o.JsonSchema != nil {
-		toSerialize["json_schema"] = o.JsonSchema
 	}
 	return json.Marshal(toSerialize)
 }

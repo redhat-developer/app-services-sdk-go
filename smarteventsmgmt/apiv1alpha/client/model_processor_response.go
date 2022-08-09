@@ -18,15 +18,16 @@ import (
 
 // ProcessorResponse struct for ProcessorResponse
 type ProcessorResponse struct {
-	Kind *string `json:"kind,omitempty"`
-	Id *string `json:"id,omitempty"`
+	Kind string `json:"kind"`
+	Id string `json:"id"`
 	Name *string `json:"name,omitempty"`
-	Href *string `json:"href,omitempty"`
-	SubmittedAt *time.Time `json:"submitted_at,omitempty"`
+	Href string `json:"href"`
+	SubmittedAt time.Time `json:"submitted_at"`
 	PublishedAt *time.Time `json:"published_at,omitempty"`
-	Status *ManagedResourceStatus `json:"status,omitempty"`
-	Owner *string `json:"owner,omitempty"`
-	Type *ProcessorType `json:"type,omitempty"`
+	ModifiedAt *time.Time `json:"modified_at,omitempty"`
+	Status ManagedResourceStatus `json:"status"`
+	Owner string `json:"owner"`
+	Type ProcessorType `json:"type"`
 	Filters *[]BaseFilter `json:"filters,omitempty"`
 	TransformationTemplate *string `json:"transformationTemplate,omitempty"`
 	Action *Action `json:"action,omitempty"`
@@ -37,8 +38,15 @@ type ProcessorResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProcessorResponse() *ProcessorResponse {
+func NewProcessorResponse(kind string, id string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, type_ ProcessorType) *ProcessorResponse {
 	this := ProcessorResponse{}
+	this.Kind = kind
+	this.Id = id
+	this.Href = href
+	this.SubmittedAt = submittedAt
+	this.Status = status
+	this.Owner = owner
+	this.Type = type_
 	return &this
 }
 
@@ -50,68 +58,52 @@ func NewProcessorResponseWithDefaults() *ProcessorResponse {
 	return &this
 }
 
-// GetKind returns the Kind field value if set, zero value otherwise.
+// GetKind returns the Kind field value
 func (o *ProcessorResponse) GetKind() string {
-	if o == nil || o.Kind == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Kind
+
+	return o.Kind
 }
 
-// GetKindOk returns a tuple with the Kind field value if set, nil otherwise
+// GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
 func (o *ProcessorResponse) GetKindOk() (*string, bool) {
-	if o == nil || o.Kind == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Kind, true
+	return &o.Kind, true
 }
 
-// HasKind returns a boolean if a field has been set.
-func (o *ProcessorResponse) HasKind() bool {
-	if o != nil && o.Kind != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetKind gets a reference to the given string and assigns it to the Kind field.
+// SetKind sets field value
 func (o *ProcessorResponse) SetKind(v string) {
-	o.Kind = &v
+	o.Kind = v
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *ProcessorResponse) GetId() string {
-	if o == nil || o.Id == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *ProcessorResponse) GetIdOk() (*string, bool) {
-	if o == nil || o.Id == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *ProcessorResponse) HasId() bool {
-	if o != nil && o.Id != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *ProcessorResponse) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -146,68 +138,52 @@ func (o *ProcessorResponse) SetName(v string) {
 	o.Name = &v
 }
 
-// GetHref returns the Href field value if set, zero value otherwise.
+// GetHref returns the Href field value
 func (o *ProcessorResponse) GetHref() string {
-	if o == nil || o.Href == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Href
+
+	return o.Href
 }
 
-// GetHrefOk returns a tuple with the Href field value if set, nil otherwise
+// GetHrefOk returns a tuple with the Href field value
 // and a boolean to check if the value has been set.
 func (o *ProcessorResponse) GetHrefOk() (*string, bool) {
-	if o == nil || o.Href == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Href, true
+	return &o.Href, true
 }
 
-// HasHref returns a boolean if a field has been set.
-func (o *ProcessorResponse) HasHref() bool {
-	if o != nil && o.Href != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetHref gets a reference to the given string and assigns it to the Href field.
+// SetHref sets field value
 func (o *ProcessorResponse) SetHref(v string) {
-	o.Href = &v
+	o.Href = v
 }
 
-// GetSubmittedAt returns the SubmittedAt field value if set, zero value otherwise.
+// GetSubmittedAt returns the SubmittedAt field value
 func (o *ProcessorResponse) GetSubmittedAt() time.Time {
-	if o == nil || o.SubmittedAt == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.SubmittedAt
+
+	return o.SubmittedAt
 }
 
-// GetSubmittedAtOk returns a tuple with the SubmittedAt field value if set, nil otherwise
+// GetSubmittedAtOk returns a tuple with the SubmittedAt field value
 // and a boolean to check if the value has been set.
 func (o *ProcessorResponse) GetSubmittedAtOk() (*time.Time, bool) {
-	if o == nil || o.SubmittedAt == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.SubmittedAt, true
+	return &o.SubmittedAt, true
 }
 
-// HasSubmittedAt returns a boolean if a field has been set.
-func (o *ProcessorResponse) HasSubmittedAt() bool {
-	if o != nil && o.SubmittedAt != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetSubmittedAt gets a reference to the given time.Time and assigns it to the SubmittedAt field.
+// SetSubmittedAt sets field value
 func (o *ProcessorResponse) SetSubmittedAt(v time.Time) {
-	o.SubmittedAt = &v
+	o.SubmittedAt = v
 }
 
 // GetPublishedAt returns the PublishedAt field value if set, zero value otherwise.
@@ -242,100 +218,108 @@ func (o *ProcessorResponse) SetPublishedAt(v time.Time) {
 	o.PublishedAt = &v
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// GetModifiedAt returns the ModifiedAt field value if set, zero value otherwise.
+func (o *ProcessorResponse) GetModifiedAt() time.Time {
+	if o == nil || o.ModifiedAt == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.ModifiedAt
+}
+
+// GetModifiedAtOk returns a tuple with the ModifiedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProcessorResponse) GetModifiedAtOk() (*time.Time, bool) {
+	if o == nil || o.ModifiedAt == nil {
+		return nil, false
+	}
+	return o.ModifiedAt, true
+}
+
+// HasModifiedAt returns a boolean if a field has been set.
+func (o *ProcessorResponse) HasModifiedAt() bool {
+	if o != nil && o.ModifiedAt != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetModifiedAt gets a reference to the given time.Time and assigns it to the ModifiedAt field.
+func (o *ProcessorResponse) SetModifiedAt(v time.Time) {
+	o.ModifiedAt = &v
+}
+
+// GetStatus returns the Status field value
 func (o *ProcessorResponse) GetStatus() ManagedResourceStatus {
-	if o == nil || o.Status == nil {
+	if o == nil {
 		var ret ManagedResourceStatus
 		return ret
 	}
-	return *o.Status
+
+	return o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *ProcessorResponse) GetStatusOk() (*ManagedResourceStatus, bool) {
-	if o == nil || o.Status == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Status, true
+	return &o.Status, true
 }
 
-// HasStatus returns a boolean if a field has been set.
-func (o *ProcessorResponse) HasStatus() bool {
-	if o != nil && o.Status != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetStatus gets a reference to the given ManagedResourceStatus and assigns it to the Status field.
+// SetStatus sets field value
 func (o *ProcessorResponse) SetStatus(v ManagedResourceStatus) {
-	o.Status = &v
+	o.Status = v
 }
 
-// GetOwner returns the Owner field value if set, zero value otherwise.
+// GetOwner returns the Owner field value
 func (o *ProcessorResponse) GetOwner() string {
-	if o == nil || o.Owner == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Owner
+
+	return o.Owner
 }
 
-// GetOwnerOk returns a tuple with the Owner field value if set, nil otherwise
+// GetOwnerOk returns a tuple with the Owner field value
 // and a boolean to check if the value has been set.
 func (o *ProcessorResponse) GetOwnerOk() (*string, bool) {
-	if o == nil || o.Owner == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Owner, true
+	return &o.Owner, true
 }
 
-// HasOwner returns a boolean if a field has been set.
-func (o *ProcessorResponse) HasOwner() bool {
-	if o != nil && o.Owner != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetOwner gets a reference to the given string and assigns it to the Owner field.
+// SetOwner sets field value
 func (o *ProcessorResponse) SetOwner(v string) {
-	o.Owner = &v
+	o.Owner = v
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
+// GetType returns the Type field value
 func (o *ProcessorResponse) GetType() ProcessorType {
-	if o == nil || o.Type == nil {
+	if o == nil {
 		var ret ProcessorType
 		return ret
 	}
-	return *o.Type
+
+	return o.Type
 }
 
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *ProcessorResponse) GetTypeOk() (*ProcessorType, bool) {
-	if o == nil || o.Type == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Type, true
+	return &o.Type, true
 }
 
-// HasType returns a boolean if a field has been set.
-func (o *ProcessorResponse) HasType() bool {
-	if o != nil && o.Type != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given ProcessorType and assigns it to the Type field.
+// SetType sets field value
 func (o *ProcessorResponse) SetType(v ProcessorType) {
-	o.Type = &v
+	o.Type = v
 }
 
 // GetFilters returns the Filters field value if set, zero value otherwise.
@@ -468,31 +452,34 @@ func (o *ProcessorResponse) SetSource(v Source) {
 
 func (o ProcessorResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Kind != nil {
+	if true {
 		toSerialize["kind"] = o.Kind
 	}
-	if o.Id != nil {
+	if true {
 		toSerialize["id"] = o.Id
 	}
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
 	}
-	if o.Href != nil {
+	if true {
 		toSerialize["href"] = o.Href
 	}
-	if o.SubmittedAt != nil {
+	if true {
 		toSerialize["submitted_at"] = o.SubmittedAt
 	}
 	if o.PublishedAt != nil {
 		toSerialize["published_at"] = o.PublishedAt
 	}
-	if o.Status != nil {
+	if o.ModifiedAt != nil {
+		toSerialize["modified_at"] = o.ModifiedAt
+	}
+	if true {
 		toSerialize["status"] = o.Status
 	}
-	if o.Owner != nil {
+	if true {
 		toSerialize["owner"] = o.Owner
 	}
-	if o.Type != nil {
+	if true {
 		toSerialize["type"] = o.Type
 	}
 	if o.Filters != nil {

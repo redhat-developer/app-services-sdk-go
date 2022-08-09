@@ -15,21 +15,21 @@ import (
 	"encoding/json"
 )
 
-// ErrorListResponse struct for ErrorListResponse
-type ErrorListResponse struct {
+// List struct for List
+type List struct {
 	Kind string `json:"kind"`
-	Items *[]Error `json:"items,omitempty"`
+	Items *[]map[string]interface{} `json:"items,omitempty"`
 	Page int64 `json:"page"`
 	Size int64 `json:"size"`
 	Total int64 `json:"total"`
 }
 
-// NewErrorListResponse instantiates a new ErrorListResponse object
+// NewList instantiates a new List object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewErrorListResponse(kind string, page int64, size int64, total int64) *ErrorListResponse {
-	this := ErrorListResponse{}
+func NewList(kind string, page int64, size int64, total int64) *List {
+	this := List{}
 	this.Kind = kind
 	this.Page = page
 	this.Size = size
@@ -37,16 +37,16 @@ func NewErrorListResponse(kind string, page int64, size int64, total int64) *Err
 	return &this
 }
 
-// NewErrorListResponseWithDefaults instantiates a new ErrorListResponse object
+// NewListWithDefaults instantiates a new List object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewErrorListResponseWithDefaults() *ErrorListResponse {
-	this := ErrorListResponse{}
+func NewListWithDefaults() *List {
+	this := List{}
 	return &this
 }
 
 // GetKind returns the Kind field value
-func (o *ErrorListResponse) GetKind() string {
+func (o *List) GetKind() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -57,7 +57,7 @@ func (o *ErrorListResponse) GetKind() string {
 
 // GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
-func (o *ErrorListResponse) GetKindOk() (*string, bool) {
+func (o *List) GetKindOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -65,14 +65,14 @@ func (o *ErrorListResponse) GetKindOk() (*string, bool) {
 }
 
 // SetKind sets field value
-func (o *ErrorListResponse) SetKind(v string) {
+func (o *List) SetKind(v string) {
 	o.Kind = v
 }
 
 // GetItems returns the Items field value if set, zero value otherwise.
-func (o *ErrorListResponse) GetItems() []Error {
+func (o *List) GetItems() []map[string]interface{} {
 	if o == nil || o.Items == nil {
-		var ret []Error
+		var ret []map[string]interface{}
 		return ret
 	}
 	return *o.Items
@@ -80,7 +80,7 @@ func (o *ErrorListResponse) GetItems() []Error {
 
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ErrorListResponse) GetItemsOk() (*[]Error, bool) {
+func (o *List) GetItemsOk() (*[]map[string]interface{}, bool) {
 	if o == nil || o.Items == nil {
 		return nil, false
 	}
@@ -88,7 +88,7 @@ func (o *ErrorListResponse) GetItemsOk() (*[]Error, bool) {
 }
 
 // HasItems returns a boolean if a field has been set.
-func (o *ErrorListResponse) HasItems() bool {
+func (o *List) HasItems() bool {
 	if o != nil && o.Items != nil {
 		return true
 	}
@@ -96,13 +96,13 @@ func (o *ErrorListResponse) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []Error and assigns it to the Items field.
-func (o *ErrorListResponse) SetItems(v []Error) {
+// SetItems gets a reference to the given []map[string]interface{} and assigns it to the Items field.
+func (o *List) SetItems(v []map[string]interface{}) {
 	o.Items = &v
 }
 
 // GetPage returns the Page field value
-func (o *ErrorListResponse) GetPage() int64 {
+func (o *List) GetPage() int64 {
 	if o == nil {
 		var ret int64
 		return ret
@@ -113,7 +113,7 @@ func (o *ErrorListResponse) GetPage() int64 {
 
 // GetPageOk returns a tuple with the Page field value
 // and a boolean to check if the value has been set.
-func (o *ErrorListResponse) GetPageOk() (*int64, bool) {
+func (o *List) GetPageOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -121,12 +121,12 @@ func (o *ErrorListResponse) GetPageOk() (*int64, bool) {
 }
 
 // SetPage sets field value
-func (o *ErrorListResponse) SetPage(v int64) {
+func (o *List) SetPage(v int64) {
 	o.Page = v
 }
 
 // GetSize returns the Size field value
-func (o *ErrorListResponse) GetSize() int64 {
+func (o *List) GetSize() int64 {
 	if o == nil {
 		var ret int64
 		return ret
@@ -137,7 +137,7 @@ func (o *ErrorListResponse) GetSize() int64 {
 
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
-func (o *ErrorListResponse) GetSizeOk() (*int64, bool) {
+func (o *List) GetSizeOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -145,12 +145,12 @@ func (o *ErrorListResponse) GetSizeOk() (*int64, bool) {
 }
 
 // SetSize sets field value
-func (o *ErrorListResponse) SetSize(v int64) {
+func (o *List) SetSize(v int64) {
 	o.Size = v
 }
 
 // GetTotal returns the Total field value
-func (o *ErrorListResponse) GetTotal() int64 {
+func (o *List) GetTotal() int64 {
 	if o == nil {
 		var ret int64
 		return ret
@@ -161,7 +161,7 @@ func (o *ErrorListResponse) GetTotal() int64 {
 
 // GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
-func (o *ErrorListResponse) GetTotalOk() (*int64, bool) {
+func (o *List) GetTotalOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -169,11 +169,11 @@ func (o *ErrorListResponse) GetTotalOk() (*int64, bool) {
 }
 
 // SetTotal sets field value
-func (o *ErrorListResponse) SetTotal(v int64) {
+func (o *List) SetTotal(v int64) {
 	o.Total = v
 }
 
-func (o ErrorListResponse) MarshalJSON() ([]byte, error) {
+func (o List) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["kind"] = o.Kind
@@ -193,38 +193,38 @@ func (o ErrorListResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableErrorListResponse struct {
-	value *ErrorListResponse
+type NullableList struct {
+	value *List
 	isSet bool
 }
 
-func (v NullableErrorListResponse) Get() *ErrorListResponse {
+func (v NullableList) Get() *List {
 	return v.value
 }
 
-func (v *NullableErrorListResponse) Set(val *ErrorListResponse) {
+func (v *NullableList) Set(val *List) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableErrorListResponse) IsSet() bool {
+func (v NullableList) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableErrorListResponse) Unset() {
+func (v *NullableList) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableErrorListResponse(val *ErrorListResponse) *NullableErrorListResponse {
-	return &NullableErrorListResponse{value: val, isSet: true}
+func NewNullableList(val *List) *NullableList {
+	return &NullableList{value: val, isSet: true}
 }
 
-func (v NullableErrorListResponse) MarshalJSON() ([]byte, error) {
+func (v NullableList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableErrorListResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -33,8 +33,6 @@ type ConnectorTypeAllOf struct {
 	Capabilities *[]string `json:"capabilities,omitempty"`
 	// A json schema that can be used to validate a ConnectorRequest connector field.
 	Schema *map[string]interface{} `json:"schema,omitempty"`
-	// A json schema that can be used to validate a ConnectorRequest connector field.
-	JsonSchema *map[string]interface{} `json:"json_schema,omitempty"`
 }
 
 // NewConnectorTypeAllOf instantiates a new ConnectorTypeAllOf object
@@ -310,38 +308,6 @@ func (o *ConnectorTypeAllOf) SetSchema(v map[string]interface{}) {
 	o.Schema = &v
 }
 
-// GetJsonSchema returns the JsonSchema field value if set, zero value otherwise.
-func (o *ConnectorTypeAllOf) GetJsonSchema() map[string]interface{} {
-	if o == nil || o.JsonSchema == nil {
-		var ret map[string]interface{}
-		return ret
-	}
-	return *o.JsonSchema
-}
-
-// GetJsonSchemaOk returns a tuple with the JsonSchema field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ConnectorTypeAllOf) GetJsonSchemaOk() (*map[string]interface{}, bool) {
-	if o == nil || o.JsonSchema == nil {
-		return nil, false
-	}
-	return o.JsonSchema, true
-}
-
-// HasJsonSchema returns a boolean if a field has been set.
-func (o *ConnectorTypeAllOf) HasJsonSchema() bool {
-	if o != nil && o.JsonSchema != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetJsonSchema gets a reference to the given map[string]interface{} and assigns it to the JsonSchema field.
-func (o *ConnectorTypeAllOf) SetJsonSchema(v map[string]interface{}) {
-	o.JsonSchema = &v
-}
-
 func (o ConnectorTypeAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Name != nil {
@@ -367,9 +333,6 @@ func (o ConnectorTypeAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.Schema != nil {
 		toSerialize["schema"] = o.Schema
-	}
-	if o.JsonSchema != nil {
-		toSerialize["json_schema"] = o.JsonSchema
 	}
 	return json.Marshal(toSerialize)
 }
