@@ -1,4 +1,4 @@
-module github.com/redhat-developer/app-services-sdk-go/smartevents
+module github.com/redhat-developer/app-services-sdk-go/smarteventsmgmt
 
 go 1.15
 
