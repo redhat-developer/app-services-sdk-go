@@ -1,5 +1,5 @@
 module github.com/redhat-developer/app-services-sdk-go
 
-go 1.15
+go 1.19.0
 
-require golang.org/x/oauth2 v0.0.0-20220630143837-2104d58473e0
+require golang.org/x/oauth2 8227340efae7
