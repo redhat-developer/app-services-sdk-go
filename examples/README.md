@@ -3,12 +3,12 @@
 ## Prerequisites
 
 1. Go to  <https://console.redhat.com/openshift/token> and press "Load token".
-2. Copy token fro clipboard to file
-3. Set env variable containing token `OFFLINE_TOKEN`
+2. Copy token from clipboard to `rhoas_token` file
+3. Set env variable containing token `OFFLINE_TOKEN=$(cat rhoas_token)`
 
 ## Running examples
 
-To run examples execute go run, using ACCESS_TOKEN along with API_URL where necessary.
+To run examples execute `go run`
 
 ### For example
 
