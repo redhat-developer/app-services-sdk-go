@@ -4,7 +4,7 @@
 
 1. Go to  <https://console.redhat.com/openshift/token> and press "Load token".
 2. Copy token from clipboard to `rhoas_token` file
-3. Set env variable containing token `OFFLINE_TOKEN=$(cat rhoas_token)`
+3. Set env variable containing token `export OFFLINE_TOKEN=$(cat rhoas_token)`
 
 ## Running examples
 
