@@ -1,12 +1,10 @@
+# RHOAS GO SDK examples
+
 ## Prerequisites
 
-- RHOAS CLI installed - it will be used for obtaining tokens for authentication.
-For more information about authentication please refer to SDK docs.
-- Repository is properly initiatilized:
-
-```shell
-go mod tidy
-```
+1. Go to  <https://console.redhat.com/openshift/token> and press "Load token".
+2. Copy token fro clipboard to file
+3. Set env variable containing token `OFFLINE_TOKEN`
 
 ## Running examples
 
@@ -17,31 +15,35 @@ To run examples execute go run, using ACCESS_TOKEN along with API_URL where nece
 ### For kafkamgmt
 
 ```shell
-ACCESS_TOKEN=`rhoas authtoken` go run ./examples/kafkamgmt/kafka_mgmt.go
+go run ./examples/kafkamgmt/kafka_mgmt.go
 ```
 
 ### For connectormgmt
 
 ```shell
-ACCESS_TOKEN=`rhoas authtoken` go run ./examples/connectormgmt/connector_mgmt.go
+go run ./examples/connectormgmt/connector_mgmt.go
 ```
 
 ### For srsmgmt
 
 ```shell
-ACCESS_TOKEN=`rhoas authtoken` go run ./examples/srsmgmt/srs_mgmt.go
+go run ./examples/srsmgmt/srs_mgmt.go
 ```
 
 ## Setting up urls for instance SDK examples
 
 Instance SDKS like registryinstance and kafkainstance requre extra `API_URL` environment variable that is used to point to the root of the API.
 
-This can be found using the following command:
+This can be found using the "describe" commands.
 
 ```shell
-rhoas service-registry use <registry name>
-
 rhoas service-registry describe
+```
+
+or
+
+```shell
+rhoas kafka describe
 ```
 
 and the intended URL can be found under: "registryURL"

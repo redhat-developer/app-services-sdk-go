@@ -4,25 +4,24 @@ import (
 	"context"
 	"os"
 
+	rhoasAuth "github.com/redhat-developer/app-services-sdk-go/auth/apiv1"
 	connectormgmt "github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1"
-	"golang.org/x/oauth2"
 )
 
 func main() {
+	offlineToken := os.Getenv("OFFLINE_TOKEN")
+	httpClient := rhoasAuth.BuildAuthenticatedHTTPClient(offlineToken)
+
 	ctx := context.Background()
-	ts := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: os.Getenv("ACCESS_TOKEN")},
-	)
-	tc := oauth2.NewClient(ctx, ts)
 
 	baseURL := os.Getenv("API_URL")
 	client := connectormgmt.NewAPIClient(&connectormgmt.Config{
-		HTTPClient: tc,
+		HTTPClient: httpClient,
 		BaseURL:    baseURL,
 	})
 
 	_, _, err := client.ConnectorsApi.GetConnector(ctx, "id").Execute()
-  
+
 	if err != nil {
 		panic(err)
 	}

@@ -4,20 +4,17 @@ import (
 	"context"
 	"os"
 
+	rhoasAuth "github.com/redhat-developer/app-services-sdk-go/auth/apiv1"
 	kafkamgmt "github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1"
-
-	"golang.org/x/oauth2"
 )
 
 func main() {
 	ctx := context.Background()
-	ts := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: os.Getenv("ACCESS_TOKEN")},
-	)
-	tc := oauth2.NewClient(ctx, ts)
+	offlineToken := os.Getenv("OFFLINE_TOKEN")
+	httpClient := rhoasAuth.BuildAuthenticatedHTTPClient(offlineToken)
 
 	client := kafkamgmt.NewAPIClient(&kafkamgmt.Config{
-		HTTPClient: tc,
+		HTTPClient: httpClient,
 	})
 
 	_, _, err := client.DefaultApi.GetKafkas(ctx).Execute()
