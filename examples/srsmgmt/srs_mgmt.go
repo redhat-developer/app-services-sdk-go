@@ -5,19 +5,16 @@ import (
 	"fmt"
 	"os"
 
+	rhoasAuth "github.com/redhat-developer/app-services-sdk-go/auth/apiv1"
 	registrymgmt "github.com/redhat-developer/app-services-sdk-go/registrymgmt/apiv1"
-	"golang.org/x/oauth2"
 )
 
 func main() {
-	ctx := context.Background()
-	ts := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: os.Getenv("ACCESS_TOKEN")},
-	)
-	tc := oauth2.NewClient(ctx, ts)
+	offlineToken := os.Getenv("OFFLINE_TOKEN")
+	httpClient := rhoasAuth.BuildAuthenticatedHTTPClient(offlineToken)
 
 	apiClient := registrymgmt.NewAPIClient(&registrymgmt.Config{
-		HTTPClient: tc,
+		HTTPClient: httpClient,
 	})
 
 	registries, _, err := apiClient.RegistriesApi.GetRegistries(context.TODO()).Execute()

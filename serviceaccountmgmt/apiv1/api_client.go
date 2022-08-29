@@ -1,4 +1,4 @@
-package serviceaccounts
+package apiv1
 
 import (
 	"github.com/redhat-developer/app-services-sdk-go/core"

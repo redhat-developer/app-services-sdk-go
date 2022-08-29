@@ -5,7 +5,7 @@ import (
 	"os"
 
 	rhoasAuth "github.com/redhat-developer/app-services-sdk-go/auth/apiv1"
-	connectormgmt "github.com/redhat-developer/app-services-sdk-go/connectormgmt/apiv1"
+	kafkamgmt "github.com/redhat-developer/app-services-sdk-go/kafkamgmt/apiv1"
 )
 
 func main() {
@@ -14,15 +14,13 @@ func main() {
 
 	ctx := context.Background()
 
-	baseURL := os.Getenv("API_URL")
-	client := connectormgmt.NewAPIClient(&connectormgmt.Config{
+	client := kafkamgmt.NewAPIClient(&kafkamgmt.Config{
 		HTTPClient: httpClient,
-		BaseURL:    baseURL,
 	})
 
-	_, _, err := client.ConnectorsApi.GetConnector(ctx, "id").Execute()
-
+	_, _, err := client.DefaultApi.GetKafkas(ctx).Execute()
 	if err != nil {
 		panic(err)
 	}
+
 }
