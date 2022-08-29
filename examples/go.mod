@@ -21,5 +21,4 @@ require (
 	github.com/redhat-developer/app-services-sdk-go/kafkamgmt v0.0.0
 	github.com/redhat-developer/app-services-sdk-go/registryinstance v0.0.0
 	github.com/redhat-developer/app-services-sdk-go/registrymgmt v0.0.0
-	golang.org/x/oauth2 v0.0.0-20220630143837-2104d58473e0
 )
