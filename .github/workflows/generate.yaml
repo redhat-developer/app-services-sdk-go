@@ -5,6 +5,9 @@ on:
       - main
     paths:
       - ".openapi/**"
+  workflow_dispatch:
+    
+  
 
 jobs:
   generate:
