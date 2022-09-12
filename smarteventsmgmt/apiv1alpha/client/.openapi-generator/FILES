@@ -4,6 +4,7 @@ api/openapi.yaml
 api_bridges.go
 api_cloud_providers.go
 api_error_catalog.go
+api_processing_errors.go
 api_processors.go
 api_schema_catalog.go
 client.go
@@ -11,6 +12,7 @@ configuration.go
 docs/Action.md
 docs/BaseFilter.md
 docs/BridgeError.md
+docs/BridgeErrorInstance.md
 docs/BridgeErrorType.md
 docs/BridgeListResponse.md
 docs/BridgeRequest.md
@@ -30,6 +32,9 @@ docs/ListAllOf.md
 docs/ListResponse.md
 docs/ManagedResourceStatus.md
 docs/ObjectReference.md
+docs/ProcessingErrorListResponse.md
+docs/ProcessingErrorResponse.md
+docs/ProcessingErrorsApi.md
 docs/ProcessorCatalogResponse.md
 docs/ProcessorListResponse.md
 docs/ProcessorRequest.md
@@ -42,6 +47,7 @@ docs/Source.md
 model_action.go
 model_base_filter.go
 model_bridge_error.go
+model_bridge_error_instance.go
 model_bridge_error_type.go
 model_bridge_list_response.go
 model_bridge_request.go
@@ -58,6 +64,8 @@ model_list_all_of.go
 model_list_response.go
 model_managed_resource_status.go
 model_object_reference.go
+model_processing_error_list_response.go
+model_processing_error_response.go
 model_processor_catalog_response.go
 model_processor_list_response.go
 model_processor_request.go

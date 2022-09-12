@@ -99,7 +99,7 @@ Class | Method | HTTP request | Description
 *AdminApi* | [**CreateRoleMapping**](docs/AdminApi.md#createrolemapping) | **Post** /admin/roleMappings | Create a new role mapping
 *AdminApi* | [**DeleteRoleMapping**](docs/AdminApi.md#deleterolemapping) | **Delete** /admin/roleMappings/{principalId} | Delete a role mapping
 *AdminApi* | [**ExportData**](docs/AdminApi.md#exportdata) | **Get** /admin/export | Export registry data
-*AdminApi* | [**GetConfigProperty**](docs/AdminApi.md#getconfigproperty) | **Get** /admin/config/properties/{propertyName} | Get the value of a configuration property
+*AdminApi* | [**GetConfigProperty**](docs/AdminApi.md#getconfigproperty) | **Get** /admin/config/properties/{propertyName} | Get configuration property value
 *AdminApi* | [**GetLogConfiguration**](docs/AdminApi.md#getlogconfiguration) | **Get** /admin/loggers/{logger} | Get a single logger configuration
 *AdminApi* | [**GetRoleMapping**](docs/AdminApi.md#getrolemapping) | **Get** /admin/roleMappings/{principalId} | Return a single role mapping
 *AdminApi* | [**ImportData**](docs/AdminApi.md#importdata) | **Post** /admin/import | Import registry data
@@ -120,14 +120,14 @@ Class | Method | HTTP request | Description
 *ArtifactRulesApi* | [**UpdateArtifactRuleConfig**](docs/ArtifactRulesApi.md#updateartifactruleconfig) | **Put** /groups/{groupId}/artifacts/{artifactId}/rules/{rule} | Update artifact rule configuration
 *ArtifactsApi* | [**CreateArtifact**](docs/ArtifactsApi.md#createartifact) | **Post** /groups/{groupId}/artifacts | Create artifact
 *ArtifactsApi* | [**DeleteArtifact**](docs/ArtifactsApi.md#deleteartifact) | **Delete** /groups/{groupId}/artifacts/{artifactId} | Delete artifact
-*ArtifactsApi* | [**DeleteArtifactsInGroup**](docs/ArtifactsApi.md#deleteartifactsingroup) | **Delete** /groups/{groupId}/artifacts | Deletes all artifacts in a group
+*ArtifactsApi* | [**DeleteArtifactsInGroup**](docs/ArtifactsApi.md#deleteartifactsingroup) | **Delete** /groups/{groupId}/artifacts | Delete artifacts in group
 *ArtifactsApi* | [**GetContentByGlobalId**](docs/ArtifactsApi.md#getcontentbyglobalid) | **Get** /ids/globalIds/{globalId} | Get artifact by global ID
 *ArtifactsApi* | [**GetContentByHash**](docs/ArtifactsApi.md#getcontentbyhash) | **Get** /ids/contentHashes/{contentHash}/ | Get artifact content by SHA-256 hash
 *ArtifactsApi* | [**GetContentById**](docs/ArtifactsApi.md#getcontentbyid) | **Get** /ids/contentIds/{contentId}/ | Get artifact content by ID
 *ArtifactsApi* | [**GetLatestArtifact**](docs/ArtifactsApi.md#getlatestartifact) | **Get** /groups/{groupId}/artifacts/{artifactId} | Get latest artifact
 *ArtifactsApi* | [**ListArtifactsInGroup**](docs/ArtifactsApi.md#listartifactsingroup) | **Get** /groups/{groupId}/artifacts | List artifacts in group
-*ArtifactsApi* | [**ReferencesByContentHash**](docs/ArtifactsApi.md#referencesbycontenthash) | **Get** /ids/contentHashes/{contentHash}/references | Returns a list with all the references for the artifact with the given hash
-*ArtifactsApi* | [**ReferencesByContentId**](docs/ArtifactsApi.md#referencesbycontentid) | **Get** /ids/contentIds/{contentId}/references | Returns a list with all the references for the artifact with the given content id.
+*ArtifactsApi* | [**ReferencesByContentHash**](docs/ArtifactsApi.md#referencesbycontenthash) | **Get** /ids/contentHashes/{contentHash}/references | List artifact references by hash
+*ArtifactsApi* | [**ReferencesByContentId**](docs/ArtifactsApi.md#referencesbycontentid) | **Get** /ids/contentIds/{contentId}/references | List artifact references by content ID
 *ArtifactsApi* | [**ReferencesByGlobalId**](docs/ArtifactsApi.md#referencesbyglobalid) | **Get** /ids/globalIds/{globalId}/references | Returns a list with all the references for the artifact with the given global id.
 *ArtifactsApi* | [**UpdateArtifact**](docs/ArtifactsApi.md#updateartifact) | **Put** /groups/{groupId}/artifacts/{artifactId} | Update artifact
 *ArtifactsApi* | [**UpdateArtifactState**](docs/ArtifactsApi.md#updateartifactstate) | **Put** /groups/{groupId}/artifacts/{artifactId}/state | Update artifact state
@@ -139,9 +139,11 @@ Class | Method | HTTP request | Description
 *GlobalRulesApi* | [**UpdateGlobalRuleConfig**](docs/GlobalRulesApi.md#updateglobalruleconfig) | **Put** /admin/rules/{rule} | Update global rule configuration
 *MetadataApi* | [**DeleteArtifactVersionMetaData**](docs/MetadataApi.md#deleteartifactversionmetadata) | **Delete** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/meta | Delete artifact version metadata
 *MetadataApi* | [**GetArtifactMetaData**](docs/MetadataApi.md#getartifactmetadata) | **Get** /groups/{groupId}/artifacts/{artifactId}/meta | Get artifact metadata
+*MetadataApi* | [**GetArtifactOwner**](docs/MetadataApi.md#getartifactowner) | **Get** /groups/{groupId}/artifacts/{artifactId}/owner | Get artifact owner
 *MetadataApi* | [**GetArtifactVersionMetaData**](docs/MetadataApi.md#getartifactversionmetadata) | **Get** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/meta | Get artifact version metadata
 *MetadataApi* | [**GetArtifactVersionMetaDataByContent**](docs/MetadataApi.md#getartifactversionmetadatabycontent) | **Post** /groups/{groupId}/artifacts/{artifactId}/meta | Get artifact version metadata by content
 *MetadataApi* | [**UpdateArtifactMetaData**](docs/MetadataApi.md#updateartifactmetadata) | **Put** /groups/{groupId}/artifacts/{artifactId}/meta | Update artifact metadata
+*MetadataApi* | [**UpdateArtifactOwner**](docs/MetadataApi.md#updateartifactowner) | **Put** /groups/{groupId}/artifacts/{artifactId}/owner | Update artifact owner
 *MetadataApi* | [**UpdateArtifactVersionMetaData**](docs/MetadataApi.md#updateartifactversionmetadata) | **Put** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/meta | Update artifact version metadata
 *SearchApi* | [**SearchArtifacts**](docs/SearchApi.md#searchartifacts) | **Get** /search/artifacts | Search for artifacts
 *SearchApi* | [**SearchArtifactsByContent**](docs/SearchApi.md#searchartifactsbycontent) | **Post** /search/artifacts | Search for artifacts by content
@@ -158,6 +160,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [ArtifactMetaData](docs/ArtifactMetaData.md)
+ - [ArtifactOwner](docs/ArtifactOwner.md)
  - [ArtifactReference](docs/ArtifactReference.md)
  - [ArtifactSearchResults](docs/ArtifactSearchResults.md)
  - [ArtifactState](docs/ArtifactState.md)

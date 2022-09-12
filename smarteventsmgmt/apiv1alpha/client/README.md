@@ -88,6 +88,7 @@ Class | Method | HTTP request | Description
 *CloudProvidersApi* | [**CloudProviderAPIListCloudProviders**](docs/CloudProvidersApi.md#cloudproviderapilistcloudproviders) | **Get** /api/smartevents_mgmt/v1/cloud_providers | List Supported Cloud Providers.
 *ErrorCatalogApi* | [**ErrorsAPIGetError**](docs/ErrorCatalogApi.md#errorsapigeterror) | **Get** /api/smartevents_mgmt/v1/errors/{id} | Get an error from the error catalog.
 *ErrorCatalogApi* | [**ErrorsAPIGetErrors**](docs/ErrorCatalogApi.md#errorsapigeterrors) | **Get** /api/smartevents_mgmt/v1/errors | Get the list of errors.
+*ProcessingErrorsApi* | [**ProcessingErrorsAPIGetBridgeErrors**](docs/ProcessingErrorsApi.md#processingerrorsapigetbridgeerrors) | **Get** /api/smartevents_mgmt/v1/bridges/{bridgeId}/errors | Get the list of errors for a particular Bridge instance
 *ProcessorsApi* | [**ProcessorsAPIAddProcessorToBridge**](docs/ProcessorsApi.md#processorsapiaddprocessortobridge) | **Post** /api/smartevents_mgmt/v1/bridges/{bridgeId}/processors | Create a Processor of a Bridge instance
 *ProcessorsApi* | [**ProcessorsAPIDeleteProcessor**](docs/ProcessorsApi.md#processorsapideleteprocessor) | **Delete** /api/smartevents_mgmt/v1/bridges/{bridgeId}/processors/{processorId} | Delete a Processor of a Bridge instance
 *ProcessorsApi* | [**ProcessorsAPIGetProcessor**](docs/ProcessorsApi.md#processorsapigetprocessor) | **Get** /api/smartevents_mgmt/v1/bridges/{bridgeId}/processors/{processorId} | Get a Processor of a Bridge instance
@@ -103,6 +104,7 @@ Class | Method | HTTP request | Description
  - [Action](docs/Action.md)
  - [BaseFilter](docs/BaseFilter.md)
  - [BridgeError](docs/BridgeError.md)
+ - [BridgeErrorInstance](docs/BridgeErrorInstance.md)
  - [BridgeErrorType](docs/BridgeErrorType.md)
  - [BridgeListResponse](docs/BridgeListResponse.md)
  - [BridgeRequest](docs/BridgeRequest.md)
@@ -119,6 +121,8 @@ Class | Method | HTTP request | Description
  - [ListResponse](docs/ListResponse.md)
  - [ManagedResourceStatus](docs/ManagedResourceStatus.md)
  - [ObjectReference](docs/ObjectReference.md)
+ - [ProcessingErrorListResponse](docs/ProcessingErrorListResponse.md)
+ - [ProcessingErrorResponse](docs/ProcessingErrorResponse.md)
  - [ProcessorCatalogResponse](docs/ProcessorCatalogResponse.md)
  - [ProcessorListResponse](docs/ProcessorListResponse.md)
  - [ProcessorRequest](docs/ProcessorRequest.md)

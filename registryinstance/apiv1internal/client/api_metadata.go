@@ -74,6 +74,27 @@ This operation can fail for the following reasons:
 	GetArtifactMetaDataExecute(r ApiGetArtifactMetaDataRequest) (ArtifactMetaData, *_nethttp.Response, error)
 
 	/*
+	 * GetArtifactOwner Get artifact owner
+	 * Gets the owner of an artifact in the registry.
+
+This operation can fail for the following reasons:
+
+* No artifact with this `artifactId` exists (HTTP error `404`)
+* A server error occurred (HTTP error `500`)
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+	 * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+	 * @return ApiGetArtifactOwnerRequest
+	 */
+	GetArtifactOwner(ctx _context.Context, groupId string, artifactId string) ApiGetArtifactOwnerRequest
+
+	/*
+	 * GetArtifactOwnerExecute executes the request
+	 * @return ArtifactOwner
+	 */
+	GetArtifactOwnerExecute(r ApiGetArtifactOwnerRequest) (ArtifactOwner, *_nethttp.Response, error)
+
+	/*
 	 * GetArtifactVersionMetaData Get artifact version metadata
 	 * Retrieves the metadata for a single version of the artifact.  The version metadata is 
 a subset of the artifact metadata and only includes the metadata that is specific to
@@ -145,6 +166,26 @@ This operation can fail for the following reasons:
 	 * UpdateArtifactMetaDataExecute executes the request
 	 */
 	UpdateArtifactMetaDataExecute(r ApiUpdateArtifactMetaDataRequest) (*_nethttp.Response, error)
+
+	/*
+	 * UpdateArtifactOwner Update artifact owner
+	 * Changes the ownership of an artifact.
+
+This operation can fail for the following reasons:
+
+* No artifact with this `artifactId` exists (HTTP error `404`)
+* A server error occurred (HTTP error `500`)
+	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	 * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+	 * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+	 * @return ApiUpdateArtifactOwnerRequest
+	 */
+	UpdateArtifactOwner(ctx _context.Context, groupId string, artifactId string) ApiUpdateArtifactOwnerRequest
+
+	/*
+	 * UpdateArtifactOwnerExecute executes the request
+	 */
+	UpdateArtifactOwnerExecute(r ApiUpdateArtifactOwnerRequest) (*_nethttp.Response, error)
 
 	/*
 	 * UpdateArtifactVersionMetaData Update artifact version metadata
@@ -360,6 +401,140 @@ func (a *MetadataApiService) GetArtifactMetaDataExecute(r ApiGetArtifactMetaData
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/artifacts/{artifactId}/meta"
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", _neturl.PathEscape(parameterToString(r.groupId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"artifactId"+"}", _neturl.PathEscape(parameterToString(r.artifactId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetArtifactOwnerRequest struct {
+	ctx _context.Context
+	ApiService MetadataApi
+	groupId string
+	artifactId string
+}
+
+
+func (r ApiGetArtifactOwnerRequest) Execute() (ArtifactOwner, *_nethttp.Response, error) {
+	return r.ApiService.GetArtifactOwnerExecute(r)
+}
+
+/*
+ * GetArtifactOwner Get artifact owner
+ * Gets the owner of an artifact in the registry.
+
+This operation can fail for the following reasons:
+
+* No artifact with this `artifactId` exists (HTTP error `404`)
+* A server error occurred (HTTP error `500`)
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+ * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+ * @return ApiGetArtifactOwnerRequest
+ */
+func (a *MetadataApiService) GetArtifactOwner(ctx _context.Context, groupId string, artifactId string) ApiGetArtifactOwnerRequest {
+	return ApiGetArtifactOwnerRequest{
+		ApiService: a,
+		ctx: ctx,
+		groupId: groupId,
+		artifactId: artifactId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return ArtifactOwner
+ */
+func (a *MetadataApiService) GetArtifactOwnerExecute(r ApiGetArtifactOwnerRequest) (ArtifactOwner, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ArtifactOwner
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MetadataApiService.GetArtifactOwner")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/groups/{groupId}/artifacts/{artifactId}/owner"
 	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", _neturl.PathEscape(parameterToString(r.groupId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"artifactId"+"}", _neturl.PathEscape(parameterToString(r.artifactId, "")), -1)
 
@@ -826,6 +1001,139 @@ func (a *MetadataApiService) UpdateArtifactMetaDataExecute(r ApiUpdateArtifactMe
 	}
 	// body params
 	localVarPostBody = r.editableMetaData
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v Error
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiUpdateArtifactOwnerRequest struct {
+	ctx _context.Context
+	ApiService MetadataApi
+	groupId string
+	artifactId string
+	artifactOwner *ArtifactOwner
+}
+
+func (r ApiUpdateArtifactOwnerRequest) ArtifactOwner(artifactOwner ArtifactOwner) ApiUpdateArtifactOwnerRequest {
+	r.artifactOwner = &artifactOwner
+	return r
+}
+
+func (r ApiUpdateArtifactOwnerRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.UpdateArtifactOwnerExecute(r)
+}
+
+/*
+ * UpdateArtifactOwner Update artifact owner
+ * Changes the ownership of an artifact.
+
+This operation can fail for the following reasons:
+
+* No artifact with this `artifactId` exists (HTTP error `404`)
+* A server error occurred (HTTP error `500`)
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+ * @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+ * @return ApiUpdateArtifactOwnerRequest
+ */
+func (a *MetadataApiService) UpdateArtifactOwner(ctx _context.Context, groupId string, artifactId string) ApiUpdateArtifactOwnerRequest {
+	return ApiUpdateArtifactOwnerRequest{
+		ApiService: a,
+		ctx: ctx,
+		groupId: groupId,
+		artifactId: artifactId,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *MetadataApiService) UpdateArtifactOwnerExecute(r ApiUpdateArtifactOwnerRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPut
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MetadataApiService.UpdateArtifactOwner")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/groups/{groupId}/artifacts/{artifactId}/owner"
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", _neturl.PathEscape(parameterToString(r.groupId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"artifactId"+"}", _neturl.PathEscape(parameterToString(r.artifactId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+	if r.artifactOwner == nil {
+		return nil, reportError("artifactOwner is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.artifactOwner
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err

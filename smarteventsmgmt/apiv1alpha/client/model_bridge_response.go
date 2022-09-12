@@ -31,6 +31,7 @@ type BridgeResponse struct {
 	ErrorHandler *Action `json:"error_handler,omitempty"`
 	CloudProvider *string `json:"cloud_provider,omitempty"`
 	Region *string `json:"region,omitempty"`
+	StatusMessage *string `json:"status_message,omitempty"`
 }
 
 // NewBridgeResponse instantiates a new BridgeResponse object
@@ -424,6 +425,38 @@ func (o *BridgeResponse) SetRegion(v string) {
 	o.Region = &v
 }
 
+// GetStatusMessage returns the StatusMessage field value if set, zero value otherwise.
+func (o *BridgeResponse) GetStatusMessage() string {
+	if o == nil || o.StatusMessage == nil {
+		var ret string
+		return ret
+	}
+	return *o.StatusMessage
+}
+
+// GetStatusMessageOk returns a tuple with the StatusMessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BridgeResponse) GetStatusMessageOk() (*string, bool) {
+	if o == nil || o.StatusMessage == nil {
+		return nil, false
+	}
+	return o.StatusMessage, true
+}
+
+// HasStatusMessage returns a boolean if a field has been set.
+func (o *BridgeResponse) HasStatusMessage() bool {
+	if o != nil && o.StatusMessage != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStatusMessage gets a reference to the given string and assigns it to the StatusMessage field.
+func (o *BridgeResponse) SetStatusMessage(v string) {
+	o.StatusMessage = &v
+}
+
 func (o BridgeResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -464,6 +497,9 @@ func (o BridgeResponse) MarshalJSON() ([]byte, error) {
 	}
 	if o.Region != nil {
 		toSerialize["region"] = o.Region
+	}
+	if o.StatusMessage != nil {
+		toSerialize["status_message"] = o.StatusMessage
 	}
 	return json.Marshal(toSerialize)
 }

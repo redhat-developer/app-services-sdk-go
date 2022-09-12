@@ -14,6 +14,7 @@ client.go
 configuration.go
 docs/AdminApi.md
 docs/ArtifactMetaData.md
+docs/ArtifactOwner.md
 docs/ArtifactReference.md
 docs/ArtifactRulesApi.md
 docs/ArtifactSearchResults.md
@@ -56,6 +57,7 @@ docs/VersionMetaData.md
 docs/VersionSearchResults.md
 docs/VersionsApi.md
 model_artifact_meta_data.go
+model_artifact_owner.go
 model_artifact_reference.go
 model_artifact_search_results.go
 model_artifact_state.go

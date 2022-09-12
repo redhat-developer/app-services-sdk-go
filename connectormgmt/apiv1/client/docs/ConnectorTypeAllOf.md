@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** | A description of the connector. | [optional] 
 **IconHref** | Pointer to **string** | URL to an icon of the connector. | [optional] 
 **Labels** | Pointer to **[]string** | Labels used to categorize the connector | [optional] 
+**FeaturedRank** | Pointer to **int32** | Ranking for featured connectors | [optional] 
 **Capabilities** | Pointer to **[]string** | The capabilities supported by the conenctor | [optional] 
 **Schema** | Pointer to **map[string]interface{}** | A json schema that can be used to validate a ConnectorRequest connector field. | [optional] 
 
@@ -181,6 +182,31 @@ SetLabels sets Labels field to given value.
 `func (o *ConnectorTypeAllOf) HasLabels() bool`
 
 HasLabels returns a boolean if a field has been set.
+
+### GetFeaturedRank
+
+`func (o *ConnectorTypeAllOf) GetFeaturedRank() int32`
+
+GetFeaturedRank returns the FeaturedRank field if non-nil, zero value otherwise.
+
+### GetFeaturedRankOk
+
+`func (o *ConnectorTypeAllOf) GetFeaturedRankOk() (*int32, bool)`
+
+GetFeaturedRankOk returns a tuple with the FeaturedRank field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFeaturedRank
+
+`func (o *ConnectorTypeAllOf) SetFeaturedRank(v int32)`
+
+SetFeaturedRank sets FeaturedRank field to given value.
+
+### HasFeaturedRank
+
+`func (o *ConnectorTypeAllOf) HasFeaturedRank() bool`
+
+HasFeaturedRank returns a boolean if a field has been set.
 
 ### GetCapabilities
 

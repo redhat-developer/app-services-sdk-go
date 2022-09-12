@@ -52,6 +52,8 @@ docs/ConnectorStatus.md
 docs/ConnectorStatusStatus.md
 docs/ConnectorType.md
 docs/ConnectorTypeAllOf.md
+docs/ConnectorTypeLabelCount.md
+docs/ConnectorTypeLabelCountList.md
 docs/ConnectorTypeList.md
 docs/ConnectorTypeListAllOf.md
 docs/ConnectorTypesApi.md
@@ -107,6 +109,8 @@ model_connector_status.go
 model_connector_status_status.go
 model_connector_type.go
 model_connector_type_all_of.go
+model_connector_type_label_count.go
+model_connector_type_label_count_list.go
 model_connector_type_list.go
 model_connector_type_list_all_of.go
 model_error.go

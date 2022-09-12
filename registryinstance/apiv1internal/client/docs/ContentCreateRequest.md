@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Content** | **string** | Raw content of the artifact. | 
+**Content** | **string** | Raw content of the artifact or a valid (and accessible) URL where the content can be found. | 
 **References** | [**[]ArtifactReference**](ArtifactReference.md) | Collection of references to other artifacts. | 
 
 ## Methods

@@ -6,14 +6,14 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateArtifact**](ArtifactsApi.md#CreateArtifact) | **Post** /groups/{groupId}/artifacts | Create artifact
 [**DeleteArtifact**](ArtifactsApi.md#DeleteArtifact) | **Delete** /groups/{groupId}/artifacts/{artifactId} | Delete artifact
-[**DeleteArtifactsInGroup**](ArtifactsApi.md#DeleteArtifactsInGroup) | **Delete** /groups/{groupId}/artifacts | Deletes all artifacts in a group
+[**DeleteArtifactsInGroup**](ArtifactsApi.md#DeleteArtifactsInGroup) | **Delete** /groups/{groupId}/artifacts | Delete artifacts in group
 [**GetContentByGlobalId**](ArtifactsApi.md#GetContentByGlobalId) | **Get** /ids/globalIds/{globalId} | Get artifact by global ID
 [**GetContentByHash**](ArtifactsApi.md#GetContentByHash) | **Get** /ids/contentHashes/{contentHash}/ | Get artifact content by SHA-256 hash
 [**GetContentById**](ArtifactsApi.md#GetContentById) | **Get** /ids/contentIds/{contentId}/ | Get artifact content by ID
 [**GetLatestArtifact**](ArtifactsApi.md#GetLatestArtifact) | **Get** /groups/{groupId}/artifacts/{artifactId} | Get latest artifact
 [**ListArtifactsInGroup**](ArtifactsApi.md#ListArtifactsInGroup) | **Get** /groups/{groupId}/artifacts | List artifacts in group
-[**ReferencesByContentHash**](ArtifactsApi.md#ReferencesByContentHash) | **Get** /ids/contentHashes/{contentHash}/references | Returns a list with all the references for the artifact with the given hash
-[**ReferencesByContentId**](ArtifactsApi.md#ReferencesByContentId) | **Get** /ids/contentIds/{contentId}/references | Returns a list with all the references for the artifact with the given content id.
+[**ReferencesByContentHash**](ArtifactsApi.md#ReferencesByContentHash) | **Get** /ids/contentHashes/{contentHash}/references | List artifact references by hash
+[**ReferencesByContentId**](ArtifactsApi.md#ReferencesByContentId) | **Get** /ids/contentIds/{contentId}/references | List artifact references by content ID
 [**ReferencesByGlobalId**](ArtifactsApi.md#ReferencesByGlobalId) | **Get** /ids/globalIds/{globalId}/references | Returns a list with all the references for the artifact with the given global id.
 [**UpdateArtifact**](ArtifactsApi.md#UpdateArtifact) | **Put** /groups/{groupId}/artifacts/{artifactId} | Update artifact
 [**UpdateArtifactState**](ArtifactsApi.md#UpdateArtifactState) | **Put** /groups/{groupId}/artifacts/{artifactId}/state | Update artifact state
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 ## CreateArtifact
 
-> ArtifactMetaData CreateArtifact(ctx, groupId).Body(body).XRegistryArtifactType(xRegistryArtifactType).XRegistryArtifactId(xRegistryArtifactId).XRegistryVersion(xRegistryVersion).IfExists(ifExists).Canonical(canonical).XRegistryDescription(xRegistryDescription).XRegistryDescriptionEncoded(xRegistryDescriptionEncoded).XRegistryName(xRegistryName).XRegistryNameEncoded(xRegistryNameEncoded).Execute()
+> ArtifactMetaData CreateArtifact(ctx, groupId).Body(body).XRegistryArtifactType(xRegistryArtifactType).XRegistryArtifactId(xRegistryArtifactId).XRegistryVersion(xRegistryVersion).IfExists(ifExists).Canonical(canonical).XRegistryDescription(xRegistryDescription).XRegistryDescriptionEncoded(xRegistryDescriptionEncoded).XRegistryName(xRegistryName).XRegistryNameEncoded(xRegistryNameEncoded).XRegistryContentHash(xRegistryContentHash).XRegistryHashAlgorithm(xRegistryHashAlgorithm).Execute()
 
 Create artifact
 
@@ -52,10 +52,12 @@ func main() {
     xRegistryDescriptionEncoded := "xRegistryDescriptionEncoded_example" // string | Specifies the description of artifact being added. Value of this must be Base64 encoded string. If this is not provided, the server will extract the description from the artifact content. (optional)
     xRegistryName := "xRegistryName_example" // string | Specifies the name of artifact being added. Name must be ASCII-only string. If this is not provided, the server will extract the name from the artifact content. (optional)
     xRegistryNameEncoded := "xRegistryNameEncoded_example" // string | Specifies the name of artifact being added. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content. (optional)
+    xRegistryContentHash := "xRegistryContentHash_example" // string | Specifies the (optional) hash of the artifact to be verified. (optional)
+    xRegistryHashAlgorithm := "xRegistryHashAlgorithm_example" // string | The algorithm to use when checking the content validity. (available: SHA256, MD5; default: SHA256) (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ArtifactsApi.CreateArtifact(context.Background(), groupId).Body(body).XRegistryArtifactType(xRegistryArtifactType).XRegistryArtifactId(xRegistryArtifactId).XRegistryVersion(xRegistryVersion).IfExists(ifExists).Canonical(canonical).XRegistryDescription(xRegistryDescription).XRegistryDescriptionEncoded(xRegistryDescriptionEncoded).XRegistryName(xRegistryName).XRegistryNameEncoded(xRegistryNameEncoded).Execute()
+    resp, r, err := api_client.ArtifactsApi.CreateArtifact(context.Background(), groupId).Body(body).XRegistryArtifactType(xRegistryArtifactType).XRegistryArtifactId(xRegistryArtifactId).XRegistryVersion(xRegistryVersion).IfExists(ifExists).Canonical(canonical).XRegistryDescription(xRegistryDescription).XRegistryDescriptionEncoded(xRegistryDescriptionEncoded).XRegistryName(xRegistryName).XRegistryNameEncoded(xRegistryNameEncoded).XRegistryContentHash(xRegistryContentHash).XRegistryHashAlgorithm(xRegistryHashAlgorithm).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ArtifactsApi.CreateArtifact``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -91,6 +93,8 @@ Name | Type | Description  | Notes
  **xRegistryDescriptionEncoded** | **string** | Specifies the description of artifact being added. Value of this must be Base64 encoded string. If this is not provided, the server will extract the description from the artifact content. | 
  **xRegistryName** | **string** | Specifies the name of artifact being added. Name must be ASCII-only string. If this is not provided, the server will extract the name from the artifact content. | 
  **xRegistryNameEncoded** | **string** | Specifies the name of artifact being added. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content. | 
+ **xRegistryContentHash** | **string** | Specifies the (optional) hash of the artifact to be verified. | 
+ **xRegistryHashAlgorithm** | **string** | The algorithm to use when checking the content validity. (available: SHA256, MD5; default: SHA256) | 
 
 ### Return type
 
@@ -185,7 +189,7 @@ No authorization required
 
 > DeleteArtifactsInGroup(ctx, groupId).Execute()
 
-Deletes all artifacts in a group
+Delete artifacts in group
 
 
 
@@ -618,7 +622,7 @@ No authorization required
 
 > []ArtifactReference ReferencesByContentHash(ctx, contentHash).Execute()
 
-Returns a list with all the references for the artifact with the given hash
+List artifact references by hash
 
 
 
@@ -688,7 +692,7 @@ No authorization required
 
 > []ArtifactReference ReferencesByContentId(ctx, contentId).Execute()
 
-Returns a list with all the references for the artifact with the given content id.
+List artifact references by content ID
 
 
 
