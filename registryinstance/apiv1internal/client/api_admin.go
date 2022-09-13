@@ -82,7 +82,7 @@ This operation can fail for the following reasons:
 	ExportDataExecute(r ApiExportDataRequest) (*os.File, *_nethttp.Response, error)
 
 	/*
-	 * GetConfigProperty Get the value of a configuration property
+	 * GetConfigProperty Get configuration property value
 	 * Returns the value of a single configuration property.
 
 This operation may fail for one of the following reasons:
@@ -119,11 +119,11 @@ This operation may fail for one of the following reasons:
 
 	/*
 	 * GetRoleMapping Return a single role mapping
-	 * Gets the details of a single role mapping (by principalId).
+	 * Gets the details of a single role mapping (by `principalId`).
 
 This operation can fail for the following reasons:
 
-* No role mapping for the principalId exists (HTTP error `404`)
+* No role mapping for the `principalId` exists (HTTP error `404`)
 * A server error occurred (HTTP error `500`)
 
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -667,7 +667,7 @@ func (r ApiGetConfigPropertyRequest) Execute() (ConfigurationProperty, *_nethttp
 }
 
 /*
- * GetConfigProperty Get the value of a configuration property
+ * GetConfigProperty Get configuration property value
  * Returns the value of a single configuration property.
 
 This operation may fail for one of the following reasons:
@@ -914,11 +914,11 @@ func (r ApiGetRoleMappingRequest) Execute() (RoleMapping, *_nethttp.Response, er
 
 /*
  * GetRoleMapping Return a single role mapping
- * Gets the details of a single role mapping (by principalId).
+ * Gets the details of a single role mapping (by `principalId`).
 
 This operation can fail for the following reasons:
 
-* No role mapping for the principalId exists (HTTP error `404`)
+* No role mapping for the `principalId` exists (HTTP error `404`)
 * A server error occurred (HTTP error `500`)
 
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

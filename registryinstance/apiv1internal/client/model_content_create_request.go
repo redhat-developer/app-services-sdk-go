@@ -17,7 +17,7 @@ import (
 
 // ContentCreateRequest struct for ContentCreateRequest
 type ContentCreateRequest struct {
-	// Raw content of the artifact.
+	// Raw content of the artifact or a valid (and accessible) URL where the content can be found.
 	Content string `json:"content"`
 	// Collection of references to other artifacts.
 	References []ArtifactReference `json:"references"`

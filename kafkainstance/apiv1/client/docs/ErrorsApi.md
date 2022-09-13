@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+[Bearer](../README.md#Bearer), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -124,7 +124,7 @@ Other parameters are passed through a pointer to a apiGetErrorsRequest struct vi
 
 ### Authorization
 
-[Bearer](../README.md#Bearer)
+[Bearer](../README.md#Bearer), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 

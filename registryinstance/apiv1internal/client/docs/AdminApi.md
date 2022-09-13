@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**CreateRoleMapping**](AdminApi.md#CreateRoleMapping) | **Post** /admin/roleMappings | Create a new role mapping
 [**DeleteRoleMapping**](AdminApi.md#DeleteRoleMapping) | **Delete** /admin/roleMappings/{principalId} | Delete a role mapping
 [**ExportData**](AdminApi.md#ExportData) | **Get** /admin/export | Export registry data
-[**GetConfigProperty**](AdminApi.md#GetConfigProperty) | **Get** /admin/config/properties/{propertyName} | Get the value of a configuration property
+[**GetConfigProperty**](AdminApi.md#GetConfigProperty) | **Get** /admin/config/properties/{propertyName} | Get configuration property value
 [**GetLogConfiguration**](AdminApi.md#GetLogConfiguration) | **Get** /admin/loggers/{logger} | Get a single logger configuration
 [**GetRoleMapping**](AdminApi.md#GetRoleMapping) | **Get** /admin/roleMappings/{principalId} | Return a single role mapping
 [**ImportData**](AdminApi.md#ImportData) | **Post** /admin/import | Import registry data
@@ -224,7 +224,7 @@ No authorization required
 
 > ConfigurationProperty GetConfigProperty(ctx, propertyName).Execute()
 
-Get the value of a configuration property
+Get configuration property value
 
 
 

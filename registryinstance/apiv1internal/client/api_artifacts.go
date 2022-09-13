@@ -114,7 +114,7 @@ deleted.  This may fail for one of the following reasons:
 	DeleteArtifactExecute(r ApiDeleteArtifactRequest) (*_nethttp.Response, error)
 
 	/*
-	 * DeleteArtifactsInGroup Deletes all artifacts in a group
+	 * DeleteArtifactsInGroup Delete artifacts in group
 	 * Deletes all of the artifacts that exist in a given group.
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @param groupId Unique ID of an artifact group.
@@ -235,7 +235,7 @@ This operation may fail for one of the following reasons:
 	ListArtifactsInGroupExecute(r ApiListArtifactsInGroupRequest) (ArtifactSearchResults, *_nethttp.Response, error)
 
 	/*
-	 * ReferencesByContentHash Returns a list with all the references for the artifact with the given hash
+	 * ReferencesByContentHash List artifact references by hash
 	 * Returns a list containing all the artifact references using the artifact content hash.
 
 This operation may fail for one of the following reasons:
@@ -255,8 +255,8 @@ This operation may fail for one of the following reasons:
 	ReferencesByContentHashExecute(r ApiReferencesByContentHashRequest) ([]ArtifactReference, *_nethttp.Response, error)
 
 	/*
-	 * ReferencesByContentId Returns a list with all the references for the artifact with the given content id.
-	 * Returns a list containing all the artifact references using the artifact contentId.
+	 * ReferencesByContentId List artifact references by content ID
+	 * Returns a list containing all the artifact references using the artifact content ID.
 
 This operation may fail for one of the following reasons:
 
@@ -364,6 +364,8 @@ type ApiCreateArtifactRequest struct {
 	xRegistryDescriptionEncoded *string
 	xRegistryName *string
 	xRegistryNameEncoded *string
+	xRegistryContentHash *string
+	xRegistryHashAlgorithm *string
 }
 
 func (r ApiCreateArtifactRequest) Body(body interface{}) ApiCreateArtifactRequest {
@@ -404,6 +406,14 @@ func (r ApiCreateArtifactRequest) XRegistryName(xRegistryName string) ApiCreateA
 }
 func (r ApiCreateArtifactRequest) XRegistryNameEncoded(xRegistryNameEncoded string) ApiCreateArtifactRequest {
 	r.xRegistryNameEncoded = &xRegistryNameEncoded
+	return r
+}
+func (r ApiCreateArtifactRequest) XRegistryContentHash(xRegistryContentHash string) ApiCreateArtifactRequest {
+	r.xRegistryContentHash = &xRegistryContentHash
+	return r
+}
+func (r ApiCreateArtifactRequest) XRegistryHashAlgorithm(xRegistryHashAlgorithm string) ApiCreateArtifactRequest {
+	r.xRegistryHashAlgorithm = &xRegistryHashAlgorithm
 	return r
 }
 
@@ -549,6 +559,12 @@ func (a *ArtifactsApiService) CreateArtifactExecute(r ApiCreateArtifactRequest) 
 	}
 	if r.xRegistryNameEncoded != nil {
 		localVarHeaderParams["X-Registry-Name-Encoded"] = parameterToString(*r.xRegistryNameEncoded, "")
+	}
+	if r.xRegistryContentHash != nil {
+		localVarHeaderParams["X-Registry-Content-Hash"] = parameterToString(*r.xRegistryContentHash, "")
+	}
+	if r.xRegistryHashAlgorithm != nil {
+		localVarHeaderParams["X-Registry-Hash-Algorithm"] = parameterToString(*r.xRegistryHashAlgorithm, "")
 	}
 	// body params
 	localVarPostBody = r.body
@@ -752,7 +768,7 @@ func (r ApiDeleteArtifactsInGroupRequest) Execute() (*_nethttp.Response, error) 
 }
 
 /*
- * DeleteArtifactsInGroup Deletes all artifacts in a group
+ * DeleteArtifactsInGroup Delete artifacts in group
  * Deletes all of the artifacts that exist in a given group.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param groupId Unique ID of an artifact group.
@@ -1554,7 +1570,7 @@ func (r ApiReferencesByContentHashRequest) Execute() ([]ArtifactReference, *_net
 }
 
 /*
- * ReferencesByContentHash Returns a list with all the references for the artifact with the given hash
+ * ReferencesByContentHash List artifact references by hash
  * Returns a list containing all the artifact references using the artifact content hash.
 
 This operation may fail for one of the following reasons:
@@ -1665,8 +1681,8 @@ func (r ApiReferencesByContentIdRequest) Execute() ([]ArtifactReference, *_netht
 }
 
 /*
- * ReferencesByContentId Returns a list with all the references for the artifact with the given content id.
- * Returns a list containing all the artifact references using the artifact contentId.
+ * ReferencesByContentId List artifact references by content ID
+ * Returns a list containing all the artifact references using the artifact content ID.
 
 This operation may fail for one of the following reasons:
 

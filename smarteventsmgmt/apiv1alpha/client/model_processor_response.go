@@ -32,6 +32,7 @@ type ProcessorResponse struct {
 	TransformationTemplate *string `json:"transformationTemplate,omitempty"`
 	Action *Action `json:"action,omitempty"`
 	Source *Source `json:"source,omitempty"`
+	StatusMessage *string `json:"status_message,omitempty"`
 }
 
 // NewProcessorResponse instantiates a new ProcessorResponse object
@@ -450,6 +451,38 @@ func (o *ProcessorResponse) SetSource(v Source) {
 	o.Source = &v
 }
 
+// GetStatusMessage returns the StatusMessage field value if set, zero value otherwise.
+func (o *ProcessorResponse) GetStatusMessage() string {
+	if o == nil || o.StatusMessage == nil {
+		var ret string
+		return ret
+	}
+	return *o.StatusMessage
+}
+
+// GetStatusMessageOk returns a tuple with the StatusMessage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProcessorResponse) GetStatusMessageOk() (*string, bool) {
+	if o == nil || o.StatusMessage == nil {
+		return nil, false
+	}
+	return o.StatusMessage, true
+}
+
+// HasStatusMessage returns a boolean if a field has been set.
+func (o *ProcessorResponse) HasStatusMessage() bool {
+	if o != nil && o.StatusMessage != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStatusMessage gets a reference to the given string and assigns it to the StatusMessage field.
+func (o *ProcessorResponse) SetStatusMessage(v string) {
+	o.StatusMessage = &v
+}
+
 func (o ProcessorResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -493,6 +526,9 @@ func (o ProcessorResponse) MarshalJSON() ([]byte, error) {
 	}
 	if o.Source != nil {
 		toSerialize["source"] = o.Source
+	}
+	if o.StatusMessage != nil {
+		toSerialize["status_message"] = o.StatusMessage
 	}
 	return json.Marshal(toSerialize)
 }
