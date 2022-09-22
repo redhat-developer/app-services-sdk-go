@@ -56,8 +56,6 @@ type APIClient struct {
 
 	ErrorCatalogApi ErrorCatalogApi
 
-	ProcessingErrorsApi ProcessingErrorsApi
-
 	ProcessorsApi ProcessorsApi
 
 	SchemaCatalogApi SchemaCatalogApi
@@ -82,7 +80,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.BridgesApi = (*BridgesApiService)(&c.common)
 	c.CloudProvidersApi = (*CloudProvidersApiService)(&c.common)
 	c.ErrorCatalogApi = (*ErrorCatalogApiService)(&c.common)
-	c.ProcessingErrorsApi = (*ProcessingErrorsApiService)(&c.common)
 	c.ProcessorsApi = (*ProcessorsApiService)(&c.common)
 	c.SchemaCatalogApi = (*SchemaCatalogApiService)(&c.common)
 
