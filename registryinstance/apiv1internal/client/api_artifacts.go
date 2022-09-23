@@ -354,7 +354,7 @@ type ApiCreateArtifactRequest struct {
 	ctx _context.Context
 	ApiService ArtifactsApi
 	groupId string
-	body *interface{}
+	body **os.File
 	xRegistryArtifactType *ArtifactType
 	xRegistryArtifactId *string
 	xRegistryVersion *string
@@ -368,7 +368,7 @@ type ApiCreateArtifactRequest struct {
 	xRegistryHashAlgorithm *string
 }
 
-func (r ApiCreateArtifactRequest) Body(body interface{}) ApiCreateArtifactRequest {
+func (r ApiCreateArtifactRequest) Body(body *os.File) ApiCreateArtifactRequest {
 	r.body = &body
 	return r
 }
