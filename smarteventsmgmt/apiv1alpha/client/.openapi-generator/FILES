@@ -4,7 +4,6 @@ api/openapi.yaml
 api_bridges.go
 api_cloud_providers.go
 api_error_catalog.go
-api_processing_errors.go
 api_processors.go
 api_schema_catalog.go
 client.go
@@ -34,7 +33,6 @@ docs/ManagedResourceStatus.md
 docs/ObjectReference.md
 docs/ProcessingErrorListResponse.md
 docs/ProcessingErrorResponse.md
-docs/ProcessingErrorsApi.md
 docs/ProcessorCatalogResponse.md
 docs/ProcessorListResponse.md
 docs/ProcessorRequest.md
