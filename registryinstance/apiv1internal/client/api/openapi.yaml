@@ -3211,7 +3211,9 @@ paths:
                         example:
                           property-1: value1
                           property-2: true
-            schema: {}
+            schema:
+              format: binary
+              type: string
           application/json:
             schema:
               $ref: '#/components/schemas/ContentCreateRequest'
