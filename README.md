@@ -2,7 +2,7 @@
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/redhat-developer/app-services-sdk-go.svg)](https://pkg.go.dev/github.com/redhat-developer/app-services-sdk-go)
 
-Go packages and API clients for Red Had OpenShift Application Services (RHOAS) 
+Go packages and API clients for Red Hat OpenShift Application Services (RHOAS) 
 
 ## Prequisites
 
