@@ -156,7 +156,7 @@ No authorization required
 
 ## ExportData
 
-> *os.File ExportData(ctx).ForBrowser(forBrowser).Execute()
+> *os.File ExportData(ctx).Accept(accept).ForBrowser(forBrowser).Execute()
 
 Export registry data
 
@@ -175,11 +175,12 @@ import (
 )
 
 func main() {
+    accept := "accept_example" // string |  (optional)
     forBrowser := true // bool | Indicates if the operation is done for a browser.  If true, the response will be a JSON payload with a property called `href`.  This `href` will be a single-use, naked download link suitable for use by a web browser to download the content. (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AdminApi.ExportData(context.Background()).ForBrowser(forBrowser).Execute()
+    resp, r, err := api_client.AdminApi.ExportData(context.Background()).Accept(accept).ForBrowser(forBrowser).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminApi.ExportData``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -200,6 +201,7 @@ Other parameters are passed through a pointer to a apiExportDataRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accept** | **string** |  | 
  **forBrowser** | **bool** | Indicates if the operation is done for a browser.  If true, the response will be a JSON payload with a property called &#x60;href&#x60;.  This &#x60;href&#x60; will be a single-use, naked download link suitable for use by a web browser to download the content. | 
 
 ### Return type
