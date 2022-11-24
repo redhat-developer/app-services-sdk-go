@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ServerVersion** | Pointer to **string** |  | [optional] 
 **Collections** | Pointer to [**[]ObjectReference**](ObjectReference.md) |  | [optional] 
 
 ## Methods
@@ -24,6 +25,31 @@ will change when the set of required properties is changed
 NewVersionMetadataAllOfWithDefaults instantiates a new VersionMetadataAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetServerVersion
+
+`func (o *VersionMetadataAllOf) GetServerVersion() string`
+
+GetServerVersion returns the ServerVersion field if non-nil, zero value otherwise.
+
+### GetServerVersionOk
+
+`func (o *VersionMetadataAllOf) GetServerVersionOk() (*string, bool)`
+
+GetServerVersionOk returns a tuple with the ServerVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServerVersion
+
+`func (o *VersionMetadataAllOf) SetServerVersion(v string)`
+
+SetServerVersion sets ServerVersion field to given value.
+
+### HasServerVersion
+
+`func (o *VersionMetadataAllOf) HasServerVersion() bool`
+
+HasServerVersion returns a boolean if a field has been set.
 
 ### GetCollections
 
