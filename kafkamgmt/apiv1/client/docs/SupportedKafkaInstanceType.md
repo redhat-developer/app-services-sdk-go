@@ -6,13 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Unique identifier of the Kafka instance type. | [optional] 
 **DisplayName** | Pointer to **string** | Human readable name of the supported Kafka instance type | [optional] 
-**Sizes** | Pointer to [**[]SupportedKafkaSize**](SupportedKafkaSize.md) |  A list of Kafka instance sizes available for this instance type | [optional] 
+**SupportedBillingModels** | [**[]SupportedKafkaBillingModel**](SupportedKafkaBillingModel.md) | A list of available kafka billing models for the instance type. Each kafka billing model item has a unique &#39;id&#39; | 
+**Sizes** | Pointer to [**[]SupportedKafkaSize**](SupportedKafkaSize.md) | A list of Kafka instance sizes available for this instance type | [optional] 
 
 ## Methods
 
 ### NewSupportedKafkaInstanceType
 
-`func NewSupportedKafkaInstanceType() *SupportedKafkaInstanceType`
+`func NewSupportedKafkaInstanceType(supportedBillingModels []SupportedKafkaBillingModel, ) *SupportedKafkaInstanceType`
 
 NewSupportedKafkaInstanceType instantiates a new SupportedKafkaInstanceType object
 This constructor will assign default values to properties that have it defined,
@@ -76,6 +77,26 @@ SetDisplayName sets DisplayName field to given value.
 `func (o *SupportedKafkaInstanceType) HasDisplayName() bool`
 
 HasDisplayName returns a boolean if a field has been set.
+
+### GetSupportedBillingModels
+
+`func (o *SupportedKafkaInstanceType) GetSupportedBillingModels() []SupportedKafkaBillingModel`
+
+GetSupportedBillingModels returns the SupportedBillingModels field if non-nil, zero value otherwise.
+
+### GetSupportedBillingModelsOk
+
+`func (o *SupportedKafkaInstanceType) GetSupportedBillingModelsOk() (*[]SupportedKafkaBillingModel, bool)`
+
+GetSupportedBillingModelsOk returns a tuple with the SupportedBillingModels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportedBillingModels
+
+`func (o *SupportedKafkaInstanceType) SetSupportedBillingModels(v []SupportedKafkaBillingModel)`
+
+SetSupportedBillingModels sets SupportedBillingModels field to given value.
+
 
 ### GetSizes
 
