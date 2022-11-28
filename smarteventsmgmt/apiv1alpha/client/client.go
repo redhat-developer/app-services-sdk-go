@@ -1,5 +1,5 @@
 /*
- * Red Hat Openshift SmartEvents Fleet Manager
+ * Red Hat Openshift SmartEvents Fleet Manager V2
  *
  * The API exposed by the fleet manager of the SmartEvents service.
  *
@@ -42,7 +42,7 @@ var (
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 )
 
-// APIClient manages communication with the Red Hat Openshift SmartEvents Fleet Manager API v0.0.1
+// APIClient manages communication with the Red Hat Openshift SmartEvents Fleet Manager V2 API v0.0.1
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -57,8 +57,6 @@ type APIClient struct {
 	ErrorCatalogApi ErrorCatalogApi
 
 	ProcessorsApi ProcessorsApi
-
-	SchemaCatalogApi SchemaCatalogApi
 }
 
 type service struct {
@@ -81,7 +79,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CloudProvidersApi = (*CloudProvidersApiService)(&c.common)
 	c.ErrorCatalogApi = (*ErrorCatalogApiService)(&c.common)
 	c.ProcessorsApi = (*ProcessorsApiService)(&c.common)
-	c.SchemaCatalogApi = (*SchemaCatalogApiService)(&c.common)
 
 	return c
 }

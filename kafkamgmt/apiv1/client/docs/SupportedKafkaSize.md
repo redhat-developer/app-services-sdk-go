@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **SupportedAzModes** | Pointer to **[]string** | List of Availability Zone modes that this Kafka instance size supports. The possible values are \&quot;single\&quot;, \&quot;multi\&quot;. | [optional] 
 **LifespanSeconds** | Pointer to **NullableInt32** | The limit lifespan of the kafka instance in seconds. If not specified then the instance never expires. | [optional] 
 **QuotaConsumed** | Pointer to **int32** | Quota consumed by this Kafka instance size. | [optional] 
-**QuotaType** | Pointer to **string** | Quota type used by this Kafka instance size. | [optional] 
+**QuotaType** | Pointer to **string** | Quota type used by this Kafka instance size. This is now deprecated, please refer to supported_billing_models at instance-type level instead. | [optional] 
 **CapacityConsumed** | Pointer to **int32** | Data plane cluster capacity consumed by this Kafka instance size. | [optional] 
 **MaturityStatus** | Pointer to **string** | Maturity level of the size. Can be \&quot;stable\&quot; or \&quot;preview\&quot;. | [optional] 
 

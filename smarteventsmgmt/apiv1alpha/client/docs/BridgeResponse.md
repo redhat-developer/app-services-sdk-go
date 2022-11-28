@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **Status** | [**ManagedResourceStatus**](ManagedResourceStatus.md) |  | 
 **Owner** | **string** |  | 
 **Endpoint** | Pointer to **string** |  | [optional] 
-**ErrorHandler** | Pointer to [**Action**](Action.md) |  | [optional] 
 **CloudProvider** | Pointer to **string** |  | [optional] 
 **Region** | Pointer to **string** |  | [optional] 
 **StatusMessage** | Pointer to **string** |  | [optional] 
@@ -257,31 +256,6 @@ SetEndpoint sets Endpoint field to given value.
 `func (o *BridgeResponse) HasEndpoint() bool`
 
 HasEndpoint returns a boolean if a field has been set.
-
-### GetErrorHandler
-
-`func (o *BridgeResponse) GetErrorHandler() Action`
-
-GetErrorHandler returns the ErrorHandler field if non-nil, zero value otherwise.
-
-### GetErrorHandlerOk
-
-`func (o *BridgeResponse) GetErrorHandlerOk() (*Action, bool)`
-
-GetErrorHandlerOk returns a tuple with the ErrorHandler field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetErrorHandler
-
-`func (o *BridgeResponse) SetErrorHandler(v Action)`
-
-SetErrorHandler sets ErrorHandler field to given value.
-
-### HasErrorHandler
-
-`func (o *BridgeResponse) HasErrorHandler() bool`
-
-HasErrorHandler returns a boolean if a field has been set.
 
 ### GetCloudProvider
 

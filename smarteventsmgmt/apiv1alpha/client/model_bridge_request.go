@@ -1,5 +1,5 @@
 /*
- * Red Hat Openshift SmartEvents Fleet Manager
+ * Red Hat Openshift SmartEvents Fleet Manager V2
  *
  * The API exposed by the fleet manager of the SmartEvents service.
  *
@@ -18,7 +18,6 @@ import (
 // BridgeRequest struct for BridgeRequest
 type BridgeRequest struct {
 	Name string `json:"name"`
-	ErrorHandler *Action `json:"error_handler,omitempty"`
 	CloudProvider string `json:"cloud_provider"`
 	Region string `json:"region"`
 }
@@ -65,38 +64,6 @@ func (o *BridgeRequest) GetNameOk() (*string, bool) {
 // SetName sets field value
 func (o *BridgeRequest) SetName(v string) {
 	o.Name = v
-}
-
-// GetErrorHandler returns the ErrorHandler field value if set, zero value otherwise.
-func (o *BridgeRequest) GetErrorHandler() Action {
-	if o == nil || o.ErrorHandler == nil {
-		var ret Action
-		return ret
-	}
-	return *o.ErrorHandler
-}
-
-// GetErrorHandlerOk returns a tuple with the ErrorHandler field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *BridgeRequest) GetErrorHandlerOk() (*Action, bool) {
-	if o == nil || o.ErrorHandler == nil {
-		return nil, false
-	}
-	return o.ErrorHandler, true
-}
-
-// HasErrorHandler returns a boolean if a field has been set.
-func (o *BridgeRequest) HasErrorHandler() bool {
-	if o != nil && o.ErrorHandler != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetErrorHandler gets a reference to the given Action and assigns it to the ErrorHandler field.
-func (o *BridgeRequest) SetErrorHandler(v Action) {
-	o.ErrorHandler = &v
 }
 
 // GetCloudProvider returns the CloudProvider field value
@@ -151,9 +118,6 @@ func (o BridgeRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["name"] = o.Name
-	}
-	if o.ErrorHandler != nil {
-		toSerialize["error_handler"] = o.ErrorHandler
 	}
 	if true {
 		toSerialize["cloud_provider"] = o.CloudProvider

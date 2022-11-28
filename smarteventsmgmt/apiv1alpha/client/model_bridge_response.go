@@ -1,5 +1,5 @@
 /*
- * Red Hat Openshift SmartEvents Fleet Manager
+ * Red Hat Openshift SmartEvents Fleet Manager V2
  *
  * The API exposed by the fleet manager of the SmartEvents service.
  *
@@ -28,7 +28,6 @@ type BridgeResponse struct {
 	Status ManagedResourceStatus `json:"status"`
 	Owner string `json:"owner"`
 	Endpoint *string `json:"endpoint,omitempty"`
-	ErrorHandler *Action `json:"error_handler,omitempty"`
 	CloudProvider *string `json:"cloud_provider,omitempty"`
 	Region *string `json:"region,omitempty"`
 	StatusMessage *string `json:"status_message,omitempty"`
@@ -329,38 +328,6 @@ func (o *BridgeResponse) SetEndpoint(v string) {
 	o.Endpoint = &v
 }
 
-// GetErrorHandler returns the ErrorHandler field value if set, zero value otherwise.
-func (o *BridgeResponse) GetErrorHandler() Action {
-	if o == nil || o.ErrorHandler == nil {
-		var ret Action
-		return ret
-	}
-	return *o.ErrorHandler
-}
-
-// GetErrorHandlerOk returns a tuple with the ErrorHandler field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *BridgeResponse) GetErrorHandlerOk() (*Action, bool) {
-	if o == nil || o.ErrorHandler == nil {
-		return nil, false
-	}
-	return o.ErrorHandler, true
-}
-
-// HasErrorHandler returns a boolean if a field has been set.
-func (o *BridgeResponse) HasErrorHandler() bool {
-	if o != nil && o.ErrorHandler != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetErrorHandler gets a reference to the given Action and assigns it to the ErrorHandler field.
-func (o *BridgeResponse) SetErrorHandler(v Action) {
-	o.ErrorHandler = &v
-}
-
 // GetCloudProvider returns the CloudProvider field value if set, zero value otherwise.
 func (o *BridgeResponse) GetCloudProvider() string {
 	if o == nil || o.CloudProvider == nil {
@@ -488,9 +455,6 @@ func (o BridgeResponse) MarshalJSON() ([]byte, error) {
 	}
 	if o.Endpoint != nil {
 		toSerialize["endpoint"] = o.Endpoint
-	}
-	if o.ErrorHandler != nil {
-		toSerialize["error_handler"] = o.ErrorHandler
 	}
 	if o.CloudProvider != nil {
 		toSerialize["cloud_provider"] = o.CloudProvider
