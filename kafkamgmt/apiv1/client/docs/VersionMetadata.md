@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Kind** | **string** |  | 
 **Href** | **string** |  | 
+**ServerVersion** | Pointer to **string** |  | [optional] 
 **Collections** | Pointer to [**[]ObjectReference**](ObjectReference.md) |  | [optional] 
 
 ## Methods
@@ -87,6 +88,31 @@ and a boolean to check if the value has been set.
 
 SetHref sets Href field to given value.
 
+
+### GetServerVersion
+
+`func (o *VersionMetadata) GetServerVersion() string`
+
+GetServerVersion returns the ServerVersion field if non-nil, zero value otherwise.
+
+### GetServerVersionOk
+
+`func (o *VersionMetadata) GetServerVersionOk() (*string, bool)`
+
+GetServerVersionOk returns a tuple with the ServerVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServerVersion
+
+`func (o *VersionMetadata) SetServerVersion(v string)`
+
+SetServerVersion sets ServerVersion field to given value.
+
+### HasServerVersion
+
+`func (o *VersionMetadata) HasServerVersion() bool`
+
+HasServerVersion returns a boolean if a field has been set.
 
 ### GetCollections
 
