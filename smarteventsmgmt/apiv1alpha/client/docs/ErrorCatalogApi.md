@@ -4,8 +4,8 @@ All URIs are relative to *https://api.stage.openshift.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ErrorsAPIGetError**](ErrorCatalogApi.md#ErrorsAPIGetError) | **Get** /api/smartevents_mgmt/v1/errors/{id} | Get an error from the error catalog.
-[**ErrorsAPIGetErrors**](ErrorCatalogApi.md#ErrorsAPIGetErrors) | **Get** /api/smartevents_mgmt/v1/errors | Get the list of errors.
+[**ErrorsAPIGetError**](ErrorCatalogApi.md#ErrorsAPIGetError) | **Get** /api/smartevents_mgmt/v2/errors/{id} | Get an error from the error catalog.
+[**ErrorsAPIGetErrors**](ErrorCatalogApi.md#ErrorsAPIGetErrors) | **Get** /api/smartevents_mgmt/v2/errors | Get the list of errors.
 
 
 

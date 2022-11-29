@@ -1,5 +1,5 @@
 /*
- * Red Hat Openshift SmartEvents Fleet Manager
+ * Red Hat Openshift SmartEvents Fleet Manager V2
  *
  * The API exposed by the fleet manager of the SmartEvents service.
  *
@@ -18,19 +18,17 @@ import (
 // ProcessorRequest struct for ProcessorRequest
 type ProcessorRequest struct {
 	Name string `json:"name"`
-	Filters *[]BaseFilter `json:"filters,omitempty"`
-	TransformationTemplate *string `json:"transformationTemplate,omitempty"`
-	Action *Action `json:"action,omitempty"`
-	Source *Source `json:"source,omitempty"`
+	Flows map[string]interface{} `json:"flows"`
 }
 
 // NewProcessorRequest instantiates a new ProcessorRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProcessorRequest(name string) *ProcessorRequest {
+func NewProcessorRequest(name string, flows map[string]interface{}) *ProcessorRequest {
 	this := ProcessorRequest{}
 	this.Name = name
+	this.Flows = flows
 	return &this
 }
 
@@ -66,132 +64,28 @@ func (o *ProcessorRequest) SetName(v string) {
 	o.Name = v
 }
 
-// GetFilters returns the Filters field value if set, zero value otherwise.
-func (o *ProcessorRequest) GetFilters() []BaseFilter {
-	if o == nil || o.Filters == nil {
-		var ret []BaseFilter
+// GetFlows returns the Flows field value
+func (o *ProcessorRequest) GetFlows() map[string]interface{} {
+	if o == nil {
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.Filters
+
+	return o.Flows
 }
 
-// GetFiltersOk returns a tuple with the Filters field value if set, nil otherwise
+// GetFlowsOk returns a tuple with the Flows field value
 // and a boolean to check if the value has been set.
-func (o *ProcessorRequest) GetFiltersOk() (*[]BaseFilter, bool) {
-	if o == nil || o.Filters == nil {
+func (o *ProcessorRequest) GetFlowsOk() (*map[string]interface{}, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Filters, true
+	return &o.Flows, true
 }
 
-// HasFilters returns a boolean if a field has been set.
-func (o *ProcessorRequest) HasFilters() bool {
-	if o != nil && o.Filters != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetFilters gets a reference to the given []BaseFilter and assigns it to the Filters field.
-func (o *ProcessorRequest) SetFilters(v []BaseFilter) {
-	o.Filters = &v
-}
-
-// GetTransformationTemplate returns the TransformationTemplate field value if set, zero value otherwise.
-func (o *ProcessorRequest) GetTransformationTemplate() string {
-	if o == nil || o.TransformationTemplate == nil {
-		var ret string
-		return ret
-	}
-	return *o.TransformationTemplate
-}
-
-// GetTransformationTemplateOk returns a tuple with the TransformationTemplate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProcessorRequest) GetTransformationTemplateOk() (*string, bool) {
-	if o == nil || o.TransformationTemplate == nil {
-		return nil, false
-	}
-	return o.TransformationTemplate, true
-}
-
-// HasTransformationTemplate returns a boolean if a field has been set.
-func (o *ProcessorRequest) HasTransformationTemplate() bool {
-	if o != nil && o.TransformationTemplate != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTransformationTemplate gets a reference to the given string and assigns it to the TransformationTemplate field.
-func (o *ProcessorRequest) SetTransformationTemplate(v string) {
-	o.TransformationTemplate = &v
-}
-
-// GetAction returns the Action field value if set, zero value otherwise.
-func (o *ProcessorRequest) GetAction() Action {
-	if o == nil || o.Action == nil {
-		var ret Action
-		return ret
-	}
-	return *o.Action
-}
-
-// GetActionOk returns a tuple with the Action field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProcessorRequest) GetActionOk() (*Action, bool) {
-	if o == nil || o.Action == nil {
-		return nil, false
-	}
-	return o.Action, true
-}
-
-// HasAction returns a boolean if a field has been set.
-func (o *ProcessorRequest) HasAction() bool {
-	if o != nil && o.Action != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetAction gets a reference to the given Action and assigns it to the Action field.
-func (o *ProcessorRequest) SetAction(v Action) {
-	o.Action = &v
-}
-
-// GetSource returns the Source field value if set, zero value otherwise.
-func (o *ProcessorRequest) GetSource() Source {
-	if o == nil || o.Source == nil {
-		var ret Source
-		return ret
-	}
-	return *o.Source
-}
-
-// GetSourceOk returns a tuple with the Source field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProcessorRequest) GetSourceOk() (*Source, bool) {
-	if o == nil || o.Source == nil {
-		return nil, false
-	}
-	return o.Source, true
-}
-
-// HasSource returns a boolean if a field has been set.
-func (o *ProcessorRequest) HasSource() bool {
-	if o != nil && o.Source != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetSource gets a reference to the given Source and assigns it to the Source field.
-func (o *ProcessorRequest) SetSource(v Source) {
-	o.Source = &v
+// SetFlows sets field value
+func (o *ProcessorRequest) SetFlows(v map[string]interface{}) {
+	o.Flows = v
 }
 
 func (o ProcessorRequest) MarshalJSON() ([]byte, error) {
@@ -199,17 +93,8 @@ func (o ProcessorRequest) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["name"] = o.Name
 	}
-	if o.Filters != nil {
-		toSerialize["filters"] = o.Filters
-	}
-	if o.TransformationTemplate != nil {
-		toSerialize["transformationTemplate"] = o.TransformationTemplate
-	}
-	if o.Action != nil {
-		toSerialize["action"] = o.Action
-	}
-	if o.Source != nil {
-		toSerialize["source"] = o.Source
+	if true {
+		toSerialize["flows"] = o.Flows
 	}
 	return json.Marshal(toSerialize)
 }

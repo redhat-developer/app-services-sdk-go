@@ -1,5 +1,5 @@
 /*
- * Red Hat Openshift SmartEvents Fleet Manager
+ * Red Hat Openshift SmartEvents Fleet Manager V2
  *
  * The API exposed by the fleet manager of the SmartEvents service.
  *
@@ -105,7 +105,7 @@ func (a *ErrorCatalogApiService) ErrorsAPIGetErrorExecute(r ApiErrorsAPIGetError
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/errors/{id}"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v2/errors/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -237,7 +237,7 @@ func (a *ErrorCatalogApiService) ErrorsAPIGetErrorsExecute(r ApiErrorsAPIGetErro
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/errors"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v2/errors"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
