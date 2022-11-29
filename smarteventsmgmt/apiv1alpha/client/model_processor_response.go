@@ -1,5 +1,5 @@
 /*
- * Red Hat Openshift SmartEvents Fleet Manager
+ * Red Hat Openshift SmartEvents Fleet Manager V2
  *
  * The API exposed by the fleet manager of the SmartEvents service.
  *
@@ -20,26 +20,21 @@ import (
 type ProcessorResponse struct {
 	Kind string `json:"kind"`
 	Id string `json:"id"`
-	Name *string `json:"name,omitempty"`
 	Href string `json:"href"`
 	SubmittedAt time.Time `json:"submitted_at"`
 	PublishedAt *time.Time `json:"published_at,omitempty"`
 	ModifiedAt *time.Time `json:"modified_at,omitempty"`
 	Status ManagedResourceStatus `json:"status"`
 	Owner string `json:"owner"`
-	Type ProcessorType `json:"type"`
-	Filters *[]BaseFilter `json:"filters,omitempty"`
-	TransformationTemplate *string `json:"transformationTemplate,omitempty"`
-	Action *Action `json:"action,omitempty"`
-	Source *Source `json:"source,omitempty"`
-	StatusMessage *string `json:"status_message,omitempty"`
+	Name string `json:"name"`
+	Flows map[string]interface{} `json:"flows"`
 }
 
 // NewProcessorResponse instantiates a new ProcessorResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProcessorResponse(kind string, id string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, type_ ProcessorType) *ProcessorResponse {
+func NewProcessorResponse(kind string, id string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, name string, flows map[string]interface{}) *ProcessorResponse {
 	this := ProcessorResponse{}
 	this.Kind = kind
 	this.Id = id
@@ -47,7 +42,8 @@ func NewProcessorResponse(kind string, id string, href string, submittedAt time.
 	this.SubmittedAt = submittedAt
 	this.Status = status
 	this.Owner = owner
-	this.Type = type_
+	this.Name = name
+	this.Flows = flows
 	return &this
 }
 
@@ -105,38 +101,6 @@ func (o *ProcessorResponse) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *ProcessorResponse) SetId(v string) {
 	o.Id = v
-}
-
-// GetName returns the Name field value if set, zero value otherwise.
-func (o *ProcessorResponse) GetName() string {
-	if o == nil || o.Name == nil {
-		var ret string
-		return ret
-	}
-	return *o.Name
-}
-
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetNameOk() (*string, bool) {
-	if o == nil || o.Name == nil {
-		return nil, false
-	}
-	return o.Name, true
-}
-
-// HasName returns a boolean if a field has been set.
-func (o *ProcessorResponse) HasName() bool {
-	if o != nil && o.Name != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given string and assigns it to the Name field.
-func (o *ProcessorResponse) SetName(v string) {
-	o.Name = &v
 }
 
 // GetHref returns the Href field value
@@ -299,188 +263,52 @@ func (o *ProcessorResponse) SetOwner(v string) {
 	o.Owner = v
 }
 
-// GetType returns the Type field value
-func (o *ProcessorResponse) GetType() ProcessorType {
+// GetName returns the Name field value
+func (o *ProcessorResponse) GetName() string {
 	if o == nil {
-		var ret ProcessorType
+		var ret string
 		return ret
 	}
 
-	return o.Type
+	return o.Name
 }
 
-// GetTypeOk returns a tuple with the Type field value
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetTypeOk() (*ProcessorType, bool) {
+func (o *ProcessorResponse) GetNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Type, true
+	return &o.Name, true
 }
 
-// SetType sets field value
-func (o *ProcessorResponse) SetType(v ProcessorType) {
-	o.Type = v
+// SetName sets field value
+func (o *ProcessorResponse) SetName(v string) {
+	o.Name = v
 }
 
-// GetFilters returns the Filters field value if set, zero value otherwise.
-func (o *ProcessorResponse) GetFilters() []BaseFilter {
-	if o == nil || o.Filters == nil {
-		var ret []BaseFilter
+// GetFlows returns the Flows field value
+func (o *ProcessorResponse) GetFlows() map[string]interface{} {
+	if o == nil {
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.Filters
+
+	return o.Flows
 }
 
-// GetFiltersOk returns a tuple with the Filters field value if set, nil otherwise
+// GetFlowsOk returns a tuple with the Flows field value
 // and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetFiltersOk() (*[]BaseFilter, bool) {
-	if o == nil || o.Filters == nil {
+func (o *ProcessorResponse) GetFlowsOk() (*map[string]interface{}, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Filters, true
+	return &o.Flows, true
 }
 
-// HasFilters returns a boolean if a field has been set.
-func (o *ProcessorResponse) HasFilters() bool {
-	if o != nil && o.Filters != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetFilters gets a reference to the given []BaseFilter and assigns it to the Filters field.
-func (o *ProcessorResponse) SetFilters(v []BaseFilter) {
-	o.Filters = &v
-}
-
-// GetTransformationTemplate returns the TransformationTemplate field value if set, zero value otherwise.
-func (o *ProcessorResponse) GetTransformationTemplate() string {
-	if o == nil || o.TransformationTemplate == nil {
-		var ret string
-		return ret
-	}
-	return *o.TransformationTemplate
-}
-
-// GetTransformationTemplateOk returns a tuple with the TransformationTemplate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetTransformationTemplateOk() (*string, bool) {
-	if o == nil || o.TransformationTemplate == nil {
-		return nil, false
-	}
-	return o.TransformationTemplate, true
-}
-
-// HasTransformationTemplate returns a boolean if a field has been set.
-func (o *ProcessorResponse) HasTransformationTemplate() bool {
-	if o != nil && o.TransformationTemplate != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTransformationTemplate gets a reference to the given string and assigns it to the TransformationTemplate field.
-func (o *ProcessorResponse) SetTransformationTemplate(v string) {
-	o.TransformationTemplate = &v
-}
-
-// GetAction returns the Action field value if set, zero value otherwise.
-func (o *ProcessorResponse) GetAction() Action {
-	if o == nil || o.Action == nil {
-		var ret Action
-		return ret
-	}
-	return *o.Action
-}
-
-// GetActionOk returns a tuple with the Action field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetActionOk() (*Action, bool) {
-	if o == nil || o.Action == nil {
-		return nil, false
-	}
-	return o.Action, true
-}
-
-// HasAction returns a boolean if a field has been set.
-func (o *ProcessorResponse) HasAction() bool {
-	if o != nil && o.Action != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetAction gets a reference to the given Action and assigns it to the Action field.
-func (o *ProcessorResponse) SetAction(v Action) {
-	o.Action = &v
-}
-
-// GetSource returns the Source field value if set, zero value otherwise.
-func (o *ProcessorResponse) GetSource() Source {
-	if o == nil || o.Source == nil {
-		var ret Source
-		return ret
-	}
-	return *o.Source
-}
-
-// GetSourceOk returns a tuple with the Source field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetSourceOk() (*Source, bool) {
-	if o == nil || o.Source == nil {
-		return nil, false
-	}
-	return o.Source, true
-}
-
-// HasSource returns a boolean if a field has been set.
-func (o *ProcessorResponse) HasSource() bool {
-	if o != nil && o.Source != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetSource gets a reference to the given Source and assigns it to the Source field.
-func (o *ProcessorResponse) SetSource(v Source) {
-	o.Source = &v
-}
-
-// GetStatusMessage returns the StatusMessage field value if set, zero value otherwise.
-func (o *ProcessorResponse) GetStatusMessage() string {
-	if o == nil || o.StatusMessage == nil {
-		var ret string
-		return ret
-	}
-	return *o.StatusMessage
-}
-
-// GetStatusMessageOk returns a tuple with the StatusMessage field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetStatusMessageOk() (*string, bool) {
-	if o == nil || o.StatusMessage == nil {
-		return nil, false
-	}
-	return o.StatusMessage, true
-}
-
-// HasStatusMessage returns a boolean if a field has been set.
-func (o *ProcessorResponse) HasStatusMessage() bool {
-	if o != nil && o.StatusMessage != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetStatusMessage gets a reference to the given string and assigns it to the StatusMessage field.
-func (o *ProcessorResponse) SetStatusMessage(v string) {
-	o.StatusMessage = &v
+// SetFlows sets field value
+func (o *ProcessorResponse) SetFlows(v map[string]interface{}) {
+	o.Flows = v
 }
 
 func (o ProcessorResponse) MarshalJSON() ([]byte, error) {
@@ -490,9 +318,6 @@ func (o ProcessorResponse) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["id"] = o.Id
-	}
-	if o.Name != nil {
-		toSerialize["name"] = o.Name
 	}
 	if true {
 		toSerialize["href"] = o.Href
@@ -513,22 +338,10 @@ func (o ProcessorResponse) MarshalJSON() ([]byte, error) {
 		toSerialize["owner"] = o.Owner
 	}
 	if true {
-		toSerialize["type"] = o.Type
+		toSerialize["name"] = o.Name
 	}
-	if o.Filters != nil {
-		toSerialize["filters"] = o.Filters
-	}
-	if o.TransformationTemplate != nil {
-		toSerialize["transformationTemplate"] = o.TransformationTemplate
-	}
-	if o.Action != nil {
-		toSerialize["action"] = o.Action
-	}
-	if o.Source != nil {
-		toSerialize["source"] = o.Source
-	}
-	if o.StatusMessage != nil {
-		toSerialize["status_message"] = o.StatusMessage
+	if true {
+		toSerialize["flows"] = o.Flows
 	}
 	return json.Marshal(toSerialize)
 }

@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Reason** | **string** |  | 
-**OperationId** | Pointer to **string** |  | [optional] 
-**Id** | **string** |  | 
-**Kind** | **string** |  | 
-**Href** | **string** |  | 
-**Code** | **string** |  | 
+**Reason** | **string** | Human-readable description of the error. Intended for human consumption | 
+**OperationId** | Pointer to **string** | Relatively unique operation ID of the request associated to the error | [optional] 
+**Id** | **string** | The unique and immutable identifier of the resource | 
+**Kind** | **string** | The kind of the resource | 
+**Href** | **string** | The absolute path of the resource | 
+**Code** | **string** | Code of the error | 
 
 ## Methods
 

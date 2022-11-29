@@ -1,5 +1,5 @@
 /*
- * Red Hat Openshift SmartEvents Fleet Manager
+ * Red Hat Openshift SmartEvents Fleet Manager V2
  *
  * The API exposed by the fleet manager of the SmartEvents service.
  *
@@ -29,19 +29,19 @@ var (
 type ProcessorsApi interface {
 
 	/*
-	 * ProcessorsAPIAddProcessorToBridge Create a Processor of a Bridge instance
+	 * ProcessorsAPICreateProcessor Create a Processor of a Bridge instance
 	 * Create a Processor of a Bridge instance for the authenticated user.
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @param bridgeId
-	 * @return ApiProcessorsAPIAddProcessorToBridgeRequest
+	 * @return ApiProcessorsAPICreateProcessorRequest
 	 */
-	ProcessorsAPIAddProcessorToBridge(ctx _context.Context, bridgeId string) ApiProcessorsAPIAddProcessorToBridgeRequest
+	ProcessorsAPICreateProcessor(ctx _context.Context, bridgeId string) ApiProcessorsAPICreateProcessorRequest
 
 	/*
-	 * ProcessorsAPIAddProcessorToBridgeExecute executes the request
+	 * ProcessorsAPICreateProcessorExecute executes the request
 	 * @return ProcessorResponse
 	 */
-	ProcessorsAPIAddProcessorToBridgeExecute(r ApiProcessorsAPIAddProcessorToBridgeRequest) (ProcessorResponse, *_nethttp.Response, error)
+	ProcessorsAPICreateProcessorExecute(r ApiProcessorsAPICreateProcessorRequest) (ProcessorResponse, *_nethttp.Response, error)
 
 	/*
 	 * ProcessorsAPIDeleteProcessor Delete a Processor of a Bridge instance
@@ -75,23 +75,23 @@ type ProcessorsApi interface {
 	ProcessorsAPIGetProcessorExecute(r ApiProcessorsAPIGetProcessorRequest) (ProcessorResponse, *_nethttp.Response, error)
 
 	/*
-	 * ProcessorsAPIListProcessors Get the list of Processors of a Bridge instance
+	 * ProcessorsAPIGetProcessors Get the list of Processors of a Bridge instance
 	 * Get the list of Processors of a Bridge instance for the authenticated user.
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @param bridgeId
-	 * @return ApiProcessorsAPIListProcessorsRequest
+	 * @return ApiProcessorsAPIGetProcessorsRequest
 	 */
-	ProcessorsAPIListProcessors(ctx _context.Context, bridgeId string) ApiProcessorsAPIListProcessorsRequest
+	ProcessorsAPIGetProcessors(ctx _context.Context, bridgeId string) ApiProcessorsAPIGetProcessorsRequest
 
 	/*
-	 * ProcessorsAPIListProcessorsExecute executes the request
+	 * ProcessorsAPIGetProcessorsExecute executes the request
 	 * @return ProcessorListResponse
 	 */
-	ProcessorsAPIListProcessorsExecute(r ApiProcessorsAPIListProcessorsRequest) (ProcessorListResponse, *_nethttp.Response, error)
+	ProcessorsAPIGetProcessorsExecute(r ApiProcessorsAPIGetProcessorsRequest) (ProcessorListResponse, *_nethttp.Response, error)
 
 	/*
-	 * ProcessorsAPIUpdateProcessor Update a Processor instance Filter definition or Transformation template.
-	 * Update a Processor instance Filter definition or Transformation template for the authenticated user.
+	 * ProcessorsAPIUpdateProcessor Update a Processor instance.
+	 * Update a Processor instance for the authenticated user.
 	 * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @param bridgeId
 	 * @param processorId
@@ -109,31 +109,31 @@ type ProcessorsApi interface {
 // ProcessorsApiService ProcessorsApi service
 type ProcessorsApiService service
 
-type ApiProcessorsAPIAddProcessorToBridgeRequest struct {
+type ApiProcessorsAPICreateProcessorRequest struct {
 	ctx _context.Context
 	ApiService ProcessorsApi
 	bridgeId string
 	processorRequest *ProcessorRequest
 }
 
-func (r ApiProcessorsAPIAddProcessorToBridgeRequest) ProcessorRequest(processorRequest ProcessorRequest) ApiProcessorsAPIAddProcessorToBridgeRequest {
+func (r ApiProcessorsAPICreateProcessorRequest) ProcessorRequest(processorRequest ProcessorRequest) ApiProcessorsAPICreateProcessorRequest {
 	r.processorRequest = &processorRequest
 	return r
 }
 
-func (r ApiProcessorsAPIAddProcessorToBridgeRequest) Execute() (ProcessorResponse, *_nethttp.Response, error) {
-	return r.ApiService.ProcessorsAPIAddProcessorToBridgeExecute(r)
+func (r ApiProcessorsAPICreateProcessorRequest) Execute() (ProcessorResponse, *_nethttp.Response, error) {
+	return r.ApiService.ProcessorsAPICreateProcessorExecute(r)
 }
 
 /*
- * ProcessorsAPIAddProcessorToBridge Create a Processor of a Bridge instance
+ * ProcessorsAPICreateProcessor Create a Processor of a Bridge instance
  * Create a Processor of a Bridge instance for the authenticated user.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param bridgeId
- * @return ApiProcessorsAPIAddProcessorToBridgeRequest
+ * @return ApiProcessorsAPICreateProcessorRequest
  */
-func (a *ProcessorsApiService) ProcessorsAPIAddProcessorToBridge(ctx _context.Context, bridgeId string) ApiProcessorsAPIAddProcessorToBridgeRequest {
-	return ApiProcessorsAPIAddProcessorToBridgeRequest{
+func (a *ProcessorsApiService) ProcessorsAPICreateProcessor(ctx _context.Context, bridgeId string) ApiProcessorsAPICreateProcessorRequest {
+	return ApiProcessorsAPICreateProcessorRequest{
 		ApiService: a,
 		ctx: ctx,
 		bridgeId: bridgeId,
@@ -144,7 +144,7 @@ func (a *ProcessorsApiService) ProcessorsAPIAddProcessorToBridge(ctx _context.Co
  * Execute executes the request
  * @return ProcessorResponse
  */
-func (a *ProcessorsApiService) ProcessorsAPIAddProcessorToBridgeExecute(r ApiProcessorsAPIAddProcessorToBridgeRequest) (ProcessorResponse, *_nethttp.Response, error) {
+func (a *ProcessorsApiService) ProcessorsAPICreateProcessorExecute(r ApiProcessorsAPICreateProcessorRequest) (ProcessorResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -154,12 +154,12 @@ func (a *ProcessorsApiService) ProcessorsAPIAddProcessorToBridgeExecute(r ApiPro
 		localVarReturnValue  ProcessorResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProcessorsApiService.ProcessorsAPIAddProcessorToBridge")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProcessorsApiService.ProcessorsAPICreateProcessor")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/bridges/{bridgeId}/processors"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v2/bridges/{bridgeId}/processors"
 	localVarPath = strings.Replace(localVarPath, "{"+"bridgeId"+"}", _neturl.PathEscape(parameterToString(r.bridgeId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -310,7 +310,7 @@ func (a *ProcessorsApiService) ProcessorsAPIDeleteProcessorExecute(r ApiProcesso
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/bridges/{bridgeId}/processors/{processorId}"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v2/bridges/{bridgeId}/processors/{processorId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"bridgeId"+"}", _neturl.PathEscape(parameterToString(r.bridgeId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"processorId"+"}", _neturl.PathEscape(parameterToString(r.processorId, "")), -1)
 
@@ -440,7 +440,7 @@ func (a *ProcessorsApiService) ProcessorsAPIGetProcessorExecute(r ApiProcessorsA
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/bridges/{bridgeId}/processors/{processorId}"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v2/bridges/{bridgeId}/processors/{processorId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"bridgeId"+"}", _neturl.PathEscape(parameterToString(r.bridgeId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"processorId"+"}", _neturl.PathEscape(parameterToString(r.processorId, "")), -1)
 
@@ -537,7 +537,7 @@ func (a *ProcessorsApiService) ProcessorsAPIGetProcessorExecute(r ApiProcessorsA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiProcessorsAPIListProcessorsRequest struct {
+type ApiProcessorsAPIGetProcessorsRequest struct {
 	ctx _context.Context
 	ApiService ProcessorsApi
 	bridgeId string
@@ -545,43 +545,38 @@ type ApiProcessorsAPIListProcessorsRequest struct {
 	page *int32
 	size *int32
 	status *[]ManagedResourceStatus
-	type_ *ProcessorType
 }
 
-func (r ApiProcessorsAPIListProcessorsRequest) Name(name string) ApiProcessorsAPIListProcessorsRequest {
+func (r ApiProcessorsAPIGetProcessorsRequest) Name(name string) ApiProcessorsAPIGetProcessorsRequest {
 	r.name = &name
 	return r
 }
-func (r ApiProcessorsAPIListProcessorsRequest) Page(page int32) ApiProcessorsAPIListProcessorsRequest {
+func (r ApiProcessorsAPIGetProcessorsRequest) Page(page int32) ApiProcessorsAPIGetProcessorsRequest {
 	r.page = &page
 	return r
 }
-func (r ApiProcessorsAPIListProcessorsRequest) Size(size int32) ApiProcessorsAPIListProcessorsRequest {
+func (r ApiProcessorsAPIGetProcessorsRequest) Size(size int32) ApiProcessorsAPIGetProcessorsRequest {
 	r.size = &size
 	return r
 }
-func (r ApiProcessorsAPIListProcessorsRequest) Status(status []ManagedResourceStatus) ApiProcessorsAPIListProcessorsRequest {
+func (r ApiProcessorsAPIGetProcessorsRequest) Status(status []ManagedResourceStatus) ApiProcessorsAPIGetProcessorsRequest {
 	r.status = &status
 	return r
 }
-func (r ApiProcessorsAPIListProcessorsRequest) Type_(type_ ProcessorType) ApiProcessorsAPIListProcessorsRequest {
-	r.type_ = &type_
-	return r
-}
 
-func (r ApiProcessorsAPIListProcessorsRequest) Execute() (ProcessorListResponse, *_nethttp.Response, error) {
-	return r.ApiService.ProcessorsAPIListProcessorsExecute(r)
+func (r ApiProcessorsAPIGetProcessorsRequest) Execute() (ProcessorListResponse, *_nethttp.Response, error) {
+	return r.ApiService.ProcessorsAPIGetProcessorsExecute(r)
 }
 
 /*
- * ProcessorsAPIListProcessors Get the list of Processors of a Bridge instance
+ * ProcessorsAPIGetProcessors Get the list of Processors of a Bridge instance
  * Get the list of Processors of a Bridge instance for the authenticated user.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param bridgeId
- * @return ApiProcessorsAPIListProcessorsRequest
+ * @return ApiProcessorsAPIGetProcessorsRequest
  */
-func (a *ProcessorsApiService) ProcessorsAPIListProcessors(ctx _context.Context, bridgeId string) ApiProcessorsAPIListProcessorsRequest {
-	return ApiProcessorsAPIListProcessorsRequest{
+func (a *ProcessorsApiService) ProcessorsAPIGetProcessors(ctx _context.Context, bridgeId string) ApiProcessorsAPIGetProcessorsRequest {
+	return ApiProcessorsAPIGetProcessorsRequest{
 		ApiService: a,
 		ctx: ctx,
 		bridgeId: bridgeId,
@@ -592,7 +587,7 @@ func (a *ProcessorsApiService) ProcessorsAPIListProcessors(ctx _context.Context,
  * Execute executes the request
  * @return ProcessorListResponse
  */
-func (a *ProcessorsApiService) ProcessorsAPIListProcessorsExecute(r ApiProcessorsAPIListProcessorsRequest) (ProcessorListResponse, *_nethttp.Response, error) {
+func (a *ProcessorsApiService) ProcessorsAPIGetProcessorsExecute(r ApiProcessorsAPIGetProcessorsRequest) (ProcessorListResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -602,12 +597,12 @@ func (a *ProcessorsApiService) ProcessorsAPIListProcessorsExecute(r ApiProcessor
 		localVarReturnValue  ProcessorListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProcessorsApiService.ProcessorsAPIListProcessors")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProcessorsApiService.ProcessorsAPIGetProcessors")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/bridges/{bridgeId}/processors"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v2/bridges/{bridgeId}/processors"
 	localVarPath = strings.Replace(localVarPath, "{"+"bridgeId"+"}", _neturl.PathEscape(parameterToString(r.bridgeId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -636,9 +631,6 @@ func (a *ProcessorsApiService) ProcessorsAPIListProcessorsExecute(r ApiProcessor
 		} else {
 			localVarQueryParams.Add("status", parameterToString(t, "multi"))
 		}
-	}
-	if r.type_ != nil {
-		localVarQueryParams.Add("type", parameterToString(*r.type_, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -741,8 +733,8 @@ func (r ApiProcessorsAPIUpdateProcessorRequest) Execute() (ProcessorResponse, *_
 }
 
 /*
- * ProcessorsAPIUpdateProcessor Update a Processor instance Filter definition or Transformation template.
- * Update a Processor instance Filter definition or Transformation template for the authenticated user.
+ * ProcessorsAPIUpdateProcessor Update a Processor instance.
+ * Update a Processor instance for the authenticated user.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param bridgeId
  * @param processorId
@@ -776,7 +768,7 @@ func (a *ProcessorsApiService) ProcessorsAPIUpdateProcessorExecute(r ApiProcesso
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/bridges/{bridgeId}/processors/{processorId}"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v2/bridges/{bridgeId}/processors/{processorId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"bridgeId"+"}", _neturl.PathEscape(parameterToString(r.bridgeId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"processorId"+"}", _neturl.PathEscape(parameterToString(r.processorId, "")), -1)
 

@@ -1,5 +1,5 @@
 /*
- * Red Hat Openshift SmartEvents Fleet Manager
+ * Red Hat Openshift SmartEvents Fleet Manager V2
  *
  * The API exposed by the fleet manager of the SmartEvents service.
  *
@@ -120,7 +120,7 @@ func (a *CloudProvidersApiService) CloudProviderAPIGetCloudProviderExecute(r Api
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/cloud_providers/{id}"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v2/cloud_providers/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -268,7 +268,7 @@ func (a *CloudProvidersApiService) CloudProviderAPIListCloudProviderRegionsExecu
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/cloud_providers/{id}/regions"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v2/cloud_providers/{id}/regions"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -409,7 +409,7 @@ func (a *CloudProvidersApiService) CloudProviderAPIListCloudProvidersExecute(r A
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/smartevents_mgmt/v1/cloud_providers"
+	localVarPath := localBasePath + "/api/smartevents_mgmt/v2/cloud_providers"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
