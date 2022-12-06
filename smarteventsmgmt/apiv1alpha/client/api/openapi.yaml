@@ -1349,6 +1349,7 @@ components:
         page: 0
         items:
         - owner: owner
+          status_message: status_message
           submitted_at: 2000-01-23T04:56:07.000+00:00
           flows: '{}'
           kind: kind
@@ -1359,6 +1360,7 @@ components:
           modified_at: 2000-01-23T04:56:07.000+00:00
           status: ""
         - owner: owner
+          status_message: status_message
           submitted_at: 2000-01-23T04:56:07.000+00:00
           flows: '{}'
           kind: kind
@@ -1413,6 +1415,7 @@ components:
     ProcessorResponse:
       example:
         owner: owner
+        status_message: status_message
         submitted_at: 2000-01-23T04:56:07.000+00:00
         flows: '{}'
         kind: kind
@@ -1455,6 +1458,8 @@ components:
         flows:
           nullable: false
           type: object
+        status_message:
+          type: string
       required:
       - flows
       - href
