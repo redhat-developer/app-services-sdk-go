@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
 **ModifiedAt** | Pointer to **time.Time** |  | [optional] 
 **Name** | **string** |  | 
-**Annotations** | Pointer to **map[string]string** |  | [optional] 
+**Annotations** | Pointer to **map[string]string** | Name-value string annotations for resource | [optional] 
 **ResourceVersion** | **int64** |  | 
 **Quota** | Pointer to [**ConnectorNamespaceQuota**](ConnectorNamespaceQuota.md) |  | [optional] 
 **ClusterId** | **string** |  | 

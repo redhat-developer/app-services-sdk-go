@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **NamespaceId** | **string** |  | 
 **Channel** | Pointer to [**Channel**](Channel.md) |  | [optional] [default to CHANNEL_STABLE]
 **DesiredState** | [**ConnectorDesiredState**](ConnectorDesiredState.md) |  | 
+**Annotations** | Pointer to **map[string]string** | Name-value string annotations for resource | [optional] 
 **ResourceVersion** | Pointer to **int64** |  | [optional] 
 **Kafka** | [**KafkaConnectionSettings**](KafkaConnectionSettings.md) |  | 
 **ServiceAccount** | [**ServiceAccount**](ServiceAccount.md) |  | 
@@ -295,6 +296,31 @@ and a boolean to check if the value has been set.
 
 SetDesiredState sets DesiredState field to given value.
 
+
+### GetAnnotations
+
+`func (o *Connector) GetAnnotations() map[string]string`
+
+GetAnnotations returns the Annotations field if non-nil, zero value otherwise.
+
+### GetAnnotationsOk
+
+`func (o *Connector) GetAnnotationsOk() (*map[string]string, bool)`
+
+GetAnnotationsOk returns a tuple with the Annotations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAnnotations
+
+`func (o *Connector) SetAnnotations(v map[string]string)`
+
+SetAnnotations sets Annotations field to given value.
+
+### HasAnnotations
+
+`func (o *Connector) HasAnnotations() bool`
+
+HasAnnotations returns a boolean if a field has been set.
 
 ### GetResourceVersion
 

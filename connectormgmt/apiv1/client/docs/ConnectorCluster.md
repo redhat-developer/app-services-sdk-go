@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
 **ModifiedAt** | Pointer to **time.Time** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
+**Annotations** | Pointer to **map[string]string** | Name-value string annotations for resource | [optional] 
 **Status** | Pointer to [**ConnectorClusterStatusStatus**](ConnectorClusterStatusStatus.md) |  | [optional] 
 
 ## Methods
@@ -206,6 +207,31 @@ SetName sets Name field to given value.
 `func (o *ConnectorCluster) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetAnnotations
+
+`func (o *ConnectorCluster) GetAnnotations() map[string]string`
+
+GetAnnotations returns the Annotations field if non-nil, zero value otherwise.
+
+### GetAnnotationsOk
+
+`func (o *ConnectorCluster) GetAnnotationsOk() (*map[string]string, bool)`
+
+GetAnnotationsOk returns a tuple with the Annotations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAnnotations
+
+`func (o *ConnectorCluster) SetAnnotations(v map[string]string)`
+
+SetAnnotations sets Annotations field to given value.
+
+### HasAnnotations
+
+`func (o *ConnectorCluster) HasAnnotations() bool`
+
+HasAnnotations returns a boolean if a field has been set.
 
 ### GetStatus
 

@@ -10,8 +10,9 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** | A description of the connector. | [optional] 
 **IconHref** | Pointer to **string** | URL to an icon of the connector. | [optional] 
 **Labels** | Pointer to **[]string** | Labels used to categorize the connector | [optional] 
+**Annotations** | Pointer to **map[string]string** | Name-value string annotations for resource | [optional] 
 **FeaturedRank** | Pointer to **int32** | Ranking for featured connectors | [optional] 
-**Capabilities** | Pointer to **[]string** | The capabilities supported by the conenctor | [optional] 
+**Capabilities** | Pointer to **[]string** | The capabilities supported by the connector | [optional] 
 **Schema** | Pointer to **map[string]interface{}** | A json schema that can be used to validate a ConnectorRequest connector field. | [optional] 
 
 ## Methods
@@ -182,6 +183,31 @@ SetLabels sets Labels field to given value.
 `func (o *ConnectorTypeAllOf) HasLabels() bool`
 
 HasLabels returns a boolean if a field has been set.
+
+### GetAnnotations
+
+`func (o *ConnectorTypeAllOf) GetAnnotations() map[string]string`
+
+GetAnnotations returns the Annotations field if non-nil, zero value otherwise.
+
+### GetAnnotationsOk
+
+`func (o *ConnectorTypeAllOf) GetAnnotationsOk() (*map[string]string, bool)`
+
+GetAnnotationsOk returns a tuple with the Annotations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAnnotations
+
+`func (o *ConnectorTypeAllOf) SetAnnotations(v map[string]string)`
+
+SetAnnotations sets Annotations field to given value.
+
+### HasAnnotations
+
+`func (o *ConnectorTypeAllOf) HasAnnotations() bool`
+
+HasAnnotations returns a boolean if a field has been set.
 
 ### GetFeaturedRank
 
