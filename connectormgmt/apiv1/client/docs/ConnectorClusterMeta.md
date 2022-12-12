@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **CreatedAt** | Pointer to **time.Time** |  | [optional] 
 **ModifiedAt** | Pointer to **time.Time** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
+**Annotations** | Pointer to **map[string]string** | Name-value string annotations for resource | [optional] 
 
 ## Methods
 
@@ -127,6 +128,31 @@ SetName sets Name field to given value.
 `func (o *ConnectorClusterMeta) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetAnnotations
+
+`func (o *ConnectorClusterMeta) GetAnnotations() map[string]string`
+
+GetAnnotations returns the Annotations field if non-nil, zero value otherwise.
+
+### GetAnnotationsOk
+
+`func (o *ConnectorClusterMeta) GetAnnotationsOk() (*map[string]string, bool)`
+
+GetAnnotationsOk returns a tuple with the Annotations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAnnotations
+
+`func (o *ConnectorClusterMeta) SetAnnotations(v map[string]string)`
+
+SetAnnotations sets Annotations field to given value.
+
+### HasAnnotations
+
+`func (o *ConnectorClusterMeta) HasAnnotations() bool`
+
+HasAnnotations returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Namespace name must match pattern &#x60;^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$&#x60;, or it may be empty to be auto-generated. | 
-**Annotations** | Pointer to **map[string]string** |  | [optional] 
+**Annotations** | Pointer to **map[string]string** | Name-value string annotations for resource | [optional] 
 **ClusterId** | **string** |  | 
 **Kind** | [**ConnectorNamespaceTenantKind**](ConnectorNamespaceTenantKind.md) |  | 
 
