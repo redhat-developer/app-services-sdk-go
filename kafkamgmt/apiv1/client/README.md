@@ -89,6 +89,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetMetricsByInstantQuery**](docs/DefaultApi.md#getmetricsbyinstantquery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query | 
 *DefaultApi* | [**GetMetricsByRangeQuery**](docs/DefaultApi.md#getmetricsbyrangequery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query_range | 
 *DefaultApi* | [**GetVersionMetadata**](docs/DefaultApi.md#getversionmetadata) | **Get** /api/kafkas_mgmt/v1 | 
+*DefaultApi* | [**RegisterEnterpriseOsdCluster**](docs/DefaultApi.md#registerenterpriseosdcluster) | **Post** /api/kafkas_mgmt/v1/clusters | 
 *DefaultApi* | [**UpdateKafkaById**](docs/DefaultApi.md#updatekafkabyid) | **Patch** /api/kafkas_mgmt/v1/kafkas/{id} | 
 *ErrorsApi* | [**GetErrorById**](docs/ErrorsApi.md#geterrorbyid) | **Get** /api/kafkas_mgmt/v1/errors/{id} | 
 *ErrorsApi* | [**GetErrors**](docs/ErrorsApi.md#geterrors) | **Get** /api/kafkas_mgmt/v1/errors | 
@@ -108,9 +109,13 @@ Class | Method | HTTP request | Description
  - [CloudRegion](docs/CloudRegion.md)
  - [CloudRegionList](docs/CloudRegionList.md)
  - [CloudRegionListAllOf](docs/CloudRegionListAllOf.md)
+ - [EnterpriseCluster](docs/EnterpriseCluster.md)
+ - [EnterpriseClusterAllOf](docs/EnterpriseClusterAllOf.md)
+ - [EnterpriseOsdClusterPayload](docs/EnterpriseOsdClusterPayload.md)
  - [Error](docs/Error.md)
  - [ErrorList](docs/ErrorList.md)
  - [ErrorListAllOf](docs/ErrorListAllOf.md)
+ - [FleetshardParameter](docs/FleetshardParameter.md)
  - [InstantQuery](docs/InstantQuery.md)
  - [KafkaRequest](docs/KafkaRequest.md)
  - [KafkaRequestAllOf](docs/KafkaRequestAllOf.md)
