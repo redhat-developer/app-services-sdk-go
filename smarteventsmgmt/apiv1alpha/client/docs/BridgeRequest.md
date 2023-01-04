@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**CloudProvider** | **string** |  | 
-**Region** | **string** |  | 
+**Name** | **string** | The name of the bridge | 
+**CloudProvider** | **string** | The cloud provider where the bridge resides | 
+**Region** | **string** | The cloud provider region where the bridge resides | 
 
 ## Methods
 

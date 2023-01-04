@@ -17,9 +17,13 @@ import (
 
 // CloudProviderResponse struct for CloudProviderResponse
 type CloudProviderResponse struct {
+	// The kind (type) of this resource
 	Kind string `json:"kind"`
+	// The unique identifier of this resource
 	Id string `json:"id"`
+	// The name of this resource
 	Name *string `json:"name,omitempty"`
+	// The URL of this resource, without the protocol
 	Href string `json:"href"`
 	DisplayName string `json:"display_name"`
 	Enabled bool `json:"enabled"`

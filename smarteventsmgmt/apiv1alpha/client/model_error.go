@@ -17,7 +17,9 @@ import (
 
 // Error struct for Error
 type Error struct {
+	// The kind (type) of this resource
 	Kind string `json:"kind"`
+	// The name of this resource
 	Name *string `json:"name,omitempty"`
 	Code *string `json:"code,omitempty"`
 	Reason string `json:"reason"`
