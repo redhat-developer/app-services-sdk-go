@@ -15,21 +15,26 @@ import (
 	"encoding/json"
 )
 
-// EnterpriseCluster Enterprise cluster registration endpoint response
+// EnterpriseCluster struct for EnterpriseCluster
 type EnterpriseCluster struct {
+	Id string `json:"id"`
+	Kind string `json:"kind"`
+	Href string `json:"href"`
 	// ocm cluster id of the registered Enterprise cluster
 	ClusterId *string `json:"cluster_id,omitempty"`
 	// status of registered Enterprise cluster
 	Status *string `json:"status,omitempty"`
-	FleetshardParameters *[]FleetshardParameter `json:"fleetshard_parameters,omitempty"`
 }
 
 // NewEnterpriseCluster instantiates a new EnterpriseCluster object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnterpriseCluster() *EnterpriseCluster {
+func NewEnterpriseCluster(id string, kind string, href string) *EnterpriseCluster {
 	this := EnterpriseCluster{}
+	this.Id = id
+	this.Kind = kind
+	this.Href = href
 	return &this
 }
 
@@ -39,6 +44,78 @@ func NewEnterpriseCluster() *EnterpriseCluster {
 func NewEnterpriseClusterWithDefaults() *EnterpriseCluster {
 	this := EnterpriseCluster{}
 	return &this
+}
+
+// GetId returns the Id field value
+func (o *EnterpriseCluster) GetId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value
+// and a boolean to check if the value has been set.
+func (o *EnterpriseCluster) GetIdOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Id, true
+}
+
+// SetId sets field value
+func (o *EnterpriseCluster) SetId(v string) {
+	o.Id = v
+}
+
+// GetKind returns the Kind field value
+func (o *EnterpriseCluster) GetKind() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Kind
+}
+
+// GetKindOk returns a tuple with the Kind field value
+// and a boolean to check if the value has been set.
+func (o *EnterpriseCluster) GetKindOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Kind, true
+}
+
+// SetKind sets field value
+func (o *EnterpriseCluster) SetKind(v string) {
+	o.Kind = v
+}
+
+// GetHref returns the Href field value
+func (o *EnterpriseCluster) GetHref() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Href
+}
+
+// GetHrefOk returns a tuple with the Href field value
+// and a boolean to check if the value has been set.
+func (o *EnterpriseCluster) GetHrefOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Href, true
+}
+
+// SetHref sets field value
+func (o *EnterpriseCluster) SetHref(v string) {
+	o.Href = v
 }
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
@@ -105,48 +182,22 @@ func (o *EnterpriseCluster) SetStatus(v string) {
 	o.Status = &v
 }
 
-// GetFleetshardParameters returns the FleetshardParameters field value if set, zero value otherwise.
-func (o *EnterpriseCluster) GetFleetshardParameters() []FleetshardParameter {
-	if o == nil || o.FleetshardParameters == nil {
-		var ret []FleetshardParameter
-		return ret
-	}
-	return *o.FleetshardParameters
-}
-
-// GetFleetshardParametersOk returns a tuple with the FleetshardParameters field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EnterpriseCluster) GetFleetshardParametersOk() (*[]FleetshardParameter, bool) {
-	if o == nil || o.FleetshardParameters == nil {
-		return nil, false
-	}
-	return o.FleetshardParameters, true
-}
-
-// HasFleetshardParameters returns a boolean if a field has been set.
-func (o *EnterpriseCluster) HasFleetshardParameters() bool {
-	if o != nil && o.FleetshardParameters != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetFleetshardParameters gets a reference to the given []FleetshardParameter and assigns it to the FleetshardParameters field.
-func (o *EnterpriseCluster) SetFleetshardParameters(v []FleetshardParameter) {
-	o.FleetshardParameters = &v
-}
-
 func (o EnterpriseCluster) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["id"] = o.Id
+	}
+	if true {
+		toSerialize["kind"] = o.Kind
+	}
+	if true {
+		toSerialize["href"] = o.Href
+	}
 	if o.ClusterId != nil {
 		toSerialize["cluster_id"] = o.ClusterId
 	}
 	if o.Status != nil {
 		toSerialize["status"] = o.Status
-	}
-	if o.FleetshardParameters != nil {
-		toSerialize["fleetshard_parameters"] = o.FleetshardParameters
 	}
 	return json.Marshal(toSerialize)
 }

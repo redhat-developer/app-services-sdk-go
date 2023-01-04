@@ -15,7 +15,6 @@ Method | HTTP request | Description
 [**GetMetricsByInstantQuery**](DefaultApi.md#GetMetricsByInstantQuery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query | 
 [**GetMetricsByRangeQuery**](DefaultApi.md#GetMetricsByRangeQuery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query_range | 
 [**GetVersionMetadata**](DefaultApi.md#GetVersionMetadata) | **Get** /api/kafkas_mgmt/v1 | 
-[**RegisterEnterpriseOsdCluster**](DefaultApi.md#RegisterEnterpriseOsdCluster) | **Post** /api/kafkas_mgmt/v1/clusters | 
 [**UpdateKafkaById**](DefaultApi.md#UpdateKafkaById) | **Patch** /api/kafkas_mgmt/v1/kafkas/{id} | 
 
 
@@ -789,72 +788,6 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## RegisterEnterpriseOsdCluster
-
-> KafkaRequest RegisterEnterpriseOsdCluster(ctx).EnterpriseOsdClusterPayload(enterpriseOsdClusterPayload).Execute()
-
-
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    enterpriseOsdClusterPayload := *openapiclient.NewEnterpriseOsdClusterPayload("ClusterId_example", "ClusterExternalId_example", "ClusterIngressDnsName_example") // EnterpriseOsdClusterPayload | Enterprise OSD cluster details
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.DefaultApi.RegisterEnterpriseOsdCluster(context.Background()).EnterpriseOsdClusterPayload(enterpriseOsdClusterPayload).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.RegisterEnterpriseOsdCluster``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `RegisterEnterpriseOsdCluster`: KafkaRequest
-    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.RegisterEnterpriseOsdCluster`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiRegisterEnterpriseOsdClusterRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **enterpriseOsdClusterPayload** | [**EnterpriseOsdClusterPayload**](EnterpriseOsdClusterPayload.md) | Enterprise OSD cluster details | 
-
-### Return type
-
-[**KafkaRequest**](KafkaRequest.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
