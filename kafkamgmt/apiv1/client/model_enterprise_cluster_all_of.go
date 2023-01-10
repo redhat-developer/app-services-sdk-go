@@ -21,7 +21,6 @@ type EnterpriseClusterAllOf struct {
 	ClusterId *string `json:"cluster_id,omitempty"`
 	// status of registered Enterprise cluster
 	Status *string `json:"status,omitempty"`
-	FleetshardParameters *[]FleetshardParameter `json:"fleetshard_parameters,omitempty"`
 }
 
 // NewEnterpriseClusterAllOf instantiates a new EnterpriseClusterAllOf object
@@ -105,38 +104,6 @@ func (o *EnterpriseClusterAllOf) SetStatus(v string) {
 	o.Status = &v
 }
 
-// GetFleetshardParameters returns the FleetshardParameters field value if set, zero value otherwise.
-func (o *EnterpriseClusterAllOf) GetFleetshardParameters() []FleetshardParameter {
-	if o == nil || o.FleetshardParameters == nil {
-		var ret []FleetshardParameter
-		return ret
-	}
-	return *o.FleetshardParameters
-}
-
-// GetFleetshardParametersOk returns a tuple with the FleetshardParameters field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EnterpriseClusterAllOf) GetFleetshardParametersOk() (*[]FleetshardParameter, bool) {
-	if o == nil || o.FleetshardParameters == nil {
-		return nil, false
-	}
-	return o.FleetshardParameters, true
-}
-
-// HasFleetshardParameters returns a boolean if a field has been set.
-func (o *EnterpriseClusterAllOf) HasFleetshardParameters() bool {
-	if o != nil && o.FleetshardParameters != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetFleetshardParameters gets a reference to the given []FleetshardParameter and assigns it to the FleetshardParameters field.
-func (o *EnterpriseClusterAllOf) SetFleetshardParameters(v []FleetshardParameter) {
-	o.FleetshardParameters = &v
-}
-
 func (o EnterpriseClusterAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.ClusterId != nil {
@@ -144,9 +111,6 @@ func (o EnterpriseClusterAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.Status != nil {
 		toSerialize["status"] = o.Status
-	}
-	if o.FleetshardParameters != nil {
-		toSerialize["fleetshard_parameters"] = o.FleetshardParameters
 	}
 	return json.Marshal(toSerialize)
 }

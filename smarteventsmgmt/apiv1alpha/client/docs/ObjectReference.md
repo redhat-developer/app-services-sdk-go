@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Kind** | **string** |  | 
-**Id** | **string** |  | 
-**Name** | Pointer to **string** |  | [optional] 
-**Href** | **string** |  | 
+**Kind** | **string** | The kind (type) of this resource | 
+**Id** | **string** | The unique identifier of this resource | 
+**Name** | Pointer to **string** | The name of this resource | [optional] 
+**Href** | **string** | The URL of this resource, without the protocol | 
 
 ## Methods
 

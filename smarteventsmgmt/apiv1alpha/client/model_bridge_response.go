@@ -18,18 +18,27 @@ import (
 
 // BridgeResponse struct for BridgeResponse
 type BridgeResponse struct {
+	// The kind (type) of this resource
 	Kind string `json:"kind"`
+	// The unique identifier of this resource
 	Id string `json:"id"`
-	Name *string `json:"name,omitempty"`
+	// The URL of this resource, without the protocol
 	Href string `json:"href"`
 	SubmittedAt time.Time `json:"submitted_at"`
 	PublishedAt *time.Time `json:"published_at,omitempty"`
 	ModifiedAt *time.Time `json:"modified_at,omitempty"`
 	Status ManagedResourceStatus `json:"status"`
+	// The user that owns this resource
 	Owner string `json:"owner"`
+	// The name of the bridge
+	Name string `json:"name"`
+	// The HTTPS endpoint on which the bridge accepts events
 	Endpoint *string `json:"endpoint,omitempty"`
+	// The cloud provider where the bridge resides
 	CloudProvider *string `json:"cloud_provider,omitempty"`
+	// The cloud provider region where the bridge resides
 	Region *string `json:"region,omitempty"`
+	// A detailed status message in case there is a problem with the bridge
 	StatusMessage *string `json:"status_message,omitempty"`
 }
 
@@ -37,7 +46,7 @@ type BridgeResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBridgeResponse(kind string, id string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string) *BridgeResponse {
+func NewBridgeResponse(kind string, id string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, name string) *BridgeResponse {
 	this := BridgeResponse{}
 	this.Kind = kind
 	this.Id = id
@@ -45,6 +54,7 @@ func NewBridgeResponse(kind string, id string, href string, submittedAt time.Tim
 	this.SubmittedAt = submittedAt
 	this.Status = status
 	this.Owner = owner
+	this.Name = name
 	return &this
 }
 
@@ -102,38 +112,6 @@ func (o *BridgeResponse) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *BridgeResponse) SetId(v string) {
 	o.Id = v
-}
-
-// GetName returns the Name field value if set, zero value otherwise.
-func (o *BridgeResponse) GetName() string {
-	if o == nil || o.Name == nil {
-		var ret string
-		return ret
-	}
-	return *o.Name
-}
-
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *BridgeResponse) GetNameOk() (*string, bool) {
-	if o == nil || o.Name == nil {
-		return nil, false
-	}
-	return o.Name, true
-}
-
-// HasName returns a boolean if a field has been set.
-func (o *BridgeResponse) HasName() bool {
-	if o != nil && o.Name != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given string and assigns it to the Name field.
-func (o *BridgeResponse) SetName(v string) {
-	o.Name = &v
 }
 
 // GetHref returns the Href field value
@@ -296,6 +274,30 @@ func (o *BridgeResponse) SetOwner(v string) {
 	o.Owner = v
 }
 
+// GetName returns the Name field value
+func (o *BridgeResponse) GetName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value
+// and a boolean to check if the value has been set.
+func (o *BridgeResponse) GetNameOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Name, true
+}
+
+// SetName sets field value
+func (o *BridgeResponse) SetName(v string) {
+	o.Name = v
+}
+
 // GetEndpoint returns the Endpoint field value if set, zero value otherwise.
 func (o *BridgeResponse) GetEndpoint() string {
 	if o == nil || o.Endpoint == nil {
@@ -432,9 +434,6 @@ func (o BridgeResponse) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["id"] = o.Id
 	}
-	if o.Name != nil {
-		toSerialize["name"] = o.Name
-	}
 	if true {
 		toSerialize["href"] = o.Href
 	}
@@ -452,6 +451,9 @@ func (o BridgeResponse) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["owner"] = o.Owner
+	}
+	if true {
+		toSerialize["name"] = o.Name
 	}
 	if o.Endpoint != nil {
 		toSerialize["endpoint"] = o.Endpoint

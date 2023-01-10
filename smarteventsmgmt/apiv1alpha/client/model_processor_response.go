@@ -18,15 +18,21 @@ import (
 
 // ProcessorResponse struct for ProcessorResponse
 type ProcessorResponse struct {
+	// The kind (type) of this resource
 	Kind string `json:"kind"`
+	// The unique identifier of this resource
 	Id string `json:"id"`
+	// The URL of this resource, without the protocol
 	Href string `json:"href"`
 	SubmittedAt time.Time `json:"submitted_at"`
 	PublishedAt *time.Time `json:"published_at,omitempty"`
 	ModifiedAt *time.Time `json:"modified_at,omitempty"`
 	Status ManagedResourceStatus `json:"status"`
+	// The user that owns this resource
 	Owner string `json:"owner"`
+	// The name of the processor
 	Name string `json:"name"`
+	// The Camel YAML DSL code, formatted as JSON, that defines the flows in the processor
 	Flows map[string]interface{} `json:"flows"`
 	StatusMessage *string `json:"status_message,omitempty"`
 }

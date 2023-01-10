@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**Flows** | **map[string]interface{}** |  | 
+**Name** | **string** | The name of the processor | 
+**Flows** | **map[string]interface{}** | The Camel YAML DSL code, formatted as JSON, that defines the flows in the processor | 
 
 ## Methods
 
