@@ -17,8 +17,11 @@ import (
 
 // BridgeRequest struct for BridgeRequest
 type BridgeRequest struct {
+	// The name of the bridge
 	Name string `json:"name"`
+	// The cloud provider where the bridge resides
 	CloudProvider string `json:"cloud_provider"`
+	// The cloud provider region where the bridge resides
 	Region string `json:"region"`
 }
 

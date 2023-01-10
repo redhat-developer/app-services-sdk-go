@@ -23,6 +23,8 @@ tags:
   name: errors
 - description: Security related endpoints.
   name: security
+- description: Enterprise data plane clusters registration and management endpoints.
+  name: enterprise-dataplane-clusters
 paths:
   /api/kafkas_mgmt/v1:
     get:
@@ -1177,28 +1179,75 @@ paths:
       security:
       - Bearer: []
   /api/kafkas_mgmt/v1/clusters:
+    get:
+      description: List all Enterprise OSD clusters
+      operationId: getEnterpriseOsdClusters
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnterpriseClusterList'
+          description: List Enterprise OSD clusters
+        "400":
+          content:
+            application/json:
+              examples:
+                InvalidQueryExample:
+                  $ref: '#/components/examples/400InvalidQueryExample'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+        "401":
+          content:
+            application/json:
+              examples:
+                "401Example":
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Auth token is invalid
+        "403":
+          content:
+            application/json:
+              examples:
+                "403Example":
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User not authorized to access the service
+        "500":
+          content:
+            application/json:
+              examples:
+                "500Example":
+                  $ref: '#/components/examples/500Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unexpected error occurred
+      security:
+      - Bearer: []
+      tags:
+      - enterprise-dataplane-clusters
     post:
-      description: Register enterprise OSD cluster
+      description: Register enterprise data plane cluster
       operationId: registerEnterpriseOsdCluster
       requestBody:
         content:
           application/json:
             examples:
-              USRegion:
-                $ref: '#/components/examples/USRegionExample'
+              EnterpriseOsdClusterPayloadExample:
+                $ref: '#/components/examples/EnterpriseOsdClusterPayloadExample'
             schema:
               $ref: '#/components/schemas/EnterpriseOsdClusterPayload'
-        description: Enterprise OSD cluster details
+        description: Enterprise data plane cluster details
         required: true
       responses:
         "200":
           content:
             application/json:
-              examples:
-                KafkaRequestPostResponseExample:
-                  $ref: '#/components/examples/KafkaRequestExample'
               schema:
-                $ref: '#/components/schemas/KafkaRequest'
+                $ref: '#/components/schemas/EnterpriseClusterRegistrationResponse'
           description: Enterprise cluster registered
         "400":
           content:
@@ -1206,8 +1255,8 @@ paths:
               examples:
                 "400InvalidClusterIdExample":
                   $ref: '#/components/examples/400InvalidClusterIdExample'
-                "400MInvalidExternalClusterIdExample":
-                  $ref: '#/components/examples/400MInvalidExternalClusterIdExample'
+                "400InvalidExternalClusterIdExample":
+                  $ref: '#/components/examples/400InvalidExternalClusterIdExample'
               schema:
                 $ref: '#/components/schemas/Error'
           description: Validation errors occurred
@@ -1249,6 +1298,94 @@ paths:
           description: An unexpected error occurred while registering Enterprise cluster
       security:
       - Bearer: []
+      tags:
+      - enterprise-dataplane-clusters
+  /api/kafkas_mgmt/v1/clusters/{id}:
+    delete:
+      operationId: deleteEnterpriseClusterById
+      parameters:
+      - description: Perform the action in an asynchronous manner
+        explode: true
+        in: query
+        name: async
+        required: true
+        schema:
+          type: boolean
+        style: form
+      - description: |-
+          When provided with value: true - enterprise cluster will be deleted alongside all kafkas present on the cluster.
+          When skipped and enterprise cluster has any kafkas associated with it, the request will fail.
+        explode: true
+        in: query
+        name: force
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: ID of the enterprise data plane cluster
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Enterprise cluster deletion accepted
+        "400":
+          content:
+            application/json:
+              examples:
+                "400DeletionExample":
+                  $ref: '#/components/examples/400DeletionExample'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Validation errors occurred
+        "401":
+          content:
+            application/json:
+              examples:
+                "401Example":
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Auth token is invalid
+        "403":
+          content:
+            application/json:
+              examples:
+                "403Example":
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User not authorized to access the service
+        "404":
+          content:
+            application/json:
+              examples:
+                "404DeleteExample":
+                  $ref: '#/components/examples/404DeleteExample'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: No Enterprise cluster with specified ID exists
+        "500":
+          content:
+            application/json:
+              examples:
+                "500DeleteExample":
+                  $ref: '#/components/examples/500DeleteExample'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unexpected error occurred
+      security:
+      - Bearer: []
+      tags:
+      - enterprise-dataplane-clusters
 components:
   examples:
     USRegionExample:
@@ -1267,6 +1404,13 @@ components:
         cloud_provider: aws
         name: test_kafka
         plan: standard.x1
+    EnterpriseClusterExample:
+      value:
+        id: abcd1234ascd3456fdks9485lskd030h
+        kind: cluster
+        href: /api/kafkas_mgmr/v1/clusters/abcd1234ascd3456fdks9485lskd030h
+        status: ready
+        cluster_id: abcd1234ascd3456fdks9485lskd030h
     KafkaRequestExample:
       value:
         id: 1iSY6RQ3JKI8Q0OTmjQFd3ocFRg
@@ -1321,7 +1465,7 @@ components:
         id: developer
         display_name: Trial
         supported_billing_models:
-        - id: trial
+        - id: standard
           ams_resource: rhosak
           ams_product: RHOSAKTrial
           ams_billing_models:
@@ -1493,7 +1637,7 @@ components:
         code: KAFKAS-MGMT-45
         reason: Enterprise cluster ID is invalid
         operation_id: 1lWDGuybIrEnxrAem724gqkkiDv
-    "400MInvalidExternalClusterIdExample":
+    "400InvalidExternalClusterIdExample":
       value:
         id: "46"
         kind: Error
@@ -1584,6 +1728,12 @@ components:
           is ''404'', code is ''CLUSTERS-MGMT-404'' and operation identifier is ''1g5or50viu07oealuehrkc26dgftj1ac'':
           Cluster ''1g5d88q0lrcdv4g7alb7slfgnj3dhbsj'' not found)'
         operation_id: 1iYTsWry6nsqb2sNmFj5bXpD7Ca
+    EnterpriseOsdClusterPayloadExample:
+      value:
+        cluster_id: 1234abcd1234abcd1234abcd1234abcd
+        cluster_external_id: 69d631de-9b7f-4bc2-bf4f-4d3295a7b25e
+        cluster_ingress_dns_name: apps.enterprise-aws.awdk.s1.devshift.org
+        kafka_machine_pool_node_count: 9
   parameters:
     id:
       description: The ID of record
@@ -1836,6 +1986,14 @@ components:
       allOf:
       - $ref: '#/components/schemas/List'
       - $ref: '#/components/schemas/KafkaRequestList_allOf'
+    EnterpriseClusterList:
+      allOf:
+      - $ref: '#/components/schemas/List'
+      - $ref: '#/components/schemas/EnterpriseClusterList_allOf'
+    EnterpriseCluster:
+      allOf:
+      - $ref: '#/components/schemas/ObjectReference'
+      - $ref: '#/components/schemas/EnterpriseCluster_allOf'
     VersionMetadata:
       allOf:
       - $ref: '#/components/schemas/ObjectReference'
@@ -2182,29 +2340,42 @@ components:
     EnterpriseOsdClusterPayload:
       description: Schema for the request body sent to /clusters POST
       example:
+        kafka_machine_pool_node_count: 0
         cluster_id: cluster_id
         cluster_external_id: cluster_external_id
         cluster_ingress_dns_name: cluster_ingress_dns_name
       properties:
         cluster_id:
-          description: OSD cluster ID
+          description: The data plane cluster ID. This is the ID of the cluster obtained
+            from OpenShift Cluster Manager (OCM) API
           type: string
         cluster_external_id:
           description: external cluster ID. Can be obtained from the response JSON
-            of ocm get /api/clusters_mgmt/v1/clusters/<cluster_id>
+            of OCM get /api/clusters_mgmt/v1/clusters/<cluster_id>
           type: string
         cluster_ingress_dns_name:
           description: dns name of the cluster. Can be obtained from the response
             JSON of the /api/clusters_mgmt/v1/clusters/<cluster_id>/ingresses (dns_name)
           type: string
+        kafka_machine_pool_node_count:
+          description: "The node count given to the created kafka machine pool. \n\
+            The machine pool must be created via /api/clusters_mgmt/v1/clusters/<cluster_id>/machine_pools\
+            \ prior to passing this value.\nThe created machine pool must have a `bf2.org/kafkaInstanceProfileType=standard`\
+            \ label and a `bf2.org/kafkaInstanceProfileType=standard:NoExecute` taint.\n\
+            The name of the machine pool must be `kafka-standard` \nThe node count\
+            \ value has to be a multiple of 3 with a minimum of 3 nodes."
+          format: int32
+          type: integer
       required:
       - cluster_external_id
       - cluster_id
       - cluster_ingress_dns_name
+      - kafka_machine_pool_node_count
       type: object
-    EnterpriseCluster:
+    EnterpriseClusterRegistrationResponse:
       allOf:
-      - $ref: '#/components/schemas/EnterpriseCluster_allOf'
+      - $ref: '#/components/schemas/ObjectReference'
+      - $ref: '#/components/schemas/EnterpriseClusterRegistrationResponse_allOf'
       description: Enterprise cluster registration endpoint response
     FleetshardParameter:
       description: Fleetshard parameter consumed by enterprise cluster
@@ -2227,7 +2398,7 @@ components:
       properties:
         status:
           description: 'Values: [accepted, preparing, provisioning, ready, failed,
-            deprovision, deleting] '
+            deprovision, deleting, suspending, suspended, resuming] '
           type: string
         cloud_provider:
           description: Name of Cloud used to deploy. For example AWS
@@ -2337,6 +2508,30 @@ components:
             allOf:
             - $ref: '#/components/schemas/KafkaRequest'
           type: array
+      type: object
+    EnterpriseClusterList_allOf:
+      example:
+        kind: ClusterList
+        page: "1"
+        size: "1"
+        total: "1"
+        item:
+          $ref: '#/components/examples/EnterpriseClusterExample'
+      properties:
+        items:
+          items:
+            allOf:
+            - $ref: '#/components/schemas/EnterpriseCluster'
+          type: array
+      type: object
+    EnterpriseCluster_allOf:
+      properties:
+        cluster_id:
+          description: ocm cluster id of the registered Enterprise cluster
+          type: string
+        status:
+          description: status of registered Enterprise cluster
+          type: string
       type: object
     VersionMetadata_allOf:
       example:
@@ -2516,10 +2711,10 @@ components:
             - $ref: '#/components/schemas/InstantQuery'
           type: array
       type: object
-    EnterpriseCluster_allOf:
+    EnterpriseClusterRegistrationResponse_allOf:
       properties:
         cluster_id:
-          description: ocm cluster id of the registered Enterprise cluster
+          description: OCM cluster id of the registered Enterprise cluster
           type: string
         status:
           description: status of registered Enterprise cluster

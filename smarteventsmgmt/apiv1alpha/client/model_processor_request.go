@@ -17,7 +17,9 @@ import (
 
 // ProcessorRequest struct for ProcessorRequest
 type ProcessorRequest struct {
+	// The name of the processor
 	Name string `json:"name"`
+	// The Camel YAML DSL code, formatted as JSON, that defines the flows in the processor
 	Flows map[string]interface{} `json:"flows"`
 }
 

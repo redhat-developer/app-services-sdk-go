@@ -17,9 +17,13 @@ import (
 
 // ObjectReference struct for ObjectReference
 type ObjectReference struct {
+	// The kind (type) of this resource
 	Kind string `json:"kind"`
+	// The unique identifier of this resource
 	Id string `json:"id"`
+	// The name of this resource
 	Name *string `json:"name,omitempty"`
+	// The URL of this resource, without the protocol
 	Href string `json:"href"`
 }
 

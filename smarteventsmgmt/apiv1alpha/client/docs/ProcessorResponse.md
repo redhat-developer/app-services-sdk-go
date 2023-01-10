@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Kind** | **string** |  | 
-**Id** | **string** |  | 
-**Href** | **string** |  | 
+**Kind** | **string** | The kind (type) of this resource | 
+**Id** | **string** | The unique identifier of this resource | 
+**Href** | **string** | The URL of this resource, without the protocol | 
 **SubmittedAt** | **time.Time** |  | 
 **PublishedAt** | Pointer to **time.Time** |  | [optional] 
 **ModifiedAt** | Pointer to **time.Time** |  | [optional] 
 **Status** | [**ManagedResourceStatus**](ManagedResourceStatus.md) |  | 
-**Owner** | **string** |  | 
-**Name** | **string** |  | 
-**Flows** | **map[string]interface{}** |  | 
+**Owner** | **string** | The user that owns this resource | 
+**Name** | **string** | The name of the processor | 
+**Flows** | **map[string]interface{}** | The Camel YAML DSL code, formatted as JSON, that defines the flows in the processor | 
 **StatusMessage** | Pointer to **string** |  | [optional] 
 
 ## Methods

@@ -25,6 +25,9 @@ const (
 	MANAGEDRESOURCESTATUS_PREPARING ManagedResourceStatus = "preparing"
 	MANAGEDRESOURCESTATUS_PROVISIONING ManagedResourceStatus = "provisioning"
 	MANAGEDRESOURCESTATUS_READY ManagedResourceStatus = "ready"
+	MANAGEDRESOURCESTATUS_UPDATE_ACCEPTED ManagedResourceStatus = "update_accepted"
+	MANAGEDRESOURCESTATUS_UPDATE_PREPARING ManagedResourceStatus = "update_preparing"
+	MANAGEDRESOURCESTATUS_UPDATE_PROVISIONING ManagedResourceStatus = "update_provisioning"
 	MANAGEDRESOURCESTATUS_DEPROVISION ManagedResourceStatus = "deprovision"
 	MANAGEDRESOURCESTATUS_DELETING ManagedResourceStatus = "deleting"
 	MANAGEDRESOURCESTATUS_DELETED ManagedResourceStatus = "deleted"
@@ -36,6 +39,9 @@ var allowedManagedResourceStatusEnumValues = []ManagedResourceStatus{
 	"preparing",
 	"provisioning",
 	"ready",
+	"update_accepted",
+	"update_preparing",
+	"update_provisioning",
 	"deprovision",
 	"deleting",
 	"deleted",

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Kind** | **string** |  | 
-**Name** | Pointer to **string** |  | [optional] 
+**Kind** | **string** | The kind (type) of this resource | 
+**Name** | Pointer to **string** | The name of this resource | [optional] 
 **Code** | Pointer to **string** |  | [optional] 
 **Reason** | **string** |  | 
 **Id** | **string** |  | 

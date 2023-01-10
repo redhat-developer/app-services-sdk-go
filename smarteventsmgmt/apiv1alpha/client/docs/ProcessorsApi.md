@@ -34,7 +34,7 @@ import (
 
 func main() {
     bridgeId := "bridgeId_example" // string | 
-    processorRequest := *openapiclient.NewProcessorRequest("Name_example", map[string]interface{}(123)) // ProcessorRequest |  (optional)
+    processorRequest := *openapiclient.NewProcessorRequest("processor1", map[string]interface{}(123)) // ProcessorRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -329,7 +329,7 @@ import (
 func main() {
     bridgeId := "bridgeId_example" // string | 
     processorId := "processorId_example" // string | 
-    processorRequest := *openapiclient.NewProcessorRequest("Name_example", map[string]interface{}(123)) // ProcessorRequest |  (optional)
+    processorRequest := *openapiclient.NewProcessorRequest("processor1", map[string]interface{}(123)) // ProcessorRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)

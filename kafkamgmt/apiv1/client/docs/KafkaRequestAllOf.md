@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | Pointer to **string** | Values: [accepted, preparing, provisioning, ready, failed, deprovision, deleting]  | [optional] 
+**Status** | Pointer to **string** | Values: [accepted, preparing, provisioning, ready, failed, deprovision, deleting, suspending, suspended, resuming]  | [optional] 
 **CloudProvider** | Pointer to **string** | Name of Cloud used to deploy. For example AWS | [optional] 
 **MultiAz** | **bool** |  | 
 **Region** | Pointer to **string** | Values will be regions of specific cloud provider. For example: us-east-1 for AWS | [optional] 

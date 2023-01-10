@@ -89,8 +89,10 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetMetricsByInstantQuery**](docs/DefaultApi.md#getmetricsbyinstantquery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query | 
 *DefaultApi* | [**GetMetricsByRangeQuery**](docs/DefaultApi.md#getmetricsbyrangequery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query_range | 
 *DefaultApi* | [**GetVersionMetadata**](docs/DefaultApi.md#getversionmetadata) | **Get** /api/kafkas_mgmt/v1 | 
-*DefaultApi* | [**RegisterEnterpriseOsdCluster**](docs/DefaultApi.md#registerenterpriseosdcluster) | **Post** /api/kafkas_mgmt/v1/clusters | 
 *DefaultApi* | [**UpdateKafkaById**](docs/DefaultApi.md#updatekafkabyid) | **Patch** /api/kafkas_mgmt/v1/kafkas/{id} | 
+*EnterpriseDataplaneClustersApi* | [**DeleteEnterpriseClusterById**](docs/EnterpriseDataplaneClustersApi.md#deleteenterpriseclusterbyid) | **Delete** /api/kafkas_mgmt/v1/clusters/{id} | 
+*EnterpriseDataplaneClustersApi* | [**GetEnterpriseOsdClusters**](docs/EnterpriseDataplaneClustersApi.md#getenterpriseosdclusters) | **Get** /api/kafkas_mgmt/v1/clusters | 
+*EnterpriseDataplaneClustersApi* | [**RegisterEnterpriseOsdCluster**](docs/EnterpriseDataplaneClustersApi.md#registerenterpriseosdcluster) | **Post** /api/kafkas_mgmt/v1/clusters | 
 *ErrorsApi* | [**GetErrorById**](docs/ErrorsApi.md#geterrorbyid) | **Get** /api/kafkas_mgmt/v1/errors/{id} | 
 *ErrorsApi* | [**GetErrors**](docs/ErrorsApi.md#geterrors) | **Get** /api/kafkas_mgmt/v1/errors | 
 *SecurityApi* | [**CreateServiceAccount**](docs/SecurityApi.md#createserviceaccount) | **Post** /api/kafkas_mgmt/v1/service_accounts | 
@@ -111,6 +113,10 @@ Class | Method | HTTP request | Description
  - [CloudRegionListAllOf](docs/CloudRegionListAllOf.md)
  - [EnterpriseCluster](docs/EnterpriseCluster.md)
  - [EnterpriseClusterAllOf](docs/EnterpriseClusterAllOf.md)
+ - [EnterpriseClusterList](docs/EnterpriseClusterList.md)
+ - [EnterpriseClusterListAllOf](docs/EnterpriseClusterListAllOf.md)
+ - [EnterpriseClusterRegistrationResponse](docs/EnterpriseClusterRegistrationResponse.md)
+ - [EnterpriseClusterRegistrationResponseAllOf](docs/EnterpriseClusterRegistrationResponseAllOf.md)
  - [EnterpriseOsdClusterPayload](docs/EnterpriseOsdClusterPayload.md)
  - [Error](docs/Error.md)
  - [ErrorList](docs/ErrorList.md)
