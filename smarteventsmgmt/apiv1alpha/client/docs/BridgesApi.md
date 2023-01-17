@@ -33,7 +33,7 @@ import (
 )
 
 func main() {
-    bridgeRequest := *openapiclient.NewBridgeRequest("Name_example", "CloudProvider_example", "Region_example") // BridgeRequest |  (optional)
+    bridgeRequest := *openapiclient.NewBridgeRequest("bridge1", "aws", "us-east-1") // BridgeRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -310,7 +310,7 @@ import (
 
 func main() {
     bridgeId := "bridgeId_example" // string | 
-    bridgeRequest := *openapiclient.NewBridgeRequest("Name_example", "CloudProvider_example", "Region_example") // BridgeRequest |  (optional)
+    bridgeRequest := *openapiclient.NewBridgeRequest("bridge1", "aws", "us-east-1") // BridgeRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
