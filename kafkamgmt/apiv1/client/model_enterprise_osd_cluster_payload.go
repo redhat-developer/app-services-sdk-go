@@ -17,23 +17,26 @@ import (
 
 // EnterpriseOsdClusterPayload Schema for the request body sent to /clusters POST
 type EnterpriseOsdClusterPayload struct {
-	// OSD cluster ID
+	// The data plane cluster ID. This is the ID of the cluster obtained from OpenShift Cluster Manager (OCM) API
 	ClusterId string `json:"cluster_id"`
-	// external cluster ID. Can be obtained from the response JSON of ocm get /api/clusters_mgmt/v1/clusters/<cluster_id>
+	// external cluster ID. Can be obtained from the response JSON of OCM get /api/clusters_mgmt/v1/clusters/<cluster_id>
 	ClusterExternalId string `json:"cluster_external_id"`
 	// dns name of the cluster. Can be obtained from the response JSON of the /api/clusters_mgmt/v1/clusters/<cluster_id>/ingresses (dns_name)
 	ClusterIngressDnsName string `json:"cluster_ingress_dns_name"`
+	// The node count given to the created kafka machine pool.  The machine pool must be created via /api/clusters_mgmt/v1/clusters/<cluster_id>/machine_pools prior to passing this value. The created machine pool must have a `bf2.org/kafkaInstanceProfileType=standard` label and a `bf2.org/kafkaInstanceProfileType=standard:NoExecute` taint. The name of the machine pool must be `kafka-standard`  The node count value has to be a multiple of 3 with a minimum of 3 nodes.
+	KafkaMachinePoolNodeCount int32 `json:"kafka_machine_pool_node_count"`
 }
 
 // NewEnterpriseOsdClusterPayload instantiates a new EnterpriseOsdClusterPayload object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnterpriseOsdClusterPayload(clusterId string, clusterExternalId string, clusterIngressDnsName string) *EnterpriseOsdClusterPayload {
+func NewEnterpriseOsdClusterPayload(clusterId string, clusterExternalId string, clusterIngressDnsName string, kafkaMachinePoolNodeCount int32) *EnterpriseOsdClusterPayload {
 	this := EnterpriseOsdClusterPayload{}
 	this.ClusterId = clusterId
 	this.ClusterExternalId = clusterExternalId
 	this.ClusterIngressDnsName = clusterIngressDnsName
+	this.KafkaMachinePoolNodeCount = kafkaMachinePoolNodeCount
 	return &this
 }
 
@@ -117,6 +120,30 @@ func (o *EnterpriseOsdClusterPayload) SetClusterIngressDnsName(v string) {
 	o.ClusterIngressDnsName = v
 }
 
+// GetKafkaMachinePoolNodeCount returns the KafkaMachinePoolNodeCount field value
+func (o *EnterpriseOsdClusterPayload) GetKafkaMachinePoolNodeCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.KafkaMachinePoolNodeCount
+}
+
+// GetKafkaMachinePoolNodeCountOk returns a tuple with the KafkaMachinePoolNodeCount field value
+// and a boolean to check if the value has been set.
+func (o *EnterpriseOsdClusterPayload) GetKafkaMachinePoolNodeCountOk() (*int32, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.KafkaMachinePoolNodeCount, true
+}
+
+// SetKafkaMachinePoolNodeCount sets field value
+func (o *EnterpriseOsdClusterPayload) SetKafkaMachinePoolNodeCount(v int32) {
+	o.KafkaMachinePoolNodeCount = v
+}
+
 func (o EnterpriseOsdClusterPayload) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -127,6 +154,9 @@ func (o EnterpriseOsdClusterPayload) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["cluster_ingress_dns_name"] = o.ClusterIngressDnsName
+	}
+	if true {
+		toSerialize["kafka_machine_pool_node_count"] = o.KafkaMachinePoolNodeCount
 	}
 	return json.Marshal(toSerialize)
 }
