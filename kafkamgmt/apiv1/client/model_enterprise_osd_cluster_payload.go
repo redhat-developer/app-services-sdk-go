@@ -17,6 +17,8 @@ import (
 
 // EnterpriseOsdClusterPayload Schema for the request body sent to /clusters POST
 type EnterpriseOsdClusterPayload struct {
+	// Sets whether Kafkas created on this data plane cluster have to be accessed via private network
+	AccessKafkasViaPrivateNetwork bool `json:"access_kafkas_via_private_network"`
 	// The data plane cluster ID. This is the ID of the cluster obtained from OpenShift Cluster Manager (OCM) API
 	ClusterId string `json:"cluster_id"`
 	// external cluster ID. Can be obtained from the response JSON of OCM get /api/clusters_mgmt/v1/clusters/<cluster_id>
@@ -31,8 +33,9 @@ type EnterpriseOsdClusterPayload struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnterpriseOsdClusterPayload(clusterId string, clusterExternalId string, clusterIngressDnsName string, kafkaMachinePoolNodeCount int32) *EnterpriseOsdClusterPayload {
+func NewEnterpriseOsdClusterPayload(accessKafkasViaPrivateNetwork bool, clusterId string, clusterExternalId string, clusterIngressDnsName string, kafkaMachinePoolNodeCount int32) *EnterpriseOsdClusterPayload {
 	this := EnterpriseOsdClusterPayload{}
+	this.AccessKafkasViaPrivateNetwork = accessKafkasViaPrivateNetwork
 	this.ClusterId = clusterId
 	this.ClusterExternalId = clusterExternalId
 	this.ClusterIngressDnsName = clusterIngressDnsName
@@ -46,6 +49,30 @@ func NewEnterpriseOsdClusterPayload(clusterId string, clusterExternalId string, 
 func NewEnterpriseOsdClusterPayloadWithDefaults() *EnterpriseOsdClusterPayload {
 	this := EnterpriseOsdClusterPayload{}
 	return &this
+}
+
+// GetAccessKafkasViaPrivateNetwork returns the AccessKafkasViaPrivateNetwork field value
+func (o *EnterpriseOsdClusterPayload) GetAccessKafkasViaPrivateNetwork() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.AccessKafkasViaPrivateNetwork
+}
+
+// GetAccessKafkasViaPrivateNetworkOk returns a tuple with the AccessKafkasViaPrivateNetwork field value
+// and a boolean to check if the value has been set.
+func (o *EnterpriseOsdClusterPayload) GetAccessKafkasViaPrivateNetworkOk() (*bool, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.AccessKafkasViaPrivateNetwork, true
+}
+
+// SetAccessKafkasViaPrivateNetwork sets field value
+func (o *EnterpriseOsdClusterPayload) SetAccessKafkasViaPrivateNetwork(v bool) {
+	o.AccessKafkasViaPrivateNetwork = v
 }
 
 // GetClusterId returns the ClusterId field value
@@ -146,6 +173,9 @@ func (o *EnterpriseOsdClusterPayload) SetKafkaMachinePoolNodeCount(v int32) {
 
 func (o EnterpriseOsdClusterPayload) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["access_kafkas_via_private_network"] = o.AccessKafkasViaPrivateNetwork
+	}
 	if true {
 		toSerialize["cluster_id"] = o.ClusterId
 	}

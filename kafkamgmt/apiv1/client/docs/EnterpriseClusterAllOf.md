@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AccessKafkasViaPrivateNetwork** | **bool** | Indicates whether Kafkas created on this data plane cluster have to be accessed via private network | 
 **ClusterId** | Pointer to **string** | ocm cluster id of the registered Enterprise cluster | [optional] 
 **Status** | Pointer to **string** | status of registered Enterprise cluster | [optional] 
 
@@ -11,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewEnterpriseClusterAllOf
 
-`func NewEnterpriseClusterAllOf() *EnterpriseClusterAllOf`
+`func NewEnterpriseClusterAllOf(accessKafkasViaPrivateNetwork bool, ) *EnterpriseClusterAllOf`
 
 NewEnterpriseClusterAllOf instantiates a new EnterpriseClusterAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -25,6 +26,26 @@ will change when the set of required properties is changed
 NewEnterpriseClusterAllOfWithDefaults instantiates a new EnterpriseClusterAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAccessKafkasViaPrivateNetwork
+
+`func (o *EnterpriseClusterAllOf) GetAccessKafkasViaPrivateNetwork() bool`
+
+GetAccessKafkasViaPrivateNetwork returns the AccessKafkasViaPrivateNetwork field if non-nil, zero value otherwise.
+
+### GetAccessKafkasViaPrivateNetworkOk
+
+`func (o *EnterpriseClusterAllOf) GetAccessKafkasViaPrivateNetworkOk() (*bool, bool)`
+
+GetAccessKafkasViaPrivateNetworkOk returns a tuple with the AccessKafkasViaPrivateNetwork field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessKafkasViaPrivateNetwork
+
+`func (o *EnterpriseClusterAllOf) SetAccessKafkasViaPrivateNetwork(v bool)`
+
+SetAccessKafkasViaPrivateNetwork sets AccessKafkasViaPrivateNetwork field to given value.
+
 
 ### GetClusterId
 

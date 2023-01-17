@@ -20,6 +20,8 @@ type EnterpriseCluster struct {
 	Id string `json:"id"`
 	Kind string `json:"kind"`
 	Href string `json:"href"`
+	// Indicates whether Kafkas created on this data plane cluster have to be accessed via private network
+	AccessKafkasViaPrivateNetwork bool `json:"access_kafkas_via_private_network"`
 	// ocm cluster id of the registered Enterprise cluster
 	ClusterId *string `json:"cluster_id,omitempty"`
 	// status of registered Enterprise cluster
@@ -30,11 +32,12 @@ type EnterpriseCluster struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnterpriseCluster(id string, kind string, href string) *EnterpriseCluster {
+func NewEnterpriseCluster(id string, kind string, href string, accessKafkasViaPrivateNetwork bool) *EnterpriseCluster {
 	this := EnterpriseCluster{}
 	this.Id = id
 	this.Kind = kind
 	this.Href = href
+	this.AccessKafkasViaPrivateNetwork = accessKafkasViaPrivateNetwork
 	return &this
 }
 
@@ -118,6 +121,30 @@ func (o *EnterpriseCluster) SetHref(v string) {
 	o.Href = v
 }
 
+// GetAccessKafkasViaPrivateNetwork returns the AccessKafkasViaPrivateNetwork field value
+func (o *EnterpriseCluster) GetAccessKafkasViaPrivateNetwork() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.AccessKafkasViaPrivateNetwork
+}
+
+// GetAccessKafkasViaPrivateNetworkOk returns a tuple with the AccessKafkasViaPrivateNetwork field value
+// and a boolean to check if the value has been set.
+func (o *EnterpriseCluster) GetAccessKafkasViaPrivateNetworkOk() (*bool, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.AccessKafkasViaPrivateNetwork, true
+}
+
+// SetAccessKafkasViaPrivateNetwork sets field value
+func (o *EnterpriseCluster) SetAccessKafkasViaPrivateNetwork(v bool) {
+	o.AccessKafkasViaPrivateNetwork = v
+}
+
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *EnterpriseCluster) GetClusterId() string {
 	if o == nil || o.ClusterId == nil {
@@ -192,6 +219,9 @@ func (o EnterpriseCluster) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["href"] = o.Href
+	}
+	if true {
+		toSerialize["access_kafkas_via_private_network"] = o.AccessKafkasViaPrivateNetwork
 	}
 	if o.ClusterId != nil {
 		toSerialize["cluster_id"] = o.ClusterId

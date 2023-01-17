@@ -17,6 +17,8 @@ import (
 
 // EnterpriseClusterAllOf struct for EnterpriseClusterAllOf
 type EnterpriseClusterAllOf struct {
+	// Indicates whether Kafkas created on this data plane cluster have to be accessed via private network
+	AccessKafkasViaPrivateNetwork bool `json:"access_kafkas_via_private_network"`
 	// ocm cluster id of the registered Enterprise cluster
 	ClusterId *string `json:"cluster_id,omitempty"`
 	// status of registered Enterprise cluster
@@ -27,8 +29,9 @@ type EnterpriseClusterAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnterpriseClusterAllOf() *EnterpriseClusterAllOf {
+func NewEnterpriseClusterAllOf(accessKafkasViaPrivateNetwork bool) *EnterpriseClusterAllOf {
 	this := EnterpriseClusterAllOf{}
+	this.AccessKafkasViaPrivateNetwork = accessKafkasViaPrivateNetwork
 	return &this
 }
 
@@ -38,6 +41,30 @@ func NewEnterpriseClusterAllOf() *EnterpriseClusterAllOf {
 func NewEnterpriseClusterAllOfWithDefaults() *EnterpriseClusterAllOf {
 	this := EnterpriseClusterAllOf{}
 	return &this
+}
+
+// GetAccessKafkasViaPrivateNetwork returns the AccessKafkasViaPrivateNetwork field value
+func (o *EnterpriseClusterAllOf) GetAccessKafkasViaPrivateNetwork() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.AccessKafkasViaPrivateNetwork
+}
+
+// GetAccessKafkasViaPrivateNetworkOk returns a tuple with the AccessKafkasViaPrivateNetwork field value
+// and a boolean to check if the value has been set.
+func (o *EnterpriseClusterAllOf) GetAccessKafkasViaPrivateNetworkOk() (*bool, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.AccessKafkasViaPrivateNetwork, true
+}
+
+// SetAccessKafkasViaPrivateNetwork sets field value
+func (o *EnterpriseClusterAllOf) SetAccessKafkasViaPrivateNetwork(v bool) {
+	o.AccessKafkasViaPrivateNetwork = v
 }
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
@@ -106,6 +133,9 @@ func (o *EnterpriseClusterAllOf) SetStatus(v string) {
 
 func (o EnterpriseClusterAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["access_kafkas_via_private_network"] = o.AccessKafkasViaPrivateNetwork
+	}
 	if o.ClusterId != nil {
 		toSerialize["cluster_id"] = o.ClusterId
 	}

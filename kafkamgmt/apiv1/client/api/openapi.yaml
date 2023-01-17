@@ -1180,7 +1180,7 @@ paths:
       - Bearer: []
   /api/kafkas_mgmt/v1/clusters:
     get:
-      description: List all Enterprise OSD clusters
+      description: List all Enterprise data plane clusters
       operationId: getEnterpriseOsdClusters
       responses:
         "200":
@@ -1188,7 +1188,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EnterpriseClusterList'
-          description: List Enterprise OSD clusters
+          description: List Enterprise data plane clusters
         "400":
           content:
             application/json:
@@ -1255,8 +1255,8 @@ paths:
               examples:
                 "400InvalidClusterIdExample":
                   $ref: '#/components/examples/400InvalidClusterIdExample'
-                "400MInvalidExternalClusterIdExample":
-                  $ref: '#/components/examples/400MInvalidExternalClusterIdExample'
+                "400InvalidExternalClusterIdExample":
+                  $ref: '#/components/examples/400InvalidExternalClusterIdExample'
               schema:
                 $ref: '#/components/schemas/Error'
           description: Validation errors occurred
@@ -1300,6 +1300,92 @@ paths:
       - Bearer: []
       tags:
       - enterprise-dataplane-clusters
+  /api/kafkas_mgmt/v1/clusters/{id}:
+    delete:
+      operationId: deleteEnterpriseClusterById
+      parameters:
+      - description: Perform the action in an asynchronous manner
+        explode: true
+        in: query
+        name: async
+        required: true
+        schema:
+          type: boolean
+        style: form
+      - description: |-
+          When provided with value: true - enterprise cluster will be deleted alongside all kafkas present on the cluster.
+          When skipped and enterprise cluster has any kafkas associated with it, the request will fail.
+        explode: true
+        in: query
+        name: force
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: ID of the enterprise data plane cluster
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Enterprise cluster deletion accepted
+        "400":
+          content:
+            application/json:
+              examples:
+                "400DeletionExample":
+                  $ref: '#/components/examples/400DeletionExample'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Validation errors occurred
+        "401":
+          content:
+            application/json:
+              examples:
+                "401Example":
+                  $ref: '#/components/examples/401Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Auth token is invalid
+        "403":
+          content:
+            application/json:
+              examples:
+                "403Example":
+                  $ref: '#/components/examples/403Example'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User not authorized to access the service
+        "404":
+          content:
+            application/json:
+              examples:
+                "404DeleteExample":
+                  $ref: '#/components/examples/404DeleteExample'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: No Enterprise cluster with specified ID exists
+        "500":
+          content:
+            application/json:
+              examples:
+                "500DeleteExample":
+                  $ref: '#/components/examples/500DeleteExample'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Unexpected error occurred
+      security:
+      - Bearer: []
+      tags:
+      - enterprise-dataplane-clusters
 components:
   examples:
     USRegionExample:
@@ -1325,6 +1411,7 @@ components:
         href: /api/kafkas_mgmr/v1/clusters/abcd1234ascd3456fdks9485lskd030h
         status: ready
         cluster_id: abcd1234ascd3456fdks9485lskd030h
+        access_kafkas_via_private_network: true
     KafkaRequestExample:
       value:
         id: 1iSY6RQ3JKI8Q0OTmjQFd3ocFRg
@@ -1551,7 +1638,7 @@ components:
         code: KAFKAS-MGMT-45
         reason: Enterprise cluster ID is invalid
         operation_id: 1lWDGuybIrEnxrAem724gqkkiDv
-    "400MInvalidExternalClusterIdExample":
+    "400InvalidExternalClusterIdExample":
       value:
         id: "46"
         kind: Error
@@ -1648,6 +1735,7 @@ components:
         cluster_external_id: 69d631de-9b7f-4bc2-bf4f-4d3295a7b25e
         cluster_ingress_dns_name: apps.enterprise-aws.awdk.s1.devshift.org
         kafka_machine_pool_node_count: 9
+        access_kafkas_via_private_network: false
   parameters:
     id:
       description: The ID of record
@@ -2257,8 +2345,13 @@ components:
         kafka_machine_pool_node_count: 0
         cluster_id: cluster_id
         cluster_external_id: cluster_external_id
+        access_kafkas_via_private_network: true
         cluster_ingress_dns_name: cluster_ingress_dns_name
       properties:
+        access_kafkas_via_private_network:
+          description: Sets whether Kafkas created on this data plane cluster have
+            to be accessed via private network
+          type: boolean
         cluster_id:
           description: The data plane cluster ID. This is the ID of the cluster obtained
             from OpenShift Cluster Manager (OCM) API
@@ -2281,6 +2374,7 @@ components:
           format: int32
           type: integer
       required:
+      - access_kafkas_via_private_network
       - cluster_external_id
       - cluster_id
       - cluster_ingress_dns_name
@@ -2440,12 +2534,18 @@ components:
       type: object
     EnterpriseCluster_allOf:
       properties:
+        access_kafkas_via_private_network:
+          description: Indicates whether Kafkas created on this data plane cluster
+            have to be accessed via private network
+          type: boolean
         cluster_id:
           description: ocm cluster id of the registered Enterprise cluster
           type: string
         status:
           description: status of registered Enterprise cluster
           type: string
+      required:
+      - access_kafkas_via_private_network
       type: object
     VersionMetadata_allOf:
       example:
@@ -2627,6 +2727,10 @@ components:
       type: object
     EnterpriseClusterRegistrationResponse_allOf:
       properties:
+        access_kafkas_via_private_network:
+          description: Indicates whether Kafkas created on this data plane cluster
+            have to be accessed via private network
+          type: boolean
         cluster_id:
           description: OCM cluster id of the registered Enterprise cluster
           type: string
@@ -2638,6 +2742,8 @@ components:
             allOf:
             - $ref: '#/components/schemas/FleetshardParameter'
           type: array
+      required:
+      - access_kafkas_via_private_network
       type: object
   securitySchemes:
     Bearer:

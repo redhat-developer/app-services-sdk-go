@@ -90,6 +90,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetMetricsByRangeQuery**](docs/DefaultApi.md#getmetricsbyrangequery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query_range | 
 *DefaultApi* | [**GetVersionMetadata**](docs/DefaultApi.md#getversionmetadata) | **Get** /api/kafkas_mgmt/v1 | 
 *DefaultApi* | [**UpdateKafkaById**](docs/DefaultApi.md#updatekafkabyid) | **Patch** /api/kafkas_mgmt/v1/kafkas/{id} | 
+*EnterpriseDataplaneClustersApi* | [**DeleteEnterpriseClusterById**](docs/EnterpriseDataplaneClustersApi.md#deleteenterpriseclusterbyid) | **Delete** /api/kafkas_mgmt/v1/clusters/{id} | 
 *EnterpriseDataplaneClustersApi* | [**GetEnterpriseOsdClusters**](docs/EnterpriseDataplaneClustersApi.md#getenterpriseosdclusters) | **Get** /api/kafkas_mgmt/v1/clusters | 
 *EnterpriseDataplaneClustersApi* | [**RegisterEnterpriseOsdCluster**](docs/EnterpriseDataplaneClustersApi.md#registerenterpriseosdcluster) | **Post** /api/kafkas_mgmt/v1/clusters | 
 *ErrorsApi* | [**GetErrorById**](docs/ErrorsApi.md#geterrorbyid) | **Get** /api/kafkas_mgmt/v1/errors/{id} | 

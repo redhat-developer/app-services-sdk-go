@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AccessKafkasViaPrivateNetwork** | **bool** | Sets whether Kafkas created on this data plane cluster have to be accessed via private network | 
 **ClusterId** | **string** | The data plane cluster ID. This is the ID of the cluster obtained from OpenShift Cluster Manager (OCM) API | 
 **ClusterExternalId** | **string** | external cluster ID. Can be obtained from the response JSON of OCM get /api/clusters_mgmt/v1/clusters/&lt;cluster_id&gt; | 
 **ClusterIngressDnsName** | **string** | dns name of the cluster. Can be obtained from the response JSON of the /api/clusters_mgmt/v1/clusters/&lt;cluster_id&gt;/ingresses (dns_name) | 
@@ -13,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewEnterpriseOsdClusterPayload
 
-`func NewEnterpriseOsdClusterPayload(clusterId string, clusterExternalId string, clusterIngressDnsName string, kafkaMachinePoolNodeCount int32, ) *EnterpriseOsdClusterPayload`
+`func NewEnterpriseOsdClusterPayload(accessKafkasViaPrivateNetwork bool, clusterId string, clusterExternalId string, clusterIngressDnsName string, kafkaMachinePoolNodeCount int32, ) *EnterpriseOsdClusterPayload`
 
 NewEnterpriseOsdClusterPayload instantiates a new EnterpriseOsdClusterPayload object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +28,26 @@ will change when the set of required properties is changed
 NewEnterpriseOsdClusterPayloadWithDefaults instantiates a new EnterpriseOsdClusterPayload object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAccessKafkasViaPrivateNetwork
+
+`func (o *EnterpriseOsdClusterPayload) GetAccessKafkasViaPrivateNetwork() bool`
+
+GetAccessKafkasViaPrivateNetwork returns the AccessKafkasViaPrivateNetwork field if non-nil, zero value otherwise.
+
+### GetAccessKafkasViaPrivateNetworkOk
+
+`func (o *EnterpriseOsdClusterPayload) GetAccessKafkasViaPrivateNetworkOk() (*bool, bool)`
+
+GetAccessKafkasViaPrivateNetworkOk returns a tuple with the AccessKafkasViaPrivateNetwork field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessKafkasViaPrivateNetwork
+
+`func (o *EnterpriseOsdClusterPayload) SetAccessKafkasViaPrivateNetwork(v bool)`
+
+SetAccessKafkasViaPrivateNetwork sets AccessKafkasViaPrivateNetwork field to given value.
+
 
 ### GetClusterId
 
