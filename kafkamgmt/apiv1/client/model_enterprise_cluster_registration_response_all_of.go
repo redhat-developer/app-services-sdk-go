@@ -17,6 +17,8 @@ import (
 
 // EnterpriseClusterRegistrationResponseAllOf struct for EnterpriseClusterRegistrationResponseAllOf
 type EnterpriseClusterRegistrationResponseAllOf struct {
+	// Indicates whether Kafkas created on this data plane cluster have to be accessed via private network
+	AccessKafkasViaPrivateNetwork bool `json:"access_kafkas_via_private_network"`
 	// OCM cluster id of the registered Enterprise cluster
 	ClusterId *string `json:"cluster_id,omitempty"`
 	// status of registered Enterprise cluster
@@ -28,8 +30,9 @@ type EnterpriseClusterRegistrationResponseAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnterpriseClusterRegistrationResponseAllOf() *EnterpriseClusterRegistrationResponseAllOf {
+func NewEnterpriseClusterRegistrationResponseAllOf(accessKafkasViaPrivateNetwork bool) *EnterpriseClusterRegistrationResponseAllOf {
 	this := EnterpriseClusterRegistrationResponseAllOf{}
+	this.AccessKafkasViaPrivateNetwork = accessKafkasViaPrivateNetwork
 	return &this
 }
 
@@ -39,6 +42,30 @@ func NewEnterpriseClusterRegistrationResponseAllOf() *EnterpriseClusterRegistrat
 func NewEnterpriseClusterRegistrationResponseAllOfWithDefaults() *EnterpriseClusterRegistrationResponseAllOf {
 	this := EnterpriseClusterRegistrationResponseAllOf{}
 	return &this
+}
+
+// GetAccessKafkasViaPrivateNetwork returns the AccessKafkasViaPrivateNetwork field value
+func (o *EnterpriseClusterRegistrationResponseAllOf) GetAccessKafkasViaPrivateNetwork() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.AccessKafkasViaPrivateNetwork
+}
+
+// GetAccessKafkasViaPrivateNetworkOk returns a tuple with the AccessKafkasViaPrivateNetwork field value
+// and a boolean to check if the value has been set.
+func (o *EnterpriseClusterRegistrationResponseAllOf) GetAccessKafkasViaPrivateNetworkOk() (*bool, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.AccessKafkasViaPrivateNetwork, true
+}
+
+// SetAccessKafkasViaPrivateNetwork sets field value
+func (o *EnterpriseClusterRegistrationResponseAllOf) SetAccessKafkasViaPrivateNetwork(v bool) {
+	o.AccessKafkasViaPrivateNetwork = v
 }
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise.
@@ -139,6 +166,9 @@ func (o *EnterpriseClusterRegistrationResponseAllOf) SetFleetshardParameters(v [
 
 func (o EnterpriseClusterRegistrationResponseAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["access_kafkas_via_private_network"] = o.AccessKafkasViaPrivateNetwork
+	}
 	if o.ClusterId != nil {
 		toSerialize["cluster_id"] = o.ClusterId
 	}

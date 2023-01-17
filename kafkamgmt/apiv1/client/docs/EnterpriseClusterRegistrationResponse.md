@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Kind** | **string** |  | 
 **Href** | **string** |  | 
+**AccessKafkasViaPrivateNetwork** | **bool** | Indicates whether Kafkas created on this data plane cluster have to be accessed via private network | 
 **ClusterId** | Pointer to **string** | OCM cluster id of the registered Enterprise cluster | [optional] 
 **Status** | Pointer to **string** | status of registered Enterprise cluster | [optional] 
 **FleetshardParameters** | Pointer to [**[]FleetshardParameter**](FleetshardParameter.md) |  | [optional] 
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewEnterpriseClusterRegistrationResponse
 
-`func NewEnterpriseClusterRegistrationResponse(id string, kind string, href string, ) *EnterpriseClusterRegistrationResponse`
+`func NewEnterpriseClusterRegistrationResponse(id string, kind string, href string, accessKafkasViaPrivateNetwork bool, ) *EnterpriseClusterRegistrationResponse`
 
 NewEnterpriseClusterRegistrationResponse instantiates a new EnterpriseClusterRegistrationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -88,6 +89,26 @@ and a boolean to check if the value has been set.
 `func (o *EnterpriseClusterRegistrationResponse) SetHref(v string)`
 
 SetHref sets Href field to given value.
+
+
+### GetAccessKafkasViaPrivateNetwork
+
+`func (o *EnterpriseClusterRegistrationResponse) GetAccessKafkasViaPrivateNetwork() bool`
+
+GetAccessKafkasViaPrivateNetwork returns the AccessKafkasViaPrivateNetwork field if non-nil, zero value otherwise.
+
+### GetAccessKafkasViaPrivateNetworkOk
+
+`func (o *EnterpriseClusterRegistrationResponse) GetAccessKafkasViaPrivateNetworkOk() (*bool, bool)`
+
+GetAccessKafkasViaPrivateNetworkOk returns a tuple with the AccessKafkasViaPrivateNetwork field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessKafkasViaPrivateNetwork
+
+`func (o *EnterpriseClusterRegistrationResponse) SetAccessKafkasViaPrivateNetwork(v bool)`
+
+SetAccessKafkasViaPrivateNetwork sets AccessKafkasViaPrivateNetwork field to given value.
 
 
 ### GetClusterId
