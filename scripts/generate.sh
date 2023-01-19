@@ -24,7 +24,7 @@ generate_sdk() {
 
 npx @openapitools/openapi-generator-cli version-manager set 5.2.0
 echo "Generating SDKs"
-additional_properties="generateInterfaces=true,enumClassPrefix=true"
+additional_properties="generateInterfaces=true,enumClassPrefix=true,structPrefix=true"
 
 OPENAPI_FILENAME=".openapi/kas-fleet-manager.yaml"
 PACKAGE_NAME="kafkamgmtclient"
