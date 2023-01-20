@@ -19,24 +19,27 @@ import (
 type Error struct {
 	// The kind (type) of this resource
 	Kind string `json:"kind"`
+	// The unique identifier of this resource
+	Id string `json:"id"`
 	// The name of this resource
-	Name *string `json:"name,omitempty"`
+	Name string `json:"name"`
+	// The URL of this resource, without the protocol
+	Href string `json:"href"`
 	Code *string `json:"code,omitempty"`
 	Reason string `json:"reason"`
-	Id string `json:"id"`
-	Href string `json:"href"`
 }
 
 // NewError instantiates a new Error object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewError(kind string, reason string, id string, href string) *Error {
+func NewError(kind string, id string, name string, href string, reason string) *Error {
 	this := Error{}
 	this.Kind = kind
-	this.Reason = reason
 	this.Id = id
+	this.Name = name
 	this.Href = href
+	this.Reason = reason
 	return &this
 }
 
@@ -72,36 +75,76 @@ func (o *Error) SetKind(v string) {
 	o.Kind = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
-func (o *Error) GetName() string {
-	if o == nil || o.Name == nil {
+// GetId returns the Id field value
+func (o *Error) GetId() string {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name
+
+	return o.Id
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *Error) GetNameOk() (*string, bool) {
-	if o == nil || o.Name == nil {
+func (o *Error) GetIdOk() (*string, bool) {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Name, true
+	return &o.Id, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *Error) HasName() bool {
-	if o != nil && o.Name != nil {
-		return true
+// SetId sets field value
+func (o *Error) SetId(v string) {
+	o.Id = v
+}
+
+// GetName returns the Name field value
+func (o *Error) GetName() string {
+	if o == nil {
+		var ret string
+		return ret
 	}
 
-	return false
+	return o.Name
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// GetNameOk returns a tuple with the Name field value
+// and a boolean to check if the value has been set.
+func (o *Error) GetNameOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Name, true
+}
+
+// SetName sets field value
 func (o *Error) SetName(v string) {
-	o.Name = &v
+	o.Name = v
+}
+
+// GetHref returns the Href field value
+func (o *Error) GetHref() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Href
+}
+
+// GetHrefOk returns a tuple with the Href field value
+// and a boolean to check if the value has been set.
+func (o *Error) GetHrefOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Href, true
+}
+
+// SetHref sets field value
+func (o *Error) SetHref(v string) {
+	o.Href = v
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
@@ -160,73 +203,25 @@ func (o *Error) SetReason(v string) {
 	o.Reason = v
 }
 
-// GetId returns the Id field value
-func (o *Error) GetId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Id
-}
-
-// GetIdOk returns a tuple with the Id field value
-// and a boolean to check if the value has been set.
-func (o *Error) GetIdOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Id, true
-}
-
-// SetId sets field value
-func (o *Error) SetId(v string) {
-	o.Id = v
-}
-
-// GetHref returns the Href field value
-func (o *Error) GetHref() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Href
-}
-
-// GetHrefOk returns a tuple with the Href field value
-// and a boolean to check if the value has been set.
-func (o *Error) GetHrefOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Href, true
-}
-
-// SetHref sets field value
-func (o *Error) SetHref(v string) {
-	o.Href = v
-}
-
 func (o Error) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["kind"] = o.Kind
 	}
-	if o.Name != nil {
+	if true {
+		toSerialize["id"] = o.Id
+	}
+	if true {
 		toSerialize["name"] = o.Name
+	}
+	if true {
+		toSerialize["href"] = o.Href
 	}
 	if o.Code != nil {
 		toSerialize["code"] = o.Code
 	}
 	if true {
 		toSerialize["reason"] = o.Reason
-	}
-	if true {
-		toSerialize["id"] = o.Id
-	}
-	if true {
-		toSerialize["href"] = o.Href
 	}
 	return json.Marshal(toSerialize)
 }
