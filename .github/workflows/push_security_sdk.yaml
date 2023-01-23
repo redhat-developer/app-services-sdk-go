@@ -20,7 +20,8 @@ jobs:
       - uses: actions/checkout@v3
      
       - name: KAS Fleet Manager OpenAPI changed
-        uses: peter-evans/repository-dispatch@v2
+        # v2
+        uses: peter-evans/repository-dispatch@26b39ed245ab8f31526069329e112ab2fb224588
         with:
           token: ${{ env.APP_SERVICES_CI_TOKEN }}
           repository: ${{ matrix.repo }}
