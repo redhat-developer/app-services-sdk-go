@@ -22,7 +22,7 @@ type ObjectReference struct {
 	// The unique identifier of this resource
 	Id string `json:"id"`
 	// The name of this resource
-	Name *string `json:"name,omitempty"`
+	Name string `json:"name"`
 	// The URL of this resource, without the protocol
 	Href string `json:"href"`
 }
@@ -31,10 +31,11 @@ type ObjectReference struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewObjectReference(kind string, id string, href string) *ObjectReference {
+func NewObjectReference(kind string, id string, name string, href string) *ObjectReference {
 	this := ObjectReference{}
 	this.Kind = kind
 	this.Id = id
+	this.Name = name
 	this.Href = href
 	return &this
 }
@@ -95,36 +96,28 @@ func (o *ObjectReference) SetId(v string) {
 	o.Id = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value
 func (o *ObjectReference) GetName() string {
-	if o == nil || o.Name == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *ObjectReference) GetNameOk() (*string, bool) {
-	if o == nil || o.Name == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Name, true
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *ObjectReference) HasName() bool {
-	if o != nil && o.Name != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName sets field value
 func (o *ObjectReference) SetName(v string) {
-	o.Name = &v
+	o.Name = v
 }
 
 // GetHref returns the Href field value
@@ -159,7 +152,7 @@ func (o ObjectReference) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["id"] = o.Id
 	}
-	if o.Name != nil {
+	if true {
 		toSerialize["name"] = o.Name
 	}
 	if true {

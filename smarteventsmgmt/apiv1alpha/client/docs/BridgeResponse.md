@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Kind** | **string** | The kind (type) of this resource | 
 **Id** | **string** | The unique identifier of this resource | 
+**Name** | **string** | The name of this resource | 
 **Href** | **string** | The URL of this resource, without the protocol | 
 **SubmittedAt** | **time.Time** |  | 
 **PublishedAt** | Pointer to **time.Time** |  | [optional] 
 **ModifiedAt** | Pointer to **time.Time** |  | [optional] 
 **Status** | [**ManagedResourceStatus**](ManagedResourceStatus.md) |  | 
 **Owner** | **string** | The user that owns this resource | 
-**Name** | **string** | The name of the bridge | 
 **Endpoint** | Pointer to **string** | The HTTPS endpoint on which the bridge accepts events | [optional] 
 **CloudProvider** | Pointer to **string** | The cloud provider where the bridge resides | [optional] 
 **Region** | Pointer to **string** | The cloud provider region where the bridge resides | [optional] 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewBridgeResponse
 
-`func NewBridgeResponse(kind string, id string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, name string, ) *BridgeResponse`
+`func NewBridgeResponse(kind string, id string, name string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, ) *BridgeResponse`
 
 NewBridgeResponse instantiates a new BridgeResponse object
 This constructor will assign default values to properties that have it defined,
@@ -75,6 +75,26 @@ and a boolean to check if the value has been set.
 `func (o *BridgeResponse) SetId(v string)`
 
 SetId sets Id field to given value.
+
+
+### GetName
+
+`func (o *BridgeResponse) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *BridgeResponse) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *BridgeResponse) SetName(v string)`
+
+SetName sets Name field to given value.
 
 
 ### GetHref
@@ -205,26 +225,6 @@ and a boolean to check if the value has been set.
 `func (o *BridgeResponse) SetOwner(v string)`
 
 SetOwner sets Owner field to given value.
-
-
-### GetName
-
-`func (o *BridgeResponse) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *BridgeResponse) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *BridgeResponse) SetName(v string)`
-
-SetName sets Name field to given value.
 
 
 ### GetEndpoint

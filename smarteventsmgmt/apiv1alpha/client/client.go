@@ -57,6 +57,10 @@ type APIClient struct {
 	ErrorCatalogApi ErrorCatalogApi
 
 	ProcessorsApi ProcessorsApi
+
+	SinkConnectorsApi SinkConnectorsApi
+
+	SourceConnectorsApi SourceConnectorsApi
 }
 
 type service struct {
@@ -79,6 +83,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CloudProvidersApi = (*CloudProvidersApiService)(&c.common)
 	c.ErrorCatalogApi = (*ErrorCatalogApiService)(&c.common)
 	c.ProcessorsApi = (*ProcessorsApiService)(&c.common)
+	c.SinkConnectorsApi = (*SinkConnectorsApiService)(&c.common)
+	c.SourceConnectorsApi = (*SourceConnectorsApiService)(&c.common)
 
 	return c
 }

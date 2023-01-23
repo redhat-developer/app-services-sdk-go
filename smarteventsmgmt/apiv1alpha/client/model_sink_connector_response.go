@@ -16,8 +16,8 @@ import (
 	"time"
 )
 
-// ProcessorResponse struct for ProcessorResponse
-type ProcessorResponse struct {
+// SinkConnectorResponse struct for SinkConnectorResponse
+type SinkConnectorResponse struct {
 	// The kind (type) of this resource
 	Kind string `json:"kind"`
 	// The unique identifier of this resource
@@ -32,17 +32,22 @@ type ProcessorResponse struct {
 	Status ManagedResourceStatus `json:"status"`
 	// The user that owns this resource
 	Owner string `json:"owner"`
-	// The Camel YAML DSL code, formatted as JSON, that defines the flows in the processor
-	Flows map[string]interface{} `json:"flows"`
+	// The connector type
+	ConnectorTypeId string `json:"connector_type_id"`
+	// The Connector configuration payload
+	Connector map[string]interface{} `json:"connector"`
+	// A detailed status message in case there is a problem with the connector
 	StatusMessage *string `json:"status_message,omitempty"`
+	// The URI to be used in Camel DSL to send data to this sink
+	UriDsl string `json:"uri_dsl"`
 }
 
-// NewProcessorResponse instantiates a new ProcessorResponse object
+// NewSinkConnectorResponse instantiates a new SinkConnectorResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProcessorResponse(kind string, id string, name string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, flows map[string]interface{}) *ProcessorResponse {
-	this := ProcessorResponse{}
+func NewSinkConnectorResponse(kind string, id string, name string, href string, submittedAt time.Time, status ManagedResourceStatus, owner string, connectorTypeId string, connector map[string]interface{}, uriDsl string) *SinkConnectorResponse {
+	this := SinkConnectorResponse{}
 	this.Kind = kind
 	this.Id = id
 	this.Name = name
@@ -50,20 +55,22 @@ func NewProcessorResponse(kind string, id string, name string, href string, subm
 	this.SubmittedAt = submittedAt
 	this.Status = status
 	this.Owner = owner
-	this.Flows = flows
+	this.ConnectorTypeId = connectorTypeId
+	this.Connector = connector
+	this.UriDsl = uriDsl
 	return &this
 }
 
-// NewProcessorResponseWithDefaults instantiates a new ProcessorResponse object
+// NewSinkConnectorResponseWithDefaults instantiates a new SinkConnectorResponse object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewProcessorResponseWithDefaults() *ProcessorResponse {
-	this := ProcessorResponse{}
+func NewSinkConnectorResponseWithDefaults() *SinkConnectorResponse {
+	this := SinkConnectorResponse{}
 	return &this
 }
 
 // GetKind returns the Kind field value
-func (o *ProcessorResponse) GetKind() string {
+func (o *SinkConnectorResponse) GetKind() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -74,7 +81,7 @@ func (o *ProcessorResponse) GetKind() string {
 
 // GetKindOk returns a tuple with the Kind field value
 // and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetKindOk() (*string, bool) {
+func (o *SinkConnectorResponse) GetKindOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -82,12 +89,12 @@ func (o *ProcessorResponse) GetKindOk() (*string, bool) {
 }
 
 // SetKind sets field value
-func (o *ProcessorResponse) SetKind(v string) {
+func (o *SinkConnectorResponse) SetKind(v string) {
 	o.Kind = v
 }
 
 // GetId returns the Id field value
-func (o *ProcessorResponse) GetId() string {
+func (o *SinkConnectorResponse) GetId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -98,7 +105,7 @@ func (o *ProcessorResponse) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetIdOk() (*string, bool) {
+func (o *SinkConnectorResponse) GetIdOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -106,12 +113,12 @@ func (o *ProcessorResponse) GetIdOk() (*string, bool) {
 }
 
 // SetId sets field value
-func (o *ProcessorResponse) SetId(v string) {
+func (o *SinkConnectorResponse) SetId(v string) {
 	o.Id = v
 }
 
 // GetName returns the Name field value
-func (o *ProcessorResponse) GetName() string {
+func (o *SinkConnectorResponse) GetName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -122,7 +129,7 @@ func (o *ProcessorResponse) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetNameOk() (*string, bool) {
+func (o *SinkConnectorResponse) GetNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -130,12 +137,12 @@ func (o *ProcessorResponse) GetNameOk() (*string, bool) {
 }
 
 // SetName sets field value
-func (o *ProcessorResponse) SetName(v string) {
+func (o *SinkConnectorResponse) SetName(v string) {
 	o.Name = v
 }
 
 // GetHref returns the Href field value
-func (o *ProcessorResponse) GetHref() string {
+func (o *SinkConnectorResponse) GetHref() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -146,7 +153,7 @@ func (o *ProcessorResponse) GetHref() string {
 
 // GetHrefOk returns a tuple with the Href field value
 // and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetHrefOk() (*string, bool) {
+func (o *SinkConnectorResponse) GetHrefOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -154,12 +161,12 @@ func (o *ProcessorResponse) GetHrefOk() (*string, bool) {
 }
 
 // SetHref sets field value
-func (o *ProcessorResponse) SetHref(v string) {
+func (o *SinkConnectorResponse) SetHref(v string) {
 	o.Href = v
 }
 
 // GetSubmittedAt returns the SubmittedAt field value
-func (o *ProcessorResponse) GetSubmittedAt() time.Time {
+func (o *SinkConnectorResponse) GetSubmittedAt() time.Time {
 	if o == nil {
 		var ret time.Time
 		return ret
@@ -170,7 +177,7 @@ func (o *ProcessorResponse) GetSubmittedAt() time.Time {
 
 // GetSubmittedAtOk returns a tuple with the SubmittedAt field value
 // and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetSubmittedAtOk() (*time.Time, bool) {
+func (o *SinkConnectorResponse) GetSubmittedAtOk() (*time.Time, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -178,12 +185,12 @@ func (o *ProcessorResponse) GetSubmittedAtOk() (*time.Time, bool) {
 }
 
 // SetSubmittedAt sets field value
-func (o *ProcessorResponse) SetSubmittedAt(v time.Time) {
+func (o *SinkConnectorResponse) SetSubmittedAt(v time.Time) {
 	o.SubmittedAt = v
 }
 
 // GetPublishedAt returns the PublishedAt field value if set, zero value otherwise.
-func (o *ProcessorResponse) GetPublishedAt() time.Time {
+func (o *SinkConnectorResponse) GetPublishedAt() time.Time {
 	if o == nil || o.PublishedAt == nil {
 		var ret time.Time
 		return ret
@@ -193,7 +200,7 @@ func (o *ProcessorResponse) GetPublishedAt() time.Time {
 
 // GetPublishedAtOk returns a tuple with the PublishedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetPublishedAtOk() (*time.Time, bool) {
+func (o *SinkConnectorResponse) GetPublishedAtOk() (*time.Time, bool) {
 	if o == nil || o.PublishedAt == nil {
 		return nil, false
 	}
@@ -201,7 +208,7 @@ func (o *ProcessorResponse) GetPublishedAtOk() (*time.Time, bool) {
 }
 
 // HasPublishedAt returns a boolean if a field has been set.
-func (o *ProcessorResponse) HasPublishedAt() bool {
+func (o *SinkConnectorResponse) HasPublishedAt() bool {
 	if o != nil && o.PublishedAt != nil {
 		return true
 	}
@@ -210,12 +217,12 @@ func (o *ProcessorResponse) HasPublishedAt() bool {
 }
 
 // SetPublishedAt gets a reference to the given time.Time and assigns it to the PublishedAt field.
-func (o *ProcessorResponse) SetPublishedAt(v time.Time) {
+func (o *SinkConnectorResponse) SetPublishedAt(v time.Time) {
 	o.PublishedAt = &v
 }
 
 // GetModifiedAt returns the ModifiedAt field value if set, zero value otherwise.
-func (o *ProcessorResponse) GetModifiedAt() time.Time {
+func (o *SinkConnectorResponse) GetModifiedAt() time.Time {
 	if o == nil || o.ModifiedAt == nil {
 		var ret time.Time
 		return ret
@@ -225,7 +232,7 @@ func (o *ProcessorResponse) GetModifiedAt() time.Time {
 
 // GetModifiedAtOk returns a tuple with the ModifiedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetModifiedAtOk() (*time.Time, bool) {
+func (o *SinkConnectorResponse) GetModifiedAtOk() (*time.Time, bool) {
 	if o == nil || o.ModifiedAt == nil {
 		return nil, false
 	}
@@ -233,7 +240,7 @@ func (o *ProcessorResponse) GetModifiedAtOk() (*time.Time, bool) {
 }
 
 // HasModifiedAt returns a boolean if a field has been set.
-func (o *ProcessorResponse) HasModifiedAt() bool {
+func (o *SinkConnectorResponse) HasModifiedAt() bool {
 	if o != nil && o.ModifiedAt != nil {
 		return true
 	}
@@ -242,12 +249,12 @@ func (o *ProcessorResponse) HasModifiedAt() bool {
 }
 
 // SetModifiedAt gets a reference to the given time.Time and assigns it to the ModifiedAt field.
-func (o *ProcessorResponse) SetModifiedAt(v time.Time) {
+func (o *SinkConnectorResponse) SetModifiedAt(v time.Time) {
 	o.ModifiedAt = &v
 }
 
 // GetStatus returns the Status field value
-func (o *ProcessorResponse) GetStatus() ManagedResourceStatus {
+func (o *SinkConnectorResponse) GetStatus() ManagedResourceStatus {
 	if o == nil {
 		var ret ManagedResourceStatus
 		return ret
@@ -258,7 +265,7 @@ func (o *ProcessorResponse) GetStatus() ManagedResourceStatus {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetStatusOk() (*ManagedResourceStatus, bool) {
+func (o *SinkConnectorResponse) GetStatusOk() (*ManagedResourceStatus, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -266,12 +273,12 @@ func (o *ProcessorResponse) GetStatusOk() (*ManagedResourceStatus, bool) {
 }
 
 // SetStatus sets field value
-func (o *ProcessorResponse) SetStatus(v ManagedResourceStatus) {
+func (o *SinkConnectorResponse) SetStatus(v ManagedResourceStatus) {
 	o.Status = v
 }
 
 // GetOwner returns the Owner field value
-func (o *ProcessorResponse) GetOwner() string {
+func (o *SinkConnectorResponse) GetOwner() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -282,7 +289,7 @@ func (o *ProcessorResponse) GetOwner() string {
 
 // GetOwnerOk returns a tuple with the Owner field value
 // and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetOwnerOk() (*string, bool) {
+func (o *SinkConnectorResponse) GetOwnerOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -290,36 +297,60 @@ func (o *ProcessorResponse) GetOwnerOk() (*string, bool) {
 }
 
 // SetOwner sets field value
-func (o *ProcessorResponse) SetOwner(v string) {
+func (o *SinkConnectorResponse) SetOwner(v string) {
 	o.Owner = v
 }
 
-// GetFlows returns the Flows field value
-func (o *ProcessorResponse) GetFlows() map[string]interface{} {
+// GetConnectorTypeId returns the ConnectorTypeId field value
+func (o *SinkConnectorResponse) GetConnectorTypeId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ConnectorTypeId
+}
+
+// GetConnectorTypeIdOk returns a tuple with the ConnectorTypeId field value
+// and a boolean to check if the value has been set.
+func (o *SinkConnectorResponse) GetConnectorTypeIdOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.ConnectorTypeId, true
+}
+
+// SetConnectorTypeId sets field value
+func (o *SinkConnectorResponse) SetConnectorTypeId(v string) {
+	o.ConnectorTypeId = v
+}
+
+// GetConnector returns the Connector field value
+func (o *SinkConnectorResponse) GetConnector() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
 		return ret
 	}
 
-	return o.Flows
+	return o.Connector
 }
 
-// GetFlowsOk returns a tuple with the Flows field value
+// GetConnectorOk returns a tuple with the Connector field value
 // and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetFlowsOk() (*map[string]interface{}, bool) {
+func (o *SinkConnectorResponse) GetConnectorOk() (*map[string]interface{}, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Flows, true
+	return &o.Connector, true
 }
 
-// SetFlows sets field value
-func (o *ProcessorResponse) SetFlows(v map[string]interface{}) {
-	o.Flows = v
+// SetConnector sets field value
+func (o *SinkConnectorResponse) SetConnector(v map[string]interface{}) {
+	o.Connector = v
 }
 
 // GetStatusMessage returns the StatusMessage field value if set, zero value otherwise.
-func (o *ProcessorResponse) GetStatusMessage() string {
+func (o *SinkConnectorResponse) GetStatusMessage() string {
 	if o == nil || o.StatusMessage == nil {
 		var ret string
 		return ret
@@ -329,7 +360,7 @@ func (o *ProcessorResponse) GetStatusMessage() string {
 
 // GetStatusMessageOk returns a tuple with the StatusMessage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProcessorResponse) GetStatusMessageOk() (*string, bool) {
+func (o *SinkConnectorResponse) GetStatusMessageOk() (*string, bool) {
 	if o == nil || o.StatusMessage == nil {
 		return nil, false
 	}
@@ -337,7 +368,7 @@ func (o *ProcessorResponse) GetStatusMessageOk() (*string, bool) {
 }
 
 // HasStatusMessage returns a boolean if a field has been set.
-func (o *ProcessorResponse) HasStatusMessage() bool {
+func (o *SinkConnectorResponse) HasStatusMessage() bool {
 	if o != nil && o.StatusMessage != nil {
 		return true
 	}
@@ -346,11 +377,35 @@ func (o *ProcessorResponse) HasStatusMessage() bool {
 }
 
 // SetStatusMessage gets a reference to the given string and assigns it to the StatusMessage field.
-func (o *ProcessorResponse) SetStatusMessage(v string) {
+func (o *SinkConnectorResponse) SetStatusMessage(v string) {
 	o.StatusMessage = &v
 }
 
-func (o ProcessorResponse) MarshalJSON() ([]byte, error) {
+// GetUriDsl returns the UriDsl field value
+func (o *SinkConnectorResponse) GetUriDsl() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.UriDsl
+}
+
+// GetUriDslOk returns a tuple with the UriDsl field value
+// and a boolean to check if the value has been set.
+func (o *SinkConnectorResponse) GetUriDslOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.UriDsl, true
+}
+
+// SetUriDsl sets field value
+func (o *SinkConnectorResponse) SetUriDsl(v string) {
+	o.UriDsl = v
+}
+
+func (o SinkConnectorResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["kind"] = o.Kind
@@ -380,46 +435,52 @@ func (o ProcessorResponse) MarshalJSON() ([]byte, error) {
 		toSerialize["owner"] = o.Owner
 	}
 	if true {
-		toSerialize["flows"] = o.Flows
+		toSerialize["connector_type_id"] = o.ConnectorTypeId
+	}
+	if true {
+		toSerialize["connector"] = o.Connector
 	}
 	if o.StatusMessage != nil {
 		toSerialize["status_message"] = o.StatusMessage
 	}
+	if true {
+		toSerialize["uri_dsl"] = o.UriDsl
+	}
 	return json.Marshal(toSerialize)
 }
 
-type NullableProcessorResponse struct {
-	value *ProcessorResponse
+type NullableSinkConnectorResponse struct {
+	value *SinkConnectorResponse
 	isSet bool
 }
 
-func (v NullableProcessorResponse) Get() *ProcessorResponse {
+func (v NullableSinkConnectorResponse) Get() *SinkConnectorResponse {
 	return v.value
 }
 
-func (v *NullableProcessorResponse) Set(val *ProcessorResponse) {
+func (v *NullableSinkConnectorResponse) Set(val *SinkConnectorResponse) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableProcessorResponse) IsSet() bool {
+func (v NullableSinkConnectorResponse) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableProcessorResponse) Unset() {
+func (v *NullableSinkConnectorResponse) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableProcessorResponse(val *ProcessorResponse) *NullableProcessorResponse {
-	return &NullableProcessorResponse{value: val, isSet: true}
+func NewNullableSinkConnectorResponse(val *SinkConnectorResponse) *NullableSinkConnectorResponse {
+	return &NullableSinkConnectorResponse{value: val, isSet: true}
 }
 
-func (v NullableProcessorResponse) MarshalJSON() ([]byte, error) {
+func (v NullableSinkConnectorResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableProcessorResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableSinkConnectorResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

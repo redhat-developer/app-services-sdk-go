@@ -91,6 +91,8 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetVersionMetadata**](docs/DefaultApi.md#getversionmetadata) | **Get** /api/kafkas_mgmt/v1 | 
 *DefaultApi* | [**UpdateKafkaById**](docs/DefaultApi.md#updatekafkabyid) | **Patch** /api/kafkas_mgmt/v1/kafkas/{id} | 
 *EnterpriseDataplaneClustersApi* | [**DeleteEnterpriseClusterById**](docs/EnterpriseDataplaneClustersApi.md#deleteenterpriseclusterbyid) | **Delete** /api/kafkas_mgmt/v1/clusters/{id} | 
+*EnterpriseDataplaneClustersApi* | [**GetEnterpriseClusterById**](docs/EnterpriseDataplaneClustersApi.md#getenterpriseclusterbyid) | **Get** /api/kafkas_mgmt/v1/clusters/{id} | 
+*EnterpriseDataplaneClustersApi* | [**GetEnterpriseClusterWithAddonParameters**](docs/EnterpriseDataplaneClustersApi.md#getenterpriseclusterwithaddonparameters) | **Get** /api/kafkas_mgmt/v1/clusters/{id}/addon_parameters | 
 *EnterpriseDataplaneClustersApi* | [**GetEnterpriseOsdClusters**](docs/EnterpriseDataplaneClustersApi.md#getenterpriseosdclusters) | **Get** /api/kafkas_mgmt/v1/clusters | 
 *EnterpriseDataplaneClustersApi* | [**RegisterEnterpriseOsdCluster**](docs/EnterpriseDataplaneClustersApi.md#registerenterpriseosdcluster) | **Post** /api/kafkas_mgmt/v1/clusters | 
 *ErrorsApi* | [**GetErrorById**](docs/ErrorsApi.md#geterrorbyid) | **Get** /api/kafkas_mgmt/v1/errors/{id} | 
@@ -115,8 +117,8 @@ Class | Method | HTTP request | Description
  - [EnterpriseClusterAllOf](docs/EnterpriseClusterAllOf.md)
  - [EnterpriseClusterList](docs/EnterpriseClusterList.md)
  - [EnterpriseClusterListAllOf](docs/EnterpriseClusterListAllOf.md)
- - [EnterpriseClusterRegistrationResponse](docs/EnterpriseClusterRegistrationResponse.md)
- - [EnterpriseClusterRegistrationResponseAllOf](docs/EnterpriseClusterRegistrationResponseAllOf.md)
+ - [EnterpriseClusterWithAddonParameters](docs/EnterpriseClusterWithAddonParameters.md)
+ - [EnterpriseClusterWithAddonParametersAllOf](docs/EnterpriseClusterWithAddonParametersAllOf.md)
  - [EnterpriseOsdClusterPayload](docs/EnterpriseOsdClusterPayload.md)
  - [Error](docs/Error.md)
  - [ErrorList](docs/ErrorList.md)
