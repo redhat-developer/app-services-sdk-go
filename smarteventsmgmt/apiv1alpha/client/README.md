@@ -92,6 +92,16 @@ Class | Method | HTTP request | Description
 *ProcessorsApi* | [**ProcessorsAPIGetProcessor**](docs/ProcessorsApi.md#processorsapigetprocessor) | **Get** /api/smartevents_mgmt/v2/bridges/{bridgeId}/processors/{processorId} | Get a Processor of a Bridge instance
 *ProcessorsApi* | [**ProcessorsAPIGetProcessors**](docs/ProcessorsApi.md#processorsapigetprocessors) | **Get** /api/smartevents_mgmt/v2/bridges/{bridgeId}/processors | Get the list of Processors of a Bridge instance
 *ProcessorsApi* | [**ProcessorsAPIUpdateProcessor**](docs/ProcessorsApi.md#processorsapiupdateprocessor) | **Put** /api/smartevents_mgmt/v2/bridges/{bridgeId}/processors/{processorId} | Update a Processor instance.
+*SinkConnectorsApi* | [**SinkConnectorsAPICreateSinkConnector**](docs/SinkConnectorsApi.md#sinkconnectorsapicreatesinkconnector) | **Post** /api/smartevents_mgmt/v2/bridges/{bridgeId}/sinks | Create a Sink Connector for a Bridge instance
+*SinkConnectorsApi* | [**SinkConnectorsAPIDeleteSinkConnector**](docs/SinkConnectorsApi.md#sinkconnectorsapideletesinkconnector) | **Delete** /api/smartevents_mgmt/v2/bridges/{bridgeId}/sinks/{sinkId} | Delete a Sink Connector of a Bridge instance
+*SinkConnectorsApi* | [**SinkConnectorsAPIGetSinkConnector**](docs/SinkConnectorsApi.md#sinkconnectorsapigetsinkconnector) | **Get** /api/smartevents_mgmt/v2/bridges/{bridgeId}/sinks/{sinkId} | Get a Sink Connector of a Bridge instance
+*SinkConnectorsApi* | [**SinkConnectorsAPIGetSinkConnectors**](docs/SinkConnectorsApi.md#sinkconnectorsapigetsinkconnectors) | **Get** /api/smartevents_mgmt/v2/bridges/{bridgeId}/sinks | Get the list of Sink Connectors for a Bridge
+*SinkConnectorsApi* | [**SinkConnectorsAPIUpdateSinkConnector**](docs/SinkConnectorsApi.md#sinkconnectorsapiupdatesinkconnector) | **Put** /api/smartevents_mgmt/v2/bridges/{bridgeId}/sinks/{sinkId} | Update a Sink Connector instance.
+*SourceConnectorsApi* | [**SourceConnectorsAPICreateSourceConnector**](docs/SourceConnectorsApi.md#sourceconnectorsapicreatesourceconnector) | **Post** /api/smartevents_mgmt/v2/bridges/{bridgeId}/sources | Create a Source Connector for a Bridge instance
+*SourceConnectorsApi* | [**SourceConnectorsAPIDeleteSourceConnector**](docs/SourceConnectorsApi.md#sourceconnectorsapideletesourceconnector) | **Delete** /api/smartevents_mgmt/v2/bridges/{bridgeId}/sources/{sourceId} | Delete a Source Connector of a Bridge instance
+*SourceConnectorsApi* | [**SourceConnectorsAPIGetSourceConnector**](docs/SourceConnectorsApi.md#sourceconnectorsapigetsourceconnector) | **Get** /api/smartevents_mgmt/v2/bridges/{bridgeId}/sources/{sourceId} | Get a Source Connector of a Bridge instance
+*SourceConnectorsApi* | [**SourceConnectorsAPIGetSourceConnectors**](docs/SourceConnectorsApi.md#sourceconnectorsapigetsourceconnectors) | **Get** /api/smartevents_mgmt/v2/bridges/{bridgeId}/sources | Get the list of Sink Connectors for a Bridge
+*SourceConnectorsApi* | [**SourceConnectorsAPIUpdateSourceConnector**](docs/SourceConnectorsApi.md#sourceconnectorsapiupdatesourceconnector) | **Put** /api/smartevents_mgmt/v2/bridges/{bridgeId}/sources/{sourceId} | Update a Source Connector instance.
 
 
 ## Documentation For Models
@@ -106,6 +116,7 @@ Class | Method | HTTP request | Description
  - [CloudProviderResponse](docs/CloudProviderResponse.md)
  - [CloudRegionListResponse](docs/CloudRegionListResponse.md)
  - [CloudRegionResponse](docs/CloudRegionResponse.md)
+ - [ConnectorRequest](docs/ConnectorRequest.md)
  - [Error](docs/Error.md)
  - [ErrorListResponse](docs/ErrorListResponse.md)
  - [ErrorsList](docs/ErrorsList.md)
@@ -119,6 +130,10 @@ Class | Method | HTTP request | Description
  - [ProcessorListResponse](docs/ProcessorListResponse.md)
  - [ProcessorRequest](docs/ProcessorRequest.md)
  - [ProcessorResponse](docs/ProcessorResponse.md)
+ - [SinkConnectorListResponse](docs/SinkConnectorListResponse.md)
+ - [SinkConnectorResponse](docs/SinkConnectorResponse.md)
+ - [SourceConnectorListResponse](docs/SourceConnectorListResponse.md)
+ - [SourceConnectorResponse](docs/SourceConnectorResponse.md)
 
 
 ## Documentation For Authorization

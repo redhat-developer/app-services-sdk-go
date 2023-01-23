@@ -1,4 +1,4 @@
-# EnterpriseClusterRegistrationResponseAllOf
+# EnterpriseClusterWithAddonParametersAllOf
 
 ## Properties
 
@@ -11,115 +11,115 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewEnterpriseClusterRegistrationResponseAllOf
+### NewEnterpriseClusterWithAddonParametersAllOf
 
-`func NewEnterpriseClusterRegistrationResponseAllOf(accessKafkasViaPrivateNetwork bool, ) *EnterpriseClusterRegistrationResponseAllOf`
+`func NewEnterpriseClusterWithAddonParametersAllOf(accessKafkasViaPrivateNetwork bool, ) *EnterpriseClusterWithAddonParametersAllOf`
 
-NewEnterpriseClusterRegistrationResponseAllOf instantiates a new EnterpriseClusterRegistrationResponseAllOf object
+NewEnterpriseClusterWithAddonParametersAllOf instantiates a new EnterpriseClusterWithAddonParametersAllOf object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewEnterpriseClusterRegistrationResponseAllOfWithDefaults
+### NewEnterpriseClusterWithAddonParametersAllOfWithDefaults
 
-`func NewEnterpriseClusterRegistrationResponseAllOfWithDefaults() *EnterpriseClusterRegistrationResponseAllOf`
+`func NewEnterpriseClusterWithAddonParametersAllOfWithDefaults() *EnterpriseClusterWithAddonParametersAllOf`
 
-NewEnterpriseClusterRegistrationResponseAllOfWithDefaults instantiates a new EnterpriseClusterRegistrationResponseAllOf object
+NewEnterpriseClusterWithAddonParametersAllOfWithDefaults instantiates a new EnterpriseClusterWithAddonParametersAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetAccessKafkasViaPrivateNetwork
 
-`func (o *EnterpriseClusterRegistrationResponseAllOf) GetAccessKafkasViaPrivateNetwork() bool`
+`func (o *EnterpriseClusterWithAddonParametersAllOf) GetAccessKafkasViaPrivateNetwork() bool`
 
 GetAccessKafkasViaPrivateNetwork returns the AccessKafkasViaPrivateNetwork field if non-nil, zero value otherwise.
 
 ### GetAccessKafkasViaPrivateNetworkOk
 
-`func (o *EnterpriseClusterRegistrationResponseAllOf) GetAccessKafkasViaPrivateNetworkOk() (*bool, bool)`
+`func (o *EnterpriseClusterWithAddonParametersAllOf) GetAccessKafkasViaPrivateNetworkOk() (*bool, bool)`
 
 GetAccessKafkasViaPrivateNetworkOk returns a tuple with the AccessKafkasViaPrivateNetwork field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccessKafkasViaPrivateNetwork
 
-`func (o *EnterpriseClusterRegistrationResponseAllOf) SetAccessKafkasViaPrivateNetwork(v bool)`
+`func (o *EnterpriseClusterWithAddonParametersAllOf) SetAccessKafkasViaPrivateNetwork(v bool)`
 
 SetAccessKafkasViaPrivateNetwork sets AccessKafkasViaPrivateNetwork field to given value.
 
 
 ### GetClusterId
 
-`func (o *EnterpriseClusterRegistrationResponseAllOf) GetClusterId() string`
+`func (o *EnterpriseClusterWithAddonParametersAllOf) GetClusterId() string`
 
 GetClusterId returns the ClusterId field if non-nil, zero value otherwise.
 
 ### GetClusterIdOk
 
-`func (o *EnterpriseClusterRegistrationResponseAllOf) GetClusterIdOk() (*string, bool)`
+`func (o *EnterpriseClusterWithAddonParametersAllOf) GetClusterIdOk() (*string, bool)`
 
 GetClusterIdOk returns a tuple with the ClusterId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetClusterId
 
-`func (o *EnterpriseClusterRegistrationResponseAllOf) SetClusterId(v string)`
+`func (o *EnterpriseClusterWithAddonParametersAllOf) SetClusterId(v string)`
 
 SetClusterId sets ClusterId field to given value.
 
 ### HasClusterId
 
-`func (o *EnterpriseClusterRegistrationResponseAllOf) HasClusterId() bool`
+`func (o *EnterpriseClusterWithAddonParametersAllOf) HasClusterId() bool`
 
 HasClusterId returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *EnterpriseClusterRegistrationResponseAllOf) GetStatus() string`
+`func (o *EnterpriseClusterWithAddonParametersAllOf) GetStatus() string`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *EnterpriseClusterRegistrationResponseAllOf) GetStatusOk() (*string, bool)`
+`func (o *EnterpriseClusterWithAddonParametersAllOf) GetStatusOk() (*string, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *EnterpriseClusterRegistrationResponseAllOf) SetStatus(v string)`
+`func (o *EnterpriseClusterWithAddonParametersAllOf) SetStatus(v string)`
 
 SetStatus sets Status field to given value.
 
 ### HasStatus
 
-`func (o *EnterpriseClusterRegistrationResponseAllOf) HasStatus() bool`
+`func (o *EnterpriseClusterWithAddonParametersAllOf) HasStatus() bool`
 
 HasStatus returns a boolean if a field has been set.
 
 ### GetFleetshardParameters
 
-`func (o *EnterpriseClusterRegistrationResponseAllOf) GetFleetshardParameters() []FleetshardParameter`
+`func (o *EnterpriseClusterWithAddonParametersAllOf) GetFleetshardParameters() []FleetshardParameter`
 
 GetFleetshardParameters returns the FleetshardParameters field if non-nil, zero value otherwise.
 
 ### GetFleetshardParametersOk
 
-`func (o *EnterpriseClusterRegistrationResponseAllOf) GetFleetshardParametersOk() (*[]FleetshardParameter, bool)`
+`func (o *EnterpriseClusterWithAddonParametersAllOf) GetFleetshardParametersOk() (*[]FleetshardParameter, bool)`
 
 GetFleetshardParametersOk returns a tuple with the FleetshardParameters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFleetshardParameters
 
-`func (o *EnterpriseClusterRegistrationResponseAllOf) SetFleetshardParameters(v []FleetshardParameter)`
+`func (o *EnterpriseClusterWithAddonParametersAllOf) SetFleetshardParameters(v []FleetshardParameter)`
 
 SetFleetshardParameters sets FleetshardParameters field to given value.
 
 ### HasFleetshardParameters
 
-`func (o *EnterpriseClusterRegistrationResponseAllOf) HasFleetshardParameters() bool`
+`func (o *EnterpriseClusterWithAddonParametersAllOf) HasFleetshardParameters() bool`
 
 HasFleetshardParameters returns a boolean if a field has been set.
 

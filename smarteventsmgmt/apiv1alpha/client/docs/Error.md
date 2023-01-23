@@ -5,17 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Kind** | **string** | The kind (type) of this resource | 
-**Name** | Pointer to **string** | The name of this resource | [optional] 
+**Id** | **string** | The unique identifier of this resource | 
+**Name** | **string** | The name of this resource | 
+**Href** | **string** | The URL of this resource, without the protocol | 
 **Code** | Pointer to **string** |  | [optional] 
 **Reason** | **string** |  | 
-**Id** | **string** |  | 
-**Href** | **string** |  | 
 
 ## Methods
 
 ### NewError
 
-`func NewError(kind string, reason string, id string, href string, ) *Error`
+`func NewError(kind string, id string, name string, href string, reason string, ) *Error`
 
 NewError instantiates a new Error object
 This constructor will assign default values to properties that have it defined,
@@ -50,6 +50,26 @@ and a boolean to check if the value has been set.
 SetKind sets Kind field to given value.
 
 
+### GetId
+
+`func (o *Error) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *Error) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *Error) SetId(v string)`
+
+SetId sets Id field to given value.
+
+
 ### GetName
 
 `func (o *Error) GetName() string`
@@ -69,11 +89,26 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *Error) HasName() bool`
+### GetHref
 
-HasName returns a boolean if a field has been set.
+`func (o *Error) GetHref() string`
+
+GetHref returns the Href field if non-nil, zero value otherwise.
+
+### GetHrefOk
+
+`func (o *Error) GetHrefOk() (*string, bool)`
+
+GetHrefOk returns a tuple with the Href field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHref
+
+`func (o *Error) SetHref(v string)`
+
+SetHref sets Href field to given value.
+
 
 ### GetCode
 
@@ -118,46 +153,6 @@ and a boolean to check if the value has been set.
 `func (o *Error) SetReason(v string)`
 
 SetReason sets Reason field to given value.
-
-
-### GetId
-
-`func (o *Error) GetId() string`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *Error) GetIdOk() (*string, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetId
-
-`func (o *Error) SetId(v string)`
-
-SetId sets Id field to given value.
-
-
-### GetHref
-
-`func (o *Error) GetHref() string`
-
-GetHref returns the Href field if non-nil, zero value otherwise.
-
-### GetHrefOk
-
-`func (o *Error) GetHrefOk() (*string, bool)`
-
-GetHrefOk returns a tuple with the Href field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHref
-
-`func (o *Error) SetHref(v string)`
-
-SetHref sets Href field to given value.
 
 
 

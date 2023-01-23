@@ -18,8 +18,8 @@ docs/EnterpriseCluster.md
 docs/EnterpriseClusterAllOf.md
 docs/EnterpriseClusterList.md
 docs/EnterpriseClusterListAllOf.md
-docs/EnterpriseClusterRegistrationResponse.md
-docs/EnterpriseClusterRegistrationResponseAllOf.md
+docs/EnterpriseClusterWithAddonParameters.md
+docs/EnterpriseClusterWithAddonParametersAllOf.md
 docs/EnterpriseDataplaneClustersApi.md
 docs/EnterpriseOsdClusterPayload.md
 docs/Error.md
@@ -71,8 +71,8 @@ model_enterprise_cluster.go
 model_enterprise_cluster_all_of.go
 model_enterprise_cluster_list.go
 model_enterprise_cluster_list_all_of.go
-model_enterprise_cluster_registration_response.go
-model_enterprise_cluster_registration_response_all_of.go
+model_enterprise_cluster_with_addon_parameters.go
+model_enterprise_cluster_with_addon_parameters_all_of.go
 model_enterprise_osd_cluster_payload.go
 model_error.go
 model_error_list.go
