@@ -20,7 +20,7 @@ func main() {
 
 	_, _, err := client.DefaultApi.GetKafkas(ctx).Execute()
 	if err != nil {
-		panic(err)
+		panic(err) 
 	}
 
 }
