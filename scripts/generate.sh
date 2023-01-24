@@ -93,6 +93,9 @@ OUTPUT_PATH="registryinstance/apiv1internal/client"
 
 generate_sdk $OPENAPI_FILENAME $OUTPUT_PATH $PACKAGE_NAME
 
+# This can be removed after support for the secondary extended content type is deployed
+echo "Update json content-type regex"
+sed -i 's#`(?i:(?:application|text)\/(?:vnd\\\.\[^;\]+\\+)?json)`#`(?i:(?:application|text)\/(?:\[^;\]+\\+)?json)`#' ./registryinstance/apiv1internal/client/client.go
 
 OPENAPI_FILENAME=".openapi/service-accounts.yaml"
 PACKAGE_NAME="serviceaccountsclient"
