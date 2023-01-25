@@ -73,9 +73,6 @@ echo "Removing codegen "
 cat registry-instance.json | jq 'del(.paths."x-codegen-contextRoot")' > registry-instance-tmp.json
 mv -f registry-instance-tmp.json registry-instance.json
 
-cat registry-instance.json | sed "s/create.extended+json/json/" > registry-instance-tmp.json
-mv -f registry-instance-tmp.json registry-instance.json
-
 echo "Ensuring only single tag is created "
 cat registry-instance.json | jq 'walk( if type == "object" and has("tags") 
        then .tags |= select(.[0])
