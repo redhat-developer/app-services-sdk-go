@@ -6,7 +6,7 @@ OPENAPI_FILE_NAME=$(basename $OPENAPI_FILE_URL)
 
 # Special case when downloading Service Registry Instance schema file,
 # to keep the original (manually updated) file name.
-if [ $OPENAPI_FILE_NAME == "openapi.json" ]; then
+if [ $OPENAPI_FILE_NAME == "openapi-gen.json" ]; then
   OPENAPI_FILE_NAME="registry-instance.json"
 fi
 OPENAPI_FILE_TARGET=$(dirname $0)/../.openapi/$OPENAPI_FILE_NAME
