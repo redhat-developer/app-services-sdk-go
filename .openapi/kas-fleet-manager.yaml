@@ -1032,14 +1032,6 @@ paths:
           schema:
             type: boolean
           required: true
-        - in: query
-          name: force
-          description: |-
-            When provided with value: true - enterprise cluster will be deleted alongside all kafkas present on the cluster.
-            When skipped and enterprise cluster has any kafkas associated with it, the request will fail.
-          schema:
-            type: boolean
-          required: false
         - in: path
           name: id
           description: ID of the enterprise data plane cluster
@@ -1241,7 +1233,6 @@ components:
         - page
         - size
         - total
-        - items
       type: object
       properties:
         kind:
@@ -1252,10 +1243,6 @@ components:
           type: integer
         total:
           type: integer
-        items:
-          type: array
-          items:
-            $ref: "#/components/schemas/ObjectReference"
     Error:
         type: object
         required: [id, kind, href, code, reason]
@@ -1282,6 +1269,7 @@ components:
       allOf:
         - $ref: "#/components/schemas/List"
         - type: object
+          required: [ items ]
           properties:
             items:
               type: array
@@ -1383,6 +1371,7 @@ components:
       allOf:
         - $ref: "#/components/schemas/List"
         - type: object
+          required: [ items ]
           example:
             kind: "KafkaRequestList"
             page: "1"
@@ -1400,6 +1389,7 @@ components:
       allOf:
         - $ref: "#/components/schemas/List"
         - type: object
+          required: [ items ]
           example:
             kind: "ClusterList"
             page: "1"
@@ -1488,6 +1478,7 @@ components:
     SupportedKafkaInstanceTypesList:
       allOf:
         - type: object
+          required: [ items ]
           example:
             instance_types:
               $ref: '#/components/examples/SupportedKafkaInstanceTypeListExample'
@@ -1625,6 +1616,7 @@ components:
       allOf:
         - $ref: "#/components/schemas/List"
         - type: object
+          required: [ items ]
           example:
             kind: "CloudProviderList"
             page: "1"
@@ -1642,6 +1634,7 @@ components:
       allOf:
         - $ref: "#/components/schemas/List"
         - type: object
+          required: [ items ]
           example:
             kind: "CloudRegionList"
             page: "1"
