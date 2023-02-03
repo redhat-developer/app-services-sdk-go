@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **CreatedBy** | **string** |  | 
 **CreatedOn** | **string** |  | 
-**Type** | [**ArtifactType**](ArtifactType.md) |  | 
+**Type** | **string** |  | 
 **GlobalId** | **int64** |  | 
 **State** | Pointer to [**ArtifactState**](ArtifactState.md) |  | [optional] 
 **Id** | **string** | The ID of a single artifact. | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewVersionMetaData
 
-`func NewVersionMetaData(version string, createdBy string, createdOn string, type_ ArtifactType, globalId int64, id string, contentId int64, ) *VersionMetaData`
+`func NewVersionMetaData(version string, createdBy string, createdOn string, type_ string, globalId int64, id string, contentId int64, ) *VersionMetaData`
 
 NewVersionMetaData instantiates a new VersionMetaData object
 This constructor will assign default values to properties that have it defined,
@@ -149,20 +149,20 @@ SetCreatedOn sets CreatedOn field to given value.
 
 ### GetType
 
-`func (o *VersionMetaData) GetType() ArtifactType`
+`func (o *VersionMetaData) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *VersionMetaData) GetTypeOk() (*ArtifactType, bool)`
+`func (o *VersionMetaData) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *VersionMetaData) SetType(v ArtifactType)`
+`func (o *VersionMetaData) SetType(v string)`
 
 SetType sets Type field to given value.
 

@@ -3,7 +3,7 @@
  *
  * Apicurio Registry is a datastore for standard event schemas and API designs. Apicurio Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.  The Apicurio Registry REST API enables client applications to manage the artifacts in the registry. This API provides create, read, update, and delete operations for schema and API artifacts, rules, versions, and metadata.   The supported artifact types include: - Apache Avro schema - AsyncAPI specification - Google protocol buffers - GraphQL schema - JSON Schema - Kafka Connect schema - OpenAPI specification - Web Services Description Language - XML Schema Definition   **Important**: The Apicurio Registry REST API is available from `https://MY-REGISTRY-URL/apis/registry/v2` by default. Therefore you must prefix all API operation paths with `../apis/registry/v2` in this case. For example: `../apis/registry/v2/ids/globalIds/{globalId}`. 
  *
- * API version: 2.2.5.Final
+ * API version: 2.4.x
  * Contact: apicurio@lists.jboss.org
  */
 
@@ -26,7 +26,7 @@ type ArtifactMetaData struct {
 	// The ID of a single artifact.
 	Id string `json:"id"`
 	Version string `json:"version"`
-	Type ArtifactType `json:"type"`
+	Type string `json:"type"`
 	GlobalId int64 `json:"globalId"`
 	State ArtifactState `json:"state"`
 	Labels *[]string `json:"labels,omitempty"`
@@ -42,7 +42,7 @@ type ArtifactMetaData struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewArtifactMetaData(createdBy string, createdOn string, modifiedBy string, modifiedOn string, id string, version string, type_ ArtifactType, globalId int64, state ArtifactState, contentId int64) *ArtifactMetaData {
+func NewArtifactMetaData(createdBy string, createdOn string, modifiedBy string, modifiedOn string, id string, version string, type_ string, globalId int64, state ArtifactState, contentId int64) *ArtifactMetaData {
 	this := ArtifactMetaData{}
 	this.CreatedBy = createdBy
 	this.CreatedOn = createdOn
@@ -274,9 +274,9 @@ func (o *ArtifactMetaData) SetVersion(v string) {
 }
 
 // GetType returns the Type field value
-func (o *ArtifactMetaData) GetType() ArtifactType {
+func (o *ArtifactMetaData) GetType() string {
 	if o == nil {
-		var ret ArtifactType
+		var ret string
 		return ret
 	}
 
@@ -285,7 +285,7 @@ func (o *ArtifactMetaData) GetType() ArtifactType {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *ArtifactMetaData) GetTypeOk() (*ArtifactType, bool) {
+func (o *ArtifactMetaData) GetTypeOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -293,7 +293,7 @@ func (o *ArtifactMetaData) GetTypeOk() (*ArtifactType, bool) {
 }
 
 // SetType sets field value
-func (o *ArtifactMetaData) SetType(v ArtifactType) {
+func (o *ArtifactMetaData) SetType(v string) {
 	o.Type = v
 }
 

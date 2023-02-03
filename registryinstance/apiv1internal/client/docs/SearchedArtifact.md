@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **CreatedOn** | **string** |  | 
 **CreatedBy** | **string** |  | 
-**Type** | [**ArtifactType**](ArtifactType.md) |  | 
+**Type** | **string** |  | 
 **Labels** | Pointer to **[]string** |  | [optional] 
 **State** | [**ArtifactState**](ArtifactState.md) |  | 
 **ModifiedOn** | Pointer to **string** |  | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewSearchedArtifact
 
-`func NewSearchedArtifact(id string, createdOn string, createdBy string, type_ ArtifactType, state ArtifactState, ) *SearchedArtifact`
+`func NewSearchedArtifact(id string, createdOn string, createdBy string, type_ string, state ArtifactState, ) *SearchedArtifact`
 
 NewSearchedArtifact instantiates a new SearchedArtifact object
 This constructor will assign default values to properties that have it defined,
@@ -147,20 +147,20 @@ SetCreatedBy sets CreatedBy field to given value.
 
 ### GetType
 
-`func (o *SearchedArtifact) GetType() ArtifactType`
+`func (o *SearchedArtifact) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *SearchedArtifact) GetTypeOk() (*ArtifactType, bool)`
+`func (o *SearchedArtifact) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *SearchedArtifact) SetType(v ArtifactType)`
+`func (o *SearchedArtifact) SetType(v string)`
 
 SetType sets Type field to given value.
 

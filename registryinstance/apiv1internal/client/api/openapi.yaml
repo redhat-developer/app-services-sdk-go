@@ -24,7 +24,7 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Apicurio Registry API [v2]
-  version: 2.2.5.Final
+  version: 2.4.x
 servers:
 - url: /
 tags:
@@ -36,10 +36,10 @@ tags:
     \ This section contains \noperations to access (and in some cases change) an artifact's\
     \ metadata."
   name: Metadata
-- description: "Whenever an artifact's content is updated, the old versions of the\
-    \ artifact's content\nare not lost.  All versions can be listed and accessed if\
-    \ necessary.  This section \ndescribes the operations used to list and access\
-    \ all versions of an artifact's content\nand metadata."
+- description: When artifact content is updated, old versions of the artifact content
+    are not lost.  All versions can be listed and accessed if necessary. This section
+    describes the operations used to list and access all versions of an artifact's
+    content and metadata.
   name: Versions
 - description: |-
     Rules can be configured on a per-artifact basis, allowing for different approaches
@@ -47,13 +47,6 @@ tags:
     that have been configured. This section contains the operations used to manage a
     single artifact's rules.
   name: Artifact rules
-- description: "Global rules can be configured in the registry to govern how artifact\
-    \ content can \nevolve over time (as artifact content is **updated**). Global\
-    \ rules are applied \nwhenever an artifact is added to the registry, and also\
-    \ whenever an artifact's \ncontent is updated (only if that artifact does not\
-    \ have its own specific rules \nconfigured). This section describes the operations\
-    \ used to manage the global rules."
-  name: Global rules
 - description: 'The search API is used to browse or find artifacts in the registry.
     This section describes the operations for searching for artifacts and versions. '
   name: Search
@@ -62,8 +55,11 @@ tags:
   name: Admin
 - description: System level functionality, including versioning and status information.
   name: System
-- description: Some operations related to users.
+- description: Operations related to users.
   name: Users
+- description: Registry artifacts can be collected together using groups. This section
+    includes all of the primary operations related to groups.
+  name: Groups
 paths:
   /ids/contentIds/{contentId}/:
     get:
@@ -266,6 +262,40 @@ paths:
       tags:
       - Artifacts
     summary: Access artifact content utilizing the SHA-256 hash of the content.
+  /admin/artifactTypes:
+    get:
+      description: |
+        Gets a list of all the configured artifact types.
+
+        This operation can fail for the following reasons:
+
+        * A server error occurred (HTTP error `500`)
+      operationId: listArtifactTypes
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ArtifactTypeInfo'
+                type: array
+          description: The list of available artifact types.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: List artifact types
+      tags:
+      - Admin
+    summary: The list of artifact types supported by this instance of Registry.
   /admin/rules:
     delete:
       description: |
@@ -292,7 +322,7 @@ paths:
             server error.
       summary: Delete all global rules
       tags:
-      - Global rules
+      - Admin
     get:
       description: |
         Gets a list of all the currently configured global rules (if any).
@@ -324,7 +354,7 @@ paths:
             server error.
       summary: List global rules
       tags:
-      - Global rules
+      - Admin
     post:
       description: |
         Adds a rule to the list of globally configured rules.
@@ -377,7 +407,7 @@ paths:
             server error.
       summary: Create global rule
       tags:
-      - Global rules
+      - Admin
     summary: Manage the global rules that apply to all artifacts if not otherwise
       configured.
   /admin/rules/{rule}:
@@ -431,7 +461,7 @@ paths:
             server error.
       summary: Delete global rule
       tags:
-      - Global rules
+      - Admin
     get:
       description: |
         Returns information about the named globally configured rule.
@@ -484,7 +514,7 @@ paths:
             server error.
       summary: Get global rule configuration
       tags:
-      - Global rules
+      - Admin
     put:
       description: |
         Updates the configuration for a globally configured rule.
@@ -543,7 +573,7 @@ paths:
             server error.
       summary: Update global rule configuration
       tags:
-      - Global rules
+      - Admin
     summary: Manage the configuration of a single global artifact rule.
   /admin/loggers:
     get:
@@ -968,13 +998,6 @@ paths:
       description: Exports registry data as a ZIP archive.
       operationId: exportData
       parameters:
-      - explode: false
-        in: header
-        name: Accept
-        required: false
-        schema:
-          type: string
-        style: simple
       - description: Indicates if the operation is done for a browser.  If true, the
           response will be a JSON payload with a property called `href`.  This `href`
           will be a single-use, naked download link suitable for use by a web browser
@@ -992,6 +1015,9 @@ paths:
             application/zip:
               schema:
                 $ref: '#/components/schemas/FileContent'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DownloadRef'
           description: Response when the export is successful.
         "500":
           content:
@@ -2260,7 +2286,7 @@ paths:
   /ids/globalIds/{globalId}/references:
     get:
       description: |-
-        Returns a list containing all the artifact references using the artifact global id.
+        Returns a list containing all the artifact references using the artifact global ID.
 
         This operation may fail for one of the following reasons:
 
@@ -2286,8 +2312,7 @@ paths:
                 type: array
           description: A list containing all the references for the artifact with
             the given global id.
-      summary: Returns a list with all the references for the artifact with the given
-        global id.
+      summary: List artifact references by global ID
       tags:
       - Artifacts
   /groups/{groupId}/artifacts/{artifactId}/versions/{version}/references:
@@ -2811,6 +2836,15 @@ paths:
         schema:
           $ref: '#/components/schemas/EncodedArtifactDescription'
         style: simple
+      - description: This header is explicit so clients using the OpenAPI Generator
+          are able select the content type. Ignore otherwise.
+        explode: false
+        in: header
+        name: Content-Type
+        required: false
+        schema:
+          type: string
+        style: simple
       requestBody:
         content:
           '*/*':
@@ -2849,8 +2883,12 @@ paths:
                         example:
                           property-1: value1
                           property-2: true
-            schema: {}
-          application/json:
+            schema:
+              $ref: '#/components/schemas/FileContent'
+          application/create.extended+json:
+            schema:
+              $ref: '#/components/schemas/ContentCreateRequest'
+          application/vnd.create.extended+json:
             schema:
               $ref: '#/components/schemas/ContentCreateRequest'
         description: |
@@ -2919,7 +2957,8 @@ paths:
       description: Deletes all of the artifacts that exist in a given group.
       operationId: deleteArtifactsInGroup
       parameters:
-      - description: Unique ID of an artifact group.
+      - description: The artifact group ID.  Must be a string provided by the client,
+          representing the name of the grouping of artifacts.
         explode: false
         in: path
         name: groupId
@@ -2949,7 +2988,8 @@ paths:
       description: Returns a list of all artifacts in the group.  This list is paged.
       operationId: listArtifactsInGroup
       parameters:
-      - description: Unique ID of an artifact group.
+      - description: The artifact group ID.  Must be a string provided by the client,
+          representing the name of the grouping of artifacts.
         explode: false
         in: path
         name: groupId
@@ -3053,7 +3093,8 @@ paths:
         \ (HTTP error `409`)\n* A server error occurred (HTTP error `500`)\n"
       operationId: createArtifact
       parameters:
-      - description: Unique ID of an artifact group.
+      - description: The artifact group ID.  Must be a string provided by the client,
+          representing the name of the grouping of artifacts.
         explode: false
         in: path
         name: groupId
@@ -3180,6 +3221,15 @@ paths:
           - MD5
           type: string
         style: simple
+      - description: This header is explicit so clients using the OpenAPI Generator
+          are able select the content type. Ignore otherwise.
+        explode: false
+        in: header
+        name: Content-Type
+        required: false
+        schema:
+          type: string
+        style: simple
       requestBody:
         content:
           '*/*':
@@ -3219,9 +3269,11 @@ paths:
                           property-1: value1
                           property-2: true
             schema:
-              format: binary
-              type: string
-          application/json:
+              $ref: '#/components/schemas/FileContent'
+          application/create.extended+json:
+            schema:
+              $ref: '#/components/schemas/ContentCreateRequest'
+          application/vnd.create.extended+json:
             schema:
               $ref: '#/components/schemas/ContentCreateRequest'
         description: |
@@ -3326,7 +3378,8 @@ paths:
       requestBody:
         content:
           '*/*':
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/FileContent'
         description: |
           The content of the artifact being tested. This is often, but not always, JSON data
           representing one of the supported artifact types:
@@ -3564,6 +3617,15 @@ paths:
         schema:
           $ref: '#/components/schemas/EncodedArtifactName'
         style: simple
+      - description: This header is explicit so clients using the OpenAPI Generator
+          are able select the content type. Ignore otherwise.
+        explode: false
+        in: header
+        name: Content-Type
+        required: false
+        schema:
+          type: string
+        style: simple
       requestBody:
         content:
           '*/*':
@@ -3602,8 +3664,12 @@ paths:
                         example:
                           property-1: value1
                           property-2: true
-            schema: {}
-          application/json:
+            schema:
+              $ref: '#/components/schemas/FileContent'
+          application/create.extended+json:
+            schema:
+              $ref: '#/components/schemas/ContentCreateRequest'
+          application/vnd.create.extended+json:
             schema:
               $ref: '#/components/schemas/ContentCreateRequest'
         description: |
@@ -3817,7 +3883,8 @@ paths:
                         example:
                           property-1: value1
                           property-2: true
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/FileContent'
         description: The content of an artifact version.
         required: true
       responses:
@@ -4050,6 +4117,224 @@ paths:
       tags:
       - Metadata
     summary: Manage the ownership of a single artifact.
+  /groups/{groupId}:
+    delete:
+      description: |
+        Deletes a group by identifier.
+
+        This operation can fail for the following reasons:
+
+        * A server error occurred (HTTP error `500`)
+        * The group does not exist (HTTP error `404`)
+      operationId: deleteGroupById
+      parameters:
+      - description: The artifact group ID.  Must be a string provided by the client,
+          representing the name of the grouping of artifacts.
+        explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          $ref: '#/components/schemas/GroupId'
+        style: simple
+      responses:
+        "204":
+          description: Empty content indicates a successful deletion.
+        "404":
+          content:
+            application/json:
+              examples:
+                NotFoundExample:
+                  value:
+                    error_code: 404
+                    message: No artifact with id 'Topic-1/Inbound' could be found.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can return a `404`
+            error.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: Delete a group by the specified ID.
+      tags:
+      - Groups
+    get:
+      description: |-
+        Returns a group using the specified id.
+
+        This operation can fail for the following reasons:
+
+        * No group exists with the specified ID (HTTP error `404`)
+        * A server error occurred (HTTP error `500`)
+      operationId: getGroupById
+      parameters:
+      - description: The artifact group ID.  Must be a string provided by the client,
+          representing the name of the grouping of artifacts.
+        explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          $ref: '#/components/schemas/GroupId'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupMetaData'
+          description: The group's metadata.
+        "404":
+          content:
+            application/json:
+              examples:
+                NotFoundExample:
+                  value:
+                    error_code: 404
+                    message: No artifact with id 'Topic-1/Inbound' could be found.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can return a `404`
+            error.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: Get a group by the specified ID.
+      tags:
+      - Groups
+    summary: Collection to manage a single group in the registry.
+  /groups:
+    get:
+      description: Returns a list of all groups.  This list is paged.
+      operationId: listGroups
+      parameters:
+      - description: The number of groups to return.  Defaults to 20.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: The number of groups to skip before starting the result set.  Defaults
+          to 0.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Sort order, ascending (`asc`) or descending (`desc`).
+        explode: true
+        in: query
+        name: order
+        required: false
+        schema:
+          $ref: '#/components/schemas/SortOrder'
+        style: form
+      - description: |
+          The field to sort by.  Can be one of:
+
+          * `name`
+          * `createdOn`
+        explode: true
+        in: query
+        name: orderby
+        required: false
+        schema:
+          $ref: '#/components/schemas/SortBy'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupSearchResults'
+          description: On a successful response, returns a bounded set of groups.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: List groups
+      tags:
+      - Groups
+    post:
+      description: |
+        Creates a new group.
+
+        This operation can fail for the following reasons:
+
+        * A server error occurred (HTTP error `500`)
+        * The group already exist (HTTP error `409`)
+      operationId: createGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGroupMetaData'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupMetaData'
+          description: The group has been successfully created.
+        "409":
+          content:
+            application/json:
+              examples:
+                ConflictExample:
+                  value:
+                    error_code: 409
+                    message: The artifact content was invalid.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response used when an input conflicts with existing
+            data.
+        "500":
+          content:
+            application/json:
+              examples:
+                ErrorExample:
+                  value:
+                    error_code: 500
+                    message: Lost connection to the database.
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Common response for all operations that can fail with an unexpected
+            server error.
+      summary: Create a new group
+      tags:
+      - Groups
+    summary: Collection of the groups in the registry.
 components:
   responses:
     NotFound:
@@ -4197,20 +4482,16 @@ components:
       type: string
       x-codegen-package: io.apicurio.registry.types
     ArtifactType:
-      enum:
-      - AVRO
-      - PROTOBUF
-      - JSON
-      - OPENAPI
-      - ASYNCAPI
-      - GRAPHQL
-      - KCONNECT
-      - WSDL
-      - XSD
-      - XML
       example: AVRO
       type: string
       x-codegen-package: io.apicurio.registry.types
+    ArtifactTypeInfo:
+      example:
+        name: AVRO
+      properties:
+        name:
+          type: string
+      type: object
     UpdateState:
       example:
         state: DISABLED
@@ -4552,13 +4833,11 @@ components:
         createdOn:
           format: utc-date
           type: string
-          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
         modifiedBy:
           type: string
         modifiedOn:
           format: utc-date
           type: string
-          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
         id:
           description: The ID of a single artifact.
           example: example-artifact
@@ -4566,7 +4845,9 @@ components:
         version:
           type: string
         type:
-          $ref: '#/components/schemas/ArtifactType'
+          example: AVRO
+          type: string
+          x-codegen-package: io.apicurio.registry.types
         globalId:
           format: int64
           type: integer
@@ -4635,11 +4916,12 @@ components:
         createdOn:
           format: utc-date
           type: string
-          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
         createdBy:
           type: string
         type:
-          $ref: '#/components/schemas/ArtifactType'
+          example: AVRO
+          type: string
+          x-codegen-package: io.apicurio.registry.types
         labels:
           items:
             type: string
@@ -4649,7 +4931,6 @@ components:
         modifiedOn:
           format: utc-date
           type: string
-          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
         modifiedBy:
           type: string
         groupId:
@@ -4699,9 +4980,10 @@ components:
         createdOn:
           format: utc-date
           type: string
-          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
         type:
-          $ref: '#/components/schemas/ArtifactType'
+          example: AVRO
+          type: string
+          x-codegen-package: io.apicurio.registry.types
         globalId:
           format: int64
           type: integer
@@ -4765,11 +5047,12 @@ components:
         createdOn:
           format: utc-date
           type: string
-          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
         createdBy:
           type: string
         type:
-          $ref: '#/components/schemas/ArtifactType'
+          example: AVRO
+          type: string
+          x-codegen-package: io.apicurio.registry.types
         labels:
           items:
             type: string
@@ -4965,6 +5248,145 @@ components:
           type: string
       title: Root Type for ArtifactOwner
       type: object
+    SearchedGroup:
+      description: Models a single group from the result set returned when searching
+        for groups.
+      example:
+        id: My-Group
+        name: Group Name
+        description: Description of the group
+        createdBy: user1
+        createdOn: 2019-03-22T12:51:19Z
+        modifiedBy: user1
+        modifiedOn: 2019-03-22T12:51:19Z
+      properties:
+        id:
+          description: An ID of a single artifact group.
+          example: my-group
+          type: string
+        description:
+          type: string
+        createdOn:
+          format: utc-date
+          type: string
+        createdBy:
+          type: string
+        modifiedOn:
+          format: utc-date
+          type: string
+        modifiedBy:
+          type: string
+      required:
+      - createdBy
+      - createdOn
+      - description
+      - id
+      - modifiedBy
+      - modifiedOn
+      type: object
+    GroupMetaData:
+      example:
+        id: group-identifier
+        description: Description of the group
+        artifactsType: AVRO
+        createdBy: user1
+        createdOn: 2019-03-22T12:51:19Z
+        modifiedBy: user2
+        modifiedOn: 2019-07-19T15:09:00Z
+        properties:
+          custom-1: foo
+          custom-2: bar
+      properties:
+        id:
+          description: An ID of a single artifact group.
+          example: my-group
+          type: string
+        description:
+          type: string
+        createdBy:
+          type: string
+        createdOn:
+          format: utc-date
+          type: string
+        modifiedBy:
+          type: string
+        modifiedOn:
+          format: utc-date
+          type: string
+        properties:
+          additionalProperties:
+            type: string
+          description: User-defined name-value pairs. Name and value must be strings.
+          type: object
+          x-codegen-inline: true
+          x-codegen-type: StringMap
+      required:
+      - createdBy
+      - createdOn
+      - description
+      - id
+      - modifiedBy
+      - modifiedOn
+      - properties
+      title: Root Type for GroupMetaData
+      type: object
+    GroupSearchResults:
+      description: Describes the response received when searching for groups.
+      example:
+        count: 0
+        groups:
+        - id: My-Group
+          name: Group Name
+          description: Description of the group
+          createdBy: user1
+          createdOn: 2019-03-22T12:51:19Z
+          modifiedBy: user1
+          modifiedOn: 2019-03-22T12:51:19Z
+        - id: My-Group
+          name: Group Name
+          description: Description of the group
+          createdBy: user1
+          createdOn: 2019-03-22T12:51:19Z
+          modifiedBy: user1
+          modifiedOn: 2019-03-22T12:51:19Z
+      properties:
+        groups:
+          description: The groups returned in the result set.
+          items:
+            $ref: '#/components/schemas/SearchedGroup'
+          type: array
+        count:
+          description: "The total number of groups that matched the query that produced\
+            \ the result set (may be \nmore than the number of groups in the result\
+            \ set)."
+          type: integer
+      required:
+      - count
+      - groups
+      type: object
+    CreateGroupMetaData:
+      example:
+        id: group-identifier
+        description: The description of the artifact.
+        properties:
+          custom-1: foo
+          custom-2: bar
+      properties:
+        description:
+          type: string
+        properties:
+          additionalProperties:
+            type: string
+          description: User-defined name-value pairs. Name and value must be strings.
+          type: object
+          x-codegen-inline: true
+          x-codegen-type: StringMap
+        id:
+          type: string
+      required:
+      - id
+      title: Root Type for CreateGroupMetaData
+      type: object
     NamedLogConfiguration_allOf:
       properties:
         name:
@@ -4982,3 +5404,16 @@ components:
       required:
       - causes
       type: object
+x-codegen:
+  bean-annotations:
+  - io.quarkus.runtime.annotations.RegisterForReflection
+  - annotation: lombok.experimental.SuperBuilder
+    excludeEnums: true
+  - annotation: lombok.AllArgsConstructor
+    excludeEnums: true
+  - annotation: lombok.NoArgsConstructor
+    excludeEnums: true
+  - annotation: lombok.EqualsAndHashCode
+    excludeEnums: true
+  - annotation: lombok.ToString(callSuper = true)
+    excludeEnums: true

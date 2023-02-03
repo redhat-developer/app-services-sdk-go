@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **ModifiedOn** | **string** |  | 
 **Id** | **string** | The ID of a single artifact. | 
 **Version** | **string** |  | 
-**Type** | [**ArtifactType**](ArtifactType.md) |  | 
+**Type** | **string** |  | 
 **GlobalId** | **int64** |  | 
 **State** | [**ArtifactState**](ArtifactState.md) |  | 
 **Labels** | Pointer to **[]string** |  | [optional] 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewArtifactMetaData
 
-`func NewArtifactMetaData(createdBy string, createdOn string, modifiedBy string, modifiedOn string, id string, version string, type_ ArtifactType, globalId int64, state ArtifactState, contentId int64, ) *ArtifactMetaData`
+`func NewArtifactMetaData(createdBy string, createdOn string, modifiedBy string, modifiedOn string, id string, version string, type_ string, globalId int64, state ArtifactState, contentId int64, ) *ArtifactMetaData`
 
 NewArtifactMetaData instantiates a new ArtifactMetaData object
 This constructor will assign default values to properties that have it defined,
@@ -212,20 +212,20 @@ SetVersion sets Version field to given value.
 
 ### GetType
 
-`func (o *ArtifactMetaData) GetType() ArtifactType`
+`func (o *ArtifactMetaData) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ArtifactMetaData) GetTypeOk() (*ArtifactType, bool)`
+`func (o *ArtifactMetaData) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ArtifactMetaData) SetType(v ArtifactType)`
+`func (o *ArtifactMetaData) SetType(v string)`
 
 SetType sets Type field to given value.
 
