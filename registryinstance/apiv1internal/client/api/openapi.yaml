@@ -28,38 +28,13 @@ info:
 servers:
 - url: /
 tags:
-- description: "The primary way to interact with the Apicurio Registry API is to add,\
-    \ update, \nor delete artifacts. This section includes all of these primary operations."
-  name: Artifacts
-- description: "Sometimes the metadata for an artifact is important. For example,\
-    \ metadata includes \nwhen the artifact was created, last updated, and so on.\
-    \ This section contains \noperations to access (and in some cases change) an artifact's\
-    \ metadata."
-  name: Metadata
-- description: When artifact content is updated, old versions of the artifact content
-    are not lost.  All versions can be listed and accessed if necessary. This section
-    describes the operations used to list and access all versions of an artifact's
-    content and metadata.
-  name: Versions
-- description: |-
-    Rules can be configured on a per-artifact basis, allowing for different approaches
-    to content evolution for each artifact.  These rules override any global rules
-    that have been configured. This section contains the operations used to manage a
-    single artifact's rules.
-  name: Artifact rules
-- description: 'The search API is used to browse or find artifacts in the registry.
-    This section describes the operations for searching for artifacts and versions. '
-  name: Search
-- description: Application functionality that is only accessible to admin users.  Includes
-    logging, global rules, and export/import of registry data.
-  name: Admin
-- description: System level functionality, including versioning and status information.
-  name: System
-- description: Operations related to users.
-  name: Users
-- description: Registry artifacts can be collected together using groups. This section
-    includes all of the primary operations related to groups.
-  name: Groups
+- description: "Global rules can be configured in the registry to govern how artifact\
+    \ content can \nevolve over time (as artifact content is **updated**). Global\
+    \ rules are applied \nwhenever an artifact is added to the registry, and also\
+    \ whenever an artifact's \ncontent is updated (only if that artifact does not\
+    \ have its own specific rules \nconfigured). This section describes the operations\
+    \ used to manage the global rules."
+  name: Global rules
 paths:
   /ids/contentIds/{contentId}/:
     get:
