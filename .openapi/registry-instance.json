@@ -3323,7 +3323,7 @@
                         "type": "string"
                     },
                     "builtOn": {
-                        "format": "date-time",
+                        "format": "utc-date",
                         "type": "string"
                     }
                 },
@@ -3493,14 +3493,14 @@
                         "type": "string"
                     },
                     "createdOn": {
-                        "format": "date-time",
+                        "format": "utc-date",
                         "type": "string"
                     },
                     "modifiedBy": {
                         "type": "string"
                     },
                     "modifiedOn": {
-                        "format": "date-time",
+                        "format": "utc-date",
                         "type": "string"
                     },
                     "id": {
@@ -3608,7 +3608,7 @@
                         "type": "string"
                     },
                     "createdOn": {
-                        "format": "date-time",
+                        "format": "utc-date",
                         "description": "",
                         "type": "string"
                     },
@@ -3632,7 +3632,7 @@
                         "description": ""
                     },
                     "modifiedOn": {
-                        "format": "date-time",
+                        "format": "utc-date",
                         "description": "",
                         "type": "string"
                     },
@@ -3687,7 +3687,7 @@
                         "type": "string"
                     },
                     "createdOn": {
-                        "format": "date-time",
+                        "format": "utc-date",
                         "type": "string"
                     },
                     "type": {
@@ -3780,7 +3780,7 @@
                         "type": "string"
                     },
                     "createdOn": {
-                        "format": "date-time",
+                        "format": "utc-date",
                         "description": "",
                         "type": "string"
                     },
@@ -4101,7 +4101,7 @@
                         "type": "string"
                     },
                     "createdOn": {
-                        "format": "date-time",
+                        "format": "utc-date",
                         "description": "",
                         "type": "string"
                     },
@@ -4110,7 +4110,7 @@
                         "type": "string"
                     },
                     "modifiedOn": {
-                        "format": "date-time",
+                        "format": "utc-date",
                         "description": "",
                         "type": "string"
                     },
@@ -4154,14 +4154,14 @@
                         "type": "string"
                     },
                     "createdOn": {
-                        "format": "date-time",
+                        "format": "utc-date",
                         "type": "string"
                     },
                     "modifiedBy": {
                         "type": "string"
                     },
                     "modifiedOn": {
-                        "format": "date-time",
+                        "format": "utc-date",
                         "type": "string"
                     },
                     "properties": {
