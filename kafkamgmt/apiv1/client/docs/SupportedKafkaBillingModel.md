@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Identifier for the Kafka billing model | 
 **AmsResource** | **string** | AMS resource to be used. Accepted values: [&#39;rhosak&#39;] | 
-**AmsProduct** | **string** | AMS product to be used. Accepted values: [&#39;RHOSAK&#39;, &#39;RHOSAKTrial&#39;, &#39;RHOSAKEval&#39;] | 
+**AmsProduct** | **string** | AMS product to be used. Accepted values: [&#39;RHOSAK&#39;, &#39;RHOSAKTrial&#39;, &#39;RHOSAKEval&#39;, &#39;RHOSAKCC&#39;] | 
 **AmsBillingModels** | **[]string** | List of AMS available billing models: Accepted values: [&#39;marketplace&#39;, &#39;marketplace-rhm&#39;, &#39;marketplace-aws&#39;] | 
 
 ## Methods
