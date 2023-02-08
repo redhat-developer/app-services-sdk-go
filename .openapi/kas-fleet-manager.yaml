@@ -1454,6 +1454,7 @@ components:
               description: The ID of the data plane where Kafka is deployed on. This information is only returned for kafka whose billing model is enterprise
               type: string
               nullable: true
+
             promotion_details:
               type: string
               description: "Details of the Kafka request promotion. It can be set when a Kafka request promotion is in progress or has failed"
@@ -1571,6 +1572,7 @@ components:
           description: enterprise OSD cluster ID to be used for kafka creation
           type: string
           nullable: true
+
     KafkaPromoteRequest:
       type: object
       properties:
