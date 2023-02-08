@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**GetMetricsByInstantQuery**](DefaultApi.md#GetMetricsByInstantQuery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query | 
 [**GetMetricsByRangeQuery**](DefaultApi.md#GetMetricsByRangeQuery) | **Get** /api/kafkas_mgmt/v1/kafkas/{id}/metrics/query_range | 
 [**GetVersionMetadata**](DefaultApi.md#GetVersionMetadata) | **Get** /api/kafkas_mgmt/v1 | 
+[**PromoteKafka**](DefaultApi.md#PromoteKafka) | **Post** /api/kafkas_mgmt/v1/kafkas/{id}/promote | 
 [**UpdateKafkaById**](DefaultApi.md#UpdateKafkaById) | **Patch** /api/kafkas_mgmt/v1/kafkas/{id} | 
 
 
@@ -788,6 +789,78 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PromoteKafka
+
+> PromoteKafka(ctx, id).Async(async).KafkaPromoteRequest(kafkaPromoteRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := "id_example" // string | The ID of record
+    async := true // bool | Perform the action in an asynchronous manner. False by default.
+    kafkaPromoteRequest := *openapiclient.NewKafkaPromoteRequest("DesiredKafkaBillingModel_example") // KafkaPromoteRequest | Kafka promotion request
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.PromoteKafka(context.Background(), id).Async(async).KafkaPromoteRequest(kafkaPromoteRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.PromoteKafka``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | The ID of record | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPromoteKafkaRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **async** | **bool** | Perform the action in an asynchronous manner. False by default. | 
+ **kafkaPromoteRequest** | [**KafkaPromoteRequest**](KafkaPromoteRequest.md) | Kafka promotion request | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

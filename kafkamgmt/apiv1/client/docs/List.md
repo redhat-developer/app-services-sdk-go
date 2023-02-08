@@ -8,13 +8,12 @@ Name | Type | Description | Notes
 **Page** | **int32** |  | 
 **Size** | **int32** |  | 
 **Total** | **int32** |  | 
-**Items** | [**[]ObjectReference**](ObjectReference.md) |  | 
 
 ## Methods
 
 ### NewList
 
-`func NewList(kind string, page int32, size int32, total int32, items []ObjectReference, ) *List`
+`func NewList(kind string, page int32, size int32, total int32, ) *List`
 
 NewList instantiates a new List object
 This constructor will assign default values to properties that have it defined,
@@ -107,26 +106,6 @@ and a boolean to check if the value has been set.
 `func (o *List) SetTotal(v int32)`
 
 SetTotal sets Total field to given value.
-
-
-### GetItems
-
-`func (o *List) GetItems() []ObjectReference`
-
-GetItems returns the Items field if non-nil, zero value otherwise.
-
-### GetItemsOk
-
-`func (o *List) GetItemsOk() (*[]ObjectReference, bool)`
-
-GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetItems
-
-`func (o *List) SetItems(v []ObjectReference)`
-
-SetItems sets Items field to given value.
 
 
 
