@@ -33,6 +33,8 @@ Name | Type | Description | Notes
 **BillingCloudAccountId** | Pointer to **string** |  | [optional] 
 **Marketplace** | Pointer to **string** |  | [optional] 
 **BillingModel** | Pointer to **string** |  | [optional] 
+**PromotionStatus** | Pointer to **string** | Status of the Kafka request promotion. Possible values: [&#39;promoting&#39;, &#39;failed&#39;]. If unset it means no promotion is in progress. | [optional] 
+**PromotionDetails** | Pointer to **string** | Details of the Kafka request promotion. It can be set when a Kafka request promotion is in progress or has failed | [optional] 
 
 ## Methods
 
@@ -777,6 +779,56 @@ SetBillingModel sets BillingModel field to given value.
 `func (o *KafkaRequestAllOf) HasBillingModel() bool`
 
 HasBillingModel returns a boolean if a field has been set.
+
+### GetPromotionStatus
+
+`func (o *KafkaRequestAllOf) GetPromotionStatus() string`
+
+GetPromotionStatus returns the PromotionStatus field if non-nil, zero value otherwise.
+
+### GetPromotionStatusOk
+
+`func (o *KafkaRequestAllOf) GetPromotionStatusOk() (*string, bool)`
+
+GetPromotionStatusOk returns a tuple with the PromotionStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPromotionStatus
+
+`func (o *KafkaRequestAllOf) SetPromotionStatus(v string)`
+
+SetPromotionStatus sets PromotionStatus field to given value.
+
+### HasPromotionStatus
+
+`func (o *KafkaRequestAllOf) HasPromotionStatus() bool`
+
+HasPromotionStatus returns a boolean if a field has been set.
+
+### GetPromotionDetails
+
+`func (o *KafkaRequestAllOf) GetPromotionDetails() string`
+
+GetPromotionDetails returns the PromotionDetails field if non-nil, zero value otherwise.
+
+### GetPromotionDetailsOk
+
+`func (o *KafkaRequestAllOf) GetPromotionDetailsOk() (*string, bool)`
+
+GetPromotionDetailsOk returns a tuple with the PromotionDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPromotionDetails
+
+`func (o *KafkaRequestAllOf) SetPromotionDetails(v string)`
+
+SetPromotionDetails sets PromotionDetails field to given value.
+
+### HasPromotionDetails
+
+`func (o *KafkaRequestAllOf) HasPromotionDetails() bool`
+
+HasPromotionDetails returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

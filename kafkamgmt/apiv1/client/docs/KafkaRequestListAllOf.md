@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]KafkaRequest**](KafkaRequest.md) |  | [optional] 
+**Items** | [**[]KafkaRequest**](KafkaRequest.md) |  | 
 
 ## Methods
 
 ### NewKafkaRequestListAllOf
 
-`func NewKafkaRequestListAllOf() *KafkaRequestListAllOf`
+`func NewKafkaRequestListAllOf(items []KafkaRequest, ) *KafkaRequestListAllOf`
 
 NewKafkaRequestListAllOf instantiates a new KafkaRequestListAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
-### HasItems
-
-`func (o *KafkaRequestListAllOf) HasItems() bool`
-
-HasItems returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

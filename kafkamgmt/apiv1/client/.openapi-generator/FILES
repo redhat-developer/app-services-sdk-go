@@ -28,6 +28,7 @@ docs/ErrorListAllOf.md
 docs/ErrorsApi.md
 docs/FleetshardParameter.md
 docs/InstantQuery.md
+docs/KafkaPromoteRequest.md
 docs/KafkaRequest.md
 docs/KafkaRequestAllOf.md
 docs/KafkaRequestList.md
@@ -79,6 +80,7 @@ model_error_list.go
 model_error_list_all_of.go
 model_fleetshard_parameter.go
 model_instant_query.go
+model_kafka_promote_request.go
 model_kafka_request.go
 model_kafka_request_all_of.go
 model_kafka_request_list.go
