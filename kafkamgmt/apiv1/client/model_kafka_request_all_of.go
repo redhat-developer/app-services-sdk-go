@@ -61,6 +61,8 @@ type KafkaRequestAllOf struct {
 	BillingModel *string `json:"billing_model,omitempty"`
 	// Status of the Kafka request promotion. Possible values: ['promoting', 'failed']. If unset it means no promotion is in progress.
 	PromotionStatus *string `json:"promotion_status,omitempty"`
+	// The ID of the data plane where Kafka is deployed on. This information is only returned for kafka whose billing model is enterprise
+	ClusterId NullableString `json:"cluster_id,omitempty"`
 	// Details of the Kafka request promotion. It can be set when a Kafka request promotion is in progress or has failed
 	PromotionDetails *string `json:"promotion_details,omitempty"`
 }
@@ -1038,6 +1040,48 @@ func (o *KafkaRequestAllOf) SetPromotionStatus(v string) {
 	o.PromotionStatus = &v
 }
 
+// GetClusterId returns the ClusterId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *KafkaRequestAllOf) GetClusterId() string {
+	if o == nil || o.ClusterId.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.ClusterId.Get()
+}
+
+// GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *KafkaRequestAllOf) GetClusterIdOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.ClusterId.Get(), o.ClusterId.IsSet()
+}
+
+// HasClusterId returns a boolean if a field has been set.
+func (o *KafkaRequestAllOf) HasClusterId() bool {
+	if o != nil && o.ClusterId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetClusterId gets a reference to the given NullableString and assigns it to the ClusterId field.
+func (o *KafkaRequestAllOf) SetClusterId(v string) {
+	o.ClusterId.Set(&v)
+}
+// SetClusterIdNil sets the value for ClusterId to be an explicit nil
+func (o *KafkaRequestAllOf) SetClusterIdNil() {
+	o.ClusterId.Set(nil)
+}
+
+// UnsetClusterId ensures that no value is present for ClusterId, not even an explicit nil
+func (o *KafkaRequestAllOf) UnsetClusterId() {
+	o.ClusterId.Unset()
+}
+
 // GetPromotionDetails returns the PromotionDetails field value if set, zero value otherwise.
 func (o *KafkaRequestAllOf) GetPromotionDetails() string {
 	if o == nil || o.PromotionDetails == nil {
@@ -1161,6 +1205,9 @@ func (o KafkaRequestAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.PromotionStatus != nil {
 		toSerialize["promotion_status"] = o.PromotionStatus
+	}
+	if o.ClusterId.IsSet() {
+		toSerialize["cluster_id"] = o.ClusterId.Get()
 	}
 	if o.PromotionDetails != nil {
 		toSerialize["promotion_details"] = o.PromotionDetails

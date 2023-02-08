@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **BillingCloudAccountId** | Pointer to **NullableString** | cloud account id used to purchase the instance | [optional] 
 **Marketplace** | Pointer to **NullableString** | marketplace where the instance is purchased on | [optional] 
 **BillingModel** | Pointer to **NullableString** | billing model to use | [optional] 
+**ClusterId** | Pointer to **NullableString** | enterprise OSD cluster ID to be used for kafka creation | [optional] 
 
 ## Methods
 
@@ -267,6 +268,41 @@ HasBillingModel returns a boolean if a field has been set.
 `func (o *KafkaRequestPayload) UnsetBillingModel()`
 
 UnsetBillingModel ensures that no value is present for BillingModel, not even an explicit nil
+### GetClusterId
+
+`func (o *KafkaRequestPayload) GetClusterId() string`
+
+GetClusterId returns the ClusterId field if non-nil, zero value otherwise.
+
+### GetClusterIdOk
+
+`func (o *KafkaRequestPayload) GetClusterIdOk() (*string, bool)`
+
+GetClusterIdOk returns a tuple with the ClusterId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClusterId
+
+`func (o *KafkaRequestPayload) SetClusterId(v string)`
+
+SetClusterId sets ClusterId field to given value.
+
+### HasClusterId
+
+`func (o *KafkaRequestPayload) HasClusterId() bool`
+
+HasClusterId returns a boolean if a field has been set.
+
+### SetClusterIdNil
+
+`func (o *KafkaRequestPayload) SetClusterIdNil(b bool)`
+
+ SetClusterIdNil sets the value for ClusterId to be an explicit nil
+
+### UnsetClusterId
+`func (o *KafkaRequestPayload) UnsetClusterId()`
+
+UnsetClusterId ensures that no value is present for ClusterId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

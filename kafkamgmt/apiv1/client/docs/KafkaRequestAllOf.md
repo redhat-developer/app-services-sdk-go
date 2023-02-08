@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **Marketplace** | Pointer to **string** |  | [optional] 
 **BillingModel** | Pointer to **string** |  | [optional] 
 **PromotionStatus** | Pointer to **string** | Status of the Kafka request promotion. Possible values: [&#39;promoting&#39;, &#39;failed&#39;]. If unset it means no promotion is in progress. | [optional] 
+**ClusterId** | Pointer to **NullableString** | The ID of the data plane where Kafka is deployed on. This information is only returned for kafka whose billing model is enterprise | [optional] 
 **PromotionDetails** | Pointer to **string** | Details of the Kafka request promotion. It can be set when a Kafka request promotion is in progress or has failed | [optional] 
 
 ## Methods
@@ -805,6 +806,41 @@ SetPromotionStatus sets PromotionStatus field to given value.
 
 HasPromotionStatus returns a boolean if a field has been set.
 
+### GetClusterId
+
+`func (o *KafkaRequestAllOf) GetClusterId() string`
+
+GetClusterId returns the ClusterId field if non-nil, zero value otherwise.
+
+### GetClusterIdOk
+
+`func (o *KafkaRequestAllOf) GetClusterIdOk() (*string, bool)`
+
+GetClusterIdOk returns a tuple with the ClusterId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClusterId
+
+`func (o *KafkaRequestAllOf) SetClusterId(v string)`
+
+SetClusterId sets ClusterId field to given value.
+
+### HasClusterId
+
+`func (o *KafkaRequestAllOf) HasClusterId() bool`
+
+HasClusterId returns a boolean if a field has been set.
+
+### SetClusterIdNil
+
+`func (o *KafkaRequestAllOf) SetClusterIdNil(b bool)`
+
+ SetClusterIdNil sets the value for ClusterId to be an explicit nil
+
+### UnsetClusterId
+`func (o *KafkaRequestAllOf) UnsetClusterId()`
+
+UnsetClusterId ensures that no value is present for ClusterId, not even an explicit nil
 ### GetPromotionDetails
 
 `func (o *KafkaRequestAllOf) GetPromotionDetails() string`
