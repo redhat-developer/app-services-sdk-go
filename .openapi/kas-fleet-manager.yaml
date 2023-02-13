@@ -767,7 +767,8 @@ paths:
         '500':
           content:
             application/json:
-              schema: { }
+              schema:
+                $ref: '#/components/schemas/Error'
               examples:
                 500Example:
                   $ref: '#/components/examples/500Example'
@@ -813,7 +814,8 @@ paths:
         '500':
           content:
             application/json:
-              schema: { }
+              schema:
+                $ref: '#/components/schemas/Error'
               examples:
                 500Example:
                   $ref: '#/components/examples/500Example'
@@ -1454,7 +1456,6 @@ components:
               description: The ID of the data plane where Kafka is deployed on. This information is only returned for kafka whose billing model is enterprise
               type: string
               nullable: true
-
             promotion_details:
               type: string
               description: "Details of the Kafka request promotion. It can be set when a Kafka request promotion is in progress or has failed"
@@ -1572,7 +1573,6 @@ components:
           description: enterprise OSD cluster ID to be used for kafka creation
           type: string
           nullable: true
-
     KafkaPromoteRequest:
       type: object
       properties:
@@ -2021,7 +2021,6 @@ components:
       description: Schema for the request body sent to /clusters POST
       required:
         - cluster_id
-        - cluster_external_id
         - cluster_ingress_dns_name
         - kafka_machine_pool_node_count
         - access_kafkas_via_private_network
@@ -2032,9 +2031,6 @@ components:
           type: boolean
         cluster_id:
           description: The data plane cluster ID. This is the ID of the cluster obtained from OpenShift Cluster Manager (OCM) API
-          type: string
-        cluster_external_id:
-          description: external cluster ID. Can be obtained from the response JSON of OCM get /api/clusters_mgmt/v1/clusters/<cluster_id>
           type: string
         cluster_ingress_dns_name:
           description: dns name of the cluster. Can be obtained from the response JSON of the /api/clusters_mgmt/v1/clusters/<cluster_id>/ingresses (dns_name)
@@ -2198,7 +2194,7 @@ components:
         Search criteria.
 
         The syntax of this parameter is similar to the syntax of the `where` clause of an
-        SQL statement. Allowed fields in the search are `cloud_provider`, `name`, `owner`, `region`, and `status`. Allowed comparators are `<>`, `=`, `LIKE`, or `ILIKE`.
+        SQL statement. Allowed fields in the search are `cloud_provider`, `name`, `owner`, `region`, `status` and `cluster_id`. Allowed comparators are `<>`, `=`, `LIKE`, or `ILIKE`.
         Allowed joins are `AND` and `OR`. However, you can use a maximum of 10 joins in a search query.
 
         Examples:
@@ -2207,7 +2203,7 @@ components:
 
         ```
         name = my-kafka and cloud_provider = aws
-        ```[p-]
+        ```
 
         To return a Kafka instance with a name that starts with `my`, use the following syntax:
 
@@ -2623,7 +2619,6 @@ components:
     EnterpriseOsdClusterPayloadExample:
       value:
         cluster_id: "1234abcd1234abcd1234abcd1234abcd"
-        cluster_external_id: "69d631de-9b7f-4bc2-bf4f-4d3295a7b25e"
         cluster_ingress_dns_name: "apps.enterprise-aws.awdk.s1.devshift.org"
         kafka_machine_pool_node_count: 9
         access_kafkas_via_private_network: false
