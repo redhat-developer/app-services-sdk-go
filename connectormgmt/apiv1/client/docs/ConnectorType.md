@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Version** | **string** | Version of the connector type. | 
 **Channels** | Pointer to [**[]Channel**](Channel.md) | Channels of the connector type. | [optional] 
 **Description** | Pointer to **string** | A description of the connector. | [optional] 
+**Deprecated** | Pointer to **bool** | Connector type is deprecated and removed from the catalog. | [optional] 
 **IconHref** | Pointer to **string** | URL to an icon of the connector. | [optional] 
 **Labels** | Pointer to **[]string** | Labels used to categorize the connector | [optional] 
 **Annotations** | Pointer to **map[string]string** | Name-value string annotations for resource | [optional] 
@@ -201,6 +202,31 @@ SetDescription sets Description field to given value.
 `func (o *ConnectorType) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetDeprecated
+
+`func (o *ConnectorType) GetDeprecated() bool`
+
+GetDeprecated returns the Deprecated field if non-nil, zero value otherwise.
+
+### GetDeprecatedOk
+
+`func (o *ConnectorType) GetDeprecatedOk() (*bool, bool)`
+
+GetDeprecatedOk returns a tuple with the Deprecated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeprecated
+
+`func (o *ConnectorType) SetDeprecated(v bool)`
+
+SetDeprecated sets Deprecated field to given value.
+
+### HasDeprecated
+
+`func (o *ConnectorType) HasDeprecated() bool`
+
+HasDeprecated returns a boolean if a field has been set.
 
 ### GetIconHref
 

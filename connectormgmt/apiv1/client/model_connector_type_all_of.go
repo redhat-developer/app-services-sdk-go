@@ -25,6 +25,8 @@ type ConnectorTypeAllOf struct {
 	Channels *[]Channel `json:"channels,omitempty"`
 	// A description of the connector.
 	Description *string `json:"description,omitempty"`
+	// Connector type is deprecated and removed from the catalog.
+	Deprecated *bool `json:"deprecated,omitempty"`
 	// URL to an icon of the connector.
 	IconHref *string `json:"icon_href,omitempty"`
 	// Labels used to categorize the connector
@@ -182,6 +184,38 @@ func (o *ConnectorTypeAllOf) HasDescription() bool {
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *ConnectorTypeAllOf) SetDescription(v string) {
 	o.Description = &v
+}
+
+// GetDeprecated returns the Deprecated field value if set, zero value otherwise.
+func (o *ConnectorTypeAllOf) GetDeprecated() bool {
+	if o == nil || o.Deprecated == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Deprecated
+}
+
+// GetDeprecatedOk returns a tuple with the Deprecated field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConnectorTypeAllOf) GetDeprecatedOk() (*bool, bool) {
+	if o == nil || o.Deprecated == nil {
+		return nil, false
+	}
+	return o.Deprecated, true
+}
+
+// HasDeprecated returns a boolean if a field has been set.
+func (o *ConnectorTypeAllOf) HasDeprecated() bool {
+	if o != nil && o.Deprecated != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDeprecated gets a reference to the given bool and assigns it to the Deprecated field.
+func (o *ConnectorTypeAllOf) SetDeprecated(v bool) {
+	o.Deprecated = &v
 }
 
 // GetIconHref returns the IconHref field value if set, zero value otherwise.
@@ -389,6 +423,9 @@ func (o ConnectorTypeAllOf) MarshalJSON() ([]byte, error) {
 	}
 	if o.Description != nil {
 		toSerialize["description"] = o.Description
+	}
+	if o.Deprecated != nil {
+		toSerialize["deprecated"] = o.Deprecated
 	}
 	if o.IconHref != nil {
 		toSerialize["icon_href"] = o.IconHref
