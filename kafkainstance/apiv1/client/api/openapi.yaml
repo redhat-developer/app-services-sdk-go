@@ -6,7 +6,7 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Kafka Instance API
-  version: 0.13.0-SNAPSHOT
+  version: 0.13.1-SNAPSHOT
 servers:
 - description: Kafka Admin REST API
   url: /
@@ -1027,6 +1027,7 @@ paths:
         required: false
         schema:
           default: ""
+          pattern: ^User:(\*|[a-zA-Z0-9_@.-]+)$
           type: string
         style: form
       - description: ACL Operation Filter. The ACL binding operation provided should
@@ -1190,6 +1191,7 @@ paths:
         required: false
         schema:
           default: ""
+          pattern: ^User:(\*|[a-zA-Z0-9_@.-]+)$
           type: string
         style: form
       - description: ACL Operation Filter. The ACL binding operation provided should
@@ -1686,12 +1688,10 @@ components:
         key:
           description: The key indicating what configuration entry you would like
             to set for the topic.
-          nullable: false
           pattern: \S
           type: string
         value:
           description: Value to indicate the setting on the topic configuration entry.
-          nullable: false
           pattern: \S
           type: string
       required:
@@ -1713,17 +1713,14 @@ components:
         groupId:
           description: Unique identifier for the consumer group to which this consumer
             belongs.
-          nullable: false
           type: string
         topic:
           description: The unique topic name to which this consumer belongs
-          nullable: false
           type: string
         partition:
           description: The partition number to which this consumer group is assigned
             to.
           format: int32
-          nullable: false
           type: integer
         offset:
           description: Offset denotes the position of the consumer in a partition.
@@ -1896,12 +1893,10 @@ components:
         items:
           items:
             type: object
-          nullable: false
           type: array
         total:
           description: Total number of entries in the full result set
           format: int32
-          nullable: false
           type: integer
         size:
           description: Number of entries per page (returned for fetch requests)
@@ -1933,7 +1928,6 @@ components:
       properties:
         name:
           description: The topic name, this value must be unique.
-          nullable: false
           pattern: \S
           type: string
         settings:
@@ -1986,7 +1980,6 @@ components:
         partition:
           description: The partition id, unique among partitions of the same topic
           format: int32
-          nullable: false
           type: integer
         replicas:
           description: List of replicas for the partition
@@ -2144,7 +2137,6 @@ components:
         topic: topic
       properties:
         topic:
-          nullable: false
           type: string
         partitions:
           items:
@@ -2161,7 +2153,6 @@ components:
         resourceType:
           $ref: '#/components/schemas/AclResourceType'
         resourceName:
-          nullable: false
           pattern: \S
           type: string
         patternType:
@@ -2171,8 +2162,7 @@ components:
             is bound. The literal prefix value of `User:` is required. May be used
             to specify all users with value `User:*`.
           example: User:user-123-abc
-          nullable: false
-          pattern: \S
+          pattern: ^User:(\*|[a-zA-Z0-9_@.-]+)$
           type: string
         operation:
           $ref: '#/components/schemas/AclOperation'
@@ -2199,7 +2189,6 @@ components:
       properties:
         groupId:
           description: Unique identifier for the consumer group
-          nullable: false
           pattern: \S
           type: string
         state:
@@ -2208,7 +2197,6 @@ components:
           description: The list of consumers associated with this consumer group
           items:
             $ref: '#/components/schemas/Consumer'
-          nullable: false
           type: array
         metrics:
           $ref: '#/components/schemas/ConsumerGroupMetrics'
@@ -2314,7 +2302,6 @@ components:
           type: string
         value:
           description: Record value
-          nullable: false
           type: string
       required:
       - value
