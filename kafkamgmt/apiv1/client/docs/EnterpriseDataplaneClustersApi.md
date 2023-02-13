@@ -304,7 +304,7 @@ import (
 )
 
 func main() {
-    enterpriseOsdClusterPayload := *openapiclient.NewEnterpriseOsdClusterPayload(false, "ClusterId_example", "ClusterExternalId_example", "ClusterIngressDnsName_example", int32(123)) // EnterpriseOsdClusterPayload | Enterprise data plane cluster details
+    enterpriseOsdClusterPayload := *openapiclient.NewEnterpriseOsdClusterPayload(false, "ClusterId_example", "ClusterIngressDnsName_example", int32(123)) // EnterpriseOsdClusterPayload | Enterprise data plane cluster details
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
