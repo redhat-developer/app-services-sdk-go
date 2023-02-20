@@ -21,14 +21,14 @@ type EnterpriseClusterList struct {
 	Page int32 `json:"page"`
 	Size int32 `json:"size"`
 	Total int32 `json:"total"`
-	Items []EnterpriseCluster `json:"items"`
+	Items []EnterpriseClusterListItem `json:"items"`
 }
 
 // NewEnterpriseClusterList instantiates a new EnterpriseClusterList object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnterpriseClusterList(kind string, page int32, size int32, total int32, items []EnterpriseCluster) *EnterpriseClusterList {
+func NewEnterpriseClusterList(kind string, page int32, size int32, total int32, items []EnterpriseClusterListItem) *EnterpriseClusterList {
 	this := EnterpriseClusterList{}
 	this.Kind = kind
 	this.Page = page
@@ -143,9 +143,9 @@ func (o *EnterpriseClusterList) SetTotal(v int32) {
 }
 
 // GetItems returns the Items field value
-func (o *EnterpriseClusterList) GetItems() []EnterpriseCluster {
+func (o *EnterpriseClusterList) GetItems() []EnterpriseClusterListItem {
 	if o == nil {
-		var ret []EnterpriseCluster
+		var ret []EnterpriseClusterListItem
 		return ret
 	}
 
@@ -154,7 +154,7 @@ func (o *EnterpriseClusterList) GetItems() []EnterpriseCluster {
 
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-func (o *EnterpriseClusterList) GetItemsOk() (*[]EnterpriseCluster, bool) {
+func (o *EnterpriseClusterList) GetItemsOk() (*[]EnterpriseClusterListItem, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -162,7 +162,7 @@ func (o *EnterpriseClusterList) GetItemsOk() (*[]EnterpriseCluster, bool) {
 }
 
 // SetItems sets field value
-func (o *EnterpriseClusterList) SetItems(v []EnterpriseCluster) {
+func (o *EnterpriseClusterList) SetItems(v []EnterpriseClusterListItem) {
 	o.Items = v
 }
 

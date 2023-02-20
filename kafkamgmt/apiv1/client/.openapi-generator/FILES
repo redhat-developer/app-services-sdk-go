@@ -16,8 +16,11 @@ docs/CloudRegionListAllOf.md
 docs/DefaultApi.md
 docs/EnterpriseCluster.md
 docs/EnterpriseClusterAllOf.md
+docs/EnterpriseClusterAllOfCapacityInformation.md
 docs/EnterpriseClusterList.md
 docs/EnterpriseClusterListAllOf.md
+docs/EnterpriseClusterListItem.md
+docs/EnterpriseClusterListItemAllOf.md
 docs/EnterpriseClusterWithAddonParameters.md
 docs/EnterpriseClusterWithAddonParametersAllOf.md
 docs/EnterpriseDataplaneClustersApi.md
@@ -70,8 +73,11 @@ model_cloud_region_list.go
 model_cloud_region_list_all_of.go
 model_enterprise_cluster.go
 model_enterprise_cluster_all_of.go
+model_enterprise_cluster_all_of_capacity_information.go
 model_enterprise_cluster_list.go
 model_enterprise_cluster_list_all_of.go
+model_enterprise_cluster_list_item.go
+model_enterprise_cluster_list_item_all_of.go
 model_enterprise_cluster_with_addon_parameters.go
 model_enterprise_cluster_with_addon_parameters_all_of.go
 model_enterprise_osd_cluster_payload.go
