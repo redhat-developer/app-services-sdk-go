@@ -23,7 +23,6 @@ Name | Type | Description | Notes
 **InstanceType** | Pointer to **string** |  | [optional] 
 **InstanceTypeName** | Pointer to **string** | This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region} endpoint to retrieve the field instead. | [optional] 
 **ReauthenticationEnabled** | **bool** |  | 
-**KafkaStorageSize** | Pointer to **string** | Maximum data storage available to this Kafka. This is now deprecated, please use max_data_retention_size instead. | [optional] 
 **MaxDataRetentionSize** | Pointer to [**SupportedKafkaSizeBytesValueItem**](SupportedKafkaSizeBytesValueItem.md) |  | [optional] 
 **BrowserUrl** | Pointer to **string** |  | [optional] 
 **SizeId** | Pointer to **string** |  | [optional] 
@@ -518,31 +517,6 @@ and a boolean to check if the value has been set.
 
 SetReauthenticationEnabled sets ReauthenticationEnabled field to given value.
 
-
-### GetKafkaStorageSize
-
-`func (o *KafkaRequest) GetKafkaStorageSize() string`
-
-GetKafkaStorageSize returns the KafkaStorageSize field if non-nil, zero value otherwise.
-
-### GetKafkaStorageSizeOk
-
-`func (o *KafkaRequest) GetKafkaStorageSizeOk() (*string, bool)`
-
-GetKafkaStorageSizeOk returns a tuple with the KafkaStorageSize field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetKafkaStorageSize
-
-`func (o *KafkaRequest) SetKafkaStorageSize(v string)`
-
-SetKafkaStorageSize sets KafkaStorageSize field to given value.
-
-### HasKafkaStorageSize
-
-`func (o *KafkaRequest) HasKafkaStorageSize() bool`
-
-HasKafkaStorageSize returns a boolean if a field has been set.
 
 ### GetMaxDataRetentionSize
 

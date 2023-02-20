@@ -17,21 +17,16 @@ import (
 
 // EnterpriseClusterAllOf struct for EnterpriseClusterAllOf
 type EnterpriseClusterAllOf struct {
-	// Indicates whether Kafkas created on this data plane cluster have to be accessed via private network
-	AccessKafkasViaPrivateNetwork bool `json:"access_kafkas_via_private_network"`
-	// ocm cluster id of the registered Enterprise cluster
-	ClusterId *string `json:"cluster_id,omitempty"`
-	// status of registered Enterprise cluster
-	Status *string `json:"status,omitempty"`
+	SupportedInstanceTypes *SupportedKafkaInstanceTypesList `json:"supported_instance_types,omitempty"`
+	CapacityInformation *EnterpriseClusterAllOfCapacityInformation `json:"capacity_information,omitempty"`
 }
 
 // NewEnterpriseClusterAllOf instantiates a new EnterpriseClusterAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnterpriseClusterAllOf(accessKafkasViaPrivateNetwork bool) *EnterpriseClusterAllOf {
+func NewEnterpriseClusterAllOf() *EnterpriseClusterAllOf {
 	this := EnterpriseClusterAllOf{}
-	this.AccessKafkasViaPrivateNetwork = accessKafkasViaPrivateNetwork
 	return &this
 }
 
@@ -43,104 +38,77 @@ func NewEnterpriseClusterAllOfWithDefaults() *EnterpriseClusterAllOf {
 	return &this
 }
 
-// GetAccessKafkasViaPrivateNetwork returns the AccessKafkasViaPrivateNetwork field value
-func (o *EnterpriseClusterAllOf) GetAccessKafkasViaPrivateNetwork() bool {
-	if o == nil {
-		var ret bool
+// GetSupportedInstanceTypes returns the SupportedInstanceTypes field value if set, zero value otherwise.
+func (o *EnterpriseClusterAllOf) GetSupportedInstanceTypes() SupportedKafkaInstanceTypesList {
+	if o == nil || o.SupportedInstanceTypes == nil {
+		var ret SupportedKafkaInstanceTypesList
 		return ret
 	}
-
-	return o.AccessKafkasViaPrivateNetwork
+	return *o.SupportedInstanceTypes
 }
 
-// GetAccessKafkasViaPrivateNetworkOk returns a tuple with the AccessKafkasViaPrivateNetwork field value
+// GetSupportedInstanceTypesOk returns a tuple with the SupportedInstanceTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EnterpriseClusterAllOf) GetAccessKafkasViaPrivateNetworkOk() (*bool, bool) {
-	if o == nil  {
+func (o *EnterpriseClusterAllOf) GetSupportedInstanceTypesOk() (*SupportedKafkaInstanceTypesList, bool) {
+	if o == nil || o.SupportedInstanceTypes == nil {
 		return nil, false
 	}
-	return &o.AccessKafkasViaPrivateNetwork, true
+	return o.SupportedInstanceTypes, true
 }
 
-// SetAccessKafkasViaPrivateNetwork sets field value
-func (o *EnterpriseClusterAllOf) SetAccessKafkasViaPrivateNetwork(v bool) {
-	o.AccessKafkasViaPrivateNetwork = v
-}
-
-// GetClusterId returns the ClusterId field value if set, zero value otherwise.
-func (o *EnterpriseClusterAllOf) GetClusterId() string {
-	if o == nil || o.ClusterId == nil {
-		var ret string
-		return ret
-	}
-	return *o.ClusterId
-}
-
-// GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EnterpriseClusterAllOf) GetClusterIdOk() (*string, bool) {
-	if o == nil || o.ClusterId == nil {
-		return nil, false
-	}
-	return o.ClusterId, true
-}
-
-// HasClusterId returns a boolean if a field has been set.
-func (o *EnterpriseClusterAllOf) HasClusterId() bool {
-	if o != nil && o.ClusterId != nil {
+// HasSupportedInstanceTypes returns a boolean if a field has been set.
+func (o *EnterpriseClusterAllOf) HasSupportedInstanceTypes() bool {
+	if o != nil && o.SupportedInstanceTypes != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetClusterId gets a reference to the given string and assigns it to the ClusterId field.
-func (o *EnterpriseClusterAllOf) SetClusterId(v string) {
-	o.ClusterId = &v
+// SetSupportedInstanceTypes gets a reference to the given SupportedKafkaInstanceTypesList and assigns it to the SupportedInstanceTypes field.
+func (o *EnterpriseClusterAllOf) SetSupportedInstanceTypes(v SupportedKafkaInstanceTypesList) {
+	o.SupportedInstanceTypes = &v
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
-func (o *EnterpriseClusterAllOf) GetStatus() string {
-	if o == nil || o.Status == nil {
-		var ret string
+// GetCapacityInformation returns the CapacityInformation field value if set, zero value otherwise.
+func (o *EnterpriseClusterAllOf) GetCapacityInformation() EnterpriseClusterAllOfCapacityInformation {
+	if o == nil || o.CapacityInformation == nil {
+		var ret EnterpriseClusterAllOfCapacityInformation
 		return ret
 	}
-	return *o.Status
+	return *o.CapacityInformation
 }
 
-// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// GetCapacityInformationOk returns a tuple with the CapacityInformation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EnterpriseClusterAllOf) GetStatusOk() (*string, bool) {
-	if o == nil || o.Status == nil {
+func (o *EnterpriseClusterAllOf) GetCapacityInformationOk() (*EnterpriseClusterAllOfCapacityInformation, bool) {
+	if o == nil || o.CapacityInformation == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return o.CapacityInformation, true
 }
 
-// HasStatus returns a boolean if a field has been set.
-func (o *EnterpriseClusterAllOf) HasStatus() bool {
-	if o != nil && o.Status != nil {
+// HasCapacityInformation returns a boolean if a field has been set.
+func (o *EnterpriseClusterAllOf) HasCapacityInformation() bool {
+	if o != nil && o.CapacityInformation != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetStatus gets a reference to the given string and assigns it to the Status field.
-func (o *EnterpriseClusterAllOf) SetStatus(v string) {
-	o.Status = &v
+// SetCapacityInformation gets a reference to the given EnterpriseClusterAllOfCapacityInformation and assigns it to the CapacityInformation field.
+func (o *EnterpriseClusterAllOf) SetCapacityInformation(v EnterpriseClusterAllOfCapacityInformation) {
+	o.CapacityInformation = &v
 }
 
 func (o EnterpriseClusterAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["access_kafkas_via_private_network"] = o.AccessKafkasViaPrivateNetwork
+	if o.SupportedInstanceTypes != nil {
+		toSerialize["supported_instance_types"] = o.SupportedInstanceTypes
 	}
-	if o.ClusterId != nil {
-		toSerialize["cluster_id"] = o.ClusterId
-	}
-	if o.Status != nil {
-		toSerialize["status"] = o.Status
+	if o.CapacityInformation != nil {
+		toSerialize["capacity_information"] = o.CapacityInformation
 	}
 	return json.Marshal(toSerialize)
 }

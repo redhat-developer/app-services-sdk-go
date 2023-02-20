@@ -42,8 +42,6 @@ type KafkaRequest struct {
 	// This field is now deprecated, please use the /api/kafkas_mgmt/v1/instance_types/{cloud_provider}/{cloud_region} endpoint to retrieve the field instead.
 	InstanceTypeName *string `json:"instance_type_name,omitempty"`
 	ReauthenticationEnabled bool `json:"reauthentication_enabled"`
-	// Maximum data storage available to this Kafka. This is now deprecated, please use max_data_retention_size instead.
-	KafkaStorageSize *string `json:"kafka_storage_size,omitempty"`
 	MaxDataRetentionSize *SupportedKafkaSizeBytesValueItem `json:"max_data_retention_size,omitempty"`
 	BrowserUrl *string `json:"browser_url,omitempty"`
 	SizeId *string `json:"size_id,omitempty"`
@@ -670,38 +668,6 @@ func (o *KafkaRequest) SetReauthenticationEnabled(v bool) {
 	o.ReauthenticationEnabled = v
 }
 
-// GetKafkaStorageSize returns the KafkaStorageSize field value if set, zero value otherwise.
-func (o *KafkaRequest) GetKafkaStorageSize() string {
-	if o == nil || o.KafkaStorageSize == nil {
-		var ret string
-		return ret
-	}
-	return *o.KafkaStorageSize
-}
-
-// GetKafkaStorageSizeOk returns a tuple with the KafkaStorageSize field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *KafkaRequest) GetKafkaStorageSizeOk() (*string, bool) {
-	if o == nil || o.KafkaStorageSize == nil {
-		return nil, false
-	}
-	return o.KafkaStorageSize, true
-}
-
-// HasKafkaStorageSize returns a boolean if a field has been set.
-func (o *KafkaRequest) HasKafkaStorageSize() bool {
-	if o != nil && o.KafkaStorageSize != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetKafkaStorageSize gets a reference to the given string and assigns it to the KafkaStorageSize field.
-func (o *KafkaRequest) SetKafkaStorageSize(v string) {
-	o.KafkaStorageSize = &v
-}
-
 // GetMaxDataRetentionSize returns the MaxDataRetentionSize field value if set, zero value otherwise.
 func (o *KafkaRequest) GetMaxDataRetentionSize() SupportedKafkaSizeBytesValueItem {
 	if o == nil || o.MaxDataRetentionSize == nil {
@@ -1250,9 +1216,6 @@ func (o KafkaRequest) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["reauthentication_enabled"] = o.ReauthenticationEnabled
-	}
-	if o.KafkaStorageSize != nil {
-		toSerialize["kafka_storage_size"] = o.KafkaStorageSize
 	}
 	if o.MaxDataRetentionSize != nil {
 		toSerialize["max_data_retention_size"] = o.MaxDataRetentionSize

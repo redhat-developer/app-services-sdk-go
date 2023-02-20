@@ -24,16 +24,17 @@ type SupportedKafkaInstanceType struct {
 	// A list of available kafka billing models for the instance type. Each kafka billing model item has a unique 'id'
 	SupportedBillingModels []SupportedKafkaBillingModel `json:"supported_billing_models"`
 	// A list of Kafka instance sizes available for this instance type
-	Sizes *[]SupportedKafkaSize `json:"sizes,omitempty"`
+	Sizes []SupportedKafkaSize `json:"sizes"`
 }
 
 // NewSupportedKafkaInstanceType instantiates a new SupportedKafkaInstanceType object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSupportedKafkaInstanceType(supportedBillingModels []SupportedKafkaBillingModel) *SupportedKafkaInstanceType {
+func NewSupportedKafkaInstanceType(supportedBillingModels []SupportedKafkaBillingModel, sizes []SupportedKafkaSize) *SupportedKafkaInstanceType {
 	this := SupportedKafkaInstanceType{}
 	this.SupportedBillingModels = supportedBillingModels
+	this.Sizes = sizes
 	return &this
 }
 
@@ -133,36 +134,28 @@ func (o *SupportedKafkaInstanceType) SetSupportedBillingModels(v []SupportedKafk
 	o.SupportedBillingModels = v
 }
 
-// GetSizes returns the Sizes field value if set, zero value otherwise.
+// GetSizes returns the Sizes field value
 func (o *SupportedKafkaInstanceType) GetSizes() []SupportedKafkaSize {
-	if o == nil || o.Sizes == nil {
+	if o == nil {
 		var ret []SupportedKafkaSize
 		return ret
 	}
-	return *o.Sizes
+
+	return o.Sizes
 }
 
-// GetSizesOk returns a tuple with the Sizes field value if set, nil otherwise
+// GetSizesOk returns a tuple with the Sizes field value
 // and a boolean to check if the value has been set.
 func (o *SupportedKafkaInstanceType) GetSizesOk() (*[]SupportedKafkaSize, bool) {
-	if o == nil || o.Sizes == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Sizes, true
+	return &o.Sizes, true
 }
 
-// HasSizes returns a boolean if a field has been set.
-func (o *SupportedKafkaInstanceType) HasSizes() bool {
-	if o != nil && o.Sizes != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetSizes gets a reference to the given []SupportedKafkaSize and assigns it to the Sizes field.
+// SetSizes sets field value
 func (o *SupportedKafkaInstanceType) SetSizes(v []SupportedKafkaSize) {
-	o.Sizes = &v
+	o.Sizes = v
 }
 
 func (o SupportedKafkaInstanceType) MarshalJSON() ([]byte, error) {
@@ -176,7 +169,7 @@ func (o SupportedKafkaInstanceType) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["supported_billing_models"] = o.SupportedBillingModels
 	}
-	if o.Sizes != nil {
+	if true {
 		toSerialize["sizes"] = o.Sizes
 	}
 	return json.Marshal(toSerialize)

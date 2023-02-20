@@ -4,15 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessKafkasViaPrivateNetwork** | **bool** | Indicates whether Kafkas created on this data plane cluster have to be accessed via private network | 
-**ClusterId** | Pointer to **string** | ocm cluster id of the registered Enterprise cluster | [optional] 
-**Status** | Pointer to **string** | status of registered Enterprise cluster | [optional] 
+**SupportedInstanceTypes** | Pointer to [**SupportedKafkaInstanceTypesList**](SupportedKafkaInstanceTypesList.md) |  | [optional] 
+**CapacityInformation** | Pointer to [**EnterpriseClusterAllOfCapacityInformation**](EnterpriseClusterAllOfCapacityInformation.md) |  | [optional] 
 
 ## Methods
 
 ### NewEnterpriseClusterAllOf
 
-`func NewEnterpriseClusterAllOf(accessKafkasViaPrivateNetwork bool, ) *EnterpriseClusterAllOf`
+`func NewEnterpriseClusterAllOf() *EnterpriseClusterAllOf`
 
 NewEnterpriseClusterAllOf instantiates a new EnterpriseClusterAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -27,75 +26,55 @@ NewEnterpriseClusterAllOfWithDefaults instantiates a new EnterpriseClusterAllOf 
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetAccessKafkasViaPrivateNetwork
+### GetSupportedInstanceTypes
 
-`func (o *EnterpriseClusterAllOf) GetAccessKafkasViaPrivateNetwork() bool`
+`func (o *EnterpriseClusterAllOf) GetSupportedInstanceTypes() SupportedKafkaInstanceTypesList`
 
-GetAccessKafkasViaPrivateNetwork returns the AccessKafkasViaPrivateNetwork field if non-nil, zero value otherwise.
+GetSupportedInstanceTypes returns the SupportedInstanceTypes field if non-nil, zero value otherwise.
 
-### GetAccessKafkasViaPrivateNetworkOk
+### GetSupportedInstanceTypesOk
 
-`func (o *EnterpriseClusterAllOf) GetAccessKafkasViaPrivateNetworkOk() (*bool, bool)`
+`func (o *EnterpriseClusterAllOf) GetSupportedInstanceTypesOk() (*SupportedKafkaInstanceTypesList, bool)`
 
-GetAccessKafkasViaPrivateNetworkOk returns a tuple with the AccessKafkasViaPrivateNetwork field if it's non-nil, zero value otherwise
+GetSupportedInstanceTypesOk returns a tuple with the SupportedInstanceTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAccessKafkasViaPrivateNetwork
+### SetSupportedInstanceTypes
 
-`func (o *EnterpriseClusterAllOf) SetAccessKafkasViaPrivateNetwork(v bool)`
+`func (o *EnterpriseClusterAllOf) SetSupportedInstanceTypes(v SupportedKafkaInstanceTypesList)`
 
-SetAccessKafkasViaPrivateNetwork sets AccessKafkasViaPrivateNetwork field to given value.
+SetSupportedInstanceTypes sets SupportedInstanceTypes field to given value.
 
+### HasSupportedInstanceTypes
 
-### GetClusterId
+`func (o *EnterpriseClusterAllOf) HasSupportedInstanceTypes() bool`
 
-`func (o *EnterpriseClusterAllOf) GetClusterId() string`
+HasSupportedInstanceTypes returns a boolean if a field has been set.
 
-GetClusterId returns the ClusterId field if non-nil, zero value otherwise.
+### GetCapacityInformation
 
-### GetClusterIdOk
+`func (o *EnterpriseClusterAllOf) GetCapacityInformation() EnterpriseClusterAllOfCapacityInformation`
 
-`func (o *EnterpriseClusterAllOf) GetClusterIdOk() (*string, bool)`
+GetCapacityInformation returns the CapacityInformation field if non-nil, zero value otherwise.
 
-GetClusterIdOk returns a tuple with the ClusterId field if it's non-nil, zero value otherwise
+### GetCapacityInformationOk
+
+`func (o *EnterpriseClusterAllOf) GetCapacityInformationOk() (*EnterpriseClusterAllOfCapacityInformation, bool)`
+
+GetCapacityInformationOk returns a tuple with the CapacityInformation field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetClusterId
+### SetCapacityInformation
 
-`func (o *EnterpriseClusterAllOf) SetClusterId(v string)`
+`func (o *EnterpriseClusterAllOf) SetCapacityInformation(v EnterpriseClusterAllOfCapacityInformation)`
 
-SetClusterId sets ClusterId field to given value.
+SetCapacityInformation sets CapacityInformation field to given value.
 
-### HasClusterId
+### HasCapacityInformation
 
-`func (o *EnterpriseClusterAllOf) HasClusterId() bool`
+`func (o *EnterpriseClusterAllOf) HasCapacityInformation() bool`
 
-HasClusterId returns a boolean if a field has been set.
-
-### GetStatus
-
-`func (o *EnterpriseClusterAllOf) GetStatus() string`
-
-GetStatus returns the Status field if non-nil, zero value otherwise.
-
-### GetStatusOk
-
-`func (o *EnterpriseClusterAllOf) GetStatusOk() (*string, bool)`
-
-GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStatus
-
-`func (o *EnterpriseClusterAllOf) SetStatus(v string)`
-
-SetStatus sets Status field to given value.
-
-### HasStatus
-
-`func (o *EnterpriseClusterAllOf) HasStatus() bool`
-
-HasStatus returns a boolean if a field has been set.
+HasCapacityInformation returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
