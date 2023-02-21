@@ -17,23 +17,23 @@ import (
 // RecordList struct for RecordList
 type RecordList struct {
 	Kind *string `json:"kind,omitempty"`
-	Items []Record `json:"items"`
 	// Total number of records returned in this request. This value does not indicate the total number of records in the topic.
 	Total int32 `json:"total"`
 	// Not used
 	Size *int32 `json:"size,omitempty"`
 	// Not used
 	Page *int32 `json:"page,omitempty"`
+	Items []Record `json:"items"`
 }
 
 // NewRecordList instantiates a new RecordList object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRecordList(items []Record, total int32) *RecordList {
+func NewRecordList(total int32, items []Record) *RecordList {
 	this := RecordList{}
-	this.Items = items
 	this.Total = total
+	this.Items = items
 	return &this
 }
 
@@ -75,30 +75,6 @@ func (o *RecordList) HasKind() bool {
 // SetKind gets a reference to the given string and assigns it to the Kind field.
 func (o *RecordList) SetKind(v string) {
 	o.Kind = &v
-}
-
-// GetItems returns the Items field value
-func (o *RecordList) GetItems() []Record {
-	if o == nil {
-		var ret []Record
-		return ret
-	}
-
-	return o.Items
-}
-
-// GetItemsOk returns a tuple with the Items field value
-// and a boolean to check if the value has been set.
-func (o *RecordList) GetItemsOk() (*[]Record, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Items, true
-}
-
-// SetItems sets field value
-func (o *RecordList) SetItems(v []Record) {
-	o.Items = v
 }
 
 // GetTotal returns the Total field value
@@ -189,13 +165,34 @@ func (o *RecordList) SetPage(v int32) {
 	o.Page = &v
 }
 
+// GetItems returns the Items field value
+func (o *RecordList) GetItems() []Record {
+	if o == nil {
+		var ret []Record
+		return ret
+	}
+
+	return o.Items
+}
+
+// GetItemsOk returns a tuple with the Items field value
+// and a boolean to check if the value has been set.
+func (o *RecordList) GetItemsOk() (*[]Record, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Items, true
+}
+
+// SetItems sets field value
+func (o *RecordList) SetItems(v []Record) {
+	o.Items = v
+}
+
 func (o RecordList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
-	}
-	if true {
-		toSerialize["items"] = o.Items
 	}
 	if true {
 		toSerialize["total"] = o.Total
@@ -205,6 +202,9 @@ func (o RecordList) MarshalJSON() ([]byte, error) {
 	}
 	if o.Page != nil {
 		toSerialize["page"] = o.Page
+	}
+	if true {
+		toSerialize["items"] = o.Items
 	}
 	return json.Marshal(toSerialize)
 }

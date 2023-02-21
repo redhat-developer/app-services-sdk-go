@@ -16,7 +16,7 @@ import (
 
 // ErrorListAllOf List of errors
 type ErrorListAllOf struct {
-	Items *[]Error `json:"items,omitempty"`
+	Items []Error `json:"items"`
 	// Total number of errors returned in this request
 	Total *int32 `json:"total,omitempty"`
 }
@@ -25,8 +25,9 @@ type ErrorListAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewErrorListAllOf() *ErrorListAllOf {
+func NewErrorListAllOf(items []Error) *ErrorListAllOf {
 	this := ErrorListAllOf{}
+	this.Items = items
 	return &this
 }
 
@@ -38,36 +39,28 @@ func NewErrorListAllOfWithDefaults() *ErrorListAllOf {
 	return &this
 }
 
-// GetItems returns the Items field value if set, zero value otherwise.
+// GetItems returns the Items field value
 func (o *ErrorListAllOf) GetItems() []Error {
-	if o == nil || o.Items == nil {
+	if o == nil {
 		var ret []Error
 		return ret
 	}
-	return *o.Items
+
+	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
+// GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
 func (o *ErrorListAllOf) GetItemsOk() (*[]Error, bool) {
-	if o == nil || o.Items == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Items, true
+	return &o.Items, true
 }
 
-// HasItems returns a boolean if a field has been set.
-func (o *ErrorListAllOf) HasItems() bool {
-	if o != nil && o.Items != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetItems gets a reference to the given []Error and assigns it to the Items field.
+// SetItems sets field value
 func (o *ErrorListAllOf) SetItems(v []Error) {
-	o.Items = &v
+	o.Items = v
 }
 
 // GetTotal returns the Total field value if set, zero value otherwise.
@@ -104,7 +97,7 @@ func (o *ErrorListAllOf) SetTotal(v int32) {
 
 func (o ErrorListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Items != nil {
+	if true {
 		toSerialize["items"] = o.Items
 	}
 	if o.Total != nil {

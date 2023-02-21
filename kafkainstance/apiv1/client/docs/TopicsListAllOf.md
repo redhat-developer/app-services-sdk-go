@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]Topic**](Topic.md) |  | [optional] 
+**Items** | [**[]Topic**](Topic.md) |  | 
 
 ## Methods
 
 ### NewTopicsListAllOf
 
-`func NewTopicsListAllOf() *TopicsListAllOf`
+`func NewTopicsListAllOf(items []Topic, ) *TopicsListAllOf`
 
 NewTopicsListAllOf instantiates a new TopicsListAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
-### HasItems
-
-`func (o *TopicsListAllOf) HasItems() bool`
-
-HasItems returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

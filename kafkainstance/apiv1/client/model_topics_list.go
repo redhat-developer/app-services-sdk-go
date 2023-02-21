@@ -17,7 +17,6 @@ import (
 // TopicsList struct for TopicsList
 type TopicsList struct {
 	Kind *string `json:"kind,omitempty"`
-	Items []Topic `json:"items"`
 	// Total number of entries in the full result set
 	Total int32 `json:"total"`
 	// Number of entries per page (returned for fetch requests)
@@ -30,16 +29,17 @@ type TopicsList struct {
 	Limit *int32 `json:"limit,omitempty"`
 	// Total number of entries in the full result set
 	Count *int32 `json:"count,omitempty"`
+	Items []Topic `json:"items"`
 }
 
 // NewTopicsList instantiates a new TopicsList object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTopicsList(items []Topic, total int32) *TopicsList {
+func NewTopicsList(total int32, items []Topic) *TopicsList {
 	this := TopicsList{}
-	this.Items = items
 	this.Total = total
+	this.Items = items
 	return &this
 }
 
@@ -81,30 +81,6 @@ func (o *TopicsList) HasKind() bool {
 // SetKind gets a reference to the given string and assigns it to the Kind field.
 func (o *TopicsList) SetKind(v string) {
 	o.Kind = &v
-}
-
-// GetItems returns the Items field value
-func (o *TopicsList) GetItems() []Topic {
-	if o == nil {
-		var ret []Topic
-		return ret
-	}
-
-	return o.Items
-}
-
-// GetItemsOk returns a tuple with the Items field value
-// and a boolean to check if the value has been set.
-func (o *TopicsList) GetItemsOk() (*[]Topic, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Items, true
-}
-
-// SetItems sets field value
-func (o *TopicsList) SetItems(v []Topic) {
-	o.Items = v
 }
 
 // GetTotal returns the Total field value
@@ -291,13 +267,34 @@ func (o *TopicsList) SetCount(v int32) {
 	o.Count = &v
 }
 
+// GetItems returns the Items field value
+func (o *TopicsList) GetItems() []Topic {
+	if o == nil {
+		var ret []Topic
+		return ret
+	}
+
+	return o.Items
+}
+
+// GetItemsOk returns a tuple with the Items field value
+// and a boolean to check if the value has been set.
+func (o *TopicsList) GetItemsOk() (*[]Topic, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Items, true
+}
+
+// SetItems sets field value
+func (o *TopicsList) SetItems(v []Topic) {
+	o.Items = v
+}
+
 func (o TopicsList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
-	}
-	if true {
-		toSerialize["items"] = o.Items
 	}
 	if true {
 		toSerialize["total"] = o.Total
@@ -316,6 +313,9 @@ func (o TopicsList) MarshalJSON() ([]byte, error) {
 	}
 	if o.Count != nil {
 		toSerialize["count"] = o.Count
+	}
+	if true {
+		toSerialize["items"] = o.Items
 	}
 	return json.Marshal(toSerialize)
 }

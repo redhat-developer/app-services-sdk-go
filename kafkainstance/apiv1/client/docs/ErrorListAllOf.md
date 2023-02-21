@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]Error**](Error.md) |  | [optional] 
+**Items** | [**[]Error**](Error.md) |  | 
 **Total** | Pointer to **int32** | Total number of errors returned in this request | [optional] 
 
 ## Methods
 
 ### NewErrorListAllOf
 
-`func NewErrorListAllOf() *ErrorListAllOf`
+`func NewErrorListAllOf(items []Error, ) *ErrorListAllOf`
 
 NewErrorListAllOf instantiates a new ErrorListAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
-### HasItems
-
-`func (o *ErrorListAllOf) HasItems() bool`
-
-HasItems returns a boolean if a field has been set.
 
 ### GetTotal
 
