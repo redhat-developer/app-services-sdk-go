@@ -16,7 +16,7 @@ import (
 
 // RecordListAllOf A page of records consumed from a topic
 type RecordListAllOf struct {
-	Items *[]Record `json:"items,omitempty"`
+	Items []Record `json:"items"`
 	// Total number of records returned in this request. This value does not indicate the total number of records in the topic.
 	Total *int32 `json:"total,omitempty"`
 	// Not used
@@ -29,8 +29,9 @@ type RecordListAllOf struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRecordListAllOf() *RecordListAllOf {
+func NewRecordListAllOf(items []Record) *RecordListAllOf {
 	this := RecordListAllOf{}
+	this.Items = items
 	return &this
 }
 
@@ -42,36 +43,28 @@ func NewRecordListAllOfWithDefaults() *RecordListAllOf {
 	return &this
 }
 
-// GetItems returns the Items field value if set, zero value otherwise.
+// GetItems returns the Items field value
 func (o *RecordListAllOf) GetItems() []Record {
-	if o == nil || o.Items == nil {
+	if o == nil {
 		var ret []Record
 		return ret
 	}
-	return *o.Items
+
+	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
+// GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
 func (o *RecordListAllOf) GetItemsOk() (*[]Record, bool) {
-	if o == nil || o.Items == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Items, true
+	return &o.Items, true
 }
 
-// HasItems returns a boolean if a field has been set.
-func (o *RecordListAllOf) HasItems() bool {
-	if o != nil && o.Items != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetItems gets a reference to the given []Record and assigns it to the Items field.
+// SetItems sets field value
 func (o *RecordListAllOf) SetItems(v []Record) {
-	o.Items = &v
+	o.Items = v
 }
 
 // GetTotal returns the Total field value if set, zero value otherwise.
@@ -172,7 +165,7 @@ func (o *RecordListAllOf) SetPage(v int32) {
 
 func (o RecordListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Items != nil {
+	if true {
 		toSerialize["items"] = o.Items
 	}
 	if o.Total != nil {

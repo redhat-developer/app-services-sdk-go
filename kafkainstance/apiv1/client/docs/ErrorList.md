@@ -5,16 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Kind** | Pointer to **string** |  | [optional] 
-**Items** | [**[]Error**](Error.md) |  | 
 **Total** | **int32** | Total number of errors returned in this request | 
 **Size** | Pointer to **int32** | Number of entries per page (returned for fetch requests) | [optional] 
 **Page** | Pointer to **int32** | Current page number (returned for fetch requests) | [optional] 
+**Items** | [**[]Error**](Error.md) |  | 
 
 ## Methods
 
 ### NewErrorList
 
-`func NewErrorList(items []Error, total int32, ) *ErrorList`
+`func NewErrorList(total int32, items []Error, ) *ErrorList`
 
 NewErrorList instantiates a new ErrorList object
 This constructor will assign default values to properties that have it defined,
@@ -53,26 +53,6 @@ SetKind sets Kind field to given value.
 `func (o *ErrorList) HasKind() bool`
 
 HasKind returns a boolean if a field has been set.
-
-### GetItems
-
-`func (o *ErrorList) GetItems() []Error`
-
-GetItems returns the Items field if non-nil, zero value otherwise.
-
-### GetItemsOk
-
-`func (o *ErrorList) GetItemsOk() (*[]Error, bool)`
-
-GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetItems
-
-`func (o *ErrorList) SetItems(v []Error)`
-
-SetItems sets Items field to given value.
-
 
 ### GetTotal
 
@@ -143,6 +123,26 @@ SetPage sets Page field to given value.
 `func (o *ErrorList) HasPage() bool`
 
 HasPage returns a boolean if a field has been set.
+
+### GetItems
+
+`func (o *ErrorList) GetItems() []Error`
+
+GetItems returns the Items field if non-nil, zero value otherwise.
+
+### GetItemsOk
+
+`func (o *ErrorList) GetItemsOk() (*[]Error, bool)`
+
+GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItems
+
+`func (o *ErrorList) SetItems(v []Error)`
+
+SetItems sets Items field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

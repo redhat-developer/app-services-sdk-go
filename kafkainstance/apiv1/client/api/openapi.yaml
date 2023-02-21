@@ -1890,10 +1890,6 @@ components:
       properties:
         kind:
           type: string
-        items:
-          items:
-            type: object
-          type: array
         total:
           description: Total number of entries in the full result set
           format: int32
@@ -1907,7 +1903,6 @@ components:
           format: int32
           type: integer
       required:
-      - items
       - total
       type: object
     ListDeprecated:
@@ -2183,6 +2178,8 @@ components:
           items:
             $ref: '#/components/schemas/AclBinding'
           type: array
+      required:
+      - items
       type: object
     ConsumerGroup_allOf:
       description: A group of Kafka consumers
@@ -2211,6 +2208,8 @@ components:
           items:
             $ref: '#/components/schemas/ConsumerGroup'
           type: array
+      required:
+      - items
       type: object
     ConsumerGroupResetOffsetResult_allOf:
       properties:
@@ -2218,6 +2217,8 @@ components:
           items:
             $ref: '#/components/schemas/ConsumerGroupResetOffsetResultItem'
           type: array
+      required:
+      - items
       type: object
     Error_allOf:
       description: General error response
@@ -2251,6 +2252,8 @@ components:
           description: Total number of errors returned in this request
           format: int32
           type: integer
+      required:
+      - items
       type: object
     ListDeprecated_allOf:
       properties:
@@ -2326,6 +2329,8 @@ components:
           description: Not used
           format: int32
           type: integer
+      required:
+      - items
       type: object
     Topic_allOf:
       description: Kafka Topic (A feed where records are stored and published)
@@ -2353,6 +2358,8 @@ components:
           items:
             $ref: '#/components/schemas/Topic'
           type: array
+      required:
+      - items
       type: object
   securitySchemes:
     Bearer:

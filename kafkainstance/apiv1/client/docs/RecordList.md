@@ -5,16 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Kind** | Pointer to **string** |  | [optional] 
-**Items** | [**[]Record**](Record.md) |  | 
 **Total** | **int32** | Total number of records returned in this request. This value does not indicate the total number of records in the topic. | 
 **Size** | Pointer to **int32** | Not used | [optional] 
 **Page** | Pointer to **int32** | Not used | [optional] 
+**Items** | [**[]Record**](Record.md) |  | 
 
 ## Methods
 
 ### NewRecordList
 
-`func NewRecordList(items []Record, total int32, ) *RecordList`
+`func NewRecordList(total int32, items []Record, ) *RecordList`
 
 NewRecordList instantiates a new RecordList object
 This constructor will assign default values to properties that have it defined,
@@ -53,26 +53,6 @@ SetKind sets Kind field to given value.
 `func (o *RecordList) HasKind() bool`
 
 HasKind returns a boolean if a field has been set.
-
-### GetItems
-
-`func (o *RecordList) GetItems() []Record`
-
-GetItems returns the Items field if non-nil, zero value otherwise.
-
-### GetItemsOk
-
-`func (o *RecordList) GetItemsOk() (*[]Record, bool)`
-
-GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetItems
-
-`func (o *RecordList) SetItems(v []Record)`
-
-SetItems sets Items field to given value.
-
 
 ### GetTotal
 
@@ -143,6 +123,26 @@ SetPage sets Page field to given value.
 `func (o *RecordList) HasPage() bool`
 
 HasPage returns a boolean if a field has been set.
+
+### GetItems
+
+`func (o *RecordList) GetItems() []Record`
+
+GetItems returns the Items field if non-nil, zero value otherwise.
+
+### GetItemsOk
+
+`func (o *RecordList) GetItemsOk() (*[]Record, bool)`
+
+GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItems
+
+`func (o *RecordList) SetItems(v []Record)`
+
+SetItems sets Items field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

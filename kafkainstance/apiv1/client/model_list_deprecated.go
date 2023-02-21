@@ -17,7 +17,6 @@ import (
 // ListDeprecated struct for ListDeprecated
 type ListDeprecated struct {
 	Kind *string `json:"kind,omitempty"`
-	Items []map[string]interface{} `json:"items"`
 	// Total number of entries in the full result set
 	Total int32 `json:"total"`
 	// Number of entries per page (returned for fetch requests)
@@ -36,9 +35,8 @@ type ListDeprecated struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListDeprecated(items []map[string]interface{}, total int32) *ListDeprecated {
+func NewListDeprecated(total int32) *ListDeprecated {
 	this := ListDeprecated{}
-	this.Items = items
 	this.Total = total
 	return &this
 }
@@ -81,30 +79,6 @@ func (o *ListDeprecated) HasKind() bool {
 // SetKind gets a reference to the given string and assigns it to the Kind field.
 func (o *ListDeprecated) SetKind(v string) {
 	o.Kind = &v
-}
-
-// GetItems returns the Items field value
-func (o *ListDeprecated) GetItems() []map[string]interface{} {
-	if o == nil {
-		var ret []map[string]interface{}
-		return ret
-	}
-
-	return o.Items
-}
-
-// GetItemsOk returns a tuple with the Items field value
-// and a boolean to check if the value has been set.
-func (o *ListDeprecated) GetItemsOk() (*[]map[string]interface{}, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Items, true
-}
-
-// SetItems sets field value
-func (o *ListDeprecated) SetItems(v []map[string]interface{}) {
-	o.Items = v
 }
 
 // GetTotal returns the Total field value
@@ -295,9 +269,6 @@ func (o ListDeprecated) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
-	}
-	if true {
-		toSerialize["items"] = o.Items
 	}
 	if true {
 		toSerialize["total"] = o.Total
