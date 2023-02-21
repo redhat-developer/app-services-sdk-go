@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Reason** | **string** |  | 
-**OperationId** | Pointer to **string** |  | [optional] 
 **Id** | **string** |  | 
 **Kind** | **string** |  | 
 **Href** | **string** |  | 
+**Reason** | **string** |  | 
+**OperationId** | Pointer to **string** |  | [optional] 
 **Code** | **string** |  | 
 
 ## Methods
 
 ### NewError
 
-`func NewError(reason string, id string, kind string, href string, code string, ) *Error`
+`func NewError(id string, kind string, href string, reason string, code string, ) *Error`
 
 NewError instantiates a new Error object
 This constructor will assign default values to properties that have it defined,
@@ -29,51 +29,6 @@ will change when the set of required properties is changed
 NewErrorWithDefaults instantiates a new Error object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetReason
-
-`func (o *Error) GetReason() string`
-
-GetReason returns the Reason field if non-nil, zero value otherwise.
-
-### GetReasonOk
-
-`func (o *Error) GetReasonOk() (*string, bool)`
-
-GetReasonOk returns a tuple with the Reason field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetReason
-
-`func (o *Error) SetReason(v string)`
-
-SetReason sets Reason field to given value.
-
-
-### GetOperationId
-
-`func (o *Error) GetOperationId() string`
-
-GetOperationId returns the OperationId field if non-nil, zero value otherwise.
-
-### GetOperationIdOk
-
-`func (o *Error) GetOperationIdOk() (*string, bool)`
-
-GetOperationIdOk returns a tuple with the OperationId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOperationId
-
-`func (o *Error) SetOperationId(v string)`
-
-SetOperationId sets OperationId field to given value.
-
-### HasOperationId
-
-`func (o *Error) HasOperationId() bool`
-
-HasOperationId returns a boolean if a field has been set.
 
 ### GetId
 
@@ -134,6 +89,51 @@ and a boolean to check if the value has been set.
 
 SetHref sets Href field to given value.
 
+
+### GetReason
+
+`func (o *Error) GetReason() string`
+
+GetReason returns the Reason field if non-nil, zero value otherwise.
+
+### GetReasonOk
+
+`func (o *Error) GetReasonOk() (*string, bool)`
+
+GetReasonOk returns a tuple with the Reason field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReason
+
+`func (o *Error) SetReason(v string)`
+
+SetReason sets Reason field to given value.
+
+
+### GetOperationId
+
+`func (o *Error) GetOperationId() string`
+
+GetOperationId returns the OperationId field if non-nil, zero value otherwise.
+
+### GetOperationIdOk
+
+`func (o *Error) GetOperationIdOk() (*string, bool)`
+
+GetOperationIdOk returns a tuple with the OperationId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperationId
+
+`func (o *Error) SetOperationId(v string)`
+
+SetOperationId sets OperationId field to given value.
+
+### HasOperationId
+
+`func (o *Error) HasOperationId() bool`
+
+HasOperationId returns a boolean if a field has been set.
 
 ### GetCode
 
