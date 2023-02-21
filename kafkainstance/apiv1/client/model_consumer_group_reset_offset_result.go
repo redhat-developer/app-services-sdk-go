@@ -17,23 +17,23 @@ import (
 // ConsumerGroupResetOffsetResult struct for ConsumerGroupResetOffsetResult
 type ConsumerGroupResetOffsetResult struct {
 	Kind *string `json:"kind,omitempty"`
-	Items []ConsumerGroupResetOffsetResultItem `json:"items"`
 	// Total number of entries in the full result set
 	Total int32 `json:"total"`
 	// Number of entries per page (returned for fetch requests)
 	Size *int32 `json:"size,omitempty"`
 	// Current page number (returned for fetch requests)
 	Page *int32 `json:"page,omitempty"`
+	Items []ConsumerGroupResetOffsetResultItem `json:"items"`
 }
 
 // NewConsumerGroupResetOffsetResult instantiates a new ConsumerGroupResetOffsetResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConsumerGroupResetOffsetResult(items []ConsumerGroupResetOffsetResultItem, total int32) *ConsumerGroupResetOffsetResult {
+func NewConsumerGroupResetOffsetResult(total int32, items []ConsumerGroupResetOffsetResultItem) *ConsumerGroupResetOffsetResult {
 	this := ConsumerGroupResetOffsetResult{}
-	this.Items = items
 	this.Total = total
+	this.Items = items
 	return &this
 }
 
@@ -75,30 +75,6 @@ func (o *ConsumerGroupResetOffsetResult) HasKind() bool {
 // SetKind gets a reference to the given string and assigns it to the Kind field.
 func (o *ConsumerGroupResetOffsetResult) SetKind(v string) {
 	o.Kind = &v
-}
-
-// GetItems returns the Items field value
-func (o *ConsumerGroupResetOffsetResult) GetItems() []ConsumerGroupResetOffsetResultItem {
-	if o == nil {
-		var ret []ConsumerGroupResetOffsetResultItem
-		return ret
-	}
-
-	return o.Items
-}
-
-// GetItemsOk returns a tuple with the Items field value
-// and a boolean to check if the value has been set.
-func (o *ConsumerGroupResetOffsetResult) GetItemsOk() (*[]ConsumerGroupResetOffsetResultItem, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Items, true
-}
-
-// SetItems sets field value
-func (o *ConsumerGroupResetOffsetResult) SetItems(v []ConsumerGroupResetOffsetResultItem) {
-	o.Items = v
 }
 
 // GetTotal returns the Total field value
@@ -189,13 +165,34 @@ func (o *ConsumerGroupResetOffsetResult) SetPage(v int32) {
 	o.Page = &v
 }
 
+// GetItems returns the Items field value
+func (o *ConsumerGroupResetOffsetResult) GetItems() []ConsumerGroupResetOffsetResultItem {
+	if o == nil {
+		var ret []ConsumerGroupResetOffsetResultItem
+		return ret
+	}
+
+	return o.Items
+}
+
+// GetItemsOk returns a tuple with the Items field value
+// and a boolean to check if the value has been set.
+func (o *ConsumerGroupResetOffsetResult) GetItemsOk() (*[]ConsumerGroupResetOffsetResultItem, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Items, true
+}
+
+// SetItems sets field value
+func (o *ConsumerGroupResetOffsetResult) SetItems(v []ConsumerGroupResetOffsetResultItem) {
+	o.Items = v
+}
+
 func (o ConsumerGroupResetOffsetResult) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
-	}
-	if true {
-		toSerialize["items"] = o.Items
 	}
 	if true {
 		toSerialize["total"] = o.Total
@@ -205,6 +202,9 @@ func (o ConsumerGroupResetOffsetResult) MarshalJSON() ([]byte, error) {
 	}
 	if o.Page != nil {
 		toSerialize["page"] = o.Page
+	}
+	if true {
+		toSerialize["items"] = o.Items
 	}
 	return json.Marshal(toSerialize)
 }

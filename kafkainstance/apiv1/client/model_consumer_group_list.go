@@ -17,7 +17,6 @@ import (
 // ConsumerGroupList struct for ConsumerGroupList
 type ConsumerGroupList struct {
 	Kind *string `json:"kind,omitempty"`
-	Items []ConsumerGroup `json:"items"`
 	// Total number of entries in the full result set
 	Total int32 `json:"total"`
 	// Number of entries per page (returned for fetch requests)
@@ -30,16 +29,17 @@ type ConsumerGroupList struct {
 	Limit *int32 `json:"limit,omitempty"`
 	// Total number of entries in the full result set
 	Count *int32 `json:"count,omitempty"`
+	Items []ConsumerGroup `json:"items"`
 }
 
 // NewConsumerGroupList instantiates a new ConsumerGroupList object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConsumerGroupList(items []ConsumerGroup, total int32) *ConsumerGroupList {
+func NewConsumerGroupList(total int32, items []ConsumerGroup) *ConsumerGroupList {
 	this := ConsumerGroupList{}
-	this.Items = items
 	this.Total = total
+	this.Items = items
 	return &this
 }
 
@@ -81,30 +81,6 @@ func (o *ConsumerGroupList) HasKind() bool {
 // SetKind gets a reference to the given string and assigns it to the Kind field.
 func (o *ConsumerGroupList) SetKind(v string) {
 	o.Kind = &v
-}
-
-// GetItems returns the Items field value
-func (o *ConsumerGroupList) GetItems() []ConsumerGroup {
-	if o == nil {
-		var ret []ConsumerGroup
-		return ret
-	}
-
-	return o.Items
-}
-
-// GetItemsOk returns a tuple with the Items field value
-// and a boolean to check if the value has been set.
-func (o *ConsumerGroupList) GetItemsOk() (*[]ConsumerGroup, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Items, true
-}
-
-// SetItems sets field value
-func (o *ConsumerGroupList) SetItems(v []ConsumerGroup) {
-	o.Items = v
 }
 
 // GetTotal returns the Total field value
@@ -291,13 +267,34 @@ func (o *ConsumerGroupList) SetCount(v int32) {
 	o.Count = &v
 }
 
+// GetItems returns the Items field value
+func (o *ConsumerGroupList) GetItems() []ConsumerGroup {
+	if o == nil {
+		var ret []ConsumerGroup
+		return ret
+	}
+
+	return o.Items
+}
+
+// GetItemsOk returns a tuple with the Items field value
+// and a boolean to check if the value has been set.
+func (o *ConsumerGroupList) GetItemsOk() (*[]ConsumerGroup, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Items, true
+}
+
+// SetItems sets field value
+func (o *ConsumerGroupList) SetItems(v []ConsumerGroup) {
+	o.Items = v
+}
+
 func (o ConsumerGroupList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
-	}
-	if true {
-		toSerialize["items"] = o.Items
 	}
 	if true {
 		toSerialize["total"] = o.Total
@@ -316,6 +313,9 @@ func (o ConsumerGroupList) MarshalJSON() ([]byte, error) {
 	}
 	if o.Count != nil {
 		toSerialize["count"] = o.Count
+	}
+	if true {
+		toSerialize["items"] = o.Items
 	}
 	return json.Marshal(toSerialize)
 }

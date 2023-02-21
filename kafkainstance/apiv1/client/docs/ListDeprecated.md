@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Kind** | Pointer to **string** |  | [optional] 
-**Items** | **[]map[string]interface{}** |  | 
 **Total** | **int32** | Total number of entries in the full result set | 
 **Size** | Pointer to **int32** | Number of entries per page (returned for fetch requests) | [optional] 
 **Page** | Pointer to **int32** | Current page number (returned for fetch requests) | [optional] 
@@ -17,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewListDeprecated
 
-`func NewListDeprecated(items []map[string]interface{}, total int32, ) *ListDeprecated`
+`func NewListDeprecated(total int32, ) *ListDeprecated`
 
 NewListDeprecated instantiates a new ListDeprecated object
 This constructor will assign default values to properties that have it defined,
@@ -56,26 +55,6 @@ SetKind sets Kind field to given value.
 `func (o *ListDeprecated) HasKind() bool`
 
 HasKind returns a boolean if a field has been set.
-
-### GetItems
-
-`func (o *ListDeprecated) GetItems() []map[string]interface{}`
-
-GetItems returns the Items field if non-nil, zero value otherwise.
-
-### GetItemsOk
-
-`func (o *ListDeprecated) GetItemsOk() (*[]map[string]interface{}, bool)`
-
-GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetItems
-
-`func (o *ListDeprecated) SetItems(v []map[string]interface{})`
-
-SetItems sets Items field to given value.
-
 
 ### GetTotal
 

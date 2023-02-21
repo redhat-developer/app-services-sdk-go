@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]ConsumerGroup**](ConsumerGroup.md) |  | [optional] 
+**Items** | [**[]ConsumerGroup**](ConsumerGroup.md) |  | 
 
 ## Methods
 
 ### NewConsumerGroupListAllOf
 
-`func NewConsumerGroupListAllOf() *ConsumerGroupListAllOf`
+`func NewConsumerGroupListAllOf(items []ConsumerGroup, ) *ConsumerGroupListAllOf`
 
 NewConsumerGroupListAllOf instantiates a new ConsumerGroupListAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
-### HasItems
-
-`func (o *ConsumerGroupListAllOf) HasItems() bool`
-
-HasItems returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

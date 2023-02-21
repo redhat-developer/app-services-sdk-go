@@ -16,15 +16,16 @@ import (
 
 // AclBindingListPageAllOf A page of ACL binding entries
 type AclBindingListPageAllOf struct {
-	Items *[]AclBinding `json:"items,omitempty"`
+	Items []AclBinding `json:"items"`
 }
 
 // NewAclBindingListPageAllOf instantiates a new AclBindingListPageAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAclBindingListPageAllOf() *AclBindingListPageAllOf {
+func NewAclBindingListPageAllOf(items []AclBinding) *AclBindingListPageAllOf {
 	this := AclBindingListPageAllOf{}
+	this.Items = items
 	return &this
 }
 
@@ -36,41 +37,33 @@ func NewAclBindingListPageAllOfWithDefaults() *AclBindingListPageAllOf {
 	return &this
 }
 
-// GetItems returns the Items field value if set, zero value otherwise.
+// GetItems returns the Items field value
 func (o *AclBindingListPageAllOf) GetItems() []AclBinding {
-	if o == nil || o.Items == nil {
+	if o == nil {
 		var ret []AclBinding
 		return ret
 	}
-	return *o.Items
+
+	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
+// GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
 func (o *AclBindingListPageAllOf) GetItemsOk() (*[]AclBinding, bool) {
-	if o == nil || o.Items == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Items, true
+	return &o.Items, true
 }
 
-// HasItems returns a boolean if a field has been set.
-func (o *AclBindingListPageAllOf) HasItems() bool {
-	if o != nil && o.Items != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetItems gets a reference to the given []AclBinding and assigns it to the Items field.
+// SetItems sets field value
 func (o *AclBindingListPageAllOf) SetItems(v []AclBinding) {
-	o.Items = &v
+	o.Items = v
 }
 
 func (o AclBindingListPageAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Items != nil {
+	if true {
 		toSerialize["items"] = o.Items
 	}
 	return json.Marshal(toSerialize)

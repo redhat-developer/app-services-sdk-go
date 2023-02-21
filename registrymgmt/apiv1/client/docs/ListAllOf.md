@@ -1,46 +1,46 @@
-# TopicsListAllOf
+# ListAllOf
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]Topic**](Topic.md) |  | 
+**Items** | [**[]ObjectReference**](ObjectReference.md) |  | 
 
 ## Methods
 
-### NewTopicsListAllOf
+### NewListAllOf
 
-`func NewTopicsListAllOf(items []Topic, ) *TopicsListAllOf`
+`func NewListAllOf(items []ObjectReference, ) *ListAllOf`
 
-NewTopicsListAllOf instantiates a new TopicsListAllOf object
+NewListAllOf instantiates a new ListAllOf object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewTopicsListAllOfWithDefaults
+### NewListAllOfWithDefaults
 
-`func NewTopicsListAllOfWithDefaults() *TopicsListAllOf`
+`func NewListAllOfWithDefaults() *ListAllOf`
 
-NewTopicsListAllOfWithDefaults instantiates a new TopicsListAllOf object
+NewListAllOfWithDefaults instantiates a new ListAllOf object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetItems
 
-`func (o *TopicsListAllOf) GetItems() []Topic`
+`func (o *ListAllOf) GetItems() []ObjectReference`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *TopicsListAllOf) GetItemsOk() (*[]Topic, bool)`
+`func (o *ListAllOf) GetItemsOk() (*[]ObjectReference, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *TopicsListAllOf) SetItems(v []Topic)`
+`func (o *ListAllOf) SetItems(v []ObjectReference)`
 
 SetItems sets Items field to given value.
 

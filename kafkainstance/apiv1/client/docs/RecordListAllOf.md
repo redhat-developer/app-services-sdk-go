@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]Record**](Record.md) |  | [optional] 
+**Items** | [**[]Record**](Record.md) |  | 
 **Total** | Pointer to **int32** | Total number of records returned in this request. This value does not indicate the total number of records in the topic. | [optional] 
 **Size** | Pointer to **int32** | Not used | [optional] 
 **Page** | Pointer to **int32** | Not used | [optional] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewRecordListAllOf
 
-`func NewRecordListAllOf() *RecordListAllOf`
+`func NewRecordListAllOf(items []Record, ) *RecordListAllOf`
 
 NewRecordListAllOf instantiates a new RecordListAllOf object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
-### HasItems
-
-`func (o *RecordListAllOf) HasItems() bool`
-
-HasItems returns a boolean if a field has been set.
 
 ### GetTotal
 

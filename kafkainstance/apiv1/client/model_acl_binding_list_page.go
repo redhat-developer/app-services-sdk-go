@@ -17,23 +17,23 @@ import (
 // AclBindingListPage struct for AclBindingListPage
 type AclBindingListPage struct {
 	Kind *string `json:"kind,omitempty"`
-	Items []AclBinding `json:"items"`
 	// Total number of entries in the full result set
 	Total int32 `json:"total"`
 	// Number of entries per page (returned for fetch requests)
 	Size *int32 `json:"size,omitempty"`
 	// Current page number (returned for fetch requests)
 	Page *int32 `json:"page,omitempty"`
+	Items []AclBinding `json:"items"`
 }
 
 // NewAclBindingListPage instantiates a new AclBindingListPage object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAclBindingListPage(items []AclBinding, total int32) *AclBindingListPage {
+func NewAclBindingListPage(total int32, items []AclBinding) *AclBindingListPage {
 	this := AclBindingListPage{}
-	this.Items = items
 	this.Total = total
+	this.Items = items
 	return &this
 }
 
@@ -75,30 +75,6 @@ func (o *AclBindingListPage) HasKind() bool {
 // SetKind gets a reference to the given string and assigns it to the Kind field.
 func (o *AclBindingListPage) SetKind(v string) {
 	o.Kind = &v
-}
-
-// GetItems returns the Items field value
-func (o *AclBindingListPage) GetItems() []AclBinding {
-	if o == nil {
-		var ret []AclBinding
-		return ret
-	}
-
-	return o.Items
-}
-
-// GetItemsOk returns a tuple with the Items field value
-// and a boolean to check if the value has been set.
-func (o *AclBindingListPage) GetItemsOk() (*[]AclBinding, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Items, true
-}
-
-// SetItems sets field value
-func (o *AclBindingListPage) SetItems(v []AclBinding) {
-	o.Items = v
 }
 
 // GetTotal returns the Total field value
@@ -189,13 +165,34 @@ func (o *AclBindingListPage) SetPage(v int32) {
 	o.Page = &v
 }
 
+// GetItems returns the Items field value
+func (o *AclBindingListPage) GetItems() []AclBinding {
+	if o == nil {
+		var ret []AclBinding
+		return ret
+	}
+
+	return o.Items
+}
+
+// GetItemsOk returns a tuple with the Items field value
+// and a boolean to check if the value has been set.
+func (o *AclBindingListPage) GetItemsOk() (*[]AclBinding, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Items, true
+}
+
+// SetItems sets field value
+func (o *AclBindingListPage) SetItems(v []AclBinding) {
+	o.Items = v
+}
+
 func (o AclBindingListPage) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Kind != nil {
 		toSerialize["kind"] = o.Kind
-	}
-	if true {
-		toSerialize["items"] = o.Items
 	}
 	if true {
 		toSerialize["total"] = o.Total
@@ -205,6 +202,9 @@ func (o AclBindingListPage) MarshalJSON() ([]byte, error) {
 	}
 	if o.Page != nil {
 		toSerialize["page"] = o.Page
+	}
+	if true {
+		toSerialize["items"] = o.Items
 	}
 	return json.Marshal(toSerialize)
 }

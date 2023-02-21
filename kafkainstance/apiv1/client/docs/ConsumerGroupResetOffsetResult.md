@@ -5,16 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Kind** | Pointer to **string** |  | [optional] 
-**Items** | [**[]ConsumerGroupResetOffsetResultItem**](ConsumerGroupResetOffsetResultItem.md) |  | 
 **Total** | **int32** | Total number of entries in the full result set | 
 **Size** | Pointer to **int32** | Number of entries per page (returned for fetch requests) | [optional] 
 **Page** | Pointer to **int32** | Current page number (returned for fetch requests) | [optional] 
+**Items** | [**[]ConsumerGroupResetOffsetResultItem**](ConsumerGroupResetOffsetResultItem.md) |  | 
 
 ## Methods
 
 ### NewConsumerGroupResetOffsetResult
 
-`func NewConsumerGroupResetOffsetResult(items []ConsumerGroupResetOffsetResultItem, total int32, ) *ConsumerGroupResetOffsetResult`
+`func NewConsumerGroupResetOffsetResult(total int32, items []ConsumerGroupResetOffsetResultItem, ) *ConsumerGroupResetOffsetResult`
 
 NewConsumerGroupResetOffsetResult instantiates a new ConsumerGroupResetOffsetResult object
 This constructor will assign default values to properties that have it defined,
@@ -53,26 +53,6 @@ SetKind sets Kind field to given value.
 `func (o *ConsumerGroupResetOffsetResult) HasKind() bool`
 
 HasKind returns a boolean if a field has been set.
-
-### GetItems
-
-`func (o *ConsumerGroupResetOffsetResult) GetItems() []ConsumerGroupResetOffsetResultItem`
-
-GetItems returns the Items field if non-nil, zero value otherwise.
-
-### GetItemsOk
-
-`func (o *ConsumerGroupResetOffsetResult) GetItemsOk() (*[]ConsumerGroupResetOffsetResultItem, bool)`
-
-GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetItems
-
-`func (o *ConsumerGroupResetOffsetResult) SetItems(v []ConsumerGroupResetOffsetResultItem)`
-
-SetItems sets Items field to given value.
-
 
 ### GetTotal
 
@@ -143,6 +123,26 @@ SetPage sets Page field to given value.
 `func (o *ConsumerGroupResetOffsetResult) HasPage() bool`
 
 HasPage returns a boolean if a field has been set.
+
+### GetItems
+
+`func (o *ConsumerGroupResetOffsetResult) GetItems() []ConsumerGroupResetOffsetResultItem`
+
+GetItems returns the Items field if non-nil, zero value otherwise.
+
+### GetItemsOk
+
+`func (o *ConsumerGroupResetOffsetResult) GetItemsOk() (*[]ConsumerGroupResetOffsetResultItem, bool)`
+
+GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItems
+
+`func (o *ConsumerGroupResetOffsetResult) SetItems(v []ConsumerGroupResetOffsetResultItem)`
+
+SetItems sets Items field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
