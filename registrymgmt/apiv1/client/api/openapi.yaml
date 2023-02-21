@@ -510,11 +510,7 @@ components:
         type: string
       style: form
   schemas:
-    ErrorList:
-      allOf:
-      - $ref: '#/components/schemas/List'
-      - $ref: '#/components/schemas/ErrorList_allOf'
-    List:
+    AbstractList:
       properties:
         kind:
           type: string
@@ -524,17 +520,20 @@ components:
           type: integer
         total:
           type: integer
-        items:
-          items:
-            $ref: '#/components/schemas/ObjectReference'
-          type: array
       required:
-      - items
       - kind
       - page
       - size
       - total
       type: object
+    ErrorList:
+      allOf:
+      - $ref: '#/components/schemas/AbstractList'
+      - $ref: '#/components/schemas/ErrorList_allOf'
+    List:
+      allOf:
+      - $ref: '#/components/schemas/AbstractList'
+      - $ref: '#/components/schemas/List_allOf'
     Error:
       example:
         reason: reason
@@ -565,7 +564,7 @@ components:
       type: object
     RegistryList:
       allOf:
-      - $ref: '#/components/schemas/List'
+      - $ref: '#/components/schemas/AbstractList'
       - $ref: '#/components/schemas/RegistryList_allOf'
     RegistryStatusValue:
       description: |
@@ -657,6 +656,17 @@ components:
           items:
             $ref: '#/components/schemas/Error'
           type: array
+      required:
+      - items
+      type: object
+    List_allOf:
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/ObjectReference'
+          type: array
+      required:
+      - items
       type: object
     RegistryList_allOf:
       example:

@@ -15,33 +15,33 @@ import (
 	"encoding/json"
 )
 
-// ErrorListAllOf struct for ErrorListAllOf
-type ErrorListAllOf struct {
-	Items []Error `json:"items"`
+// ListAllOf struct for ListAllOf
+type ListAllOf struct {
+	Items []ObjectReference `json:"items"`
 }
 
-// NewErrorListAllOf instantiates a new ErrorListAllOf object
+// NewListAllOf instantiates a new ListAllOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewErrorListAllOf(items []Error) *ErrorListAllOf {
-	this := ErrorListAllOf{}
+func NewListAllOf(items []ObjectReference) *ListAllOf {
+	this := ListAllOf{}
 	this.Items = items
 	return &this
 }
 
-// NewErrorListAllOfWithDefaults instantiates a new ErrorListAllOf object
+// NewListAllOfWithDefaults instantiates a new ListAllOf object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewErrorListAllOfWithDefaults() *ErrorListAllOf {
-	this := ErrorListAllOf{}
+func NewListAllOfWithDefaults() *ListAllOf {
+	this := ListAllOf{}
 	return &this
 }
 
 // GetItems returns the Items field value
-func (o *ErrorListAllOf) GetItems() []Error {
+func (o *ListAllOf) GetItems() []ObjectReference {
 	if o == nil {
-		var ret []Error
+		var ret []ObjectReference
 		return ret
 	}
 
@@ -50,7 +50,7 @@ func (o *ErrorListAllOf) GetItems() []Error {
 
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-func (o *ErrorListAllOf) GetItemsOk() (*[]Error, bool) {
+func (o *ListAllOf) GetItemsOk() (*[]ObjectReference, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -58,11 +58,11 @@ func (o *ErrorListAllOf) GetItemsOk() (*[]Error, bool) {
 }
 
 // SetItems sets field value
-func (o *ErrorListAllOf) SetItems(v []Error) {
+func (o *ListAllOf) SetItems(v []ObjectReference) {
 	o.Items = v
 }
 
-func (o ErrorListAllOf) MarshalJSON() ([]byte, error) {
+func (o ListAllOf) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["items"] = o.Items
@@ -70,38 +70,38 @@ func (o ErrorListAllOf) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableErrorListAllOf struct {
-	value *ErrorListAllOf
+type NullableListAllOf struct {
+	value *ListAllOf
 	isSet bool
 }
 
-func (v NullableErrorListAllOf) Get() *ErrorListAllOf {
+func (v NullableListAllOf) Get() *ListAllOf {
 	return v.value
 }
 
-func (v *NullableErrorListAllOf) Set(val *ErrorListAllOf) {
+func (v *NullableListAllOf) Set(val *ListAllOf) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableErrorListAllOf) IsSet() bool {
+func (v NullableListAllOf) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableErrorListAllOf) Unset() {
+func (v *NullableListAllOf) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableErrorListAllOf(val *ErrorListAllOf) *NullableErrorListAllOf {
-	return &NullableErrorListAllOf{value: val, isSet: true}
+func NewNullableListAllOf(val *ListAllOf) *NullableListAllOf {
+	return &NullableListAllOf{value: val, isSet: true}
 }
 
-func (v NullableErrorListAllOf) MarshalJSON() ([]byte, error) {
+func (v NullableListAllOf) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableErrorListAllOf) UnmarshalJSON(src []byte) error {
+func (v *NullableListAllOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
