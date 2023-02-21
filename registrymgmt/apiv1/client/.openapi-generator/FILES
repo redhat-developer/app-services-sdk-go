@@ -8,7 +8,9 @@ client.go
 configuration.go
 docs/AbstractList.md
 docs/DefaultApi.md
+docs/Empty.md
 docs/Error.md
+docs/ErrorAllOf.md
 docs/ErrorList.md
 docs/ErrorListAllOf.md
 docs/ErrorsApi.md
@@ -25,7 +27,9 @@ docs/RegistryStatusValue.md
 docs/RootTypeForRegistry.md
 docs/ServiceStatus.md
 model_abstract_list.go
+model_empty.go
 model_error.go
+model_error_all_of.go
 model_error_list.go
 model_error_list_all_of.go
 model_list.go
