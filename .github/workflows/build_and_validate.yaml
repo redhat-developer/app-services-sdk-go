@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths:
       - '**.go'
+      - 'go.mod'
+      - 'go.sum'
       - '.openapi/**'
   pull_request:
     branches: [main]
