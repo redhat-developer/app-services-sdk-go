@@ -36,7 +36,7 @@ jobs:
               - '**.go'
       - run: echo ${{ steps.filter.outputs.openapi }}
       - name: Install Go
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@v4
         with:
           go-version: 1.16.x
       - name: Check Go modules match source code
