@@ -17,7 +17,7 @@ jobs:
           - "redhat-developer/app-services-sdk-java"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
      
       - name: KAS Fleet Manager OpenAPI changed
         uses: peter-evans/repository-dispatch@bf47d102fdb849e755b0b0023ea3e81a44b6f570 # v2
