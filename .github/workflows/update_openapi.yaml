@@ -36,7 +36,7 @@ jobs:
       - name: Fetch OpenAPI doc
         if: github.event.client_payload.download_url != ''
         run: ./scripts/fetch_api.sh ${{ github.event.client_payload.download_url }}
-      - uses: peter-evans/create-pull-request@c5a7806660adbe173f04e3e038b0ccdcd758773c # v6
+      - uses: peter-evans/create-pull-request@4320041ed380b20e97d388d56a7fb4f9b8c20e79 # v7
         with:
           title: "chore(openapi): update ${{ env.CLIENT_ID }} OpenAPI document"
           token: "${{ secrets.CI_USER_TOKEN }}"
