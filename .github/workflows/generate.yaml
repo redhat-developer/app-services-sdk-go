@@ -25,7 +25,7 @@ jobs:
           ./scripts/generate.sh
           go mod tidy
 
-      - uses: peter-evans/create-pull-request@d121e62763d8cc35b5fb1710e887d6e69a52d3a4 # v7
+      - uses: peter-evans/create-pull-request@6cd32fd93684475c31847837f87bb135d40a2b79 # v7
         with:
           title: "chore(all): re-generate OpenAPI client(s)"
           token: "${{ secrets.CI_USER_TOKEN }}"
