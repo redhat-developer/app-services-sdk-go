@@ -43,7 +43,7 @@ jobs:
         run: ./scripts/go-mod-check.sh
       - name: golangci-lint
         if: steps.filter.outputs.go == 'true'
-        uses: golangci/golangci-lint-action@55c2c1448f86e01eaae002a5a3a9624417608d84 # v6
+        uses: golangci/golangci-lint-action@1481404843c368bc19ca9406f87d6e0fc97bdcfd # v7
         with:
           version: v1.43
           args: --timeout 2m0s
