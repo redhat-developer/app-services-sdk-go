@@ -6,5 +6,5 @@ toolchain go1.24.2
 
 require (
 	github.com/redhat-developer/app-services-sdk-go v0.14.0
-	golang.org/x/oauth2 v0.28.0
+	golang.org/x/oauth2 v0.29.0
 )
