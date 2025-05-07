@@ -38,7 +38,7 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v5
         with:
-          go-version: 1.24.2
+          go-version: 1.24.3
       - name: Check Go modules match source code
         run: ./scripts/go-mod-check.sh
       - name: golangci-lint
