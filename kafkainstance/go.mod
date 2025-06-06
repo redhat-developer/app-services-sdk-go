@@ -2,7 +2,7 @@ module github.com/redhat-developer/app-services-sdk-go/kafkainstance
 
 go 1.23.0
 
-toolchain go1.24.3
+toolchain go1.24.4
 
 require (
 	github.com/redhat-developer/app-services-sdk-go v0.14.0
