@@ -452,6 +452,15 @@ paths:
                 404Example:
                   $ref: "#/components/examples/404Example"
           description: No matching resource exists
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              examples:
+                404Example:
+                  $ref: "#/components/examples/409Example"
+          description: An attempt was made to modify an immutable field
         "410":
           content:
             application/json:
@@ -1022,7 +1031,6 @@ components:
         - page
         - size
         - total
-        - items
       type: object
       properties:
         kind:
@@ -1033,10 +1041,6 @@ components:
           type: integer
         total:
           type: integer
-        items:
-          type: array
-          items:
-            $ref: "#/components/schemas/ObjectReference"
 
     Error:
         type: object
@@ -1113,9 +1117,8 @@ components:
           properties:
             collections:
               type: array
-              items:
-                allOf:
-                  - $ref: "#/components/schemas/ObjectReference"
+              items: # removed allOf to workaround this issue: https://github.com/microsoft/kiota/issues/2442
+                $ref: "#/components/schemas/ObjectReference"
 
     #
     # Services
@@ -1208,6 +1211,7 @@ components:
         - $ref: "#/components/schemas/ConnectorClusterStatus"
 
     ConnectorClusterList:
+      required: [ items ]
       allOf:
         - $ref: "#/components/schemas/List"
         - type: object
@@ -1322,6 +1326,7 @@ components:
         - $ref: "#/components/schemas/ConnectorStatus"
 
     ConnectorList:
+      required: [ items ]
       allOf:
         - $ref: "#/components/schemas/List"
         - type: object
@@ -1387,6 +1392,7 @@ components:
               type: object
 
     ConnectorTypeList:
+      required: [ items ]
       allOf:
         - $ref: "#/components/schemas/List"
         - type: object
@@ -1504,6 +1510,7 @@ components:
         - $ref: "#/components/schemas/ConnectorNamespaceRequestMeta"
 
     ConnectorNamespaceList:
+      required: [ items ]
       allOf:
         - $ref: "#/components/schemas/List"
         - type: object
@@ -1882,6 +1889,13 @@ components:
         href: "/api/connector_mgmt/v1/errors/7"
         code: "CONNECTOR-MGMT-7"
         reason: "The requested resource doesn't exist"
+    409Example:
+      value:
+        id: "409"
+        kind: "Error"
+        href: "/api/connector_mgmt/v1/errors/21"
+        code: "CONNECTOR-MGMT-21"
+        reason: "An attempt was made to modify an immutable field"
     410Example:
       value:
         id: "410"
