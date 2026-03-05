@@ -38,12 +38,12 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v6
         with:
-          go-version: 1.25.1
+          go-version: 1.26.0
       - name: Check Go modules match source code
         run: ./scripts/go-mod-check.sh
       - name: golangci-lint
         if: steps.filter.outputs.go == 'true'
         uses: golangci/golangci-lint-action@4afd733a84b1f43292c63897423277bb7f4313a9 # v8
         with:
-          version: v1.43
+          version: v1.64.8
           args: --timeout 2m0s
