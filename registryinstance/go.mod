@@ -2,7 +2,7 @@ module github.com/redhat-developer/app-services-sdk-go/registryinstance
 
 go 1.24.0
 
-toolchain go1.26.0
+toolchain go1.26.1
 
 require (
 	github.com/redhat-developer/app-services-sdk-go v0.14.0
