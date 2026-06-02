@@ -21,8 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
-      - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4
+        uses: actions/checkout@v6.0.3
+      - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
         id: filter
         with:
           base: main
@@ -36,14 +36,14 @@ jobs:
               - '**.go'
       - run: echo ${{ steps.filter.outputs.openapi }}
       - name: Install Go
-        uses: actions/setup-go@v6
+        uses: actions/setup-go@v6.4.0
         with:
           go-version: 1.26.3
       - name: Check Go modules match source code
         run: ./scripts/go-mod-check.sh
       - name: golangci-lint
         if: steps.filter.outputs.go == 'true'
-        uses: golangci/golangci-lint-action@82606bf257cbaff209d206a39f5134f0cfbfd2ee # v9
+        uses: golangci/golangci-lint-action@82606bf257cbaff209d206a39f5134f0cfbfd2ee # v9.2.1
         with:
           version: v2.12.2
           args: --timeout 2m0s

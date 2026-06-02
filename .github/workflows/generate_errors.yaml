@@ -14,16 +14,16 @@ jobs:
         node-version: [14.x]
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.3
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v6.4.0
         with:
           node-version: ${{ matrix.node-version }}
       - name: Fetch Errors JSON files
         run: ./scripts/errors/fetch-errors.sh
       - name: Generate Errors SDK
         run: ./scripts/errors/generate-errors.sh
-      - uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8
+      - uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
           title: "fix(all): regenerated Error SDK(s)"
           token: "${{ secrets.CI_USER_TOKEN }}"
