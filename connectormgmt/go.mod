@@ -2,7 +2,7 @@ module github.com/redhat-developer/app-services-sdk-go/connectormgmt
 
 go 1.25.0
 
-toolchain go1.26.3
+toolchain go1.26.4
 
 require (
 	github.com/redhat-developer/app-services-sdk-go v0.14.0
